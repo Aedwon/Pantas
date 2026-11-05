@@ -129,3 +129,297 @@ questions:
     explanation: |
       Count the oxygen atoms on the left: $6 \times 2 + 6 = 18$. Glucose on the right holds $6$ of them. That leaves $18 - 6 = 12$ oxygen atoms. Each $O_2$ molecule has $2$ atoms, so $12 \div 2 = 6$ molecules. The missing product is $6O_2$. Carbon dioxide, water, and light go in and make glucose and oxygen, so the process is oxygenic photosynthesis.
     approved: true
+
+  - id: q-biology-cellular-metabolism-0021
+    type: "identify"
+    difficulty: "easy"
+    stem: |
+      Which group of biomolecules includes DNA and RNA?
+    choices:
+      - text: "Nucleic acids"
+        correct: true
+      - text: "Proteins"
+        rationale: |
+          DNA carries the instructions for building proteins, so the two seem linked. Proteins are chains of amino acids. Check which group stores and uses genetic information.
+      - text: "Lipids"
+        rationale: |
+          Lipids include fats and oils, which are stored in cells. Cells hold many stored materials. Check which group is made of fats, oils, phospholipids and steroids.
+      - text: "Carbohydrates"
+        rationale: |
+          Carbohydrates are the usual fuel in cells. DNA contains a sugar, so the link seems close. Check which group stores genetic information.
+    explanation: |
+      DNA and RNA store and use genetic information. The group of biomolecules with this job is called nucleic acids.
+    approved: false
+
+  - id: q-biology-cellular-metabolism-0022
+    type: "cause-effect"
+    difficulty: "easy"
+    stem: |
+      A cell breaks off the last phosphate group from an ATP molecule. What happens?
+    choices:
+      - text: "ADP forms, and energy is released for cell work"
+        correct: true
+      - text: "ADP forms, and the cell must take in energy"
+        rationale: |
+          This gets the molecule right but the energy wrong. Making a bond takes energy, so breaking one seems to take it too. Check that the cell uses ATP as its ready energy source.
+      - text: "A new ATP forms, and energy is released"
+        rationale: |
+          This treats the new molecule as ATP. ATP is the energy molecule, so it seems to be the product. Check that ATP loses one phosphate and becomes ADP.
+      - text: "ADP forms, and the cell stores the energy in the phosphate"
+        rationale: |
+          This says the energy is stored when the phosphate leaves. The phosphate does carry energy while attached. Check that breaking it off releases energy for cell work.
+    explanation: |
+      ATP has three phosphate groups. When the last one breaks off, ATP becomes ADP. This releases energy that the cell can use for its work.
+    approved: false
+
+  - id: q-biology-cellular-metabolism-0023
+    type: "structure-function"
+    difficulty: "easy"
+    stem: |
+      What does an enzyme do in a chemical reaction in a cell?
+    choices:
+      - text: "It lowers the energy needed to start the reaction and is not used up"
+        correct: true
+      - text: "It supplies the energy for the reaction and is then used up"
+        rationale: |
+          This gives the job of ATP to the enzyme. Enzymes work with energy, so the link seems fair. Check that an enzyme comes out of the reaction unchanged.
+      - text: "It joins the products and leaves with them when the reaction ends"
+        rationale: |
+          This treats the enzyme like a reactant. Reactants end up in the products. Check that the enzyme is ready to work again after the reaction.
+      - text: "It raises the energy the reaction needs so the cell can control the timing"
+        rationale: |
+          This reverses the effect on the starting energy. Cells do control their reactions. Check that an enzyme makes a reaction easier to start.
+    explanation: |
+      An enzyme speeds up a reaction by making it easier to start. It lowers the energy the reaction needs to get going. The enzyme is not used up, so it can work again.
+    approved: false
+
+  - id: q-biology-cellular-metabolism-0024
+    type: "identify"
+    difficulty: "medium"
+    stem: |
+      Which of these is an organic molecule?
+    choices:
+      - text: "Glucose"
+        correct: true
+      - text: "Carbon dioxide"
+        rationale: |
+          This molecule has a carbon atom, so it seems organic. It is a carbon compound but is not called organic. Check that organic molecules are built around chains or rings of carbon and hydrogen.
+      - text: "Oxygen gas"
+        rationale: |
+          Oxygen gas is vital for living things, so it seems linked to life. It has no carbon. Check for carbon and hydrogen chains or rings.
+      - text: "Water"
+        rationale: |
+          Water is in every cell, so it seems like a biological molecule. It has no carbon. Check for carbon and hydrogen chains or rings.
+    explanation: |
+      An organic molecule is built around chains or rings of carbon and hydrogen. Glucose, $C_6H_{12}O_6$, is a sugar of this kind. Carbon dioxide, oxygen gas and water are not organic molecules.
+    approved: false
+
+  - id: q-biology-cellular-metabolism-0025
+    type: "identify"
+    difficulty: "medium"
+    stem: |
+      Which molecules are the main part of cell membranes?
+    choices:
+      - text: "Phospholipids, a kind of lipid"
+        correct: true
+      - text: "Cellulose, a kind of carbohydrate"
+        rationale: |
+          Cellulose is also a structural molecule. It makes the cell walls of plants, not the membrane. Check which molecules form the membrane around every cell.
+      - text: "Starch, a kind of carbohydrate"
+        rationale: |
+          Starch is a big molecule found in plant cells. It stores sugar for fuel. Check which group is built for the membrane, not for fuel storage.
+      - text: "DNA, a kind of nucleic acid"
+        rationale: |
+          DNA is in cells, so it seems close to the membrane. It stores genetic information inside the cell. Check which group has fats and oils.
+    explanation: |
+      Phospholipids are the main molecules of cell membranes. They are a kind of lipid.
+    approved: false
+
+  - id: q-biology-cellular-metabolism-0026
+    type: "cause-effect"
+    difficulty: "medium"
+    stem: |
+      An enzyme works best at 37 degrees Celsius. A sample is heated to 85 degrees Celsius and then cooled back to 37 degrees Celsius. The enzyme no longer works. What is the best explanation?
+    choices:
+      - text: "Heat changed the enzyme's shape, so its active site no longer fits the substrate"
+        correct: true
+      - text: "Heat used up the enzyme while it sped up the reaction"
+        rationale: |
+          This treats the enzyme like a reactant. Reactants are used up. Check that an enzyme comes out of a reaction unchanged.
+      - text: "Heat changed the substrate, so the enzyme has nothing to bind"
+        rationale: |
+          The substrate matters for the fit. The question says the enzyme itself no longer works. Check what heat does to the shape of a protein.
+      - text: "Cooling slowed the enzyme but left its shape unchanged"
+        rationale: |
+          Cold does slow enzymes without breaking their shape. The sample was cooled to 37 degrees Celsius, the best temperature. Check what the earlier heating did.
+    explanation: |
+      High heat changes the shape of an enzyme. This is called denaturing. The active site no longer fits the substrate. Cooling does not usually bring the shape back, so the enzyme stays inactive.
+    approved: false
+
+  - id: q-biology-cellular-metabolism-0027
+    type: "identify"
+    difficulty: "medium"
+    stem: |
+      Where do the light reactions of photosynthesis happen in a plant cell, and what do they make?
+    choices:
+      - text: "In the thylakoid membranes; they make ATP, NADPH and oxygen gas"
+        correct: true
+      - text: "In the stroma; they make ATP, NADPH and oxygen gas"
+        rationale: |
+          The products are right but the place is wrong. The stroma is the fluid around the thylakoids. Check where the chlorophyll sits.
+      - text: "In the thylakoid membranes; they make a three-carbon sugar"
+        rationale: |
+          The place is right but the product is wrong. Sugar is the final goal of photosynthesis. Check which stage turns carbon dioxide into sugar.
+      - text: "In the stroma; they make a three-carbon sugar"
+        rationale: |
+          This describes the Calvin cycle. The two stages are linked, so they are easy to swap. Check which stage needs light-made ATP and NADPH.
+    explanation: |
+      The light reactions happen in the thylakoid membranes. Chlorophyll absorbs light there. The energy splits water, releases oxygen gas, and makes ATP and NADPH.
+    approved: false
+
+  - id: q-biology-cellular-metabolism-0028
+    type: "identify"
+    difficulty: "medium"
+    stem: |
+      Which set of inputs does the Calvin cycle use to make a three-carbon sugar?
+    choices:
+      - text: "Carbon dioxide, ATP and NADPH"
+        correct: true
+      - text: "Water, light and carbon dioxide"
+        rationale: |
+          These are the inputs of the whole process. The Calvin cycle is one stage. Check which stage uses water and light.
+      - text: "Oxygen gas, ATP and NADPH"
+        rationale: |
+          The ATP and NADPH are right. Oxygen gas is a product of the light reactions, not an input. Check which gas the cycle takes in to build sugar.
+      - text: "Water, ADP and NADP+"
+        rationale: |
+          These are the leftovers of the Calvin cycle and the light-reaction inputs. They look like what goes back and forth. Check what the Calvin cycle needs to build sugar.
+    explanation: |
+      The Calvin cycle happens in the stroma. It uses the ATP and NADPH from the light reactions. It also uses carbon dioxide, which it turns into a three-carbon sugar.
+    approved: false
+
+  - id: q-biology-cellular-metabolism-0029
+    type: "cause-effect"
+    difficulty: "hard"
+    stem: |
+      Cyanobacteria are prokaryotes that carry out photosynthesis and release oxygen. Where do their light reactions and Calvin cycle take place?
+    choices:
+      - text: "Inside the cell, because they have no chloroplasts"
+        correct: true
+      - text: "In chloroplasts, as in plants and algae"
+        rationale: |
+          This applies the plant rule to a bacterium. The photosynthesis stages are the same kind. Check that a chloroplast is an organelle of eukaryotes.
+      - text: "In mitochondria, which prokaryotes have in place of chloroplasts"
+        rationale: |
+          Mitochondria also handle energy in cells. A prokaryote has no membrane-bound organelles. Check what a prokaryote lacks.
+      - text: "Nowhere, because prokaryotes cannot carry out photosynthesis"
+        rationale: |
+          This says photosynthesis needs organelles. Plants use chloroplasts, so the link seems fair. Check that cyanobacteria release oxygen.
+    explanation: |
+      A prokaryote has no organelles. Cyanobacteria have no chloroplasts and no stroma. They run both stages of photosynthesis inside the cell.
+    approved: false
+
+  - id: q-biology-cellular-metabolism-0030
+    type: "simple-quantitative"
+    difficulty: "hard"
+    stem: |
+      By the simplified net equation of photosynthesis, how many molecules of oxygen gas are released when a plant makes 3 molecules of glucose?
+    choices:
+      - text: "18"
+        correct: true
+      - text: "6"
+        rationale: |
+          This counts the oxygen for one glucose only. The equation shows $6O_2$ with one glucose. Check how many glucose molecules the question asks about.
+      - text: "9"
+        rationale: |
+          This adds $6$ and $3$ instead of multiplying them. Adding feels natural with two numbers. Check that each glucose comes with $6O_2$.
+      - text: "36"
+        rationale: |
+          This counts oxygen atoms, not molecules. Each $O_2$ molecule has two atoms. Check the unit asked for in the question.
+    explanation: |
+      The equation shows $6O_2$ released for each glucose. For $3$ glucose molecules, multiply: $3\times6=18$ molecules of oxygen gas.
+    approved: false
+
+  - id: q-biology-cellular-metabolism-0031
+    type: "compare-contrast"
+    difficulty: "hard"
+    stem: |
+      Compared with the same mass of carbohydrate, how much energy does a fat provide?
+    choices:
+      - text: "More energy, which is why fats and oils store a lot of energy"
+        correct: true
+      - text: "Less energy, because sugars are the usual fuel for cells"
+        rationale: |
+          Sugars are the usual fuel, which seems to make them the richest. Usual fuel does not mean the most energy per gram. Check what the lesson says about fats and oils.
+      - text: "The same energy, because cells break down both in the same pathways"
+        rationale: |
+          Cells can feed fats into the same pathways as sugars. That does not make the energy equal. Check the amount of energy per gram.
+      - text: "No energy, because fats are only used to build membranes"
+        rationale: |
+          Phospholipids do build membranes. Fats and oils also store energy. Check the jobs of lipids.
+    explanation: |
+      Fats give more energy per gram than carbohydrates do. Fats and oils store a lot of energy for this reason. Cells can break them down and feed the pieces into the same pathways as sugar.
+    approved: false
+
+  - id: q-biology-cellular-metabolism-0032
+    type: "classify"
+    difficulty: "hard"
+    stem: |
+      Which pair contains two eukaryotes?
+    choices:
+      - text: "Fungi and algae"
+        correct: true
+      - text: "Bacteria and fungi"
+        rationale: |
+          Bacteria are common microbes, like fungi. Bacteria have no nucleus. Check which of the two has a nucleus.
+      - text: "Cyanobacteria and algae"
+        rationale: |
+          Both carry out photosynthesis and release oxygen. Cyanobacteria are prokaryotes. Check which one has no nucleus.
+      - text: "Bacteria and plants"
+        rationale: |
+          Plants are eukaryotes, which seems to make the pair work. Bacteria are prokaryotes. Check which of the two lacks a nucleus.
+    explanation: |
+      A eukaryote has a nucleus and organelles. Fungi and algae are both eukaryotes. Bacteria and cyanobacteria are prokaryotes.
+    approved: false
+
+  - id: q-biology-cellular-metabolism-0033
+    type: "cause-effect"
+    difficulty: "exam"
+    stem: |
+      What happens to ADP after a cell uses the energy from ATP?
+    choices:
+      - text: "It can gain a phosphate to become ATP again, so the molecules are reused"
+        correct: true
+      - text: "It is used up completely, so the cell must take in new ATP molecules"
+        rationale: |
+          This treats ATP like a fuel that burns away. Energy is released, so it seems to be consumed. Check that other reactions add a phosphate back to ADP.
+      - text: "It has three phosphate groups and carries more energy than ATP"
+        rationale: |
+          This swaps the two molecules. The name ADP has a D for two. Check how many phosphate groups ATP has.
+      - text: "It is a waste product that the cell removes after use"
+        rationale: |
+          Energy is released, so what is left seems like waste. A cell does not throw it away. Check that ADP can gain a phosphate and become ATP again.
+    explanation: |
+      ADP has two phosphate groups. Other reactions in the cell can add a phosphate back to ADP. That makes ATP again, so the same molecules are used again and again.
+    approved: false
+
+  - id: q-biology-cellular-metabolism-0034
+    type: "structure-function"
+    difficulty: "exam"
+    stem: |
+      Which description fits an electron carrier such as NADPH?
+    choices:
+      - text: "It picks up electrons in one place and drops them off in another"
+        correct: true
+      - text: "It speeds up a reaction and stays unchanged afterward"
+        rationale: |
+          This describes an enzyme. Both help reactions, so they are easy to confuse. Check that a carrier moves electrons between places.
+      - text: "It absorbs red and blue light in the thylakoid membranes"
+        rationale: |
+          This describes chlorophyll. NADPH is also made in the light reactions. Check which molecule absorbs light.
+      - text: "It splits water to release oxygen gas in the stroma"
+        rationale: |
+          Water is split in the light reactions, in the thylakoid membranes, and not by NADPH. Check which part of the light reactions NADPH takes part in.
+    explanation: |
+      An electron carrier picks up electrons in one place and drops them off in another. NADPH is made in the light reactions. The Calvin cycle uses it to turn carbon dioxide into sugar.
+    approved: false

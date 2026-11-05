@@ -234,3 +234,192 @@ questions:
     explanation: |
       Normal meiosis includes one DNA replication and two nuclear divisions. Homologs have already separated in meiosis I. Meiosis II separates sister chromatids without another round of DNA replication.
     approved: false
+
+  - id: q-biology-meiosis-and-genetic-variation-0001
+    type: "classify"
+    difficulty: "easy"
+    stem: |
+      Which genotype shows that an organism is heterozygous for a gene?
+    choices:
+      - text: "$Aa$"
+        correct: true
+      - text: "$AA$"
+        rationale: |
+          This is a pair of matching alleles. Two letters look like a pair of alleles, so it seems to fit. Matching letters are not different. Check whether the two alleles are the same or different.
+      - text: "$aa$"
+        rationale: |
+          This is a pair of matching alleles. Two small letters look like a pair of alleles, so it seems to fit. Matching letters are not different. Check whether the two alleles are the same or different.
+      - text: "$A$"
+        rationale: |
+          This is one allele. A gamete carries one allele, so a single letter can seem right. Check that a diploid cell has two alleles of the gene.
+    explanation: |
+      Heterozygous means the two alleles are different. $Aa$ has one $A$ and one $a$. A pair of matching alleles, such as $AA$, is homozygous.
+    approved: false
+
+  - id: q-biology-meiosis-and-genetic-variation-0002
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      A species has $2n = 6$. Ignoring crossing over, how many different combinations of maternal and paternal chromosomes can a gamete receive?
+    choices:
+      - text: "$8$"
+        correct: true
+      - text: "$6$"
+        rationale: |
+          This counts all the chromosomes. The number is given in the question, so it seems to be the answer. Check that each gamete gets one chromosome from each pair.
+      - text: "$3$"
+        rationale: |
+          This counts the pairs. The number is correct for pairs, but each pair has two choices. Check how many choices each pair gives.
+      - text: "$9$"
+        rationale: |
+          This squares the number of pairs. Powers appear in the rule, so a power seems right. Check which number is the base and which is the exponent.
+    explanation: |
+      Six chromosomes make 3 homologous pairs. Each pair sorts independently, and a gamete gets either the maternal or the paternal chromosome. So the number of combinations is $2 \times 2 \times 2 = 2^3 = 8$.
+    approved: false
+
+  - id: q-biology-meiosis-and-genetic-variation-0003
+    type: "simple-quantitative"
+    difficulty: "hard"
+    stem: |
+      A species has $2n = 8$. Ignoring crossing over, how many different chromosome combinations can its gametes carry?
+    choices:
+      - text: "$16$"
+        correct: true
+      - text: "$256$"
+        rationale: |
+          This uses $2n$ as the exponent. The rule has a power of two, so a large number seems right. Check that the exponent is the number of pairs.
+      - text: "$8$"
+        rationale: |
+          This counts all the chromosomes. The number is given in the question, so it seems to be the answer. Check that the rule counts combinations, not chromosomes.
+      - text: "$4$"
+        rationale: |
+          This counts the pairs. The number is correct for pairs, but each pair has two choices. Check how many choices each pair gives.
+    explanation: |
+      Eight chromosomes make 4 homologous pairs. Each pair has two ways to sort. So the number of combinations is $2^4 = 16$.
+    approved: false
+
+  - id: q-biology-meiosis-and-genetic-variation-0004
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      A human germ cell has copied its DNA and completed meiosis I. How many chromosomes and chromatids does each of the two resulting cells have?
+    choices:
+      - text: "23 chromosomes, 46 chromatids"
+        correct: true
+      - text: "46 chromosomes, 46 chromatids"
+        rationale: |
+          This describes a diploid cell with no copied DNA. The chromatid count is right, but the chromosome count is not halved. Check what meiosis I separates.
+      - text: "23 chromosomes, 23 chromatids"
+        rationale: |
+          This describes a cell after meiosis II. The chromosome count is right, but the sister chromatids have not yet separated. Check whether meiosis II has happened.
+      - text: "46 chromosomes, 92 chromatids"
+        rationale: |
+          This describes the cell before meiosis I. The cell has copied its DNA but has not divided. Check whether the question asks about the cells after the first division.
+    explanation: |
+      Meiosis I separates the homologs, so each cell gets 23 chromosomes. The sister chromatids stay together. Each chromosome still has two chromatids, so each cell has $23 \times 2 = 46$ chromatids.
+    approved: false
+
+  - id: q-biology-meiosis-and-genetic-variation-0005
+    type: "identify"
+    difficulty: "easy"
+    stem: |
+      In plants and fungi, which cells does meiosis often produce?
+    choices:
+      - text: "Haploid spores"
+        correct: true
+      - text: "Diploid body cells"
+        rationale: |
+          These are made by mitosis. Both are cell divisions, so they can seem alike. Check whether the chromosome number is halved.
+      - text: "Zygotes"
+        rationale: |
+          These are formed when two gametes fuse. Zygotes are part of the life cycle, so they seem related. Check whether the cell comes from fertilization or from meiosis.
+      - text: "Polar bodies"
+        rationale: |
+          These are small cells made in animal egg formation. Both come from meiosis, so they seem to fit. Check whether the cell is made in plants and fungi.
+    explanation: |
+      In plants and fungi, meiosis often makes spores. A spore is a small haploid cell that can grow into a new organism. So meiosis does not always make sperm and eggs.
+    approved: false
+
+  - id: q-biology-meiosis-and-genetic-variation-0006
+    type: "identify"
+    difficulty: "medium"
+    stem: |
+      In a cell with $2n = 4$, the chromosomes line up at the middle of the cell as two homologous pairs. Which stage is this?
+    choices:
+      - text: "Metaphase I"
+        correct: true
+      - text: "Metaphase of mitosis"
+        rationale: |
+          The chromosomes also line up at the middle in mitosis. The stage name sounds the same, so they can be mixed. Check whether the chromosomes line up in single file or as pairs.
+      - text: "Metaphase II"
+        rationale: |
+          The chromosomes also line up at the middle here. The stage name sounds like metaphase I. Check whether the chromosomes are in pairs or in single file.
+      - text: "Prophase I"
+        rationale: |
+          The homologs pair up side by side here, so the pairs seem to fit. They do not line up at the middle yet. Check whether the pairs are lined up at the middle.
+    explanation: |
+      In metaphase I, the homologous pairs line up at the middle as pairs. In mitosis and metaphase II, the chromosomes line up in single file. So this stage is metaphase I.
+    approved: false
+
+  - id: q-biology-meiosis-and-genetic-variation-0007
+    type: "predict-outcome"
+    difficulty: "hard"
+    stem: |
+      Two genes are close together on one chromosome. One homolog carries $A$ and $B$, and the other homolog carries $a$ and $b$. Which gamete can form only if crossing over happens between the genes?
+    choices:
+      - text: "$Ab$"
+        correct: true
+      - text: "$AB$"
+        rationale: |
+          This is the chromosome as it already exists. The gene letters look like a mix. Check whether this chromosome needs any swapping.
+      - text: "$ab$"
+        rationale: |
+          This is the other chromosome as it already exists. The gene letters look like a mix. Check whether this chromosome needs any swapping.
+      - text: "$AaBb$"
+        rationale: |
+          This is a diploid genotype. A gamete is haploid and carries one allele of each gene. Check that a gamete does not carry both alleles of a gene.
+    explanation: |
+      Without crossing over, the gametes are $AB$ and $ab$, because each chromosome goes in as it is. Crossing over swaps pieces between the homologs. Then a chromosome can carry $A$ with $b$, which gives the gamete $Ab$.
+    approved: false
+
+  - id: q-biology-meiosis-and-genetic-variation-0008
+    type: "predict-outcome"
+    difficulty: "medium"
+    stem: |
+      A diploid germ cell has the genotype $AaBb$. The two genes are on different chromosome pairs. Ignoring crossing over, which gametes can many such cells produce together?
+    choices:
+      - text: "$AB$, $Ab$, $aB$, and $ab$"
+        correct: true
+      - text: "$AB$ and $ab$"
+        rationale: |
+          This keeps the alleles together as they appear in the genotype. The letters are written side by side, so they seem linked. Check whether the genes are on different pairs.
+      - text: "$Aa$ and $Bb$"
+        rationale: |
+          These show two alleles of the same gene together. A gamete is haploid, so it carries one allele of each gene. Check how many alleles of a gene a gamete carries.
+      - text: "$AaBb$"
+        rationale: |
+          This is the genotype of the parent cell. The question asks for gametes, and a gamete is haploid. Check that a gamete does not carry both alleles of a gene.
+    explanation: |
+      A gamete gets one allele of each gene. The pairs sort independently, so each allele of the first gene can go with each allele of the second gene. Many cells together can make $AB$, $Ab$, $aB$, and $ab$.
+    approved: false
+
+  - id: q-biology-meiosis-and-genetic-variation-0009
+    type: "simple-quantitative"
+    difficulty: "hard"
+    stem: |
+      A human cell is at metaphase II. How many chromosomes are in the cell, and how many chromatids does each have?
+    choices:
+      - text: "23 chromosomes, each with 2 chromatids"
+        correct: true
+      - text: "46 chromosomes, each with 2 chromatids"
+        rationale: |
+          This describes a human cell at metaphase of mitosis. Both are metaphase, so they can be mixed. Check whether the cell is already haploid.
+      - text: "23 chromosomes, each with 1 chromatid"
+        rationale: |
+          This describes a cell after anaphase II. The chromosome count is right, but the sister chromatids have not yet separated. Check when the chromatids separate.
+      - text: "46 chromosomes, each with 1 chromatid"
+        rationale: |
+          This describes a cell before DNA copying. The cell is not yet haploid and has not copied its DNA. Check both numbers.
+    explanation: |
+      After meiosis I, each cell is haploid with 23 chromosomes. At metaphase II, the chromosomes line up in single file. Each still has two sister chromatids, which separate in anaphase II.
+    approved: false

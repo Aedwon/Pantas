@@ -87,3 +87,323 @@ questions:
           This reverses the requested pressure difference. Faster flow has lower pressure here. Check the order $P_1-P_2$.
     explanation: |
       At equal height, $P_1-P_2=\dfrac12\rho(v_2^2-v_1^2)$. Substitute: $\dfrac12(1000)(16-4)=6000\,\mathrm{Pa}$.
+
+  - id: q-physics-fluid-flow-continuity-and-bernoulli-0001
+    type: "cause-effect"
+    difficulty: "easy"
+    stem: |
+      Water flows steadily through a pipe that narrows. The water is incompressible and none leaks out. What happens to the flow speed in the narrow section?
+    choices:
+      - text: "It increases."
+        correct: true
+      - text: "It decreases."
+        rationale: |
+          This assumes a narrow pipe holds the water back. A tight space seems to slow things down. Check $A_1v_1=A_2v_2$: a smaller area needs a larger speed.
+      - text: "It stays the same."
+        rationale: |
+          This notes that the same volume passes each second but takes that to mean the same speed. The flow rate is indeed constant. Check that the flow rate is area times speed.
+      - text: "It cannot be found without the pressure."
+        rationale: |
+          This thinks pressure is needed to find the speed. Pressure and speed are linked in another equation. Check that the continuity equation uses only areas and speeds.
+    explanation: |
+      In steady flow of an incompressible fluid, the same volume passes each cross-section every second. This gives $A_1v_1=A_2v_2$. When the area gets smaller, the speed must get larger.
+
+  - id: q-physics-fluid-flow-continuity-and-bernoulli-0002
+    type: "identify"
+    difficulty: "easy"
+    stem: |
+      In a steady flow, what is the volume flow rate?
+    choices:
+      - text: "The volume that passes a point each second"
+        correct: true
+      - text: "The mass of fluid in the pipe at one moment"
+        rationale: |
+          This mixes a flow with an amount held in the pipe. Mass and volume are linked by density. Check that a rate is measured per second.
+      - text: "The distance a bit of fluid moves each second"
+        rationale: |
+          This describes the flow speed. Speed is part of the flow rate. Check that the flow rate also involves the pipe's area.
+      - text: "The force of the fluid on each unit of area"
+        rationale: |
+          This describes pressure. Pressure is also used for moving fluids. Check that a flow rate does not involve force.
+    explanation: |
+      The volume flow rate is the volume of fluid that passes a point each second. For a pipe, it equals the cross-sectional area times the flow speed.
+
+  - id: q-physics-fluid-flow-continuity-and-bernoulli-0003
+    type: "identify"
+    difficulty: "easy"
+    stem: |
+      In Bernoulli's equation, what does the term $\dfrac{1}{2}\rho v^2$ represent?
+    choices:
+      - text: "Kinetic energy in each unit of volume of the fluid"
+        correct: true
+      - text: "Gravitational potential energy in each unit of volume"
+        rationale: |
+          This mixes the speed term with the height term. Both are energies per unit volume. Check that $\rho gh$ is the height term and $v$ is speed.
+      - text: "The static pressure of the fluid"
+        rationale: |
+          This takes the moving-fluid term to be the pressure itself. Both are measured in pascals. Check that static pressure is the separate term $P$.
+      - text: "The total energy of all the fluid in the pipe"
+        rationale: |
+          This forgets that the term is for each unit of volume. A bigger pipe holds more energy. Check the units, which are energy per volume.
+    explanation: |
+      The term $\dfrac{1}{2}\rho v^2$ comes from the kinetic energy formula, $\dfrac{1}{2}mv^2$. Dividing the mass by the volume gives the density $\rho$. So it is the kinetic energy in each unit of volume.
+
+  - id: q-physics-fluid-flow-continuity-and-bernoulli-0004
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      Water flows steadily at $1.5\,\mathrm{m/s}$ through a pipe section with area $6.0\times10^{-3}\,\mathrm{m^2}$. The pipe narrows to an area of $2.0\times10^{-3}\,\mathrm{m^2}$. Assume incompressible flow with no leaks. What is the speed in the narrow section?
+    choices:
+      - text: "$4.5\\,\\mathrm{m/s}$"
+        correct: true
+      - text: "$0.50\\,\\mathrm{m/s}$"
+        rationale: |
+          This flips the area ratio, so the speed falls. A smaller area can seem to mean less flow. Check that a narrower pipe makes the water speed up.
+      - text: "$1.5\\,\\mathrm{m/s}$"
+        rationale: |
+          This keeps the speed the same because the flow rate is the same. The flow rate is constant, which makes this tempting. Check that $A_1v_1=A_2v_2$ changes $v$ when $A$ changes.
+      - text: "$9.0\\,\\mathrm{m/s}$"
+        rationale: |
+          This multiplies the speed by the large area, $6.0$, and ignores the small area. Both areas are in the equation. Check that the factor is $A_1/A_2$.
+    explanation: |
+      By continuity, $A_1v_1=A_2v_2$. So $v_2=v_1\dfrac{A_1}{A_2}=1.5\times\dfrac{6.0\times10^{-3}}{2.0\times10^{-3}}=1.5\times3.0=4.5\,\mathrm{m/s}$.
+
+  - id: q-physics-fluid-flow-continuity-and-bernoulli-0005
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      Water moves at $3.0\,\mathrm{m/s}$ in a round pipe. It flows into a round section of the same pipe whose diameter is half as large. Assume steady, incompressible flow. What is the speed in the narrower section?
+    choices:
+      - text: "$12\\,\\mathrm{m/s}$"
+        correct: true
+      - text: "$6.0\\,\\mathrm{m/s}$"
+        rationale: |
+          This doubles the speed because the diameter is halved. Half the width seems to mean twice the speed. Check that area depends on the square of the diameter.
+      - text: "$1.5\\,\\mathrm{m/s}$"
+        rationale: |
+          This halves the speed, which reverses the effect. A smaller pipe seems to hold the water back. Check that a smaller area gives a larger speed.
+      - text: "$3.0\\,\\mathrm{m/s}$"
+        rationale: |
+          This keeps the speed the same because the flow rate is the same. The flow rate is constant. Check that area changes, so speed must change.
+    explanation: |
+      The area of a round pipe is $A=\pi r^2$. A pipe with half the diameter has one fourth of the area. The speed is then four times as large: $3.0\times4=12\,\mathrm{m/s}$.
+
+  - id: q-physics-fluid-flow-continuity-and-bernoulli-0006
+    type: "cause-effect"
+    difficulty: "medium"
+    stem: |
+      Water flows steadily through a horizontal pipe from a narrow section into a wide section. Assume ideal flow. What happens to the water's speed and static pressure?
+    choices:
+      - text: "The speed decreases and the pressure increases."
+        correct: true
+      - text: "The speed decreases and the pressure decreases."
+        rationale: |
+          This lets both fall together. Slower water seems to have less of everything. Check that, at equal height, slower flow has higher static pressure.
+      - text: "The speed increases and the pressure increases."
+        rationale: |
+          This lets both rise. Faster water seems to push harder. Check that the water slows down in a wider pipe.
+      - text: "The speed increases and the pressure decreases."
+        rationale: |
+          This uses the rule for the narrow section. The sections are named in the other order. Check which section the water enters.
+    explanation: |
+      A wide section has a larger area, so by continuity the water slows down. At the same height, slower flow has higher static pressure. So the speed decreases and the pressure increases.
+
+  - id: q-physics-fluid-flow-continuity-and-bernoulli-0007
+    type: "classify"
+    difficulty: "medium"
+    stem: |
+      Water flows steadily through a horizontal pipe. Gauges at points $1$ and $2$ read $1.4\times10^5\,\mathrm{Pa}$ and $1.2\times10^5\,\mathrm{Pa}$. Assume ideal flow. At which point is the water moving faster?
+    choices:
+      - text: "Point $2$, because its pressure is lower"
+        correct: true
+      - text: "Point $1$, because its pressure is higher"
+        rationale: |
+          This takes higher pressure to mean faster flow. A high pressure seems to push water harder. Check that, at equal height, the faster flow has the lower pressure.
+      - text: "Neither, because the pipe is horizontal"
+        rationale: |
+          This treats equal height as equal speed. Equal height only removes the height term. Check that the pressures still differ.
+      - text: "It cannot be told from the pressures alone"
+        rationale: |
+          This thinks the areas are needed. Continuity does use areas. Check that Bernoulli's equation already links pressure and speed.
+    explanation: |
+      The pipe is horizontal, so the height terms are equal. In ideal flow, the point with the lower static pressure has the higher speed. Point $2$ has the lower pressure, so the water moves faster there.
+
+  - id: q-physics-fluid-flow-continuity-and-bernoulli-0008
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      Water of density $1000\,\mathrm{kg/m^3}$ flows at $3.0\,\mathrm{m/s}$. How much kinetic energy does each cubic meter of the water have?
+    choices:
+      - text: "$4500\\,\\mathrm{J}$"
+        correct: true
+      - text: "$9000\\,\\mathrm{J}$"
+        rationale: |
+          This leaves out the factor $\dfrac{1}{2}$. The squared speed and density are used correctly. Check the coefficient in $\dfrac{1}{2}\rho v^2$.
+      - text: "$1500\\,\\mathrm{J}$"
+        rationale: |
+          This uses $\dfrac{1}{2}\rho v$, with the speed not squared. Speed alone is easy to place in the formula. Check that the speed is squared.
+      - text: "$3000\\,\\mathrm{J}$"
+        rationale: |
+          This uses $\rho v$ and ignores both the square and the half. It keeps the right two quantities. Check the full form $\dfrac{1}{2}\rho v^2$.
+    explanation: |
+      The kinetic energy in each unit of volume is $\dfrac{1}{2}\rho v^2$. Substitute: $\dfrac{1}{2}(1000)(3.0)^2=\dfrac{1}{2}(1000)(9.0)=4500\,\mathrm{J}$ for each cubic meter.
+
+  - id: q-physics-fluid-flow-continuity-and-bernoulli-0009
+    type: "classify"
+    difficulty: "medium"
+    stem: |
+      Which set of conditions allows the simple form of Bernoulli's equation to link two points in a moving fluid?
+    choices:
+      - text: "Steady, incompressible, nonviscous flow along one streamline"
+        correct: true
+      - text: "Steady, incompressible, nonviscous flow between different streamlines"
+        rationale: |
+          This drops the requirement of one streamline. The flow still has the right properties. Check that the equation is applied along a single streamline.
+      - text: "Incompressible, viscous flow along one streamline with no pump"
+        rationale: |
+          This allows viscosity. Honey-like friction can seem small. Check that the simple form needs a nonviscous fluid.
+      - text: "Steady, compressible, nonviscous flow along one streamline"
+        rationale: |
+          This allows the fluid to be compressed. Gases are fluids too. Check that the simple form needs an incompressible fluid.
+    explanation: |
+      The simple form of Bernoulli's equation needs steady, incompressible, nonviscous flow. It also needs both points to be on the same streamline. Without these, the energy balance can change.
+
+  - id: q-physics-fluid-flow-continuity-and-bernoulli-0010
+    type: "cause-effect"
+    difficulty: "medium"
+    stem: |
+      A pump lies between points $1$ and $2$ in a horizontal pipe of constant width. Why can Bernoulli's equation not be applied directly from point $1$ to point $2$?
+    choices:
+      - text: "The pump adds energy to the water, so the energy balance changes."
+        correct: true
+      - text: "The pipe is horizontal, so the equation gives no pressure change."
+        rationale: |
+          This mixes up the height terms with the pressure terms. Equal heights cancel only the $\rho gh$ terms. Check that the pressure term stays in the equation.
+      - text: "The pump makes the water compressible."
+        rationale: |
+          This treats a pump as changing the kind of fluid. Pumps do squeeze the flow a little. Check that the problem is an added energy input.
+      - text: "The constant width makes the water speed change."
+        rationale: |
+          This reverses continuity. A constant width gives the same speed at both points. Check what the pump adds to the water.
+    explanation: |
+      Bernoulli's equation is an energy balance for the water. A pump puts extra energy into the water. So the simple balance between the two points no longer holds.
+
+  - id: q-physics-fluid-flow-continuity-and-bernoulli-0011
+    type: "cause-effect"
+    difficulty: "hard"
+    stem: |
+      Water flows steadily through a pipe of constant width that rises from point $1$ to a higher point $2$. Assume ideal flow. How do the speed and the static pressure at point $2$ compare with those at point $1$?
+    choices:
+      - text: "The speed is the same and the pressure is lower."
+        correct: true
+      - text: "The speed is lower and the pressure is higher."
+        rationale: |
+          This applies the rule that slower flow has higher pressure. The rule needs equal heights. Check that the constant width keeps the speed the same.
+      - text: "The speed is lower and the pressure is lower."
+        rationale: |
+          This lets climbing slow the water. A climb seems to cost speed. Check the continuity equation for a pipe of constant width.
+      - text: "The speed is the same and the pressure is the same."
+        rationale: |
+          This sees equal speed and assumes equal pressure. Equal speed removes only one term. Check the height term, $\rho gh$.
+    explanation: |
+      The pipe has constant width, so by continuity the speed is the same at both points. The kinetic terms cancel, leaving $P_1+\rho gh_1=P_2+\rho gh_2$. Point $2$ is higher, so its pressure is lower.
+
+  - id: q-physics-fluid-flow-continuity-and-bernoulli-0012
+    type: "cause-effect"
+    difficulty: "hard"
+    stem: |
+      A real oil flows steadily through a long horizontal pipe of constant width. The pressure at point $2$ is lower than at point $1$, but the speed is the same at both points. Which cause best explains this?
+    choices:
+      - text: "Viscosity removes mechanical energy as the oil flows."
+        correct: true
+      - text: "The speed of the oil rises between the points."
+        rationale: |
+          This explains a pressure drop by a speed change. Faster flow lowers pressure. Check that the stem says the speed is the same.
+      - text: "Bernoulli's equation says pressure falls along any horizontal pipe."
+        rationale: |
+          This misreads the equation. The equation gives equal pressure for equal speed and height. Check that it assumes a nonviscous fluid.
+      - text: "Continuity requires the pressure to fall when the area is constant."
+        rationale: |
+          This applies continuity to pressure. Continuity links only area and speed. Check what a viscous fluid does to its energy.
+    explanation: |
+      With equal speed and height, ideal flow would keep the pressure the same. Here the pressure falls. A real oil is viscous, and internal friction removes mechanical energy from the flow.
+
+  - id: q-physics-fluid-flow-continuity-and-bernoulli-0013
+    type: "simple-quantitative"
+    difficulty: "hard"
+    stem: |
+      Water flows steadily through a pipe from point $1$ to point $2$, which is $2.0\,\mathrm{m}$ higher. At point $1$ the area is $4.0\times10^{-3}\,\mathrm{m^2}$, the speed is $2.0\,\mathrm{m/s}$, and the pressure is $3.00\times10^5\,\mathrm{Pa}$. At point $2$ the area is $2.0\times10^{-3}\,\mathrm{m^2}$. Use $\rho=1000\,\mathrm{kg/m^3}$ and $g=9.8\,\mathrm{m/s^2}$. Assume ideal flow. What is the pressure at point $2$?
+    choices:
+      - text: "$2.74\\times10^5\\,\\mathrm{Pa}$"
+        correct: true
+      - text: "$2.94\\times10^5\\,\\mathrm{Pa}$"
+        rationale: |
+          This leaves out the rise in height. The change in speed is used correctly. Check that the $\rho gh$ term differs between the points.
+      - text: "$2.80\\times10^5\\,\\mathrm{Pa}$"
+        rationale: |
+          This leaves out the change in speed. The height term is used correctly. Check that continuity gives a new speed at point $2$.
+      - text: "$3.14\\times10^5\\,\\mathrm{Pa}$"
+        rationale: |
+          This adds the height term, as if the water fell. The rise is easy to confuse with a drop. Check that higher water has lower pressure.
+    explanation: |
+      Continuity gives $v_2=2.0\times\dfrac{4.0}{2.0}=4.0\,\mathrm{m/s}$. Then $P_2=P_1+\dfrac{1}{2}\rho(v_1^2-v_2^2)-\rho g(h_2-h_1)$. So $P_2=3.00\times10^5+500(4-16)-1000(9.8)(2.0)=3.00\times10^5-6000-19600=2.74\times10^5\,\mathrm{Pa}$.
+
+  - id: q-physics-fluid-flow-continuity-and-bernoulli-0014
+    type: "simple-quantitative"
+    difficulty: "exam"
+    stem: |
+      In a horizontal pipe carrying water ($\rho=1000\,\mathrm{kg/m^3}$), the radius narrows from $6.0\,\mathrm{cm}$ to $3.0\,\mathrm{cm}$. In the wide section the speed is $1.0\,\mathrm{m/s}$ and the pressure is $1.50\times10^5\,\mathrm{Pa}$. Assume ideal flow. What is the pressure in the narrow section?
+    choices:
+      - text: "$1.425\\times10^5\\,\\mathrm{Pa}$"
+        correct: true
+      - text: "$1.485\\times10^5\\,\\mathrm{Pa}$"
+        rationale: |
+          This uses the ratio of the radii, $2$, as the speed ratio. The radii are the numbers given. Check that area depends on the radius squared, so the speed becomes $4.0\,\mathrm{m/s}$.
+      - text: "$1.350\\times10^5\\,\\mathrm{Pa}$"
+        rationale: |
+          This leaves out the factor $\dfrac{1}{2}$ in the kinetic term. The speeds are correct. Check the coefficient of $\rho v^2$.
+      - text: "$1.575\\times10^5\\,\\mathrm{Pa}$"
+        rationale: |
+          This adds the pressure change instead of subtracting it. Narrow pipes are often linked to pressure. Check that faster flow has lower pressure.
+    explanation: |
+      The area ratio is $\left(\dfrac{6.0}{3.0}\right)^2=4$, so $v_2=4.0\,\mathrm{m/s}$. At equal height, $P_2=P_1+\dfrac{1}{2}\rho(v_1^2-v_2^2)=1.50\times10^5+500(1-16)=1.50\times10^5-7500=1.425\times10^5\,\mathrm{Pa}$.
+
+  - id: q-physics-fluid-flow-continuity-and-bernoulli-0015
+    type: "simple-quantitative"
+    difficulty: "exam"
+    stem: |
+      Water ($\rho=1000\,\mathrm{kg/m^3}$) flows steadily through a horizontal pipe. The speed at point $1$ is $2.0\,\mathrm{m/s}$, and the pressure at point $2$ is $6000\,\mathrm{Pa}$ lower than at point $1$. Assume ideal flow. What is the speed at point $2$?
+    choices:
+      - text: "$4.0\\,\\mathrm{m/s}$"
+        correct: true
+      - text: "$3.5\\,\\mathrm{m/s}$"
+        rationale: |
+          This leaves out the starting speed, so only $v_2^2$ is solved. The pressure drop seems to give the whole kinetic term. Check that the drop equals the difference of both kinetic terms.
+      - text: "$6.0\\,\\mathrm{m/s}$"
+        rationale: |
+          This divides the pressure drop by the density and stops there. The numbers cancel neatly. Check that the speed is squared and a factor of $\dfrac{1}{2}$ is used.
+      - text: "$3.2\\,\\mathrm{m/s}$"
+        rationale: |
+          This leaves out the factor $\dfrac{1}{2}$. The squares are used correctly. Check the coefficient of $\rho v^2$.
+    explanation: |
+      At equal height, $P_1-P_2=\dfrac{1}{2}\rho(v_2^2-v_1^2)$. So $6000=500(v_2^2-4.0)$. This gives $v_2^2=16$, so $v_2=4.0\,\mathrm{m/s}$.
+
+  - id: q-physics-fluid-flow-continuity-and-bernoulli-0016
+    type: "simple-quantitative"
+    difficulty: "exam"
+    stem: |
+      Water flows from a tap through a pipe of cross-sectional area $5.0\times10^{-4}\,\mathrm{m^2}$ at a steady speed of $3.0\,\mathrm{m/s}$. How long does it take to fill a bucket of volume $0.030\,\mathrm{m^3}$?
+    choices:
+      - text: "$20\\,\\mathrm{s}$"
+        correct: true
+      - text: "$60\\,\\mathrm{s}$"
+        rationale: |
+          This divides the volume by the area only. The speed of the water is left out. Check that the flow rate is area times speed.
+      - text: "$0.050\\,\\mathrm{s}$"
+        rationale: |
+          This divides the flow rate by the volume, which flips the ratio. Both numbers are correct. Check that time is volume divided by flow rate.
+      - text: "$0.010\\,\\mathrm{s}$"
+        rationale: |
+          This divides the volume by the speed only. The area is left out. Check that the volume flow rate needs the area.
+    explanation: |
+      The volume flow rate is $Av=(5.0\times10^{-4})(3.0)=1.5\times10^{-3}\,\mathrm{m^3/s}$. The time is the volume divided by the flow rate: $\dfrac{0.030}{1.5\times10^{-3}}=20\,\mathrm{s}$.

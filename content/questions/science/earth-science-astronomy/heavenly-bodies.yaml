@@ -339,3 +339,83 @@ questions:
     explanation: |
       Solar heating helps release gas and dust from a comet. Farther from the Sun, less heating reaches the surface. Usually, less material is released.
     approved: false
+
+  - id: q-earth-science-astronomy-heavenly-bodies-0021
+    type: cause-effect
+    difficulty: easy
+    stem: |
+      Venus has the hottest surface of all the planets. Which fact is the main reason?
+    choices:
+      - text: 'Its thick air traps heat.'
+        correct: true
+      - text: 'It is the closest planet to the Sun.'
+        rationale: |
+          This links the hottest surface to the shortest distance from the Sun. Nearness does raise temperature. Check that Mercury is closer but cooler.
+      - text: 'Nuclear fusion in its core heats its surface.'
+        rationale: |
+          This gives a planet a star's source of heat. The Sun does heat by fusion. Check that planets do not make energy by fusion.
+      - text: 'It spins backward compared with most planets.'
+        rationale: |
+          This uses an odd fact about Venus as a cause. Spin is a real feature of Venus. Check which fact is about the air around the planet.
+    explanation: |
+      Venus has a thick atmosphere. The air traps heat near the surface. This makes Venus the hottest planet, even though Mercury is closer to the Sun.
+
+  - id: q-earth-science-astronomy-heavenly-bodies-0022
+    type: classify
+    difficulty: medium
+    stem: |
+      Pluto is called a dwarf planet. Which feature is the reason it is not called a planet?
+    choices:
+      - text: 'It has not cleared its orbit.'
+        correct: true
+      - text: 'It is not massive enough to be nearly round.'
+        rationale: |
+          This says a dwarf planet is not round. A small size can suggest a lumpy shape. Check that a dwarf planet is nearly round.
+      - text: 'It orbits a planet, not the Sun.'
+        rationale: |
+          This confuses a dwarf planet with a moon. Moons and dwarf planets are both small. Check that a dwarf planet orbits the Sun.
+      - text: 'It is too small to have moons of its own.'
+        rationale: |
+          This ties the name to having no moons. Many planets do have moons. Check the IAU rule about the orbit.
+    explanation: |
+      The IAU says a planet must orbit the Sun, be nearly round, and have cleared its orbit. Pluto orbits the Sun and is nearly round. But it has not cleared its orbit, so it is a dwarf planet.
+
+  - id: q-earth-science-astronomy-heavenly-bodies-0023
+    type: identify
+    difficulty: medium
+    stem: |
+      Which moon of Jupiter has an icy shell over a rocky interior and is thought to hide a salty ocean under the ice?
+    choices:
+      - text: 'Europa'
+        correct: true
+      - text: 'Io'
+        rationale: |
+          This picks a moon of Jupiter that is known for something else. Both are moons of Jupiter. Check that Io has many active volcanoes.
+      - text: 'Titan'
+        rationale: |
+          This picks a famous moon with a strange feature. Titan has a thick atmosphere. Check that Titan circles Saturn, not Jupiter.
+      - text: 'Phobos'
+        rationale: |
+          This picks a moon with an odd shape. It is a real moon. Check that Phobos is a small, lumpy moon of Mars.
+    explanation: |
+      Europa has an icy shell over a rocky interior. It is thought to hide a salty ocean under the ice. It orbits Jupiter.
+
+  - id: q-earth-science-astronomy-heavenly-bodies-0024
+    type: classify
+    difficulty: hard
+    stem: |
+      A planet has no solid surface and has rings. A thick layer of water, ammonia, and methane surrounds its small core. Which family does it belong to?
+    choices:
+      - text: 'Ice giant'
+        correct: true
+      - text: 'Gas giant'
+        rationale: |
+          This picks the other giant family because it has no solid surface and has rings. Both families share those features. Check what the planet is mostly made of.
+      - text: 'Terrestrial planet'
+        rationale: |
+          This ignores the lack of a solid surface. Rocky planets are a large family. Check that terrestrial planets are small and rocky.
+      - text: 'Dwarf planet'
+        rationale: |
+          This uses a small-core clue to pick a small body. A dwarf planet is small and round. Check that the description is of a giant planet with rings.
+    explanation: |
+      A planet with no solid surface that is mostly water, ammonia, and methane around a small core is an ice giant. Uranus and Neptune are ice giants. Rings do not decide the family, because all four giant planets have rings.

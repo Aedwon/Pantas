@@ -297,3 +297,129 @@ questions:
           This cancels forces acting on different objects. The pair is equal and opposite. Check the chosen object’s boundary.
     explanation: |
       A free-body diagram includes external forces acting on the chosen object. Here the chosen object is the swimmer. The swimmer’s force on water acts on the water.
+
+  - id: q-physics-dynamics-0021
+    type: "simple-quantitative"
+    difficulty: "easy"
+    stem: |
+      A worker pushes a crate across a level floor with a horizontal force of 80 N. The crate moves in a straight line at a constant 1.5 m/s. What is the friction force on the crate?
+    choices:
+      - text: "80 N, opposite to the motion"
+        correct: true
+      - text: "0 N, because the crate is not accelerating"
+        rationale: |
+          This says no acceleration means no force. The net force is zero, but single forces still act. Check that the push and friction cancel.
+      - text: "80 N, in the direction of the motion"
+        rationale: |
+          This gets the size right but the direction wrong. Friction resists sliding. Check which way friction must point to cancel the push.
+      - text: "160 N, opposite to the motion"
+        rationale: |
+          This adds the push and its reaction. Equal pairs act on different objects. Check that the net force on the crate is zero.
+    explanation: |
+      The crate moves at a constant velocity, so the net force on it is zero. The push of $80$ N forward must be canceled by friction. Friction is $80$ N backward.
+    approved: false
+
+  - id: q-physics-dynamics-0022
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      An astronaut has a mass of 70 kg on Earth. On the Moon, $g=1.6\ \mathrm{m/s^2}$. Use $g=9.8\ \mathrm{m/s^2}$ on Earth. What are the astronaut's mass and weight on the Moon?
+    choices:
+      - text: "70 kg and 112 N"
+        correct: true
+      - text: "11 kg and 112 N"
+        rationale: |
+          This treats mass as changing with $g$. Weight changes with place, so mass seems to change. Check that mass is the amount of matter.
+      - text: "70 kg and 686 N"
+        rationale: |
+          This gives the weight on Earth. The mass is right. Check that the weight uses the $g$ of the Moon.
+      - text: "70 kg and 44 N"
+        rationale: |
+          This divides the mass by $g$ instead of multiplying. Dividing gives a smaller number, which seems fair for the Moon. Check the formula $W=mg$.
+    explanation: |
+      Mass is the same everywhere, so the mass is $70$ kg. Weight uses the Moon's $g$. $W=mg=70\times1.6=112$ N.
+    approved: false
+
+  - id: q-physics-dynamics-0023
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      A 4.0 kg book rests on a level table. A hand pushes straight down on the book with a force of 20 N, and the book stays at rest. Use $g=9.8\ \mathrm{m/s^2}$. What is the normal force on the book?
+    choices:
+      - text: "59.2 N"
+        correct: true
+      - text: "39.2 N"
+        rationale: |
+          This equals the weight alone. On a level table the normal force often equals the weight. Check that the downward push of the hand also needs a balancing force.
+      - text: "19.2 N"
+        rationale: |
+          This subtracts the push from the weight. That is the case for a pull upward. Check the direction of the hand's push.
+      - text: "20 N"
+        rationale: |
+          This copies the force of the hand. The hand is the new force in the problem. Check that the table also supports the weight of the book.
+    explanation: |
+      The book is at rest, so the net force is zero. Take up as positive. $N-mg-20=0$. The weight is $mg=4.0\times9.8=39.2$ N. So $N=39.2+20=59.2$ N.
+    approved: false
+
+  - id: q-physics-dynamics-0024
+    type: "simple-quantitative"
+    difficulty: "hard"
+    stem: |
+      A 2.0 kg box rests on a smooth, level table. A hand pulls it with a 10 N force at $60^\circ$ above the horizontal. Use $\cos60^\circ=0.50$ and $\sin60^\circ=0.866$. What is the box's acceleration along the table?
+    choices:
+      - text: "2.5 m/s^2"
+        correct: true
+      - text: "5.0 m/s^2"
+        rationale: |
+          This divides the full pull by the mass. The pull is the force in the problem. Check that only the part along the table speeds up the box.
+      - text: "4.3 m/s^2"
+        rationale: |
+          This uses the sine part of the pull, which points upward. Sine and cosine are easy to swap. Check which part of the pull lies along the table.
+      - text: "0.25 m/s^2"
+        rationale: |
+          This divides $\cos60^\circ$ by the mass without multiplying by the force. The angle part looks like the whole answer. Check that the $10$ N force is multiplied by $\cos60^\circ$ before dividing by the mass.
+    explanation: |
+      Only the part of the pull along the table accelerates the box. That part is $10\cos60^\circ=10\times0.50=5.0$ N. Then $a=\dfrac{5.0}{2.0}=2.5\ \mathrm{m/s^2}$.
+    approved: false
+
+  - id: q-physics-dynamics-0025
+    type: "cause-effect"
+    difficulty: "hard"
+    stem: |
+      A horse pulls a cart forward. By Newton's third law, the cart pulls back on the horse with a force of the same size. Why can the cart still accelerate forward?
+    choices:
+      - text: "The two forces act on different objects, so they do not cancel on the cart"
+        correct: true
+      - text: "The horse's pull is stronger than the cart's pull on the horse"
+        rationale: |
+          This says the pair can be unequal. The third law makes them equal in size. Check that interaction pairs are always the same size.
+      - text: "The cart's pull on the horse starts only after the cart is moving"
+        rationale: |
+          This says the reaction comes later. The two forces act at the same time. Check the timing in the third law.
+      - text: "The two forces cancel, but the cart has less inertia than the horse"
+        rationale: |
+          This says they cancel and then adds a reason for the motion. Forces cancel only if they act on one object. Check which object each force acts on.
+    explanation: |
+      The horse pulls on the cart, and the cart pulls on the horse. These forces act on different objects, so they cannot cancel each other. The cart accelerates when the net force on the cart, such as the pull from the horse minus friction, is forward.
+    approved: false
+
+  - id: q-physics-dynamics-0026
+    type: "simple-quantitative"
+    difficulty: "exam"
+    stem: |
+      A 60 kg person stands on a scale in an elevator that accelerates upward at $2.0\ \mathrm{m/s^2}$. Use $g=9.8\ \mathrm{m/s^2}$. What is the normal force of the scale on the person?
+    choices:
+      - text: "708 N"
+        correct: true
+      - text: "588 N"
+        rationale: |
+          This equals the weight, $mg$. A person standing still has a normal force equal to the weight. Check that the elevator is accelerating.
+      - text: "468 N"
+        rationale: |
+          This uses $m(g-a)$, which is for an elevator accelerating downward. Check the direction of the acceleration.
+      - text: "120 N"
+        rationale: |
+          This is $ma$ alone. The acceleration is in the problem, so it seems to give the force. Check that the normal force also supports the weight.
+    explanation: |
+      Take up as positive. The net force is $N-mg=ma$. So $N=m(g+a)=60\times(9.8+2.0)=60\times11.8=708$ N.
+    approved: false

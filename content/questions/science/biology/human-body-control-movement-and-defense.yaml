@@ -213,3 +213,213 @@ questions:
     explanation: |
       Insulin generally lowers blood glucose. Glucagon generally raises it. These different effects help regulate glucose in the blood.
     approved: false
+
+  - id: q-biology-human-body-control-movement-and-defense-0001
+    type: 'process-ordering'
+    difficulty: 'medium'
+    stem: |
+      A person touches a hot pan and pulls the hand away. Which sequence shows the path of the signal?
+    choices:
+      - text: 'Receptor, sensory neuron, spinal cord, motor neuron, effector muscle'
+        correct: true
+      - text: 'Receptor, motor neuron, spinal cord, sensory neuron, effector muscle'
+        rationale: |
+          This swaps the two kinds of neurons. Both carry signals, so their names are easy to exchange. Check which neuron carries signals toward the central nervous system.
+      - text: 'Effector muscle, motor neuron, spinal cord, sensory neuron, receptor'
+        rationale: |
+          This reverses the whole path. The same parts appear, so the list looks complete. Check that the path begins where the stimulus is detected.
+      - text: 'Receptor, sensory neuron, effector muscle, spinal cord, motor neuron'
+        rationale: |
+          This skips the central nervous system before the motor neuron. The muscle is the visible result, so it seems to come next. Check where the signal turns around in a reflex.
+    explanation: |
+      The skin receptor detects the heat. A sensory neuron carries the signal to the spinal cord. A motor neuron carries it from the spinal cord to the arm muscle, which pulls the hand away.
+    approved: false
+
+  - id: q-biology-human-body-control-movement-and-defense-0002
+    type: 'identify'
+    difficulty: 'easy'
+    stem: |
+      Which structure joins a muscle to a bone?
+    choices:
+      - text: 'A tendon'
+        correct: true
+      - text: 'A ligament'
+        rationale: |
+          This picks the structure that joins bone to bone. The two names sound alike and both are strong cords. Check whether the structure connects two bones or a muscle and a bone.
+      - text: 'A joint'
+        rationale: |
+          This picks the place where bones meet. Muscles pull across joints, so a joint can seem to link them. Check whether a joint is a cord or a meeting place.
+      - text: 'A motor neuron'
+        rationale: |
+          This picks the cell that carries signals to a muscle. It reaches the muscle, so it can seem to join it. Check whether the structure holds a muscle to a bone or only signals it.
+    explanation: |
+      A tendon joins a muscle to a bone. When the muscle shortens, the tendon pulls on the bone. A ligament joins one bone to another bone.
+    approved: false
+
+  - id: q-biology-human-body-control-movement-and-defense-0003
+    type: 'cause-effect'
+    difficulty: 'medium'
+    stem: |
+      Why do skeletal muscles such as the biceps and triceps work in pairs?
+    choices:
+      - text: 'A muscle can only pull, so a partner muscle pulls the bone the opposite way.'
+        correct: true
+      - text: 'A muscle can only push, so a partner muscle pushes the bone the opposite way.'
+        rationale: |
+          This reverses what a muscle can do. A limb seems to be pushed when it straightens. Check whether a muscle makes force by shortening or by lengthening.
+      - text: 'One muscle is voluntary, so a partner muscle must be involuntary.'
+        rationale: |
+          This mixes up muscle types. Both control types exist in the body, so the idea seems reasonable. Check that biceps and triceps are both skeletal muscles.
+      - text: 'Skeletal muscle is striated, so a smooth muscle partner pulls it back.'
+        rationale: |
+          This mixes up muscle types. Striated and smooth muscle are both real, so the pair seems reasonable. Check that the biceps and triceps are both skeletal.
+    explanation: |
+      A muscle makes force only by shortening, so it can pull but not push. The biceps pulls the forearm one way. The triceps pulls it the other way.
+    approved: false
+
+  - id: q-biology-human-body-control-movement-and-defense-0004
+    type: 'classify'
+    difficulty: 'easy'
+    stem: |
+      Which cells carry signals toward the central nervous system?
+    choices:
+      - text: 'Sensory neurons'
+        correct: true
+      - text: 'Motor neurons'
+        rationale: |
+          These carry signals the other way, to muscles and glands. Both are neurons in the peripheral nervous system, so they are easy to mix. Check whether the signal goes toward or away from the brain and spinal cord.
+      - text: 'Glial cells'
+        rationale: |
+          These are in the nervous system, so they seem to fit. They protect and feed neurons rather than carry signals. Check which cells carry the electrical signal.
+      - text: 'Muscle cells'
+        rationale: |
+          These respond to signals, so they seem linked to them. They are effectors and do not carry a signal to the central nervous system. Check which cells do the carrying.
+    explanation: |
+      Sensory neurons carry signals from receptors toward the brain and spinal cord. Motor neurons carry signals away from them, to muscles and glands.
+    approved: false
+
+  - id: q-biology-human-body-control-movement-and-defense-0005
+    type: 'classify'
+    difficulty: 'hard'
+    stem: |
+      Blood glucose falls too low, and the pancreas releases glucagon. Glucagon makes the liver release stored glucose into the blood. How is this response classified?
+    choices:
+      - text: 'Negative feedback, because the response reverses the change.'
+        correct: true
+      - text: 'Positive feedback, because the response raises the glucose level.'
+        rationale: |
+          This links positive with going up. Glucose does rise, so the word seems to fit. Check whether the response reverses or adds to the original change.
+      - text: 'Negative feedback, because the glucose level went down.'
+        rationale: |
+          The name is right, but the reason is wrong. A fall in level is the change, not the feedback type. Check whether the type depends on the response rather than the direction.
+      - text: 'Neither, because only insulin forms a feedback loop.'
+        rationale: |
+          Insulin is the best-known loop, so it can seem to be the only one. The lesson shows a second loop for low glucose. Check what glucagon does after a fall.
+    explanation: |
+      In negative feedback, the response reverses the change. Glucose fell, and glucagon makes it rise again. The name does not depend on whether the level goes up or down.
+    approved: false
+
+  - id: q-biology-human-body-control-movement-and-defense-0006
+    type: 'identify'
+    difficulty: 'medium'
+    stem: |
+      Which hormone, made by the hypothalamus and released by the posterior pituitary, tells the kidneys to keep more water?
+    choices:
+      - text: 'Antidiuretic hormone (ADH)'
+        correct: true
+      - text: 'Oxytocin'
+        rationale: |
+          The posterior pituitary also releases this hormone, so it seems to fit. It is not the one that tells the kidneys to keep water. Check which hormone acts on the kidneys.
+      - text: 'Glucagon'
+        rationale: |
+          This is a hormone from the pancreas, so it seems to be a general hormone answer. It acts on blood glucose. Check which gland releases it.
+      - text: 'Testosterone'
+        rationale: |
+          This is a well-known hormone, so it can seem to fit any question. The testes make it. Check which gland releases the hormone in the question.
+    explanation: |
+      The hypothalamus makes ADH, and the posterior pituitary releases it. ADH tells the kidneys to keep more water, so less water leaves in urine.
+    approved: false
+
+  - id: q-biology-human-body-control-movement-and-defense-0007
+    type: 'identify'
+    difficulty: 'medium'
+    stem: |
+      Where does fertilization most often happen?
+    choices:
+      - text: 'In the uterine tube'
+        correct: true
+      - text: 'In the uterus'
+        rationale: |
+          This is where the zygote attaches later, so it seems to be the place where the new cell starts. Check where the sperm meets the oocyte before the zygote moves along.
+      - text: 'In the ovary'
+        rationale: |
+          The ovary holds the developing oocytes, so it seems to be the meeting place. The oocyte leaves it at ovulation. Check where the oocyte goes after it is released.
+      - text: 'In the testis'
+        rationale: |
+          This is where sperm are made, so it can seem to be the meeting place. The sperm travel out of the male body. Check where the sperm meets the oocyte.
+    explanation: |
+      An ovary releases an oocyte, and it enters the uterine tube. Sperm that reach the tube can fuse with it there. The zygote then moves toward the uterus and attaches to its lining.
+    approved: false
+
+  - id: q-biology-human-body-control-movement-and-defense-0008
+    type: 'cause-effect'
+    difficulty: 'medium'
+    stem: |
+      Why can a vaccine protect a person from a disease without causing the disease?
+    choices:
+      - text: 'It gives a safe look at an antigen, so memory cells form.'
+        correct: true
+      - text: 'It trains phagocytes to remember the pathogen.'
+        rationale: |
+          Phagocytes act in the immune response, so this seems reasonable. They belong to innate immunity, which builds no memory. Check which cells stay behind after a response.
+      - text: 'It supplies antibodies that match any antigen.'
+        rationale: |
+          Antibodies are important in immunity, so this seems reasonable. Each antibody binds one particular antigen. Check whether an antibody is specific or general.
+      - text: 'It makes the skin and mucus barriers stronger against that germ.'
+        rationale: |
+          Barriers are part of the body's defense, so this seems reasonable. They act the same way for every germ. Check which defense is specific to one antigen.
+    explanation: |
+      A vaccine shows the immune system an antigen without the disease. The body forms memory cells. If the real germ comes later, the response is faster and stronger.
+    approved: false
+
+  - id: q-biology-human-body-control-movement-and-defense-0009
+    type: 'classify'
+    difficulty: 'medium'
+    stem: |
+      Which bones belong to the appendicular skeleton?
+    choices:
+      - text: 'The limb bones and the shoulder and hip girdles'
+        correct: true
+      - text: 'The skull, vertebral column, and rib cage'
+        rationale: |
+          These bones belong to the axial skeleton. Both groups are parts of the skeleton, and the names are close. Check which group includes the limbs.
+      - text: 'The skull and the shoulder girdle'
+        rationale: |
+          This pairs the skull with the shoulder girdle. The shoulder girdle is appendicular, but the skull is axial, so the pair looks half right. Check where the skull belongs.
+      - text: 'The vertebral column and the hip girdle'
+        rationale: |
+          This pairs the vertebral column with the hip girdle. The hip girdle is appendicular, but the vertebral column is axial, so the pair looks half right. Check where the vertebral column belongs.
+    explanation: |
+      The appendicular skeleton is the limbs and the girdles that attach them to the body. The shoulder and hip girdles are included. The skull, vertebral column, and rib cage form the axial skeleton.
+    approved: false
+
+  - id: q-biology-human-body-control-movement-and-defense-0010
+    type: 'structure-function'
+    difficulty: 'medium'
+    stem: |
+      Which brain region has centers that control breathing and blood pressure?
+    choices:
+      - text: 'The brain stem'
+        correct: true
+      - text: 'The cerebrum'
+        rationale: |
+          This region handles thinking and voluntary movement. A runner moves on purpose, so it seems involved. Check whether breathing control is automatic.
+      - text: 'The cerebellum'
+        rationale: |
+          This region helps with coordination, timing, and balance. Running needs balance, so it seems involved. Check which region has the centers for breathing.
+      - text: 'The hypothalamus'
+        rationale: |
+          This region sits above the pituitary and controls it. It sounds like a control center, so it seems to fit. Check which region the lesson links to breathing and blood pressure.
+    explanation: |
+      The brain stem has the centers that control breathing and blood pressure. It works automatically. During exercise it can raise the breathing rate and the heart rate.
+    approved: false

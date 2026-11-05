@@ -108,3 +108,318 @@ questions:
     explanation: |
       Approach brings wavefronts more frequently, raising observed pitch. Recession spaces their arrival farther apart, lowering it.
     approved: true
+
+  - id: q-physics-waves-and-sound-0021
+    type: "cause-effect"
+    difficulty: "easy"
+    stem: |
+      Two equal waves overlap at a point. At that moment a crest of one wave meets a trough of the other. What is the result at that point?
+    choices:
+      - text: "The displacements add to zero, so the waves cancel"
+        correct: true
+      - text: "The displacements add to double the height, so the waves strengthen"
+        rationale: |
+          This describes constructive interference. Adding displacements is the right idea. Check that a crest meeting a trough gives opposite displacements.
+      - text: "The waves bounce off each other and neither one continues"
+        rationale: |
+          This treats waves like two colliding balls. Waves can pass through each other. Check that the overlap lasts only while the waves cross.
+      - text: "One wave is destroyed and the other passes on alone"
+        rationale: |
+          This treats the cancel as a loss of one wave. The two waves are equal, so neither one wins. Check that both waves keep going after they cross.
+    explanation: |
+      When waves overlap, their displacements add. A crest is up and a trough is down by the same amount. They add to zero at that point. Two equal waves that are exactly opposite cancel.
+    approved: false
+
+  - id: q-physics-waves-and-sound-0022
+    type: "cause-effect"
+    difficulty: "easy"
+    stem: |
+      Two matching speakers play the same tone in phase. A listener's path difference to the two speakers is exactly $2\lambda$. What does the listener hear?
+    choices:
+      - text: "Constructive interference, because the path difference is a whole number of wavelengths"
+        correct: true
+      - text: "Destructive interference, because the path difference is a whole number of wavelengths"
+        rationale: |
+          This has the correct reason but the wrong result. Cancelling needs a half wavelength. Check which path differences give cancelling.
+      - text: "Constructive interference, because the path difference is a half wavelength"
+        rationale: |
+          This has the correct result but the wrong reason. The path difference is given as $2\lambda$, not $\dfrac{\lambda}{2}$. Check the value in the question.
+      - text: "Destructive interference, because the path difference is a half wavelength"
+        rationale: |
+          This is the rule for cancelling, but it does not fit the given path difference. Check whether $2\lambda$ is a half wavelength.
+    explanation: |
+      A path difference of $0$, $\lambda$, $2\lambda$ and so on makes crest meet crest. The waves add and the sound is louder. So $2\lambda$ gives constructive interference.
+    approved: false
+
+  - id: q-physics-waves-and-sound-0023
+    type: "classify"
+    difficulty: "easy"
+    stem: |
+      A sound wave has a wavelength of 0.50 m. It reaches an opening in a wall. Which opening spreads the wave the most?
+    choices:
+      - text: "An opening 0.40 m wide"
+        correct: true
+      - text: "An opening 2.0 m wide"
+        rationale: |
+          A wider opening lets more of the wave through, so it seems to spread more. This opening is four wavelengths wide. Check that strong spreading needs an opening about one wavelength wide or narrower.
+      - text: "An opening 5.0 m wide"
+        rationale: |
+          This opening is ten wavelengths wide. A big opening seems to give a big pattern. Check that the wave goes mostly straight through it.
+      - text: "An opening 20 m wide"
+        rationale: |
+          This opening is forty wavelengths wide. The wave passes through with very little spreading. Check how the opening compares with the wavelength.
+    explanation: |
+      A wave spreads strongly when the opening is about as wide as its wavelength or narrower. The wavelength is $0.50$ m, and $0.40$ m is close to that. The wider openings let the wave go mostly straight.
+    approved: false
+
+  - id: q-physics-waves-and-sound-0024
+    type: "cause-effect"
+    difficulty: "medium"
+    stem: |
+      Two speakers in phase play a 686 Hz tone in air where sound travels at 343 m/s. A listener is 4.00 m from speaker A and 4.25 m from speaker B in open space. What does the listener hear?
+    choices:
+      - text: "A quiet sound, because the path difference is half a wavelength"
+        correct: true
+      - text: "A loud sound, because the path difference is half a wavelength"
+        rationale: |
+          This has the correct path difference but the wrong result. A half wavelength puts a crest against a trough. Check what happens when they meet.
+      - text: "A quiet sound, because the path difference is one wavelength"
+        rationale: |
+          This has the correct result but the wrong reason. The wavelength is $\dfrac{343}{686}=0.50$ m, so $0.25$ m is not one wavelength. Check the wavelength first.
+      - text: "A loud sound, because the path difference is one wavelength"
+        rationale: |
+          This finds the wavelength wrongly. The path difference is $0.25$ m and the wavelength is $0.50$ m. Check the ratio of the two.
+    explanation: |
+      First find the wavelength. $\lambda=\dfrac{v}{f}=\dfrac{343}{686}=0.50$ m. The path difference is $4.25-4.00=0.25$ m, which is $\dfrac{\lambda}{2}$. Crest meets trough, so the waves cancel and the sound is quiet.
+    approved: false
+
+  - id: q-physics-waves-and-sound-0025
+    type: "cause-effect"
+    difficulty: "medium"
+    stem: |
+      A person can hear a friend talking around a corner but cannot see the friend. What is the best explanation?
+    choices:
+      - text: "Sound waves are about as long as the opening, so they spread; light waves are far shorter, so they hardly spread"
+        correct: true
+      - text: "Sound waves are far shorter than the opening, so they spread; light waves are about as long, so they hardly spread"
+        rationale: |
+          This reverses the sizes. Spreading is strong when the wavelength is close to the opening. Check which wave is shorter, speech or visible light.
+      - text: "Sound travels faster than light, so it turns the corner first"
+        rationale: |
+          This compares speeds instead of wavelengths. Sound and light are both waves, so speed seems relevant. Check that light is much faster than sound.
+      - text: "Sound has a higher frequency than light, so it bends more at the corner"
+        rationale: |
+          This compares frequencies the wrong way. Higher frequency seems to mean more bending. Check that visible light has the higher frequency of the two.
+    explanation: |
+      A wave spreads strongly at an opening when its wavelength is about the same size as the opening. Speech wavelengths are close to a doorway's width. Light waves are less than a millionth of a meter, so light hardly bends.
+    approved: false
+
+  - id: q-physics-waves-and-sound-0026
+    type: "cause-effect"
+    difficulty: "medium"
+    stem: |
+      A listener walks away from a stationary speaker that plays a steady tone in still air. What does the listener hear?
+    choices:
+      - text: "A lower pitch, because the crests reach the listener less often"
+        correct: true
+      - text: "A lower pitch, because the wavelength in the air becomes longer"
+        rationale: |
+          This has the correct result but the wrong reason. The stationary speaker does not change the wavelength in the air. Check which object is moving.
+      - text: "A higher pitch, because the crests are packed closer together"
+        rationale: |
+          This is the case for a listener moving toward the speaker. Both are Doppler shifts. Check the direction of the walk.
+      - text: "The same pitch, because the speaker's frequency has not changed"
+        rationale: |
+          This says the pitch heard must match the pitch sent. The speaker does keep its frequency. Check how often the listener meets crests while moving away.
+    explanation: |
+      The speaker sets the spacing of the crests in the air. A listener moving away meets those crests less often. The frequency heard is lower.
+    approved: false
+
+  - id: q-physics-waves-and-sound-0027
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      A siren of 500 Hz moves at 30 m/s straight toward a stationary listener in still air. The speed of sound is 340 m/s. What frequency does the listener hear?
+    choices:
+      - text: "548 Hz"
+        correct: true
+      - text: "459 Hz"
+        rationale: |
+          This uses the formula for a receding source. Approach and recession use nearly the same formula. Check that an approaching source gives a higher frequency than 500 Hz.
+      - text: "530 Hz"
+        rationale: |
+          This adds the source speed to the frequency. Both numbers have different units, so they cannot be added. Check that the formula uses the ratio $\dfrac{v}{v-v_s}$.
+      - text: "470 Hz"
+        rationale: |
+          This subtracts the source speed from the frequency. It lowers the answer when the pitch should rise. Check the direction of the shift for an approaching source.
+    explanation: |
+      The source approaches, so use $f'=\dfrac{v}{v-v_s}f$. Then $f'=\dfrac{340}{340-30}(500)=\dfrac{340}{310}(500)\approx548$ Hz.
+    approved: false
+
+  - id: q-physics-waves-and-sound-0028
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      A train horn of 800 Hz moves at 25 m/s straight away from a stationary listener in still air. The speed of sound is 340 m/s. What frequency does the listener hear?
+    choices:
+      - text: "745 Hz"
+        correct: true
+      - text: "863 Hz"
+        rationale: |
+          This uses the formula for an approaching source. Approach and recession use similar formulas. Check that a receding source gives a lower frequency than 800 Hz.
+      - text: "775 Hz"
+        rationale: |
+          This subtracts the source speed from the frequency. It gives a lower answer, so it seems right. Check that the formula uses the ratio $\dfrac{v}{v+v_s}$.
+      - text: "800 Hz"
+        rationale: |
+          This keeps the horn's own frequency. The horn does send 800 Hz. Check that the listener meets the crests less often because the horn moves away.
+    explanation: |
+      The source recedes, so use $f'=\dfrac{v}{v+v_s}f$. Then $f'=\dfrac{340}{340+25}(800)=\dfrac{340}{365}(800)\approx745$ Hz.
+    approved: false
+
+  - id: q-physics-waves-and-sound-0029
+    type: "classify"
+    difficulty: "hard"
+    stem: |
+      A paramedic rides inside an ambulance whose siren sounds at 700 Hz. How does the pitch the paramedic hears compare with 700 Hz?
+    choices:
+      - text: "The same, since the paramedic and the siren do not move relative to each other"
+        correct: true
+      - text: "Higher, since the wavelength ahead of the ambulance is shorter"
+        rationale: |
+          This applies the pitch heard by a person on the road ahead. The paramedic is not on the road. Check who is moving relative to the siren.
+      - text: "Lower, since the wavelength behind the ambulance is longer"
+        rationale: |
+          This applies the pitch heard by a person on the road behind. The paramedic is not there. Check who is moving relative to the siren.
+      - text: "Higher, since the ambulance is moving forward"
+        rationale: |
+          This uses the motion of the ambulance alone. Motion matters only relative to the listener. Check whether the paramedic moves toward or away from the siren.
+    explanation: |
+      The Doppler effect depends on the motion between the source and the listener. The paramedic rides with the siren, so they do not move relative to each other. The paramedic hears the siren's own pitch.
+    approved: false
+
+  - id: q-physics-waves-and-sound-0030
+    type: "classify"
+    difficulty: "hard"
+    stem: |
+      Which situation fits the formula $f'=\dfrac{v}{v-v_s}\,f$?
+    choices:
+      - text: "The listener is at rest in the air, and the source moves straight toward the listener slower than sound"
+        correct: true
+      - text: "The source is at rest in the air, and the listener moves straight toward the source"
+        rationale: |
+          This gives the other Doppler case. A moving listener also hears a higher pitch. Check which object the speed $v_s$ belongs to.
+      - text: "The listener is at rest in the air, and the source moves straight toward the listener faster than sound"
+        rationale: |
+          The formula needs $v_s<v$. If $v_s>v$, the denominator would be negative. Check the speed condition in the lesson.
+      - text: "The listener and the source both move in the same direction at the same speed"
+        rationale: |
+          This has no motion between them, so the pitch does not change. Both are moving, so it seems to count. Check the motion between the source and the listener.
+    explanation: |
+      The formula is for a source that moves straight toward a listener at rest in the air. The source must be slower than sound, so $v_s<v$. Then $v-v_s$ stays positive.
+    approved: false
+
+  - id: q-physics-waves-and-sound-0031
+    type: "simple-quantitative"
+    difficulty: "hard"
+    stem: |
+      A source of 400 Hz moves at 20 m/s straight toward a stationary listener in still air. The speed of sound is 340 m/s. What is the wavelength of the sound in front of the source?
+    choices:
+      - text: "0.80 m"
+        correct: true
+      - text: "0.85 m"
+        rationale: |
+          This is the wavelength of the sound from a source at rest, $\dfrac{340}{400}$. The source frequency is right. Check that the motion of the source shortens the wavelength in front of it.
+      - text: "0.90 m"
+        rationale: |
+          This uses $v+v_s$, which gives the longer wavelength behind the source. Check which side of the source the listener is on.
+      - text: "0.05 m"
+        rationale: |
+          This divides the source speed by the frequency. That is the distance the source moves in one period. Check that the wavelength in front is $v$ minus this distance, divided by $f$.
+    explanation: |
+      In one period the source moves toward the listener. The wavelength in front is $\lambda'=\dfrac{v-v_s}{f}=\dfrac{340-20}{400}=0.80$ m.
+    approved: false
+
+  - id: q-physics-waves-and-sound-0032
+    type: "classify"
+    difficulty: "hard"
+    stem: |
+      Which observation about light is evidence that light behaves as a wave?
+    choices:
+      - text: "Light shows interference and diffraction"
+        correct: true
+      - text: "Light travels in straight lines in air"
+        rationale: |
+          This is easy to see in daily life. Straight-line travel is also how rays are drawn. Check whether the observation needs waves to explain it.
+      - text: "Light reflects from a smooth surface"
+        rationale: |
+          Reflection happens to waves, so it seems to count. Many other things reflect, such as a ball. Check whether the observation is special to waves.
+      - text: "Light moves faster than sound in air"
+        rationale: |
+          This compares two speeds. A fast speed is not specific to waves. Check whether the observation shows adding or spreading.
+    explanation: |
+      Only waves add and cancel when they overlap, and only waves spread at edges and openings. Light shows both interference and diffraction. That is evidence that light behaves as a wave.
+    approved: false
+
+  - id: q-physics-waves-and-sound-0033
+    type: "simple-quantitative"
+    difficulty: "hard"
+    stem: |
+      Sound has a frequency of 170 Hz in air, where its speed is 340 m/s. The sound meets four openings in a wall. Which opening gives the strongest spreading?
+    choices:
+      - text: "An opening 2.0 m wide"
+        correct: true
+      - text: "An opening 6.0 m wide"
+        rationale: |
+          This opening is three wavelengths wide. A bigger opening seems to give a bigger pattern. Check that strong spreading needs an opening about one wavelength wide or narrower.
+      - text: "An opening 10 m wide"
+        rationale: |
+          This opening is five wavelengths wide. It lets the wave go mostly straight. Check the wavelength first, using $\lambda=\dfrac{v}{f}$.
+      - text: "An opening 20 m wide"
+        rationale: |
+          This opening is ten wavelengths wide. The wave passes with very little spreading. Check how the opening compares with the wavelength.
+    explanation: |
+      First find the wavelength. $\lambda=\dfrac{v}{f}=\dfrac{340}{170}=2.0$ m. A wave spreads most when the opening is about as wide as the wavelength. The $2.0$ m opening matches it.
+    approved: false
+
+  - id: q-physics-waves-and-sound-0034
+    type: "simple-quantitative"
+    difficulty: "exam"
+    stem: |
+      Two speakers in phase play a 170 Hz tone in open air where sound travels at 340 m/s. A listener is 10.0 m from speaker A. At which distance from speaker B does the listener hear a quiet sound?
+    choices:
+      - text: "11.0 m"
+        correct: true
+      - text: "12.0 m"
+        rationale: |
+          The path difference is $2.0$ m, which is one wavelength. A whole wavelength gives a loud sound. Check the wavelength, $\lambda=2.0$ m, first.
+      - text: "10.5 m"
+        rationale: |
+          The path difference is $0.5$ m, which is a quarter of a wavelength. A small difference seems enough to cancel. Check that cancelling needs a half wavelength.
+      - text: "14.0 m"
+        rationale: |
+          The path difference is $4.0$ m, which is two wavelengths. A larger difference seems to give a bigger effect. Check that whole wavelengths give a loud sound.
+    explanation: |
+      First find the wavelength. $\lambda=\dfrac{340}{170}=2.0$ m. A quiet sound needs a path difference of $\dfrac{\lambda}{2}=1.0$ m. So speaker B must be $10.0+1.0=11.0$ m away.
+    approved: false
+
+  - id: q-physics-waves-and-sound-0035
+    type: "simple-quantitative"
+    difficulty: "exam"
+    stem: |
+      A siren of 600 Hz moves at 34 m/s in still air where sound travels at 340 m/s. A stationary listener hears it first as it approaches and then as it recedes. Which pair of changes from 600 Hz is correct?
+    choices:
+      - text: "A rise of about 67 Hz, then a fall of about 55 Hz"
+        correct: true
+      - text: "A rise of about 55 Hz, then a fall of about 67 Hz"
+        rationale: |
+          This swaps the two shifts. The approach and the recession look like mirror images. Check which formula has the smaller denominator.
+      - text: "A rise of about 60 Hz, then a fall of about 60 Hz"
+        rationale: |
+          This assumes equal and opposite shifts. The same speed seems to give the same change. Check that the two formulas use different denominators.
+      - text: "A rise of about 34 Hz, then a fall of about 34 Hz"
+        rationale: |
+          This uses the source speed as the change in frequency. The numbers have different units. Check the approach and recession formulas.
+    explanation: |
+      On approach, $f'=\dfrac{340}{340-34}(600)=\dfrac{340}{306}(600)\approx667$ Hz, a rise of about $67$ Hz. On recession, $f'=\dfrac{340}{340+34}(600)=\dfrac{340}{374}(600)\approx545$ Hz, a fall of about $55$ Hz.
+    approved: false

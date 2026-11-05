@@ -297,3 +297,129 @@ questions:
     explanation: |
       Photosynthesis uses 6 carbon dioxide molecules to make one glucose molecule. Complete aerobic respiration of that glucose releases 6 carbon dioxide molecules. The net change is $6 - 6 = 0$ molecules.
     approved: false
+
+  - id: q-biology-cellular-respiration-and-fermentation-0001
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      One glucose molecule goes through glycolysis. Which result is correct?
+    choices:
+      - text: "Two pyruvate molecules and a net gain of $2$ ATP"
+        correct: true
+      - text: "One pyruvate molecule and a net gain of $2$ ATP"
+        rationale: |
+          The ATP gain is right. Glucose is one molecule, so one product seems natural. Check that the six-carbon glucose splits into two three-carbon pyruvates.
+      - text: "Two pyruvate molecules and a net gain of $30$ ATP"
+        rationale: |
+          The product is right. Aerobic respiration gives about 30 to 32 ATP in total, so this seems to fit. Check how much ATP glycolysis alone gives.
+      - text: "Six carbon dioxide molecules and a net gain of $2$ ATP"
+        rationale: |
+          The ATP gain is right. Six carbon dioxide molecules are released in aerobic respiration, so this seems to fit. Check whether glycolysis releases any carbon.
+    explanation: |
+      Glycolysis happens in the cytosol. It splits one six-carbon glucose into two three-carbon pyruvate molecules. It gives a net gain of $2$ ATP and needs no oxygen.
+    approved: false
+
+  - id: q-biology-cellular-respiration-and-fermentation-0002
+    type: "identify"
+    difficulty: "easy"
+    stem: |
+      Yeast cells are sealed in a flask of sugar solution with no oxygen, and bubbles form. Which products does this process form?
+    choices:
+      - text: "Ethanol and carbon dioxide"
+        correct: true
+      - text: "Oxygen and water"
+        rationale: |
+          Bubbles seem to mean a gas that cells give off, such as oxygen. Oxygen is used up in aerobic respiration. Check which gas forms in alcohol fermentation.
+      - text: "Lactate and carbon dioxide"
+        rationale: |
+          Lactate comes from lactic acid fermentation, which makes no carbon dioxide. The gas seems to fit the bubbles. Check which products yeast forms.
+      - text: "Ethanol and oxygen"
+        rationale: |
+          Ethanol is right. Oxygen seems to fit bubbles from living cells. Oxygen is used in aerobic respiration, not formed in fermentation. Check which gas forms in alcohol fermentation.
+    explanation: |
+      Without oxygen, yeast carries out alcohol fermentation. It turns pyruvate into ethanol and carbon dioxide. The bubbles are carbon dioxide.
+    approved: false
+
+  - id: q-biology-cellular-respiration-and-fermentation-0003
+    type: "predict-outcome"
+    difficulty: "medium"
+    stem: |
+      A muscle cell working hard runs short of oxygen. The cell keeps making ATP by fermentation. Which result is expected?
+    choices:
+      - text: "It forms lactate, and no carbon dioxide is released."
+        correct: true
+      - text: "It forms ethanol and carbon dioxide."
+        rationale: |
+          Yeast does this, and it is a common example of fermentation. Muscle cells use another kind. Check which kind of fermentation animal muscle uses.
+      - text: "It forms water and carbon dioxide."
+        rationale: |
+          These are the products of aerobic respiration. Respiration is the usual way to make ATP. Check whether this pathway needs oxygen.
+      - text: "It forms lactate and carbon dioxide."
+        rationale: |
+          Lactate is right. Carbon dioxide seems to come with every fermentation. Check whether lactic acid fermentation releases any carbon dioxide.
+    explanation: |
+      In a muscle cell short of oxygen, glycolysis continues and fermentation turns pyruvate into lactate. This restores NAD+ so glycolysis can go on. No carbon dioxide is released.
+    approved: false
+
+  - id: q-biology-cellular-respiration-and-fermentation-0004
+    type: "structure-function"
+    difficulty: "hard"
+    stem: |
+      In a eukaryotic cell, which part uses the flow of hydrogen ions to make most of the ATP from a glucose molecule?
+    choices:
+      - text: "ATP synthase in the inner mitochondrial membrane"
+        correct: true
+      - text: "The citric acid cycle in the matrix"
+        rationale: |
+          This stage makes a little ATP and fills the electron carriers. It seems to be the main stage because it comes before the chain. Check which stage uses the hydrogen ion flow.
+      - text: "Glycolysis in the cytosol"
+        rationale: |
+          This stage makes ATP without oxygen. It comes first, so it seems important. Check how much ATP glycolysis makes compared with the later stages.
+      - text: "Pyruvate oxidation in the matrix"
+        rationale: |
+          This stage forms acetyl CoA and more NADH. It is linked to the mitochondrion, so it seems to fit. Check which part uses the hydrogen ion flow to make ATP.
+    explanation: |
+      The electron transport chain pumps hydrogen ions across the inner mitochondrial membrane. The ions flow back through ATP synthase. This makes most of the ATP.
+    approved: false
+
+  - id: q-biology-cellular-respiration-and-fermentation-0005
+    type: "classify"
+    difficulty: "hard"
+    stem: |
+      In the aerobic respiration of one glucose molecule, at which stages is carbon dioxide released?
+    choices:
+      - text: "Pyruvate oxidation and the citric acid cycle"
+        correct: true
+      - text: "Glycolysis and pyruvate oxidation"
+        rationale: |
+          Glycolysis comes first and splits the carbon chain, so it seems to release carbon. No carbon dioxide leaves in it. Check which stage splits glucose without losing carbon.
+      - text: "The citric acid cycle and oxidative phosphorylation"
+        rationale: |
+          The citric acid cycle is right. Oxidative phosphorylation uses oxygen and forms water, not carbon dioxide. Check what happens at the end of the chain.
+      - text: "Glycolysis and oxidative phosphorylation"
+        rationale: |
+          These are the first and last stages, so they seem to cover the whole path. Neither releases carbon dioxide. Check which stages break down pyruvate and acetyl CoA.
+    explanation: |
+      Glycolysis only splits glucose into two pyruvates. Pyruvate oxidation removes one carbon from each pyruvate as carbon dioxide. The citric acid cycle releases the remaining carbon, for six carbon dioxide molecules in all.
+    approved: false
+
+  - id: q-biology-cellular-respiration-and-fermentation-0006
+    type: "compare-contrast"
+    difficulty: "hard"
+    stem: |
+      Which feature separates anaerobic respiration from fermentation?
+    choices:
+      - text: "Anaerobic respiration has an electron transport chain, and fermentation does not."
+        correct: true
+      - text: "Fermentation needs oxygen as its final electron acceptor, and anaerobic respiration does not."
+        rationale: |
+          Both pathways make ATP without oxygen. This puts oxygen into fermentation. Check whether either pathway uses oxygen as its final acceptor.
+      - text: "Fermentation makes more ATP per glucose than anaerobic respiration."
+        rationale: |
+          Fermentation seems efficient because it keeps glycolysis running. It gives a net of 2 ATP. Check which pathway has a chain and so usually makes more.
+      - text: "Anaerobic respiration makes carbon dioxide, and fermentation makes lactate."
+        rationale: |
+          Some fermentation forms carbon dioxide, as in yeast. The products do not separate the two pathways. Check which feature all anaerobic respiration shares.
+    explanation: |
+      Anaerobic respiration has an electron transport chain, like aerobic respiration, but its final electron acceptor is not oxygen. Fermentation has no chain. Glycolysis alone makes its ATP.
+    approved: false

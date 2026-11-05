@@ -108,3 +108,318 @@ questions:
     explanation: |
       The concave mirror brings near-axis parallel reflected rays to a focus. The ordinary concave glass lens in air spreads transmitted rays apart.
     approved: true
+
+  - id: q-physics-light-and-optics-0021
+    type: "simple-quantitative"
+    difficulty: "easy"
+    stem: |
+      A concave mirror has a radius of curvature of 24 cm. What is its focal length for rays close to the principal axis?
+    choices:
+      - text: "12 cm"
+        correct: true
+      - text: "24 cm"
+        rationale: |
+          This sets the focal length equal to the radius. Both are distances from the mirror along the axis. Check the rule $f=\dfrac{R}{2}$.
+      - text: "48 cm"
+        rationale: |
+          This doubles the radius instead of halving it. The center of curvature is the farther point, so a larger number feels right. Check that the focal point lies between the mirror and the center of curvature.
+      - text: "6 cm"
+        rationale: |
+          This halves the radius twice. One factor of one half is correct, so repeating it feels safe. Check that you apply the half only once.
+    explanation: |
+      The focal point is halfway between the mirror and the center of curvature. So the focal length is half the radius. Half of $24$ cm is $12$ cm.
+    approved: false
+
+  - id: q-physics-light-and-optics-0022
+    type: "classify"
+    difficulty: "easy"
+    stem: |
+      Which statement correctly describes a real image formed by a mirror or a lens?
+    choices:
+      - text: "Light rays meet at the image, so a screen can show it"
+        correct: true
+      - text: "Light rays only seem to come from the image, so a screen can show it"
+        rationale: |
+          This gives the cause of a virtual image but the screen result of a real one. Each half sounds familiar. Check that a screen needs real light at the image position.
+      - text: "Light rays meet at the image, so a screen cannot show it"
+        rationale: |
+          This has the cause right but the screen result wrong. If light truly arrives at a spot, it can light up a screen there. Check what a screen needs to show an image.
+      - text: "Light rays only seem to come from the image, so a screen cannot show it"
+        rationale: |
+          This describes a virtual image. A virtual image is common, for example in a plane mirror. Check whether the question asks for a real or a virtual image.
+    explanation: |
+      A real image forms where light rays really meet. The light is truly at that spot. A screen placed there can show the image.
+    approved: false
+
+  - id: q-physics-light-and-optics-0023
+    type: "structure-function"
+    difficulty: "easy"
+    stem: |
+      A student uses a convex lens with a focal length of 8 cm as a magnifying glass. Where must the object be placed to see a larger, upright image?
+    choices:
+      - text: "Closer than 8 cm to the lens"
+        correct: true
+      - text: "Exactly 8 cm from the lens"
+        rationale: |
+          At the focal point, the rays leave the lens parallel and no image forms. The focal point feels like the best spot. Check what happens to the image when $d_o=f$.
+      - text: "Between 8 cm and 16 cm from the lens"
+        rationale: |
+          This is the projector position. It gives a larger image, so it looks like magnifying. Check that this image is real and inverted, not upright.
+      - text: "Farther than 16 cm from the lens"
+        rationale: |
+          This is the camera position. A lens is used there for pictures. Check that this image is real, inverted and smaller.
+    explanation: |
+      A magnifying glass is a convex lens with the object inside the focal length. The lens then makes a virtual, upright, larger image. Here that means closer than $8$ cm.
+    approved: false
+
+  - id: q-physics-light-and-optics-0024
+    type: "identify"
+    difficulty: "easy"
+    stem: |
+      A camera uses a convex lens to photograph a faraway tree. What kind of image does the lens form on the sensor?
+    choices:
+      - text: "Real, inverted, and smaller than the tree"
+        correct: true
+      - text: "Real, upright, and smaller than the tree"
+        rationale: |
+          This gets the size and the real image right but misses the flip. Photos look upright, so it seems natural. Check that the camera turns the sensor image right way up afterward.
+      - text: "Virtual, upright, and smaller than the tree"
+        rationale: |
+          This treats the lens as a diverging device. A virtual image cannot land on a sensor. Check that the sensor needs real light at its surface.
+      - text: "Real, inverted, and larger than the tree"
+        rationale: |
+          This is the projector image. It has the right type but the wrong size. Check that a faraway object lies beyond $2f$, which gives a smaller image.
+    explanation: |
+      A faraway object is beyond twice the focal length of the lens. A convex lens then makes a real, inverted, smaller image. The sensor catches that real image.
+    approved: false
+
+  - id: q-physics-light-and-optics-0025
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      A concave mirror has a focal length of 12 cm. An object is placed 36 cm in front of it. How far from the mirror is the image?
+    choices:
+      - text: "18 cm"
+        correct: true
+      - text: "9 cm"
+        rationale: |
+          This adds $\dfrac{1}{12}$ and $\dfrac{1}{36}$ instead of subtracting. Adding the two reciprocals looks like a normal step. Check the equation $\dfrac{1}{d_i}=\dfrac{1}{f}-\dfrac{1}{d_o}$.
+      - text: "24 cm"
+        rationale: |
+          This subtracts $f$ from $d_o$. Subtracting distances is simpler than using reciprocals. Check that the mirror equation uses $\dfrac{1}{d}$ values.
+      - text: "48 cm"
+        rationale: |
+          This adds $d_o$ and $f$. The answer is bigger, and an object beyond $2f$ seems to need a far image. Check that this object gives an image between $f$ and $2f$.
+    explanation: |
+      Use the mirror equation. $\dfrac{1}{d_i}=\dfrac{1}{12}-\dfrac{1}{36}=\dfrac{3}{36}-\dfrac{1}{36}=\dfrac{2}{36}$. So $d_i=18$ cm.
+    approved: false
+
+  - id: q-physics-light-and-optics-0026
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      A convex lens forms a real image 40 cm from the lens of an object placed 10 cm from the lens. What is the magnification $m$?
+    choices:
+      - text: "-4"
+        correct: true
+      - text: "+4"
+        rationale: |
+          This keeps the size but drops the sign. The image is larger, so a positive number seems right. Check that a real image from a lens is inverted, which needs a negative $m$.
+      - text: "-0.25"
+        rationale: |
+          This divides $d_o$ by $d_i$ instead of $d_i$ by $d_o$. Both distances appear, so the order is easy to swap. Check that an image farther from the lens than the object is larger.
+      - text: "+0.25"
+        rationale: |
+          This swaps the distances and drops the sign. Each slip alone looks small. Check both the size and the sign of the answer.
+    explanation: |
+      Use $m=-\dfrac{d_i}{d_o}=-\dfrac{40}{10}=-4$. The image is four times as big as the object. The minus sign means it is upside down.
+    approved: false
+
+  - id: q-physics-light-and-optics-0027
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      A convex mirror has a focal length of magnitude 15 cm. A real object stands 30 cm in front of it. Where is the image?
+    choices:
+      - text: "10 cm behind the mirror"
+        correct: true
+      - text: "30 cm in front of the mirror"
+        rationale: |
+          This uses $f=+15$ cm for a convex mirror. A focal length looks like a positive distance. Check that a diverging mirror has a negative $f$.
+      - text: "10 cm in front of the mirror"
+        rationale: |
+          This gets the size right but ignores the minus sign of $d_i$. The number looks the same either way. Check that a negative $d_i$ means the image is behind the mirror.
+      - text: "30 cm behind the mirror"
+        rationale: |
+          This treats the mirror like a flat one, where the image is as far behind as the object is in front. A convex mirror is not flat. Check the mirror equation.
+    explanation: |
+      A convex mirror has $f=-15$ cm. Then $\dfrac{1}{d_i}=-\dfrac{1}{15}-\dfrac{1}{30}=-\dfrac{3}{30}$. So $d_i=-10$ cm. The minus sign means the image is virtual and $10$ cm behind the mirror.
+    approved: false
+
+  - id: q-physics-light-and-optics-0028
+    type: "predict-outcome"
+    difficulty: "medium"
+    stem: |
+      A concave glass lens in air has a focal length of magnitude 20 cm. A real object is 20 cm from the lens. Which description fits the image?
+    choices:
+      - text: "Virtual, upright, and half the size of the object"
+        correct: true
+      - text: "Real, inverted, and half the size of the object"
+        rationale: |
+          This has the right size but the wrong type. A concave lens in air spreads light, so it cannot make a real image of a real object. Check that $d_i$ comes out negative.
+      - text: "Virtual, upright, and twice the size of the object"
+        rationale: |
+          This borrows the magnifying glass result. The type and direction are right. Check that a diverging lens makes a smaller image.
+      - text: "Virtual, inverted, and half the size of the object"
+        rationale: |
+          This mixes a virtual image with an inverted one. The smaller size is right. Check that a positive $m$ means upright.
+    explanation: |
+      A concave glass lens in air has $f=-20$ cm. Then $\dfrac{1}{d_i}=-\dfrac{1}{20}-\dfrac{1}{20}=-\dfrac{1}{10}$, so $d_i=-10$ cm. The magnification is $m=-\dfrac{-10}{20}=+0.5$. The image is virtual, upright and half the size.
+    approved: false
+
+  - id: q-physics-light-and-optics-0029
+    type: "structure-function"
+    difficulty: "medium"
+    stem: |
+      In a compound microscope, what does the objective lens do?
+    choices:
+      - text: "It makes an enlarged real image that the eyepiece then magnifies"
+        correct: true
+      - text: "It makes a reduced real image that the eyepiece then magnifies"
+        rationale: |
+          This copies a camera, which makes smaller real images. Both use convex lenses. Check that a microscope must enlarge a tiny object in its first step.
+      - text: "It views an image made by the eyepiece, as a magnifying glass does"
+        rationale: |
+          This swaps the two lenses. The eyepiece is the one used like a magnifying glass. Check which lens is nearest the eye.
+      - text: "It spreads the light with a concave lens before the eyepiece magnifies it"
+        rationale: |
+          This borrows the eyepiece of Galileo's telescope. A concave lens appears in that design. Check that a compound microscope has two convex lenses.
+    explanation: |
+      A compound microscope has two convex lenses. The objective makes an enlarged real image of a tiny object. The eyepiece works like a magnifying glass on that image.
+    approved: false
+
+  - id: q-physics-light-and-optics-0030
+    type: "cause-effect"
+    difficulty: "medium"
+    stem: |
+      In hyperopia, or farsightedness, near objects would focus behind the retina. Which correction helps, and why?
+    choices:
+      - text: "A convex lens, because it brings the focus forward"
+        correct: true
+      - text: "A convex lens, because it moves the focus back"
+        rationale: |
+          The lens type is right but the reason is wrong. Both reasons sound like fixing a focus problem. Check that the focus is already too far back, so it must move forward.
+      - text: "A concave lens, because it brings the focus forward"
+        rationale: |
+          The reason is right but the lens is wrong. A concave lens spreads light, which moves the focus farther back. Check which lens converges light.
+      - text: "A concave lens, because it moves the focus back"
+        rationale: |
+          This is the fix for myopia. Myopia and hyperopia are both focus problems. Check whether the focus is in front of or behind the retina.
+    explanation: |
+      In hyperopia the focus falls behind the retina. A converging lens, which is convex, bends the light more. That brings the focus forward onto the retina.
+    approved: false
+
+  - id: q-physics-light-and-optics-0031
+    type: "structure-function"
+    difficulty: "medium"
+    stem: |
+      A concave mirror forms an image of a candle. A ray from the candle travels toward the center of curvature $C$ and strikes the mirror. What does this ray do?
+    choices:
+      - text: "It reflects straight back along its own path"
+        correct: true
+      - text: "It reflects parallel to the principal axis"
+        rationale: |
+          This is the rule for a ray that passes through the focal point. Both rays are drawn in diagrams. Check which point the ray is aimed at.
+      - text: "It reflects through the focal point F"
+        rationale: |
+          This is the rule for a ray that arrives parallel to the axis. Both rays involve $F$. Check whether the ray arrives parallel.
+      - text: "It continues straight without bending"
+        rationale: |
+          This is the rule for a ray through the center of a thin lens. A mirror reflects light, so the ray cannot go on through it. Check which device the question describes.
+    explanation: |
+      A ray aimed at the center of curvature meets the mirror along the radius of the sphere. It hits the surface straight on. So it reflects straight back along the same path.
+    approved: false
+
+  - id: q-physics-light-and-optics-0032
+    type: "cause-effect"
+    difficulty: "hard"
+    stem: |
+      An air bubble shaped like a convex lens sits inside water. How does it act on near-axis parallel rays that enter it?
+    choices:
+      - text: "It spreads them out because air has a lower n than water"
+        correct: true
+      - text: "It brings them together because its shape is convex"
+        rationale: |
+          This uses the shape rule alone. A convex shape converges light for glass in air. Check how the $n$ of the bubble compares with the $n$ of the water.
+      - text: "It brings them together because air has a lower n than water"
+        rationale: |
+          This gets the $n$ comparison right but the result wrong. A lower $n$ than the surroundings reverses the usual action. Check which way light bends at each face.
+      - text: "It leaves them unchanged because the bubble holds no glass"
+        rationale: |
+          This says a lens needs glass. A lens needs a difference in $n$ and a curved surface. Check that air and water have different values of $n$.
+    explanation: |
+      A lens bends light because of its shape and because its $n$ differs from the surroundings. The usual rule needs the lens to have a larger $n$. Air has a smaller $n$ than water, so this convex bubble diverges the rays.
+    approved: false
+
+  - id: q-physics-light-and-optics-0033
+    type: "predict-outcome"
+    difficulty: "hard"
+    stem: |
+      An object is placed exactly at the focal point of a concave mirror. Which statement about the image is correct?
+    choices:
+      - text: "No image forms, because the reflected rays are parallel"
+        correct: true
+      - text: "A real, same-size image forms at the center of curvature"
+        rationale: |
+          This uses the result for an object at the center of curvature. Both points lie on the axis. Check that the object is at $f$, not at $2f$.
+      - text: "A virtual, upright, larger image forms behind the mirror"
+        rationale: |
+          This is the result for an object inside $f$. The object is close to that case. Check that the object is at $f$ and not nearer.
+      - text: "A real, inverted, smaller image forms between F and C"
+        rationale: |
+          This is the result for an object beyond $2f$. Moving the object nearer should change the image a little. Check the equation as $d_o$ approaches $f$.
+    explanation: |
+      When $d_o=f$, the reflected rays leave the mirror parallel to one another. They never meet and do not seem to come from a point. So no image forms.
+    approved: false
+
+  - id: q-physics-light-and-optics-0034
+    type: "simple-quantitative"
+    difficulty: "hard"
+    stem: |
+      A convex lens in air has a focal length of 15 cm. It forms a real image the same size as the object. How far is the object from the lens?
+    choices:
+      - text: "30 cm"
+        correct: true
+      - text: "15 cm"
+        rationale: |
+          At the focal point, no image forms. The focal length is the only distance in the problem, so it is tempting. Check that a real image needs $d_o$ greater than $f$.
+      - text: "45 cm"
+        rationale: |
+          This adds $f$ to $2f$. Adding feels like moving beyond the focal point. Check by trying $d_o=d_i=45$ cm in the lens equation, which gives $f=22.5$ cm.
+      - text: "7.5 cm"
+        rationale: |
+          This halves the focal length. An object nearer the lens seems to give a bigger image. Check that an object inside $f$ gives a virtual image, not a real one.
+    explanation: |
+      The same size means $|m|=1$, so $d_i=d_o$. Then $\dfrac{1}{15}=\dfrac{1}{d_o}+\dfrac{1}{d_o}=\dfrac{2}{d_o}$. So $d_o=30$ cm, which is $2f$.
+    approved: false
+
+  - id: q-physics-light-and-optics-0035
+    type: "simple-quantitative"
+    difficulty: "exam"
+    stem: |
+      A concave mirror has a focal length of 10 cm. An object 6.0 cm tall stands 15 cm in front of it. What is the height and orientation of the image?
+    choices:
+      - text: "12 cm tall, inverted"
+        correct: true
+      - text: "12 cm tall, upright"
+        rationale: |
+          This gets the size right but misses the sign. Larger images from a mirror seem upright, like in a shaving mirror. Check that an object beyond $f$ gives $d_i>0$ and $m<0$.
+      - text: "3.0 cm tall, inverted"
+        rationale: |
+          This halves the height. The image is real and inverted, which fits a smaller image from far objects. Check that an object between $f$ and $2f$ gives a larger image.
+      - text: "4.0 cm tall, inverted"
+        rationale: |
+          This uses $\dfrac{f}{d_o}$ as the magnification. The focal length and the object distance both appear. Check that $m=-\dfrac{d_i}{d_o}$ needs the image distance.
+    explanation: |
+      First find the image distance. $\dfrac{1}{d_i}=\dfrac{1}{10}-\dfrac{1}{15}=\dfrac{1}{30}$, so $d_i=30$ cm. Then $m=-\dfrac{30}{15}=-2$. The image is $2\times6.0=12$ cm tall. The minus sign means it is inverted.
+    approved: false

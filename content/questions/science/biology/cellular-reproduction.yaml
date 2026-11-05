@@ -196,3 +196,234 @@ questions:
     explanation: |
       DNA replication occurs during S phase. Each chromosome is copied before the cell begins nuclear division.
     approved: false
+
+  - id: q-biology-cellular-reproduction-0021
+    type: "classify"
+    difficulty: "easy"
+    stem: |
+      Which statement correctly describes sister chromatids?
+    choices:
+      - text: "They are the two identical copies of one chromosome, joined at the centromere."
+        correct: true
+      - text: "They are the two chromosomes of a pair, one from each parent."
+        rationale: |
+          This describes homologs. Both words name pairs of chromosome parts, so they are easy to mix. Check whether the pair is one chromosome copied or two chromosomes from two parents.
+      - text: "They are two different chromosomes held together by spindle fibers."
+        rationale: |
+          The spindle does attach to chromosomes, so this seems to fit. Sister chromatids are joined by the centromere. Check what holds the two copies together.
+      - text: "They are the two daughter cells formed after cytokinesis."
+        rationale: |
+          Sisters seem to mean two cells that came from one. Chromatids are parts of a chromosome. Check whether the term names cells or copies of DNA.
+    explanation: |
+      Before a cell divides, it copies each chromosome. The two identical copies stay joined at the centromere. Each copy is a sister chromatid.
+    approved: false
+
+  - id: q-biology-cellular-reproduction-0022
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      A human skin cell in $G_1$ has $46$ chromosomes. How many chromatids does it have at metaphase of mitosis?
+    choices:
+      - text: "$92$"
+        correct: true
+      - text: "$46$"
+        rationale: |
+          This counts chromosomes and forgets the copying in S phase. The chromosome number does stay at 46, so it seems right. Check how many chromatids each copied chromosome has.
+      - text: "$23$"
+        rationale: |
+          This halves the number, as in a gamete. The cell is not haploid. Check whether mitosis reduces the chromosome number.
+      - text: "$184$"
+        rationale: |
+          This doubles the number twice. Copying happens once in S phase. Check that each chromosome has two chromatids, not four.
+    explanation: |
+      In S phase, each of the $46$ chromosomes is copied. Each chromosome then has two chromatids. At metaphase, the cell has $46 \times 2 = 92$ chromatids.
+    approved: false
+
+  - id: q-biology-cellular-reproduction-0023
+    type: "simple-quantitative"
+    difficulty: "hard"
+    stem: |
+      A human cell with $46$ chromosomes divides by mitosis. In anaphase and telophase, before cytokinesis, how many chromosomes does the whole cell hold?
+    choices:
+      - text: "$92$ chromosomes"
+        correct: true
+      - text: "$46$ chromosomes"
+        rationale: |
+          This is the count before the chromatids separate. The cell began with 46, so it seems to stay the same. Check when each chromatid starts to count as a chromosome.
+      - text: "$46$ chromosomes with $92$ chromatids"
+        rationale: |
+          This describes the cell from S phase to metaphase. The numbers are familiar, so they seem right. Check whether the chromatids have separated.
+      - text: "$23$ chromosomes"
+        rationale: |
+          This is the count in a gamete. The cell has not yet divided and is not haploid. Check whether mitosis reduces the chromosome number.
+    explanation: |
+      In anaphase the sister chromatids separate. Each chromatid is then counted as its own chromosome. So the whole cell briefly holds $46 \times 2 = 92$ chromosomes, until cytokinesis shares them between two cells.
+    approved: false
+
+  - id: q-biology-cellular-reproduction-0024
+    type: "identify"
+    difficulty: "easy"
+    stem: |
+      What does a haploid cell contain?
+    choices:
+      - text: "One chromosome of each kind, one from every homologous pair"
+        correct: true
+      - text: "A random half of the chromosomes, with some kinds missing"
+        rationale: |
+          A half seems to mean any half. A haploid cell has one of every kind. Check whether each kind of chromosome is present.
+      - text: "Two chromosomes of each kind, one from each parent"
+        rationale: |
+          This describes a diploid cell. Both words describe sets of chromosomes, so they are easy to mix. Check how many of each kind the cell holds.
+      - text: "Half of every chromosome, cut along its length"
+        rationale: |
+          This pictures halving each chromosome. Chromosomes are not cut lengthwise into haploid halves. Check that the cell holds whole chromosomes.
+    explanation: |
+      A haploid cell has $n$ chromosomes. It holds exactly one chromosome of each kind, so one from every homologous pair. In humans, $n = 23$.
+    approved: false
+
+  - id: q-biology-cellular-reproduction-0025
+    type: "predict-outcome"
+    difficulty: "medium"
+    stem: |
+      A haploid cell divides by mitosis and cytokinesis without errors. What is the result?
+    choices:
+      - text: "Two haploid cells with the same chromosome number"
+        correct: true
+      - text: "Two diploid cells"
+        rationale: |
+          This doubles the chromosome number. Copying in S phase makes twice the DNA, so a double set seems right. Check how the copies are shared between the daughter cells.
+      - text: "Four haploid cells"
+        rationale: |
+          This applies the meiotic outcome to mitosis. Both processes start after DNA copying. Check how many nuclear divisions mitosis has.
+      - text: "Two cells with half the chromosome number"
+        rationale: |
+          This halves the chromosome number in mitosis. Halving is the point of meiosis. Check whether mitosis keeps the parent's chromosome number.
+    explanation: |
+      Mitosis keeps the chromosome number the same. A haploid parent cell makes two daughter cells, and each is haploid. A diploid parent would make two diploid cells.
+    approved: false
+
+  - id: q-biology-cellular-reproduction-0026
+    type: "identify"
+    difficulty: "easy"
+    stem: |
+      In a plant cell, what forms across the middle of the cell during cytokinesis?
+    choices:
+      - text: "A cell plate that becomes a new cell wall"
+        correct: true
+      - text: "A membrane that pinches inward and splits the cell"
+        rationale: |
+          This describes cytokinesis in animal cells. Both are cytokinesis, so they are easy to swap. Check whether the cell has a cell wall.
+      - text: "A spindle that pulls the chromosomes apart"
+        rationale: |
+          The spindle is active during division, so it seems to divide the cell. It moves chromosomes and does not divide the cytoplasm. Check which structure divides the cytoplasm.
+      - text: "A nuclear envelope around each chromosome set"
+        rationale: |
+          New nuclear envelopes form at the end of mitosis, so this seems to fit. They divide the nucleus, not the cytoplasm. Check which process this part of the question describes.
+    explanation: |
+      In plant cells, a new cell wall called the cell plate forms across the middle. It divides the cytoplasm into two cells. In animal cells, the membrane pinches inward instead.
+    approved: false
+
+  - id: q-biology-cellular-reproduction-0027
+    type: "identify"
+    difficulty: "easy"
+    stem: |
+      Many specialized cells rest in a state where they do not divide. What is this state called?
+    choices:
+      - text: "$G_0$"
+        correct: true
+      - text: "$G_1$"
+        rationale: |
+          This is the growth part of interphase. A cell in $G_1$ is still part of the cell cycle, so it seems to fit. Check whether the cell is cycling or resting.
+      - text: "$G_2$"
+        rationale: |
+          This is the part of interphase where the cell gets ready to divide. A cell in $G_2$ is about to divide. Check whether the cell is resting.
+      - text: "S phase"
+        rationale: |
+          This is the part of interphase where DNA is copied. A cell in S phase is preparing to divide. Check whether the cell is resting.
+    explanation: |
+      Not every cell is always cycling. Many specialized cells rest in a non-dividing state called $G_0$. The other parts of interphase lead toward division.
+    approved: false
+
+  - id: q-biology-cellular-reproduction-0028
+    type: "structure-function"
+    difficulty: "medium"
+    stem: |
+      What is the job of the spindle in mitosis?
+    choices:
+      - text: "Its fibers attach to the centromeres and move the chromosomes."
+        correct: true
+      - text: "It copies the DNA before mitosis begins."
+        rationale: |
+          Mitosis follows copying, so the two seem linked. The copying happens in S phase. Check whether the spindle makes DNA or moves chromosomes.
+      - text: "It divides the cytoplasm after the nucleus divides."
+        rationale: |
+          Cytokinesis follows mitosis, and the spindle is active near its end, so the two seem linked. Dividing the cytoplasm is cytokinesis. Check what the spindle attaches to.
+      - text: "It forms a new nuclear envelope around each set."
+        rationale: |
+          New envelopes form at the end of mitosis, as the spindle finishes its work. Envelopes are separate from the spindle. Check what the spindle is made of.
+    explanation: |
+      The spindle is a set of fibers made of microtubules. In mitosis the fibers attach to the centromeres of the chromosomes. They line the chromosomes up and then pull the sister chromatids to opposite poles.
+    approved: false
+
+  - id: q-biology-cellular-reproduction-0029
+    type: "cause-effect"
+    difficulty: "hard"
+    stem: |
+      Why are the daughter cells of mitosis described as genetically very close to the parent cell, and not as absolutely identical?
+    choices:
+      - text: "Mutations or chromosome-sorting errors can occur."
+        correct: true
+      - text: "Each daughter cell gets only half of the parent's chromosomes."
+        rationale: |
+          This describes meiosis. Both are cell divisions, so the results can be mixed. Check whether mitosis keeps the chromosome number.
+      - text: "Crossing over swaps pieces between homologs in prophase."
+        rationale: |
+          Crossing over does change DNA. It is part of meiosis and not of ordinary mitosis. Check which division the lesson links to crossing over.
+      - text: "The daughter cells copy their DNA only after cytokinesis."
+        rationale: |
+          Copying and dividing are linked, so the order seems flexible. Copying happens in S phase, before mitosis. Check when the DNA is copied.
+    explanation: |
+      Mitosis copies DNA with high accuracy. A mutation or a chromosome-sorting error can still happen. So the daughter cells are almost, but not always exactly, the same as the parent cell.
+    approved: false
+
+  - id: q-biology-cellular-reproduction-0030
+    type: "classify"
+    difficulty: "hard"
+    stem: |
+      Which statement correctly describes a homologous pair of chromosomes?
+    choices:
+      - text: "They have the same genes in the same order and may carry different alleles."
+        correct: true
+      - text: "They are identical copies joined at a centromere."
+        rationale: |
+          This describes sister chromatids. Both are pairs of similar chromosome parts, so they are easy to mix. Check whether the two parts came from one chromosome or two parents.
+      - text: "They have the same alleles at every gene, one from each parent."
+        rationale: |
+          Same genes seem to mean same alleles. Homologs are not copies of each other. Check whether an allele can differ between the two.
+      - text: "They carry different genes in a different order."
+        rationale: |
+          A mother's and father's chromosomes seem to differ. Homologs carry the same genes. Check whether the genes and their order match.
+    explanation: |
+      Homologs are the two chromosomes of a pair, one from the mother and one from the father. They carry the same genes in the same order. At a gene, they may carry the same allele or different alleles.
+    approved: false
+
+  - id: q-biology-cellular-reproduction-0031
+    type: "process-ordering"
+    difficulty: "medium"
+    stem: |
+      Which sequence shows the cell cycle of a dividing eukaryotic cell in the correct order?
+    choices:
+      - text: "$G_1$, S phase, $G_2$, mitosis, cytokinesis"
+        correct: true
+      - text: "S phase, $G_1$, $G_2$, mitosis, cytokinesis"
+        rationale: |
+          This starts with DNA copying. Copying is the most important step, so it seems to come first. Check that the cell first grows in $G_1$.
+      - text: "$G_1$, $G_2$, S phase, mitosis, cytokinesis"
+        rationale: |
+          This puts the two gap phases together before copying. The letters seem to run in a pattern. Check that the DNA is copied before the cell gets ready to divide.
+      - text: "$G_1$, S phase, $G_2$, cytokinesis, mitosis"
+        rationale: |
+          This divides the cytoplasm before the nucleus. Cytokinesis ends in two cells, so it seems to be last in some order. Check that the nucleus divides first.
+    explanation: |
+      The cell first grows in $G_1$. Its DNA is copied in S phase, and it gets ready in $G_2$. Mitosis then divides the nucleus, and cytokinesis divides the cytoplasm.
+    approved: false

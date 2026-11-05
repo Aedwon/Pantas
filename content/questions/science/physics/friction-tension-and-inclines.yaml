@@ -129,3 +129,283 @@ questions:
           This confuses contact orientation with relative motion. A new face may seem like a fresh start. Check whether sliding continues.
     explanation: |
       The model gives $f_k\approx\mu_kN$. The surface pair and normal force stay the same. The modeled friction therefore stays approximately the same.
+
+  - id: q-physics-friction-tension-and-inclines-0001
+    type: "identify"
+    difficulty: "easy"
+    stem: |
+      What can an ideal rope do to an object tied to its end?
+    choices:
+      - text: "Pull the object along the rope"
+        correct: true
+      - text: "Push the object along the rope"
+        rationale: |
+          This treats a rope like a rod. A stiff rope can feel like it pushes. Check that a rope can pull but cannot push.
+      - text: "Push or pull, depending on the load"
+        rationale: |
+          This lets the rope choose a direction. Tight ropes look like they hold things in place. Check that a rope can only pull.
+      - text: "Pull only when the object is moving"
+        rationale: |
+          This links tension to motion. A moving object is easy to picture. Check that a hanging object at rest still has a pulling rope.
+    explanation: |
+      A rope can pull on what is tied to its end, along the rope. It cannot push. This is true whether the object moves or not.
+
+  - id: q-physics-friction-tension-and-inclines-0002
+    type: "compare-contrast"
+    difficulty: "easy"
+    stem: |
+      For most pairs of dry surfaces, which comparison of the coefficients of friction is correct?
+    choices:
+      - text: "$\\mu_s$ is larger than $\\mu_k$."
+        correct: true
+      - text: "$\\mu_k$ is larger than $\\mu_s$."
+        rationale: |
+          This reverses the two, as if sliding surfaces grip harder. Moving objects seem to feel more friction. Check that it takes more force to start a slide than to keep it going.
+      - text: "$\\mu_s$ equals $\\mu_k$ for the same surfaces."
+        rationale: |
+          This treats both as one property of the pair. The same two surfaces are in contact. Check that starting a slide takes more force than continuing it.
+      - text: "The larger one depends on how fast the object moves."
+        rationale: |
+          This brings speed into the comparison. A faster slide seems to change the friction. Check that the model does not use the speed.
+    explanation: |
+      For most dry surfaces, it takes more force to start a slide than to keep it going. So the coefficient of static friction, $\mu_s$, is larger than the coefficient of kinetic friction, $\mu_k$.
+
+  - id: q-physics-friction-tension-and-inclines-0003
+    type: "identify"
+    difficulty: "easy"
+    stem: |
+      A box slides to the right across a floor. In which direction does the kinetic friction on the box act?
+    choices:
+      - text: "To the left, against the sliding"
+        correct: true
+      - text: "To the right, along the sliding"
+        rationale: |
+          This makes friction help the motion. The box moves right, so a push to the right seems natural. Check that friction acts against the sliding.
+      - text: "Upward, perpendicular to the floor"
+        rationale: |
+          This confuses friction with the normal force. Both come from the floor. Check that friction acts along the surface.
+      - text: "Downward, toward the center of Earth"
+        rationale: |
+          This confuses friction with weight. Both act on the box. Check that friction acts along the surface between the touching objects.
+    explanation: |
+      Friction acts along the surface between two touching objects. Kinetic friction acts against the sliding. The box slides right, so the friction on it acts to the left.
+
+  - id: q-physics-friction-tension-and-inclines-0004
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      A $20\,\mathrm{kg}$ box rests on a level floor. The coefficient of static friction is $\mu_s=0.50$. Use $g=9.8\,\mathrm{m/s^2}$. What is the smallest horizontal push needed to start the box sliding?
+    choices:
+      - text: "$98\\,\\mathrm{N}$"
+        correct: true
+      - text: "$196\\,\\mathrm{N}$"
+        rationale: |
+          This uses the weight as the push and leaves out $\mu_s$. The weight is an easy number to find. Check that the push must match $\mu_sN$.
+      - text: "$10\\,\\mathrm{N}$"
+        rationale: |
+          This uses the mass, not the weight, in $\mu_sN$. The mass is given. Check that $N=mg$ on a level floor.
+      - text: "$392\\,\\mathrm{N}$"
+        rationale: |
+          This divides by $\mu_s$ instead of multiplying. Dividing by a number less than one makes it larger. Check that $f_{s,\max}=\mu_sN$.
+    explanation: |
+      The floor is level, so $N=mg=20\times9.8=196\,\mathrm{N}$. The largest static friction is $\mu_sN=0.50\times196=98\,\mathrm{N}$. A push above this starts the box sliding.
+
+  - id: q-physics-friction-tension-and-inclines-0005
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      A $4.0\,\mathrm{kg}$ block slides down a frictionless slope that makes $30^\circ$ with the horizontal. Use $g=9.8\,\mathrm{m/s^2}$, $\sin30^\circ=0.50$, and $\cos30^\circ=0.866$. What is its acceleration?
+    choices:
+      - text: "$4.9\\,\\mathrm{m/s^2}$"
+        correct: true
+      - text: "$8.5\\,\\mathrm{m/s^2}$"
+        rationale: |
+          This uses $g\cos\theta$, the part of weight into the slope. Cosine is easy to use for a slope. Check that the part along the slope uses $\sin\theta$.
+      - text: "$9.8\\,\\mathrm{m/s^2}$"
+        rationale: |
+          This treats the block as in free fall. The block is pulled by gravity. Check that the slope carries only part of the weight along it.
+      - text: "$19.6\\,\\mathrm{m/s^2}$"
+        rationale: |
+          This gives the force along the slope in newtons as an acceleration. The force is $19.6\,\mathrm{N}$. Check that it is divided by the mass.
+    explanation: |
+      The part of the weight along the slope is $mg\sin\theta=4.0\times9.8\times0.50=19.6\,\mathrm{N}$. There is no friction, so this is the net force. Then $a=\dfrac{19.6}{4.0}=4.9\,\mathrm{m/s^2}$.
+
+  - id: q-physics-friction-tension-and-inclines-0006
+    type: "predict-outcome"
+    difficulty: "medium"
+    stem: |
+      A box on a level floor is pulled by a rope at $30^\circ$ above the horizontal and stays on the floor. How does the normal force on the box compare with its weight?
+    choices:
+      - text: "It is less than the weight."
+        correct: true
+      - text: "It equals the weight."
+        rationale: |
+          This uses the result for a box with no vertical pull. A level floor often gives $N=mg$. Check that the rope's upward part also holds up the box.
+      - text: "It is greater than the weight."
+        rationale: |
+          This adds the rope's upward part to the support. More forces upward seem to mean more push. Check that the rope lifts, so the floor supports less.
+      - text: "It equals the horizontal part of the pull."
+        rationale: |
+          This mixes up which part of the pull acts along the floor. The horizontal part is the one that moves the box. Check that the normal force balances the vertical forces.
+    explanation: |
+      The rope pulls partly upward, so it holds up part of the weight. The floor has less to support. The normal force is $N=mg-T\sin30^\circ$, which is less than the weight.
+
+  - id: q-physics-friction-tension-and-inclines-0007
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      A $4.0\,\mathrm{kg}$ block A and a $2.0\,\mathrm{kg}$ block B are joined by an ideal rope on a frictionless level table. A horizontal force of $30\,\mathrm{N}$ pulls A, and B trails behind it. What is the tension in the rope?
+    choices:
+      - text: "$10\\,\\mathrm{N}$"
+        correct: true
+      - text: "$30\\,\\mathrm{N}$"
+        rationale: |
+          This takes the tension to equal the applied force. The rope seems to pass the whole pull along. Check that the rope pulls only B, which has part of the mass.
+      - text: "$20\\,\\mathrm{N}$"
+        rationale: |
+          This uses the mass of A with the acceleration. A is the block that is pulled. Check that the tension is the net force on B alone.
+      - text: "$5.0\\,\\mathrm{N}$"
+        rationale: |
+          This gives the acceleration as the tension. The acceleration is $5.0\,\mathrm{m/s^2}$. Check that the tension is a force, so multiply by the mass of B.
+    explanation: |
+      Treat both blocks as one system of mass $6.0\,\mathrm{kg}$. Then $a=\dfrac{30}{6.0}=5.0\,\mathrm{m/s^2}$. Only the rope pulls B, so $T=m_Ba=2.0\times5.0=10\,\mathrm{N}$.
+
+  - id: q-physics-friction-tension-and-inclines-0008
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      A $5.0\,\mathrm{kg}$ load hangs from an ideal cable and is lowered so that it speeds up downward at $2.0\,\mathrm{m/s^2}$. Use $g=9.8\,\mathrm{m/s^2}$. What is the tension in the cable?
+    choices:
+      - text: "$39\\,\\mathrm{N}$"
+        correct: true
+      - text: "$59\\,\\mathrm{N}$"
+        rationale: |
+          This adds the acceleration, as for a load speeding up upward. The load is accelerating, which suggests more tension. Check the direction of the acceleration.
+      - text: "$49\\,\\mathrm{N}$"
+        rationale: |
+          This sets the tension equal to the weight. The load hangs from a cable, which suggests $T=mg$. Check that the load is accelerating.
+      - text: "$10\\,\\mathrm{N}$"
+        rationale: |
+          This uses $ma$ alone and leaves out the weight. The acceleration is given. Check that two forces act on the load.
+    explanation: |
+      Take down as positive. The weight is down and the tension is up: $mg-T=ma$. So $T=m(g-a)=5.0\times(9.8-2.0)=39\,\mathrm{N}$.
+
+  - id: q-physics-friction-tension-and-inclines-0009
+    type: "simple-quantitative"
+    difficulty: "hard"
+    stem: |
+      A $4.0\,\mathrm{kg}$ block rests on a rough slope that makes $30^\circ$ with the horizontal. It does not slide. Use $g=9.8\,\mathrm{m/s^2}$, $\sin30^\circ=0.50$, and $\cos30^\circ=0.866$. What is the static friction force on the block?
+    choices:
+      - text: "$19.6\\,\\mathrm{N}$"
+        correct: true
+      - text: "$33.9\\,\\mathrm{N}$"
+        rationale: |
+          This uses $mg\cos\theta$, which is the normal force. That part of the weight presses into the slope. Check that friction balances the part of the weight along the slope.
+      - text: "$39.2\\,\\mathrm{N}$"
+        rationale: |
+          This uses the whole weight. The weight is the largest force on the block. Check that only part of the weight points along the slope.
+      - text: "$0\\,\\mathrm{N}$"
+        rationale: |
+          This assumes a block at rest needs no friction. The block does not move, so net force is zero. Check that the weight has a part along the slope that needs balancing.
+    explanation: |
+      The block is at rest, so the net force along the slope is zero. The part of the weight along the slope is $mg\sin30^\circ=4.0\times9.8\times0.50=19.6\,\mathrm{N}$. Static friction balances it, so it is $19.6\,\mathrm{N}$.
+
+  - id: q-physics-friction-tension-and-inclines-0010
+    type: "simple-quantitative"
+    difficulty: "hard"
+    stem: |
+      A $4.0\,\mathrm{kg}$ block and a $1.0\,\mathrm{kg}$ block hang from the two ends of an ideal rope over an ideal fixed pulley. They are released from rest. Use $g=9.8\,\mathrm{m/s^2}$. What is the magnitude of the acceleration?
+    choices:
+      - text: "$5.88\\,\\mathrm{m/s^2}$"
+        correct: true
+      - text: "$9.8\\,\\mathrm{m/s^2}$"
+        rationale: |
+          This treats the heavier block as in free fall. The rope seems to leave it free. Check that the rope holds the heavier block back.
+      - text: "$7.84\\,\\mathrm{m/s^2}$"
+        rationale: |
+          This uses only the heavier weight divided by the total mass. The lighter block's weight is left out. Check that the lighter block's weight pulls the other way.
+      - text: "$1.96\\,\\mathrm{m/s^2}$"
+        rationale: |
+          This uses only the lighter weight divided by the total mass. The lighter block is the one that moves up. Check that the net force is the difference of the weights.
+    explanation: |
+      For the $4.0\,\mathrm{kg}$ block, $4.0g-T=4.0a$. For the $1.0\,\mathrm{kg}$ block, $T-1.0g=1.0a$. Add them: $3.0g=5.0a$, so $a=\dfrac{3.0\times9.8}{5.0}=5.88\,\mathrm{m/s^2}$.
+
+  - id: q-physics-friction-tension-and-inclines-0011
+    type: "simple-quantitative"
+    difficulty: "hard"
+    stem: |
+      A $2.0\,\mathrm{kg}$ block slides down a rough slope that makes $30^\circ$ with the horizontal. The coefficient of kinetic friction is $0.30$. Use $g=9.8\,\mathrm{m/s^2}$, $\sin30^\circ=0.50$, and $\cos30^\circ=0.866$. What is its acceleration?
+    choices:
+      - text: "$2.35\\,\\mathrm{m/s^2}$"
+        correct: true
+      - text: "$4.9\\,\\mathrm{m/s^2}$"
+        rationale: |
+          This leaves out friction. The slope part of the weight is correct. Check that kinetic friction acts up the slope.
+      - text: "$1.96\\,\\mathrm{m/s^2}$"
+        rationale: |
+          This finds friction from the full weight, not the normal force. The block's weight is easy to use. Check that $N=mg\cos\theta$ on a slope.
+      - text: "$7.4\\,\\mathrm{m/s^2}$"
+        rationale: |
+          This adds friction to the slope force. Friction seems to act in the direction of sliding. Check that friction acts against the sliding.
+    explanation: |
+      The normal force is $N=mg\cos30^\circ=2.0\times9.8\times0.866=17.0\,\mathrm{N}$. Then $f_k=0.30\times17.0=5.1\,\mathrm{N}$ up the slope. The part of the weight along the slope is $2.0\times9.8\times0.50=9.8\,\mathrm{N}$. So $a=\dfrac{9.8-5.1}{2.0}=2.35\,\mathrm{m/s^2}$.
+
+  - id: q-physics-friction-tension-and-inclines-0012
+    type: "simple-quantitative"
+    difficulty: "hard"
+    stem: |
+      A block hangs from an ideal movable pulley. The ideal rope runs from the ceiling, down around the pulley, and up to a free end. The free end is pulled upward with an acceleration of $3.0\,\mathrm{m/s^2}$, and the rope stays tight. What is the upward acceleration of the block?
+    choices:
+      - text: "$1.5\\,\\mathrm{m/s^2}$"
+        correct: true
+      - text: "$3.0\\,\\mathrm{m/s^2}$"
+        rationale: |
+          This gives the block the same acceleration as the free end. That rule works for a fixed pulley. Check that one end of the rope is fixed here.
+      - text: "$6.0\\,\\mathrm{m/s^2}$"
+        rationale: |
+          This doubles the acceleration. The pulley seems to act as a lever that gains speed. Check that the block moves less than the free end.
+      - text: "$4.5\\,\\mathrm{m/s^2}$"
+        rationale: |
+          This adds half of the acceleration to the full value. The numbers come from the correct ratio. Check that the block's acceleration is only half the free end's.
+    explanation: |
+      One end of the rope is fixed, and the block hangs from a movable pulley. The block's acceleration is half the acceleration of the free end. So it is $\dfrac{3.0}{2}=1.5\,\mathrm{m/s^2}$.
+
+  - id: q-physics-friction-tension-and-inclines-0013
+    type: "predict-outcome"
+    difficulty: "exam"
+    stem: |
+      A crate slides at constant speed on a level floor when pulled by a horizontal force of $150\,\mathrm{N}$. The pull is then raised to $200\,\mathrm{N}$ on the same crate and floor. Which statement about the kinetic friction and the motion is correct?
+    choices:
+      - text: "It stays at $150\\,\\mathrm{N}$, so the crate speeds up."
+        correct: true
+      - text: "It rises to $200\\,\\mathrm{N}$, so the crate keeps its speed."
+        rationale: |
+          This lets kinetic friction grow to match the pull, as static friction can. Friction does adjust when the crate is at rest. Check that $f_k=\mu_kN$ does not depend on the pull.
+      - text: "It falls below $150\\,\\mathrm{N}$, so the crate speeds up."
+        rationale: |
+          This lets friction drop as the crate moves faster. A faster crate seems to slide more easily. Check that the model has no speed term.
+      - text: "It rises above $200\\,\\mathrm{N}$, so the crate slows down."
+        rationale: |
+          This lets friction keep growing past the pull. A larger push seems to bring a larger resistance. Check that $\mu_k$ and $N$ have not changed.
+    explanation: |
+      Kinetic friction is $f_k=\mu_kN$. The surfaces and the normal force have not changed, so friction stays at $150\,\mathrm{N}$. The net force is $200-150=50\,\mathrm{N}$ forward, so the crate speeds up.
+
+  - id: q-physics-friction-tension-and-inclines-0014
+    type: "simple-quantitative"
+    difficulty: "exam"
+    stem: |
+      A $10\,\mathrm{kg}$ box is on a level floor. A rope pulls it with $50\,\mathrm{N}$ at $30^\circ$ above the horizontal. The coefficient of kinetic friction is $0.20$. Use $g=9.8\,\mathrm{m/s^2}$, $\sin30^\circ=0.50$, and $\cos30^\circ=0.866$. What is the acceleration of the box?
+    choices:
+      - text: "$2.87\\,\\mathrm{m/s^2}$"
+        correct: true
+      - text: "$2.37\\,\\mathrm{m/s^2}$"
+        rationale: |
+          This uses the weight as the normal force. The floor is level, so $N=mg$ seems fine. Check that the rope's upward part reduces $N$.
+      - text: "$1.87\\,\\mathrm{m/s^2}$"
+        rationale: |
+          This adds the rope's upward part to the normal force. A pull seems to press the box into the floor. Check that an upward part lifts the box and lowers $N$.
+      - text: "$1.41\\,\\mathrm{m/s^2}$"
+        rationale: |
+          This swaps sine and cosine for the two parts of the pull. The angle is easy to place on the wrong side. Check that the part along the floor uses cosine.
+    explanation: |
+      The pull along the floor is $50\cos30^\circ=43.3\,\mathrm{N}$. The pull upward is $50\sin30^\circ=25\,\mathrm{N}$. So $N=98-25=73\,\mathrm{N}$ and $f_k=0.20\times73=14.6\,\mathrm{N}$. Then $a=\dfrac{43.3-14.6}{10}=2.87\,\mathrm{m/s^2}$.

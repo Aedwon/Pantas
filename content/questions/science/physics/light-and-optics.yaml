@@ -318,3 +318,108 @@ questions:
           This shifts the final power of ten by one place. The coefficient six looks right. Check conversion from $0.6\times10^{-6}$ to standard scientific notation.
     explanation: |
       From $c=f\lambda$, $\lambda=\dfrac cf$. Thus $\lambda=\dfrac{3.0\times10^8}{5.0\times10^{14}}=0.6\times10^{-6}=6.0\times10^{-7}\,\mathrm m$.
+
+  - id: q-physics-light-and-optics-0041
+    approved: false
+    type: "simple-quantitative"
+    difficulty: "easy"
+    stem: |
+      A student stands $2.0\,\mathrm m$ in front of a plane mirror. How far is her image from her?
+    choices:
+      - text: "$4.0\\,\\mathrm m$"
+        correct: true
+      - text: "$2.0\\,\\mathrm m$"
+        rationale: |
+          This gives the distance from the mirror to the image. The image is as far behind the mirror as she is in front, so $2.0\,\mathrm m$ is only one part. Check that the question asks for the distance from her.
+      - text: "$1.0\\,\\mathrm m$"
+        rationale: |
+          This halves the distance. The mirror sits halfway between her and the image, so a half seems to fit. Check that the distance between her and the image crosses the mirror twice.
+      - text: "$8.0\\,\\mathrm m$"
+        rationale: |
+          This doubles the distance a second time. The image distance is already equal to the object distance. Check that each distance is counted once.
+    explanation: |
+      A plane mirror makes an image as far behind the mirror as the object is in front. The student is $2.0\,\mathrm m$ from the mirror, and the image is $2.0\,\mathrm m$ behind it. So the image is $2.0 + 2.0 = 4.0\,\mathrm m$ from her.
+
+  - id: q-physics-light-and-optics-0042
+    approved: false
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      A ray in air ($n=1.00$) meets the surface of water ($n=1.33$) at an angle of incidence of $30^\circ$. What is the angle of refraction in the water?
+    choices:
+      - text: "$22^\\circ$"
+        correct: true
+      - text: "$30^\\circ$"
+        rationale: |
+          This keeps the ray straight. Light passes into the water, so it seems to carry on unchanged. Check that the ray changes speed and bends at a slanted boundary.
+      - text: "$42^\\circ$"
+        rationale: |
+          This multiplies by the index instead of dividing. The ray bends away from the normal in that answer, but light slows down in water. Check that the ray bends toward the normal.
+      - text: "$68^\\circ$"
+        rationale: |
+          This measures the angle from the surface instead of the normal. It equals $90^\circ - 22^\circ$. Check that the question asks for the angle from the normal.
+    explanation: |
+      Use Snell's law: $\sin\theta_2=\dfrac{n_1\sin\theta_1}{n_2}=\dfrac{1.00\times0.5}{1.33}\approx0.376$. Then $\theta_2=\sin^{-1}(0.376)\approx22^\circ$. The ray bends toward the normal because the water slows the light.
+
+  - id: q-physics-light-and-optics-0043
+    approved: false
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      Light travels in glass with $n=1.50$. The speed of light in vacuum is $3.00\times10^{8}\,\mathrm{m/s}$. What is the speed of light in the glass?
+    choices:
+      - text: "$2.00\\times10^{8}\\,\\mathrm{m/s}$"
+        correct: true
+      - text: "$4.50\\times10^{8}\\,\\mathrm{m/s}$"
+        rationale: |
+          This multiplies the speed by the index. A larger index seems to mean a faster ray. Check that a larger index means slower light.
+      - text: "$3.00\\times10^{8}\\,\\mathrm{m/s}$"
+        rationale: |
+          This keeps the vacuum speed. Light seems to always travel at $c$. Check that $c$ is the speed in vacuum only.
+      - text: "$1.50\\times10^{8}\\,\\mathrm{m/s}$"
+        rationale: |
+          This divides by two instead of by the index. The index $1.50$ is close to 2 in size. Check that the speed is $c$ divided by $n$.
+    explanation: |
+      The index of refraction is $n=\dfrac{c}{v}$. So $v=\dfrac{c}{n}=\dfrac{3.00\times10^{8}}{1.50}=2.00\times10^{8}\,\mathrm{m/s}$.
+
+  - id: q-physics-light-and-optics-0044
+    approved: false
+    type: "predict-outcome"
+    difficulty: "hard"
+    stem: |
+      A ray in glass ($n=1.50$) meets a glass-air boundary ($n=1.00$) at an angle of incidence of $38^\circ$. What happens to the ray?
+    choices:
+      - text: "Most of it refracts into the air, and a weak part reflects."
+        correct: true
+      - text: "All of it reflects back into the glass."
+        rationale: |
+          Light going from glass to air can be totally reflected. This needs an angle above the critical angle, which is about $41.8^\circ$. Check the size of the angle.
+      - text: "It refracts along the boundary at $90^\\circ$."
+        rationale: |
+          This happens at the critical angle exactly. The angle is close to it, so it seems to fit. Check whether $38^\circ$ equals $\sin^{-1}\!\left(\dfrac{1.00}{1.50}\right)$.
+      - text: "It passes into the air without bending."
+        rationale: |
+          A ray keeps its direction only along the normal. This ray is slanted, and the index changes. Check which way the ray bends going to a smaller index.
+    explanation: |
+      The critical angle satisfies $\sin\theta_c=\dfrac{1.00}{1.50}=0.667$, so $\theta_c\approx41.8^\circ$. The angle of incidence, $38^\circ$, is smaller. So the light leaves the glass and bends away from the normal, and a weak part also reflects.
+
+  - id: q-physics-light-and-optics-0045
+    approved: false
+    type: "simple-quantitative"
+    difficulty: "exam"
+    stem: |
+      A radio wave has a frequency of $1.50\times10^{8}\,\mathrm{Hz}$ in vacuum. The speed of light is $3.00\times10^{8}\,\mathrm{m/s}$. What is its wavelength?
+    choices:
+      - text: "$2.00\\,\\mathrm m$"
+        correct: true
+      - text: "$0.50\\,\\mathrm m$"
+        rationale: |
+          This divides frequency by speed. Both numbers are given, so either order seems possible. Check that wavelength is speed divided by frequency.
+      - text: "$4.50\\times10^{16}\\,\\mathrm m$"
+        rationale: |
+          This multiplies speed and frequency. Their product can look like combining wave quantities. Check how to isolate wavelength in $c=f\lambda$.
+      - text: "$20.0\\,\\mathrm m$"
+        rationale: |
+          This shifts the decimal point of the right coefficient. The coefficient $2$ looks right. Check the power of ten in $\dfrac{10^{8}}{10^{8}}$.
+    explanation: |
+      From $c=f\lambda$, the wavelength is $\lambda=\dfrac{c}{f}$. So $\lambda=\dfrac{3.00\times10^{8}}{1.50\times10^{8}}=2.00\,\mathrm m$.

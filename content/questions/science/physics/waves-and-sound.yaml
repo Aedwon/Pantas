@@ -318,3 +318,108 @@ questions:
           This confuses local oscillation with bulk transport. The disturbance travels. Check the particles’ motion around equilibrium.
     explanation: |
       In light, electric and magnetic fields oscillate perpendicular to propagation. They do not need material particles. In a string wave, the material itself oscillates.
+
+  - id: q-physics-waves-and-sound-0041
+    approved: false
+    type: "simple-quantitative"
+    difficulty: "easy"
+    stem: |
+      A wave has a period of $0.25\,\mathrm s$. What is its frequency?
+    choices:
+      - text: "$4\\,\\mathrm{Hz}$"
+        correct: true
+      - text: "$0.25\\,\\mathrm{Hz}$"
+        rationale: |
+          This reads the period as the frequency. Both describe how often the wave repeats. Check that frequency is cycles per second and period is seconds per cycle.
+      - text: "$4\\,\\mathrm s$"
+        rationale: |
+          The number is right, but the unit is not. Taking the reciprocal changes the unit. Check that frequency is measured in hertz.
+      - text: "$40\\,\\mathrm{Hz}$"
+        rationale: |
+          This moves the decimal point one place. The digit $4$ looks right. Check the value of $\dfrac{1}{0.25}$.
+    explanation: |
+      Frequency and period are linked by $f=\dfrac{1}{T}$. So $f=\dfrac{1}{0.25}=4$. The unit is hertz, so the frequency is $4\,\mathrm{Hz}$.
+
+  - id: q-physics-waves-and-sound-0042
+    approved: false
+    type: "predict-outcome"
+    difficulty: "medium"
+    stem: |
+      A speaker plays a note in air. The player then raises only the amplitude and keeps the same frequency. What change does a listener notice?
+    choices:
+      - text: "The note gets louder, and its pitch stays the same."
+        correct: true
+      - text: "The note gets higher in pitch, and its loudness stays the same."
+        rationale: |
+          This swaps the two properties. A louder sound can seem sharper. Check that pitch follows frequency, which did not change.
+      - text: "The note gets louder and higher in pitch."
+        rationale: |
+          Both properties seem to increase together. Amplitude and frequency are different properties. Check which property changed.
+      - text: "The note gets louder, and its wavelength gets shorter."
+        rationale: |
+          A wave with a changed property seems to change in size. In the same air, the speed and frequency fix the wavelength. Check whether either of them changed.
+    explanation: |
+      A bigger amplitude gives a larger intensity, so the sound is louder. The frequency did not change, so the pitch does not change. The speed in the same air also does not change, so the wavelength stays the same.
+
+  - id: q-physics-waves-and-sound-0043
+    approved: false
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      A sound of frequency $500\,\mathrm{Hz}$ travels in air at $343\,\mathrm{m/s}$ and then enters water, where its speed is $1480\,\mathrm{m/s}$. What is its wavelength in the water?
+    choices:
+      - text: "About $2.96\\,\\mathrm m$"
+        correct: true
+      - text: "About $0.69\\,\\mathrm m$"
+        rationale: |
+          This is the wavelength in air. The wave keeps the same frequency, so the wavelength seems to stay as well. Check that the speed changes in water.
+      - text: "About $0.34\\,\\mathrm m$"
+        rationale: |
+          This divides frequency by speed. Both numbers are given, so either order seems possible. Check that wavelength is speed divided by frequency.
+      - text: "About $7.4\\times10^{5}\\,\\mathrm m$"
+        rationale: |
+          This multiplies speed and frequency. The product can look like combining wave quantities. Check how to isolate wavelength in $v=f\lambda$.
+    explanation: |
+      The frequency stays $500\,\mathrm{Hz}$ because the source has not changed. Then $\lambda=\dfrac{v}{f}=\dfrac{1480}{500}\approx2.96\,\mathrm m$. The wavelength is longer than in air because the speed is greater.
+
+  - id: q-physics-waves-and-sound-0044
+    approved: false
+    type: "classify"
+    difficulty: "hard"
+    stem: |
+      Which list orders these electromagnetic waves from lowest frequency to highest frequency?
+    choices:
+      - text: "Radio, infrared, ultraviolet, gamma ray"
+        correct: true
+      - text: "Gamma ray, ultraviolet, infrared, radio"
+        rationale: |
+          This lists the waves from highest to lowest frequency. The spectrum is often taught from the long-wavelength end, so the direction is easy to reverse. Check which end has the lowest frequency.
+      - text: "Radio, ultraviolet, infrared, gamma ray"
+        rationale: |
+          This swaps the two middle waves. Both lie between radio and X-rays in the spectrum, so they are easy to mix. Check which comes first after microwave, infrared or ultraviolet.
+      - text: "Infrared, radio, ultraviolet, gamma ray"
+        rationale: |
+          This swaps the first two waves. Both have long wavelengths compared with visible light. Check which has the longest wavelength and so the lowest frequency.
+    explanation: |
+      From longest wavelength to shortest, the order is radio, microwave, infrared, visible, ultraviolet, X-ray, gamma ray. Frequency runs the opposite way. So frequency rises from radio toward gamma rays.
+
+  - id: q-physics-waves-and-sound-0045
+    approved: false
+    type: "classify"
+    difficulty: "hard"
+    stem: |
+      Which statement about earthquake waves is correct?
+    choices:
+      - text: "P waves are longitudinal and travel faster than the transverse S waves."
+        correct: true
+      - text: "S waves are longitudinal and travel faster than P waves."
+        rationale: |
+          This swaps the two names. The letters P and S do not show which is which. Check which wave arrives first and which wave type each one is.
+      - text: "P waves are transverse and travel slower than S waves."
+        rationale: |
+          This swaps both facts. The names are easy to mix up. Check which wave type is faster.
+      - text: "P and S waves are both longitudinal and travel at the same speed."
+        rationale: |
+          Both are waves in rock, so they seem alike. A solid can carry both types of wave, and the speeds differ. Check the lesson's statement about earthquakes.
+    explanation: |
+      A solid can carry both kinds of wave. The faster P waves are longitudinal, and the slower S waves are transverse. S waves cannot pass through liquids.

@@ -221,3 +221,213 @@ questions:
     explanation: |
       Urine leaves the kidneys through the ureters. The bladder stores it. It then passes out through the urethra.
     approved: false
+
+  - id: q-biology-human-anatomy-physiology-0021
+    type: 'identify'
+    difficulty: 'easy'
+    stem: |
+      Several kinds of tissue work together as one unit to do a particular job, such as the stomach churning food. What is this unit called?
+    choices:
+      - text: 'An organ'
+        correct: true
+      - text: 'A cell'
+        rationale: |
+          This picks the smallest unit of life. Every part of the body is built from cells, so a cell can seem like the answer. Check whether the unit has one kind of cell or several tissues.
+      - text: 'A tissue'
+        rationale: |
+          This picks a group of similar cells. Tissues are the parts that the unit is built from, so they seem close. Check whether the unit combines several tissue types.
+      - text: 'An organ system'
+        rationale: |
+          This picks a group of organs. The stomach works with other organs, so a system can seem right. Check whether the unit is one organ or several organs together.
+    explanation: |
+      A tissue is a group of similar cells. An organ is made of several tissues that work together as one unit. The stomach has muscle, lining, and other tissues, so it is an organ.
+    approved: false
+
+  - id: q-biology-human-anatomy-physiology-0022
+    type: 'cause-effect'
+    difficulty: 'medium'
+    stem: |
+      At rest, the diaphragm contracts and flattens during inhalation. Which change follows in the chest?
+    choices:
+      - text: 'The chest space gets bigger, its pressure drops, and air flows in.'
+        correct: true
+      - text: 'The chest space gets smaller, its pressure rises, and air flows out.'
+        rationale: |
+          This describes the diaphragm relaxing. Contracting and relaxing are two parts of one breath, so they are easy to swap. Check whether the muscle is contracting or relaxing.
+      - text: 'The chest space gets bigger, its pressure rises, and air flows in.'
+        rationale: |
+          This pairs a bigger space with higher pressure. Air does flow in, so the ending seems right. Check what a bigger space does to the pressure inside it.
+      - text: 'The chest space gets smaller, its pressure drops, and air flows in.'
+        rationale: |
+          This pairs a smaller space with lower pressure. Air does flow in, so the ending seems right. Check that air flows out when the chest space gets smaller.
+    explanation: |
+      When the diaphragm contracts, it flattens. The chest space gets bigger, so the pressure inside drops below the pressure outside. Air then flows into the lungs.
+    approved: false
+
+  - id: q-biology-human-anatomy-physiology-0023
+    type: 'classify'
+    difficulty: 'hard'
+    stem: |
+      In a person after birth, which vessels carry oxygen-poor blood away from the heart?
+    choices:
+      - text: 'The pulmonary arteries'
+        correct: true
+      - text: 'The pulmonary veins'
+        rationale: |
+          This gives the vein name to the heart-to-lung vessels because oxygen-poor blood is usually found in veins. Names depend on direction. Check whether the blood moves away from or toward the heart.
+      - text: 'The systemic arteries'
+        rationale: |
+          These carry blood away from the heart, so they seem to fit. After birth they carry oxygen-rich blood. Check the oxygen content as well as the direction.
+      - text: 'The venae cavae'
+        rationale: |
+          These large veins do carry oxygen-poor blood, so they seem to fit. They carry it toward the heart. Check the direction of flow.
+    explanation: |
+      Arteries carry blood away from the heart, and veins carry blood toward it. The pulmonary arteries take oxygen-poor blood from the heart to the lungs. The pulmonary veins carry oxygen-rich blood back.
+    approved: false
+
+  - id: q-biology-human-anatomy-physiology-0024
+    type: 'structure-function'
+    difficulty: 'medium'
+    stem: |
+      The pancreas sends bicarbonate into the small intestine. What does the bicarbonate do there?
+    choices:
+      - text: 'It neutralizes the stomach acid that arrives with the food.'
+        correct: true
+      - text: 'It breaks large fat drops into tiny droplets.'
+        rationale: |
+          This gives the job of bile to bicarbonate. Both enter the small intestine during digestion, so they can be mixed up. Check which organ makes bile.
+      - text: 'It splits starch into smaller sugar molecules.'
+        rationale: |
+          This treats bicarbonate as an enzyme. The pancreas also sends enzymes, so its outputs can blur together. Check whether bicarbonate neutralizes acid or splits food.
+      - text: 'It stores bile until the body needs it.'
+        rationale: |
+          This gives the job of the gallbladder to bicarbonate. Both are linked to the gallbladder and liver, so they can be mixed. Check which organ stores bile.
+    explanation: |
+      Food leaves the stomach mixed with acid. The pancreas adds bicarbonate to the small intestine. Bicarbonate neutralizes the acid, so the intestine's enzymes can work.
+    approved: false
+
+  - id: q-biology-human-anatomy-physiology-0025
+    type: 'identify'
+    difficulty: 'easy'
+    stem: |
+      Which organ absorbs water and electrolytes and compacts the leftover material into feces?
+    choices:
+      - text: 'The large intestine'
+        correct: true
+      - text: 'The stomach'
+        rationale: |
+          This picks the organ that churns food and adds acid. It handles food early on, so it can seem to handle all of it. Check which organ comes last on the food path.
+      - text: 'The esophagus'
+        rationale: |
+          This picks the tube that pushes food down by wave-like squeezing. Food moves through it, so it seems involved. Check whether this organ absorbs anything or only moves food.
+      - text: 'The small intestine'
+        rationale: |
+          This picks the main site of nutrient absorption. Absorption is the right idea, so it seems to fit. Check which organ forms feces from the leftover material.
+    explanation: |
+      The large intestine is the last organ on the food path. It absorbs water and electrolytes from the leftover material. It then compacts what remains into feces.
+    approved: false
+
+  - id: q-biology-human-anatomy-physiology-0026
+    type: 'structure-function'
+    difficulty: 'medium'
+    stem: |
+      Why does the inner wall of the small intestine have villi?
+    choices:
+      - text: 'They give a very large surface for absorbing nutrients into the blood.'
+        correct: true
+      - text: 'They make bile, which breaks fat into tiny droplets.'
+        rationale: |
+          This gives the job of the liver to the villi. Both are linked to fat digestion, so they can be mixed. Check which organ makes bile.
+      - text: 'They chew food into smaller pieces before it is absorbed.'
+        rationale: |
+          This gives the job of teeth to the villi. Both help prepare food. Check whether villi break food apart or increase surface.
+      - text: 'They add acid and a protein-splitting enzyme to the food.'
+        rationale: |
+          This gives the job of the stomach to the villi. Both are found in digestive organs. Check which organ adds acid and begins protein digestion.
+    explanation: |
+      Villi are tiny finger-like folds. They make the inner wall of the small intestine much larger. A larger wall has more room to move nutrients into the blood.
+    approved: false
+
+  - id: q-biology-human-anatomy-physiology-0027
+    type: 'classify'
+    difficulty: 'hard'
+    stem: |
+      A student says the kidneys are the only organs that excrete wastes. Which fact shows the student is wrong?
+    choices:
+      - text: 'The lungs remove carbon dioxide, which is a metabolic waste.'
+        correct: true
+      - text: 'The bladder stores urine before it leaves the body.'
+        rationale: |
+          This is true, but the bladder belongs to the urinary system. Urine is the best-known waste route, so it seems relevant. Check whether the fact names an organ outside the urinary system.
+      - text: 'The nephron reabsorbs useful substances and much of the water.'
+        rationale: |
+          This is true, but it describes the kidney. The kidney is central to excretion, so it seems relevant. Check whether the fact names an organ outside the urinary system.
+      - text: 'The ureters carry urine from the kidneys to the bladder.'
+        rationale: |
+          This is true, but the ureters belong to the urinary system. The urine path is easy to remember, so it seems relevant. Check whether the fact names an organ outside the urinary system.
+    explanation: |
+      Excretion is the removal of metabolic wastes. The urinary system is the main route, but it is not the only one. The lungs remove carbon dioxide, and the skin removes water, salts, and a little urea in sweat.
+    approved: false
+
+  - id: q-biology-human-anatomy-physiology-0028
+    type: 'process-ordering'
+    difficulty: 'hard'
+    stem: |
+      Blood returns from the body through the venae cavae. Which sequence shows its next stops before it leaves the heart through the aorta?
+    choices:
+      - text: 'Right atrium, right ventricle, lungs, left atrium, left ventricle'
+        correct: true
+      - text: 'Left atrium, left ventricle, lungs, right atrium, right ventricle'
+        rationale: |
+          This starts on the wrong side of the heart. The left side sends blood to the body, so it can seem to be the first stop. Check which atrium receives blood from the venae cavae.
+      - text: 'Right atrium, right ventricle, left atrium, left ventricle, lungs'
+        rationale: |
+          This skips the lungs until the end. The four chambers are easy to list in order, so the sequence seems complete. Check where the blood picks up oxygen before the left atrium.
+      - text: 'Right ventricle, right atrium, lungs, left ventricle, left atrium'
+        rationale: |
+          This swaps each atrium and ventricle. Both are chambers on the same side, so their order is easy to reverse. Check which chamber receives blood first.
+    explanation: |
+      Blood from the body enters the right atrium and moves to the right ventricle. The ventricle pumps it to the lungs. It returns to the left atrium and then the left ventricle, which pumps it into the aorta.
+    approved: false
+
+  - id: q-biology-human-anatomy-physiology-0029
+    type: 'identify'
+    difficulty: 'easy'
+    stem: |
+      Which protein in red blood cells binds most of the oxygen carried in the blood?
+    choices:
+      - text: 'Hemoglobin'
+        correct: true
+      - text: 'Urea'
+        rationale: |
+          This picks a waste made by the liver. Urea is in the blood, so it can seem to be a blood carrier. Check whether the substance carries oxygen or is a waste.
+      - text: 'Bile'
+        rationale: |
+          This picks a fluid made by the liver. Bile is an important digestive fluid, so it seems familiar. Check whether the substance is found in red blood cells.
+      - text: 'Salivary amylase'
+        rationale: |
+          This picks an enzyme that starts to split starch. It is a protein, so it can seem to fit the question. Check whether the protein binds oxygen.
+    explanation: |
+      Most oxygen travels inside red blood cells. It is bound to a protein called hemoglobin. The blood carries the oxygen from the lungs to the body.
+    approved: false
+
+  - id: q-biology-human-anatomy-physiology-0030
+    type: 'predict-outcome'
+    difficulty: 'medium'
+    stem: |
+      After hard exercise, blood reaches the lung capillaries with little oxygen and much carbon dioxide. How do the gases move at an alveolus?
+    choices:
+      - text: 'Oxygen diffuses into the blood, and carbon dioxide diffuses into the alveolar air.'
+        correct: true
+      - text: 'Oxygen diffuses into the alveolar air, and carbon dioxide diffuses into the blood.'
+        rationale: |
+          This reverses both directions. Gas exchange moves both gases, so the directions are easy to swap. Check which side has more of each gas.
+      - text: 'Both gases diffuse into the blood because the capillary wall is thin.'
+        rationale: |
+          A thin wall helps diffusion, so this seems right. Diffusion moves each gas from where it is more concentrated. Check which side has more carbon dioxide.
+      - text: 'Both gases diffuse into the alveolar air because breathing is faster.'
+        rationale: |
+          Faster breathing helps remove gas, so this seems right. Each gas still moves by its own difference in amount. Check which side has less oxygen.
+    explanation: |
+      Diffusion moves a substance from more concentrated to less concentrated. The alveolar air has more oxygen than the blood, so oxygen moves into the blood. The blood has more carbon dioxide than the alveolar air, so carbon dioxide moves out.
+    approved: false

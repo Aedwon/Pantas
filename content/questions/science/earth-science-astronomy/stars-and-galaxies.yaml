@@ -87,3 +87,323 @@ questions:
     explanation: |
       A galaxy contains many stars in one large bound system. Seeing separate stars shows that the object is a system rather than one stellar body.
     approved: false
+
+  - id: q-earth-science-astronomy-stars-and-galaxies-0001
+    type: identify
+    difficulty: easy
+    stem: |
+      A blue-white star and a red star are compared. How does the surface temperature of the blue-white star compare with that of the red star?
+    choices:
+      - text: 'It is higher.'
+        correct: true
+      - text: 'It is lower.'
+        rationale: |
+          This treats red as the hottest color, as in a glowing fire. Red feels like heat in daily life. Check the star color order, from blue-white (hottest) to red (coolest).
+      - text: 'It is the same.'
+        rationale: |
+          This assumes every star has one temperature because every star shines by fusion. Fusion powers all of them. Check that color changes with surface temperature.
+      - text: 'It is unknown from color.'
+        rationale: |
+          This treats color as unrelated to temperature. Many colors in daily life tell us little about heat. Check that a star's color shows its surface temperature.
+    explanation: |
+      The color of a star shows its surface temperature. Blue-white stars have the hottest surfaces. Red stars have the coolest surfaces. So the blue-white star is hotter.
+
+  - id: q-earth-science-astronomy-stars-and-galaxies-0002
+    type: identify
+    difficulty: easy
+    stem: |
+      The Andromeda galaxy is about $2.5$ million light-years away. What does a light-year measure?
+    choices:
+      - text: 'The distance light travels in one year'
+        correct: true
+      - text: 'The time light needs to cross a galaxy'
+        rationale: |
+          This reads the word year as a unit of time. The name sounds like a time unit. Check that a light-year tells how far, not how long.
+      - text: 'The speed of light measured over one year'
+        rationale: |
+          This mixes the distance light covers with its speed. Light's speed is part of the idea. Check that the unit tells how far light goes, not how fast.
+      - text: 'The energy a star gives off in one year'
+        rationale: |
+          This mixes distance with luminosity. Both are used to describe stars. Check that luminosity is a different quantity, the energy given off each second.
+    explanation: |
+      Light moves very fast. In one year it travels about $9.46$ trillion km. This distance is one light-year. It is a unit of distance, not of time.
+
+  - id: q-earth-science-astronomy-stars-and-galaxies-0003
+    type: identify
+    difficulty: easy
+    stem: |
+      In which place does a new star begin to form?
+    choices:
+      - text: 'A nebula, a cloud of gas and dust'
+        correct: true
+      - text: 'A white dwarf, the hot core of a dead star'
+        rationale: |
+          This picks a hot, glowing object as a source of new stars. A white dwarf is bright and hot. Check that it is what is left after a star dies.
+      - text: 'A planetary nebula, a shell shed by a dying star'
+        rationale: |
+          This trusts the word nebula. A planetary nebula is also a cloud of gas. Check that it is gas blown off by a dying star, not the cloud where stars form.
+      - text: 'A black hole, where gravity pulls matter together'
+        rationale: |
+          This uses strong gravity as the reason for star birth. Gravity does gather gas into stars. Check that a black hole is a dense object left by a star, not a birthplace.
+    explanation: |
+      A star is born inside a nebula, which is a cloud of gas and dust. Gravity pulls part of the cloud into a hot, dense ball. When the core gets hot enough, fusion begins.
+
+  - id: q-earth-science-astronomy-stars-and-galaxies-0004
+    type: identify
+    difficulty: easy
+    stem: |
+      Which statement describes a black hole?
+    choices:
+      - text: 'An object so dense that even light cannot escape its gravity'
+        correct: true
+      - text: 'A star that has used up its hydrogen and cooled to a faint glow'
+        rationale: |
+          This describes a fading star. A cooled star also looks dark. Check that a black hole is defined by gravity so strong that light cannot leave.
+      - text: 'A cloud of gas and dust in which a new star forms'
+        rationale: |
+          This describes a nebula. A dark cloud can look like a black spot in the sky. Check that a black hole is a very dense object, not a cloud.
+      - text: 'A huge explosion that marks the end of a massive star'
+        rationale: |
+          This names the event that can come before a black hole. The explosion is linked to it. Check that a black hole is the object left behind, not the blast.
+    explanation: |
+      A black hole is an object so dense that its gravity is too strong for even light to escape. It can be left behind after a massive star explodes.
+
+  - id: q-earth-science-astronomy-stars-and-galaxies-0005
+    type: classify
+    difficulty: medium
+    stem: |
+      The spectral classes O, B, A, F, G, K, and M run from the hottest stars to the coolest. The Sun is class G. Which of these classes has a surface cooler than the Sun's?
+    choices:
+      - text: 'Class K'
+        correct: true
+      - text: 'Class F'
+        rationale: |
+          This treats a class next to G as cooler. F sits right beside G in the list. Check that classes before G in the list are hotter than the Sun.
+      - text: 'Class A'
+        rationale: |
+          This takes the early letters to be the coolest. A looks like a starting point. Check that the list runs from hottest to coolest, so A is hotter than G.
+      - text: 'Class O'
+        rationale: |
+          This takes the first class to be the coolest. O comes first, like a starting point. Check that the list starts with the hottest stars.
+    explanation: |
+      The list goes from hottest to coolest. Classes before G are hotter than the Sun. Classes after G are cooler. Of the choices, only class K comes after G.
+
+  - id: q-earth-science-astronomy-stars-and-galaxies-0006
+    type: cause-effect
+    difficulty: medium
+    stem: |
+      Star M and Star N have the same luminosity. Star M is $5$ light-years from Earth, and Star N is $50$ light-years from Earth. How do their apparent brightnesses compare?
+    choices:
+      - text: 'Star M looks brighter because it is nearer.'
+        correct: true
+      - text: 'Star N looks brighter because its light has traveled longer.'
+        rationale: |
+          This treats a longer trip as adding brightness. More travel seems to mean more light collected. Check that distance makes a star look dimmer.
+      - text: 'They look equally bright because their luminosities are equal.'
+        rationale: |
+          This uses luminosity alone to find how bright a star looks. Equal energy output seems to mean equal brightness. Check that apparent brightness also depends on distance.
+      - text: 'They cannot be compared without their colors.'
+        rationale: |
+          This thinks color is needed to compare brightness. Color does show temperature. Check that luminosity and distance are already given.
+    explanation: |
+      Apparent brightness depends on luminosity and on distance. The luminosities are equal. Star M is much closer, so it looks brighter from Earth.
+
+  - id: q-earth-science-astronomy-stars-and-galaxies-0007
+    type: structure-function
+    difficulty: medium
+    stem: |
+      For most of a star's life, its size stays steady. Which two effects balance each other?
+    choices:
+      - text: 'Gravity pulling inward and hot gas pushing outward'
+        correct: true
+      - text: 'Fusion in the core and fusion in the outer layers'
+        rationale: |
+          This pairs two heat sources as opposing effects. Fusion does power the star. Check that the balance is between an inward pull and an outward push.
+      - text: 'The gravity of the star and the gravity of nearby stars'
+        rationale: |
+          This uses two pulls in place of a pull and a push. Nearby stars do have gravity. Check that the star's own gravity is balanced by the push of its hot gas.
+      - text: 'Light pushing outward and the solar wind pushing inward'
+        rationale: |
+          This reverses the solar wind, which flows outward. Both come from a star. Check what holds the star's gas together and what pushes it outward.
+    explanation: |
+      A star's own gravity pulls its gas inward. The hot gas pushes outward. For most of the star's life these two effects balance, so the star stays the same size.
+
+  - id: q-earth-science-astronomy-stars-and-galaxies-0008
+    type: classify
+    difficulty: medium
+    stem: |
+      Which description fits the Milky Way, the galaxy that holds our Solar System?
+    choices:
+      - text: 'A spiral galaxy about $100{,}000$ light-years across'
+        correct: true
+      - text: 'An elliptical galaxy about $100{,}000$ light-years across'
+        rationale: |
+          This gets the width right but the shape wrong. The width helps the choice look right. Check that the Milky Way is a spiral galaxy.
+      - text: 'A spiral galaxy about $2.5$ million light-years across'
+        rationale: |
+          This gets the shape right but uses the distance to Andromeda as the width. Both are big numbers about galaxies. Check that $2.5$ million light-years is how far away Andromeda is.
+      - text: 'An irregular galaxy about $2.5$ million light-years across'
+        rationale: |
+          This gets both the shape and the size wrong. Large numbers suggest an odd, huge galaxy. Check the shape and the width separately.
+    explanation: |
+      The Milky Way is a spiral galaxy about $100{,}000$ light-years across. The $2.5$ million light-years is the distance to the nearby Andromeda galaxy, not the width of the Milky Way.
+
+  - id: q-earth-science-astronomy-stars-and-galaxies-0009
+    type: cause-effect
+    difficulty: medium
+    stem: |
+      Dark matter does not give off light. How do scientists know it is present in a galaxy?
+    choices:
+      - text: 'They detect the pull it has on stars and gas.'
+        correct: true
+      - text: 'They measure the light it reflects from nearby stars.'
+        rationale: |
+          This gives dark matter a way to shine. Many dark objects can be seen by reflected light. Check that dark matter does not give off light.
+      - text: 'They see the fusion taking place in its core.'
+        rationale: |
+          This treats dark matter as a kind of star. Stars are found in galaxies. Check that fusion is how stars make light, and dark matter gives off none.
+      - text: 'They photograph it with a visible-light telescope.'
+        rationale: |
+          This assumes every part of a galaxy can be photographed. Most of what we study is seen with light. Check what this matter does without giving off light.
+    explanation: |
+      Dark matter does not give off light. But it pulls on stars and gas with gravity. Scientists see this pull, so they know the dark matter is there.
+
+  - id: q-earth-science-astronomy-stars-and-galaxies-0010
+    type: predict-outcome
+    difficulty: medium
+    stem: |
+      Star R has about $10$ times the mass of the Sun. Star S is a red dwarf. Both are on the main sequence. How do their lifetimes compare?
+    choices:
+      - text: 'Star R lives for a shorter time than Star S.'
+        correct: true
+      - text: 'Star R lives longer because it has more fuel.'
+        rationale: |
+          This counts fuel and ignores how fast it is used. More fuel seems to mean a longer life. Check that massive stars use their fuel much faster.
+      - text: 'They live equally long because both fuse hydrogen.'
+        rationale: |
+          This treats the same fuel as the same lifetime. Both stars fuse hydrogen. Check that mass changes how fast the fuel is used.
+      - text: 'Star S lives for a shorter time because it has less fuel.'
+        rationale: |
+          This counts the amount of fuel and ignores the burning rate. A small star has less fuel. Check that red dwarfs burn their fuel very slowly.
+    explanation: |
+      Massive stars use their fuel fast, so they live a short time. Red dwarfs burn their fuel very slowly and live far longer. Star R lives for a shorter time than Star S.
+
+  - id: q-earth-science-astronomy-stars-and-galaxies-0011
+    type: process-ordering
+    difficulty: medium
+    stem: |
+      Which sequence shows the later life of a star with about the mass of the Sun, after its main-sequence stage?
+    choices:
+      - text: 'Red giant, planetary nebula, white dwarf'
+        correct: true
+      - text: 'Supergiant, supernova, neutron star'
+        rationale: |
+          This is the path of a star many times the Sun's mass. Both paths end in a dense core. Check the star's mass before choosing the path.
+      - text: 'Red giant, supernova, white dwarf'
+        rationale: |
+          This mixes the Sun-like path with a supernova. A white dwarf follows a red giant, which looks right. Check that a supernova belongs to a much more massive star.
+      - text: 'White dwarf, red giant, planetary nebula'
+        rationale: |
+          This puts the stages in reverse. The same three names appear. Check that the white dwarf is the hot core left at the end.
+    explanation: |
+      A star like the Sun swells into a red giant. It then blows off its outer layers as a planetary nebula. The hot core that is left is a white dwarf.
+
+  - id: q-earth-science-astronomy-stars-and-galaxies-0012
+    type: identify
+    difficulty: medium
+    stem: |
+      A massive star explodes as a supernova. The core left behind is a tiny, extremely dense ball about $20$ km across. What is this core called?
+    choices:
+      - text: 'A neutron star'
+        correct: true
+      - text: 'A white dwarf'
+        rationale: |
+          This picks another dense core left by a dying star. Both are small and dense. Check that a white dwarf is about as wide as Earth and comes from a star like the Sun.
+      - text: 'A red giant'
+        rationale: |
+          This picks a stage near the end of a star's life. Red giants come late in life. Check that a red giant is huge, not tiny.
+      - text: 'A planetary nebula'
+        rationale: |
+          This picks a name linked to a dying star. A planetary nebula appears after the death of a star. Check that it is a shell of gas, not a dense ball.
+    explanation: |
+      A star many times the Sun's mass ends in a supernova. The core left behind can be a neutron star. A neutron star is about $20$ km across and very dense.
+
+  - id: q-earth-science-astronomy-stars-and-galaxies-0013
+    type: cause-effect
+    difficulty: hard
+    stem: |
+      A red giant has a cooler surface than a blue-white star, yet it can be far more luminous. Which statement best explains this?
+    choices:
+      - text: 'Its very large size makes up for its cooler surface.'
+        correct: true
+      - text: 'Its surface is actually hotter than the blue-white star''s.'
+        rationale: |
+          This treats a star with high luminosity as the hotter one. Luminous stars are often hot. Check that a red color shows a cool surface.
+      - text: 'Its red color shows that its core is hotter.'
+        rationale: |
+          This reads a hot core from red color. Red looks like heat in daily life. Check that color shows surface temperature.
+      - text: 'It is nearer to Earth than the blue-white star.'
+        rationale: |
+          This explains how bright the star looks, not its luminosity. Nearer stars do look brighter. Check that luminosity does not depend on distance.
+    explanation: |
+      Luminosity grows with surface temperature and with size. A red giant is cool at the surface but huge. Its large size lets it give off a great amount of energy each second.
+
+  - id: q-earth-science-astronomy-stars-and-galaxies-0014
+    type: classify
+    difficulty: hard
+    stem: |
+      Two bright stars appear close together in the same constellation. Which statement is best supported?
+    choices:
+      - text: 'They can be at very different distances.'
+        correct: true
+      - text: 'Gravity holds them together as one group.'
+        rationale: |
+          This treats a pattern in the sky as a bound group. Stars that look close seem to be a pair. Check that a constellation is only a pattern seen from Earth.
+      - text: 'They are at the same distance from Earth.'
+        rationale: |
+          This treats stars that look close as equally far away. In the sky they look flat, like one picture. Check that the sky pattern gives no distance.
+      - text: 'They have the same luminosity.'
+        rationale: |
+          This assumes neighbors in a pattern are alike. Stars that look similar may seem the same. Check that the pattern says nothing about their energy output.
+    explanation: |
+      A constellation is only a pattern that people see in the sky. Its stars are at very different distances from Earth. They are not a group held together by gravity.
+
+  - id: q-earth-science-astronomy-stars-and-galaxies-0015
+    type: simple-quantitative
+    difficulty: hard
+    stem: |
+      Light from a star $8$ light-years away reaches Earth tonight. About how long ago did that light leave the star?
+    choices:
+      - text: '$8$ years'
+        correct: true
+      - text: '$16$ years'
+        rationale: |
+          This doubles the time as if the light made a round trip. Distances to and from seem to add. Check that the light travels one way.
+      - text: '$4$ years'
+        rationale: |
+          This halves the time as if the light started halfway. A smaller number looks safer. Check that the distance is the full $8$ light-years.
+      - text: '$1$ year'
+        rationale: |
+          This reads one light-year as the time for any trip. The unit has year in its name. Check that $8$ light-years takes light $8$ years.
+    explanation: |
+      One light-year is the distance light travels in one year. The star is $8$ light-years away. So the light needed $8$ years to reach Earth.
+
+  - id: q-earth-science-astronomy-stars-and-galaxies-0016
+    type: compare-contrast
+    difficulty: exam
+    stem: |
+      Star A is much larger than Star B. The two stars have the same luminosity. Which statement about their surface temperatures is supported?
+    choices:
+      - text: 'Star A has the lower surface temperature.'
+        correct: true
+      - text: 'Star A has the higher surface temperature.'
+        rationale: |
+          This assumes the larger star must be hotter. Larger stars seem to have more energy. Check that size and temperature both raise luminosity, so a larger star can match with less heat.
+      - text: 'The two stars have the same surface temperature.'
+        rationale: |
+          This assumes equal luminosity means equal temperature. The luminosities match. Check that size is different.
+      - text: 'They cannot be compared without their distances from Earth.'
+        rationale: |
+          This mixes luminosity with apparent brightness. Distance changes how bright a star looks. Check that luminosity does not depend on distance.
+    explanation: |
+      Luminosity grows with surface temperature and with size. Star A is larger, so it gives off more energy at the same temperature. To have the same luminosity as Star B, Star A must have a lower surface temperature.

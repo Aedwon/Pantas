@@ -340,3 +340,87 @@ questions:
           This reverses the direction of weight. Buoyancy acts upward. Check which force comes from gravity and which from the fluid.
     explanation: |
       Fluid pressure increases with depth. The lower surfaces receive greater pressure than higher surfaces. The resulting pressure forces combine into an upward buoyant force.
+
+  - id: q-physics-fluid-mechanics-0021
+    type: "predict-outcome"
+    difficulty: "medium"
+    stem: |
+      A uniform solid block has a density of 600 kg/m^3. It floats at rest in water. How much of the block's volume is below the water surface?
+    choices:
+      - text: "60% of its volume"
+        correct: true
+      - text: "40% of its volume"
+        rationale: |
+          This gives the part above the surface. The two parts add to the whole. Check which part the question asks about.
+      - text: "50% of its volume"
+        rationale: |
+          This assumes a floating block sits half in. Floating blocks do sit partly under. Check that the fraction below is $\dfrac{\rho_{object}}{\rho_{fluid}}$.
+      - text: "100% of its volume"
+        rationale: |
+          This treats a floating block as fully under. A block less dense than water rises until it floats. Check that the buoyant force equals the weight with less than the whole volume under.
+    explanation: |
+      A floating block has a buoyant force equal to its weight. The fraction below the surface is $\dfrac{\rho_{object}}{\rho_{fluid}}=\dfrac{600}{1000}=0.60$. So $60\%$ of the block is below the surface.
+    approved: false
+
+  - id: q-physics-fluid-mechanics-0022
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      A hydraulic lift has a small piston of area 10 cm^2 and a large piston of area 200 cm^2. A force of 50 N pushes on the small piston. Neglect friction, and assume both pistons are at the same height. What force acts on the large piston?
+    choices:
+      - text: "1000 N"
+        correct: true
+      - text: "2.5 N"
+        rationale: |
+          This multiplies by the area ratio the wrong way. The small piston is the input. Check that the large piston gives the larger force.
+      - text: "250 N"
+        rationale: |
+          This adds the input force and the large area. Numbers with different units cannot be added. Check that the pressure is the same at both pistons.
+      - text: "500 N"
+        rationale: |
+          This multiplies the force by the small area. The area is in the problem, so it seems to be used. Check that the equation uses the ratio of the two areas.
+    explanation: |
+      The pressure change is the same at both pistons. $F_2=F_1\dfrac{A_2}{A_1}=50\times\dfrac{200}{10}=1000$ N.
+    approved: false
+
+  - id: q-physics-fluid-mechanics-0023
+    type: "simple-quantitative"
+    difficulty: "hard"
+    stem: |
+      A diver is 8.0 m below the surface of a freshwater lake that is open to the air. Atmospheric pressure is $1.01\times10^5\ \mathrm{Pa}$, water density is $1000\ \mathrm{kg/m^3}$, and $g=9.8\ \mathrm{m/s^2}$. What is the absolute pressure at the diver?
+    choices:
+      - text: "1.79 × 10^5 Pa"
+        correct: true
+      - text: "7.84 × 10^4 Pa"
+        rationale: |
+          This is the gauge pressure, $\rho gh$. The depth term is the main part of the answer. Check that the question asks for the absolute pressure.
+      - text: "1.01 × 10^5 Pa"
+        rationale: |
+          This is the pressure at the surface. The atmosphere is part of the answer. Check that pressure increases with depth.
+      - text: "8.08 × 10^5 Pa"
+        rationale: |
+          This multiplies atmospheric pressure by the depth. The depth is in the question, so it seems to scale the pressure. Check that the formula adds $\rho gh$ to $P_0$.
+    explanation: |
+      Absolute pressure is $P=P_0+\rho gh$. First, $\rho gh=(1000)(9.8)(8.0)=7.84\times10^4$ Pa. Then $P=1.01\times10^5+0.784\times10^5\approx1.79\times10^5$ Pa.
+    approved: false
+
+  - id: q-physics-fluid-mechanics-0024
+    type: "simple-quantitative"
+    difficulty: "hard"
+    stem: |
+      A solid object has a mass of 5.0 kg and a volume of $2.0\times10^{-3}\ \mathrm{m^3}$. It hangs from a spring scale and is fully submerged in water of density $1000\ \mathrm{kg/m^3}$. Use $g=9.8\ \mathrm{m/s^2}$. What does the scale read?
+    choices:
+      - text: "29.4 N"
+        correct: true
+      - text: "19.6 N"
+        rationale: |
+          This is the buoyant force alone. The buoyant force is part of the problem. Check that the scale reads the weight minus the buoyant force.
+      - text: "49 N"
+        rationale: |
+          This is the weight in air. The scale holds the object, so it seems to read the weight. Check that the water pushes the object up.
+      - text: "68.6 N"
+        rationale: |
+          This adds the buoyant force to the weight. The water seems to add a push on the object. Check that the buoyant force acts upward and reduces the reading.
+    explanation: |
+      The weight in air is $mg=5.0\times9.8=49$ N. The buoyant force is $\rho_{fluid}gV=(1000)(9.8)(2.0\times10^{-3})=19.6$ N. The scale reads $W-F_B=49-19.6=29.4$ N.
+    approved: false
