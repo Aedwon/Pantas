@@ -1,0 +1,14 @@
+{
+ "reader": "sol",
+ "verdict": "blocker",
+ "findings": [
+  {
+   "question": "q-biology-cell-biology-0019",
+   "severity": "Blocker",
+   "field": "stem",
+   "quote": "A plant cell membrane permits water to cross but not the dissolved sugar used in an experiment. The external sugar concentration is increased above the concentration inside the cell. What is the expected initial change?",
+   "problem": "The stem compares sugar concentrations but does not establish that the outside has a higher total concentration of nonpenetrating solutes. For example, a cell could contain 0.10 M sugar plus 0.30 M other nonpenetrating solute, while the outside is increased to 0.20 M sugar with no other solute. External sugar is then more concentrated than internal sugar, yet water can enter rather than leave. The keyed direction of water movement is therefore not determined by the stated information.",
+   "fix": "State that the initially turgid cell is placed in a solution with a higher total concentration of nonpenetrating solutes than its interior."
+  }
+ ]
+}

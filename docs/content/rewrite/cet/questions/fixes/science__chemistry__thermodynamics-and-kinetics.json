@@ -1,0 +1,27 @@
+{
+ "file": "science__chemistry__thermodynamics-and-kinetics",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-chemistry-thermodynamics-and-kinetics-0008",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Replaced the extreme distractors with plausible Yes/No claims about released energy, drive, and rate, each with a new note."
+  },
+  {
+   "question": "q-chemistry-thermodynamics-and-kinetics-0011",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Replaced extreme distractors with confusions among barrier, reactant energy, product energy, and peak height, each with a new note."
+  },
+  {
+   "question": "q-chemistry-thermodynamics-and-kinetics-0016",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Reworded the key to a plain statement ('They do not lead to a reaction') and gave all choices comparable certainty with new notes; same correct choice."
+  }
+ ]
+}

@@ -1,0 +1,13 @@
+{
+ "file": "mathematics__trigonometry__trigonometric-identities",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-trigonometry-trigonometric-identities-0007",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Csc-squared note now names the two errors: dropping the subtracted term, then swapping reciprocal cosine for reciprocal sine."
+  }
+ ]
+}

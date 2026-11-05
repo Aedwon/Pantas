@@ -1,0 +1,22 @@
+{
+ "reader": "sol",
+ "verdict": "major",
+ "findings": [
+  {
+   "question": "q-chemistry-matter-0018",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "      - text: 'Only crystals have a definite volume.'\n        rationale: |\n          This equates definite volume with crystalline order. Both are solid properties in familiar examples. Check whether an amorphous solid can retain volume.\n      - text: 'Amorphous solids always fill any vessel like gases.'\n        rationale: |\n          This confuses lack of a repeating lattice with the gas state. Disorder may sound like gas motion. Check whether the material is still solid.\n      - text: 'Every solid has exactly the same repeating lattice.'",
+   "problem": "All three distractors use conspicuous absolute wording (Only, always, or Every ... exactly the same), while the keyed statement does not. This pattern lets a test-wise student select the sole restrained statement without knowing how crystalline and amorphous solids differ.",
+   "fix": "Use plausible distractors with parallel, neutral wording about particle arrangement, without concentrating absolute qualifiers in the wrong choices."
+  },
+  {
+   "question": "q-chemistry-matter-0019",
+   "severity": "Minor",
+   "field": "explanation",
+   "quote": "Its charged particles can show collective behavior.",
+   "problem": "Collective behavior is an unexplained technical phrase. A Grade 5 reader is not told what the particles do, and this extra sentence does not help explain the defining feature asked for.",
+   "fix": "Delete this sentence, or replace it with a simple explanation that plasma contains charged particles because some atoms have lost or gained electrons."
+  }
+ ]
+}

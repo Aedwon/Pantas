@@ -1,0 +1,22 @@
+{
+ "reader": "sol",
+ "verdict": "blocker",
+ "findings": [
+  {
+   "question": "q-comprehension-skills-sequencing-of-events-0018",
+   "severity": "Blocker",
+   "field": "note",
+   "quote": "The librarian calls twice.",
+   "problem": "This misstates who makes the calls. The owner calls the library before Mika arrives; the librarian answers the owner and later contacts the owner again. The passage does not establish two calls made by the librarian.",
+   "fix": "Replace with: \"The librarian responds before Mika arrives and contacts the owner again after the handover.\""
+  },
+  {
+   "question": "q-comprehension-skills-sequencing-of-events-0012",
+   "severity": "Minor",
+   "field": "stem",
+   "quote": "What happens after the technician is called but before arriving?",
+   "problem": "The phrase \"before arriving\" lacks a clear grammatical subject. The intended meaning is before the technician arrives, but the question asks what happens, making the wording awkward for an exam stem.",
+   "fix": "Write: \"What happens after the technician is called but before the technician arrives?\""
+  }
+ ]
+}

@@ -1,0 +1,54 @@
+{
+ "reader": "sol",
+ "verdict": "blocker",
+ "findings": [
+  {
+   "question": "q-mechanical-technical-reasoning-pulleys-and-levers-0004",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This divides by the effort arm twice as if it were 10 m. A longer arm does reduce effort. Use the actual 5 m distance.",
+   "problem": "The note does not describe the 196 N choice correctly. Dividing the load torque by the 5 m effort arm twice gives 1960/5/5 = 78.4, not 196. Dividing the load weight by 5 twice gives 39.2. Using an incorrectly doubled effort arm of 10 m does give 196 N, but that is a different mistake.",
+   "fix": "Describe mistakenly doubling the effort arm to 10 m; remove the claim about dividing by the effort arm twice."
+  },
+  {
+   "question": "q-mechanical-technical-reasoning-pulleys-and-levers-0007",
+   "severity": "Major",
+   "field": "meta",
+   "quote": "loadDistance: 4\n      effortDistance: 8",
+   "problem": "The figure supplies the requested minimum effort-arm length as 8 m. A student can read the answer directly instead of balancing torques.",
+   "fix": "Show an unknown effort distance in the figure without displaying its numerical value."
+  },
+  {
+   "question": "q-mechanical-technical-reasoning-pulleys-and-levers-0011",
+   "severity": "Major",
+   "field": "meta",
+   "quote": "loadDistance: 2\n      effortDistance: 8",
+   "problem": "The figure supplies the requested load distance as 2 m. Reading that label bypasses the torque calculation.",
+   "fix": "Show the load distance as an unknown and retain only the given 8 m effort distance."
+  },
+  {
+   "question": "q-mechanical-technical-reasoning-pulleys-and-levers-0012",
+   "severity": "Major",
+   "field": "meta",
+   "quote": "loadDistance: 3\n      effortDistance: 18",
+   "problem": "The figure supplies the requested effort-arm length as 18 m, giving away the answer without a balance calculation.",
+   "fix": "Show the effort distance as an unknown and retain the given 3 m load distance."
+  },
+  {
+   "question": "q-mechanical-technical-reasoning-pulleys-and-levers-0012",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This divides by the numerical load arm instead of effort force. The torque is 2,700 N m. Check that dividing torque by force yields meters.",
+   "problem": "The note does not produce the 270 m choice. Dividing the stated torque by the numerical load arm gives 2700/3 = 900, not 270. The explanation of this distractor therefore names the wrong calculation.",
+   "fix": "Use a distractor produced by the named mistake, or rewrite the note around a plausible calculation that actually gives 270."
+  },
+  {
+   "question": "q-mechanical-technical-reasoning-pulleys-and-levers-0013",
+   "severity": "Blocker",
+   "field": "stem",
+   "quote": "The shown movable block has two rope segments sharing its 640 N total weight. In an ideal single-rope system, what additional fact is needed to use $640/2$ as the effort?",
+   "problem": "Equal tension already follows from the stated ideal single-rope system. What is missing for effort to equal half the weight is rest or constant speed, which the explanation assumes but the stem never states. For example, an upward-accelerating block requires 2T greater than 640 N even with equal support tensions. Thus the keyed additional fact does not supply the missing condition.",
+   "fix": "Ask which motion condition is needed, key rest or constant speed, and update the notes and explanation; alternatively state constant speed and ask why the two supports have equal tension."
+  }
+ ]
+}

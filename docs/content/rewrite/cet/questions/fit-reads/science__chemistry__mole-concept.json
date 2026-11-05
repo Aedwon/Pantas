@@ -1,0 +1,38 @@
+{
+ "reader": "sol",
+ "verdict": "major",
+ "findings": [
+  {
+   "question": "q-chemistry-mole-concept-0003",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This treats each mole as 27 g instead of the given 18 g. The sample mass is 54 g. Check the supplied mass per mole.",
+   "problem": "The note invents a 27 g/mol value without explaining why a student would use it. Repeating the sample mass does not explain why 2.0 mol looks right, so the required explanation of the attraction is missing.",
+   "fix": "Use a distractor produced by a recognizable mistake and explain that mistake, why it is tempting, and how to check it."
+  },
+  {
+   "question": "q-chemistry-mole-concept-0005",
+   "severity": "Minor",
+   "field": "explanation",
+   "quote": "First find $n=45/18=2.5$ mol. Then $N=2.5(6.022\\times10^{23})=1.5055\\times10^{24}$ molecules using the supplied constant.",
+   "problem": "The final result retains five significant figures even though 45 g and 18 g/mol each have two. Under the lesson\u2019s reporting rule, the result should be approximately 1.5 \u00d7 10^24 molecules. The arithmetic is correct, but the displayed precision is unsupported.",
+   "fix": "Keep the unrounded intermediate result, then round the final result and keyed choice to $1.5\\times10^{24}$ molecules."
+  },
+  {
+   "question": "q-chemistry-mole-concept-0006",
+   "severity": "Major",
+   "field": "explanation",
+   "quote": "A separately written intermediate mole amount is not required.",
+   "problem": "This sentence explicitly rebuts the wrong choice claiming that moles must be written as a separate step. The requested explanation rule permits only explaining why the correct answer is correct; the preceding unit cancellation already does that.",
+   "fix": "Delete this sentence and retain the combined formula and unit cancellation."
+  },
+  {
+   "question": "q-chemistry-mole-concept-0008",
+   "severity": "Minor",
+   "field": "explanation",
+   "quote": "Relative atomic mass is an isotope-weighted atomic-scale ratio. Molar mass is mass per mole, often in g/mol. Similar numerical values do not make them the same physical quantity.",
+   "problem": "\u201cIsotope-weighted atomic-scale ratio\u201d compresses several technical ideas into one phrase and does not explain what is being compared. It does not meet the requested Grade 5 explanation language.",
+   "fix": "Say that relative atomic mass compares the average mass of an element\u2019s atoms with a standard atomic mass unit and has no unit; molar mass tells how many grams one mole weighs."
+  }
+ ]
+}

@@ -1,0 +1,13 @@
+{
+ "file": "science__physics__thermodynamics",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-physics-thermodynamics-0010",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Stem now asks which pair names what drives the air with the fan on and off; choices are parallel pairs, notes rewritten, explanation made plainer."
+  }
+ ]
+}

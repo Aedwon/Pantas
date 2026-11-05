@@ -1,0 +1,14 @@
+{
+ "reader": "sol",
+ "verdict": "major",
+ "findings": [
+  {
+   "question": "q-trigonometry-trigonometric-identities-0007",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This replaces the denominator with sine squared. Cosecant is another reciprocal function. Check that the original denominator is cosine squared.",
+   "problem": "The note for the cosecant-squared choice describes changing the denominator to sine squared, but that gives (1-cos\u00b2\u03b8)/sin\u00b2\u03b8 = 1, not csc\u00b2\u03b8. For example, at 30\u00b0, this changed expression is 1 while csc\u00b2\u03b8 is 4. The note does not explain the mistake that produces its attached choice.",
+   "fix": "Describe both errors: dropping the subtracted term gives 1/cos\u00b2\u03b8, then confusing reciprocal cosine with reciprocal sine gives csc\u00b2\u03b8. Explain that reciprocal functions look similar, and advise checking the full numerator and the reciprocal pair."
+  }
+ ]
+}

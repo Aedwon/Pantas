@@ -1,0 +1,38 @@
+{
+ "reader": "sol",
+ "verdict": "blocker",
+ "findings": [
+  {
+   "question": "q-mechanical-technical-reasoning-structural-stability-0005",
+   "severity": "Blocker",
+   "field": "choices",
+   "quote": "Through the top corner",
+   "problem": "This is also true for the depicted centered rectangular box. At the tipping threshold, the lower-right pivot, the center of gravity, and the opposite upper-left corner lie on the same vertical diagonal. Thus both the keyed pivot-edge choice and this top-corner choice are correct. Its note also incorrectly calls that corner unrelated to the threshold.",
+   "fix": "Replace this distractor and its note with a line location that is not on the pivot-to-center diagonal."
+  },
+  {
+   "question": "q-mechanical-technical-reasoning-structural-stability-0011",
+   "severity": "Blocker",
+   "field": "key",
+   "quote": "Its center of gravity is very low (concentrated near its heavy base), so the vertical line from its center of gravity quickly returns within its base of support as it rocks, pulling it back upright",
+   "problem": "Confirmed solver flag: this gives the wrong cause of self-righting. With ideal point contact on a rounded base, the weight line lies to one side of the contact while the toy rights itself. Gravity produces a restoring torque about that contact; returning inside the support is not what pulls the toy upright. The explanation describes the correct mechanism, but no choice states it correctly.",
+   "fix": "Key a choice stating that gravity turns the toy back about its rounded contact because tilting raises its low center of gravity."
+  },
+  {
+   "question": "q-mechanical-technical-reasoning-structural-stability-0011",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "Its center of gravity is very low (concentrated near its heavy base), so the vertical line from its center of gravity quickly returns within its base of support as it rocks, pulling it back upright",
+   "problem": "The keyed choice is conspicuously longer and more qualified than every distractor. The other choices claim that narrow support always restores objects, that the toy has no center of gravity, or that gravity does not affect it. A student can select the detailed, physically plausible-looking choice without understanding self-righting.",
+   "fix": "Use similarly concise choices with plausible competing explanations of the turning effect."
+  },
+  {
+   "question": "q-mechanical-technical-reasoning-structural-stability-0017",
+   "severity": "Major",
+   "field": "stem",
+   "quote": "The uniform hollow box shown has its center of gravity in the empty interior. What does this demonstrate about a center of gravity?",
+   "problem": "The stem supplies the answer: a point in an empty interior is outside the material. A student can match that wording to the keyed choice without knowing how a center of gravity is located.",
+   "fix": "Describe a symmetric hollow object without giving the center location, and ask where its center of gravity lies."
+  }
+ ]
+}

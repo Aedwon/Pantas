@@ -1,0 +1,13 @@
+{
+ "file": "reading-comprehension__text-types__speeches",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-text-types-speeches-0015",
+   "severity": "Major",
+   "action": "rewritten",
+   "key_changed": false,
+   "summary": "Removed the 'mixed purpose' cue from the stem and made all four choices combine three plausible purposes; the key is unchanged in meaning."
+  }
+ ]
+}

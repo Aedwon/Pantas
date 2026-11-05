@@ -1,0 +1,14 @@
+{
+ "reader": "sol",
+ "verdict": "major",
+ "findings": [
+  {
+   "question": "q-chemistry-gas-laws-0009",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "Boyle\u2019s law at fixed temperature",
+   "problem": "All three distractors explicitly fix a quantity that the stem says changes: temperature, pressure, or volume. A student can reject every distractor by matching these words, without knowing which variables the combined gas law relates.",
+   "fix": "Remove the fixed-condition phrases from the distractors so students must know the conditions of each named law."
+  }
+ ]
+}

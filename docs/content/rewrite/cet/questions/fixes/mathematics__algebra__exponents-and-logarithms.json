@@ -1,0 +1,20 @@
+{
+ "file": "mathematics__algebra__exponents-and-logarithms",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-algebra-exponents-and-logarithms-0010",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Rewrote the note for the x^9/y^4 choice to describe both errors (adding denominator exponents, then placing y^4 under the bar)."
+  },
+  {
+   "question": "q-algebra-exponents-and-logarithms-0019",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Rewrote the note for 2<...<3 to name a concrete error (bracketing with 2^5 and 3^4) and a cube-the-endpoints check."
+  }
+ ]
+}

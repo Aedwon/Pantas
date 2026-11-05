@@ -1,0 +1,14 @@
+{
+ "reader": "sol",
+ "verdict": "major",
+ "findings": [
+  {
+   "question": "q-algebra-linear-equations-inequalities-0003",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This reverses the inequality after subtracting four. Reversal is a real rule for some operations. Check that it happens only when multiplying or dividing by a negative number.",
+   "problem": "The word \"only\" makes the sign-reversal rule too broad. Swapping the two sides also reverses the comparison sign: 2 < 5 becomes 5 > 2, without multiplying or dividing by a negative number.",
+   "fix": "Say: \"Subtracting the same number from both sides keeps the sign. Multiplying or dividing both sides by a negative number reverses it.\""
+  }
+ ]
+}

@@ -1,0 +1,22 @@
+{
+ "reader": "sol",
+ "verdict": "major",
+ "findings": [
+  {
+   "question": "rc-cs-ap-0002",
+   "severity": "Minor",
+   "field": "stem",
+   "quote": "Which word best describes the author's tone toward modern commercial developers in Vigan?",
+   "problem": "The stem asks for one word, but every choice contains two adjectives joined by \u201cand.\u201d",
+   "fix": "Change \u201cWhich word\u201d to \u201cWhich phrase.\u201d"
+  },
+  {
+   "question": "q-comprehension-skills-authors-purpose-tone-pov-0019",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This treats the presence of two projects as a cost comparison. Ben also brings a model. Check whether prices are given.",
+   "problem": "The note assumes Ben brings a model, but the passage identifies his work only as a project. It could be a poster or an experiment without changing any stated event. The wrong-choice note should rely on details actually supplied.",
+   "fix": "Replace \u201cBen also brings a model\u201d with \u201cBen also brings a project.\u201d"
+  }
+ ]
+}

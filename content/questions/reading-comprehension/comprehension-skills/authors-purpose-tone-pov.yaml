@@ -421,7 +421,7 @@ questions:
           This makes a character's difficulty a policy argument. The model has a flaw. Check whether the writer addresses judges with a demand.
       - text: "To compare the costs of two students' science projects"
         rationale: |
-          This treats the presence of two projects as a cost comparison. Ben also brings a model. Check whether prices are given.
+          This treats the presence of two projects as a cost comparison. Ben also brings a project. Check whether prices are given.
     explanation: |
       The scene follows Lina's worries and her decision to explain the design despite the loose roof. It portrays a personal challenge through a story.
     approved: false

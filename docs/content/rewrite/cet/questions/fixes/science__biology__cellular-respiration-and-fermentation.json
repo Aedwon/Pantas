@@ -1,0 +1,13 @@
+{
+ "file": "science__biology__cellular-respiration-and-fermentation",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-biology-cellular-metabolism-0006",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Rewrote the notes for Citric acid cycle and Light-dependent reactions to match those choices (location in matrix and chloroplasts, why each looks right, a check)."
+  }
+ ]
+}

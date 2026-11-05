@@ -344,40 +344,40 @@ questions:
     type: 'process-ordering'
     difficulty: 'medium'
     stem: |
-      For complete hydrocarbon combustion, which balancing order efficiently leaves oxygen until last?
+      Propane burns completely: $C_3H_8 + O_2 \rightarrow CO_2 + H_2O$. Carbon is balanced first by writing $3$ in front of $CO_2$. What is the next balancing step?
     choices:
-      - text: 'Carbon, hydrogen, oxygen'
+      - text: 'Write $4$ in front of $H_2O$ to balance hydrogen.'
         correct: true
-      - text: 'Oxygen, carbon, then ignore hydrogen'
+      - text: 'Write $8$ in front of $H_2O$ to balance hydrogen.'
         rationale: |
-          This omits the hydrogen check. Oxygen occurs in several products and can attract attention first. Check every element before finishing.
-      - text: 'Hydrogen, oxygen, then change carbon subscripts'
+          This uses the number of hydrogen atoms as the coefficient. Eight hydrogen atoms are on the left, so the number $8$ looks right. Check that each $H_2O$ holds $2$ hydrogen atoms.
+      - text: 'Write $3$ in front of $H_2O$ to match the carbon coefficient.'
         rationale: |
-          This changes a chemical formula. Carbon counts may still need adjustment. Check that only coefficients change.
-      - text: 'Carbon, oxygen, then ignore water’s hydrogen'
+          This copies the last coefficient to the next compound. The pattern seems tidy. Check that $3$ water molecules hold only $6$ hydrogen atoms, but $8$ are needed.
+      - text: 'Write $5$ in front of $O_2$ to balance oxygen.'
         rationale: |
-          This skips hydrogen in water. Carbon dioxide’s oxygens can dominate the count. Check all atoms in every product.
+          This jumps ahead to oxygen before the water is balanced. The oxygen count is not final until the water coefficient is set. Check the oxygen atoms in both $CO_2$ and $H_2O$ first.
     explanation: |
-      Balance carbon first. Balance hydrogen by adjusting water. Then count all product oxygens and balance oxygen gas.
+      Propane has $8$ hydrogen atoms. Each water molecule has $2$ hydrogen atoms. So $8 \div 2 = 4$ water molecules are needed. Write $4$ in front of $H_2O$. Leave oxygen for last, because $CO_2$ and $H_2O$ both hold oxygen.
     approved: false
 
   - id: q-chemistry-chemical-reactions-0018
     type: 'predict-outcome'
     difficulty: 'hard'
     stem: |
-      A hydrocarbon burns with insufficient oxygen. Which product may appear in addition to water?
+      A hydrocarbon, which contains only carbon and hydrogen, burns with insufficient oxygen. Which product may appear in addition to water?
     choices:
       - text: 'Carbon monoxide'
         correct: true
-      - text: 'Only carbon dioxide in every case'
+      - text: 'Sulfur dioxide'
         rationale: |
-          This assumes combustion is always complete. Carbon dioxide is the usual complete-combustion carbon product. Check oxygen supply.
-      - text: 'A mandatory single product with no water'
+          This is a common air pollutant from burning fuels, so it seems to fit. Sulfur is not in a fuel made only of carbon and hydrogen. Check that every element in a product comes from the reactants.
+      - text: 'Magnesium oxide'
         rationale: |
-          This forces combustion into a one-product synthesis pattern. Oxygen and fuel combine. Check the fuel’s carbon and hydrogen products.
-      - text: 'Unchanged fuel as the only possible material'
+          This is a known product of burning in oxygen, so it seems to fit. It needs magnesium, which a hydrocarbon does not contain. Check the elements in the fuel.
+      - text: 'Hydrogen peroxide'
         rationale: |
-          This treats limited oxygen as preventing all reaction. Some fuel may remain unburned. Check whether partial combustion can still occur.
+          This contains only hydrogen and oxygen, so it seems possible. Burning hydrogen gives water, not hydrogen peroxide, and the carbon in the fuel is still unaccounted for. Check where the carbon goes.
     explanation: |
       Insufficient oxygen can cause incomplete combustion. Some carbon can form carbon monoxide during this partial reaction.
     approved: false

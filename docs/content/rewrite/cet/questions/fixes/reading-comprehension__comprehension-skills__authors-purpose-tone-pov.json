@@ -1,0 +1,13 @@
+{
+ "file": "reading-comprehension__comprehension-skills__authors-purpose-tone-pov",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-comprehension-skills-authors-purpose-tone-pov-0019",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Changed the note to say Ben brings a project, which the passage supports."
+  }
+ ]
+}

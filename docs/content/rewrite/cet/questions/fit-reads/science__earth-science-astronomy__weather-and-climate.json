@@ -1,0 +1,14 @@
+{
+ "reader": "sol",
+ "verdict": "major",
+ "findings": [
+  {
+   "question": "q-earth-science-astronomy-weather-and-climate-0022",
+   "severity": "Major",
+   "field": "stem",
+   "quote": "A tropical cyclone occurs outside the usual peak season. Which conclusion follows from Philippine cyclone climatology?",
+   "problem": "The stem gives away the conclusion by stating that a cyclone occurs outside the peak season. A student can select \u201cCyclones can occur outside the July-to-October peak\u201d by repeating that premise, without knowing Philippine cyclone seasons or climatology.",
+   "fix": "Ask which statement correctly describes the seasonal occurrence of Philippine tropical cyclones, without first stating that an off-peak cyclone occurs."
+  }
+ ]
+}

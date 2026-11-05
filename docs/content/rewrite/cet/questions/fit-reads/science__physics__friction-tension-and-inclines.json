@@ -1,0 +1,22 @@
+{
+ "reader": "sol",
+ "verdict": "blocker",
+ "findings": [
+  {
+   "question": "q-physics-dynamics-0010",
+   "severity": "Blocker",
+   "field": "explanation",
+   "quote": "If it is the only horizontal force, it slows the object.",
+   "problem": "Kinetic friction opposes relative sliding between surfaces; it does not necessarily slow the object. For example, a block sliding to the right on a conveyor belt moving faster to the right speeds up under friction, even when friction is its only horizontal force.",
+   "fix": "Say that kinetic friction opposes sliding between the touching surfaces. Limit the slowing claim to an object sliding on a stationary level surface."
+  },
+  {
+   "question": "q-physics-dynamics-0015",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "      - text: \"It is less than the weight.\"\n        correct: true\n      - text: \"Yes: the normal force always equals $mg$, regardless of the surface's angle.\"\n        rationale: |\n          This applies the horizontal-table result to a ramp. The same weight is present, so the equality looks familiar. Check the component perpendicular to the surface.\n      - text: \"No: the normal force is always greater than the full weight on an incline.\"\n        rationale: |\n          This treats an incline as increasing the inward part of weight. The slope changes the force directions. Check that a component cannot exceed the whole weight.\n      - text: \"Yes: but only if the box is sliding down the ramp.\"",
+   "problem": "The stem asks how the normal force compares with weight, but every distractor starts with Yes or No. Only the keyed choice directly answers the question in the requested form. The final choice does not even state a comparison and refers to sliding despite the box being at rest. A student can identify the key from grammar without resolving the forces.",
+   "fix": "Use parallel comparisons in every choice, such as less than, equal to, greater than, or impossible to determine from the information given; update the corresponding notes."
+  }
+ ]
+}

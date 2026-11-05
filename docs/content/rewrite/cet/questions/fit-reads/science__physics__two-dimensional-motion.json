@@ -1,0 +1,22 @@
+{
+ "reader": "sol",
+ "verdict": "blocker",
+ "findings": [
+  {
+   "question": "q-physics-two-dimensional-motion-0010",
+   "severity": "Major",
+   "field": "explanation",
+   "quote": "For return to launch height, flight time is $2v_{y0}/g$. The $60^\\circ$ launch has the greater upward component at the same total speed. It stays airborne longer.",
+   "problem": "The solution uses the return-to-launch-height formula, but the stem only makes the two launch heights equal to each other and the two landing heights equal to each other. It does not make landing height equal launch height. For example, both projectiles could launch from the same cliff and land on lower ground; then flight time is not $2v_{y0}/g$. The stated formula therefore does not establish the answer for all conditions allowed by the stem.",
+   "fix": "State that both projectiles land at the height from which they were launched."
+  },
+  {
+   "question": "q-physics-two-dimensional-motion-0012",
+   "severity": "Blocker",
+   "field": "explanation",
+   "quote": "Uniform gravity gives constant vertical acceleration and zero horizontal acceleration. With negligible drag, eliminating the shared time gives a parabola.",
+   "problem": "Uniform gravity and negligible drag do not by themselves guarantee a parabolic path. A ball thrown straight up satisfies both conditions but follows a vertical straight line because its horizontal velocity is zero. The keyed choice omits this necessary condition, and the explanation makes the same factual error. The lesson explicitly teaches this exception.",
+   "fix": "Specify a nonzero horizontal launch velocity in the stem, then keep the keyed conditions and explain how the horizontal and vertical motions form a parabola."
+  }
+ ]
+}

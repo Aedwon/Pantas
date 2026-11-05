@@ -1,0 +1,30 @@
+{
+ "reader": "sol",
+ "verdict": "blocker",
+ "findings": [
+  {
+   "question": "rc-tt-sn-0001",
+   "severity": "Blocker",
+   "field": "meta",
+   "quote": "before the metal cooled from bright cherry red to dull orange.",
+   "problem": "The shared passage for rc-tt-sn-0001 through rc-tt-sn-0005 reverses the heat-color sequence. Orange-hot steel is hotter than cherry-red steel; cooling steel goes from orange toward red, not from cherry red toward orange.",
+   "fix": "Change the cooling sequence to bright orange to dull red."
+  },
+  {
+   "question": "rc-tt-sn-0001",
+   "severity": "Minor",
+   "field": "meta",
+   "quote": "stem: 'What central conflict does Mateo experience in \"The Marikina Forge\"?",
+   "problem": "All 20 questions use single-quoted flow scalars for their stems and explanations. The style guide explicitly requires literal block scalars (|) for both fields.",
+   "fix": "Convert every stem and explanation to a literal block scalar using |."
+  },
+  {
+   "question": "rc-tt-sn-0001",
+   "severity": "Minor",
+   "field": "meta",
+   "quote": "id: rc-tt-sn-0001",
+   "problem": "The first ten question IDs, rc-tt-sn-0001 through rc-tt-sn-0010, do not follow the required q-<topicSlug>-<subtopicSlug>-NNNN pattern. The last ten already use that pattern.",
+   "fix": "Rename the first ten IDs to q-text-types-short-stories-and-novels-0001 through q-text-types-short-stories-and-novels-0010."
+  }
+ ]
+}

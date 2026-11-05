@@ -1,0 +1,22 @@
+{
+ "reader": "sol",
+ "verdict": "major",
+ "findings": [
+  {
+   "question": "q-chemistry-chemical-bonding-0004",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "Nearly equal or weakly polar sharing",
+   "problem": "The stem calls the number 'only a rough guide,' and this is the only qualified choice. The other choices claim complete transfer in every compound, no possible exception, or classification by the number alone. A student can reject those absolute claims without knowing what a difference of 0.4 means; the same wording would cue this answer even if 0.4 were replaced by a large difference.",
+   "fix": "Ask what a difference of 0.4 suggests and give parallel, qualified choices for different degrees of electron sharing."
+  },
+  {
+   "question": "q-chemistry-chemical-bonding-0015",
+   "severity": "Major",
+   "field": "stem",
+   "quote": "A central atom has 3 bonding electron groups and 1 lone pair (4 total electron groups). Using the same reasoning that makes water's shape bent instead of tetrahedral, what can you predict about this molecule's shape?",
+   "problem": "The water comparison explicitly cues 'instead of tetrahedral,' while the keyed choice merely says 'The molecular shape is not tetrahedral.' A student can match that wording without predicting the three-bond, one-lone-pair shape (trigonal pyramidal).",
+   "fix": "Remove the water comparison and ask for the molecular shape, with trigonal pyramidal as the key and parallel shape names as distractors."
+  }
+ ]
+}

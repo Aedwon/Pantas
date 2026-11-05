@@ -1,0 +1,14 @@
+{
+ "reader": "sol",
+ "verdict": "blocker",
+ "findings": [
+  {
+   "question": "q-earth-science-astronomy-heavenly-bodies-0015",
+   "severity": "Blocker",
+   "field": "stem",
+   "quote": "Roughly how often does the most famous comet, Halley's Comet, swing by Earth?",
+   "problem": "The roughly 76-year period describes Halley's orbit around the Sun and return to the inner Solar System, not a regular close pass by Earth. For example, when the comet returns to the same part of its orbit, Earth can be elsewhere in its own orbit. The explanation correctly describes a return to the inner Solar System, but the stem asks about a different event.",
+   "fix": "Ask: 'About how often does Halley's Comet return to the inner Solar System?'"
+  }
+ ]
+}

@@ -1,0 +1,62 @@
+{
+ "reader": "sol",
+ "verdict": "major",
+ "findings": [
+  {
+   "question": "q-physics-light-and-optics-0007",
+   "severity": "Minor",
+   "field": "choices",
+   "quote": "- text: \"$\\theta_i=\\theta_r$\"",
+   "problem": "The double-quoted YAML interprets each single backslash followed by t as a tab. After parsing, all four choices contain heta instead of the intended theta command, so the angle symbols render incorrectly.",
+   "fix": "Double each backslash in the double-quoted choices, or use single-quoted YAML strings."
+  },
+  {
+   "question": "q-physics-light-and-optics-0007",
+   "severity": "Minor",
+   "field": "explanation",
+   "quote": "Therefore $\theta_i=\theta_r$.",
+   "problem": "Both angle symbols contain literal tab characters followed by heta. Block-scalar YAML preserves these tabs, so the displayed equation loses its theta symbols.",
+   "fix": "Replace each tab plus heta with the literal LaTeX command \\theta."
+  },
+  {
+   "question": "q-physics-light-and-optics-0008",
+   "severity": "Minor",
+   "field": "explanation",
+   "quote": "The ray changes propagation speed at the air-water boundary. At oblique incidence, this changes its direction according to Snell\u2019s law. That process is refraction.",
+   "problem": "Propagation speed and oblique incidence make the explanation unnecessarily technical for Grade 5 readers. The question can keep its exam wording, but the explanation should use familiar words.",
+   "fix": "Use: Light slows down as it enters water. Because it enters at a slant, it bends. This bending is called refraction."
+  },
+  {
+   "question": "q-physics-light-and-optics-0011",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "      - text: \"Violet\"\n        correct: true\n      - text: \"Red because its wavelength is longer\"",
+   "problem": "Only the keyed choice is a bare color name; every distractor adds a reason or an inability to compare. A student can select the sole short, direct answer from its form without comparing frequencies.",
+   "fix": "Make all four choices parallel: give each an answer and a reason, or give each only an answer."
+  },
+  {
+   "question": "q-physics-light-and-optics-0015",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "      - text: \"They are equal.\"\n        correct: true\n      - text: \"The X-ray is faster because its frequency is higher.\"",
+   "problem": "Only the keyed choice is a short conclusion. Every distractor adds a causal claim about frequency, wavelength, or brightness. This repeats the bare-answer versus elaborated-distractor pattern and offers a clue without testing vacuum wave speeds.",
+   "fix": "Give every choice a comparable explanation, including the equal-speed answer, or make all choices concise speed comparisons."
+  },
+  {
+   "question": "q-physics-light-and-optics-0020",
+   "severity": "Minor",
+   "field": "choices",
+   "quote": "- text: \"$6.0\\times10^{-7}\\\\,\\\\mathrm m$\"",
+   "problem": "In all four double-quoted choices, the single backslash in times is parsed as a tab escape followed by imes. The multiplication sign is therefore lost in the displayed scientific notation.",
+   "fix": "Double the backslash before times in every choice, matching the other escaped LaTeX commands."
+  },
+  {
+   "question": "q-physics-light-and-optics-0020",
+   "severity": "Minor",
+   "field": "note",
+   "quote": "Check conversion from $0.6\times10^{-6}$ to standard scientific notation.",
+   "problem": "The expression contains a literal tab followed by imes, rather than a LaTeX multiplication command. The note therefore displays a broken scientific-notation check.",
+   "fix": "Replace the tab plus imes with the literal LaTeX command \\times in this block scalar."
+  }
+ ]
+}

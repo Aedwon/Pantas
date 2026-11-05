@@ -1,0 +1,20 @@
+{
+ "file": "science__physics__light-and-optics",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-physics-light-and-optics-0011",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "All four choices now give an answer with a reason."
+  },
+  {
+   "question": "q-physics-light-and-optics-0015",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "All four choices are now short speed comparisons."
+  }
+ ]
+}

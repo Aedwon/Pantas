@@ -1,0 +1,38 @@
+{
+ "reader": "sol",
+ "verdict": "blocker",
+ "findings": [
+  {
+   "question": "q-biology-taxonomy-and-classification-0009",
+   "severity": "Blocker",
+   "field": "note",
+   "quote": "This applies a eukaryotic feature to prokaryotes. All cells contain genetic material, which can suggest a nucleus. Check whether the DNA is enclosed in a nuclear membrane.",
+   "problem": "The claim that all cells contain genetic material is false. Mature mammalian red blood cells lack a nucleus and a cellular genome. The lesson itself warns about specialized cells that lose their nuclei.",
+   "fix": "Replace \u201cAll cells contain genetic material\u201d with \u201cBacteria and Archaea contain DNA\u201d."
+  },
+  {
+   "question": "q-biology-taxonomy-and-classification-0015",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "- text: 'Species'\n        correct: true\n      - text: 'Genus rank'",
+   "problem": "Only the correct choice omits \u201crank\u201d; all three distractors append it. This makes the answer stand out by form without requiring knowledge of the hierarchy.",
+   "fix": "Use parallel labels: Species, Genus, Family, Order."
+  },
+  {
+   "question": "q-biology-taxonomy-and-classification-0016",
+   "severity": "Blocker",
+   "field": "stem",
+   "quote": "A cell lacks a membrane-enclosed nucleus. Based only on that observation, which domain assignment is justified?",
+   "problem": "The solver flag is confirmed. A mature mammalian red blood cell lacks a nucleus but comes from a eukaryotic organism, as the lesson explicitly notes. The observation therefore cannot restrict the domain to Bacteria or Archaea. None of the offered assignments is justified from this observation alone.",
+   "fix": "Specify that the cell is from a prokaryotic organism, or add and key \u201cThe domain cannot be determined from this observation alone\u201d and update the explanation and notes."
+  },
+  {
+   "question": "q-biology-taxonomy-and-classification-0019",
+   "severity": "Minor",
+   "field": "stem",
+   "quote": "How should the term \"protist\" be understood in the lesson\u2019s modern classification discussion?",
+   "problem": "Referring to \u201cthe lesson\u2019s\u201d discussion makes this a lesson-recall prompt rather than realistic entrance-exam wording.",
+   "fix": "Ask: \u201cHow is the term \u2018protist\u2019 used in modern classification?\u201d"
+  }
+ ]
+}

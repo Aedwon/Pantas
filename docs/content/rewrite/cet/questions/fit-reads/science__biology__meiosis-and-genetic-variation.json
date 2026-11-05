@@ -1,0 +1,14 @@
+{
+ "reader": "sol",
+ "verdict": "minor",
+ "findings": [
+  {
+   "question": "q-biology-cellular-reproduction-0001",
+   "severity": "Minor",
+   "field": "meta",
+   "quote": "  - id: q-biology-cellular-reproduction-0001",
+   "problem": "All 11 question IDs use the subtopic slug cellular-reproduction, but this file belongs to meiosis-and-genetic-variation. The style guide requires q-<topicSlug>-<subtopicSlug>-NNNN; for example, this ID names a different subtopic.",
+   "fix": "Use meiosis-and-genetic-variation in all 11 question IDs, preserving their numeric suffixes."
+  }
+ ]
+}

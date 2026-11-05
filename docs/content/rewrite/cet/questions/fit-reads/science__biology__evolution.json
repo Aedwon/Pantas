@@ -1,0 +1,22 @@
+{
+ "reader": "sol",
+ "verdict": "major",
+ "findings": [
+  {
+   "question": "q-biology-evolution-0004",
+   "severity": "Major",
+   "field": "stem",
+   "quote": "Some insects already carry a heritable pesticide-resistance variant. Spraying leaves these insects with more surviving offspring on average. Why does resistance become common?",
+   "problem": "The stem supplies the keyed answer before asking for it. A student can match \u201cmore surviving offspring\u201d to \u201cResistant insects leave more descendants\u201d without explaining how natural selection changes a population.",
+   "fix": "Describe the resistant insects surviving spraying more often, then ask why resistance increases over generations; make the key connect inherited resistance with greater reproductive success."
+  },
+  {
+   "question": "q-biology-evolution-0014",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "Divergence may lead to reproductive isolation.",
+   "problem": "The stem asks which outcome is \u201cpossible,\u201d and the key is the only choice phrased as a possibility (\u201cmay\u201d). All distractors assert categorical guarantees or prohibitions (\u201cguarantees immediate,\u201d \u201cprevents any,\u201d and \u201cstops until\u201d). A student can choose the only tentative statement by wording alone without understanding speciation.",
+   "fix": "Phrase every choice as a possible outcome and use plausible competing predictions about gene flow, divergence, and interbreeding."
+  }
+ ]
+}

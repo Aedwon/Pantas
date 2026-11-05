@@ -1,0 +1,22 @@
+{
+ "reader": "sol",
+ "verdict": "major",
+ "findings": [
+  {
+   "question": "q-chemistry-history-of-the-atom-0010",
+   "severity": "Minor",
+   "field": "explanation",
+   "quote": "Modern atomic structure uses quantum states and orbitals. An orbital describes an electron\u2019s state and spatial probability distribution.",
+   "problem": "The explanation uses undefined phrases such as \u201cquantum states\u201d and \u201cspatial probability distribution.\u201d A Grade 5 reader can select the correct choice yet still not understand what an orbital means.",
+   "fix": "Use plain English: \u201cThe modern model uses orbitals. An orbital shows where an electron is likely to be found around the nucleus.\u201d"
+  },
+  {
+   "question": "q-chemistry-history-of-the-atom-0018",
+   "severity": "Major",
+   "field": "explanation",
+   "quote": "It is based on quantum states rather than a literal cloud of material.",
+   "problem": "The explanation discusses the literal-material misconception used in a wrong choice. The requested explanation rule permits only an explanation of the correct answer.",
+   "fix": "Replace with: \u201cDarker parts of the picture show where an electron is more likely to be found.\u201d Keep discussion of the literal-material mistake in its wrong-choice note."
+  }
+ ]
+}

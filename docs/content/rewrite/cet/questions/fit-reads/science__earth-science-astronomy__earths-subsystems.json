@@ -1,0 +1,110 @@
+{
+ "reader": "sol",
+ "verdict": "major",
+ "findings": [
+  {
+   "question": "q-earth-science-astronomy-earths-subsystems-0006",
+   "severity": "Major",
+   "field": "stem",
+   "quote": "In a four-sphere model that includes frozen water in the hydrosphere, where is a glacier primarily classified?",
+   "problem": "The stem supplies the tested classification: frozen water belongs to the hydrosphere. Recognizing a glacier as ice lets a student repeat the supplied label without knowing the Earth spheres.",
+   "fix": "State that the model uses four spheres and has no separate cryosphere, without naming the answer in the definition."
+  },
+  {
+   "question": "q-earth-science-astronomy-earths-subsystems-0007",
+   "severity": "Major",
+   "field": "stem",
+   "quote": "In a model explicitly including ice in the hydrosphere, a student instead assigns polar ice to the lithosphere because it is solid. Is that assignment correct?",
+   "problem": "The stem explicitly assigns ice to the hydrosphere before asking whether assigning ice to a different sphere is correct. A student can answer by spotting the contradiction without knowing the classification.",
+   "fix": "Specify a four-sphere model with no separate cryosphere, then ask students to evaluate the assignment using the material involved."
+  },
+  {
+   "question": "q-earth-science-astronomy-earths-subsystems-0007",
+   "severity": "Major",
+   "field": "explanation",
+   "quote": "Some other models separately name the cryosphere, but that does not make ice rock.",
+   "problem": "The final clause refutes the rock-based distractor instead of explaining only the correct answer. The user requires explanations to leave discussion of wrong choices to their notes.",
+   "fix": "End with the positive reason: ice is frozen water, so it belongs to the hydrosphere in this model."
+  },
+  {
+   "question": "q-earth-science-astronomy-earths-subsystems-0009",
+   "severity": "Major",
+   "field": "explanation",
+   "quote": "Lithosphere names only the rigid outer mechanical layer.",
+   "problem": "This sentence explains the limit of a named wrong choice. The preceding sentences already explain why geosphere is correct; wrong-choice discussion belongs in its note.",
+   "fix": "Keep the explanation focused on the geosphere including the crust, mantle, and core."
+  },
+  {
+   "question": "q-earth-science-astronomy-earths-subsystems-0011",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "Only geosphere with no receiving sphere",
+   "problem": "The stem explicitly asks for a source-and-destination pair, but two alternatives deny one endpoint and the remaining wrong pair says \"only\" despite the stated ash-and-gas transfer. The keyed choice is the sole unqualified pair that fits the requested form, allowing elimination without knowing sphere names.",
+   "fix": "Give four parallel source-to-destination pairs, using plausible sphere substitutions or a reversed transfer."
+  },
+  {
+   "question": "q-earth-science-astronomy-earths-subsystems-0012",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "Only the last-mentioned sphere because systems are isolated",
+   "problem": "The alternatives advertise their errors: this one asserts isolation despite water, rock, and roots contacting one another, another counts only rock, and another says roots belong to no sphere. Only the key lists three sphere names, so its form matches the three stated components without requiring classification.",
+   "fix": "Use four parallel lists of sphere names that differ by one included or omitted sphere."
+  },
+  {
+   "question": "q-earth-science-astronomy-earths-subsystems-0013",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "Location and water-cycle categories can overlap.",
+   "problem": "The stem already says water vapor can be discussed under both spheres. Only the key permits overlap; all three alternatives categorically forbid it through \"exactly one,\" \"Every model excludes,\" or \"Only liquid water.\" A student can select the sole statement consistent with \"both\" without understanding the two classifications.",
+   "fix": "Use plausible explanations for dual classification, such as location, composition, or a proposed change of state, with parallel wording."
+  },
+  {
+   "question": "q-earth-science-astronomy-earths-subsystems-0014",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "Lithosphere and atmosphere, excluding the water input",
+   "problem": "This alternative tells the reader it excludes an input explicitly required by the stem. The other two distractors say gases or water have no system category. The key is the only pair that addresses both stated inputs without denying one, making elimination possible without classifying the materials.",
+   "fix": "Use four plain pairs of sphere names without clauses that announce an omitted input or deny basic categories."
+  },
+  {
+   "question": "q-earth-science-astronomy-earths-subsystems-0015",
+   "severity": "Major",
+   "field": "stem",
+   "quote": "A heavy rainstorm causes a landslide that exposes fresh rock on a hillside. Over the following months, mosses and small plants begin growing on the exposed rock, while the surrounding air humidity noticeably increases due to evaporation from the wet soil. Identify all four Earth subsystems involved in this chain of events, and each one's role.",
+   "problem": "The instruction supplies \"all four,\" and only the keyed choice includes rock, water, air, and life. Every alternative explicitly limits participation or denies it altogether. Counting the listed components answers the item without identifying spheres or their roles.",
+   "fix": "Ask which mapping correctly matches the events to subsystems, and give four complete mappings with plausible role swaps."
+  },
+  {
+   "question": "q-earth-science-astronomy-earths-subsystems-0016",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "Atmosphere to rock only, with no living stage",
+   "problem": "The stem explicitly describes a plant and a release into air. This distractor denies a living stage, another denies an air stage, and the third tracks only ground. The key alone follows all stated stages, so readers can eliminate alternatives by their disclaimers without knowing sphere names.",
+   "fix": "Give four parallel three-stage sequences using sphere names, with plausible order or classification errors."
+  },
+  {
+   "question": "q-earth-science-astronomy-earths-subsystems-0018",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "Atmosphere to biosphere carbon transfer must become zero worldwide",
+   "problem": "The alternatives make elimination independent of sphere knowledge: two predict worldwide or everywhere cessation from removal on one plot, and the remaining distractor concerns volcanic ash. Only the key concerns the local plant-water process described.",
+   "fix": "Use plausible local water-transfer changes, with consistent scope and no guaranteed worldwide effects."
+  },
+  {
+   "question": "q-earth-science-astronomy-earths-subsystems-0019",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "Treat either model as proof that water is not water in air.",
+   "problem": "This alternative denies water\u2019s identity, another requires molecules to remain forever in one place, and another denies the difference explicitly given in the stem. Checking definitions is the sole reasonable action even without learning anything about sphere models.",
+   "fix": "Offer plausible comparison methods, such as checking definitions, counting listed spheres, comparing diagram sizes, or comparing example locations."
+  },
+  {
+   "question": "q-earth-science-astronomy-earths-subsystems-0020",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "The mixture must fit one sphere and cannot involve interactions",
+   "problem": "All distractors insist that every part of a listed mixture becomes one category or that interactions are impossible. Only the key acknowledges several categories, so its inclusive form matches the multi-component stem without requiring students to identify any sphere.",
+   "fix": "Use parallel interpretations that assign the components to spheres, with plausible component-classification errors."
+  }
+ ]
+}

@@ -1,0 +1,14 @@
+{
+ "reader": "sol",
+ "verdict": "major",
+ "findings": [
+  {
+   "question": "q-trigonometry-unit-circle-0011",
+   "severity": "Major",
+   "field": "stem",
+   "quote": "Angles are measured in degrees. Which statement about the unit-circle point $(\\cos\\theta,\\sin\\theta)$ is true?",
+   "problem": "The stem supplies the coordinate order that the keyed choice asks students to identify. A student can copy the order in $(\\cos\\theta,\\sin\\theta)$ to select \u201cCosine is always the first coordinate and sine is always the second coordinate\u201d without knowing the unit-circle relationship.",
+   "fix": "Remove the coordinate formula from the stem; ask which statement about a unit-circle terminal point is true."
+  }
+ ]
+}

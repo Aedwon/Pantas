@@ -1,0 +1,22 @@
+{
+ "reader": "sol",
+ "verdict": "major",
+ "findings": [
+  {
+   "question": "q-geometry-parallel-perpendicular-lines-0007",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This assumes the two outer inclinations are equal. Parallel lines can suggest equal angles. Check that only corresponding positions force equality.",
+   "problem": "The word 'only' makes a false absolute. Alternate interior and alternate exterior angles across parallel lines also have equal measures. For example, alternate interior angles can both measure 35 degrees without being corresponding angles.",
+   "fix": "Replace the last sentence with: 'Check that these two segments are different transversals, so their angles with the parallel lines need not be equal.'"
+  },
+  {
+   "question": "q-geometry-parallel-perpendicular-lines-0020",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This treats equality of angles as requiring a right angle. Equal angles can have other measures. Check whether the common measure is ninety degrees.",
+   "problem": "The suggested check does not address the relationship between the two crossed lines. Even if both alternate interior angles were 90 degrees, the crossed lines would be parallel, each perpendicular to the transversal. They would not be perpendicular to each other.",
+   "fix": "Explain that the measured angles involve the transversal, and advise checking the equal-alternate-interior-angle rule to determine the relationship between the crossed lines."
+  }
+ ]
+}

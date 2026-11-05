@@ -1,0 +1,22 @@
+{
+ "reader": "sol",
+ "verdict": "major",
+ "findings": [
+  {
+   "question": "q-algebra-radicals-and-rationalization-0012",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This treats two cube-root factors as three. The exponent two appears after multiplication. Check that a cube root needs three copies of each factor.",
+   "problem": "The note does not describe the mistake that produces the choice x^2. Treating two cube-root factors as three would produce x, not x^2. For example, at x=8 the actual product is 4, three cube-root factors give 8, and the selected choice gives 64. The choice instead drops the cube-root symbol from the product.",
+   "fix": "Explain that multiplying gives a radicand of x^2, but the cube-root symbol must remain; check by substituting x=8."
+  },
+  {
+   "question": "q-algebra-radicals-and-rationalization-0015",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This uses a cube root to complete a square-root denominator. Both factors are roots of $x$. Check that their indices must match.",
+   "problem": "The final sentence makes a false absolute: matching root indices is not necessary for a rational product. For the allowed value x=64, the square root is 8 and the cube root is 4, so their product is the rational number 32. The cube-root factor fails because it does not guarantee a rational denominator for every allowed x.",
+   "fix": "Replace the final sentence with a check at x=2: the denominator is 2^(5/6), which is irrational, so the factor does not work for every positive rational x."
+  }
+ ]
+}

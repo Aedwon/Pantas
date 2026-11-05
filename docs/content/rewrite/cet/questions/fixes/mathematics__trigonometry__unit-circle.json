@@ -1,0 +1,13 @@
+{
+ "file": "mathematics__trigonometry__unit-circle",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-trigonometry-unit-circle-0011",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Removed the (cos, sin) coordinate formula from the stem; it now asks about the terminal point of an angle on the unit circle."
+  }
+ ]
+}

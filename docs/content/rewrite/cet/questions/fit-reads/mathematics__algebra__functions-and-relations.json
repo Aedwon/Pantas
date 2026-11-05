@@ -1,0 +1,14 @@
+{
+ "reader": "sol",
+ "verdict": "minor",
+ "findings": [
+  {
+   "question": "q-algebra-functions-and-relations-0016",
+   "severity": "Minor",
+   "field": "meta",
+   "quote": "  - id: q-algebra-functions-and-relations-0016\n    type: direct-computation\n    difficulty: easy",
+   "problem": "The style guide requires IDs to ascend with difficulty. This easy item follows medium and hard items, including hard item 0009, so the default ID sort does not produce the required easy-to-hard progression.",
+   "fix": "Order all items by difficulty and renumber their IDs accordingly."
+  }
+ ]
+}

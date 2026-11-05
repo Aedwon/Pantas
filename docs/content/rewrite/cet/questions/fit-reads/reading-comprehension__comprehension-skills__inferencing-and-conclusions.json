@@ -1,0 +1,14 @@
+{
+ "reader": "sol",
+ "verdict": "major",
+ "findings": [
+  {
+   "question": "rc-cs-ic-0011",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This reverses the timing. Digital logging is part of the reform. Check whether it existed before the skipped breaks.",
+   "problem": "The note for \u201cElectronic badges prevented every rest break\u201d misidentifies the mistake as reversed timing and substitutes digital logging for electronic badges. The passage never mentions electronic badges. Its digital system blocks departures until a break is taken, so the choice also reverses the system\u2019s purpose. Checking when logging began does not check either of these errors.",
+   "fix": "Explain that the choice invents badges and reverses the rest rule. It may look right because the passage describes an electronic control. Tell the reader to check which device is mentioned and whether it prevents departures or breaks."
+  }
+ ]
+}

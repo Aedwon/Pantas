@@ -1,0 +1,14 @@
+{
+ "reader": "sol",
+ "verdict": "minor",
+ "findings": [
+  {
+   "question": "q-chemistry-atomic-structure-0018",
+   "severity": "Minor",
+   "field": "explanation",
+   "quote": "An orbital describes an electron\u2019s quantum state and its associated probability distribution. It is not a fixed classical path.",
+   "problem": "\u201cQuantum state,\u201d \u201cassociated probability distribution,\u201d and \u201cclassical path\u201d are unexplained technical terms. A Grade 5 reader cannot learn what an orbital means from this explanation; the lesson gives the simpler idea of a region where an electron is likely to be found.",
+   "fix": "Use plain English: An orbital tells us where an electron is likely to be found around the nucleus."
+  }
+ ]
+}

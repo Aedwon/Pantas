@@ -1,0 +1,54 @@
+{
+ "reader": "sol",
+ "verdict": "major",
+ "findings": [
+  {
+   "question": "q-physics-waves-and-sound-0004",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "Mechanical",
+   "problem": "The keyed choice is the only bare category name; every distractor adds a reason or condition. Across these classification items, this repeated choice form lets a student select the short label without classifying the wave.",
+   "fix": "Give every choice the same structure, such as a category followed by a brief reason."
+  },
+  {
+   "question": "q-physics-waves-and-sound-0005",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "Electromagnetic",
+   "problem": "The keyed choice is the only bare category name, while all three distractors say Mechanical and add a reason or condition. This repeats the answer-form cue in question 0004 and allows selection by presentation rather than wave knowledge.",
+   "fix": "Use parallel category-and-reason choices with comparable wording."
+  },
+  {
+   "question": "q-physics-waves-and-sound-0006",
+   "severity": "Major",
+   "field": "explanation",
+   "quote": "Wavelength is the distance over which a periodic wave repeats its phase. Adjacent crests are one wavelength apart.",
+   "problem": "The explanation relies on the technical terms periodic and phase without explaining them. A Grade 5 reader who does not already understand phase gets no plain-English account of why this distance is wavelength.",
+   "fix": "Say: Wavelength is the distance from one crest to the next crest. It measures the length of one complete wave."
+  },
+  {
+   "question": "q-physics-waves-and-sound-0007",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "Longitudinal because particles return to equilibrium",
+   "problem": "Two choices name Longitudinal, and returning to equilibrium also occurs in a longitudinal wave. If that category were correct, both longitudinal choices would fit. A test-wise student can eliminate that category from the choice overlap, while Transverse is the lone bare alternative to the obviously implausible no-orientation claim.",
+   "fix": "Use distinct, parallel descriptions of motion, without repeating the same classification in two choices."
+  },
+  {
+   "question": "q-physics-waves-and-sound-0008",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "Longitudinal",
+   "problem": "The keyed answer is the only bare category label without a competing choice of the same category. Transverse appears twice, once with an added amplitude condition, and the remaining choice rejects compressions as disturbances. This repeats the classification answer-form cue in questions 0004, 0005, and 0007.",
+   "fix": "Make all choices parallel and distinct; remove the pattern of a bare correct label versus qualified distractors."
+  },
+  {
+   "question": "q-physics-waves-and-sound-0018",
+   "severity": "Minor",
+   "field": "stem",
+   "quote": "Which statement about sound speed is supported by the lesson?",
+   "problem": "Referring to the lesson makes the stem sound like a classroom reading check rather than a standalone CET science question. The item needs no lesson reference to be answered.",
+   "fix": "Ask: Which statement about the speed of sound is correct?"
+  }
+ ]
+}

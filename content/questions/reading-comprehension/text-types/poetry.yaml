@@ -150,13 +150,13 @@ questions:
     choices:
       - text: "Appreciative"
         correct: true
-      - text: "Mocking and dismissive"
+      - text: "Mocking"
         rationale: |
           This treats difficult work as ridicule. The sea is fierce and deep. Check the trust and reward described alongside that difficulty.
-      - text: "Angry and accusatory"
+      - text: "Pitying"
         rationale: |
-          This treats braving water as criticism. The task requires effort. Check whether the speaker blames anyone.
-      - text: "Hopeless and defeated"
+          This reads the danger of the sea as a reason to feel sorry for the fisherman. His work is hard. Check whether the speaker grieves for him or honors his trust and his reward.
+      - text: "Despairing"
         rationale: |
           This lets the challenging sea decide the entire tone. The fisherman must brave it. Check the successful return and light in the ending.
     explanation: |
@@ -370,15 +370,15 @@ questions:
     choices:
       - text: "Rain and clearing skies accompany emotional renewal."
         correct: true
-      - text: "Storms permanently destroy every form of urban life."
+      - text: "Heavy clouds over the roofs show a city losing its hope."
         rationale: |
           This makes the dark opening the final outcome. Heavy clouds create pressure. Check the hopeful closing lines.
-      - text: "City streets are always better than natural rivers."
+      - text: "Silver rivers on the stones show the city's worries growing stronger."
         rationale: |
-          This turns city imagery into a comparison with rural life. Streets and rivers appear as images. Check whether their value is ranked.
-      - text: "Weather removes every future problem from the city."
+          This reads the rain imagery as a sign of more worry. The rivers are described as cooling. Check what happens to the frantic thoughts in the second stanza.
+      - text: "Golden sunlight after the rain shows that the rain was harmful to the city."
         rationale: |
-          This turns hopeful feeling into a guarantee. The ending is positive. Check whether it promises that every problem disappears.
+          This treats the sunlight as proof that the rain was a harm. The rain washes the avenues clean. Check whether the poem blames the rain or welcomes it.
     explanation: |
       The poem connects cooling rain with relief from worry and ends with fresh hope. Its weather changes accompany a sense of renewal.
   - id: "q-text-types-poetry-0016"
@@ -411,15 +411,15 @@ questions:
     choices:
       - text: "As introduces timing, not a comparison."
         correct: true
-      - text: "Every line beginning with as is literal in all poems."
+      - text: "As compares the return of dawn with the market, as in \"as brave as a lion.\""
         rationale: |
-          This turns one contextual use into a universal rule. This as is temporal. Check its function in each sentence separately.
-      - text: "The line has no rhyme, so it cannot use figurative language."
+          This reads as in its comparing sense. Many similes use as. Check whether two unlike things are being compared here.
+      - text: "As gives a reason: dawn returns because the market is open."
         rationale: |
-          This links figurative language to rhyme. Both are poetic features. Check whether comparisons require matching end sounds.
-      - text: "The presence of dawn makes every comparison impossible."
+          This reads as in its meaning of because. That meaning is real in other sentences. Check whether the line says the market causes the dawn.
+      - text: "As gives a role, so dawn is acting as the market."
         rationale: |
-          This treats the subject as deciding the device. Dawn is a familiar image. Check the actual relationship between the words.
+          This reads as in its meaning of in the role of. The words dawn and market are both nouns. Check whether the line says that dawn is the market.
     explanation: |
       Here as means when: the request is placed at dawn. The line does not compare two unlike things.
     approved: false
@@ -428,19 +428,19 @@ questions:
     type: "feature-of-form"
     difficulty: "medium"
     stem: |
-      Which feature of "Leave Room" differs from the regular rhyme in the other three poems?
+      How does the end-rhyme pattern of "Leave Room" differ from the regular rhyme in the other three poems?
     choices:
       - text: "Its line endings have no fixed rhyme pattern."
         correct: true
-      - text: "Its imagery cannot appeal to any physical sense."
+      - text: "Its lines rhyme in pairs."
         rationale: |
-          This treats lack of rhyme as lack of imagery. The form is irregular. Check the scent of ginger and the visible path.
-      - text: "Its speaker cannot state an idea directly."
+          This sees repeated lines and imagines couplets. The repeated words Leave room can sound like a pattern. Check whether the words at the ends of the lines match in sound.
+      - text: "Its last word in every stanza rhymes with room."
         rationale: |
-          This assumes poetry must hide its message. The lines are short. Check the direct instruction at the end.
-      - text: "Its lines cannot be grouped into separate stanzas."
+          This mixes up the repeated opening words with rhyme at the end. The phrase Leave room returns often. Check the last word of each stanza.
+      - text: "Its first and last lines in each stanza rhyme."
         rationale: |
-          This confuses free form with no stanza grouping. Line lengths vary. Check the blank lines between groups.
+          This looks for a pattern between the outer lines of a stanza. Other poems link lines this way. Check the first and last line endings in the first stanza.
     explanation: |
       Market, ribbon, stalls, and the other endings do not follow a recurring end-rhyme scheme. The poem uses repetition and line breaks to organize its language.
     approved: false

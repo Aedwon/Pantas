@@ -1,0 +1,13 @@
+{
+ "file": "mathematics__algebra__linear-equations-inequalities",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-algebra-linear-equations-inequalities-0003",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Rewrote the note to say subtracting keeps the sign and multiplying or dividing by a negative reverses it, dropping the false 'only'."
+  }
+ ]
+}

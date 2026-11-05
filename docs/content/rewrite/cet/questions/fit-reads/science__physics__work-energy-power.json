@@ -1,0 +1,38 @@
+{
+ "reader": "sol",
+ "verdict": "major",
+ "findings": [
+  {
+   "question": "q-physics-work-energy-power-0006",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "It quadruples.",
+   "problem": "The keyed choice is the only bare outcome; every distractor adds a because clause. For example, a student can select the lone short statement while ignoring how kinetic energy depends on speed.",
+   "fix": "Give all four choices the same form, such as bare outcomes with no reasons."
+  },
+  {
+   "question": "q-physics-work-energy-power-0009",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "A has five times B\u2019s power.",
+   "problem": "The keyed comparison alone has no because clause; all three distractors append reasons. This repeats the format cue in other items, allowing a student to favor this choice without calculating either power.",
+   "fix": "Use four parallel comparisons without because clauses."
+  },
+  {
+   "question": "q-physics-work-energy-power-0014",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "Both kinetic and potential energy are positive.",
+   "problem": "The keyed description alone has no because clause, while every distractor adds one. A student can favor the lone unqualified description without checking the pendulum\u2019s height and motion, especially after seeing the same pattern elsewhere in this file.",
+   "fix": "Make all four descriptions parallel, either all with reasons or all without them."
+  },
+  {
+   "question": "q-physics-work-energy-power-0019",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "They stay the same.",
+   "problem": "The keyed prediction is the only bare result; every distractor adds a because clause. The repeated choice-format pattern lets a student favor this answer without understanding potential-energy reference levels.",
+   "fix": "Use four parallel predictions without reasons, or supply a reason for every choice."
+  }
+ ]
+}

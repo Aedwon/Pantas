@@ -1,0 +1,46 @@
+{
+ "reader": "sol",
+ "verdict": "blocker",
+ "findings": [
+  {
+   "question": "rc-cs-mi-0001",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This turns the garden's motive into forced farming. Food prices explain one proposal. Check whether the passage says families were forced.",
+   "problem": "The attached choice says food prices explain why families might value a garden; it makes no claim about forced farming. The note diagnoses a mistake the student did not make and gives an irrelevant check. The actual mistake is choosing one proposal's supporting reason as the passage's main idea.",
+   "fix": "Explain that rising food prices support the garden proposal but do not cover the dispute and shared solution; ask whether the choice covers the whole passage."
+  },
+  {
+   "question": "rc-cs-mi-0002",
+   "severity": "Blocker",
+   "field": "stem",
+   "quote": "What percentage of the vacant lot was allocated to raised garden beds?",
+   "problem": "The passage allocates sixty percent jointly to raised garden beds and a composting station, without giving their separate shares. For example, beds could occupy 50 percent and composting 10 percent while satisfying the passage. The keyed sixty percent cannot be established for beds alone.",
+   "fix": "Ask what percentage was allocated to raised garden beds and a composting station combined."
+  },
+  {
+   "question": "rc-cs-mi-0006",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "Trust and discipline help the store endure.",
+   "problem": "The keyed choice is the only qualified claim. Every distractor announces an extreme rule using 'certain to replace every,' 'Avoiding all,' or 'the only requirement.' A student can reject these sweeping claims and select the modest statement without identifying the passage's main idea.",
+   "fix": "Use plausible, similarly qualified distractors that focus on individual supporting details, such as convenience, wholesale purchasing, or credit records."
+  },
+  {
+   "question": "rc-cs-mi-0014",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This turns maintenance and roads into the two outcomes. Both connect to the project. Check the closing claims about waves and habitat.",
+   "problem": "The note incorrectly says roads connect to this project. The passage mentions plastic removal but no roads or road expansion. A student choosing the road-lane option needs to recognize that it invents an outcome, rather than being told that both proposed outcomes connect to the account.",
+   "fix": "Say the choice combines a real maintenance task with an unsupported road-expansion claim; check the two benefits actually reported after three years."
+  },
+  {
+   "question": "rc-cs-mi-0015",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This combines a maintenance detail with a claim about youth. Plastic removal is mentioned. Check whether harm to youth is described.",
+   "problem": "The attached title, 'Cleaning Plastic: The Project's Only Environmental Goal,' makes no claim about youth or harm to them. The note misses the real error: treating plastic removal as the project's sole environmental goal despite its wave-protection and habitat goals.",
+   "fix": "Explain that plastic removal is a maintenance detail, which makes the title sound relevant; check whether the title also covers coastal protection and nursery habitat."
+  }
+ ]
+}

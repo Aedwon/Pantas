@@ -71,9 +71,9 @@ questions:
     type: classify
     difficulty: exam
     stem: |
-      A telescope resolves an object into a vast gravitationally bound system of stars, gas, and dust. Which observation most directly distinguishes it from a single star?
+      A telescope shows a faint, fuzzy patch of light in the night sky. Which observation would best show that it is a galaxy and not a single star?
     choices:
-      - text: 'It contains many separate stars.'
+      - text: 'Higher magnification resolves it into many separate points of light.'
         correct: true
       - text: 'It emits detectable visible light.'
         rationale: |

@@ -1,0 +1,22 @@
+{
+ "reader": "sol",
+ "verdict": "major",
+ "findings": [
+  {
+   "question": "q-biology-cellular-metabolism-0006",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This places glycolysis in the damaged organelle. Much aerobic ATP production is associated with mitochondria, so every stage can seem to occur there. Check where glucose breakdown begins.",
+   "problem": "This note accompanies \u201cCitric acid cycle,\u201d but describes putting glycolysis in mitochondria. Selecting the citric acid cycle as a stage that can continue in the cytosol instead puts a mitochondrial stage in the cytosol. The note diagnoses the opposite location error.",
+   "fix": "Explain that the citric acid cycle occurs in the mitochondrial matrix, may seem able to continue because it also breaks down fuel, and should be checked against the location of each stage."
+  },
+  {
+   "question": "q-biology-cellular-metabolism-0006",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This treats mitochondria as the location of photosynthesis. Both processes handle energy, so they seem to use the same organelle. Check which organelle captures light in plant cells.",
+   "problem": "This note accompanies \u201cLight-dependent reactions\u201d in a question asking what can occur in the cytosol. Selecting it would place those reactions in the cytosol, not in mitochondria. Its account of the location mistake and why the choice looks right does not match the choice in this stem.",
+   "fix": "Explain that light-dependent reactions occur in chloroplasts, may seem relevant because they also make ATP, and should be checked for both their location and whether they break down glucose."
+  }
+ ]
+}

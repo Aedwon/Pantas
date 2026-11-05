@@ -1,0 +1,30 @@
+{
+ "reader": "sol",
+ "verdict": "major",
+ "findings": [
+  {
+   "question": "q-algebra-types-of-functions-0015",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This assumes linear functions must have the same coefficient of $x$. The coefficient can be any fixed number. Check whether each formula has the form $y=mx+b$.",
+   "problem": "The note names the mistake and gives a check, but never explains why equal coefficients might seem necessary. For example, a student may confuse being linear with having parallel graphs, which do require equal slopes.",
+   "fix": "Add that equal slopes are required for parallel lines, so confusing parallel with linear makes this choice tempting."
+  },
+  {
+   "question": "q-algebra-types-of-functions-0015",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This assumes a negative coefficient prevents a function from being linear. In $y=mx+b$, $m$ can be negative. Check the form of each formula.",
+   "problem": "The note corrects the misconception and gives a check, but omits why a negative coefficient might seem to rule out a linear function. For example, a student may remember only upward-sloping examples and mistake decreasing for nonlinear.",
+   "fix": "Add that familiar upward-sloping examples can make a decreasing line seem to belong to a different family."
+  },
+  {
+   "question": "q-algebra-types-of-functions-0015",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This uses the sum of the constants to classify the functions. The constants are $-6$ and $4$, whose sum is $-2$. Check whether each formula has the form $y=mx+b$.",
+   "problem": "The note names the irrelevant calculation and corrects its arithmetic, but does not explain why this choice looks right. For example, the opposite signs of the constants may suggest cancellation and distract from the actual linear-form test.",
+   "fix": "Add that the opposite signs can suggest cancellation, making a zero-sum explanation seem plausible."
+  }
+ ]
+}

@@ -1,0 +1,14 @@
+{
+ "reader": "sol",
+ "verdict": "blocker",
+ "findings": [
+  {
+   "question": "q-geometry-basic-geometric-concepts-0014",
+   "severity": "Blocker",
+   "field": "stem",
+   "quote": "Three rays meeting at point $O$ form angles $\\angle AOB = (4x - 5)^\\circ$, $\\angle BOC = (2x + 15)^\\circ$, and reflex angle $\\angle COA = (10x - 10)^\\circ$. Which statement is true regarding the measure of $\\angle AOB$?",
+   "problem": "The stem does not say that the three named angles are nonoverlapping sectors filling a full turn. A different arrangement also satisfies all the given measures: place OA at 0 degrees, OB at 125 degrees, and OC at 45 degrees. With x = 32.5, angle AOB is 125 degrees, angle BOC is 80 degrees, and reflex angle COA is 315 degrees. Thus the given information does not uniquely determine angle AOB; the explanation assumes an unstated arrangement.",
+   "fix": "State that the three named angles are consecutive, nonoverlapping sectors around O that together make a full turn, or explicitly state that OB lies inside the non-reflex angle AOC."
+  }
+ ]
+}

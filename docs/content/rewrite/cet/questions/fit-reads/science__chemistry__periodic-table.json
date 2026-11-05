@@ -1,0 +1,62 @@
+{
+ "reader": "sol",
+ "verdict": "major",
+ "findings": [
+  {
+   "question": "q-chemistry-periodic-table-0004",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "They often behave similarly.",
+   "problem": "The key is the only moderate prediction. All three distractors make sweeping claims (no chemical similarities, the same atomic number, or no useful pattern). A student can select the cautious statement without knowing what a group predicts.",
+   "fix": "Use plausible competing predictions about chemical behavior, with similar levels of qualification."
+  },
+  {
+   "question": "q-chemistry-periodic-table-0004",
+   "severity": "Major",
+   "field": "explanation",
+   "quote": "Same-group main-group elements generally have analogous valence-electron configurations. This often gives similar chemical behavior, although their properties are not identical.",
+   "problem": "'Analogous valence-electron configurations' leaves the central reason in language beyond the requested Grade 5 level. A learner who does not understand 'analogous' cannot follow why the behavior is similar.",
+   "fix": "Say that these elements usually have the same number of outer electrons, which take part in reactions and help them react in similar ways."
+  },
+  {
+   "question": "q-chemistry-periodic-table-0007",
+   "severity": "Major",
+   "field": "explanation",
+   "quote": "Covalent radius generally increases down a group. Iodine is in a lower period than fluorine and has electrons in higher principal shells. Iodine is larger.",
+   "problem": "'Higher principal shells' uses technical language without explaining the physical reason in Grade 5 English. The explanation does not plainly connect the extra electron layers to the larger size.",
+   "fix": "Explain that iodine has more electron layers, so its outer electrons are farther from its center and its atom is larger."
+  },
+  {
+   "question": "q-chemistry-periodic-table-0009",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This treats more electron mass as the ionization criterion. Atoms have different masses. Check that the property measures electron-removal energy.",
+   "problem": "The distractor refers to molar masses, but the note diagnoses 'more electron mass.' Molar mass mainly reflects protons and neutrons, so this names a different mistake and fails to explain the actual mass-based misconception.",
+   "fix": "Name the mistake as ranking ionization energy by molar mass; explain that mass often rises across the table, then advise checking how tightly the outer electron is held."
+  },
+  {
+   "question": "q-chemistry-periodic-table-0011",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "Ionization energy and electronegativity generally rise up and right.",
+   "problem": "The stem explicitly asks for a statement 'respecting their limits,' and the key alone says 'generally.' Every distractor says 'always' or 'exception-free.' Matching those qualifiers answers the question without knowing either trend direction.",
+   "fix": "Give all options comparable qualifiers and vary the actual directions or properties."
+  },
+  {
+   "question": "q-chemistry-periodic-table-0017",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "First ionization energy for electron removal",
+   "problem": "The distractors supply their own disqualifying definitions: a chemical bond conflicts with 'isolated,' electron removal conflicts with 'added,' and bond distance conflicts with 'energy change.' A student can eliminate them by reading those glosses without knowing the definition of electron affinity.",
+   "fix": "Use only the property names for all four choices."
+  },
+  {
+   "question": "q-chemistry-periodic-table-0019",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "The actual values and subshell context",
+   "problem": "The key is the only evidence-based, qualified option. The distractors insist that an arrow overrides every measurement, that a shared period forces equality, or that only one electron count matters. With a 'reliable' data table specified, ordinary reasoning eliminates all three without knowing ionization-energy exceptions.",
+   "fix": "Ask students to rank a supplied pair using actual values, or choose among plausible subshell explanations for a specified exception."
+  }
+ ]
+}

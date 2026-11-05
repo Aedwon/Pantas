@@ -1,0 +1,14 @@
+{
+ "reader": "sol",
+ "verdict": "major",
+ "findings": [
+  {
+   "question": "q-algebra-polynomials-0013",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This treats the last factor as $x^2-9$. The first two factors do combine to that expression. Check the sign of the separate third factor.",
+   "problem": "The note for $x^4-18x^2+81$ refers to first, second, and third factors that the question does not present. The remaining area is already $x^2-9$, and it is multiplied by $x^2+9$: there are two factors. The wrong answer comes from replacing the second factor with $x^2-9$, giving $(x^2-9)^2$. The current note directs the student to a nonexistent third factor.",
+   "fix": "Use: \"This squares the remaining area instead of multiplying by the stated expression. Both expressions contain $x^2$ and $9$, so they can look alike. Check that the multiplier is $x^2+9$.\""
+  }
+ ]
+}

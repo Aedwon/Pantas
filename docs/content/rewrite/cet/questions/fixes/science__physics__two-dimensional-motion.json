@@ -1,0 +1,20 @@
+{
+ "file": "science__physics__two-dimensional-motion",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-physics-two-dimensional-motion-0010",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Stem now says each projectile lands at the height it was launched from."
+  },
+  {
+   "question": "q-physics-two-dimensional-motion-0012",
+   "severity": "Blocker",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Stem now gives a nonzero horizontal launch velocity and the explanation shows steady sideways motion plus constant downward acceleration gives a parabola."
+  }
+ ]
+}

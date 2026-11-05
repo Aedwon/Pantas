@@ -1,0 +1,30 @@
+{
+ "reader": "sol",
+ "verdict": "major",
+ "findings": [
+  {
+   "question": "q-physics-thermodynamics-0010",
+   "severity": "Major",
+   "field": "stem",
+   "quote": "A fan drives air around a heater. How does this differ from natural convection?",
+   "problem": "The stem already says that the fan drives the air, and the keyed choice simply repeats that the fan drives the bulk fluid motion. A reader can match these phrases without knowing how natural convection works.",
+   "fix": "Ask which pair correctly identifies the drivers of fan-driven convection and natural convection; give parallel pairs of drivers as choices."
+  },
+  {
+   "question": "q-physics-thermodynamics-0001",
+   "severity": "Minor",
+   "field": "explanation",
+   "quote": "Conduction transfers energy through microscopic interactions in the metal. The metal does not move in bulk.",
+   "problem": "\u201cMicroscopic interactions\u201d and \u201cmove in bulk\u201d leave the mechanism in technical language rather than explaining it in Grade 5 English. The reader is not told plainly that energy passes between particles while the handle stays in place.",
+   "fix": "Say: Energy passes from particle to particle through the metal. The handle itself stays in place."
+  },
+  {
+   "question": "q-physics-thermodynamics-0010",
+   "severity": "Minor",
+   "field": "explanation",
+   "quote": "Forced convection uses a device such as a fan to move a fluid. Natural convection can be driven by buoyancy from density differences. Both carry energy with bulk fluid motion.",
+   "problem": "\u201cBuoyancy from density differences\u201d and \u201cbulk fluid motion\u201d are unexplained technical phrases. A Grade 5 reader needs the concrete account of warmer air rising and cooler air sinking.",
+   "fix": "Say: A fan pushes air around in forced convection. In natural convection, warmer, less dense air rises while cooler, denser air sinks. The moving air carries energy."
+  }
+ ]
+}

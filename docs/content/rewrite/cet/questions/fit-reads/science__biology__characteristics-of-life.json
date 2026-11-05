@@ -1,0 +1,22 @@
+{
+ "reader": "sol",
+ "verdict": "blocker",
+ "findings": [
+  {
+   "question": "q-biology-characteristics-of-life-0007",
+   "severity": "Major",
+   "field": "stem",
+   "quote": "A virus contains genetic material enclosed in a protein coat but has no cellular organization. Which property of living organisms is directly absent from this description of the virus?",
+   "problem": "The stem explicitly names the absent property using the exact wording of the correct choice. A student can match \"no cellular organization\" to \"Cellular organization\" without understanding viruses or cells.",
+   "fix": "Describe the virus as genetic material in a protein coat without explicitly naming the absent property, then ask which life property this structure lacks."
+  },
+  {
+   "question": "q-biology-characteristics-of-life-0013",
+   "severity": "Blocker",
+   "field": "choices",
+   "quote": "Asexual reproduction involves one parent producing offspring; sexual reproduction involves two parents combining genetic material.",
+   "problem": "Confirmed solver flag: the keyed statement incorrectly makes two parents a requirement for sexual reproduction. A self-fertilizing pea plant supplies both egg and sperm, so sexual reproduction can involve one parent, as the lesson and explanation state. The other choices are also false, leaving no fully correct choice.",
+   "fix": "Replace the keyed choice with: Asexual reproduction occurs without fusion of sex cells; sexual reproduction involves fusion of sex cells, which may come from one or two parents."
+  }
+ ]
+}

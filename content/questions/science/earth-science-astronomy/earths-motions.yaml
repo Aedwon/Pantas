@@ -155,7 +155,7 @@ questions:
     type: 'classify'
     difficulty: 'hard'
     stem: |
-      A student says "rotation causes the seasons, and revolution causes day and night," mixing up the two terms. Is this correct?
+      A student says "rotation causes the seasons, and revolution causes day and night." Is this correct?
     choices:
       - text: 'No; daily spin and yearly orbit have different roles.'
         correct: true

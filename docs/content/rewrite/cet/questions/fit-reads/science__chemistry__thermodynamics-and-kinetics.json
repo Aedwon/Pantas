@@ -1,0 +1,46 @@
+{
+ "reader": "sol",
+ "verdict": "major",
+ "findings": [
+  {
+   "question": "q-chemistry-thermodynamics-and-kinetics-0008",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "No; every exothermic reaction is necessarily the slowest.",
+   "problem": "The keyed statement is the only qualified claim. The other choices say every reaction happens instantly, every reaction is the slowest, or heat and rate always match. A student can reject these extreme claims and select the restrained answer without understanding activation energy.",
+   "fix": "Use plausible alternatives with comparable wording and no conspicuous universal claims."
+  },
+  {
+   "question": "q-chemistry-thermodynamics-and-kinetics-0011",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "No; a high barrier means zero energy can be released.",
+   "problem": "The keyed answer merely says the quantities differ, while every distractor imposes an extreme rule: always equal, zero release, or always the greatest release. This makes the cautious answer identifiable by test-taking strategy rather than understanding the two energy differences.",
+   "fix": "Replace the extreme claims with plausible confusions between the peak, reactant energy, and product energy."
+  },
+  {
+   "question": "q-chemistry-thermodynamics-and-kinetics-0016",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "They may fail to react.",
+   "problem": "This is the only tentative choice. All three distractors use must, only, or always, including the implausible claim that orientation matters only after products form. The cautious wording gives away the key without requiring collision theory.",
+   "fix": "Give all choices comparable certainty and use plausible alternatives about the effect of collision orientation."
+  },
+  {
+   "question": "q-chemistry-thermodynamics-and-kinetics-0006",
+   "severity": "Minor",
+   "field": "explanation",
+   "quote": "More interfacial reaction sites are available.",
+   "problem": "Interfacial reaction sites is unexplained technical language for the requested Grade 5 explanation. A child may understand that powder has more exposed surface without knowing what interfacial means.",
+   "fix": "Say: More of the solid can touch and react with the acid at the same time."
+  },
+  {
+   "question": "q-chemistry-thermodynamics-and-kinetics-0009",
+   "severity": "Minor",
+   "field": "explanation",
+   "quote": "It is regenerated in the overall cycle, so it is not consumed stoichiometrically as a reactant.",
+   "problem": "Regenerated, overall cycle, and especially consumed stoichiometrically make this explanation harder than the required Grade 5 English. Stoichiometrically is not explained in the lesson.",
+   "fix": "Say: The catalyst is formed again by the end of the reaction, so it is not used up."
+  }
+ ]
+}

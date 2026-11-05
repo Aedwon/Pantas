@@ -134,7 +134,7 @@ questions:
           This reverses sine over cosine. The same two squared functions appear in cotangent. Check which function is above the fraction bar.
       - text: '$\csc^2 \theta$'
         rationale: |
-          This replaces the denominator with sine squared. Cosecant is another reciprocal function. Check that the original denominator is cosine squared.
+          This drops the subtracted term to get $1/\cos^2\theta$, then mixes up the reciprocal of cosine with the reciprocal of sine. Reciprocal functions look alike. Check the whole numerator and match each reciprocal to its function.
     explanation: |
       Use $1-\cos^2\theta=\sin^2\theta$. Then the fraction is $\dfrac{\sin^2\theta}{\cos^2\theta}=(\dfrac{\sin\theta}{\cos\theta})^2=\tan^2\theta$. This holds on the original domain, where $\cos\theta\neq0$.
   - id: q-trigonometry-trigonometric-identities-0008

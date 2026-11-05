@@ -1,0 +1,14 @@
+{
+ "reader": "sol",
+ "verdict": "major",
+ "findings": [
+  {
+   "question": "q-geometry-triangles-0001",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This leaves out angle B when subtracting from $180^\\circ$. Subtracting one known angle starts the calculation. Check that both given angles are included.",
+   "problem": "The note for $115^\\circ$ names the wrong omitted angle. Subtracting only angle B gives 180 - 65 = 115, so this answer leaves out angle A. Leaving out angle B instead gives 180 - 55 = 125.",
+   "fix": "Change \"leaves out angle B\" to \"leaves out angle A\"."
+  }
+ ]
+}

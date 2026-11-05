@@ -1,0 +1,38 @@
+{
+ "reader": "sol",
+ "verdict": "major",
+ "findings": [
+  {
+   "question": "q-statistics-and-probability-measures-of-variability-0004",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "Maximum minus minimum.",
+   "problem": "The keyed choice is the only short fragment. All three distractors are full sentences beginning with \u201cThe range.\u201d This makes the answer stand out by its form and lets a student use the wording pattern instead of knowing how range is defined.",
+   "fix": "Write all four choices as parallel definitions of similar length."
+  },
+  {
+   "question": "q-statistics-and-probability-measures-of-variability-0005",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "The square root of population variance.",
+   "problem": "The keyed choice is a short definition fragment, while every distractor is a much longer sentence beginning with \u201cIt is.\u201d A student can identify the unusually phrased choice without understanding standard deviation.",
+   "fix": "Use parallel definition fragments of comparable length for all four choices."
+  },
+  {
+   "question": "q-statistics-and-probability-measures-of-variability-0012",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "Route A has more consistent times.",
+   "problem": "The keyed choice is a short, direct statement, while each distractor is roughly three times as long. This repeats the conspicuous short-answer pattern in questions 0004 and 0005 and offers a cue independent of comparing standard deviations.",
+   "fix": "Make the route comparisons parallel and similar in length."
+  },
+  {
+   "question": "q-statistics-and-probability-measures-of-variability-0015",
+   "severity": "Major",
+   "field": "explanation",
+   "quote": "The sample mean is fitted to the sample itself, which makes deviations smaller on average than deviations from the unknown population mean. Dividing their squared sum by $n$ would underestimate population variance on average. Dividing by $n-1$ corrects this bias under the stated random-sample assumptions.",
+   "problem": "\u201cFitted,\u201d \u201cbias,\u201d and \u201cunder the stated random-sample assumptions\u201d leave the reasoning in technical exam language. In particular, \u201cbias\u201d is never explained, so a Grade 5 reader is not told plainly what the correction fixes.",
+   "fix": "Explain that the sample average comes from those same values, making the calculated spread tend to be too small; dividing by one less raises the estimate and corrects that tendency over many samples."
+  }
+ ]
+}

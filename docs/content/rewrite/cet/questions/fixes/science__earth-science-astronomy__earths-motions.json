@@ -1,0 +1,13 @@
+{
+ "file": "science__earth-science-astronomy__earths-motions",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-earth-science-astronomy-earths-motions-0008",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Removed 'mixing up the two terms' from the stem."
+  }
+ ]
+}

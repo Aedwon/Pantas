@@ -1,0 +1,30 @@
+{
+ "reader": "sol",
+ "verdict": "major",
+ "findings": [
+  {
+   "question": "q-text-types-speeches-0015",
+   "severity": "Major",
+   "field": "stem",
+   "quote": "Which statement best respects the speech''s mixed purpose?",
+   "problem": "The stem announces that the purpose is mixed. Only the keyed choice lists several purposes; every distractor says the speech is purely one type. A student can select the key without reading the speech.",
+   "fix": "Ask \"Which statement best describes the speech's purpose?\" and give alternatives that each combine plausible purposes."
+  },
+  {
+   "question": "rc-tt-sp-0001",
+   "severity": "Minor",
+   "field": "meta",
+   "quote": "id: rc-tt-sp-0001",
+   "problem": "The first ten question IDs use rc-tt-sp rather than the guide's required q-<topicSlug>-<subtopicSlug>-NNNN format. For this topic and lesson, the required prefix is q-text-types-speeches-.",
+   "fix": "Use q-text-types-speeches-0001 through q-text-types-speeches-0010, updating references if needed."
+  },
+  {
+   "question": "rc-tt-sp-0001",
+   "severity": "Minor",
+   "field": "meta",
+   "quote": "stem: 'Which device appears in \"We remembered... We rebuilt... We rose...\"?\n\n    '",
+   "problem": "Throughout all 20 questions, stems and explanations use single-quoted scalars. The guide explicitly requires YAML literal block scalars (|) for both fields.",
+   "fix": "Convert every stem and explanation to an indented literal block scalar using |."
+  }
+ ]
+}

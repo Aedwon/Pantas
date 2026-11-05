@@ -1,0 +1,30 @@
+{
+ "reader": "sol",
+ "verdict": "blocker",
+ "findings": [
+  {
+   "question": "q-earth-science-astronomy-origin-of-the-universe-0002",
+   "severity": "Blocker",
+   "field": "stem",
+   "quote": "Which physicist first proposed the Big Bang theory, in 1927, using Einstein's equations for gravity?",
+   "problem": "The stem conflates the 1927 expanding-universe model with the later proposal of a primordial beginning. The item's own explanation dates Lema\u00eetre's primeval-atom proposal to 1931 and calls his 1927 work a step toward Big Bang cosmology. An expanding universe alone does not establish a hot, dense beginning.",
+   "fix": "Ask who published an expanding-universe model in 1927 using Einstein's equations, keeping Lema\u00eetre as the key."
+  },
+  {
+   "question": "q-earth-science-astronomy-origin-of-the-universe-0007",
+   "severity": "Blocker",
+   "field": "choices",
+   "quote": "'No: Georges Lema\u00eetre first proposed the Big Bang theory in 1927; Hubble''s 1929 observation of galaxies moving apart provided strong supporting evidence for a theory that already existed.'",
+   "problem": "The keyed answer repeats the conflation of Lema\u00eetre's 1927 expansion model with his proposal of a primordial beginning. Its explanation explicitly places his primeval-atom idea in 1931. The answer therefore teaches a historical claim that its explanation does not support.",
+   "fix": "Describe Lema\u00eetre's 1927 contribution as an expanding-universe model and distinguish his 1931 primeval-atom proposal."
+  },
+  {
+   "question": "q-earth-science-astronomy-origin-of-the-universe-0007",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "'No: Georges Lema\u00eetre first proposed the Big Bang theory in 1927; Hubble''s 1929 observation of galaxies moving apart provided strong supporting evidence for a theory that already existed.'",
+   "problem": "The keyed choice is a roughly 35-word historical explanation with two dates and both scientists' roles; the other choices are short assertions of roughly 13\u201317 words. Its exceptional length and detail signal the intended answer even to a student who does not know the history.",
+   "fix": "Use choices of comparable length and detail, each stating one scientist's contribution. Put the historical comparison in the explanation."
+  }
+ ]
+}

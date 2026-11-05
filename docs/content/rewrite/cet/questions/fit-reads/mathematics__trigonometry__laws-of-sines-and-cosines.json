@@ -1,0 +1,30 @@
+{
+ "reader": "sol",
+ "verdict": "blocker",
+ "findings": [
+  {
+   "question": "q-trigonometry-laws-of-sines-and-cosines-0018",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This treats an obtuse cosine as positive in the subtraction term. Both cosine values have magnitude one-half. Check their signs before comparing the squares.",
+   "problem": "This note does not explain choosing the first triangle as having the longer third side. Using positive one-half for both cosines gives 25+64-40=49 for both third-side squares, so the described mistake produces the equal-length choice instead.",
+   "fix": "Describe reversing the cosine signs: using -1/2 for 60 degrees and +1/2 for 120 degrees makes the first side appear longer. Remind the student to check each cosine sign."
+  },
+  {
+   "question": "q-trigonometry-laws-of-sines-and-cosines-0019",
+   "severity": "Blocker",
+   "field": "stem",
+   "quote": "In triangle $ABC$, $a=4$, $b=10$, and $A=30^\\circ$.",
+   "problem": "The opening asserts that this triangle exists, but these measurements cannot form a triangle: b sin A = 10(1/2) = 5 exceeds a = 4, or equivalently sin B = 5/4. The intended error-spotting solution correctly discovers nonexistence, contradicting the factual premise.",
+   "fix": "Begin with \"A student checks whether a triangle ABC can have a=4, b=10, and A=30 degrees\" and retain the proposed calculation steps."
+  },
+  {
+   "question": "q-trigonometry-laws-of-sines-and-cosines-0020",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This assumes the supplementary angle makes the angle sum too large. That can happen in SSA problems. Check each possible sum against $180^\\circ$.",
+   "problem": "Rejecting only the supplementary angle would leave the principal angle of about 45.6 degrees, whose sum with 30 degrees is 75.6 degrees. That mistake gives one triangle, not the zero-triangle choice this note is meant to explain.",
+   "fix": "Explain a mistake that actually gives zero, such as swapping the sides to obtain sin R = 10/(7 sin 30 degrees) > 1. Say why the swapped setup looks tempting and advise checking opposite side-angle pairs."
+  }
+ ]
+}

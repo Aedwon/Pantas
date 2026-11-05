@@ -1,0 +1,22 @@
+{
+ "reader": "sol",
+ "verdict": "major",
+ "findings": [
+  {
+   "question": "q-chemistry-basic-organic-chemistry-0012",
+   "severity": "Major",
+   "field": "stem",
+   "quote": "A student mixes up the endings \"-ene\" and \"-yne,\" using \"-yne\" for a molecule with a double bond. Is this correct?",
+   "problem": "The words \"mixes up\" announce that using -yne for the double bond is a mistake. A reader can infer that -ene must name the double bond and select the keyed mapping without knowing either suffix beforehand.",
+   "fix": "Remove \"mixes up\" and neutrally ask which endings indicate carbon-carbon double and triple bonds."
+  },
+  {
+   "question": "q-chemistry-basic-organic-chemistry-0014",
+   "severity": "Major",
+   "field": "stem",
+   "quote": "A longer candidate chain excludes the principal functional group required for the suffix. A shorter allowed parent includes it. Which approach follows the lesson?",
+   "problem": "Calling the functional group \"required\" and the shorter parent \"allowed\" supplies the parent-selection rule being tested. A reader can choose the option about using the parent required by the group just by matching these words, without knowing how to select an alcohol parent chain.",
+   "fix": "Give a concrete alcohol structure with two candidate chains and ask which chain is the parent, without stating the requirement or labeling a candidate allowed."
+  }
+ ]
+}

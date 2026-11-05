@@ -1,0 +1,22 @@
+{
+ "reader": "sol",
+ "verdict": "major",
+ "findings": [
+  {
+   "question": "rc-cs-nsd-0013",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This borrows the leading number of the grant amount. Three million funds a facility. Check the scale and purpose of the amount.",
+   "problem": "The note does not correctly explain the 300-peso choice: the grant amount is three million pesos, whose leading number is 3, not 300. It gives no valid reason that 300 would look right.",
+   "fix": "Use \"3 pesos\" as the distractor and explain that it copies the grant's number while dropping \"million\" and confusing a facility grant with a per-kilogram price."
+  },
+  {
+   "question": "q-comprehension-skills-noting-specific-details-0016",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This selects the old location. Both rooms are described together. Check the phrase after the move.",
+   "problem": "The choice says \"Beside the library's old reading room,\" but the passage places visitors in the old reading room beside the library. A place beside that room is not the room itself, so the note incorrectly says this choice selects the old location.",
+   "fix": "Explain that the choice misreads the location beside the library as a location beside the reading room and also overlooks the move; ask readers to check the new entrance location."
+  }
+ ]
+}

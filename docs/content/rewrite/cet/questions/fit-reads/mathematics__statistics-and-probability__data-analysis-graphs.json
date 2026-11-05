@@ -1,0 +1,22 @@
+{
+ "reader": "sol",
+ "verdict": "major",
+ "findings": [
+  {
+   "question": "q-statistics-and-probability-data-analysis-graphs-0001",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This substitutes Thursday for Wednesday. Both are weekday rows. Check the named date range.",
+   "problem": "This note accompanies 495, but substituting Thursday for Wednesday gives 140 + 165 + 180 = 485. The stated mistake does not produce this choice.",
+   "fix": "Change the distractor from 495 to 485 so it matches the note."
+  },
+  {
+   "question": "q-statistics-and-probability-data-analysis-graphs-0011",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This compares Centers A and B but omits C. The larger centers are prominent. Include every center.",
+   "problem": "This note accompanies 75%, but Centers A and B total 250 on Day 1 and 400 on Day 3. Omitting C gives (400 - 250) / 250 \u00d7 100% = 60%, not 75%. The stated mistake does not produce this choice.",
+   "fix": "Change the distractor from 75% to 60% so it matches the note."
+  }
+ ]
+}

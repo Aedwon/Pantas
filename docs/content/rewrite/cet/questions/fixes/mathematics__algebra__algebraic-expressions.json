@@ -1,0 +1,13 @@
+{
+ "file": "mathematics__algebra__algebraic-expressions",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-algebra-algebraic-expressions-0010",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Note for choice 1 now describes skipping the square, giving -2 + 3."
+  }
+ ]
+}

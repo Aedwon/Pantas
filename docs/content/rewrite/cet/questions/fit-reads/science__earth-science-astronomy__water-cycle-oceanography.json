@@ -1,0 +1,30 @@
+{
+ "reader": "sol",
+ "verdict": "blocker",
+ "findings": [
+  {
+   "question": "q-earth-science-astronomy-water-cycle-oceanography-0003",
+   "severity": "Blocker",
+   "field": "stem",
+   "quote": "What is the process called when cloud droplets combine and grow heavy enough to fall back to Earth as rain, snow, sleet, or hail?",
+   "problem": "The stem describes liquid cloud droplets combining as the formation process for every listed precipitation type. Snow forms when ice crystals grow and join; liquid droplets simply combining do not produce snow. This gives a false account of snow formation even though precipitation is the intended answer.",
+   "fix": "Ask: \"What is the term for water falling from clouds as rain, snow, sleet, or hail?\""
+  },
+  {
+   "question": "q-earth-science-astronomy-water-cycle-oceanography-0016",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "Wind, density differences, and rotation help move heat.",
+   "problem": "The keyed choice is the only qualified statement; every distractor uses \"Only\" or \"All\" to make an extreme claim. A student can reject claims that lunar gravity drives everything, currents carry no energy, or visible brightness alone sets direction without knowing the actual current drivers. The wording pattern gives away the answer.",
+   "fix": "Use plausible alternatives with the same qualified wording, varying the proposed drivers and direction of heat transport."
+  },
+  {
+   "question": "q-earth-science-astronomy-water-cycle-oceanography-0019",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "It transports thermal energy.",
+   "problem": "Every distractor makes an extreme claim: the water loses all its heat, no heat leaves the source, or all receiving water vaporizes. The key is the only moderate statement. Rejecting these implausible extremes identifies it without understanding how currents redistribute heat.",
+   "fix": "Use plausible heat-transfer outcomes stated in parallel language, such as warming the source, cooling the receiving region, or transferring energy toward the warmer region."
+  }
+ ]
+}

@@ -1,0 +1,62 @@
+{
+ "reader": "sol",
+ "verdict": "blocker",
+ "findings": [
+  {
+   "question": "q-earth-science-astronomy-plate-tectonics-0003",
+   "severity": "Blocker",
+   "field": "stem",
+   "quote": "In 1959, which scientist proposed seafloor spreading, explaining that new ocean floor forms at mid-ocean ridges and pushes older seafloor away?",
+   "problem": "The stem assigns Hess's proposal to 1959. His account circulated around 1960 and was published in 1962, as this question's own explanation states. The date adds an incorrect historical premise to an otherwise valid identification question.",
+   "fix": "Remove \"In 1959,\" or ask who published the account in 1962."
+  },
+  {
+   "question": "q-earth-science-astronomy-plate-tectonics-0009",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This chooses a compressional fault with mainly vertical displacement. Both can release stress. Check horizontal versus vertical motion.",
+   "problem": "The reverse-fault note incorrectly makes mainly vertical displacement its defining feature. A low-angle reverse fault (a thrust fault, also named in this question) can have a larger horizontal than vertical displacement. Reverse faults are defined by the hanging wall moving up relative to the footwall.",
+   "fix": "Describe the hanging wall moving up along the tilted fault; ask students to distinguish motion up the slope from sideways motion along the fault."
+  },
+  {
+   "question": "q-earth-science-astronomy-plate-tectonics-0010",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "Oceanic subduction and continental collision can differ.",
+   "problem": "The correct choice is the only qualified statement; all three distractors begin \"Every convergence\". Combined with a stem asking whether every boundary has the exact same outcome, this lets a student choose the cautious statement without distinguishing subduction from collision.",
+   "fix": "Give four parallel descriptions of outcomes for specified oceanic and continental plate pairs."
+  },
+  {
+   "question": "q-earth-science-astronomy-plate-tectonics-0013",
+   "severity": "Minor",
+   "field": "explanation",
+   "quote": "S waves are shear waves. They move more slowly than P waves in the usual comparison. They need shear rigidity, so they travel through solids and cannot propagate through liquids.",
+   "problem": "The explanation relies on unexplained \"shear rigidity\" and \"propagate\". A Grade 5 reader who does not know these terms cannot follow why liquids block the waves.",
+   "fix": "Explain that S waves shake material sideways and that solids are stiff enough to carry this shaking, while liquids are not."
+  },
+  {
+   "question": "q-earth-science-astronomy-plate-tectonics-0014",
+   "severity": "Major",
+   "field": "stem",
+   "quote": "A choice claims \"S waves are faster than P waves and can travel through both solids and liquids,\" swapping the two wave types' properties. Is this correct?",
+   "problem": "The phrase \"swapping the two wave types' properties\" announces that the claim reverses the properties. A student can match that wording to \"No: this reverses the properties\" without knowing seismic waves.",
+   "fix": "Delete \"swapping the two wave types' properties\" and ask whether the quoted claim is correct."
+  },
+  {
+   "question": "q-earth-science-astronomy-plate-tectonics-0018",
+   "severity": "Minor",
+   "field": "explanation",
+   "quote": "Typical oceanic lithosphere is denser than continental lithosphere. When it is sufficiently dense relative to the material beneath it, its negative buoyancy helps it descend at a subduction zone.",
+   "problem": "The unexplained phrase \"negative buoyancy\" and the dense second sentence do not explain the answer in Grade 5 English. A reader needs the sinking idea spelled out rather than renamed with technical vocabulary.",
+   "fix": "Say that oceanic plates are usually heavier for their size, so they can sink into the mantle and slide beneath continental plates."
+  },
+  {
+   "question": "q-earth-science-astronomy-plate-tectonics-0019",
+   "severity": "Minor",
+   "field": "explanation",
+   "quote": "S waves need a material that resists shear. Liquid outer-core material cannot transmit them. Their absence across paths through that layer supports its liquid state.",
+   "problem": "\"Resists shear\" is not explained in everyday language, so the reason liquids stop S waves remains inaccessible to a Grade 5 reader.",
+   "fix": "Explain that S waves shake material sideways, liquids cannot carry that shaking, and the missing waves therefore show a liquid layer inside Earth."
+  }
+ ]
+}

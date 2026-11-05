@@ -1,0 +1,38 @@
+{
+ "reader": "sol",
+ "verdict": "blocker",
+ "findings": [
+  {
+   "question": "q-mechanical-technical-reasoning-fluid-pressure-0001",
+   "severity": "Blocker",
+   "field": "stem",
+   "quote": "The shown container holds uniform-density water at rest under ordinary gravity. Which marked point has greater pressure?",
+   "problem": "Confirmed solver flag: the supplied figureSpec lists A and B but gives no depths or vertical positions, and the referenced image is not supplied. The explanation asserts that B is deeper, but that information is needed before answering. If A is deeper, A has greater pressure; at equal depths, their pressures are equal.",
+   "fix": "State in the stem that B is deeper than A, or supply a figure with explicit point positions."
+  },
+  {
+   "question": "q-mechanical-technical-reasoning-fluid-pressure-0006",
+   "severity": "Blocker",
+   "field": "stem",
+   "quote": "The shown container holds uniform-density water at rest. Rank its marked points from lowest to highest pressure.",
+   "problem": "Confirmed solver flag: the supplied figureSpec lists X, Y, and Z without depths or elevations, and the referenced image is not supplied. The keyed order requires X to be shallowest and Z deepest. Placing Z shallowest and X deepest would instead make Z, Y, X correct.",
+   "fix": "Give the points' depth order in the stem or supply a figure that explicitly locates them."
+  },
+  {
+   "question": "q-mechanical-technical-reasoning-fluid-pressure-0018",
+   "severity": "Blocker",
+   "field": "explanation",
+   "quote": "Gauge pressure is the fluid-pressure increase above the surface pressure. At fixed depth it equals density times gravity times depth. Doubling density doubles that part of the pressure.",
+   "problem": "Gauge pressure is pressure above atmospheric pressure, not above an arbitrary liquid-surface pressure. The stem specifies positive surface pressure but does not say the surface is open to the atmosphere. For surface pressure 200 kPa, atmospheric pressure 100 kPa, and an initial liquid contribution of 10 kPa at B, doubling density changes gauge pressure from 110 to 120 kPa. None of the choices doubles in that permitted case. The explanation also teaches an incorrect general definition.",
+   "fix": "Specify that the liquid is open to the same atmospheric pressure before and after replacement, and define gauge pressure as pressure above atmospheric pressure."
+  },
+  {
+   "question": "q-mechanical-technical-reasoning-fluid-pressure-0019",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "No pumps or energy losses",
+   "problem": "The stem asks for an additional assumption, but only the keyed choice states a condition. The other choices merely name quantities or features (arrow direction, water volume, and wall thickness). A reader can select the only actual assumption without knowing when Bernoulli's equation applies.",
+   "fix": "Make all four choices explicit, plausible conditions, such as a specified flow direction, a fixed total volume, or equal wall thickness."
+  }
+ ]
+}

@@ -1,0 +1,38 @@
+{
+ "reader": "sol",
+ "verdict": "major",
+ "findings": [
+  {
+   "question": "rc-tt-po-0004",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "      - text: \"Appreciative\"\n        correct: true\n      - text: \"Mocking and dismissive\"",
+   "problem": "The key is the only single-adjective choice; every distractor is a pair of negative adjectives. Its distinct form provides an odd-one-out cue without interpreting the poem.",
+   "fix": "Use choices with parallel forms, including a plausible positive attitude that the passage does not support."
+  },
+  {
+   "question": "rc-tt-po-0015",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "      - text: \"Rain and clearing skies accompany emotional renewal.\"",
+   "problem": "The key is the only qualified claim. All three distractors use sweeping absolutes (\"permanently destroy every form,\" \"always better,\" and \"every future problem\"). A student can reject these implausible universal claims without reading the poem.",
+   "fix": "Replace the distractors with plausible, similarly qualified themes that misread particular parts of the poem."
+  },
+  {
+   "question": "q-text-types-poetry-0017",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "      - text: \"Every line beginning with as is literal in all poems.\"",
+   "problem": "All three distractors state obviously invalid general rules: every initial \"as\" is literal, figurative language requires rhyme, or dawn makes comparison impossible. This leaves the key as the only reasonable statement without requiring the student to interpret \"as\" in the supplied line.",
+   "fix": "Use plausible explanations about the function of \"as\" in this particular sentence as distractors."
+  },
+  {
+   "question": "q-text-types-poetry-0018",
+   "severity": "Major",
+   "field": "stem",
+   "quote": "      Which feature of \"Leave Room\" differs from the regular rhyme in the other three poems?",
+   "problem": "The stem supplies rhyme as the distinguishing feature, and the key is the only choice about rhyme. The other choices concern imagery, direct statements, and stanza grouping, so a student can match the topic words without examining any line endings.",
+   "fix": "Ask how the end-rhyme pattern differs and give four plausible descriptions of end-rhyme patterns."
+  }
+ ]
+}

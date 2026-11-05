@@ -1,0 +1,62 @@
+{
+ "reader": "sol",
+ "verdict": "major",
+ "findings": [
+  {
+   "question": "q-chemistry-solutions-0006",
+   "severity": "Major",
+   "field": "stem",
+   "quote": "A student divides moles of solute by liters of solvent (instead of liters of solution) to calculate molarity. Is this correct?",
+   "problem": "The parenthetical supplies the correct denominator. A student can choose \u201cNo; use final solution volume\u201d by matching the correction in the stem without knowing molarity.",
+   "fix": "Remove \u201c(instead of liters of solution)\u201d so the student must identify the correct denominator."
+  },
+  {
+   "question": "q-chemistry-solutions-0007",
+   "severity": "Major",
+   "field": "stem",
+   "quote": "To find percent by mass, a student divides the solute's mass by the solvent's mass alone, instead of the total solution's mass. Is this correct?",
+   "problem": "The stem explicitly names the correct denominator as the alternative to the student\u2019s method. Matching \u201ctotal solution\u201d to the keyed choice answers the item without understanding mass percent.",
+   "fix": "Remove \u201c, instead of the total solution's mass\u201d from the stem."
+  },
+  {
+   "question": "q-chemistry-solutions-0008",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "Many solids become more soluble, with exceptions.",
+   "problem": "The key alone uses qualified wording (\u201cMany\u201d and \u201cwith exceptions\u201d); all three distractors use \u201cEvery,\u201d with additional absolute wording such as \u201calways\u201d or \u201call temperatures.\u201d A test-wise student can select the only qualified statement without knowing the temperature trend.",
+   "fix": "Use parallel qualifications in all choices and distinguish them by the solubility trend or substance type."
+  },
+  {
+   "question": "q-chemistry-solutions-0015",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "It determines the physical state.",
+   "problem": "The key is the only choice without \u201cmust\u201d or \u201calways.\u201d Every distractor asserts an extreme restriction, so rejecting categorical wording identifies the key without knowing the solvent\u2019s role.",
+   "fix": "Use parallel descriptions of component roles, with plausible mistakes rather than universal restrictions."
+  },
+  {
+   "question": "q-chemistry-solutions-0015",
+   "severity": "Major",
+   "field": "explanation",
+   "quote": "Solutions can use solvents other than water.",
+   "problem": "This sentence discusses why the water-only distractor is wrong. The requested explanation must explain only why the correct answer is correct; the water misconception already has its own note.",
+   "fix": "Delete this sentence and keep the explanation of the solvent\u2019s physical-state role."
+  },
+  {
+   "question": "q-chemistry-solutions-0017",
+   "severity": "Minor",
+   "field": "explanation",
+   "quote": "A supersaturated solution contains more dissolved solute than the ordinary equilibrium limit. It is metastable rather than the usual stable equilibrium solution.",
+   "problem": "\u201cMetastable\u201d and \u201cordinary equilibrium limit\u201d are unexplained technical terms. Repeating them does not give a Grade 5 reader the plain explanation supplied by the lesson, such as extra solute forming crystals after a small disturbance.",
+   "fix": "Say: \u201cA supersaturated solution holds more dissolved solute than it normally can at that temperature. A small crystal or a shake can make the extra solute form crystals.\u201d"
+  },
+  {
+   "question": "q-chemistry-solutions-0019",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "Every gas must become more soluble when heated.",
+   "problem": "All three distractors are universal claims (\u201cEvery gas must,\u201d \u201cevery gas and liquid pair,\u201d and \u201conly solids and never dissolved gases\u201d). The key is the only ordinary trend statement, so the requested \u201ccommon\u201d trend can be identified through wording without knowing how warming affects dissolved gases.",
+   "fix": "Give all choices comparable scope, using plausible alternative trends at the stated conditions."
+  }
+ ]
+}

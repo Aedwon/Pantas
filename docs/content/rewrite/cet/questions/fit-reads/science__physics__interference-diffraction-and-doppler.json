@@ -1,0 +1,62 @@
+{
+ "reader": "sol",
+ "verdict": "major",
+ "findings": [
+  {
+   "question": "q-physics-waves-and-sound-0009",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "It is higher.",
+   "problem": "The keyed answer is the only short, unqualified statement; every distractor adds a causal explanation. A student can favor the visibly different choice without understanding the Doppler effect.",
+   "fix": "Use parallel choices: give every option a comparable explanation, or make every option a short statement."
+  },
+  {
+   "question": "q-physics-waves-and-sound-0010",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "It is lower.",
+   "problem": "The keyed answer is the only short, unqualified statement; every distractor adds a causal explanation. A student can favor the visibly different choice without understanding the Doppler effect.",
+   "fix": "Use parallel choices: give every option a comparable explanation, or make every option a short statement."
+  },
+  {
+   "question": "q-physics-waves-and-sound-0009",
+   "severity": "Minor",
+   "field": "meta",
+   "quote": "q-physics-waves-and-sound-0009",
+   "problem": "The ID uses the subtopic slug waves-and-sound, but this file belongs to interference-diffraction-and-doppler. The style guide requires q-<topicSlug>-<subtopicSlug>-NNNN.",
+   "fix": "Use q-physics-interference-diffraction-and-doppler-0009, updating any references to the old ID."
+  },
+  {
+   "question": "q-physics-waves-and-sound-0010",
+   "severity": "Minor",
+   "field": "meta",
+   "quote": "q-physics-waves-and-sound-0010",
+   "problem": "The ID uses the subtopic slug waves-and-sound, but this file belongs to interference-diffraction-and-doppler. The style guide requires q-<topicSlug>-<subtopicSlug>-NNNN.",
+   "fix": "Use q-physics-interference-diffraction-and-doppler-0010, updating any references to the old ID."
+  },
+  {
+   "question": "q-physics-waves-and-sound-0013",
+   "severity": "Minor",
+   "field": "meta",
+   "quote": "q-physics-waves-and-sound-0013",
+   "problem": "The ID uses the subtopic slug waves-and-sound, but this file belongs to interference-diffraction-and-doppler. The style guide requires q-<topicSlug>-<subtopicSlug>-NNNN.",
+   "fix": "Use q-physics-interference-diffraction-and-doppler-0013, updating any references to the old ID."
+  },
+  {
+   "question": "q-physics-waves-and-sound-0014",
+   "severity": "Minor",
+   "field": "meta",
+   "quote": "q-physics-waves-and-sound-0014",
+   "problem": "The ID uses the subtopic slug waves-and-sound, but this file belongs to interference-diffraction-and-doppler. The style guide requires q-<topicSlug>-<subtopicSlug>-NNNN.",
+   "fix": "Use q-physics-interference-diffraction-and-doppler-0014, updating any references to the old ID."
+  },
+  {
+   "question": "q-physics-waves-and-sound-0015",
+   "severity": "Minor",
+   "field": "meta",
+   "quote": "q-physics-waves-and-sound-0015",
+   "problem": "The ID uses the subtopic slug waves-and-sound, but this file belongs to interference-diffraction-and-doppler. The style guide requires q-<topicSlug>-<subtopicSlug>-NNNN.",
+   "fix": "Use q-physics-interference-diffraction-and-doppler-0015, updating any references to the old ID."
+  }
+ ]
+}

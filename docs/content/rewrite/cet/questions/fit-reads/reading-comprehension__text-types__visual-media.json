@@ -1,0 +1,30 @@
+{
+ "reader": "sol",
+ "verdict": "major",
+ "findings": [
+  {
+   "question": "rc-tt-vm-0005",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "The footer naming the school health desk",
+   "problem": "The stem asks which element supplies a named contact, and this is the only choice that names an office. A reader can select it without reading the poster description, so the choice wording gives away the answer.",
+   "fix": "Use parallel choices naming poster elements only, such as the bottom banner, warning box, pie chart, and headline. Leave the contact information in the passage."
+  },
+  {
+   "question": "q-text-types-visual-media-0019",
+   "severity": "Major",
+   "field": "meta",
+   "quote": "The comic uses the sequence to connect a small exception with a shared problem. No caption blames one club alone; the crowded board reflects the combined actions of several students.",
+   "problem": "The passage explicitly supplies the interpretation of responsibility that this question asks readers to infer. The keyed choice, \u201cSeveral small exceptions create a shared problem,\u201d repeats that supplied conclusion, allowing readers to match wording instead of interpreting the panels.",
+   "fix": "Remove these interpretive sentences from the passage and retain the observable actions, dialogue, and expressions."
+  },
+  {
+   "question": "rc-tt-vm-0001",
+   "severity": "Minor",
+   "field": "stem",
+   "quote": "stem: 'In the classroom example''s pie chart, which category has the largest share?",
+   "problem": "This stem uses a single-quoted multiline scalar instead of the block scalar (|) required by the style guide. The same formatting issue affects the stems and explanations of all 20 questions.",
+   "fix": "Convert all stem and explanation values to YAML block scalars (|), preserving their content and literal LaTeX backslashes."
+  }
+ ]
+}

@@ -14,7 +14,7 @@ questions:
         correct: true
       - text: '$x^{15}$'
         rationale: |
-          This multiplies the exponents $3 	imes 5$. That rule works for a power raised to another power. Check whether the powers are multiplied or nested.
+          This multiplies the exponents $3 \times 5$. That rule works for a power raised to another power. Check whether the powers are multiplied or nested.
       - text: '$x^{-2}$'
         rationale: |
           This subtracts the exponents $3-5$. Subtraction belongs to division of like bases. Check the operation between the powers.
@@ -182,7 +182,7 @@ questions:
         rationale: |
           This uses the product rule for a power raised to a power. Adding exponents is valid for separate multiplied powers. Check the parentheses.
     explanation: |
-      The outside cube makes three copies of $2^2$. Their exponents add to $2+2+2=6$. Equivalently, multiply $2 	imes 3$ to get $(2^2)^3=2^6$.
+      The outside cube makes three copies of $2^2$. Their exponents add to $2+2+2=6$. Equivalently, multiply $2 \times 3$ to get $(2^2)^3=2^6$.
 
   - id: q-algebra-exponents-and-logarithms-0010
     type: direct-computation
@@ -197,7 +197,7 @@ questions:
           This changes $y^{-2}$ to $y^2$ without taking a reciprocal. Removing a negative sign can seem to make the form simpler. Check that a negative exponent moves its factor across the fraction bar.
       - text: '$\dfrac{x^9}{y^4}$'
         rationale: |
-          This adds the denominator exponents instead of subtracting them. Addition correctly combines powers in the numerator. Check that dividing uses a different rule.
+          This adds the denominator exponents to the numerator exponents, giving $x^{7+2}y^{1+3}=x^9y^4$, then puts $y^4$ under the bar. Addition does combine powers that are multiplied. Check that dividing subtracts the exponents, one base at a time.
       - text: '$\dfrac{x^{12}}{y^5}$'
         rationale: |
           This multiplies the numerator exponents, giving $x^{12}y^{-2}$, then subtracts only the denominator’s $y$ exponent. Multiplying exponents is valid for nested powers. Check that these are separate multiplied powers.
@@ -262,7 +262,7 @@ questions:
         rationale: |
           This multiplies the logarithms for a product. Factoring 12 does involve multiplication. Check that a logarithm of a product becomes a sum.
     explanation: |
-      Factor $12$ as $2^2 	imes 3$. Thus $\log_{10}(12)=2\log_{10}(2)+\log_{10}(3)=2a+b$.
+      Factor $12$ as $2^2 \times 3$. Thus $\log_{10}(12)=2\log_{10}(2)+\log_{10}(3)=2a+b$.
 
   - id: q-algebra-exponents-and-logarithms-0014
     type: error-spotting
@@ -294,7 +294,7 @@ questions:
         correct: true
       - text: '$12$'
         rationale: |
-          This multiplies the base by $\dfrac{3}{4}$, giving $16 	imes \dfrac{3}{4}$. A fractional exponent looks like a fraction of the base. Check that it represents a root and a power.
+          This multiplies the base by $\dfrac{3}{4}$, giving $16 \times \dfrac{3}{4}$. A fractional exponent looks like a fraction of the base. Check that it represents a root and a power.
       - text: '$4$'
         rationale: |
           This takes the square root of 16 and stops. Familiar square roots can replace the less familiar fourth root. Check the denominator of the exponent.
@@ -383,7 +383,7 @@ questions:
           This divides 50 by three. The exponent $\dfrac{1}{3}$ can look like a third of the number. Check that fractional exponents describe roots.
       - text: '$2<50^{1/3}<3$'
         rationale: |
-          This places the value below three. The base is between familiar powers of two and three in other settings. Check the cubes of the endpoints.
+          This brackets 50 between $2^5=32$ and $3^4=81$ and reads the bases 2 and 3 as the cube-root bounds. Those powers use different exponents, so they say nothing about a cube root. Check by cubing both endpoints: $2^3=8$ is far below 50.
     explanation: |
       Cube the nearby integers: $3^3=27$ and $4^3=64$. Since $27<50<64$, its cube root is between $3$ and $4$.
     approved: false

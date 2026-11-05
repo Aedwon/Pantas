@@ -180,15 +180,15 @@ questions:
     choices:
       - text: 'Combined gas law'
         correct: true
-      - text: 'Boyle’s law at fixed temperature'
+      - text: 'Boyle’s law'
         rationale: |
-          This applies Boyle’s law despite changing temperature. Pressure and volume appear. Check the fixed-temperature condition.
-      - text: 'Charles’s law at fixed pressure'
+          This picks Boyle’s law because pressure and volume appear. It leaves out the temperature change. Check which variable Boyle’s law holds constant.
+      - text: 'Charles’s law'
         rationale: |
-          This applies Charles’s law despite changing pressure. Volume and temperature appear. Check the fixed-pressure condition.
-      - text: 'Pressure-temperature law at fixed volume'
+          This picks Charles’s law because volume and temperature appear. It leaves out the pressure change. Check which variable Charles’s law holds constant.
+      - text: 'Pressure-temperature law'
         rationale: |
-          This applies the pressure-temperature law despite changing volume. Pressure and temperature appear. Check the fixed-volume condition.
+          This picks the pressure-temperature law because pressure and temperature appear. It leaves out the volume change. Check which variable this law holds constant.
     explanation: |
       For the same amount of ideal gas, $PV/T$ is constant between states. The combined relation includes the pressure, volume, and temperature changes.
     approved: true

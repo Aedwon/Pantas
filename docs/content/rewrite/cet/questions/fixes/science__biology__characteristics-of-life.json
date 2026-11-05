@@ -1,0 +1,20 @@
+{
+ "file": "science__biology__characteristics-of-life",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-biology-characteristics-of-life-0007",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Removed the stem's naming of the absent property and asked which property the virus structure lacks."
+  },
+  {
+   "question": "q-biology-characteristics-of-life-0013",
+   "severity": "Blocker",
+   "action": "fixed",
+   "key_changed": true,
+   "summary": "Replaced the key with a fusion-of-sex-cells statement that allows one or two parents; the other choices stay false."
+  }
+ ]
+}

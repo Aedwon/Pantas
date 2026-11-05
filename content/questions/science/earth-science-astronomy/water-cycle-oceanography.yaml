@@ -50,7 +50,7 @@ questions:
     type: identify
     difficulty: medium
     stem: |
-      What is the process called when cloud droplets combine and grow heavy enough to fall back to Earth as rain, snow, sleet, or hail?
+      What is the term for water falling from clouds as rain, snow, sleet, or hail?
     choices:
       - text: 'Precipitation'
         correct: true
@@ -325,17 +325,17 @@ questions:
     stem: |
       What drives ocean currents, and why are they important for redistributing heat around the planet?
     choices:
-      - text: 'Wind, density differences, and rotation help move heat.'
+      - text: 'Wind, density differences, and Earth''s rotation help move water, so currents carry heat between regions.'
         correct: true
-      - text: 'Only lunar gravity drives all currents and heat transport.'
+      - text: 'Wind, density differences, and Earth''s rotation help move water, but currents keep heat where it started.'
         rationale: |
-          This treats a tidal influence as the sole current mechanism. The Moon affects ocean motion. Check wind and density too.
-      - text: 'All currents flow without carrying energy between regions.'
+          This gets the drivers right but denies the heat transport. Moving water seems separate from its heat. Check whether warm water carries energy when it moves.
+      - text: 'Lunar gravity and tides help move water, so currents carry heat from the poles toward the equator.'
         rationale: |
-          This separates water movement from its heat content. Motion can be considered alone. Check whether warm water carries energy.
-      - text: 'Only sunlight''s visible brightness sets current direction.'
+          This names tides as the driver and reverses the heat direction. The Moon affects ocean motion. Check what drives currents and where warm water starts.
+      - text: 'Earthquakes and underwater eruptions help move water, so currents carry heat between regions.'
         rationale: |
-          This treats illumination as the only driver of motion. Sunlight warms surface water. Check wind, density, and rotation.
+          This names sudden events as the driver. They can move water, so they seem possible. Check which steady forces drive currents.
     explanation: |
       Wind and density differences help drive ocean currents, and Earth's rotation affects their motion. Moving water carries thermal energy. Currents therefore redistribute heat around the planet.
     approved: true
@@ -388,17 +388,17 @@ questions:
     stem: |
       A current carries warm surface water from one region to a cooler region. What is its direct contribution to the planet's heat distribution?
     choices:
-      - text: 'It transports thermal energy.'
+      - text: 'It transports thermal energy from the warmer region toward the cooler region.'
         correct: true
-      - text: 'It makes the moving water lose all its heat.'
+      - text: 'It transports thermal energy from the cooler region toward the warmer region.'
         rationale: |
-          This assumes motion removes all energy. Water can cool along a route. Check whether it still carries heat while moving.
-      - text: 'It prevents any heat from leaving the original region.'
+          This reverses the direction of the heat flow. Cold currents also exist, so the direction can seem unclear. Check where the warm water starts and where it ends.
+      - text: 'It warms the source region by moving heat toward it.'
         rationale: |
-          This denies transport despite moving warm water. Heat may stay partly in a region. Check the energy carried by the moving water.
-      - text: 'It changes all water in the receiving region into vapor.'
+          This treats the departing warm water as heat arriving. Moving water does change temperature. Check whether the source region gains or loses the warm water.
+      - text: 'It cools the receiving region by moving warm water into it.'
         rationale: |
-          This assumes heat transport forces complete evaporation. Heat can support evaporation. Check whether every arrival requires a state change.
+          This mixes up cooling and warming. Moving water changes temperature. Check whether warm water arriving makes a place warmer or cooler.
     explanation: |
       Warm water contains thermal energy. As the current moves that water, it carries energy to another region. This redistributes heat.
     approved: false

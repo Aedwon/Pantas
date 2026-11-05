@@ -19,7 +19,7 @@ questions:
   - text: '$115^\circ$'
     correct: false
     rationale: |
-      This leaves out angle B when subtracting from $180^\circ$. Subtracting one known angle starts the calculation. Check that both given angles are included.
+      This leaves out angle A when subtracting from $180^\circ$. Subtracting one known angle starts the calculation. Check that both given angles are included.
   - text: '$70^\circ$'
     correct: false
     rationale: |

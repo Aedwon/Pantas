@@ -1,0 +1,13 @@
+{
+ "file": "reading-comprehension__text-types__short-stories-and-novels",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "rc-tt-sn-0001",
+   "severity": "Blocker",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Passage p1 now says the steel cooled from bright orange to dull red; no question or choice depended on the old colors."
+  }
+ ]
+}

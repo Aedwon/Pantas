@@ -1,0 +1,22 @@
+{
+ "reader": "sol",
+ "verdict": "minor",
+ "findings": [
+  {
+   "question": "q-biology-human-anatomy-physiology-0013",
+   "severity": "Minor",
+   "field": "choices",
+   "quote": "Bile; stored urine",
+   "problem": "This is a throwaway distractor rather than a plausible confusion between pancreatic outputs. Stored urine is not an endocrine output; a student can reject this pair by recognizing urine as a urinary-system product without knowing either pancreatic output. The style guide requires plausible, mistake-based distractors.",
+   "fix": "Replace it with a plausible pair of digestive and hormonal products, and update its note to explain the specific confusion."
+  },
+  {
+   "question": "q-biology-human-anatomy-physiology-0014",
+   "severity": "Minor",
+   "field": "choices",
+   "quote": "Nervous-system cells",
+   "problem": "This is a throwaway distractor: nervous-system cells are not a plausible descendant of an activated B cell. A student can reject it simply because the stem asks about immune cells. The note about information signals does not establish a realistic B-cell misconception, as required by the style guide.",
+   "fix": "Use memory B cells as a plausible distractor, with a note distinguishing remembering an antigen from producing large amounts of antibodies."
+  }
+ ]
+}

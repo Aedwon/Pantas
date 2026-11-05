@@ -197,21 +197,21 @@ questions:
     type: "compare-contrast"
     difficulty: "hard"
     stem: |
-      A fan drives air around a heater. How does this differ from natural convection?
+      Air circulates around a heater, once with a fan running and once with the fan off. Which pair correctly names what drives the air motion in each case?
     choices:
-      - text: "The fan drives the bulk fluid motion."
+      - text: "Fan on: the fan pushes the air. Fan off: warmer, less dense air rises."
         correct: true
-      - text: "The fan turns convection into conduction because air contacts it."
+      - text: "Fan on: warmer, less dense air rises. Fan off: the fan pushes the air."
         rationale: |
-          This classifies the whole pathway by one contact. Air touches surfaces. Check bulk fluid motion as the energy carrier.
-      - text: "Natural convection requires a fan while forced convection does not."
+          This swaps the two cases. Both involve moving air, so either label can seem to fit. Check what supplies the motion when the fan is off.
+      - text: "Fan on: the fan pushes the air. Fan off: radiation from the heater pushes the air."
         rationale: |
-          This reverses the two names. Both involve flowing air. Check what supplies the motion.
-      - text: "A fan makes radiation require a material medium."
+          This confuses heat radiation with the push that moves air. A heater gives off radiation, so it seems like a cause. Check which mechanism actually moves the air.
+      - text: "Fan on: air touching the fan turns the process into conduction. Fan off: warmer, less dense air rises."
         rationale: |
-          This confuses airflow with electromagnetic propagation. Both can transfer energy near a heater. Check which mechanism the fan drives.
+          This labels the whole process by one point of contact. Air does touch the fan, so conduction seems to fit. Check that the moving air itself carries the energy.
     explanation: |
-      Forced convection uses a device such as a fan to move a fluid. Natural convection can be driven by buoyancy from density differences. Both carry energy with bulk fluid motion.
+      A fan pushes air around in forced convection. In natural convection, warmer, less dense air rises while cooler, denser air sinks. The moving air carries energy in both cases.
     approved: true
 
   - id: q-physics-thermodynamics-0011

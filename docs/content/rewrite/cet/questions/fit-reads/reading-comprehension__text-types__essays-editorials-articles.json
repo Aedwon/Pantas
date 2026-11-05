@@ -1,0 +1,22 @@
+{
+ "reader": "sol",
+ "verdict": "minor",
+ "findings": [
+  {
+   "question": "rc-tt-eea-0006",
+   "severity": "Minor",
+   "field": "explanation",
+   "quote": "The institutional attribution makes it an editorial.",
+   "problem": "\u201cInstitutional attribution\u201d is unnecessarily abstract for the required Grade 5 explanation. It makes the reader decode two technical words to understand that the view belongs to the newspaper.",
+   "fix": "Say: \u201cIt is an editorial because it gives the newspaper\u2019s view.\u201d"
+  },
+  {
+   "question": "rc-tt-eea-0009",
+   "severity": "Minor",
+   "field": "explanation",
+   "quote": "This is explicit institutional advocacy about a public issue.",
+   "problem": "\u201cExplicit institutional advocacy\u201d does not meet the plain Grade 5 English requirement. The phrase obscures the simple point that the board directly states its own view.",
+   "fix": "Say: \u201cThe board directly states its own view about the policy.\u201d"
+  }
+ ]
+}

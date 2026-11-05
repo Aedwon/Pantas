@@ -1,0 +1,13 @@
+{
+ "file": "mathematics__statistics-and-probability__combinatorics",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-statistics-and-probability-combinatorics-0017",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Rewrote the note for 0 as mistaking an empty leftover group for no team, with a check that all six members make one team."
+  }
+ ]
+}

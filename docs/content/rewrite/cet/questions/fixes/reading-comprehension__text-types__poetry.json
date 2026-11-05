@@ -1,0 +1,34 @@
+{
+ "file": "reading-comprehension__text-types__poetry",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "rc-tt-po-0004",
+   "severity": "Major",
+   "action": "rewritten",
+   "key_changed": false,
+   "summary": "Distractors are now single adjectives (Mocking, Pitying, Despairing) matching the key's form."
+  },
+  {
+   "question": "rc-tt-po-0015",
+   "severity": "Major",
+   "action": "rewritten",
+   "key_changed": false,
+   "summary": "Distractors are now qualified themes that misread parts of the poem."
+  },
+  {
+   "question": "q-text-types-poetry-0017",
+   "severity": "Major",
+   "action": "rewritten",
+   "key_changed": false,
+   "summary": "Distractors are now plausible readings of 'as' (comparison, because, role) in this line."
+  },
+  {
+   "question": "q-text-types-poetry-0018",
+   "severity": "Major",
+   "action": "rewritten",
+   "key_changed": false,
+   "summary": "Stem asks about end-rhyme pattern; all four choices describe end-rhyme patterns."
+  }
+ ]
+}

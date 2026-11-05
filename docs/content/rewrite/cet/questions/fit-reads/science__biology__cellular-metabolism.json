@@ -1,0 +1,22 @@
+{
+ "reader": "sol",
+ "verdict": "major",
+ "findings": [
+  {
+   "question": "q-biology-cellular-metabolism-0005",
+   "severity": "Minor",
+   "field": "choices",
+   "quote": "Carbon fixation increasing without light capture",
+   "problem": "The stem asks which process is reduced, but this choice describes an increase rather than naming a process. A student can eliminate it from its wording alone, without knowing how damaged light-capturing machinery affects photosynthesis.",
+   "fix": "Replace it with a plausible process stated in the same form as the other choices, such as \"Protein production by cytosolic ribosomes\"; update its note to match."
+  },
+  {
+   "question": "q-biology-cellular-metabolism-0013",
+   "severity": "Major",
+   "field": "explanation",
+   "quote": "The net equation forms one glucose molecule and six oxygen molecules. The oxygen product is written $6O_2$. Carbon dioxide, water, and light are the inputs, so the equation describes oxygenic photosynthesis.",
+   "problem": "The explanation states that six oxygen molecules form but does not show how to find the missing product from the equation. A student who identifies oxygen but cannot determine its coefficient gets no worked solution: the inputs have 18 oxygen atoms, glucose accounts for 6, and the remaining 12 form 6 oxygen molecules.",
+   "fix": "Show the oxygen count: 6 \u00d7 2 + 6 = 18 atoms on the left; subtract the 6 in glucose to leave 12; divide by 2 atoms per oxygen molecule to get 6O\u2082. Then name oxygenic photosynthesis."
+  }
+ ]
+}

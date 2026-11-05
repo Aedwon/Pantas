@@ -1,0 +1,27 @@
+{
+ "file": "science__chemistry__stoichiometry",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-chemistry-stoichiometry-0006",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Removed 'instead of actual by theoretical' from the stem."
+  },
+  {
+   "question": "q-chemistry-stoichiometry-0012",
+   "severity": "Major",
+   "action": "rewritten",
+   "key_changed": false,
+   "summary": "Stem now gives 46 and 120 g/mol; choices are concrete and neutral; note no longer says two is nearby."
+  },
+  {
+   "question": "q-chemistry-stoichiometry-0015",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "All choices are now parallel procedures without self-discrediting wording."
+  }
+ ]
+}

@@ -1,0 +1,22 @@
+{
+ "reader": "sol",
+ "verdict": "blocker",
+ "findings": [
+  {
+   "question": "q-physics-dynamics-0013",
+   "severity": "Blocker",
+   "field": "stem",
+   "quote": "A 10 kg object is pushed with an applied force of 50 N, while friction opposes its motion with a force of 20 N. Find the object's acceleration.",
+   "problem": "The stem does not specify the direction of the push relative to the motion or that the forces are horizontal. If the push is along the motion, the net force is 30 N and the acceleration is 3 m/s\u00b2. If the push opposes the motion, it acts with friction, giving 70 N and an acceleration of 7 m/s\u00b2 opposite the motion. Both situations satisfy the stem and match listed choices.",
+   "fix": "State that the object slides on a horizontal surface and the 50 N push acts horizontally in the direction of motion."
+  },
+  {
+   "question": "q-physics-dynamics-0019",
+   "severity": "Blocker",
+   "field": "note",
+   "quote": "This confuses zero net force with no interaction. Constant speed means no acceleration. Check individual forces separately from their total.",
+   "problem": "Constant speed does not necessarily mean zero acceleration: a swimmer following a curved path at constant speed changes direction and therefore accelerates. Zero acceleration requires constant velocity.",
+   "fix": "Replace the second sentence with: \"Steady speed can make it seem that no forces are acting.\""
+  }
+ ]
+}

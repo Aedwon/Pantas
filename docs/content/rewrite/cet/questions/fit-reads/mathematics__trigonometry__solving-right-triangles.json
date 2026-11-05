@@ -1,0 +1,30 @@
+{
+ "reader": "sol",
+ "verdict": "blocker",
+ "findings": [
+  {
+   "question": "q-trigonometry-solving-right-triangles-0011",
+   "severity": "Blocker",
+   "field": "stem",
+   "quote": "A person observes a plane at an angle of elevation of $20$ degrees. Two minutes later, after the plane has moved horizontally toward the observer, the angle of elevation is $50$ degrees. If the plane flies at a constant altitude of $5000$ meters, how far horizontally did the plane travel?",
+   "problem": "The observer's elevation is missing. The keyed distance uses 5000 m as the vertical separation, but altitude is not necessarily height above the observer's eyes. With eyes at elevation 100 m, the same angles give 4900(cot 20\u00b0 \u2212 cot 50\u00b0) \u2248 9351.1 m, rather than the keyed \u2248 9541.9 m. The explanation supplies a ground-level assumption that the stem never states.",
+   "fix": "State that the observer's eyes are at ground level and that the plane's altitude is 5000 m above that same level."
+  },
+  {
+   "question": "q-trigonometry-solving-right-triangles-0013",
+   "severity": "Blocker",
+   "field": "stem",
+   "quote": "A rescue helicopter hovers $100$ meters directly above a stranded person on a hillside. A rescue worker elsewhere on the hillside is $150$ meters from the stranded person when measured along the slope and sees the helicopter at an angle of elevation of $40$ degrees. Can the stated distances and angle be checked for consistency without additional information about the hill?",
+   "problem": "Checking consistency means checking whether the measurements can coexist; it does not require knowing the actual hill's slope. A straight slope with horizontal separation about 148.033 m and the worker about 24.214 m below the stranded person has slope distance 150 m and gives arctan((100 + 24.214)/148.033) = 40\u00b0. Thus the data can be checked and shown consistent without another measurement. The keyed 'No' answers a different question about determining the actual geometry, and none of the affirmative choices gives a valid reason.",
+   "fix": "Ask whether the 150-m slope distance can be substituted directly for the horizontal distance in tangent, and key a response explaining that slope distance is not necessarily horizontal distance."
+  },
+  {
+   "question": "q-trigonometry-solving-right-triangles-0016",
+   "severity": "Blocker",
+   "field": "stem",
+   "quote": "An observer at point $A$ sees a hot-air balloon at an angle of elevation of $35$ degrees. The observer then walks $200$ meters directly away from the point on the ground beneath the balloon to point $B$, and the angle of elevation becomes $20$ degrees. How high is the balloon?",
+   "problem": "The stem does not state level ground or ground-level observation, although the explanation explicitly assumes both. Even on level ground with a stationary balloon, the keyed expression gives height above the observer's eyes. If the eyes are 1.6 m above ground, the balloon's height is about 153.2 m, rather than the keyed 151.6 m. On sloping ground the 200-m walk need not be a 200-m horizontal change either.",
+   "fix": "Specify that the balloon remains stationary, the ground is level, and both angles are measured from ground-level observation points."
+  }
+ ]
+}

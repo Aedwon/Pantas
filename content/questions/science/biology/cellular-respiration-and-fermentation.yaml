@@ -56,10 +56,10 @@ questions:
         correct: true
       - text: "Citric acid cycle"
         rationale: |
-          This places glycolysis in the damaged organelle. Much aerobic ATP production is associated with mitochondria, so every stage can seem to occur there. Check where glucose breakdown begins.
+          This puts the citric acid cycle in the cytosol, but it happens in the mitochondrial matrix. It also breaks down fuel, so it can seem able to continue wherever glycolysis does. Check the location of each stage before choosing.
       - text: "Light-dependent reactions"
         rationale: |
-          This treats mitochondria as the location of photosynthesis. Both processes handle energy, so they seem to use the same organelle. Check which organelle captures light in plant cells.
+          This puts the light-dependent reactions in the cytosol, but they happen in chloroplasts. They also make ATP, so they can seem like part of glucose breakdown. Check both their location and whether they break down glucose.
       - text: "Nuclear glucose oxidation"
         rationale: |
           This moves glycolysis into the nucleus. DNA gives instructions for enzymes, so enzyme action may seem to happen there too. Check the location of the pathway rather than its instructions.

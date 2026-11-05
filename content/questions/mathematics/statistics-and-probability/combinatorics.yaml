@@ -318,7 +318,7 @@ questions:
     correct: true
   - text: '$0$'
     rationale: |
-      This sets zero factorial to zero. The formula includes zero factorial. Remember its defined value is one.
+      This treats choosing everyone as choosing no team, because no members are left over. Leaving nobody out still leaves a full team. Check that selecting all six members gives one complete team.
   - text: '$6$'
     rationale: |
       This counts members as teams. Six members are present. Count whole selections.

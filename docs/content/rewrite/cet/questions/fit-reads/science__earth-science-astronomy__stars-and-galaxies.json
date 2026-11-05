@@ -1,0 +1,46 @@
+{
+ "reader": "sol",
+ "verdict": "major",
+ "findings": [
+  {
+   "question": "q-earth-science-astronomy-heavenly-bodies-0020",
+   "severity": "Major",
+   "field": "stem",
+   "quote": "A telescope resolves an object into a vast gravitationally bound system of stars, gas, and dust. Which observation most directly distinguishes it from a single star?",
+   "problem": "The stem already states that the object is a system of stars. A student can match that wording to \u201cIt contains many separate stars.\u201d without knowing how a galaxy differs from a star.",
+   "fix": "Describe an unresolved fuzzy object, then ask which observation would show that it is a system of stars rather than a single star."
+  },
+  {
+   "question": "q-earth-science-astronomy-heavenly-bodies-0001",
+   "severity": "Minor",
+   "field": "meta",
+   "quote": "q-earth-science-astronomy-heavenly-bodies-0001",
+   "problem": "The ID uses heavenly-bodies, but the file subtopic is stars-and-galaxies. The style guide requires q-<topicSlug>-<subtopicSlug>-NNNN.",
+   "fix": "Use q-earth-science-astronomy-stars-and-galaxies-0001, updating any references as needed."
+  },
+  {
+   "question": "q-earth-science-astronomy-heavenly-bodies-0002",
+   "severity": "Minor",
+   "field": "meta",
+   "quote": "q-earth-science-astronomy-heavenly-bodies-0002",
+   "problem": "The ID uses heavenly-bodies, but the file subtopic is stars-and-galaxies. The style guide requires q-<topicSlug>-<subtopicSlug>-NNNN.",
+   "fix": "Use q-earth-science-astronomy-stars-and-galaxies-0002, updating any references as needed."
+  },
+  {
+   "question": "q-earth-science-astronomy-heavenly-bodies-0017",
+   "severity": "Minor",
+   "field": "meta",
+   "quote": "q-earth-science-astronomy-heavenly-bodies-0017",
+   "problem": "The ID uses heavenly-bodies, but the file subtopic is stars-and-galaxies. The style guide requires q-<topicSlug>-<subtopicSlug>-NNNN.",
+   "fix": "Use q-earth-science-astronomy-stars-and-galaxies-0017, updating any references as needed."
+  },
+  {
+   "question": "q-earth-science-astronomy-heavenly-bodies-0020",
+   "severity": "Minor",
+   "field": "meta",
+   "quote": "q-earth-science-astronomy-heavenly-bodies-0020",
+   "problem": "The ID uses heavenly-bodies, but the file subtopic is stars-and-galaxies. The style guide requires q-<topicSlug>-<subtopicSlug>-NNNN.",
+   "fix": "Use q-earth-science-astronomy-stars-and-galaxies-0020, updating any references as needed."
+  }
+ ]
+}

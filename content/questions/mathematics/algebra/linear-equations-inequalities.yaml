@@ -54,7 +54,7 @@ questions:
         correct: true
       - text: '$x>5$'
         rationale: |
-          This reverses the inequality after subtracting four. Reversal is a real rule for some operations. Check that it happens only when multiplying or dividing by a negative number.
+          This reverses the inequality after subtracting four. Subtracting the same number from both sides keeps the sign. Multiplying or dividing both sides by a negative number reverses it.
       - text: '$x<13$'
         rationale: |
           This adds four to nine instead of subtracting it. Both sides still contain the given numbers. Check the inverse operation for $+4$.

@@ -1,0 +1,22 @@
+{
+ "reader": "sol",
+ "verdict": "blocker",
+ "findings": [
+  {
+   "question": "q-trigonometry-basic-trigonometric-ratios-0006",
+   "severity": "Blocker",
+   "field": "note",
+   "quote": "This reports sine. The missing opposite leg is twelve. Secant is reciprocal cosine.",
+   "problem": "The cosine ratio does not fix a side length. For example, a right triangle with adjacent leg 10 and hypotenuse 26 has the stated cosine 5/13, but its opposite leg is 24, not twelve.",
+   "fix": "Say that a representative triangle with adjacent leg 5 and hypotenuse 13 has opposite leg 12."
+  },
+  {
+   "question": "q-trigonometry-basic-trigonometric-ratios-0009",
+   "severity": "Blocker",
+   "field": "note",
+   "quote": "This repeats sine. The opposite side is five. Use adjacent over hypotenuse for cosine.",
+   "problem": "The given sine fixes only the ratio of the opposite side to the hypotenuse. A triangle with opposite side 10 and hypotenuse 26 also has sine 5/13, so the opposite side need not be five.",
+   "fix": "Replace the length claim with \"The given ratio is opposite over hypotenuse.\""
+  }
+ ]
+}

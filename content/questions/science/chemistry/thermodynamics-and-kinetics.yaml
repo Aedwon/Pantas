@@ -159,13 +159,13 @@ questions:
     choices:
       - text: 'No; heat release does not fix speed.'
         correct: true
-      - text: 'Yes; every exothermic reaction happens instantly.'
+      - text: 'Yes; the energy released lowers the activation barrier.'
         rationale: |
-          This makes negative enthalpy guarantee an instant reaction. Heat release is favorable in one sense. Check the activation barrier.
-      - text: 'No; every exothermic reaction is necessarily the slowest.'
+          This assumes released energy helps the reaction start. Heat release sounds like extra energy that should speed things up. Check that the barrier is the climb to the peak, which comes before any heat is released.
+      - text: 'No; exothermic reactions are slower because they give off energy.'
         rationale: |
-          This reverses the claim into a universal slow-reaction rule. Some exothermic processes are slow. Check whether kinetics varies between pathways.
-      - text: 'Yes; net heat and reaction rate always match.'
+          This reasons that giving off energy means losing drive. Losing energy sounds like slowing down. Check whether heat released says anything about the barrier.
+      - text: 'Yes; a larger heat release means a faster reaction.'
         rationale: |
           This equates net heat with rate. Both are reaction properties. Check that one is an energy difference and the other is change per time.
     explanation: |
@@ -222,15 +222,15 @@ questions:
     choices:
       - text: 'No; barrier and net heat are different.'
         correct: true
-      - text: 'Yes; activation energy always equals net heat release.'
+      - text: 'Yes; the barrier is the energy gap between products and reactants.'
         rationale: |
-          This treats two different energy quantities as equal. Both can be measured in energy units. Check their definitions.
-      - text: 'No; a high barrier means zero energy can be released.'
+          This defines the barrier as the product-reactant gap, which is the net heat. Both are gaps on the same energy diagram. Check that the barrier is measured from the reactants up to the peak.
+      - text: 'No; the barrier is the energy of the reactants.'
         rationale: |
-          This treats a high barrier as requiring zero net heat. A slow reaction may not start easily. Check the product-reactant energy difference separately.
-      - text: 'Yes; the highest barrier always gives the greatest release.'
+          This reads the barrier as the starting level instead of the climb to the peak. The reactant level is easy to spot on the left of the diagram. Check that the barrier is the peak energy minus the reactant energy.
+      - text: 'Yes; a higher peak means the products sit lower.'
         rationale: |
-          This treats a larger barrier as necessarily larger released heat. High energy is involved in the pathway. Check where each energy quantity is measured.
+          This assumes a taller peak pulls the products downward. A tall peak stands out on the diagram. Check that the product level is read separately from the peak.
     explanation: |
       Activation energy describes the barrier along a pathway. Overall enthalpy describes the reactant-to-product state difference. A high barrier does not determine the net heat released.
     approved: true
@@ -325,17 +325,17 @@ questions:
     stem: |
       For an elementary reaction, collisions have sufficient energy but unsuitable orientation. What can happen?
     choices:
-      - text: 'They may fail to react.'
+      - text: 'They do not lead to a reaction.'
         correct: true
-      - text: 'Every such collision must form the desired product.'
+      - text: 'They still lead to a reaction because the energy is high enough.'
         rationale: |
-          This uses energy as the only requirement. A barrier must be crossed. Check orientation too.
-      - text: 'Orientation matters only after products have already formed.'
+          This uses energy as the only requirement. A barrier must be crossed, but the particles must also meet in a suitable arrangement. Check orientation too.
+      - text: 'They lead to a reaction that releases less heat.'
         rationale: |
-          This delays the orientation requirement until after reaction. Products have a specific structure. Check the reactant collision arrangement.
-      - text: 'Sufficient energy always changes the equilibrium constant.'
+          This links orientation to the amount of heat released. Orientation decides whether a collision succeeds, not how much heat the reaction gives off. Check whether the question asks about success or about heat.
+      - text: 'They shift the equilibrium constant instead of the rate.'
         rationale: |
-          This confuses collision conditions with equilibrium. Energy affects successful encounters. Check rate versus equilibrium constant.
+          This confuses collision conditions with equilibrium. Energy and orientation affect successful encounters. Check rate versus equilibrium constant.
     explanation: |
       Collision theory requires enough energy and a suitable orientation. Energetic particles can still fail to react if they meet in an unsuitable arrangement.
     approved: false

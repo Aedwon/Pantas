@@ -1,0 +1,38 @@
+{
+ "reader": "sol",
+ "verdict": "major",
+ "findings": [
+  {
+   "question": "q-biology-ecology-0010",
+   "severity": "Major",
+   "field": "stem",
+   "quote": "Which biogeochemical cycle involves carbon moving between the atmosphere (as carbon dioxide), living things (through photosynthesis and respiration), and long-term storage like fossil fuels?",
+   "problem": "The stem names carbon explicitly, and the choices are element-named cycles. A student can match \"carbon\" to \"The carbon cycle\" without knowing how photosynthesis, respiration, or fossil fuels participate in the cycle.",
+   "fix": "Describe photosynthesis, respiration, and fossil-fuel burning without explicitly naming the element being cycled."
+  },
+  {
+   "question": "q-biology-ecology-0012",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "It fixes nitrogen gas as ammonia.",
+   "problem": "Only the keyed choice uses \"fixes,\" echoing \"fixation\" in the stem; every distractor uses \"converts.\" A student can choose the matching word root without knowing the starting substance or product of nitrogen fixation.",
+   "fix": "Use parallel wording: \"It converts nitrogen gas into ammonia.\""
+  },
+  {
+   "question": "q-biology-ecology-0015",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "Commensal (+,0)",
+   "problem": "The choices supply effect symbols alongside the relationship names. The stem states that the bird gains and the tree is neither helped nor harmed, so a student can match those effects directly to (+,0) without knowing which relationship is commensalism.",
+   "fix": "Remove effect symbols from all choices and use the relationship names, including \"Commensalism.\""
+  },
+  {
+   "question": "q-biology-ecology-0017",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "Commensal (+,0)",
+   "problem": "The keyed choice includes the benefit/neutral symbol pair. A student can match the remora gaining and the shark having no detectable net effect to (+,0), even without knowing the relationship names.",
+   "fix": "Remove effect symbols from all choices and use the relationship names, including \"Commensalism.\""
+  }
+ ]
+}

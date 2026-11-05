@@ -1,0 +1,46 @@
+{
+ "reader": "sol",
+ "verdict": "major",
+ "findings": [
+  {
+   "question": "q-chemistry-mixtures-and-separation-0002",
+   "severity": "Minor",
+   "field": "choices",
+   "quote": "- text: 'Nonuniform'",
+   "problem": "The stem asks whether the mixture is homogeneous or heterogeneous, but the keyed choice uses a different term. Although nonuniform is accurate, the answer should use the classification requested.",
+   "fix": "Change the choice to Heterogeneous."
+  },
+  {
+   "question": "q-chemistry-mixtures-and-separation-0013",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "It moves more readily relative to retention.",
+   "problem": "The keyed choice restates the observation that the dye travels farther without identifying a chemical reason. A student can select it merely by matching faster travel to moves more readily, without understanding how the dye interacts with paper and solvent.",
+   "fix": "Ask which balance of attraction to the paper and carriage by the solvent explains the distance, and give comparable explanations in all choices."
+  },
+  {
+   "question": "q-chemistry-mixtures-and-separation-0013",
+   "severity": "Minor",
+   "field": "explanation",
+   "quote": "The farther-traveling dye is carried more effectively by the mobile phase relative to its retention in the stationary phase. The result depends on interactions with both phases.",
+   "problem": "The abstract wording relative to its retention and interactions with both phases does not explain the result in plain Grade 5 English. It gives no concrete account of the solvent carrying the dye and the paper holding it back.",
+   "fix": "Say: The solvent carries the dye up the paper, while the paper holds it back. This dye travels farther because the solvent carries it more easily compared with how strongly the paper holds it."
+  },
+  {
+   "question": "q-chemistry-mixtures-and-separation-0014",
+   "severity": "Major",
+   "field": "stem",
+   "quote": "Dissolved components interact with the solvent while retaining their identities. Which conclusion is justified?",
+   "problem": "The stem directly supplies the conclusion in the keyed choice, Interactions can occur in a mixture. A student can match interact to Interactions without knowing what distinguishes a mixture from a compound.",
+   "fix": "Describe a concrete observation, such as salt dissolving and then being recovered unchanged, and ask what it shows about interactions in mixtures."
+  },
+  {
+   "question": "q-chemistry-mixtures-and-separation-0014",
+   "severity": "Major",
+   "field": "explanation",
+   "quote": "Interaction alone does not turn the mixture into one compound.",
+   "problem": "This sentence explicitly refutes the wrong choice claiming that every interaction creates a single new compound. The requested explanation must explain only why the correct answer is correct; that correction belongs in the wrong-choice note.",
+   "fix": "Keep the explanation positive and concrete: Water can attract dissolved salt particles while the salt and water keep their identities. This shows that substances in a mixture can interact."
+  }
+ ]
+}

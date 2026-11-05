@@ -127,5 +127,5 @@ questions:
         rationale: |
           This repeats water as the missing net product. Water contains oxygen, so it can seem to fit the blank. Check which gas appears as a product in the simplified equation.
     explanation: |
-      The net equation forms one glucose molecule and six oxygen molecules. The oxygen product is written $6O_2$. Carbon dioxide, water, and light are the inputs, so the equation describes oxygenic photosynthesis.
+      Count the oxygen atoms on the left: $6 \times 2 + 6 = 18$. Glucose on the right holds $6$ of them. That leaves $18 - 6 = 12$ oxygen atoms. Each $O_2$ molecule has $2$ atoms, so $12 \div 2 = 6$ molecules. The missing product is $6O_2$. Carbon dioxide, water, and light go in and make glucose and oxygen, so the process is oxygenic photosynthesis.
     approved: true

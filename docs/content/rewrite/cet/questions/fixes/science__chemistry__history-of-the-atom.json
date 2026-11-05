@@ -1,0 +1,13 @@
+{
+ "file": "science__chemistry__history-of-the-atom",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-chemistry-history-of-the-atom-0018",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Replaced the explanation sentence on the literal-cloud mistake with a plain statement of what darker parts show."
+  }
+ ]
+}

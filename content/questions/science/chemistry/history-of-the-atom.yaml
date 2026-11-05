@@ -384,7 +384,7 @@ questions:
         rationale: |
           This confuses electron density with neutron positions. Both are atomic constituents. Check which particle the visualization describes.
     explanation: |
-      An electron cloud visualizes electron probability or density. It is based on quantum states rather than a literal cloud of material.
+      An electron cloud visualizes electron probability or density. Darker parts of the picture show where an electron is more likely to be found.
     approved: false
 
   - id: q-chemistry-history-of-the-atom-0019

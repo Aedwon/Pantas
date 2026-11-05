@@ -1,0 +1,22 @@
+{
+ "reader": "sol",
+ "verdict": "major",
+ "findings": [
+  {
+   "question": "q-trigonometry-angles-and-radian-measure-0013",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This doubles the computed angle. Using diameter instead of radius can change ratios. Divide arc length by the stated radius.",
+   "problem": "The note for 120 degrees suggests using the diameter instead of the radius, but that gives (8\u03c0/3)/16 = \u03c0/6 radians = 30 degrees, not 120 degrees. It teaches a mismatched cause for this wrong answer.",
+   "fix": "Explain that using 360 degrees per \u03c0 radian gives 120 degrees because it confuses a full turn with a half-turn; check that \u03c0 radians equals 180 degrees."
+  },
+  {
+   "question": "q-trigonometry-angles-and-radian-measure-0017",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This treats half a radian as half a turn. Both contain a half. Compare it with pi over two.",
+   "problem": "The note for Quadrant II names a mistake that does not produce Quadrant II. Half a turn is \u03c0 radians, which ends on the negative x-axis and is outside all quadrants.",
+   "fix": "Explain that overestimating the size of a radian can make the angle seem greater than 90 degrees; check that 0.5 is less than \u03c0/2, the Quadrant I boundary."
+  }
+ ]
+}

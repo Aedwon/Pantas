@@ -1,0 +1,22 @@
+{
+ "reader": "sol",
+ "verdict": "major",
+ "findings": [
+  {
+   "question": "q-chemistry-chemical-reactions-0017",
+   "severity": "Major",
+   "field": "stem",
+   "quote": "For complete hydrocarbon combustion, which balancing order efficiently leaves oxygen until last?",
+   "problem": "The stem supplies the deciding feature: oxygen must be last. Only the keyed sequence ends with oxygen; every distractor places oxygen earlier and adds an instruction to ignore an element or change subscripts. A student can select the key by matching the word oxygen to the final position without knowing how to balance combustion.",
+   "fix": "Ask for the next balancing step in a specific combustion equation and offer parallel, plausible steps without instructions to ignore atoms or change subscripts."
+  },
+  {
+   "question": "q-chemistry-chemical-reactions-0018",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "A mandatory single product with no water",
+   "problem": "The stem asks which product may appear in addition to water, but only the key is a plain product name. The distractors use sweeping claims: only carbon dioxide in every case, no water, or unchanged fuel as the only possible material. The latter two contradict the stated burning and presence of water. A student can reject these forms and the universal claim without knowing the products of incomplete combustion.",
+   "fix": "Use four parallel product names, such as carbon monoxide, sulfur dioxide, nitrogen dioxide, and magnesium oxide; keep exactly one possible product of the stated hydrocarbon combustion and update the notes."
+  }
+ ]
+}

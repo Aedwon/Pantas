@@ -1,0 +1,14 @@
+{
+ "reader": "sol",
+ "verdict": "minor",
+ "findings": [
+  {
+   "question": "q-biology-human-anatomy-physiology-0017",
+   "severity": "Minor",
+   "field": "choices",
+   "quote": "It converts every fat molecule into protein.",
+   "problem": "This is a throwaway distractor rather than a plausible CET-level misconception, contrary to the style guide. A student can reject wholesale conversion of fat into protein without knowing how bile helps enzymes digest fat.",
+   "fix": "Replace it with a plausible confusion between bile and pancreatic enzymes, such as \u201cIt releases lipase into the small intestine,\u201d and update its note."
+  }
+ ]
+}

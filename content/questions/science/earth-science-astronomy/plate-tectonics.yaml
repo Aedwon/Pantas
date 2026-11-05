@@ -50,7 +50,7 @@ questions:
     type: identify
     difficulty: medium
     stem: |
-      In 1959, which scientist proposed seafloor spreading, explaining that new ocean floor forms at mid-ocean ridges and pushes older seafloor away?
+      Which scientist proposed seafloor spreading, explaining that new ocean floor forms at mid-ocean ridges and pushes older seafloor away?
     choices:
       - text: 'Harry Hess'
         correct: true
@@ -182,7 +182,7 @@ questions:
         correct: true
       - text: 'Reverse fault'
         rationale: |
-          This chooses a compressional fault with mainly vertical displacement. Both can release stress. Check horizontal versus vertical motion.
+          This chooses a compressional fault where the block above the tilted fault moves up. Both can release stress. Check whether the rocks move up the slope or sideways along the fault.
       - text: 'Normal fault'
         rationale: |
           This chooses extension-related displacement. Both can form fractures. Check the motion along the fault.
@@ -197,21 +197,21 @@ questions:
     type: classify
     difficulty: hard
     stem: |
-      A student assumes every convergent boundary produces the exact same outcome, regardless of which plates are involved. Is this correct?
+      Which statement correctly matches the plates at a convergent boundary with the usual outcome?
     choices:
-      - text: 'Oceanic subduction and continental collision can differ.'
+      - text: 'Oceanic plate meets continental plate: the oceanic plate subducts.'
         correct: true
-      - text: 'Every convergence requires identical oceanic subduction.'
+      - text: 'Oceanic plate meets continental plate: both plates crumple upward with no subduction.'
         rationale: |
-          This applies one boundary outcome to every plate pair. Subduction is common. Check whether both plates are continental.
-      - text: 'Every convergence creates a new spreading center.'
+          This gives the outcome of two continents meeting. Mountains do form at some boundaries. Check which plate is denser and can sink.
+      - text: 'Continental plate meets continental plate: one plate subducts deep into the mantle.'
         rationale: |
-          This reverses convergence into divergence. Both can reshape crust. Check approach versus separation.
-      - text: 'Every convergence consists only of sideways sliding.'
+          This gives the outcome of an ocean plate meeting land. Subduction is common. Check whether thick, light continental crust can sink easily.
+      - text: 'Oceanic plate meets oceanic plate: the plates slide sideways past each other.'
         rationale: |
-          This changes convergence into transform motion. Both can have faults. Check the motion toward each other.
+          This gives the motion of a transform boundary. Both boundaries have faults. Check whether the plates move toward each other or along each other.
     explanation: |
-      Convergent boundaries bring plates together. An oceanic plate may subduct. When continental plates meet, they can collide, so the boundary outcome depends on the plates.
+      Convergent boundaries bring plates together. Ocean crust is heavier, so it sinks under a continental plate. Continental plates are light and thick, so when two meet they crumple and form mountains.
     approved: true
 
   - id: q-earth-science-astronomy-plate-tectonics-0011
@@ -281,7 +281,7 @@ questions:
     type: classify
     difficulty: hard
     stem: |
-      A choice claims "S waves are faster than P waves and can travel through both solids and liquids," swapping the two wave types' properties. Is this correct?
+      A choice claims "S waves are faster than P waves and can travel through both solids and liquids." Is this correct?
     choices:
       - text: 'No: this reverses the properties; P waves are actually faster and travel through both solids and liquids, while S waves are slower and travel through solids only.'
         correct: true

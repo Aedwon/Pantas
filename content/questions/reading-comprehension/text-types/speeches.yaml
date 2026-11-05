@@ -399,23 +399,23 @@ questions:
   type: feature-of-form
   difficulty: exam
   approved: false
-  stem: 'Which statement best respects the speech''s mixed purpose?
+  stem: 'Which statement best describes the purpose of this speech?
 
     '
   passage: p-text-types-speeches-0003
   choices:
-  - text: It welcomes, informs, and encourages contribution.
+  - text: It welcomes listeners, informs them about the archive, and encourages them to contribute.
     correct: true
-  - text: It is purely persuasive because all speeches demand policy change.
-    rationale: 'This forces every speech into one purpose. The speaker invites action. Check the welcome and explanations as well.
+  - text: It welcomes listeners, informs them about the archive, and argues for a change in school policy.
+    rationale: 'This adds a policy argument to the real welcome and explanation. The speaker does explain the archive. Check whether any rule or policy is argued for.
 
       '
-  - text: It is purely informational because an archive stores factual records.
-    rationale: 'This lets the topic decide the whole purpose. Records are factual material. Check the direct appeal to share and listen.
+  - text: It honors past volunteers, informs listeners about the archive, and asks them to donate money.
+    rationale: 'This adds a money request to the real thanks and explanation. Volunteers and donors are mentioned. Check whether any money is requested.
 
       '
-  - text: It is purely commemorative because it thanks past volunteers only.
-    rationale: 'This treats gratitude as the entire address. The repeated lines honor contributors. Check its invitation to present visitors.
+  - text: It entertains listeners, honors past volunteers, and urges them to vote on a proposal.
+    rationale: 'This adds a vote to the real thanks. The speaker does remember the volunteers. Check whether any vote or proposal appears.
 
       '
   explanation: 'The opening welcomes listeners. The middle explains record keeping. The closing asks visitors to share and listen, so the speech serves several purposes.

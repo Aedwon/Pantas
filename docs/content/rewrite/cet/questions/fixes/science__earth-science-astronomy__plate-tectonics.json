@@ -1,0 +1,34 @@
+{
+ "file": "science__earth-science-astronomy__plate-tectonics",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-earth-science-astronomy-plate-tectonics-0003",
+   "severity": "Blocker",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Removed the incorrect 1959 date from the stem."
+  },
+  {
+   "question": "q-earth-science-astronomy-plate-tectonics-0009",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Reverse-fault note now describes the block moving up the tilted fault."
+  },
+  {
+   "question": "q-earth-science-astronomy-plate-tectonics-0010",
+   "severity": "Major",
+   "action": "rewritten",
+   "key_changed": false,
+   "summary": "Now asks which plate pair matches its usual convergent outcome, with four parallel statements."
+  },
+  {
+   "question": "q-earth-science-astronomy-plate-tectonics-0014",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Removed 'swapping the two wave types properties' from the stem."
+  }
+ ]
+}

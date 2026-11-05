@@ -1,0 +1,13 @@
+{
+ "file": "mathematics__geometry__triangles",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-geometry-triangles-0001",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Note for 115 degrees now says it leaves out angle A."
+  }
+ ]
+}

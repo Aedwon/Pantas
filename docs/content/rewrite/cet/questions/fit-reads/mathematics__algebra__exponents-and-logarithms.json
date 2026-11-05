@@ -1,0 +1,54 @@
+{
+ "reader": "sol",
+ "verdict": "major",
+ "findings": [
+  {
+   "question": "q-algebra-exponents-and-logarithms-0001",
+   "severity": "Minor",
+   "field": "note",
+   "quote": "This multiplies the exponents $3 \times 5$. That rule works for a power raised to another power. Check whether the powers are multiplied or nested.",
+   "problem": "The multiplication command contains a literal tab followed by \"imes\" instead of a backslash followed by \"times\". For example, the intended multiplication sign renders as letters rather than the mathematical symbol.",
+   "fix": "Replace the tab followed by \"imes\" with the literal LaTeX command \\times."
+  },
+  {
+   "question": "q-algebra-exponents-and-logarithms-0009",
+   "severity": "Minor",
+   "field": "explanation",
+   "quote": "The outside cube makes three copies of $2^2$. Their exponents add to $2+2+2=6$. Equivalently, multiply $2 \times 3$ to get $(2^2)^3=2^6$.",
+   "problem": "The multiplication command contains a literal tab followed by \"imes\" instead of a backslash followed by \"times\". For example, the intended multiplication sign renders as letters rather than the mathematical symbol.",
+   "fix": "Replace the tab followed by \"imes\" with the literal LaTeX command \\times."
+  },
+  {
+   "question": "q-algebra-exponents-and-logarithms-0010",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This adds the denominator exponents instead of subtracting them. Addition correctly combines powers in the numerator. Check that dividing uses a different rule.",
+   "problem": "The stated mistake produces $x^{7+2}y^{1+3}=x^9y^4$, not the attached choice $\\dfrac{x^9}{y^4}$. The note omits the additional mistake of placing the positive power of y in the denominator.",
+   "fix": "Describe both mistakes: adding denominator exponents, then incorrectly putting y^4 in the denominator; check exponent subtraction separately for each base."
+  },
+  {
+   "question": "q-algebra-exponents-and-logarithms-0013",
+   "severity": "Minor",
+   "field": "explanation",
+   "quote": "Factor $12$ as $2^2 \times 3$. Thus $\\log_{10}(12)=2\\log_{10}(2)+\\log_{10}(3)=2a+b$.",
+   "problem": "The multiplication command contains a literal tab followed by \"imes\" instead of a backslash followed by \"times\". For example, the intended multiplication sign renders as letters rather than the mathematical symbol.",
+   "fix": "Replace the tab followed by \"imes\" with the literal LaTeX command \\times."
+  },
+  {
+   "question": "q-algebra-exponents-and-logarithms-0015",
+   "severity": "Minor",
+   "field": "note",
+   "quote": "This multiplies the base by $\\dfrac{3}{4}$, giving $16 \times \\dfrac{3}{4}$. A fractional exponent looks like a fraction of the base. Check that it represents a root and a power.",
+   "problem": "The multiplication command contains a literal tab followed by \"imes\" instead of a backslash followed by \"times\". For example, the intended multiplication sign renders as letters rather than the mathematical symbol.",
+   "fix": "Replace the tab followed by \"imes\" with the literal LaTeX command \\times."
+  },
+  {
+   "question": "q-algebra-exponents-and-logarithms-0019",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This places the value below three. The base is between familiar powers of two and three in other settings. Check the cubes of the endpoints.",
+   "problem": "The note restates the selected interval but does not identify a specific mistaken calculation or explain why it seems right. \"Familiar powers of two and three in other settings\" gives no numbers or rule a learner can check.",
+   "fix": "Name a concrete error, such as bracketing 50 with 2^5=32 and 3^4=81 and mistaking those bases for cube-root bounds; remind the learner to cube both endpoints."
+  }
+ ]
+}

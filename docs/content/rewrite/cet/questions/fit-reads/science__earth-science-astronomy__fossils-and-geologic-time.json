@@ -1,0 +1,62 @@
+{
+ "reader": "sol",
+ "verdict": "blocker",
+ "findings": [
+  {
+   "question": "q-earth-science-astronomy-fossils-and-geologic-time-0002",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "Sedimentary rock forms in layers over time, which can trap and preserve remains before they decay, unlike igneous rock (formed from melting) or metamorphic rock (formed under intense heat and pressure that would destroy remains).",
+   "problem": "The keyed choice treats metamorphism as necessarily destroying remains. Fossils can survive mild metamorphism, as this question\u2019s own explanation states. The unconditional claim is false.",
+   "fix": "Say that heat during igneous rock formation and strong metamorphism often destroys fossil evidence; allow survival during mild metamorphism."
+  },
+  {
+   "question": "q-earth-science-astronomy-fossils-and-geologic-time-0002",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "Sedimentary rock forms in layers over time, which can trap and preserve remains before they decay, unlike igneous rock (formed from melting) or metamorphic rock (formed under intense heat and pressure that would destroy remains).",
+   "problem": "The keyed choice is conspicuously longer and is the only option with explanatory parenthetical definitions for two rock types. A student can select the unusually detailed option using its form rather than understanding preservation.",
+   "fix": "Use similarly sized choices with parallel wording; move the rock-type definitions into the explanation."
+  },
+  {
+   "question": "q-earth-science-astronomy-fossils-and-geologic-time-0005",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "X oldest; Y youngest despite the stated stack",
+   "problem": "The phrase \"despite the stated stack\" signals that this choice contradicts the question\u2019s evidence. It lets students eliminate the choice without applying superposition.",
+   "fix": "Delete \"despite the stated stack\" so the option reads \"X oldest; Y youngest\"."
+  },
+  {
+   "question": "q-earth-science-astronomy-fossils-and-geologic-time-0006",
+   "severity": "Blocker",
+   "field": "note",
+   "quote": "This makes proximity to the present surface mean older deposition. The upper bed is exposed more recently. Check superposition for undisturbed layers.",
+   "problem": "The note asserts an unsupported exposure history. An undisturbed sequence does not establish when each bed was exposed; erosion from above can expose an upper bed before a lower bed, reversing this claim. Exposure age also differs from deposition age.",
+   "fix": "Replace the exposure claim with: \"Being nearer today\u2019s surface may make the bed seem older, but surface position does not measure how long ago it formed. Check the original bottom-to-top order.\""
+  },
+  {
+   "question": "q-earth-science-astronomy-fossils-and-geologic-time-0013",
+   "severity": "Minor",
+   "field": "stem",
+   "quote": "A student reasons, \"Since one-quarter of the sample remains after 2 half-lives, one-eighth should remain after just 1 more half-life period entirely finishing the decay to zero.\" What is wrong with this reasoning?",
+   "problem": "The phrase \"half-life period entirely finishing the decay to zero\" joins two contradictory claims without clear punctuation or a logical transition. It sounds like an editing error rather than a clearly stated student misconception.",
+   "fix": "Write: \"A student says, \u2018After three half-lives, one-eighth remains, so the radioactive parent has completely disappeared.\u2019 What is wrong with this conclusion?\""
+  },
+  {
+   "question": "q-earth-science-astronomy-fossils-and-geologic-time-0021",
+   "severity": "Blocker",
+   "field": "stem",
+   "quote": "A geologist studies an undisturbed rock cliff with three layers, bottom to top: Layer 1, Layer 2, and Layer 3. Layer 1 contains a fossil of an early fish, Layer 2 contains a fossil of an early dinosaur, and Layer 3 contains a radioactive element with a half-life of 2 million years, of which only one-quarter of the original amount remains. Determine: (a) the relative order in which the three layers formed, (b) which era Layer 1's fossil most likely belongs to, and (c) the actual age of Layer 3.",
+   "problem": "The stem does not establish a closed dating system or that the isotope clock began when Layer 3 was deposited. For example, grains in a sedimentary layer deposited 1 million years ago could have crystallized 4 million years ago and now retain one-quarter of their original parent. Thus 4 million years need not be the layer\u2019s age, and no choice gives a justified answer to all three parts. The explanation itself acknowledges the missing assumptions.",
+   "fix": "Specify that Layer 3 is volcanic ash whose dated minerals formed at deposition and remained closed to parent and daughter atoms, or ask only for elapsed isotope-clock time under stated closed-system assumptions."
+  },
+  {
+   "question": "q-earth-science-astronomy-fossils-and-geologic-time-0021",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "(a) Layer 1 formed first (oldest), then Layer 2, then Layer 3 (youngest); (b) Layer 1''s early fish fossil belongs to the Paleozoic era; (c) Layer 3 is 4 million years old, since one-quarter remaining means two half-lives have passed (2 \u00d7 2 million years).",
+   "problem": "The keyed choice alone supplies a worked calculation and explanatory oldest/youngest labels. It is substantially more elaborate than every alternative, giving a choice-form clue before the student solves the three parts.",
+   "fix": "Give every choice the same concise three-part format and put the worked half-life calculation in the explanation."
+  }
+ ]
+}

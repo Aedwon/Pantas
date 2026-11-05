@@ -1,0 +1,13 @@
+{
+ "file": "science__earth-science-astronomy__stars-and-galaxies",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-earth-science-astronomy-heavenly-bodies-0020",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Stem now describes a faint fuzzy patch of light; the key is now that higher magnification resolves it into many separate points of light."
+  }
+ ]
+}

@@ -1,0 +1,14 @@
+{
+ "reader": "sol",
+ "verdict": "major",
+ "findings": [
+  {
+   "question": "rc-cs-cc-0001",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This uses the noun meaning associated with ships. The setting is a lake. Check whether harbor names a place or an action here.",
+   "problem": "The choice \"Provide a port for ships\" describes an action, not a place. Harbor can also be a verb meaning to shelter ships, as in \"The inlet harbors small boats.\" The suggested place-versus-action check therefore does not distinguish this distractor from the correct answer.",
+   "fix": "Explain that the lake setting suggests ships, but the passage describes protecting young fish. Tell the student to check what is being sheltered."
+  }
+ ]
+}

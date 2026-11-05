@@ -1,0 +1,22 @@
+{
+ "reader": "sol",
+ "verdict": "major",
+ "findings": [
+  {
+   "question": "q-earth-science-astronomy-earths-motions-0008",
+   "severity": "Major",
+   "field": "stem",
+   "quote": "A student says \"rotation causes the seasons, and revolution causes day and night,\" mixing up the two terms. Is this correct?",
+   "problem": "The phrase \"mixing up the two terms\" tells the reader that the student swapped their roles. A reader can reject the statement and select the answer about different roles without knowing what rotation and revolution do.",
+   "fix": "Remove \"mixing up the two terms\" and ask which evaluation of the statement is correct."
+  },
+  {
+   "question": "q-earth-science-astronomy-earths-motions-0010",
+   "severity": "Minor",
+   "field": "explanation",
+   "quote": "The Moon and Sun exert gravitational torques on Earth\u2019s equatorial bulge. These torques slowly change the direction of the rotation axis.",
+   "problem": "The explanation uses \"gravitational torques\" twice without explaining the term. A Grade 5 reader who knows gravity means a pull still needs to know that a torque is a turning effect; the lesson describes this using plain words about a pull on Earth\u2019s wider middle.",
+   "fix": "Use: The Moon and Sun pull on Earth\u2019s wider middle, near the equator. This pull has a turning effect that slowly changes where Earth\u2019s axis points."
+  }
+ ]
+}

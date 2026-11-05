@@ -1,0 +1,22 @@
+{
+ "reader": "sol",
+ "verdict": "major",
+ "findings": [
+  {
+   "question": "q-earth-science-astronomy-minerals-and-rocks-0006",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "No: the dark greenish-black powder is pyrite''s streak, which can be very different from its golden outer color; streak, not outer color, is what the scratch test reveals.",
+   "problem": "The key is conspicuously longer and repeats the observations in the stem. Every distractor contradicts those observations: two say the two colors are identical, and the other denies the reported powder result. A reader can match the dark powder to the key without knowing what streak means.",
+   "fix": "Ask which property the dark powder represents and use parallel property names as choices, or use equally detailed explanations based on distinct plausible misconceptions."
+  },
+  {
+   "question": "q-earth-science-astronomy-minerals-and-rocks-0018",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "Hardness (compared against known reference materials like a steel knife and glass) and streak (the black powder), since streak is more reliable than outer color, which can vary due to surface impurities.",
+   "problem": "The stem asks for two properties, but two distractors offer only one. The remaining distractor claims that breaking patterns were described, although the stem reports scratching and powder. This leaves the long, detailed key identifiable by choice form and literal matching without understanding mineral tests.",
+   "fix": "Give every choice two properties and a similarly brief reason. Use plausible pairs such as hardness and luster, streak and cleavage, or color and luster without contradicting the reported observations."
+  }
+ ]
+}

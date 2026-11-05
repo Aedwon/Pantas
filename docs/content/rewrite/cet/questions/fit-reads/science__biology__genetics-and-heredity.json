@@ -1,0 +1,22 @@
+{
+ "reader": "sol",
+ "verdict": "blocker",
+ "findings": [
+  {
+   "question": "q-biology-genetics-and-heredity-0012",
+   "severity": "Blocker",
+   "field": "choices",
+   "quote": "Both allele effects are detectable.",
+   "problem": "This keyed observation does not uniquely distinguish codominance from incomplete dominance. An intermediate phenotype, such as the lesson's pink snapdragons, can also show contributions from both alleles. The defining observation is that both effects appear fully and separately; merely being detectable does not establish that distinction.",
+   "fix": "Ask which observation specifically indicates codominance, and key \"Both allele effects are fully and separately expressed in the heterozygote.\""
+  },
+  {
+   "question": "q-biology-genetics-and-heredity-0013",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "No: mRNA uses uracil in place of thymine; a correct mRNA sequence should never include thymine.",
+   "problem": "The keyed choice turns the standard RNA alphabet rule into a false biological absolute. Synthetic mRNA can contain 5-methyluridine (ribothymidine), whose base is thymine. The explanation correctly limits its claim to standard sequence notation, but the choice does not.",
+   "fix": "Specify standard mRNA sequence notation in the stem and replace the choice with \"No: standard mRNA sequence notation uses U rather than T.\""
+  }
+ ]
+}

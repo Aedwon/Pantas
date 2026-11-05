@@ -1,0 +1,13 @@
+{
+ "file": "science__biology__cellular-metabolism",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-biology-cellular-metabolism-0013",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Explanation now shows the oxygen atom count to reach 6 O2."
+  }
+ ]
+}

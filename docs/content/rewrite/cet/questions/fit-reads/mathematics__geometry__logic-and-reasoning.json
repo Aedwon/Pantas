@@ -1,0 +1,14 @@
+{
+ "reader": "sol",
+ "verdict": "major",
+ "findings": [
+  {
+   "question": "q-geometry-logic-and-reasoning-0015",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This ignores the known counterexample to the converse. The original and contrapositive are true. Check that the inverse shares the converse's falsity.",
+   "problem": "The note misidentifies the mistake in \u201cInverse false; contrapositive false.\u201d This choice correctly makes the inverse false, matching the converse\u2019s counterexample. Its actual mistake is making the contrapositive false even though the original conditional is given as true. The suggested check therefore confirms the correct part of this wrong choice instead of catching its error.",
+   "fix": "Explain that the choice incorrectly transfers the converse\u2019s falsity to the contrapositive, which may look plausible because both are derived forms. Tell the student to check that the contrapositive matches the true original conditional."
+  }
+ ]
+}

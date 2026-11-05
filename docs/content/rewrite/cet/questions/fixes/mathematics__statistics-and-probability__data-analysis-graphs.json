@@ -1,0 +1,20 @@
+{
+ "file": "mathematics__statistics-and-probability__data-analysis-graphs",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-statistics-and-probability-data-analysis-graphs-0001",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Changed distractor 495 to 485 so it matches the Thursday-for-Wednesday note."
+  },
+  {
+   "question": "q-statistics-and-probability-data-analysis-graphs-0011",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Changed distractor 75% to 60% so it matches the omit-Center-C note."
+  }
+ ]
+}

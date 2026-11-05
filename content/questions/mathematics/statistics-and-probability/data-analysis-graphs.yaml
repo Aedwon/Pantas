@@ -22,7 +22,7 @@ questions:
   choices:
   - text: '$455$'
     correct: true
-  - text: '$495$'
+  - text: '$485$'
     rationale: |
       This substitutes Thursday for Wednesday. Both are weekday rows. Check the named date range.
   - text: '$850$'
@@ -312,7 +312,7 @@ questions:
   - text: '$66.7\%$'
     rationale: |
       This compares Center A alone. Its increase is two-thirds. Combine all centers.
-  - text: '$75\%$'
+  - text: '$60\%$'
     rationale: |
       This compares Centers A and B but omits C. The larger centers are prominent. Include every center.
   explanation: |

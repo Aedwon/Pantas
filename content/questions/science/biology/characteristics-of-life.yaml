@@ -134,7 +134,7 @@ questions:
     type: "classify"
     difficulty: "hard"
     stem: |
-      A virus contains genetic material enclosed in a protein coat but has no cellular organization. Which property of living organisms is directly absent from this description of the virus?
+      A virus is a particle made of genetic material enclosed in a protein coat. Which property of living organisms does this structure lack?
     choices:
       - text: "Cellular organization"
         correct: true
@@ -262,7 +262,7 @@ questions:
     stem: |
       Which statement correctly tells apart asexual and sexual reproduction?
     choices:
-      - text: Asexual reproduction involves one parent producing offspring; sexual reproduction involves two parents combining genetic material.
+      - text: Asexual reproduction occurs without fusion of sex cells; sexual reproduction involves fusion of sex cells, which may come from one or two parents.
         correct: true
       - text: Asexual reproduction always involves two parents; sexual reproduction always involves one parent.
         rationale: |

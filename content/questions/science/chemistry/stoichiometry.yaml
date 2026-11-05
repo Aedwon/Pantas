@@ -113,7 +113,7 @@ questions:
     type: 'classify'
     difficulty: 'hard'
     stem: |
-      A student calculates percent yield by dividing theoretical yield by actual yield, instead of actual by theoretical. Is this the correct formula?
+      A student calculates percent yield by dividing theoretical yield by actual yield. Is this the correct formula?
     choices:
       - text: 'No; divide actual by theoretical.'
         correct: true
@@ -239,21 +239,21 @@ questions:
     type: 'classify'
     difficulty: 'exam'
     stem: |
-      A proposed empirical formula has molar mass 46 g/mol, but a precise molecular-mass result gives a clearly non-integer multiple. What should be done?
+      A proposed empirical formula has a formula mass of 46 g/mol. A careful measurement gives a molecular mass of 120 g/mol, so the multiplier is about 2.6. What should be done?
     choices:
       - text: 'Recheck data and the empirical formula.'
         correct: true
-      - text: 'Round the multiplier without checking measurement tolerance.'
+      - text: 'Round the multiplier to 3 and triple the empirical formula.'
         rationale: |
-          This rounds a substantial non-integer ratio without checking consistency. Two is nearby. Check whether measurement tolerance justifies that change.
-      - text: 'Use fractional subscripts in the molecular formula.'
+          This rounds a ratio that is clearly not a whole number. Rounding can seem like a quick way to obtain whole-number subscripts. Check whether a small measurement error could move 2.6 all the way to 3.
+      - text: 'Use the multiplier 2.6 to write fractional subscripts.'
         rationale: |
-          This uses fractional molecular subscripts. The mass ratio was calculated. Check that a molecule contains whole atom counts.
-      - text: 'Set the multiplier to one regardless of the molecular mass.'
+          This uses fractional molecular subscripts. The mass ratio was calculated, so it seems to be the answer. Check that a molecule contains whole atom counts.
+      - text: 'Set the multiplier to 1 and keep the empirical formula.'
         rationale: |
-          This forces every empirical formula to be the molecular formula. The empirical unit has a known mass. Check whether the measured molecular mass matches.
+          This makes the empirical formula the molecular formula. The empirical unit has a known mass. Check whether 46 g/mol matches the measured 120 g/mol.
     explanation: |
-      For a molecular substance, the molecular formula is a whole-number multiple of its empirical formula. A non-integer mass ratio beyond justified uncertainty signals inconsistent data or an incorrect empirical formula.
+      Divide the molecular mass by the empirical formula mass: $120 \div 46 \approx 2.6$. The result should be close to a whole number. It is clearly not, so check the measurements and the empirical formula.
     approved: true
 
   - id: q-chemistry-stoichiometry-0013
@@ -306,15 +306,15 @@ questions:
     choices:
       - text: 'Convert moles, compare product yields, choose smaller.'
         correct: true
-      - text: 'Choose the smaller gram mass, then ignore the balanced coefficients.'
+      - text: 'Compare gram masses, choose smaller.'
         rationale: |
           This compares masses directly. A smaller mass may look likely to run out. Check the molar masses and reaction ratio.
-      - text: 'Add the reactant masses, then choose the largest coefficient.'
+      - text: 'Convert moles, compare moles directly, choose smaller.'
         rationale: |
-          This adds masses without assigning a reactant limit. Mass is conserved. Check what each reactant can form separately.
-      - text: 'Choose the reactant with the smaller molar mass in every case.'
+          This converts to moles but skips the balanced coefficients. Moles are the right unit, so the method seems complete. Check how many moles of each reactant the equation needs.
+      - text: 'Convert moles, compare product yields, choose larger.'
         rationale: |
-          This treats molar mass as the limit criterion. It is needed for conversion. Check available amount relative to required ratio.
+          This does the comparison correctly but picks the wrong result. The larger yield is not the amount that can really form. Check which reactant runs out first.
     explanation: |
       Convert each mass to moles. Use the balanced coefficients to find the same product amount from each reactant. The smaller predicted amount identifies the limiting reactant.
     approved: false

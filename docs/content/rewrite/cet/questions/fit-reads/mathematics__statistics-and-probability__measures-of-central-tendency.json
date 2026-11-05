@@ -1,0 +1,22 @@
+{
+ "reader": "sol",
+ "verdict": "major",
+ "findings": [
+  {
+   "question": "q-statistics-and-probability-measures-of-central-tendency-0002",
+   "severity": "Minor",
+   "field": "stem",
+   "quote": "A sari-sari store owner recorded the number of tray eggs sold each day over one week: $14$, $22$, $9$, $18$, $11$, $25$, and $15$. What is the median number of egg trays sold daily?",
+   "problem": "\u201cNumber of tray eggs\u201d is unnatural and suggests counting eggs, while the final sentence asks for trays. For example, 14 eggs and 14 trays are different quantities.",
+   "fix": "Replace \u201cnumber of tray eggs\u201d with \u201cnumber of trays of eggs\u201d."
+  },
+  {
+   "question": "q-statistics-and-probability-measures-of-central-tendency-0013",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This gives too large a Chemistry grade. It makes the weighted total $27.15$, above the required $26.25$.",
+   "problem": "The note checks the chosen value but does not name the mistake that produces it or explain why it looks right. In fact, averaging the three known grades gives (2.00 + 1.50 + 2.00)/3 \u2248 1.83, a plausible mistaken substitute for the missing grade.",
+   "fix": "Explain that 1.83 is the ordinary mean of the known grades, which may seem like a reasonable estimate. Tell the student to use course units and the target weighted total to solve for the missing grade."
+  }
+ ]
+}

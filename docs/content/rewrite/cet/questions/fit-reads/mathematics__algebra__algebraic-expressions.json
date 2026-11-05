@@ -1,0 +1,46 @@
+{
+ "reader": "sol",
+ "verdict": "major",
+ "findings": [
+  {
+   "question": "q-algebra-algebraic-expressions-0005",
+   "severity": "Minor",
+   "field": "note",
+   "quote": "This multiplies the coefficients $3 \times 2$. Coefficients are multiplied when whole terms are multiplied. Check the plus sign between these terms.",
+   "problem": "The multiplication command contains a literal tab followed by \"imes\", so the formula renders as letters rather than a multiplication sign.",
+   "fix": "Replace the tab plus \"imes\" with the literal LaTeX command \\times."
+  },
+  {
+   "question": "q-algebra-algebraic-expressions-0008",
+   "severity": "Minor",
+   "field": "note",
+   "quote": "This multiplies the base by the exponent: $3 \times 2$. The raised 2 can look like a multiplier. Check that a square uses two copies of the base.",
+   "problem": "The multiplication command contains a literal tab followed by \"imes\", so the example does not display the intended multiplication sign.",
+   "fix": "Replace the tab plus \"imes\" with the literal LaTeX command \\times."
+  },
+  {
+   "question": "q-algebra-algebraic-expressions-0008",
+   "severity": "Minor",
+   "field": "explanation",
+   "quote": "Replace $x$ with $3$. The square is $3^2 = 3 \times 3 = 9$.",
+   "problem": "The worked solution contains a literal tab followed by \"imes\" instead of a multiplication command, so the intended product of two 3s does not display correctly.",
+   "fix": "Replace the tab plus \"imes\" with the literal LaTeX command \\times."
+  },
+  {
+   "question": "q-algebra-algebraic-expressions-0010",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This doubles the input, giving $2(-2) + 3$. The exponent can look like a multiplier. Check what squaring means.",
+   "problem": "This note belongs to the choice $1$, but its stated calculation gives 2(-2) + 3 = -1. It therefore explains a different choice and does not name a mistake that produces 1.",
+   "fix": "Explain that skipping the square gives (-2) + 3 = 1; advise checking that the exponent has been applied."
+  },
+  {
+   "question": "q-algebra-algebraic-expressions-0013",
+   "severity": "Minor",
+   "field": "explanation",
+   "quote": "$50\\% = \\dfrac{50}{100} = 0.5$. To find that share of $n$, multiply: $0.5 \times n = 0.5n$.",
+   "problem": "The multiplication command contains a literal tab followed by \"imes\", so the worked solution displays letters in place of the intended multiplication sign.",
+   "fix": "Replace the tab plus \"imes\" with the literal LaTeX command \\times."
+  }
+ ]
+}

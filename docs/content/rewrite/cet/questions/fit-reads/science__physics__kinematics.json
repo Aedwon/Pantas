@@ -1,0 +1,22 @@
+{
+ "reader": "sol",
+ "verdict": "major",
+ "findings": [
+  {
+   "question": "q-physics-kinematics-0009",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "- text: \"Yes: \\\"dropped\\\" gives no information about initial velocity.\"",
+   "problem": "The stem asks for an initial velocity, but only \"Zero\" supplies a velocity. All three distractors are Yes/No statements answering a different question. A student can select the only choice that fits the question without knowing what \"released from rest\" means.",
+   "fix": "Replace the three distractors with plausible initial velocities in the same form as the correct choice, and revise their notes to match."
+  },
+  {
+   "question": "q-physics-kinematics-0012",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This adds the acceleration magnitude instead of using its opposite direction. The five is printed as a positive magnitude. Check the direction relative to initial motion.",
+   "problem": "The note incorrectly says the acceleration is printed as a positive magnitude. The stem explicitly prints acceleration as -5 m/s\u00b2. The 50 m/s mistake comes from ignoring that minus sign and calculating 30 + 5(4).",
+   "fix": "Replace the middle sentence with \"Ignoring the minus sign can make adding 5 each second seem right.\""
+  }
+ ]
+}

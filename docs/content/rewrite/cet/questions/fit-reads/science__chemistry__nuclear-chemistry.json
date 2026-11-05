@@ -1,0 +1,54 @@
+{
+ "reader": "sol",
+ "verdict": "major",
+ "findings": [
+  {
+   "question": "q-chemistry-nuclear-chemistry-0007",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This treats the entire chain as one electron-emission decay. Some nuclear conversions occur within the chain. Check the overall joining of light nuclei.",
+   "problem": "The note describes beta decay as electron emission in a proton-proton-chain question. Beta also includes positron emission, and the proton-proton chain includes proton-to-neutron conversion with positron emission. A student choosing beta decay may recognize that real step rather than imagine electron emission.",
+   "fix": "Explain that beta processes occur within the chain, so the choice looks plausible, but the overall joining of light nuclei is fusion."
+  },
+  {
+   "question": "q-chemistry-nuclear-chemistry-0009",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "Released neutrons cause further fissions.",
+   "problem": "All three distractors contain sweeping claims about every nucleus or unconditional continuation, while the key is the only qualified mechanism. A student can reject the absolute claims without knowing how a fission chain works.",
+   "fix": "Use plausible competing mechanisms stated with the same degree of certainty, such as released heat, gamma photons, or electrons triggering further fissions."
+  },
+  {
+   "question": "q-chemistry-nuclear-chemistry-0011",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "Dense shielding reduces intensity.",
+   "problem": "The key is the only moderate shielding statement. The distractors claim that paper stops every photon, gamma cannot penetrate, or lead guarantees every photon is stopped. Their extreme wording lets students select the key without understanding shielding.",
+   "fix": "Replace the extreme distractors with plausible mistakes about shielding materials, thickness, or attenuation."
+  },
+  {
+   "question": "q-chemistry-nuclear-chemistry-0014",
+   "severity": "Major",
+   "field": "stem",
+   "quote": "A claim says fusion releases more energy than fission without naming reactions or a comparison basis. What is needed to assess it?",
+   "problem": "The stem names exactly what is missing, and the key simply asks to specify those same things. The other choices all assume universal equalities or inequalities. A student can match the wording without knowing any nuclear-energy comparison.",
+   "fix": "Give the lesson's energy and fuel-mass values for two reactions and ask which comparison follows, with plausible per-event and per-mass distractors."
+  },
+  {
+   "question": "q-chemistry-nuclear-chemistry-0018",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "Internal contamination can still be hazardous.",
+   "problem": "The key is the only qualified possibility. Every distractor makes a universal harmlessness or impossibility claim: every exposure route is harmless, alpha cannot ionize, or living tissue cannot be affected in any circumstance. Students can choose the cautious statement without understanding internal alpha exposure.",
+   "fix": "Use plausible competing conclusions about exposure routes and ionization, with comparable wording and certainty."
+  },
+  {
+   "question": "q-chemistry-nuclear-chemistry-0019",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This tracks only net proton change and ignores alpha\u2019s nucleons. The Z change is partly correct. Check the mass number too.",
+   "problem": "For this distractor, Z decreases by 1, which is fully correct: alpha gives -2 and beta-minus gives +1. Calling its Z change partly correct wrongly suggests an error in the correctly calculated quantity; the only error is leaving A unchanged.",
+   "fix": "Change the middle sentence to: The Z change is correct, which makes this answer look plausible."
+  }
+ ]
+}

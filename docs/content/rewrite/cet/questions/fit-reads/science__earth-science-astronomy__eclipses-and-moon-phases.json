@@ -1,0 +1,30 @@
+{
+ "reader": "sol",
+ "verdict": "major",
+ "findings": [
+  {
+   "question": "q-earth-science-astronomy-eclipses-and-moon-phases-0013",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "The umbra, with complete coverage",
+   "problem": "The added description tells students to reject the umbra because the stem explicitly says only part of the Sun is covered. The other distractors deny distinct partial coverage or any shadow containing it. A student can select the sole unqualified shadow name by matching the wording, without knowing which shadow is the penumbra.",
+   "fix": "Use parallel shadow-region names without descriptions that reveal their coverage."
+  },
+  {
+   "question": "q-earth-science-astronomy-eclipses-and-moon-phases-0015",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "A total solar eclipse with no Sun remaining visible",
+   "problem": "The extra descriptions give away the answer. A bright ring of the Sun directly contradicts this choice, while the partial-eclipse choice explicitly says only one edge is covered. The lunar alternative describes Earth\u2019s shadow on the Moon rather than the stated Sun surrounding the Moon. Students can eliminate all three without knowing what annular means.",
+   "fix": "Use parallel eclipse names without the added descriptions of visibility, shadow, or shape."
+  },
+  {
+   "question": "q-earth-science-astronomy-eclipses-and-moon-phases-0016",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "Total lunar eclipse with the entire Moon still in umbra",
+   "problem": "This choice supplies the definition needed to reject the most plausible competing stage: the stem says part of the Moon has already left the umbra. Students can eliminate totality by reading the attached description rather than knowing when totality ends. The solar-eclipse and new-moon alternatives also abandon the lunar-eclipse stage requested by the stem.",
+   "fix": "Use parallel lunar-eclipse stage names, without attaching definitions that contradict the stem."
+  }
+ ]
+}

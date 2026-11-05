@@ -1,0 +1,27 @@
+{
+ "file": "science__earth-science-astronomy__water-cycle-oceanography",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-earth-science-astronomy-water-cycle-oceanography-0003",
+   "severity": "Blocker",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Reworded the stem to ask for the term for water falling from clouds, removing the false droplet-combining account."
+  },
+  {
+   "question": "q-earth-science-astronomy-water-cycle-oceanography-0016",
+   "severity": "Major",
+   "action": "rewritten",
+   "key_changed": false,
+   "summary": "Rebuilt the choices in parallel qualified wording with varied drivers and heat effects; each wrong choice has a new note."
+  },
+  {
+   "question": "q-earth-science-astronomy-water-cycle-oceanography-0019",
+   "severity": "Major",
+   "action": "rewritten",
+   "key_changed": false,
+   "summary": "Rebuilt the choices as parallel heat-transport outcomes (reversed direction, warms source, cools receiver) with new notes."
+  }
+ ]
+}

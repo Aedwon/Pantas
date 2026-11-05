@@ -1,0 +1,30 @@
+{
+ "reader": "sol",
+ "verdict": "blocker",
+ "findings": [
+  {
+   "question": "q-biology-botany-0006",
+   "severity": "Blocker",
+   "field": "explanation",
+   "quote": "Phloem conducting cells remain alive and work with companion cells.",
+   "problem": "This assigns companion cells to phloem without restricting the statement to flowering plants. As the lesson explains, conifers and ferns have different helper cells, not companion cells. The stem does not specify a flowering plant.",
+   "fix": "Say that phloem conducting cells remain alive; specify that they work with companion cells in flowering plants."
+  },
+  {
+   "question": "q-biology-botany-0012",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "No; root responses to light vary.",
+   "problem": "The key is the only qualified choice. All three distractors use conspicuous absolutes: every organ must respond identically, every root must always grow away, or roots are completely unable to respond. A student can select the cautious statement by choice form without knowing root responses to light.",
+   "fix": "Use plausible, similarly qualified alternatives so that the student must understand organ-specific light responses."
+  },
+  {
+   "question": "q-biology-botany-0017",
+   "severity": "Minor",
+   "field": "meta",
+   "quote": "id: q-biology-botany-0017\n    type: \"structure-function\"\n    difficulty: \"easy\"",
+   "problem": "The style guide requires IDs to ascend with difficulty. This easy item follows the exam-level item 0016; the file also drops from hard at 0006 to medium at 0007, so ID order does not provide the required easy-to-hard ramp.",
+   "fix": "Reorder and renumber the questions by difficulty: easy, medium, hard, then exam."
+  }
+ ]
+}

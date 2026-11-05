@@ -1,0 +1,62 @@
+{
+ "reader": "sol",
+ "verdict": "major",
+ "findings": [
+  {
+   "question": "rc-cs-ct-0002",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "It leaves out the conservation problem.",
+   "problem": "The stem already says the title is too narrow, and this is the only choice describing missing coverage. The other choices say a title about water channels gives an overview of all farming, denies channels, or promises migration history. Those claims can be rejected from the title's words alone, without reading or understanding the passage.",
+   "fix": "Use competing omissions that could plausibly explain why this title misses the passage's main focus."
+  },
+  {
+   "question": "rc-cs-ct-0003",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "It omits the specific preservation focus.",
+   "problem": "This is the only plausible weakness of the one-word title. The other choices attribute a named workshop, an end to farming, or an exclusive cause of damage to the word Terraces. A student can reject all three without reading the passage or identifying its main idea.",
+   "fix": "Offer plausible competing judgments about the title's scope and focus."
+  },
+  {
+   "question": "rc-cs-ct-0005",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "The exact height of every retaining wall",
+   "problem": "All three distractors are exhaustive technical inventories: every wall's height, a complete city-job list, and equipment specifications. Only the key is a passage-level theme. A student can select the only reasonable title element without finding the passage's central point.",
+   "fix": "Replace the inventories with plausible themes drawn from the passage, such as irrigation design, migration, and traditional construction."
+  },
+  {
+   "question": "rc-cs-ct-0006",
+   "severity": "Major",
+   "field": "stem",
+   "quote": "Which title best fits all three dimensions of the park passage?",
+   "problem": "The stem supplies the number of dimensions, and only the keyed title lists three items. A student can match the number three to Cooling, Activity, and Community without reading the passage.",
+   "fix": "Ask which title best captures the passage's main idea without specifying a number of dimensions."
+  },
+  {
+   "question": "rc-cs-ct-0007",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "It covers only one park benefit.",
+   "problem": "The stem calls the title incomplete, and only the key describes incomplete coverage. The remaining choices attribute every city service, a claim about admission cost, or commercial-development costs to Places to Exercise. Those claims are visibly absent from the title, so the passage is unnecessary.",
+   "fix": "Provide plausible competing reasons for incomplete coverage, grounded in the passage's benefits."
+  },
+  {
+   "question": "q-comprehension-skills-choosing-a-title-0013",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "It misses the move toward better access.",
+   "problem": "Only the key describes an omission. The other choices say Counting the Donated Books claims there are no books, promises all school subjects, or describes a competition between two libraries. None follows from the quoted title. Eliminating these throwaway choices gives the answer without understanding the project or its main idea.",
+   "fix": "Use plausible competing accounts of the important focus that this title leaves out."
+  },
+  {
+   "question": "q-comprehension-skills-choosing-a-title-0017",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "It focuses on the lower-priority proposal.",
+   "problem": "The other choices can all be rejected without the passage: A Faded Gate does not deny an entrance, announce completed repairs, or list multiple improvements. This leaves the key as the only plausible answer even for a student who has not understood the writer's priority argument.",
+   "fix": "Use plausible competing interpretations of the gate's role in the writer's argument."
+  }
+ ]
+}

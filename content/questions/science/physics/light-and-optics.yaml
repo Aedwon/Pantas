@@ -52,19 +52,19 @@ questions:
     stem: |
       Which relation states the law of reflection, with angles measured from the normal?
     choices:
-      - text: "$\theta_i=\theta_r$"
+      - text: "$\\theta_i=\\theta_r$"
         correct: true
-      - text: "$\theta_i+\theta_r=90^\\circ$"
+      - text: "$\\theta_i+\\theta_r=90^\\circ$"
         rationale: |
           This assumes the two ray angles are complementary. The surface and normal are perpendicular. Check that both angles use the same normal.
-      - text: "$\theta_r=2\theta_i$"
+      - text: "$\\theta_r=2\\theta_i$"
         rationale: |
           This uses the angle between the rays as the reflection angle. Both sides of the normal contribute to that angle. Check the reflected ray’s single angle.
-      - text: "$\theta_r=\theta_i/2$"
+      - text: "$\\theta_r=\\theta_i/2$"
         rationale: |
           This divides the incident angle between two rays. Reflection involves two rays. Check that their normal-based angles are equal.
     explanation: |
-      The incident and reflected rays make equal angles with the normal. Therefore $	heta_i=	heta_r$.
+      The incident and reflected rays make equal angles with the normal. Therefore $\theta_i=\theta_r$.
     approved: true
 
   - id: q-physics-light-and-optics-0008
@@ -136,7 +136,7 @@ questions:
     stem: |
       Red and violet light travel in vacuum. Which has the higher frequency?
     choices:
-      - text: "Violet"
+      - text: "Violet because its wavelength is shorter"
         correct: true
       - text: "Red because its wavelength is longer"
         rationale: |
@@ -144,7 +144,7 @@ questions:
       - text: "Both have equal frequency because their speeds match"
         rationale: |
           This confuses equal speed with equal frequency. Both travel at $c$. Check their different wavelengths.
-      - text: "Their frequencies cannot be compared without intensities"
+      - text: "Their frequencies cannot be compared because intensities are not given"
         rationale: |
           This substitutes brightness for frequency. Light intensity is noticeable. Check that color supplies the wavelength comparison.
     explanation: |
@@ -201,13 +201,13 @@ questions:
     choices:
       - text: "They are equal."
         correct: true
-      - text: "The X-ray is faster because its frequency is higher."
+      - text: "The X-ray is faster."
         rationale: |
           This uses frequency to change vacuum speed. X-rays have shorter wavelengths. Check the common speed $c$.
-      - text: "The radio wave is faster because its wavelength is longer."
+      - text: "The radio wave is faster."
         rationale: |
           This uses wavelength to change vacuum speed. Radio waves have long wavelengths. Check the fixed speed for electromagnetic waves in vacuum.
-      - text: "Their speeds depend only on how bright their sources are."
+      - text: "Their speeds depend on how bright their sources are."
         rationale: |
           This uses intensity to set propagation speed. Stronger signals can seem faster. Check the vacuum-speed rule.
     explanation: |
@@ -305,16 +305,16 @@ questions:
     stem: |
       Light of frequency $5.0\times10^{14}\,\mathrm{Hz}$ travels in vacuum at $3.0\times10^8\,\mathrm{m/s}$. What is its wavelength?
     choices:
-      - text: "$6.0\times10^{-7}\\,\\mathrm m$"
+      - text: "$6.0\\times10^{-7}\\,\\mathrm m$"
         correct: true
-      - text: "$1.67\times10^6\\,\\mathrm m$"
+      - text: "$1.67\\times10^6\\,\\mathrm m$"
         rationale: |
           This divides frequency by speed. Both quantities are given. Check that wavelength equals speed divided by frequency.
-      - text: "$1.5\times10^{23}\\,\\mathrm m$"
+      - text: "$1.5\\times10^{23}\\,\\mathrm m$"
         rationale: |
           This multiplies speed and frequency. Their product can look like combining wave quantities. Check how to isolate wavelength in $c=f\lambda$.
-      - text: "$6.0\times10^{-6}\\,\\mathrm m$"
+      - text: "$6.0\\times10^{-6}\\,\\mathrm m$"
         rationale: |
-          This shifts the final power of ten by one place. The coefficient six looks right. Check conversion from $0.6	imes10^{-6}$ to standard scientific notation.
+          This shifts the final power of ten by one place. The coefficient six looks right. Check conversion from $0.6\times10^{-6}$ to standard scientific notation.
     explanation: |
       From $c=f\lambda$, $\lambda=\dfrac cf$. Thus $\lambda=\dfrac{3.0\times10^8}{5.0\times10^{14}}=0.6\times10^{-6}=6.0\times10^{-7}\,\mathrm m$.

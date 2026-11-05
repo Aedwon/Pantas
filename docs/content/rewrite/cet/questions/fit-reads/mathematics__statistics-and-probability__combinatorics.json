@@ -1,0 +1,14 @@
+{
+ "reader": "sol",
+ "verdict": "major",
+ "findings": [
+  {
+   "question": "q-statistics-and-probability-combinatorics-0017",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This sets zero factorial to zero. The formula includes zero factorial. Remember its defined value is one.",
+   "problem": "The note does not explain how the listed answer $0$ arises. Substituting $0!=0$ into the displayed formula gives 720/(720 times 0), which is undefined, not zero. It therefore teaches an incorrect connection between the named mistake and this choice.",
+   "fix": "Explain that having no alternative group can be mistaken for having no possible team; check that selecting all six members still produces one complete team."
+  }
+ ]
+}

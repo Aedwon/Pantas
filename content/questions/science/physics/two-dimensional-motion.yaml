@@ -197,7 +197,7 @@ questions:
     type: "predict-outcome"
     difficulty: "hard"
     stem: |
-      Two ideal projectiles have equal launch speed, equal launch height, and equal landing height. Their launch angles are $30^\circ$ and $60^\circ$. Which spends longer in the air?
+      Two ideal projectiles have equal launch speed. Each lands at the same height from which it was launched. Their launch angles are $30^\circ$ and $60^\circ$. Which spends longer in the air?
     choices:
       - text: "The $60^\\circ$ launch"
         correct: true
@@ -239,7 +239,7 @@ questions:
     type: "classify"
     difficulty: "hard"
     stem: |
-      What conditions produce the parabolic path of the introductory projectile model?
+      A ball is launched with a nonzero horizontal velocity. What conditions produce the parabolic path of the introductory projectile model?
     choices:
       - text: "Uniform gravity with negligible air resistance"
         correct: true
@@ -253,7 +253,7 @@ questions:
         rationale: |
           This removes the cause of curvature. Horizontal velocity is constant. Check the downward vertical acceleration.
     explanation: |
-      Uniform gravity gives constant vertical acceleration and zero horizontal acceleration. With negligible drag, eliminating the shared time gives a parabola.
+      Because the ball has horizontal velocity, it moves sideways at a steady speed. Uniform gravity pulls it down with constant acceleration, and with negligible air resistance nothing else changes its motion. Steady sideways motion plus constant downward acceleration makes a parabola.
     approved: true
 
   - id: q-physics-two-dimensional-motion-0013

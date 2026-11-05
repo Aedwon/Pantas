@@ -97,7 +97,7 @@ questions:
           This changes the exponent when adding terms. Two copies of the letter can suggest a square. Check that exponents combine during multiplication, not addition.
       - text: '$6a$'
         rationale: |
-          This multiplies the coefficients $3 	imes 2$. Coefficients are multiplied when whole terms are multiplied. Check the plus sign between these terms.
+          This multiplies the coefficients $3 \times 2$. Coefficients are multiplied when whole terms are multiplied. Check the plus sign between these terms.
       - text: '$a$'
         rationale: |
           This subtracts the coefficients $3 - 2$. The two terms look like a familiar subtraction pair. Check the sign joining them.
@@ -159,7 +159,7 @@ questions:
         correct: true
       - text: '$6$'
         rationale: |
-          This multiplies the base by the exponent: $3 	imes 2$. The raised 2 can look like a multiplier. Check that a square uses two copies of the base.
+          This multiplies the base by the exponent: $3 \times 2$. The raised 2 can look like a multiplier. Check that a square uses two copies of the base.
       - text: '$3$'
         rationale: |
           This substitutes 3 but stops before squaring it. Replacing the variable is a necessary first step. Check whether an exponent remains.
@@ -167,7 +167,7 @@ questions:
         rationale: |
           This uses three factors of 3 instead of two. The base 3 can be mistaken for the number of factors. Check the exponent to count the factors.
     explanation: |
-      Replace $x$ with $3$. The square is $3^2 = 3 	imes 3 = 9$.
+      Replace $x$ with $3$. The square is $3^2 = 3 \times 3 = 9$.
 
   - id: q-algebra-algebraic-expressions-0009
     type: direct-computation
@@ -202,7 +202,7 @@ questions:
           This keeps the square of the negative input negative, giving $-4 + 3$. A negative base can suggest a negative result. Check the sign of a product of two negative factors.
       - text: '$1$'
         rationale: |
-          This doubles the input, giving $2(-2) + 3$. The exponent can look like a multiplier. Check what squaring means.
+          This skips the square and adds $3$ to the input, giving $-2 + 3$. The exponent can be overlooked. Check that the rule squares the input first.
       - text: '$5$'
         rationale: |
           This uses $|-2| + 3$. Making the input positive can seem to handle the negative sign. Check that the rule asks for a square, not just absolute value.
@@ -272,7 +272,7 @@ questions:
         rationale: |
           This divides by $0.5$ instead of multiplying by it. The percent was correctly changed to a decimal. Check that half of a positive number is smaller than the whole.
     explanation: |
-      $50\% = \dfrac{50}{100} = 0.5$. To find that share of $n$, multiply: $0.5 	imes n = 0.5n$.
+      $50\% = \dfrac{50}{100} = 0.5$. To find that share of $n$, multiply: $0.5 \times n = 0.5n$.
 
   - id: q-algebra-algebraic-expressions-0014
     type: direct-computation

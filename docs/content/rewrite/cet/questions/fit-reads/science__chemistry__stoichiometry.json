@@ -1,0 +1,46 @@
+{
+ "reader": "sol",
+ "verdict": "major",
+ "findings": [
+  {
+   "question": "q-chemistry-stoichiometry-0006",
+   "severity": "Major",
+   "field": "stem",
+   "quote": "A student calculates percent yield by dividing theoretical yield by actual yield, instead of actual by theoretical. Is this the correct formula?",
+   "problem": "The phrase \"instead of actual by theoretical\" supplies the correct division order. A student can select the matching answer without knowing the percent-yield formula.",
+   "fix": "Remove \"instead of actual by theoretical\" from the stem."
+  },
+  {
+   "question": "q-chemistry-stoichiometry-0012",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "Round the multiplier without checking measurement tolerance.",
+   "problem": "This option explicitly advertises skipping a check, while another says \"regardless of the molecular mass.\" Against these deliberately careless actions and fractional atom counts, the keyed instruction to recheck data can be selected by general test-taking judgment rather than the empirical-to-molecular formula rule.",
+   "fix": "Use neutral, concrete alternatives, such as rounding to a specified integer, retaining the calculated multiplier, or recalculating the empirical formula. Supply a numerical mass ratio if needed."
+  },
+  {
+   "question": "q-chemistry-stoichiometry-0012",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This rounds a substantial non-integer ratio without checking consistency. Two is nearby. Check whether measurement tolerance justifies that change.",
+   "problem": "\"Two is nearby\" assumes a mass ratio that the stem never gives. For example, a molecular mass of 250 g/mol would give 250/46, about 5.43, so two would not be nearby. The qualitative question remains solvable, but this wrong-choice note invents numerical information.",
+   "fix": "Replace \"Two is nearby\" with \"Rounding can seem like a quick way to obtain whole-number subscripts.\""
+  },
+  {
+   "question": "q-chemistry-stoichiometry-0012",
+   "severity": "Minor",
+   "field": "explanation",
+   "quote": "A non-integer mass ratio beyond justified uncertainty signals inconsistent data or an incorrect empirical formula.",
+   "problem": "The phrases \"non-integer mass ratio beyond justified uncertainty\" and \"signals inconsistent data\" are too compressed and technical for the required Grade 5 explanation.",
+   "fix": "Say: \"Divide the molecular molar mass by the empirical formula mass. The result should be close to a whole number. If it is clearly not, check the measurements and the empirical formula.\""
+  },
+  {
+   "question": "q-chemistry-stoichiometry-0015",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "Choose the smaller gram mass, then ignore the balanced coefficients.",
+   "problem": "The instruction to \"ignore\" the balanced coefficients advertises a bad procedure. Together with the other distractors choosing a largest coefficient or a smaller molar mass \"in every case,\" it leaves the only conversion-and-comparison sequence recognizable through choice wording rather than stoichiometric reasoning.",
+   "fix": "Write all four choices as parallel, plausible procedures. For example, contrast comparing raw masses, comparing moles without coefficients, and comparing product amounts after conversion; omit self-discrediting language."
+  }
+ ]
+}

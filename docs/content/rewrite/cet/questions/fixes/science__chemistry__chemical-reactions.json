@@ -1,0 +1,20 @@
+{
+ "file": "science__chemistry__chemical-reactions",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-chemistry-chemical-reactions-0017",
+   "severity": "Major",
+   "action": "rewritten",
+   "key_changed": false,
+   "summary": "Now asks for the next balancing step in propane combustion with four parallel coefficient steps."
+  },
+  {
+   "question": "q-chemistry-chemical-reactions-0018",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Distractors are now parallel product names (sulfur dioxide, magnesium oxide, hydrogen peroxide); stem states hydrocarbon has only C and H."
+  }
+ ]
+}

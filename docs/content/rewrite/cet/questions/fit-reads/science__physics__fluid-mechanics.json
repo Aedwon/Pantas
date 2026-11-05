@@ -1,0 +1,22 @@
+{
+ "reader": "sol",
+ "verdict": "major",
+ "findings": [
+  {
+   "question": "q-physics-fluid-mechanics-0009",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "Total mass with no volume information",
+   "problem": "All three wrong choices advertise incomplete information with \"with no volume information,\" \"with no mass information,\" or \"alone.\" Only the keyed choice offers a comparison with the fluid. A student can select the only unrestricted, comparative choice from its wording without knowing the density rule.",
+   "fix": "Use parallel property names without exclusion cues, such as average density, total mass, surface area, and longest dimension, each relative to the fluid or displaced fluid where appropriate."
+  },
+  {
+   "question": "q-physics-fluid-mechanics-0019",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This treats the surface as the source of an upward contact force. The surface is a visible boundary. Check force directions from surrounding pressure.",
+   "problem": "The associated choice says the free surface exerts a downward pull, but this note describes an upward contact force. It therefore misidentifies the selected mistake and does not explain why a downward pull might seem plausible.",
+   "fix": "Explain that the student imagines the visible surface pulling on the object; water above the object may suggest a downward action. Check that buoyancy is upward and comes from surrounding pressure increasing with depth."
+  }
+ ]
+}

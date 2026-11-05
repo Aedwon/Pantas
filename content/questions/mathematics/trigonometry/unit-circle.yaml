@@ -198,7 +198,7 @@ questions:
     type: which-is-true
     difficulty: hard
     stem: |
-      Angles are measured in degrees. Which statement about the unit-circle point $(\cos\theta,\sin\theta)$ is true?
+      Angles are measured in degrees. Which statement about the terminal point of an angle $\theta$ on the unit circle is true?
     choices:
       - text: 'Cosine is always the first coordinate and sine is always the second coordinate.'
         correct: true
