@@ -62,6 +62,7 @@ class _CustomTrackNameStepState extends State<CustomTrackNameStep> {
             controller: _controller,
             focusNode: _focus,
             label: 'Exam name',
+            maxLength: 60,
             onChanged: (_) => setState(() {}),
             onSubmitted: (_) => _next(),
           ),

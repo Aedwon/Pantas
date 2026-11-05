@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/app/telemetry_providers.dart';
+import 'package:pantas/core/auth/auth_state.dart';
+import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/platform/welcome/welcome_handover_providers.dart';
@@ -17,6 +19,7 @@ import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/home/application/study_delivery.dart';
 import 'package:pantas/features/home/application/study_remote_providers.dart';
+import 'package:pantas/features/home/data/study_api.dart';
 import 'package:pantas/features/onboarding/application/onboarding_browser_back.dart';
 import 'package:pantas/features/onboarding/application/onboarding_flow.dart';
 import 'package:pantas/features/onboarding/presentation/exam_picker_screen.dart';
@@ -170,7 +173,21 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
       // A track with study data stays, but this flow lets go of it: the next
       // custom exam must make its own track, not rename or rescope this one.
       if (studied) return;
+      // Read before the first await below can let this page go.
+      final server = ref.read(studyUsesServerProvider)
+          ? (
+              api: ref.read(studyApiProvider),
+              uid: switch (ref.read(authStateProvider).valueOrNull) {
+                SignedInAuthState(:final user) => user.uid,
+                AnonymousAuthState(:final uid) => uid,
+                _ => null,
+              },
+            )
+          : null;
       await ref.read(customTrackRepositoryProvider).delete(id);
+      if (server?.uid case final uid?) {
+        unawaited(_deleteOnServer(server!.api, uid, id, telemetry));
+      }
       if (!mounted) return;
       ref
         ..invalidate(examListProvider)
@@ -179,6 +196,27 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
         ..invalidate(scopedSubjectsProvider);
     } catch (error, stack) {
       _customTrackId ??= id;
+      unawaited(telemetry.recordError(error, stack));
+    }
+  }
+
+  /// Removes the track's row on the server. Best effort: the server refuses
+  /// while the row is the active exam, and an offline student has no way to
+  /// retry, so a failure is recorded and the student sees nothing. An unused
+  /// row stays until the account is deleted.
+  Future<void> _deleteOnServer(
+    StudyApi api,
+    String uid,
+    String examId,
+    Telemetry telemetry,
+  ) async {
+    try {
+      await api.requestAccount(
+        'deleteCustomTrack',
+        expectedUid: uid,
+        payload: {'examId': examId},
+      );
+    } on Object catch (error, stack) {
       unawaited(telemetry.recordError(error, stack));
     }
   }

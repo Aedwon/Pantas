@@ -21,19 +21,36 @@ import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_web_page.dart';
 
+/// The subjects a custom exam can draw on, each with the topics that hold a
+/// question. A topic with none is left out, and so is a subject with no topic
+/// left, so the student is never offered something that cannot be studied. An
+/// empty result is an error: the catalog has not loaded, so the step shows
+/// Try Again instead of an empty list.
 final corpusSubjectsWithTopicsProvider =
     FutureProvider<Map<String, Set<TopicId>>>((ref) async {
   final content = ref.watch(contentRepositoryProvider);
   final exams = (await content.listExams()).where((e) => !e.isCustom);
-  final map = <String, Set<TopicId>>{};
+  final bySubject = <String, Set<TopicId>>{};
   for (final exam in exams) {
     for (final subject in exam.subjects) {
       final topics = await content.topicsBySubject(subject.id);
-      map
+      bySubject
           .putIfAbsent(subject.name, () => <TopicId>{})
           .addAll(topics.map((t) => t.id));
     }
   }
+  final counts = await content.activeQuestionCountsByTopics({
+    for (final topics in bySubject.values) ...topics,
+  });
+  final map = <String, Set<TopicId>>{};
+  for (final entry in bySubject.entries) {
+    final held = {
+      for (final id in entry.value)
+        if ((counts[id] ?? 0) > 0) id,
+    };
+    if (held.isNotEmpty) map[entry.key] = held;
+  }
+  if (map.isEmpty) throw StateError('No subject holds a question.');
   return map;
 });
 

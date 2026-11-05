@@ -89,8 +89,9 @@ class _WhatsIncludedPageState extends ConsumerState<WhatsIncludedPage> {
   Future<void> _save(
     String examId,
     List<ScopeSubject> subjects,
-    Set<String> selected,
-  ) async {
+    Set<String> selected, {
+    required Set<TopicId> hidden,
+  }) async {
     if (_saving) return;
     setState(() {
       _saving = true;
@@ -105,6 +106,9 @@ class _WhatsIncludedPageState extends ConsumerState<WhatsIncludedPage> {
         () => ref.read(customTrackRepositoryProvider).setExcluded(
           examId: examId,
           topicIds: {
+            // Saving replaces the whole set, so what the student cannot see
+            // stays as it was.
+            ...hidden,
             for (final subject in subjects)
               for (final topic in subject.topics)
                 if (topic.lessons.isEmpty
@@ -174,6 +178,14 @@ class _WhatsIncludedPageState extends ConsumerState<WhatsIncludedPage> {
                           if (!scope.excludedLessons.contains(lesson.id))
                             lesson.id,
               };
+              // A custom exam leaves out a topic with no question. If it was
+              // left out of the exam too, it must stay left out.
+              final hidden = scope.exam.isCustom
+                  ? scope.excluded.difference({
+                      for (final subject in scope.subjects)
+                        for (final topic in subject.topics) topic.id,
+                    })
+                  : <TopicId>{};
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
@@ -196,8 +208,14 @@ class _WhatsIncludedPageState extends ConsumerState<WhatsIncludedPage> {
                       selectedIds: selected,
                       minimumSelectionMessage:
                           'At least one topic stays ticked.',
-                      onChanged: (selected) =>
-                          unawaited(_save(examId!, scope.subjects, selected)),
+                      onChanged: (selected) => unawaited(
+                        _save(
+                          examId!,
+                          scope.subjects,
+                          selected,
+                          hidden: hidden,
+                        ),
+                      ),
                     ),
                   ),
                   Padding(
@@ -213,7 +231,12 @@ class _WhatsIncludedPageState extends ConsumerState<WhatsIncludedPage> {
                   ),
                   if (_failed)
                     saveFailureLine(
-                      () => _save(examId!, scope.subjects, _pending),
+                      () => _save(
+                        examId!,
+                        scope.subjects,
+                        _pending,
+                        hidden: hidden,
+                      ),
                     ),
                 ],
               );

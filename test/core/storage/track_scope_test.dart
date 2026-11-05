@@ -71,6 +71,12 @@ void main() {
       ordering: 0,
     );
 
+    await seedContentQuestion(
+      contentDb,
+      questionId: 'q_upcat_chem',
+      topicId: 'upcat_chem',
+      examId: 'exam_upcat',
+    );
     for (var i = 0; i < upcatAlgebraQuestions; i += 1) {
       await seedContentQuestionWithChoices(
         contentDb,
@@ -175,6 +181,26 @@ void main() {
       topics.firstWhere((t) => t.name == 'Algebra').id,
       'exam_upcat_algebra',
     );
+  });
+
+  test('a topic with no question is not in the corpus', () async {
+    await seedTwoExams();
+    await seedContentTopic(
+      contentDb,
+      topicId: 'upcat_empty',
+      subjectId: 'upcat_sci',
+      name: 'Physics',
+    );
+    final repo = container.read(customTrackRepositoryProvider);
+    final examId = await repo.create(
+      name: 'Everything',
+      includedTopicIds: {'exam_upcat_algebra', 'upcat_chem', 'upcat_empty'},
+    );
+
+    final topics = await container.read(scopedTopicsProvider(examId).future);
+
+    expect(topics.map((t) => t.id), isNot(contains('upcat_empty')));
+    expect(topics.map((t) => t.id), contains('upcat_chem'));
   });
 
   test('scoped subjects drop a subject whose topics are all hidden', () async {

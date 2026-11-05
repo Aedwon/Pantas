@@ -103,7 +103,7 @@ final scopedSubjectsProvider =
   return subjects;
 });
 
-/// Every topic in the corpus, once.
+/// Every topic in the corpus that holds a question, once.
 ///
 /// A custom track owns no subjects, so it draws on what every listed exam
 /// carries. Shared subjects appear under several exams with different topic
@@ -142,5 +142,9 @@ Future<List<Topic>> corpusTopics(ContentRepository content) async {
     }
   }
 
-  return byName.values.toList();
+  // A topic with no question cannot be studied, so it is not offered.
+  return [
+    for (final topic in byName.values)
+      if ((questionCounts[topic.id] ?? 0) > 0) topic,
+  ];
 }
