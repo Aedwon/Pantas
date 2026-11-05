@@ -2,7 +2,7 @@ meta:
   subject: 'mathematics'
   topic: 'trigonometry'
   subtopic: 'angles-and-radian-measure'
-  exams: ['upcat', 'acet', 'dlsucet', 'ustet', 'pupcet']
+  exams: ['upcat', 'pupcet']
 questions:
 - id: 'q-trigonometry-angles-and-radian-measure-0001'
   type: 'direct-computation'

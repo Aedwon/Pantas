@@ -2,7 +2,7 @@ meta:
   subject: 'mathematics'
   topic: 'geometry'
   subtopic: 'quadrilaterals-and-polygons'
-  exams: ['upcat', 'acet', 'dlsucet', 'ustet', 'pupcet']
+  exams: ['upcat', 'acet', 'ustet', 'pupcet']
 questions:
 - id: 'q-geometry-quadrilaterals-and-polygons-0001'
   type: 'direct-computation'

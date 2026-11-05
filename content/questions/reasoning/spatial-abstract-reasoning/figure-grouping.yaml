@@ -4,9 +4,9 @@ meta:
   subtopic: "figure-grouping"
   exams:
     - "acet"
-    - "ustet"
     - "dost-sei"
     - "cse-pro"
+    - "dlsucet"
 questions:
   - id: "q-spatial-abstract-reasoning-figure-grouping-0001"
     type: "odd-figure"

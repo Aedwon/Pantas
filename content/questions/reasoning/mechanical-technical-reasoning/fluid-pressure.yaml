@@ -2,7 +2,7 @@ meta:
   subject: reasoning
   topic: mechanical-technical-reasoning
   subtopic: fluid-pressure
-  exams: [ dost-sei ]
+  exams: [dost-sei, upcat, dlsucet, ustet]
 questions:
   - id: q-mechanical-technical-reasoning-fluid-pressure-0001
     type: fluid-pressure

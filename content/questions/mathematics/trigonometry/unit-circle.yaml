@@ -2,7 +2,7 @@ meta:
   subject: mathematics
   topic: trigonometry
   subtopic: unit-circle
-  exams: [upcat, acet, dlsucet, ustet, pupcet]
+  exams: [upcat, pupcet]
 questions:
   - id: q-trigonometry-unit-circle-0001
     type: direct-computation

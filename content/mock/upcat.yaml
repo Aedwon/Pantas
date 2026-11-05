@@ -49,14 +49,12 @@ sections:
       - topic_upcat_geometry
       - topic_upcat_trigonometry
       - topic_upcat_statistics_and_probability
-      - topic_upcat_precalculus_basic_calculus
     topicWeights:
-      topic_upcat_arithmetic_number_sense: 0.16666666666666666
-      topic_upcat_algebra: 0.16666666666666666
-      topic_upcat_geometry: 0.16666666666666666
-      topic_upcat_trigonometry: 0.16666666666666666
-      topic_upcat_statistics_and_probability: 0.16666666666666666
-      topic_upcat_precalculus_basic_calculus: 0.1666666666666667
+      topic_upcat_arithmetic_number_sense: 0.2
+      topic_upcat_algebra: 0.2
+      topic_upcat_geometry: 0.2
+      topic_upcat_trigonometry: 0.2
+      topic_upcat_statistics_and_probability: 0.2
   - id: sec_upcat_science
     name: Science
     questionCount: 60

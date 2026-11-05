@@ -1,0 +1,1784 @@
+[
+ {
+  "file": "content/questions/language-proficiency/grammar-and-structure/filipino-verb-aspect-and-focus.yaml",
+  "before": [
+   "upcat",
+   "acet",
+   "dlsucet",
+   "ustet",
+   "dost-sei",
+   "cse-pro",
+   "cse-sub"
+  ],
+  "after": [
+   "upcat",
+   "dost-sei",
+   "cse-pro",
+   "cse-sub"
+  ],
+  "added": [],
+  "removed": [
+   "acet",
+   "dlsucet",
+   "ustet"
+  ],
+  "reason": "not an audit lesson; exam maps: UPCAT language proficiency is English and Filipino (official); ACET reports no Filipino section (weak); USTET and DCAT maps name no Filipino"
+ },
+ {
+  "file": "content/questions/language-proficiency/language-application/sentence-completion.yaml",
+  "before": [
+   "upcat",
+   "acet",
+   "dlsucet",
+   "ustet",
+   "dost-sei",
+   "cse-pro",
+   "cse-sub"
+  ],
+  "after": [
+   "dost-sei",
+   "cse-pro",
+   "cse-sub"
+  ],
+  "added": [],
+  "removed": [
+   "acet",
+   "dlsucet",
+   "upcat",
+   "ustet"
+  ],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/language-proficiency/vocabulary/confusing-words.yaml",
+  "before": [
+   "upcat",
+   "acet",
+   "dlsucet",
+   "ustet",
+   "dost-sei",
+   "cse-pro",
+   "cse-sub"
+  ],
+  "after": [
+   "upcat",
+   "dost-sei",
+   "cse-pro",
+   "cse-sub"
+  ],
+  "added": [],
+  "removed": [
+   "acet",
+   "dlsucet",
+   "ustet"
+  ],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/language-proficiency/vocabulary/idioms-and-figures-of-speech.yaml",
+  "before": [
+   "upcat",
+   "acet",
+   "dlsucet",
+   "ustet",
+   "dost-sei",
+   "cse-pro",
+   "cse-sub"
+  ],
+  "after": [
+   "upcat",
+   "dost-sei",
+   "cse-pro",
+   "cse-sub"
+  ],
+  "added": [],
+  "removed": [
+   "acet",
+   "dlsucet",
+   "ustet"
+  ],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/language-proficiency/vocabulary/root-words-prefixes-suffixes.yaml",
+  "before": [
+   "upcat",
+   "acet",
+   "dlsucet",
+   "ustet",
+   "dost-sei",
+   "cse-pro",
+   "cse-sub"
+  ],
+  "after": [
+   "upcat",
+   "dost-sei",
+   "cse-pro",
+   "cse-sub"
+  ],
+  "added": [],
+  "removed": [
+   "acet",
+   "dlsucet",
+   "ustet"
+  ],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/language-proficiency/vocabulary/spelling-rules.yaml",
+  "before": [
+   "upcat",
+   "acet",
+   "dlsucet",
+   "ustet",
+   "dost-sei",
+   "cse-pro",
+   "cse-sub"
+  ],
+  "after": [
+   "upcat",
+   "dost-sei",
+   "cse-pro",
+   "cse-sub"
+  ],
+  "added": [],
+  "removed": [
+   "acet",
+   "dlsucet",
+   "ustet"
+  ],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/language-proficiency/vocabulary/synonyms-and-antonyms.yaml",
+  "before": [
+   "upcat",
+   "acet",
+   "dlsucet",
+   "ustet",
+   "dost-sei",
+   "cse-pro",
+   "cse-sub"
+  ],
+  "after": [
+   "upcat",
+   "ustet",
+   "dost-sei",
+   "cse-pro",
+   "cse-sub"
+  ],
+  "added": [],
+  "removed": [
+   "acet",
+   "dlsucet"
+  ],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/mathematics/algebra/algebraic-expressions.yaml",
+  "before": [
+   "upcat",
+   "acet",
+   "dlsucet",
+   "ustet",
+   "pupcet"
+  ],
+  "after": [
+   "upcat",
+   "acet",
+   "ustet",
+   "pupcet"
+  ],
+  "added": [],
+  "removed": [
+   "dlsucet"
+  ],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/mathematics/algebra/radicals-and-rationalization.yaml",
+  "before": [
+   "upcat",
+   "acet",
+   "dlsucet",
+   "ustet",
+   "pupcet"
+  ],
+  "after": [
+   "upcat",
+   "acet",
+   "ustet",
+   "pupcet"
+  ],
+  "added": [],
+  "removed": [
+   "dlsucet"
+  ],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/mathematics/algebra/sets-and-set-notation.yaml",
+  "before": [
+   "upcat",
+   "acet",
+   "dlsucet",
+   "ustet",
+   "pupcet"
+  ],
+  "after": [
+   "upcat",
+   "acet",
+   "ustet",
+   "pupcet"
+  ],
+  "added": [],
+  "removed": [
+   "dlsucet"
+  ],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/mathematics/algebra/systems-of-equations.yaml",
+  "before": [
+   "upcat",
+   "acet",
+   "dlsucet",
+   "ustet",
+   "pupcet"
+  ],
+  "after": [
+   "upcat",
+   "acet",
+   "ustet",
+   "pupcet"
+  ],
+  "added": [],
+  "removed": [
+   "dlsucet"
+  ],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/mathematics/algebra/word-problems.yaml",
+  "before": [
+   "upcat",
+   "acet",
+   "dlsucet",
+   "ustet",
+   "pupcet",
+   "cse-pro",
+   "cse-sub"
+  ],
+  "after": [
+   "upcat",
+   "acet",
+   "dlsucet",
+   "pupcet",
+   "cse-pro",
+   "cse-sub"
+  ],
+  "added": [],
+  "removed": [
+   "ustet"
+  ],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/mathematics/arithmetic-number-sense/business-math.yaml",
+  "before": [
+   "upcat",
+   "acet",
+   "dlsucet",
+   "ustet",
+   "pupcet",
+   "cse-pro",
+   "cse-sub"
+  ],
+  "after": [
+   "acet",
+   "dlsucet",
+   "ustet",
+   "pupcet",
+   "cse-pro",
+   "cse-sub"
+  ],
+  "added": [],
+  "removed": [
+   "upcat"
+  ],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/mathematics/arithmetic-number-sense/divisibility-rules.yaml",
+  "before": [
+   "upcat",
+   "acet",
+   "dlsucet",
+   "ustet",
+   "pupcet",
+   "cse-pro",
+   "cse-sub"
+  ],
+  "after": [
+   "upcat",
+   "pupcet",
+   "cse-pro",
+   "cse-sub"
+  ],
+  "added": [],
+  "removed": [
+   "acet",
+   "dlsucet",
+   "ustet"
+  ],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/mathematics/arithmetic-number-sense/order-of-operations.yaml",
+  "before": [
+   "upcat",
+   "acet",
+   "dlsucet",
+   "ustet",
+   "pupcet",
+   "cse-pro",
+   "cse-sub"
+  ],
+  "after": [
+   "upcat",
+   "acet",
+   "dlsucet",
+   "pupcet",
+   "cse-pro",
+   "cse-sub"
+  ],
+  "added": [],
+  "removed": [
+   "ustet"
+  ],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/mathematics/data-interpretation/rates-ratios-and-percentages-in-context.yaml",
+  "before": [
+   "cse-pro"
+  ],
+  "after": [
+   "cse-pro",
+   "upcat",
+   "acet",
+   "dlsucet",
+   "ustet"
+  ],
+  "added": [
+   "acet",
+   "dlsucet",
+   "upcat",
+   "ustet"
+  ],
+  "removed": [],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/mathematics/data-interpretation/tables-and-charts.yaml",
+  "before": [
+   "cse-pro"
+  ],
+  "after": [
+   "cse-pro",
+   "upcat",
+   "acet",
+   "ustet"
+  ],
+  "added": [
+   "acet",
+   "upcat",
+   "ustet"
+  ],
+  "removed": [],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/mathematics/geometry/basic-geometric-concepts.yaml",
+  "before": [
+   "upcat",
+   "acet",
+   "dlsucet",
+   "ustet",
+   "pupcet"
+  ],
+  "after": [
+   "acet",
+   "pupcet"
+  ],
+  "added": [],
+  "removed": [
+   "dlsucet",
+   "upcat",
+   "ustet"
+  ],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/mathematics/geometry/measurement.yaml",
+  "before": [
+   "upcat",
+   "acet",
+   "dlsucet",
+   "ustet",
+   "pupcet"
+  ],
+  "after": [
+   "upcat",
+   "acet",
+   "ustet",
+   "pupcet"
+  ],
+  "added": [],
+  "removed": [
+   "dlsucet"
+  ],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/mathematics/geometry/parallel-perpendicular-lines.yaml",
+  "before": [
+   "upcat",
+   "acet",
+   "dlsucet",
+   "ustet",
+   "pupcet"
+  ],
+  "after": [
+   "ustet",
+   "pupcet"
+  ],
+  "added": [],
+  "removed": [
+   "acet",
+   "dlsucet",
+   "upcat"
+  ],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/mathematics/geometry/quadrilaterals-and-polygons.yaml",
+  "before": [
+   "upcat",
+   "acet",
+   "dlsucet",
+   "ustet",
+   "pupcet"
+  ],
+  "after": [
+   "upcat",
+   "acet",
+   "ustet",
+   "pupcet"
+  ],
+  "added": [],
+  "removed": [
+   "dlsucet"
+  ],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/mathematics/precalculus-basic-calculus/basic-derivatives.yaml",
+  "before": [
+   "upcat",
+   "acet",
+   "dlsucet",
+   "ustet",
+   "pupcet"
+  ],
+  "after": [
+   "pupcet"
+  ],
+  "added": [],
+  "removed": [
+   "acet",
+   "dlsucet",
+   "upcat",
+   "ustet"
+  ],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/mathematics/precalculus-basic-calculus/basic-integrals.yaml",
+  "before": [
+   "upcat",
+   "acet",
+   "dlsucet",
+   "ustet",
+   "pupcet"
+  ],
+  "after": [
+   "pupcet"
+  ],
+  "added": [],
+  "removed": [
+   "acet",
+   "dlsucet",
+   "upcat",
+   "ustet"
+  ],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/mathematics/precalculus-basic-calculus/conic-sections.yaml",
+  "before": [
+   "upcat",
+   "acet",
+   "dlsucet",
+   "ustet",
+   "pupcet"
+  ],
+  "after": [
+   "pupcet"
+  ],
+  "added": [],
+  "removed": [
+   "acet",
+   "dlsucet",
+   "upcat",
+   "ustet"
+  ],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/mathematics/precalculus-basic-calculus/limits-and-continuity.yaml",
+  "before": [
+   "upcat",
+   "acet",
+   "dlsucet",
+   "ustet",
+   "pupcet"
+  ],
+  "after": [
+   "pupcet"
+  ],
+  "added": [],
+  "removed": [
+   "acet",
+   "dlsucet",
+   "upcat",
+   "ustet"
+  ],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/mathematics/trigonometry/angles-and-radian-measure.yaml",
+  "before": [
+   "upcat",
+   "acet",
+   "dlsucet",
+   "ustet",
+   "pupcet"
+  ],
+  "after": [
+   "upcat",
+   "pupcet"
+  ],
+  "added": [],
+  "removed": [
+   "acet",
+   "dlsucet",
+   "ustet"
+  ],
+  "reason": "not tagged by the audit; exam maps: keep UPCAT because unit-circle keeps UPCAT and uses radians (Level 3 foundation note); remove ACET, USTET, DCAT, which unit-circle also leaves"
+ },
+ {
+  "file": "content/questions/mathematics/trigonometry/inverse-trigonometric-functions.yaml",
+  "before": [
+   "upcat",
+   "acet",
+   "dlsucet",
+   "ustet",
+   "pupcet"
+  ],
+  "after": [
+   "pupcet"
+  ],
+  "added": [],
+  "removed": [
+   "acet",
+   "dlsucet",
+   "upcat",
+   "ustet"
+  ],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/mathematics/trigonometry/laws-of-sines-and-cosines.yaml",
+  "before": [
+   "upcat",
+   "acet",
+   "dlsucet",
+   "ustet",
+   "pupcet"
+  ],
+  "after": [
+   "acet",
+   "dlsucet",
+   "pupcet"
+  ],
+  "added": [],
+  "removed": [
+   "upcat",
+   "ustet"
+  ],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/mathematics/trigonometry/trigonometric-identities.yaml",
+  "before": [
+   "upcat",
+   "acet",
+   "dlsucet",
+   "ustet",
+   "pupcet"
+  ],
+  "after": [
+   "upcat",
+   "acet",
+   "pupcet"
+  ],
+  "added": [],
+  "removed": [
+   "dlsucet",
+   "ustet"
+  ],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/mathematics/trigonometry/unit-circle.yaml",
+  "before": [
+   "upcat",
+   "acet",
+   "dlsucet",
+   "ustet",
+   "pupcet"
+  ],
+  "after": [
+   "upcat",
+   "pupcet"
+  ],
+  "added": [],
+  "removed": [
+   "acet",
+   "dlsucet",
+   "ustet"
+  ],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/reading-comprehension/comprehension-skills/choosing-a-title.yaml",
+  "before": [
+   "upcat",
+   "acet",
+   "dlsucet",
+   "ustet"
+  ],
+  "after": [
+   "upcat"
+  ],
+  "added": [],
+  "removed": [
+   "acet",
+   "dlsucet",
+   "ustet"
+  ],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/reading-comprehension/text-types/poetry.yaml",
+  "before": [
+   "upcat",
+   "acet",
+   "dlsucet",
+   "ustet"
+  ],
+  "after": [
+   "upcat"
+  ],
+  "added": [],
+  "removed": [
+   "acet",
+   "dlsucet",
+   "ustet"
+  ],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/reading-comprehension/text-types/short-stories-and-novels.yaml",
+  "before": [
+   "upcat",
+   "acet",
+   "dlsucet",
+   "ustet"
+  ],
+  "after": [
+   "upcat",
+   "ustet"
+  ],
+  "added": [],
+  "removed": [
+   "acet",
+   "dlsucet"
+  ],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/reading-comprehension/text-types/speeches.yaml",
+  "before": [
+   "upcat",
+   "acet",
+   "dlsucet",
+   "ustet"
+  ],
+  "after": [
+   "upcat",
+   "ustet"
+  ],
+  "added": [],
+  "removed": [
+   "acet",
+   "dlsucet"
+  ],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/reasoning/logical-verbal-reasoning/number-and-letter-sequences.yaml",
+  "before": [
+   "acet",
+   "ustet",
+   "dost-sei",
+   "cse-pro",
+   "cse-sub"
+  ],
+  "after": [
+   "acet",
+   "ustet",
+   "dost-sei",
+   "cse-pro",
+   "cse-sub",
+   "upcat",
+   "dlsucet"
+  ],
+  "added": [
+   "dlsucet",
+   "upcat"
+  ],
+  "removed": [],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/reasoning/logical-verbal-reasoning/syllogisms-and-deductive-logic.yaml",
+  "before": [
+   "acet",
+   "ustet",
+   "dost-sei",
+   "cse-pro"
+  ],
+  "after": [
+   "acet",
+   "ustet",
+   "dost-sei",
+   "cse-pro",
+   "upcat",
+   "dlsucet"
+  ],
+  "added": [
+   "dlsucet",
+   "upcat"
+  ],
+  "removed": [],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/reasoning/logical-verbal-reasoning/truth-tables-propositional-logic.yaml",
+  "before": [
+   "acet",
+   "ustet",
+   "dost-sei",
+   "cse-pro"
+  ],
+  "after": [
+   "acet",
+   "ustet",
+   "dost-sei",
+   "cse-pro",
+   "upcat",
+   "dlsucet"
+  ],
+  "added": [
+   "dlsucet",
+   "upcat"
+  ],
+  "removed": [],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/reasoning/logical-verbal-reasoning/word-analogies.yaml",
+  "before": [
+   "acet",
+   "ustet",
+   "dost-sei",
+   "cse-pro"
+  ],
+  "after": [
+   "acet",
+   "dost-sei",
+   "cse-pro",
+   "dlsucet"
+  ],
+  "added": [
+   "dlsucet"
+  ],
+  "removed": [
+   "ustet"
+  ],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/reasoning/mechanical-technical-reasoning/fluid-pressure.yaml",
+  "before": [
+   "dost-sei"
+  ],
+  "after": [
+   "dost-sei",
+   "upcat",
+   "dlsucet",
+   "ustet"
+  ],
+  "added": [
+   "dlsucet",
+   "upcat",
+   "ustet"
+  ],
+  "removed": [],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/reasoning/mechanical-technical-reasoning/pulleys-and-levers.yaml",
+  "before": [
+   "dost-sei"
+  ],
+  "after": [
+   "dost-sei",
+   "upcat",
+   "dlsucet"
+  ],
+  "added": [
+   "dlsucet",
+   "upcat"
+  ],
+  "removed": [],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/reasoning/mechanical-technical-reasoning/structural-stability.yaml",
+  "before": [
+   "dost-sei"
+  ],
+  "after": [
+   "dost-sei",
+   "upcat"
+  ],
+  "added": [
+   "upcat"
+  ],
+  "removed": [],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/reasoning/spatial-abstract-reasoning/figure-grouping.yaml",
+  "before": [
+   "acet",
+   "ustet",
+   "dost-sei",
+   "cse-pro"
+  ],
+  "after": [
+   "acet",
+   "dost-sei",
+   "cse-pro",
+   "dlsucet"
+  ],
+  "added": [
+   "dlsucet"
+  ],
+  "removed": [
+   "ustet"
+  ],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/reasoning/spatial-abstract-reasoning/figure-matrices.yaml",
+  "before": [
+   "acet",
+   "ustet",
+   "dost-sei",
+   "cse-pro"
+  ],
+  "after": [
+   "acet",
+   "dost-sei",
+   "cse-pro",
+   "dlsucet"
+  ],
+  "added": [
+   "dlsucet"
+  ],
+  "removed": [
+   "ustet"
+  ],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/reasoning/spatial-abstract-reasoning/figure-series.yaml",
+  "before": [
+   "acet",
+   "ustet",
+   "dost-sei",
+   "cse-pro"
+  ],
+  "after": [
+   "acet",
+   "dost-sei",
+   "cse-pro",
+   "dlsucet"
+  ],
+  "added": [
+   "dlsucet"
+  ],
+  "removed": [
+   "ustet"
+  ],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/reasoning/spatial-abstract-reasoning/paper-folding-and-cutting.yaml",
+  "before": [
+   "acet",
+   "ustet",
+   "dost-sei",
+   "cse-pro"
+  ],
+  "after": [
+   "acet",
+   "dost-sei",
+   "cse-pro"
+  ],
+  "added": [],
+  "removed": [
+   "ustet"
+  ],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/reasoning/verbal-logic/assumptions-and-conclusions.yaml",
+  "before": [
+   "cse-pro"
+  ],
+  "after": [
+   "cse-pro",
+   "upcat",
+   "acet",
+   "dlsucet",
+   "ustet"
+  ],
+  "added": [
+   "acet",
+   "dlsucet",
+   "upcat",
+   "ustet"
+  ],
+  "removed": [],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/science/biology/botany.yaml",
+  "before": [
+   "upcat",
+   "dlsucet",
+   "ustet",
+   "dost-sei"
+  ],
+  "after": [
+   "upcat",
+   "dost-sei"
+  ],
+  "added": [],
+  "removed": [
+   "dlsucet",
+   "ustet"
+  ],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/science/biology/cell-biology.yaml",
+  "before": [
+   "upcat",
+   "dlsucet",
+   "ustet",
+   "dost-sei"
+  ],
+  "after": [
+   "upcat",
+   "dlsucet",
+   "ustet",
+   "dost-sei",
+   "acet"
+  ],
+  "added": [
+   "acet"
+  ],
+  "removed": [],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/science/biology/cellular-metabolism.yaml",
+  "before": [
+   "upcat",
+   "dlsucet",
+   "ustet",
+   "dost-sei"
+  ],
+  "after": [
+   "upcat",
+   "dlsucet",
+   "ustet",
+   "dost-sei",
+   "acet"
+  ],
+  "added": [
+   "acet"
+  ],
+  "removed": [],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/science/biology/cellular-reproduction.yaml",
+  "before": [
+   "upcat",
+   "dlsucet",
+   "ustet",
+   "dost-sei"
+  ],
+  "after": [
+   "upcat",
+   "ustet",
+   "dost-sei"
+  ],
+  "added": [],
+  "removed": [
+   "dlsucet"
+  ],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/science/biology/cellular-respiration-and-fermentation.yaml",
+  "before": [
+   "upcat",
+   "dlsucet",
+   "ustet",
+   "dost-sei"
+  ],
+  "after": [
+   "upcat",
+   "dlsucet",
+   "ustet",
+   "dost-sei",
+   "acet"
+  ],
+  "added": [
+   "acet"
+  ],
+  "removed": [],
+  "reason": "split from cellular-metabolism; takes its audit CET tags"
+ },
+ {
+  "file": "content/questions/science/biology/characteristics-of-life.yaml",
+  "before": [
+   "upcat",
+   "dlsucet",
+   "ustet",
+   "dost-sei"
+  ],
+  "after": [
+   "upcat",
+   "dlsucet",
+   "ustet",
+   "dost-sei",
+   "acet"
+  ],
+  "added": [
+   "acet"
+  ],
+  "removed": [],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/science/biology/ecology.yaml",
+  "before": [
+   "upcat",
+   "dlsucet",
+   "ustet",
+   "dost-sei"
+  ],
+  "after": [
+   "upcat",
+   "dlsucet",
+   "ustet",
+   "dost-sei",
+   "acet"
+  ],
+  "added": [
+   "acet"
+  ],
+  "removed": [],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/science/biology/evolution.yaml",
+  "before": [
+   "upcat",
+   "dlsucet",
+   "ustet",
+   "dost-sei"
+  ],
+  "after": [
+   "upcat",
+   "ustet",
+   "dost-sei"
+  ],
+  "added": [],
+  "removed": [
+   "dlsucet"
+  ],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/science/biology/human-anatomy-physiology.yaml",
+  "before": [
+   "upcat",
+   "dlsucet",
+   "ustet",
+   "dost-sei"
+  ],
+  "after": [
+   "upcat",
+   "ustet",
+   "dost-sei"
+  ],
+  "added": [],
+  "removed": [
+   "dlsucet"
+  ],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/science/biology/human-body-control-movement-and-defense.yaml",
+  "before": [
+   "upcat",
+   "dlsucet",
+   "ustet",
+   "dost-sei"
+  ],
+  "after": [
+   "upcat",
+   "ustet",
+   "dost-sei"
+  ],
+  "added": [],
+  "removed": [
+   "dlsucet"
+  ],
+  "reason": "split from human-anatomy-physiology; takes its audit CET tags"
+ },
+ {
+  "file": "content/questions/science/biology/meiosis-and-genetic-variation.yaml",
+  "before": [
+   "upcat",
+   "dlsucet",
+   "ustet",
+   "dost-sei"
+  ],
+  "after": [
+   "upcat",
+   "ustet",
+   "dost-sei"
+  ],
+  "added": [],
+  "removed": [
+   "dlsucet"
+  ],
+  "reason": "split from cellular-reproduction; takes its audit CET tags"
+ },
+ {
+  "file": "content/questions/science/biology/taxonomy-and-classification.yaml",
+  "before": [
+   "upcat",
+   "dlsucet",
+   "ustet",
+   "dost-sei"
+  ],
+  "after": [
+   "upcat",
+   "dost-sei"
+  ],
+  "added": [],
+  "removed": [
+   "dlsucet",
+   "ustet"
+  ],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/science/chemistry/acids-bases-ph.yaml",
+  "before": [
+   "upcat",
+   "dlsucet",
+   "ustet",
+   "dost-sei"
+  ],
+  "after": [
+   "upcat",
+   "dost-sei"
+  ],
+  "added": [],
+  "removed": [
+   "dlsucet",
+   "ustet"
+  ],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/science/chemistry/atomic-structure.yaml",
+  "before": [
+   "upcat",
+   "dlsucet",
+   "ustet",
+   "dost-sei"
+  ],
+  "after": [
+   "upcat",
+   "ustet",
+   "dost-sei"
+  ],
+  "added": [],
+  "removed": [
+   "dlsucet"
+  ],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/science/chemistry/basic-organic-chemistry.yaml",
+  "before": [
+   "upcat",
+   "dlsucet",
+   "ustet",
+   "dost-sei"
+  ],
+  "after": [
+   "upcat",
+   "dlsucet",
+   "dost-sei"
+  ],
+  "added": [],
+  "removed": [
+   "ustet"
+  ],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/science/chemistry/chemical-nomenclature.yaml",
+  "before": [
+   "upcat",
+   "dlsucet",
+   "ustet",
+   "dost-sei"
+  ],
+  "after": [
+   "dost-sei"
+  ],
+  "added": [],
+  "removed": [
+   "dlsucet",
+   "upcat",
+   "ustet"
+  ],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/science/chemistry/history-of-the-atom.yaml",
+  "before": [
+   "upcat",
+   "dlsucet",
+   "ustet",
+   "dost-sei"
+  ],
+  "after": [
+   "upcat",
+   "ustet",
+   "dost-sei"
+  ],
+  "added": [],
+  "removed": [
+   "dlsucet"
+  ],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/science/chemistry/matter.yaml",
+  "before": [
+   "upcat",
+   "dlsucet",
+   "ustet",
+   "dost-sei"
+  ],
+  "after": [
+   "upcat",
+   "ustet",
+   "dost-sei",
+   "acet"
+  ],
+  "added": [
+   "acet"
+  ],
+  "removed": [
+   "dlsucet"
+  ],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/science/chemistry/mixtures-and-separation.yaml",
+  "before": [
+   "upcat",
+   "dlsucet",
+   "ustet",
+   "dost-sei"
+  ],
+  "after": [
+   "upcat",
+   "ustet",
+   "dost-sei"
+  ],
+  "added": [],
+  "removed": [
+   "dlsucet"
+  ],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/science/chemistry/nuclear-chemistry.yaml",
+  "before": [
+   "upcat",
+   "dlsucet",
+   "ustet",
+   "dost-sei"
+  ],
+  "after": [
+   "upcat",
+   "dost-sei"
+  ],
+  "added": [],
+  "removed": [
+   "dlsucet",
+   "ustet"
+  ],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/science/chemistry/periodic-table.yaml",
+  "before": [
+   "upcat",
+   "dlsucet",
+   "ustet",
+   "dost-sei"
+  ],
+  "after": [
+   "upcat",
+   "dost-sei"
+  ],
+  "added": [],
+  "removed": [
+   "dlsucet",
+   "ustet"
+  ],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/science/chemistry/quantum-numbers-electron-configuration.yaml",
+  "before": [
+   "upcat",
+   "dlsucet",
+   "ustet",
+   "dost-sei"
+  ],
+  "after": [
+   "dost-sei"
+  ],
+  "added": [],
+  "removed": [
+   "dlsucet",
+   "upcat",
+   "ustet"
+  ],
+  "reason": "not tagged by the audit; Level 3 names DOST-SEI only; no CET map names it"
+ },
+ {
+  "file": "content/questions/science/chemistry/solutions.yaml",
+  "before": [
+   "upcat",
+   "dlsucet",
+   "ustet",
+   "dost-sei"
+  ],
+  "after": [
+   "upcat",
+   "ustet",
+   "dost-sei"
+  ],
+  "added": [],
+  "removed": [
+   "dlsucet"
+  ],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/science/chemistry/thermodynamics-and-kinetics.yaml",
+  "before": [
+   "upcat",
+   "dlsucet",
+   "ustet",
+   "dost-sei"
+  ],
+  "after": [
+   "upcat",
+   "ustet",
+   "dost-sei"
+  ],
+  "added": [],
+  "removed": [
+   "dlsucet"
+  ],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/science/earth-science-astronomy/earths-motions.yaml",
+  "before": [
+   "upcat",
+   "dlsucet",
+   "ustet",
+   "dost-sei"
+  ],
+  "after": [
+   "upcat",
+   "ustet",
+   "dost-sei"
+  ],
+  "added": [],
+  "removed": [
+   "dlsucet"
+  ],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/science/earth-science-astronomy/earths-subsystems.yaml",
+  "before": [
+   "upcat",
+   "dlsucet",
+   "ustet",
+   "dost-sei"
+  ],
+  "after": [
+   "upcat",
+   "ustet",
+   "dost-sei"
+  ],
+  "added": [],
+  "removed": [
+   "dlsucet"
+  ],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/science/earth-science-astronomy/eclipses-and-moon-phases.yaml",
+  "before": [
+   "upcat",
+   "dlsucet",
+   "ustet",
+   "dost-sei"
+  ],
+  "after": [
+   "upcat",
+   "ustet",
+   "dost-sei"
+  ],
+  "added": [],
+  "removed": [
+   "dlsucet"
+  ],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/science/earth-science-astronomy/fossils-and-geologic-time.yaml",
+  "before": [
+   "upcat",
+   "dlsucet",
+   "ustet",
+   "dost-sei"
+  ],
+  "after": [
+   "upcat",
+   "dost-sei"
+  ],
+  "added": [],
+  "removed": [
+   "dlsucet",
+   "ustet"
+  ],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/science/earth-science-astronomy/layers-of-the-earth.yaml",
+  "before": [
+   "upcat",
+   "dlsucet",
+   "ustet",
+   "dost-sei"
+  ],
+  "after": [
+   "upcat",
+   "dost-sei"
+  ],
+  "added": [],
+  "removed": [
+   "dlsucet",
+   "ustet"
+  ],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/science/earth-science-astronomy/minerals-and-rocks.yaml",
+  "before": [
+   "upcat",
+   "dlsucet",
+   "ustet",
+   "dost-sei"
+  ],
+  "after": [
+   "upcat",
+   "ustet",
+   "dost-sei"
+  ],
+  "added": [],
+  "removed": [
+   "dlsucet"
+  ],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/science/earth-science-astronomy/plate-tectonics.yaml",
+  "before": [
+   "upcat",
+   "dlsucet",
+   "ustet",
+   "dost-sei"
+  ],
+  "after": [
+   "upcat",
+   "dlsucet",
+   "ustet",
+   "dost-sei",
+   "acet"
+  ],
+  "added": [
+   "acet"
+  ],
+  "removed": [],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/science/earth-science-astronomy/water-cycle-oceanography.yaml",
+  "before": [
+   "upcat",
+   "dlsucet",
+   "ustet",
+   "dost-sei"
+  ],
+  "after": [
+   "upcat",
+   "dost-sei"
+  ],
+  "added": [],
+  "removed": [
+   "dlsucet",
+   "ustet"
+  ],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/science/earth-science-astronomy/weather-and-climate.yaml",
+  "before": [
+   "upcat",
+   "dlsucet",
+   "ustet",
+   "dost-sei"
+  ],
+  "after": [
+   "upcat",
+   "ustet",
+   "dost-sei",
+   "acet"
+  ],
+  "added": [
+   "acet"
+  ],
+  "removed": [
+   "dlsucet"
+  ],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/science/physics/gravity-and-keplers-laws.yaml",
+  "before": [
+   "upcat",
+   "dlsucet",
+   "ustet",
+   "dost-sei"
+  ],
+  "after": [
+   "dost-sei"
+  ],
+  "added": [],
+  "removed": [
+   "dlsucet",
+   "upcat",
+   "ustet"
+  ],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/science/physics/kinematics.yaml",
+  "before": [
+   "upcat",
+   "dlsucet",
+   "ustet",
+   "dost-sei"
+  ],
+  "after": [
+   "upcat",
+   "dlsucet",
+   "ustet",
+   "dost-sei",
+   "acet"
+  ],
+  "added": [
+   "acet"
+  ],
+  "removed": [],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/science/physics/momentum-and-impulse.yaml",
+  "before": [
+   "upcat",
+   "dlsucet",
+   "ustet",
+   "dost-sei"
+  ],
+  "after": [
+   "upcat",
+   "ustet",
+   "dost-sei"
+  ],
+  "added": [],
+  "removed": [
+   "dlsucet"
+  ],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/science/physics/scalars-and-vectors.yaml",
+  "before": [
+   "upcat",
+   "dlsucet",
+   "ustet",
+   "dost-sei"
+  ],
+  "after": [
+   "upcat",
+   "dost-sei"
+  ],
+  "added": [],
+  "removed": [
+   "dlsucet",
+   "ustet"
+  ],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/science/physics/two-dimensional-motion.yaml",
+  "before": [
+   "upcat",
+   "dlsucet",
+   "ustet",
+   "dost-sei"
+  ],
+  "after": [
+   "dlsucet",
+   "ustet",
+   "dost-sei"
+  ],
+  "added": [],
+  "removed": [
+   "upcat"
+  ],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/science/physics/units-and-measurements.yaml",
+  "before": [
+   "upcat",
+   "dlsucet",
+   "ustet",
+   "dost-sei"
+  ],
+  "after": [
+   "upcat",
+   "dlsucet",
+   "ustet",
+   "dost-sei",
+   "acet"
+  ],
+  "added": [
+   "acet"
+  ],
+  "removed": [],
+  "reason": "audit Level 1 tags"
+ },
+ {
+  "file": "content/questions/science/physics/work-energy-power.yaml",
+  "before": [
+   "upcat",
+   "dlsucet",
+   "ustet",
+   "dost-sei"
+  ],
+  "after": [
+   "upcat",
+   "dlsucet",
+   "ustet",
+   "dost-sei",
+   "acet"
+  ],
+  "added": [
+   "acet"
+  ],
+  "removed": [],
+  "reason": "audit Level 1 tags"
+ }
+]

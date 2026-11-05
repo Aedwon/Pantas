@@ -2,7 +2,7 @@ meta:
   subject: "science"
   topic: "physics"
   subtopic: "work-energy-power"
-  exams: ["upcat", "dlsucet", "ustet", "dost-sei"]
+  exams: ["upcat", "dlsucet", "ustet", "dost-sei", "acet"]
 questions:
   - id: q-physics-work-energy-power-0001
     type: "simple-quantitative"

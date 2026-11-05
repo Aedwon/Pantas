@@ -2,7 +2,7 @@ meta:
   subject: science
   topic: earth-science-astronomy
   subtopic: eclipses-and-moon-phases
-  exams: ["upcat", "dlsucet", "ustet", "dost-sei"]
+  exams: ["upcat", "ustet", "dost-sei"]
 questions:
   - id: q-earth-science-astronomy-eclipses-and-moon-phases-0001
     type: 'identify'

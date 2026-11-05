@@ -2,7 +2,7 @@ meta:
   subject: mathematics
   topic: trigonometry
   subtopic: inverse-trigonometric-functions
-  exams: [upcat, acet, dlsucet, ustet, pupcet]
+  exams: [pupcet]
 questions:
   - id: q-trigonometry-inverse-trigonometric-functions-0001
     type: which-is-true

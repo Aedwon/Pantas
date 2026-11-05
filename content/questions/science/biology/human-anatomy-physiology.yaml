@@ -2,7 +2,7 @@ meta:
   subject: science
   topic: biology
   subtopic: human-anatomy-physiology
-  exams: [upcat, dlsucet, ustet, dost-sei]
+  exams: [upcat, ustet, dost-sei]
 questions:
   - id: q-biology-human-anatomy-physiology-0001
     type: 'process-ordering'

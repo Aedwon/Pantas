@@ -2,7 +2,7 @@ meta:
   subject: "science"
   topic: "physics"
   subtopic: "kinematics"
-  exams: ["upcat", "dlsucet", "ustet", "dost-sei"]
+  exams: ["upcat", "dlsucet", "ustet", "dost-sei", "acet"]
 questions:
   - id: q-physics-kinematics-0001
     type: "identify"

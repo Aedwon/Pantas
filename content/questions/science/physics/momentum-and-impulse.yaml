@@ -2,7 +2,7 @@ meta:
   subject: "science"
   topic: "physics"
   subtopic: "momentum-and-impulse"
-  exams: ["upcat", "dlsucet", "ustet", "dost-sei"]
+  exams: ["upcat", "ustet", "dost-sei"]
 questions:
   - id: q-physics-momentum-and-impulse-0001
     type: "simple-quantitative"

@@ -2,7 +2,7 @@ meta:
   subject: mathematics
   topic: data-interpretation
   subtopic: tables-and-charts
-  exams: [cse-pro]
+  exams: [cse-pro, upcat, acet, ustet]
 questions:
   - id: q-data-interpretation-tables-and-charts-0001
     type: word-problem

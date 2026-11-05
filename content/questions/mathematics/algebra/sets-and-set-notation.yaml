@@ -2,7 +2,7 @@ meta:
   subject: mathematics
   topic: algebra
   subtopic: sets-and-set-notation
-  exams: [upcat, acet, dlsucet, ustet, pupcet]
+  exams: [upcat, acet, ustet, pupcet]
 questions:
   - id: q-algebra-sets-and-set-notation-0001
     type: direct-computation

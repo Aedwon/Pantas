@@ -2,7 +2,7 @@ meta:
   subject: science
   topic: chemistry
   subtopic: nuclear-chemistry
-  exams: ["upcat", "dlsucet", "ustet", "dost-sei"]
+  exams: ["upcat", "dost-sei"]
 questions:
   - id: q-chemistry-nuclear-chemistry-0001
     type: 'identify'

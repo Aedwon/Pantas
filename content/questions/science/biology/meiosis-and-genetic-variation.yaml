@@ -2,7 +2,7 @@ meta:
   subject: "science"
   topic: "biology"
   subtopic: "meiosis-and-genetic-variation"
-  exams: ["upcat", "dlsucet", "ustet", "dost-sei"]
+  exams: ["upcat", "ustet", "dost-sei"]
 questions:
   - id: q-biology-cellular-reproduction-0001
     type: "classify"

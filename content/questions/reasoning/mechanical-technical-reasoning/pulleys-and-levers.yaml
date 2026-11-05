@@ -4,6 +4,8 @@ meta:
   subtopic: "pulleys-and-levers"
   exams:
     - "dost-sei"
+    - "upcat"
+    - "dlsucet"
 questions:
   - id: "q-mechanical-technical-reasoning-pulleys-and-levers-0001"
     type: "pulley-lever"

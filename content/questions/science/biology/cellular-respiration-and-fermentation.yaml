@@ -2,7 +2,7 @@ meta:
   subject: "science"
   topic: "biology"
   subtopic: "cellular-respiration-and-fermentation"
-  exams: ["upcat", "dlsucet", "ustet", "dost-sei"]
+  exams: ["upcat", "dlsucet", "ustet", "dost-sei", "acet"]
 questions:
   - id: q-biology-cellular-metabolism-0002
     type: "identify"

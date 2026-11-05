@@ -2,7 +2,7 @@ meta:
   subject: 'mathematics'
   topic: 'precalculus-basic-calculus'
   subtopic: 'limits-and-continuity'
-  exams: ['upcat', 'acet', 'dlsucet', 'ustet', 'pupcet']
+  exams: ['pupcet']
 questions:
 - id: 'q-precalculus-basic-calculus-limits-and-continuity-0001'
   type: 'direct-computation'

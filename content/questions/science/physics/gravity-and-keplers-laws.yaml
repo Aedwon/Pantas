@@ -2,7 +2,7 @@ meta:
   subject: "science"
   topic: "physics"
   subtopic: "gravity-and-keplers-laws"
-  exams: ["upcat", "dlsucet", "ustet", "dost-sei"]
+  exams: ["dost-sei"]
 questions:
   - id: q-physics-gravity-and-keplers-laws-0001
     type: "simple-quantitative"

@@ -289,3 +289,7 @@ Aedwon chose the recommended option: one careful rework per open lesson (Sonnet 
 - A 5-hour usage limit stopped one rework at 06:30; it resumed after the reset with no lost work.
 
 No more read rounds are planned. The 12 open lessons go to the Astra audit and Aedwon's final review with their round-5 findings.
+
+## Update, November 5: exam tags (P4)
+
+Applied the audit's Level 1 CET tags to 86 question files (`tags-pass.md`, `tag-changes.json`). Lessons per exam: UPCAT 136 to 131, ACET 86 to 80, DCAT 136 to 90, USTET 145 to 110. Three files the audit did not tag were resolved from the exam maps, and split lessons took their parent's tags. The UPCAT mock lost its precalculus topic, since no UPCAT lesson remains there; Mathematics is now split evenly over five topics. For the final list: the ACET blueprint (on staging only) has 20 verbal logic questions for 45 slots after this change (0 before), and helpful roadmap links now point outside ACET (4), DCAT (6) and USTET (6).

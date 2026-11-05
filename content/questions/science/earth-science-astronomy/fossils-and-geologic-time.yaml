@@ -2,7 +2,7 @@ meta:
   subject: science
   topic: earth-science-astronomy
   subtopic: fossils-and-geologic-time
-  exams: ["upcat", "dlsucet", "ustet", "dost-sei"]
+  exams: ["upcat", "dost-sei"]
 questions:
   - id: q-earth-science-astronomy-fossils-and-geologic-time-0001
     type: 'identify'

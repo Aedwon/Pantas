@@ -2,7 +2,7 @@ meta:
   subject: science
   topic: biology
   subtopic: taxonomy-and-classification
-  exams: [upcat, dlsucet, ustet, dost-sei]
+  exams: [upcat, dost-sei]
 questions:
   - id: q-biology-taxonomy-and-classification-0001
     type: 'process-ordering'

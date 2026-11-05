@@ -2,7 +2,7 @@ meta:
   subject: 'science'
   topic: 'earth-science-astronomy'
   subtopic: 'weather-and-climate'
-  exams: ["upcat", "dlsucet", "ustet", "dost-sei"]
+  exams: ["upcat", "ustet", "dost-sei", "acet"]
 questions:
   - id: q-earth-science-astronomy-weather-and-climate-0001
     type: identify

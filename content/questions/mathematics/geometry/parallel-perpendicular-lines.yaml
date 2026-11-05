@@ -2,7 +2,7 @@ meta:
   subject: mathematics
   topic: geometry
   subtopic: parallel-perpendicular-lines
-  exams: [upcat, acet, dlsucet, ustet, pupcet]
+  exams: [ustet, pupcet]
 questions:
   - id: q-geometry-parallel-perpendicular-lines-0001
     type: direct-computation

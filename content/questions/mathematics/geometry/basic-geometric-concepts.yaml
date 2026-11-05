@@ -2,7 +2,7 @@ meta:
   subject: mathematics
   topic: geometry
   subtopic: basic-geometric-concepts
-  exams: [upcat, acet, dlsucet, ustet, pupcet]
+  exams: [acet, pupcet]
 questions:
   - id: q-geometry-basic-geometric-concepts-0001
     type: which-is-true

@@ -2,7 +2,7 @@ meta:
   subject: science
   topic: chemistry
   subtopic: acids-bases-ph
-  exams: [upcat, dlsucet, ustet, dost-sei]
+  exams: [upcat, dost-sei]
 questions:
   - id: q-chemistry-acids-bases-ph-0001
     type: 'classify'

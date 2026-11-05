@@ -4,9 +4,9 @@ meta:
   subtopic: "figure-series"
   exams:
     - "acet"
-    - "ustet"
     - "dost-sei"
     - "cse-pro"
+    - "dlsucet"
 questions:
   - id: "q-spatial-abstract-reasoning-figure-series-0001"
     type: "figure-series"

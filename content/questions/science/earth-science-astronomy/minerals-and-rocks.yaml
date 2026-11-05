@@ -2,7 +2,7 @@ meta:
   subject: 'science'
   topic: 'earth-science-astronomy'
   subtopic: 'minerals-and-rocks'
-  exams: ["upcat", "dlsucet", "ustet", "dost-sei"]
+  exams: ["upcat", "ustet", "dost-sei"]
 questions:
   - id: q-earth-science-astronomy-minerals-and-rocks-0001
     type: identify

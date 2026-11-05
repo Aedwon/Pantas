@@ -2,7 +2,7 @@ meta:
   subject: "science"
   topic: "physics"
   subtopic: "two-dimensional-motion"
-  exams: ["upcat", "dlsucet", "ustet", "dost-sei"]
+  exams: ["dlsucet", "ustet", "dost-sei"]
 questions:
   - id: q-physics-two-dimensional-motion-0001
     type: "simple-quantitative"

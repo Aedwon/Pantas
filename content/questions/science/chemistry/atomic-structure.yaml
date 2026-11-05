@@ -2,7 +2,7 @@ meta:
   subject: science
   topic: chemistry
   subtopic: atomic-structure
-  exams: [upcat, dlsucet, ustet, dost-sei]
+  exams: [upcat, ustet, dost-sei]
 questions:
   - id: q-chemistry-atomic-structure-0001
     type: 'simple-quantitative'

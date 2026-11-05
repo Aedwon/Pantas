@@ -2,7 +2,7 @@ meta:
   subject: science
   topic: chemistry
   subtopic: matter
-  exams: ["upcat", "dlsucet", "ustet", "dost-sei"]
+  exams: ["upcat", "ustet", "dost-sei", "acet"]
 questions:
   - id: q-chemistry-matter-0001
     type: 'classify'

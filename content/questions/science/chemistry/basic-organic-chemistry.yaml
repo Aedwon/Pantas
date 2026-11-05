@@ -2,7 +2,7 @@ meta:
   subject: science
   topic: chemistry
   subtopic: basic-organic-chemistry
-  exams: [upcat, dlsucet, ustet, dost-sei]
+  exams: [upcat, dlsucet, dost-sei]
 questions:
   - id: q-chemistry-basic-organic-chemistry-0001
     type: 'classify'

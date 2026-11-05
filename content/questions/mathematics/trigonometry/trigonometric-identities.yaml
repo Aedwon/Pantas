@@ -2,7 +2,7 @@ meta:
   subject: mathematics
   topic: trigonometry
   subtopic: trigonometric-identities
-  exams: [upcat, acet, dlsucet, ustet, pupcet]
+  exams: [upcat, acet, pupcet]
 questions:
   - id: q-trigonometry-trigonometric-identities-0001
     type: which-is-true

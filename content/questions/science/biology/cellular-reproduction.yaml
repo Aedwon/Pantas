@@ -2,7 +2,7 @@ meta:
   subject: "science"
   topic: "biology"
   subtopic: "cellular-reproduction"
-  exams: ["upcat", "dlsucet", "ustet", "dost-sei"]
+  exams: ["upcat", "ustet", "dost-sei"]
 questions:
   - id: q-biology-cellular-reproduction-0004
     type: "simple-quantitative"

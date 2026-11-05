@@ -2,7 +2,7 @@ meta:
   subject: mathematics
   topic: geometry
   subtopic: measurement
-  exams: [upcat, acet, dlsucet, ustet, pupcet]
+  exams: [upcat, acet, ustet, pupcet]
 questions:
   - id: q-geometry-measurement-0001
     type: word-problem

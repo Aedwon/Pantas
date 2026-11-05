@@ -4,6 +4,7 @@ meta:
   subtopic: "structural-stability"
   exams:
     - "dost-sei"
+    - "upcat"
 questions:
   - id: "q-mechanical-technical-reasoning-structural-stability-0001"
     type: "structural-stability"

@@ -2,7 +2,7 @@ meta:
   subject: mathematics
   topic: data-interpretation
   subtopic: rates-ratios-and-percentages-in-context
-  exams: [cse-pro]
+  exams: [cse-pro, upcat, acet, dlsucet, ustet]
 questions:
   - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0001
     type: word-problem

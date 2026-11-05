@@ -2,7 +2,7 @@ meta:
   subject: "science"
   topic: "biology"
   subtopic: "characteristics-of-life"
-  exams: ["upcat", "dlsucet", "ustet", "dost-sei"]
+  exams: ["upcat", "dlsucet", "ustet", "dost-sei", "acet"]
 questions:
   - id: q-biology-characteristics-of-life-0001
     type: "identify"

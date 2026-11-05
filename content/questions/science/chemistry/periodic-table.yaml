@@ -2,7 +2,7 @@ meta:
   subject: science
   topic: chemistry
   subtopic: periodic-table
-  exams: ["upcat", "dlsucet", "ustet", "dost-sei"]
+  exams: ["upcat", "dost-sei"]
 questions:
   - id: q-chemistry-periodic-table-0001
     type: 'classify'

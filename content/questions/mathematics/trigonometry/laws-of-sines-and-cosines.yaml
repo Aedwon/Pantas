@@ -2,7 +2,7 @@ meta:
   subject: mathematics
   topic: trigonometry
   subtopic: laws-of-sines-and-cosines
-  exams: [upcat, acet, dlsucet, ustet, pupcet]
+  exams: [acet, dlsucet, pupcet]
 questions:
   - id: q-trigonometry-laws-of-sines-and-cosines-0001
     type: direct-computation

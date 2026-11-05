@@ -2,7 +2,7 @@ meta:
   subject: science
   topic: chemistry
   subtopic: history-of-the-atom
-  exams: ["upcat", "dlsucet", "ustet", "dost-sei"]
+  exams: ["upcat", "ustet", "dost-sei"]
 questions:
   - id: q-chemistry-history-of-the-atom-0001
     type: 'identify'

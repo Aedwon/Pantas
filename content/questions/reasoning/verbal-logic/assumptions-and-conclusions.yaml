@@ -4,6 +4,10 @@ meta:
   subtopic: assumptions-and-conclusions
   exams:
     - cse-pro
+    - upcat
+    - acet
+    - dlsucet
+    - ustet
 questions:
   - id: q-verbal-logic-assumptions-and-conclusions-0001
     type: single_choice

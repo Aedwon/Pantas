@@ -3,10 +3,6 @@ meta:
   topic: "language-application"
   subtopic: "sentence-completion"
   exams:
-    - "upcat"
-    - "acet"
-    - "dlsucet"
-    - "ustet"
     - "dost-sei"
     - "cse-pro"
     - "cse-sub"

@@ -2,7 +2,7 @@ meta:
   subject: "science"
   topic: "physics"
   subtopic: "scalars-and-vectors"
-  exams: ["upcat", "dlsucet", "ustet", "dost-sei"]
+  exams: ["upcat", "dost-sei"]
 questions:
   - id: q-physics-scalars-and-vectors-0001
     type: "classify"

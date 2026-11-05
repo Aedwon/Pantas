@@ -2,7 +2,7 @@ meta:
   subject: science
   topic: chemistry
   subtopic: thermodynamics-and-kinetics
-  exams: ["upcat", "dlsucet", "ustet", "dost-sei"]
+  exams: ["upcat", "ustet", "dost-sei"]
 questions:
   - id: q-chemistry-thermodynamics-and-kinetics-0001
     type: 'classify'
