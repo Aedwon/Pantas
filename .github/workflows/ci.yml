@@ -45,6 +45,10 @@ jobs:
       - name: AI-attribution check
         run: dart run tool/check_no_ai_attribution.dart
 
+      - name: Verification checks
+        # Each one came from a real failure. docs/workflow/process-improvement.md.
+        run: dart run tool/checks/run_checks.dart
+
       - name: gitleaks
         uses: gitleaks/gitleaks-action@v2
         env:
