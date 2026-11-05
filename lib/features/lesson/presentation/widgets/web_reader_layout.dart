@@ -418,6 +418,7 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
     final lessons = widget.lessons ?? widget.reader.topicLessons;
     final menuTitle =
         (widget.menuTitle ?? widget.reader.topicName).toUpperCase();
+    final lessonWord = lessons.length == 1 ? 'LESSON' : 'LESSONS';
     await showWebOverlay<void>(
       context: context,
       motion: _contentsMotion,
@@ -492,7 +493,7 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
                                       ),
                                     ),
                                     Text(
-                                      ' · ${lessons.length} LESSONS',
+                                      ' · ${lessons.length} $lessonWord',
                                       maxLines: 1,
                                       style: t.eb.copyWith(height: 1.45),
                                     ),

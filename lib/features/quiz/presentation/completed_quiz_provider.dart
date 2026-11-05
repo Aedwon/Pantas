@@ -30,13 +30,19 @@ class CompletedQuizData {
   final String? sourceLine;
 }
 
+/// The address names a quiz that does not exist. Trying again cannot help, so
+/// the page says so instead of offering Try Again (3M-2).
+class CompletedQuizNotFound extends StateError {
+  CompletedQuizNotFound() : super('Completed quiz is unavailable');
+}
+
 final completedQuizProvider = FutureProvider.autoDispose
     .family<CompletedQuizData, CompletedQuizRequest>((ref, request) async {
   final content = ref.watch(contentRepositoryProvider);
   final attempt = request.attempt ??
       await ref.watch(attemptsRepositoryProvider).byId(request.attemptId);
   if (attempt == null || attempt.id != request.attemptId) {
-    throw StateError('Completed quiz is unavailable');
+    throw CompletedQuizNotFound();
   }
   final session = await hydrateCompletedQuiz(
     attempt,
@@ -63,7 +69,9 @@ final completedQuizProvider = FutureProvider.autoDispose
           ? null
           : await content.lessonById(session.lessonId!);
       if (lesson != null) {
-        source = '${lesson.title} · ${session.questions.length} questions';
+        final count = session.questions.length;
+        source =
+            '${lesson.title} · $count ${count == 1 ? 'question' : 'questions'}';
       }
     case SessionOrigin.drill:
       final names = topicNames.values.toSet().join(', ');

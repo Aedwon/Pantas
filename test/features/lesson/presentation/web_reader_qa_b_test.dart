@@ -73,7 +73,7 @@ void main() {
   }
 
   group('the contents menu', () {
-    Future<void> openMenu(WidgetTester tester) async {
+    Future<void> openMenu(WidgetTester tester, {bool single = false}) async {
       final db = inMemoryDatabase();
       addTearDown(db.close);
       final scroll = ScrollController();
@@ -82,8 +82,8 @@ void main() {
       addTearDown(scroll.dispose);
       addTearDown(offset.dispose);
       addTearDown(progress.dispose);
-      const reader = ReaderContext(
-        lesson: Lesson(
+      final reader = ReaderContext(
+        lesson: const Lesson(
           id: 'l1',
           topicId: 't1',
           title: 'Layers',
@@ -103,8 +103,8 @@ void main() {
         topicName: _longTopic,
         next: _second,
         positionInTopic: 1,
-        lessonsInTopic: 2,
-        topicLessons: [_first, _second],
+        lessonsInTopic: single ? 1 : 2,
+        topicLessons: single ? [_first] : [_first, _second],
         isRead: true,
         isBookmarked: false,
         examId: 'e',
@@ -124,9 +124,15 @@ void main() {
         overrides: [appDatabaseProvider.overrideWithValue(db)],
       );
       await tester.pumpAndSettle();
-      await tester.tap(find.text('1 of 2'));
+      await tester.tap(find.text(single ? '1 of 1' : '1 of 2'));
       await tester.pumpAndSettle();
     }
+
+    testWidgets('one lesson is counted in the singular (7W-5)', (tester) async {
+      await openMenu(tester, single: true);
+      expect(find.text(' · 1 LESSON'), findsOneWidget);
+      expect(find.text(' · 1 LESSONS'), findsNothing);
+    });
 
     testWidgets('a long topic name stays on one line beside the count (B-10)',
         (tester) async {

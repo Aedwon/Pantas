@@ -8,6 +8,7 @@ extension type _PantasWelcome(JSObject _) implements JSObject {
   external bool isShown();
   // ignore: avoid_positional_boolean_parameters
   external void ready(bool holdForTap);
+  external void onLeave(JSFunction hook);
 }
 
 @JS('pantasWelcome')
@@ -31,6 +32,20 @@ class WebWelcomeHandover implements WelcomeHandover {
       _welcome?.ready(holdForTap);
     } on Object {
       // Without the script there is no HTML screen to remove.
+    }
+  }
+
+  @override
+  void whenScreenLeft(void Function() callback) {
+    try {
+      final welcome = _welcome;
+      if (welcome == null) {
+        callback();
+      } else {
+        welcome.onLeave(callback.toJS);
+      }
+    } on Object {
+      callback();
     }
   }
 }

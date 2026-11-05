@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_welcome_step.dart';
 
 import '../../../helpers/accessibility.dart';
@@ -55,6 +57,19 @@ void main() {
     await tester.sendKeyEvent(LogicalKeyboardKey.enter);
     await tester.pumpAndSettle();
     expect(advanced, 1);
+  });
+  testWidgets('wide Get Started is 260 px, like the HTML Welcome (7W-1)',
+      (tester) async {
+    debugWebPlatformOverride = true;
+    addTearDown(() => debugWebPlatformOverride = null);
+    await pumpAccessibilitySurface(
+      tester,
+      OnboardingWelcomeStep(onAdvance: () {}),
+      viewportSize: const Size(1440, 900),
+      disableAnimations: true,
+    );
+    expect(tester.getSize(find.byType(WebButton)).width, 260);
+    expect(tester.takeException(), isNull);
   });
   for (final width in [600.0, 768.0, 900.0, 1023.0]) {
     testWidgets('Get Started stays in the 640 column at $width px (2E-11)',

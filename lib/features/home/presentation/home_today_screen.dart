@@ -13,6 +13,7 @@ import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/ui/components/check_mark.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/pantas_sheet.dart';
+import 'package:pantas/core/ui/components/paused_quiz_notice.dart';
 import 'package:pantas/core/ui/components/progress_ring.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/components/today_questions.dart';
@@ -35,6 +36,9 @@ import 'package:pantas/features/home/presentation/widgets/home_skeletons.dart';
 import 'package:pantas/features/home/presentation/widgets/home_state_card.dart';
 import 'package:pantas/features/home/presentation/widgets/home_today_checklist.dart';
 import 'package:pantas/features/home/presentation/widgets/home_web_layout.dart';
+import 'package:pantas/features/quiz/application/quiz_providers.dart';
+import 'package:pantas/features/quiz/domain/paused_quiz_conflict.dart';
+import 'package:pantas/features/quiz/presentation/today_providers.dart';
 import 'package:pantas/features/roadmap/application/roadmap_providers.dart';
 import 'package:pantas/features/roadmap/domain/day_snapshot.dart';
 import 'package:uuid/uuid.dart';
@@ -96,6 +100,10 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
   HomeTodayLesson? _lesson;
   bool _busy = false;
   bool _failed = false;
+
+  /// The failed start was refused because another quiz is paused.
+  bool _pausedBlock = false;
+  bool _discarding = false;
   int _generation = 0;
   StudyAdvance? _pendingAdvance;
 
@@ -172,12 +180,14 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
         _sheet = null;
         _busy = false;
         _failed = false;
+        _pausedBlock = false;
       });
   void _show(String kind, {HomeTodayLesson? lesson}) => setState(() {
         _generation++;
         _sheet = kind;
         _lesson = lesson;
         _failed = false;
+        _pausedBlock = false;
       });
 
   Future<void> _openLesson(HomeTodayData data, HomeTodayLesson lesson) async {
@@ -256,6 +266,7 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
     setState(() {
       _busy = true;
       _failed = false;
+      _pausedBlock = false;
     });
     final telemetry = ref.read(telemetryProvider);
     try {
@@ -268,17 +279,48 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
           .push<void>('/quiz/resume/${Uri.encodeComponent(widget.examId)}');
       if (_current()) _retry();
     } on Object catch (error, stack) {
-      unawaited(telemetry.recordError(error, stack));
+      // A paused quiz is the student's own state, not a fault to report.
+      if (error is! PausedQuizConflict) {
+        unawaited(telemetry.recordError(error, stack));
+      }
       if (current()) {
         // A start from the main button has no panel open. Show the panel in
         // its failure state, which carries the message and the retry.
         setState(() {
           _sheet ??= kind == TodayQuestionKind.reviews ? 'reviews' : 'new';
           _failed = true;
+          _pausedBlock = error is PausedQuizConflict;
         });
       }
     } finally {
       if (current()) setState(() => _busy = false);
+    }
+  }
+
+  /// Opens the paused quiz, as the Quiz tab's Resume does.
+  Future<void> _resumePaused() async {
+    _dismiss();
+    await context
+        .push<void>('/quiz/resume/${Uri.encodeComponent(widget.examId)}');
+    if (_current()) _retry();
+  }
+
+  /// Discards the paused quiz, as the Quiz tab's Discard does. The panel then
+  /// offers its Start button again.
+  Future<void> _discardPaused() async {
+    if (_discarding) return;
+    setState(() => _discarding = true);
+    try {
+      await ref.read(quitSessionProvider)(
+        userId: todayUserId,
+        examId: widget.examId,
+        now: ref.read(nowProvider)(),
+      );
+      if (_current()) setState(() => _failed = _pausedBlock = false);
+    } on Object catch (error, stack) {
+      unawaited(ref.read(telemetryProvider).recordError(error, stack));
+    } finally {
+      if (mounted) setState(() => _discarding = false);
     }
   }
 
@@ -775,19 +817,25 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
                   )
               : null,
       busy: _busy,
-      failure: _failed
-          ? StateView(
-              message: 'Could not start your quiz.',
-              onRetry: () => unawaited(
-                _start(
-                  data,
-                  reviews
-                      ? TodayQuestionKind.reviews
-                      : TodayQuestionKind.newQuestions,
+      failure: !_failed
+          ? null
+          : _pausedBlock
+              ? PausedQuizNotice(
+                  onResume: () => unawaited(_resumePaused()),
+                  onDiscard:
+                      _discarding ? null : () => unawaited(_discardPaused()),
+                )
+              : StateView(
+                  message: 'Could not start your quiz.',
+                  onRetry: () => unawaited(
+                    _start(
+                      data,
+                      reviews
+                          ? TodayQuestionKind.reviews
+                          : TodayQuestionKind.newQuestions,
+                    ),
+                  ),
                 ),
-              ),
-            )
-          : null,
     );
   }
 

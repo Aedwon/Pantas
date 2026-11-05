@@ -582,7 +582,8 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
         rows.add(
           (
             title: topic.name,
-            meta: '${selected.length} lessons',
+            meta: '${selected.length} '
+                "${selected.length == 1 ? 'lesson' : 'lessons'}",
             keys: {for (final l in selected) 'lesson:${l.id}'}
           ),
         );
@@ -595,7 +596,9 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                           summary.countsByUnit['lesson:${lesson.id}'] &&
                       lesson.questionCount < _value &&
                       _mode == PracticeUnitMode.questions
-                  ? 'Only ${lesson.questionCount} questions so far'
+                  ? 'Only ${lesson.questionCount} '
+                      "${lesson.questionCount == 1 ? 'question' : 'questions'} "
+                      'so far'
                   : null,
               keys: {'lesson:${lesson.id}'}
             ),
@@ -1273,7 +1276,8 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
         rows.add(
           (
             title: topic.name,
-            meta: '${selected.length} lessons',
+            meta: '${selected.length} '
+                "${selected.length == 1 ? 'lesson' : 'lessons'}",
             keys: {for (final lesson in selected) 'lesson:${lesson.id}'}
           ),
         );

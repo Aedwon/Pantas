@@ -556,8 +556,10 @@ class _ReviewListBody extends StatelessWidget {
                       children: [
                         Expanded(
                           child: Text(
-                            'You flagged $markedCount questions while the '
-                            'clock was running. Do you want to save them?',
+                            'You flagged $markedCount '
+                            "${markedCount == 1 ? 'question' : 'questions'} "
+                            'while the clock was running. Do you want to '
+                            'save them?',
                             style: t.sub.copyWith(color: t.colors.label),
                           ),
                         ),
@@ -832,8 +834,9 @@ class _FlagOffer extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Text(
-              'You flagged $count questions while the clock was running. '
-              'Do you want to save them?',
+              'You flagged $count '
+              "${count == 1 ? 'question' : 'questions'} while the clock "
+              'was running. Do you want to save them?',
               style: context.type.subhead.copyWith(
                 fontWeight: FontWeight.w500,
                 height: 22 / 15,

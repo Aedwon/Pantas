@@ -457,10 +457,67 @@ void main() {
         find.widgetWithText(WebButton, 'Submit the Exam'),
       );
       expect(submit.width, greaterThan(panel.width - 60));
+      // 7W-13: with the list shown the bar stays centered under the question
+      // column, which is centered in the room beside the list.
+      await tester.pumpAndSettle();
+      final listRight =
+          tester.getRect(find.byKey(const ValueKey('web-mock-panel'))).right;
+      expect(
+        tester.getCenter(find.byType(WebBottomBar)).dx,
+        closeTo((listRight + 1440) / 2, .5),
+      );
       await tester.tap(find.text('Submit the Exam'));
       await tester.pumpAndSettle();
       expect(find.text('Submit the exam?'), findsOneWidget);
       expect(find.textContaining('2 questions blank'), findsOneWidget);
+      expect(tester.takeException(), isNull);
+    });
+    testWidgets('the submit dialog counts one blank question in the singular',
+        (tester) async {
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      await pumpWide(
+        tester,
+        ProviderScope(
+          overrides: [
+            hydratedMockQuestionProvider.overrideWith(
+              (ref, id) async => const HydratedMockQuestion(question, null),
+            ),
+          ],
+          child: MockSessionPage(
+            state: const MockSessionInProgress(
+              attemptId: 'a',
+              durationSeconds: 5400,
+              questionIds: ['q', 'q2'],
+              currentIndex: 0,
+              elapsedSeconds: 0,
+              answers: {'q': MockAnswer(selectedIndex: 0, atSec: 1)},
+              flags: {},
+              strictMode: false,
+            ),
+            remainingInPart: const Duration(minutes: 1),
+            partPosition: 1,
+            partTotal: 2,
+            oneBlock: true,
+            canGoPrevious: false,
+            canGoNext: true,
+            onPrevious: () {},
+            onNext: () {},
+            onAnswer: (_) {},
+            onToggleFlag: () {},
+            onPause: () {},
+            onSubmitExam: () {},
+          ),
+        ),
+        dark: dark,
+      );
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Submit the Exam'));
+      await tester.pumpAndSettle();
+      expect(
+        find.textContaining('1 minute left and 1 question blank.'),
+        findsOneWidget,
+      );
       expect(tester.takeException(), isNull);
     });
     testWidgets('wide review filters, viewer, blank notes and Free ($dark)',

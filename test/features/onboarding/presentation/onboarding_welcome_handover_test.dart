@@ -17,14 +17,27 @@ import 'package:pantas/features/settings/data/settings_repository.dart';
 import '../../../helpers/in_memory_database.dart';
 
 class _FakeHandover implements WelcomeHandover {
-  _FakeHandover({required this.shownThisVisit});
+  _FakeHandover({required this.shownThisVisit, this.leaves = true});
 
   @override
   final bool shownThisVisit;
+
+  /// False keeps the HTML screen up until [screenLeft] is called.
+  final bool leaves;
   final List<bool> readyCalls = [];
+  void Function()? screenLeft;
 
   @override
   void appReady({required bool holdForTap}) => readyCalls.add(holdForTap);
+
+  @override
+  void whenScreenLeft(void Function() callback) {
+    if (leaves) {
+      callback();
+    } else {
+      screenLeft = callback;
+    }
+  }
 }
 
 void main() {
@@ -69,6 +82,53 @@ void main() {
     expect(find.text('When were you born?'), findsOneWidget);
     expect(find.text('Welcome to Pantas'), findsNothing);
     expect(handover.readyCalls, [true]);
+  });
+
+  testWidgets('the age step slides in when the HTML Welcome screen leaves',
+      (tester) async {
+    final handover = _FakeHandover(shownThisVisit: true, leaves: false);
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: [
+          appDatabaseProvider.overrideWithValue(db),
+          welcomeHandoverProvider.overrideWithValue(handover),
+          onboardingProgressProvider
+              .overrideWith((ref) async => OnboardingProgress()),
+          settingsRepositoryProvider
+              .overrideWithValue(DriftSettingsRepository(db)),
+          passedAgeGateProvider.overrideWith((ref) async => false),
+          activeExamFocusProvider.overrideWith(
+            (ref) async => const ActiveExamFocus.needsSelection(),
+          ),
+        ],
+        child: MaterialApp(
+          theme: buildLightTheme(),
+          home: const OnboardingPage(),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    // Under the cover nothing of the age step or a second Welcome is drawn.
+    expect(find.text('When were you born?'), findsNothing);
+    expect(find.text('Welcome to Pantas'), findsNothing);
+
+    handover.screenLeft!();
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 120));
+
+    final offset = find.byKey(const ValueKey('onboarding-incoming-offset'));
+    expect(find.text('When were you born?'), findsOneWidget);
+    expect(
+      tester.widget<Transform>(offset).transform.getTranslation().x,
+      greaterThan(0),
+      reason: 'the step is still sliding in, as after Back and Get Started',
+    );
+    await tester.pumpAndSettle();
+    expect(
+      tester.widget<Transform>(offset).transform.getTranslation().x,
+      0,
+    );
   });
 
   testWidgets('a resume past Welcome stays where it was and still hands over',

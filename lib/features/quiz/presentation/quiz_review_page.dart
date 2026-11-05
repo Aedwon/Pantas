@@ -208,7 +208,12 @@ class _QuizReviewPageState extends ConsumerState<QuizReviewPage> {
           ready: snapshot.connectionState == ConnectionState.done,
         );
         if (snapshot.hasError || !_current()) {
-          return Scaffold(body: QuestionsUnavailable(onRetry: _retry));
+          return Scaffold(
+            body: QuestionsUnavailable(
+              onRetry: _retry,
+              notFound: snapshot.error is CompletedQuizNotFound,
+            ),
+          );
         }
         final loaded = snapshot.data;
         if (loaded == null) {
@@ -285,7 +290,9 @@ class FlaggedQuestionViewerPage extends ConsumerWidget {
       data: (rows) {
         final index = rows.indexWhere((r) => r.question.id == questionId);
         if (index < 0) {
-          return Scaffold(body: QuestionsUnavailable(onRetry: retry));
+          return Scaffold(
+            body: QuestionsUnavailable(onRetry: retry, notFound: true),
+          );
         }
         return QuizQuestionViewer(
           key: ValueKey('$examId:$questionId'),

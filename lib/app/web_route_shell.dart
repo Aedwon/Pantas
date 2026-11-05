@@ -12,12 +12,26 @@ import 'package:pantas/features/settings/application/settings_providers.dart';
 import 'package:pantas/features/shell/presentation/web_shell.dart';
 
 /// Composition lives here so the shell only receives data and callbacks.
-class WebRouteShell extends ConsumerWidget {
+class WebRouteShell extends ConsumerStatefulWidget {
   const WebRouteShell({required this.path, required this.child, super.key});
   final String path;
   final Widget child;
+
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<WebRouteShell> createState() => _WebRouteShellState();
+}
+
+class _WebRouteShellState extends ConsumerState<WebRouteShell> {
+  /// Keeps the page's state when the layout tier changes and the widgets
+  /// around it do. A phone turned on its side moves from the phone layout to
+  /// the tablet one, and without a key the page was rebuilt from nothing: the
+  /// reader lost its place and closed the figure viewer (7X-2).
+  final GlobalKey _pageKey = GlobalKey(debugLabel: 'route page');
+
+  @override
+  Widget build(BuildContext context) {
+    final path = widget.path;
+    final child = KeyedSubtree(key: _pageKey, child: widget.child);
     if (context.webTier == WebLayoutTier.tabletPortrait) {
       return ColoredBox(
         color: Theme.of(context).scaffoldBackgroundColor,

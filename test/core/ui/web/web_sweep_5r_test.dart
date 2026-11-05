@@ -164,6 +164,28 @@ void main() {
       });
     }
 
+    testWidgets('in light its edge is a solid gray that shows on white (N-4)',
+        (tester) async {
+      wide(tester);
+      await mount(
+        tester,
+        const Center(
+          child: WebCard(floating: true, child: Text('Questions')),
+        ),
+      );
+      final box = tester
+          .widget<Container>(
+            find.descendant(
+              of: find.byType(WebCard),
+              matching: find.byType(Container),
+            ),
+          )
+          .decoration! as BoxDecoration;
+      final edge = (box.border! as Border).top.color;
+      expect(edge.a, 1, reason: 'a 6 percent black edge was lost on white');
+      expect(edge, const Color(0xFFD1D1D6));
+    });
+
     testWidgets('a plain card in light has neither', (tester) async {
       wide(tester);
       await mount(

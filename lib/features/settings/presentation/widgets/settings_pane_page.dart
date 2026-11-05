@@ -8,6 +8,7 @@ import 'package:go_router/go_router.dart';
 import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/ui/components/avatar.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
+import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/icons/own/own_icons.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/motion/pane_transition.dart';
@@ -323,7 +324,8 @@ class SettingsNavigation extends ConsumerWidget {
     final t = context.webTokens;
     final settings =
         ref.watch(userSettingsProvider).valueOrNull ?? UserSettings.defaults();
-    final user = ref.watch(currentUserProvider).valueOrNull;
+    final auth = ref.watch(currentUserProvider);
+    final user = auth.valueOrNull;
     final theme = ref.watch(themePreferenceProvider).valueOrNull ??
         ThemePreference.system;
     final length = ref.watch(settingsSessionLengthProvider).valueOrNull ?? 10;
@@ -360,32 +362,37 @@ class SettingsNavigation extends ConsumerWidget {
       children: [
         WebCard(
           radius: 16,
-          child: WebRow(
-            title: settings.name?.trim().isNotEmpty ?? false
-                ? settings.name!
-                : 'Add your name',
-            subtitle: user?.email ?? 'Not signed in',
-            titleStyle: t.style(17, weight: FontWeight.w600),
-            horizontalPadding: 16,
-            verticalPadding: 14,
-            leadingGap: 12,
-            selected: selected == 'Account',
-            enterFromSelected: from == null ? null : from == 'Account',
-            leading: SizedBox.square(
-              dimension: 44,
-              child: FittedBox(
-                child: Avatar(
-                  name: settings.name ?? '',
-                  photo: user?.photoUrl == null
-                      ? null
-                      : NetworkImage(user!.photoUrl!),
+          // Until auth is known the card is a skeleton. Reading no user as
+          // "Not signed in" showed that line for a frame (7W-16).
+          child: !auth.hasValue && !auth.hasError
+              ? const _AccountCardSkeleton()
+              : WebRow(
+                  title: settings.name?.trim().isNotEmpty ?? false
+                      ? settings.name!
+                      : 'Add your name',
+                  subtitle: user?.email ?? 'Not signed in',
+                  titleStyle: t.style(17, weight: FontWeight.w600),
+                  horizontalPadding: 16,
+                  verticalPadding: 14,
+                  leadingGap: 12,
+                  selected: selected == 'Account',
+                  enterFromSelected: from == null ? null : from == 'Account',
+                  leading: SizedBox.square(
+                    dimension: 44,
+                    child: FittedBox(
+                      child: Avatar(
+                        name: settings.name ?? '',
+                        photo: user?.photoUrl == null
+                            ? null
+                            : NetworkImage(user!.photoUrl!),
+                      ),
+                    ),
+                  ),
+                  trailing:
+                      Icon(PantasIcons.next, size: 16, color: t.colors.chevron),
+                  divider: false,
+                  onPressed: () => open('/settings/account'),
                 ),
-              ),
-            ),
-            trailing: Icon(PantasIcons.next, size: 16, color: t.colors.chevron),
-            divider: false,
-            onPressed: () => open('/settings/account'),
-          ),
         ),
         const SizedBox(height: 18),
         WebCard(
@@ -514,4 +521,31 @@ class _SettingsHero extends StatelessWidget {
       ),
     );
   }
+}
+
+/// The account card while auth is still loading: the avatar and two lines,
+/// 72 px tall like the loaded row.
+class _AccountCardSkeleton extends StatelessWidget {
+  const _AccountCardSkeleton();
+
+  @override
+  Widget build(BuildContext context) => const SkeletonPulse(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+          child: Row(
+            children: [
+              SkeletonBlock(width: 44, height: 44, radius: 22),
+              SizedBox(width: 12),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SkeletonBlock(width: 120, height: 17),
+                  SizedBox(height: 6),
+                  SkeletonBlock(width: 170, height: 14),
+                ],
+              ),
+            ],
+          ),
+        ),
+      );
 }

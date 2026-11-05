@@ -138,7 +138,10 @@ class _HomeExamDateSheetState extends State<HomeExamDateSheet> {
                               .style(16, weight: FontWeight.w600),
                         ),
                         Text(
-                          '${date.daysUntil(widget.today)} days from today',
+                          switch (date.daysUntil(widget.today)) {
+                            1 => '1 day from today',
+                            final days => '$days days from today',
+                          },
                           style: context.webTokens.sm,
                         ),
                       ],

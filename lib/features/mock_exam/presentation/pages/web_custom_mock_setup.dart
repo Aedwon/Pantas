@@ -6,6 +6,7 @@ import 'package:pantas/core/ui/components/pantas_switch.dart';
 import 'package:pantas/core/ui/components/row_tap_target.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_key_focus.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 
 /// Desktop presentation only. The page owns the draft and validates Save.
@@ -139,7 +140,14 @@ class WebCustomMockSetup extends StatelessWidget {
         backgroundColor: t.colors.background,
         body: SingleChildScrollView(
           key: const ValueKey('web-custom-setup'),
-          padding: const EdgeInsets.fromLTRB(44, 28, 44, 40),
+          // The page ends clear of the floating navigation on a landscape
+          // tablet, as Mock setup does (3K-9).
+          padding: EdgeInsets.fromLTRB(
+            44,
+            28,
+            44,
+            context.webPageBottomInset,
+          ),
           child: Align(
             alignment: Alignment.topCenter,
             child: ConstrainedBox(

@@ -301,6 +301,29 @@ void main() {
       await tester.sendKeyEvent(LogicalKeyboardKey.enter);
       expect(continued, 1);
     });
+    testWidgets('picking a month does not move what is below it $dark',
+        (tester) async {
+      await pump(
+        tester,
+        OnboardingExamDateStep(
+          now: DateTime(2026, 10, 3),
+          onCompleted: () {},
+        ),
+        dark: dark,
+      );
+      final status = find.byKey(const ValueKey('calendar-status'));
+      final continueButton = find.text('Continue');
+      final statusTop = tester.getTopLeft(status).dy;
+      final buttonTop = tester.getTopLeft(continueButton).dy;
+      // October 2026 has five week rows and May 2027 has six.
+      for (final month in ['October 2026', 'May 2027', 'February 2027']) {
+        await tester.tap(find.bySemanticsLabel(month));
+        await tester.pumpAndSettle();
+        expect(tester.getTopLeft(status).dy, statusTop, reason: month);
+        expect(tester.getTopLeft(continueButton).dy, buttonTop, reason: month);
+      }
+      expect(tester.takeException(), isNull);
+    });
     testWidgets('date pick month day year and today $dark', (tester) async {
       await pump(
         tester,

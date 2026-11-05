@@ -885,7 +885,8 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
               .toList();
           return Semantics(
             liveRegion: true,
-            value: '${visible.length} exams',
+            value:
+                '${visible.length} ${visible.length == 1 ? 'exam' : 'exams'}',
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [

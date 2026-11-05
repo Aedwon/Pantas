@@ -100,6 +100,19 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
 
   OnboardingBrowserBack? _browserBack;
 
+  /// Welcome is drawn under the HTML Welcome screen and waits for it to leave.
+  bool _underCover = false;
+
+  void _coverLeft() {
+    if (!mounted) return;
+    _underCover = false;
+    if (_step == OnboardingStep.welcome) {
+      _setStep(OnboardingStep.age);
+    } else {
+      setState(() {});
+    }
+  }
+
   @override
   void initState() {
     super.initState();
@@ -203,15 +216,15 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
       final handover = ref.read(welcomeHandoverProvider);
       if (handover.shownThisVisit) {
         // The HTML Welcome screen covers the app until the learner taps Get
-        // Started, so Launch and Welcome are not drawn a second time.
-        if (first == OnboardingStep.welcome) {
-          first = OnboardingStep.age;
-          _loggedSteps.add(OnboardingStep.welcome);
-          _logStep(OnboardingStep.welcome);
-        }
-        WidgetsBinding.instance.addPostFrameCallback(
-          (_) => handover.appReady(holdForTap: true),
-        );
+        // Started, so Launch is not drawn. Welcome stays drawn under the
+        // cover, settled, and the tap that removes the cover moves on to the
+        // age step. Opening on the age step instead had it already on screen
+        // when the cover left, so it never slid in (7W-2).
+        if (first == OnboardingStep.welcome) _underCover = true;
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          if (_underCover) handover.whenScreenLeft(_coverLeft);
+          handover.appReady(holdForTap: true);
+        });
       } else if (first == OnboardingStep.welcome &&
           !MediaQuery.disableAnimationsOf(context) &&
           !context.wideWeb &&
@@ -361,6 +374,7 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
         return KeyedSubtree(
           key: const ValueKey('welcome'),
           child: OnboardingWelcomeStep(
+            underCover: _underCover,
             onAdvance: () => _setStep(OnboardingStep.age),
           ),
         );

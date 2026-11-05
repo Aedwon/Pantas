@@ -11,6 +11,7 @@ import 'package:pantas/core/sync/local_state_wiper.dart';
 import 'package:pantas/features/home/application/today_questions.dart';
 import 'package:pantas/features/quiz/data/repos/quiz_session_repository.dart';
 import 'package:pantas/features/quiz/domain/models/session_origin.dart';
+import 'package:pantas/features/quiz/domain/paused_quiz_conflict.dart';
 import 'package:pantas/features/quiz/presentation/quiz_controller.dart';
 import 'package:pantas/features/quiz/presentation/today_providers.dart';
 import 'package:pantas/features/roadmap/application/roadmap_providers.dart';
@@ -235,7 +236,9 @@ void main() {
           kind: TodayQuestionKind.newQuestions,
           isAlive: () => stale != 'page',
         ),
-        throwsStateError,
+        stale == 'paused'
+            ? throwsA(isA<PausedQuizConflict>())
+            : throwsStateError,
       );
       final rows = await db.select(db.quizSessions).get();
       expect(rows, stale == 'paused' ? hasLength(1) : isEmpty);

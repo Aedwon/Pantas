@@ -56,8 +56,6 @@ class _OnboardingWebCalendarState extends State<OnboardingWebCalendar> {
         : selected == null
             ? ''
             : DateFormat('MMMM 1', 'en_US').format(selected);
-    final first = month == null ? 0 : DateTime(value.year, month).weekday % 7;
-    final last = month == null ? 0 : DateTime(value.year, month + 1, 0).day;
     // Built from rows, not a GridView, so the panels can size to each other.
     Widget grid(List<Widget> children, int columns) {
       final gap = columns == 7 ? 4.0 : 6.0;
@@ -144,6 +142,112 @@ class _OnboardingWebCalendarState extends State<OnboardingWebCalendar> {
             ),
           ),
         );
+    // The day panel always draws six week rows.
+    Widget monthBody(int year, int monthNumber) {
+      final first = DateTime(year, monthNumber).weekday % 7;
+      final last = DateTime(year, monthNumber + 1, 0).day;
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Wrap(
+            alignment: WrapAlignment.spaceBetween,
+            crossAxisAlignment: WrapCrossAlignment.center,
+            children: [
+              Text(
+                DateFormat('MMMM y', 'en_US')
+                    .format(DateTime(year, monthNumber)),
+                style: t.style(18, weight: FontWeight.w600),
+              ),
+              Text('Know the exact day? Optional', style: t.sm),
+            ],
+          ),
+          const SizedBox(height: 12),
+          Row(
+            children: [
+              for (final d in ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'])
+                Expanded(
+                  child: Text(
+                    d,
+                    textAlign: TextAlign.center,
+                    style: t.style(
+                      12,
+                      weight: FontWeight.w600,
+                      color: t.colors.tertiaryLabel,
+                    ),
+                  ),
+                ),
+            ],
+          ),
+          const SizedBox(height: 12),
+          grid(
+            [
+              for (var n = 0; n < first; n++) const SizedBox.shrink(),
+              for (var d = 1; d <= last; d++)
+                choice(
+                  '$d',
+                  DateTime(year, monthNumber, d).isBefore(today)
+                      ? null
+                      : () => onChanged(
+                            MonthFirstDate(
+                              year: year,
+                              month: monthNumber,
+                              day: d,
+                            ),
+                          ),
+                  picked: value.day == d,
+                  isToday: DateTime(year, monthNumber, d) == today,
+                ),
+              for (var n = first + last; n < 42; n++) const SizedBox.shrink(),
+            ],
+            7,
+          ),
+        ],
+      );
+    }
+
+    // The panel is as tall as the tallest a month can make it, so its height
+    // does not depend on the month or on the placeholder: the cards and
+    // buttons below no longer move when a month is picked (7W-3). That is six
+    // week rows under a title that wraps above its hint, which only the long
+    // month names do. Every month's header is laid out unseen to size it. They
+    // are RichText, not Text, so nothing else finds them as content.
+    final base = DefaultTextStyle.of(context).style;
+    final scaler = MediaQuery.textScalerOf(context);
+    Widget ghostText(String text, TextStyle style) => RichText(
+          text: TextSpan(text: text, style: base.merge(style)),
+          textScaler: scaler,
+        );
+    Widget ghost(int monthNumber) => Visibility(
+          visible: false,
+          maintainSize: true,
+          maintainAnimation: true,
+          maintainState: true,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Wrap(
+                alignment: WrapAlignment.spaceBetween,
+                crossAxisAlignment: WrapCrossAlignment.center,
+                children: [
+                  ghostText(
+                    DateFormat('MMMM y', 'en_US')
+                        .format(DateTime(today.year + 1, monthNumber)),
+                    t.style(18, weight: FontWeight.w600),
+                  ),
+                  ghostText('Know the exact day? Optional', t.sm),
+                ],
+              ),
+              const SizedBox(height: 12),
+              ghostText('Sun', t.style(12, weight: FontWeight.w600)),
+              const SizedBox(height: 12),
+              grid([for (var n = 0; n < 42; n++) const SizedBox.shrink()], 7),
+            ],
+          ),
+        );
+    Widget panel(Key key, Widget content) => Stack(
+          key: key,
+          children: [for (var m = 1; m <= 12; m++) ghost(m), content],
+        );
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
@@ -202,116 +306,50 @@ class _OnboardingWebCalendarState extends State<OnboardingWebCalendar> {
                   child: MonthRiseSwitcher(
                     direction: _direction,
                     child: month == null
-                        ? SizedBox(
-                            key: const ValueKey('calendar-month-none'),
-                            height: 322,
-                            child: Center(
-                              child: Column(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  SvgPicture.string(
-                                    '<svg viewBox="0 0 24 24" fill="none" '
-                                    'stroke="currentColor" stroke-width="1.5" '
-                                    'stroke-linecap="round" '
-                                    'stroke-linejoin="round"> '
-                                    '<rect x="3.5" y="5" width="17" '
-                                    'height="15.5" rx="2.5"/> '
-                                    '<path d="M3.5 9.5h17M8 3v4M16 3v4"/></svg>',
-                                    width: 36,
-                                    height: 36,
-                                    colorFilter: ColorFilter.mode(
-                                      t.dark
-                                          ? t.colors.tertiaryLabel
-                                          : const Color(0xFFC7C7CC),
-                                      BlendMode.srcIn,
+                        ? panel(
+                            const ValueKey('calendar-month-none'),
+                            Positioned.fill(
+                              child: Center(
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    SvgPicture.string(
+                                      '<svg viewBox="0 0 24 24" fill="none" '
+                                      'stroke="currentColor" '
+                                      'stroke-width="1.5" '
+                                      'stroke-linecap="round" '
+                                      'stroke-linejoin="round"> '
+                                      '<rect x="3.5" y="5" width="17" '
+                                      'height="15.5" rx="2.5"/> '
+                                      '<path d="M3.5 9.5h17M8 3v4M16 3v4"/></svg>',
+                                      width: 36,
+                                      height: 36,
+                                      colorFilter: ColorFilter.mode(
+                                        t.dark
+                                            ? t.colors.tertiaryLabel
+                                            : const Color(0xFFC7C7CC),
+                                        BlendMode.srcIn,
+                                      ),
                                     ),
-                                  ),
-                                  const SizedBox(height: 10),
-                                  Text(
-                                    'Pick a month first.\n'
-                                    'Then add the day here if you know it.',
-                                    textAlign: TextAlign.center,
-                                    style: t.style(
-                                      15,
-                                      height: 1.45,
-                                      color: t.colors.tertiaryLabel,
+                                    const SizedBox(height: 10),
+                                    Text(
+                                      'Pick a month first.\n'
+                                      'Then add the day here if you know it.',
+                                      textAlign: TextAlign.center,
+                                      style: t.style(
+                                        15,
+                                        height: 1.45,
+                                        color: t.colors.tertiaryLabel,
+                                      ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                             ),
                           )
-                        : Column(
-                            key:
-                                ValueKey('calendar-month-${value.year}-$month'),
-                            crossAxisAlignment: CrossAxisAlignment.stretch,
-                            children: [
-                              Wrap(
-                                alignment: WrapAlignment.spaceBetween,
-                                crossAxisAlignment: WrapCrossAlignment.center,
-                                children: [
-                                  Text(
-                                    DateFormat('MMMM y', 'en_US')
-                                        .format(selected!),
-                                    style: t.style(18, weight: FontWeight.w600),
-                                  ),
-                                  Text(
-                                    'Know the exact day? Optional',
-                                    style: t.sm,
-                                  ),
-                                ],
-                              ),
-                              const SizedBox(height: 12),
-                              Row(
-                                children: [
-                                  for (final d in [
-                                    'Sun',
-                                    'Mon',
-                                    'Tue',
-                                    'Wed',
-                                    'Thu',
-                                    'Fri',
-                                    'Sat',
-                                  ])
-                                    Expanded(
-                                      child: Text(
-                                        d,
-                                        textAlign: TextAlign.center,
-                                        style: t.style(
-                                          12,
-                                          weight: FontWeight.w600,
-                                          color: t.colors.tertiaryLabel,
-                                        ),
-                                      ),
-                                    ),
-                                ],
-                              ),
-                              const SizedBox(height: 12),
-                              grid(
-                                [
-                                  for (var n = 0; n < first; n++)
-                                    const SizedBox.shrink(),
-                                  for (var d = 1; d <= last; d++)
-                                    choice(
-                                      '$d',
-                                      DateTime(value.year, month, d)
-                                              .isBefore(today)
-                                          ? null
-                                          : () => onChanged(
-                                                MonthFirstDate(
-                                                  year: value.year,
-                                                  month: month,
-                                                  day: d,
-                                                ),
-                                              ),
-                                      picked: value.day == d,
-                                      isToday: DateTime(value.year, month, d) ==
-                                          today,
-                                    ),
-                                ],
-                                7,
-                              ),
-                            ],
+                        : panel(
+                            ValueKey('calendar-month-${value.year}-$month'),
+                            monthBody(value.year, month),
                           ),
                   ),
                 ),

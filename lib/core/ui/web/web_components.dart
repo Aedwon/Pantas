@@ -414,7 +414,13 @@ class WebCard extends StatelessWidget {
           decoration: BoxDecoration(
             color: fill,
             borderRadius: BorderRadius.circular(radius),
-            border: floating ? Border.all(color: webFloatingEdge(t)) : null,
+            // The question bar's 6 percent edge vanishes where a popover lies
+            // over a white choice card, so light takes the divider gray (N-4).
+            border: floating
+                ? Border.all(
+                    color: t.dark ? webFloatingEdge(t) : t.strongDivider,
+                  )
+                : null,
             boxShadow: floating ? webFloatingShadow(t, blur: 24, dy: 4) : null,
           ),
           // Drawn on top like the board inset outline; content stays put.

@@ -255,30 +255,42 @@ void main() {
         );
 
         if (exit == 'paused') {
+          // 7W-11: a paused quiz is named, with Resume and Discard, not
+          // reported as a failure that Try Again could never fix.
           for (var i = 0;
-              i < 80 &&
-                  find.text('Could not start your quiz.').evaluate().isEmpty;
+              i < 80 && find.text('Discard this session').evaluate().isEmpty;
               i++) {
             await tester.pump(const Duration(milliseconds: 20));
             await tester.runAsync(
               () => Future<void>.delayed(const Duration(milliseconds: 2)),
             );
           }
-          expect(find.text('Could not start your quiz.'), findsOneWidget);
+          expect(find.text('Could not start your quiz.'), findsNothing);
+          expect(find.text('Try Again'), findsNothing);
+          expect(find.text('Resume'), findsOneWidget);
           final paused = await tester.runAsync(
             () => QuizSessionRepository(db)
                 .activeFor(userId: 'local', examId: 'e'),
           );
           expect(paused!.id, 'paused');
           expect(paused.quitAt, isNull);
-          await tester.runAsync(
-            () => QuizSessionRepository(db).quitAllOpen(
-              userId: 'local',
-              examId: 'e',
-              quitAt: DateTime(2026, 10, 23),
+          await tester.tap(find.text('Discard this session'));
+          for (var i = 0;
+              i < 80 && find.text('Discard this session').evaluate().isNotEmpty;
+              i++) {
+            await tester.pump(const Duration(milliseconds: 20));
+            await tester.runAsync(
+              () => Future<void>.delayed(const Duration(milliseconds: 2)),
+            );
+          }
+          expect(find.text('Discard this session'), findsNothing);
+          await tester.tap(
+            find.text(
+              kind == TodayQuestionKind.reviews
+                  ? 'Start Reviews'
+                  : 'Start New Questions',
             ),
           );
-          await tester.tap(find.text('Try Again'));
         }
         if (!completes && exit != 'paused') {
           for (var i = 0; i < 80 && !pending.entered.isCompleted; i++) {

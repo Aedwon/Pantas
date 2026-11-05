@@ -284,7 +284,9 @@ class WebSessionResults extends StatelessWidget {
                                         ),
                                       appear(
                                         WebRow(
-                                          title: 'See all $total questions',
+                                          title: total == 1
+                                              ? 'See the question'
+                                              : 'See all $total questions',
                                           titleStyle: mistakeRowTitle,
                                           boardMetrics: true,
                                           divider: false,
@@ -340,7 +342,9 @@ class WebSessionResults extends StatelessWidget {
                             WebCard(
                               radius: 16,
                               child: WebRow(
-                                title: 'See all $total questions',
+                                title: total == 1
+                                    ? 'See the question'
+                                    : 'See all $total questions',
                                 boardMetrics: true,
                                 divider: false,
                                 horizontalPadding: 18,

@@ -9,7 +9,9 @@
 //
 // The app (Dart) calls pantasWelcome.ready(holdForTap) once it has drawn its
 // first onboarding step (true) or knows the learner is already set up (false).
-// With true the screen waits for the tap. Nothing here reads app data.
+// With true the screen waits for the tap. Nothing here reads app data. The app
+// also registers pantasWelcome.onLeave(fn), which runs when the screen has left,
+// so it can slide the next step in as it does after its own Welcome.
 (function (root) {
   'use strict';
 
@@ -25,6 +27,9 @@
     var doc = env.document;
     var storage = env.storage;
     var state = { shown: false, started: false, ready: false, done: false };
+    // Called once when the screen has left, so the app can run the step change
+    // the tap stands for (7W-2).
+    var leaveHooks = [];
 
     function seen() {
       try {
@@ -91,6 +96,19 @@
       restoreFocus();
       // The engine may move its text field in the next frame; look again then.
       env.afterPaint(restoreFocus);
+      leaveHooks.splice(0).forEach(function (hook) {
+        try {
+          hook();
+        } catch (_) {}
+      });
+    }
+
+    function onLeave(hook) {
+      if (state.done) {
+        hook();
+      } else {
+        leaveHooks.push(hook);
+      }
     }
 
     function showStarting() {
@@ -167,6 +185,7 @@
         return state.shown;
       },
       ready: ready,
+      onLeave: onLeave,
       start: start,
       state: state,
     };

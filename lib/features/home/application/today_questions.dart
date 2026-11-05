@@ -10,6 +10,7 @@ import 'package:pantas/features/quiz/data/repos/quiz_session_repository.dart';
 import 'package:pantas/features/quiz/domain/models/quiz_preferences.dart';
 import 'package:pantas/features/quiz/domain/models/review_batch.dart';
 import 'package:pantas/features/quiz/domain/models/session_origin.dart';
+import 'package:pantas/features/quiz/domain/paused_quiz_conflict.dart';
 import 'package:pantas/features/quiz/domain/quiz_session.dart';
 import 'package:pantas/features/roadmap/application/roadmap_providers.dart';
 import 'package:pantas/features/roadmap/domain/roadmap.dart';
@@ -287,7 +288,7 @@ class TodayQuestionLauncher {
         .activeFor(userId: quizLocalUserId, examId: work.examId);
     if (paused != null) {
       if (paused.origin != SessionOrigin.newQuestions.storageValue) {
-        throw StateError('Another quiz is paused');
+        throw PausedQuizConflict();
       }
       final resumed = await ref.read(resumeSessionProvider)(
         userId: quizLocalUserId,

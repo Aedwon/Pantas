@@ -328,3 +328,19 @@ test('index.html declares the viewport Flutter writes, before any stylesheet', (
   assert.ok(html.indexOf(tag[0]) < html.indexOf('<style>'));
   assert.ok(html.indexOf(tag[0]) < html.indexOf('pantas_welcome.js'));
 });
+
+test('onLeave runs once when the screen leaves, and at once if it already has', () => {
+  const t = setup();
+  let calls = 0;
+  t.welcome.onLeave(() => calls++);
+  t.welcome.ready(true);
+  assert.equal(calls, 0, 'the screen is still up while it waits for the tap');
+  t.tap();
+  assert.equal(t.removed(), true);
+  assert.equal(calls, 1);
+
+  let late = 0;
+  t.welcome.onLeave(() => late++);
+  assert.equal(late, 1, 'a hook added after the screen left runs at once');
+  assert.equal(calls, 1);
+});

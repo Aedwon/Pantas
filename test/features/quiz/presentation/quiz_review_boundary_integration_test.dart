@@ -401,9 +401,10 @@ void main() {
       tester,
       () =>
           find.text('Original question').evaluate().isNotEmpty ||
-          find.text('Could not load your questions.').evaluate().isNotEmpty,
+          find.text('We could not find those questions.').evaluate().isNotEmpty,
     );
-    expect(find.text('Could not load your questions.'), findsOneWidget);
+    // The new account has no such attempt, so the page says so (3M-2).
+    expect(find.text('We could not find those questions.'), findsOneWidget);
     expect(find.text('Original question'), findsNothing);
     await tester.pumpWidget(const SizedBox.shrink());
     await tester.pumpAndSettle();

@@ -12,11 +12,26 @@ import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_web_page.dart';
 
 class OnboardingWelcomeStep extends StatelessWidget {
-  const OnboardingWelcomeStep({required this.onAdvance, super.key});
+  const OnboardingWelcomeStep({
+    required this.onAdvance,
+    this.underCover = false,
+    super.key,
+  });
   final VoidCallback onAdvance;
 
+  /// The HTML Welcome screen is still up over this step. It is the page, so
+  /// this step draws only the background and the tap that removes the screen
+  /// leaves nothing of a second Welcome to flash.
+  final bool underCover;
+
   @override
-  Widget build(BuildContext context) => _AfterSplash(child: _content(context));
+  Widget build(BuildContext context) => underCover
+      ? ColoredBox(
+          color: context.wideWeb
+              ? context.webTokens.colors.background
+              : context.colors.background,
+        )
+      : _AfterSplash(child: _content(context));
 
   Widget _content(BuildContext context) {
     if (context.wideWeb) {
@@ -62,11 +77,17 @@ class OnboardingWelcomeStep extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 44),
-                  WebButton(
-                    label: 'Get Started',
-                    large: true,
-                    keyHint: 'Enter',
-                    onPressed: onAdvance,
+                  // The HTML welcome the first visit shows has a 260 px button
+                  // (OB_Welcome). This step, shown after Back, matches it.
+                  SizedBox(
+                    width: 260,
+                    child: WebButton(
+                      label: 'Get Started',
+                      large: true,
+                      expand: true,
+                      keyHint: 'Enter',
+                      onPressed: onAdvance,
+                    ),
                   ),
                 ],
               ),

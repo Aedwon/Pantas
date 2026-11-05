@@ -61,7 +61,8 @@ class BackupViewState {
         ),
       Syncing(:final pendingCount) => BackupViewState(
           headline: 'Backing up your progress...',
-          subtitle: '$pendingCount items left',
+          subtitle:
+              '$pendingCount ${pendingCount == 1 ? 'item' : 'items'} left',
           details: BackupDiagnostics(
             lastSyncIso: 'Pending',
             pendingCount: pendingCount,

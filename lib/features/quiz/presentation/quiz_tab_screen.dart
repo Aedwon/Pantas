@@ -13,6 +13,7 @@ import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/components/pantas_sheet.dart';
+import 'package:pantas/core/ui/components/paused_quiz_notice.dart';
 import 'package:pantas/core/ui/components/progress_ring.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/components/today_questions.dart';
@@ -23,6 +24,7 @@ import 'package:pantas/core/ui/web/web_key_focus.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/home/application/today_questions.dart';
+import 'package:pantas/features/quiz/domain/paused_quiz_conflict.dart';
 import 'package:pantas/features/quiz/presentation/practice_row_providers.dart';
 import 'package:pantas/features/quiz/presentation/quiz_controller.dart';
 import 'package:pantas/features/quiz/presentation/today_providers.dart';
@@ -74,6 +76,9 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
   int _questionGeneration = 0;
   bool _startingQuestions = false;
   bool _questionFailed = false;
+
+  /// The failed start was refused because another quiz is paused.
+  bool _questionPaused = false;
   bool _discarding = false;
   bool _saveFailed = false;
   final _leftKey = GlobalKey();
@@ -710,6 +715,7 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
         _questionSheet = null;
         _startingQuestions = false;
         _questionFailed = false;
+        _questionPaused = false;
       });
     }
   }
@@ -727,6 +733,7 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
     setState(() {
       _questionSheet = kind;
       _questionFailed = false;
+      _questionPaused = false;
     });
   }
 
@@ -789,13 +796,24 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
                       : data.newQuestions.isNotEmpty)
                   ? () => unawaited(_startQuestions(examId, kind, work: data))
                   : null,
-              failure: _questionFailed
-                  ? StateView(
-                      message: 'Could not start your quiz.',
-                      onRetry: () =>
-                          unawaited(_startQuestions(examId, kind, work: data)),
-                    )
-                  : null,
+              failure: !_questionFailed
+                  ? null
+                  : _questionPaused
+                      ? PausedQuizNotice(
+                          onResume: () {
+                            _dismissQuestions();
+                            unawaited(_open('/quiz/resume/$examId'));
+                          },
+                          onDiscard: _discarding
+                              ? null
+                              : () => unawaited(_discardPaused(examId)),
+                        )
+                      : StateView(
+                          message: 'Could not start your quiz.',
+                          onRetry: () => unawaited(
+                            _startQuestions(examId, kind, work: data),
+                          ),
+                        ),
             );
           },
         );
@@ -863,6 +881,7 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
     setState(() {
       _startingQuestions = true;
       _questionFailed = false;
+      _questionPaused = false;
     });
     try {
       final launcher = ref.read(todayQuestionLauncherProvider);
@@ -874,8 +893,13 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
       if (!current()) return;
       _dismissQuestions();
       await _open('/quiz/resume/${Uri.encodeComponent(examId)}');
-    } on Object {
-      if (current()) setState(() => _questionFailed = true);
+    } on Object catch (error) {
+      if (current()) {
+        setState(() {
+          _questionFailed = true;
+          _questionPaused = error is PausedQuizConflict;
+        });
+      }
     } finally {
       if (current()) setState(() => _startingQuestions = false);
     }
@@ -1106,6 +1130,14 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
           ),
       ],
     );
+  }
+
+  /// Discards from the questions sheet, then lets the sheet start again.
+  Future<void> _discardPaused(String examId) async {
+    await _discard(examId);
+    if (mounted && !_saveFailed) {
+      setState(() => _questionFailed = _questionPaused = false);
+    }
   }
 
   Future<void> _discard(String examId) async {

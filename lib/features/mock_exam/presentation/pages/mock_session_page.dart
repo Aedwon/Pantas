@@ -258,8 +258,10 @@ class _MockSessionPageState extends State<MockSessionPage> {
         .length;
     final minutes = widget.remainingInPart.inMinutes;
     final hours = minutes ~/ 60;
-    final left =
-        hours > 0 ? '$hours hr ${minutes % 60} min' : '$minutes minutes';
+    final left = hours > 0
+        ? '$hours hr ${minutes % 60} min'
+        : '$minutes ${minutes == 1 ? 'minute' : 'minutes'}';
+    final blankWords = '$blank ${blank == 1 ? 'question' : 'questions'}';
     final part = widget.currentPartNumber;
     unawaited(
       showDialog<void>(
@@ -269,9 +271,9 @@ class _MockSessionPageState extends State<MockSessionPage> {
             (context.wideWeb ? webMockConfirmation : CenteredDialog.new)(
           title: widget.oneBlock ? 'Submit the exam?' : 'End Part $part now?',
           message: widget.oneBlock
-              ? 'You have $left left and $blank questions blank. Once you '
+              ? 'You have $left left and $blankWords blank. Once you '
                   "submit, your answers can't be changed."
-              : 'You have $left left and $blank questions blank. Ending now '
+              : 'You have $left left and $blankWords blank. Ending now '
                   'closes Part $part for good, and the time left '
                   "doesn't carry over.",
           primaryLabel: widget.oneBlock ? 'Submit' : 'End Part $part',
@@ -1019,9 +1021,11 @@ class _MockSessionPageState extends State<MockSessionPage> {
                                     left: 0,
                                     right: 0,
                                     bottom: 28,
-                                    // The bar keeps clear of the edge tab
-                                    // while the list is open. Its inset moves
-                                    // with the list, not before it.
+                                    // While the list is open the bar is 48 px
+                                    // narrower at most (MK_NavMotion), split
+                                    // on both sides so it stays centered under
+                                    // the question column (7W-13). The inset
+                                    // moves with the list, not before it.
                                     child: TweenAnimationBuilder<double>(
                                       tween: Tween(
                                         end: _widePanelOpen ? 48 : 0,
@@ -1030,7 +1034,9 @@ class _MockSessionPageState extends State<MockSessionPage> {
                                       curve: const Cubic(.32, .72, 0, 1),
                                       builder: (context, inset, child) =>
                                           Padding(
-                                        padding: EdgeInsets.only(right: inset),
+                                        padding: EdgeInsets.symmetric(
+                                          horizontal: inset / 2,
+                                        ),
                                         child: child,
                                       ),
                                       child: Column(

@@ -52,6 +52,23 @@ void main() {
     }
 
     testWidgets(
+        'on a landscape tablet the page ends above the navigation '
+        'dark=$dark', (tester) async {
+      await pump(tester);
+      tester.view.physicalSize = const Size(1180, 500);
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('I know the section breakdown').first);
+      await tester.pumpAndSettle();
+      await tester.drag(
+        find.byKey(const ValueKey('web-custom-setup')),
+        const Offset(0, -3000),
+      );
+      await tester.pumpAndSettle();
+      final save = find.widgetWithText(WebButton, 'Save');
+      // 3K-9: the floating navigation covers the bottom 100 px.
+      expect(tester.getBottomLeft(save).dy, lessThanOrEqualTo(500 - 100));
+    });
+    testWidgets(
         'the breakdown grows in and shrinks away over 300 ms '
         'dark=$dark', (tester) async {
       await pump(tester);

@@ -180,7 +180,7 @@ void main() {
 
       final notification = await remind();
 
-      expect(notification.body, "1 questions to review. You've got this.");
+      expect(notification.body, "1 question to review. You've got this.");
     });
   });
 

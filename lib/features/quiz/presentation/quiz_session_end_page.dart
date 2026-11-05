@@ -434,7 +434,10 @@ class _QuizSessionEndPageState extends ConsumerState<QuizSessionEndPage> {
             ready: snapshot.connectionState == ConnectionState.done,
           );
           if (snapshot.hasError || !_current()) {
-            return QuestionsUnavailable(onRetry: _reload);
+            return QuestionsUnavailable(
+              onRetry: _reload,
+              notFound: snapshot.error is CompletedQuizNotFound,
+            );
           }
           final data = snapshot.data;
           if (data == null) {

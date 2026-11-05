@@ -17,6 +17,9 @@ class _RecordingHandover implements WelcomeHandover {
 
   @override
   void appReady({required bool holdForTap}) => readyCalls.add(holdForTap);
+
+  @override
+  void whenScreenLeft(void Function() callback) {}
 }
 
 void main() {

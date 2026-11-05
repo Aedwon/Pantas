@@ -10,6 +10,7 @@ import 'package:pantas/features/quiz/data/repos/quiz_session_repository.dart';
 import 'package:pantas/features/quiz/domain/models/review_batch.dart';
 import 'package:pantas/features/quiz/domain/models/review_batch_position.dart';
 import 'package:pantas/features/quiz/domain/models/session_origin.dart';
+import 'package:pantas/features/quiz/domain/paused_quiz_conflict.dart';
 import 'package:pantas/features/quiz/domain/quiz_session.dart';
 import 'package:uuid/uuid.dart';
 
@@ -193,7 +194,7 @@ class ReviewBatchRepository {
           appeared = true;
           return null;
         }
-        if (active != null) throw StateError('Another quiz is paused');
+        if (active != null) throw PausedQuizConflict();
         if (prepared.chunks.isEmpty) return null;
         final batch = StoredReviewBatch(
           scope: scope,
@@ -334,7 +335,7 @@ class ReviewBatchRepository {
   }) async {
     final active = await _active(scope);
     if (active != null && active.id != batch.sessionIds[batch.current]) {
-      throw StateError('Another quiz is paused');
+      throw PausedQuizConflict();
     }
     final index = batch.nextReady ? batch.current + 1 : batch.current;
     if (hydrated != null) {

@@ -23,7 +23,8 @@ class MockStatusCard extends StatelessWidget {
     final (title, action, callback) = switch (availability.state) {
       MockAvailabilityState.available => ('Mock ready', 'Start mock', onStart),
       MockAvailabilityState.cooldown => (
-          'Next mock in ${availability.cooldownRemaining!.inDays} days',
+          'Next mock in ${availability.cooldownRemaining!.inDays} '
+              "${availability.cooldownRemaining!.inDays == 1 ? 'day' : 'days'}",
           'Review results',
           onStart
         ),
