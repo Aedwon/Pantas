@@ -225,7 +225,8 @@ Future<void> _deleteAccount(WidgetRef ref, {required bool isAnonymous}) async {
     deleteNamedAccount: ref.read(authRepositoryProvider).deleteAccount,
     wipeAnonymousData: SyncLocalStateWiper(
       ref.read(appDatabaseProvider),
-      contentDatabase: ref.read(contentDatabaseProvider),
+      clearCustomExams: () =>
+          deleteCustomContentExams(ref.read(contentDatabaseProvider)),
     ).wipeAll,
   );
 }

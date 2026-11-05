@@ -1,5 +1,4 @@
 import 'package:pantas/core/auth/auth_repository.dart';
-import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/notifications/notification_service.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/data/repos/custom_track_repository.dart'
@@ -9,18 +8,18 @@ class SyncLocalStateWiper implements LocalStateWiper {
   SyncLocalStateWiper(
     this._db, {
     NotificationService? notifications,
-    ContentDatabase? contentDatabase,
+    Future<void> Function()? clearCustomExams,
   })  : _notifications = notifications,
-        _contentDatabase = contentDatabase;
+        _clearCustomExams = clearCustomExams;
 
   static const _selectedExamKey = 'selected_exam_id';
 
   final AppDatabase _db;
   final NotificationService? _notifications;
 
-  /// The in-memory content database on web, where a sign-out does not reload
-  /// and so cannot clear custom exam rows by itself.
-  final ContentDatabase? _contentDatabase;
+  /// Removes custom exams from the content database. On web a sign-out does
+  /// not reload, so nothing else clears them. Sync does not import content.
+  final Future<void> Function()? _clearCustomExams;
 
   @override
   Future<bool> hasMeaningfulProgress() async {
@@ -123,11 +122,6 @@ class SyncLocalStateWiper implements LocalStateWiper {
       }
     });
 
-    final content = _contentDatabase;
-    if (content != null) {
-      await (content.delete(content.contentExams)
-            ..where((row) => row.isCustom.equals(true)))
-          .go();
-    }
+    await _clearCustomExams?.call();
   }
 }

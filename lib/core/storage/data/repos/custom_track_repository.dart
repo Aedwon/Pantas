@@ -50,6 +50,12 @@ const customExamIdPrefix = 'exam_custom_';
 
 bool isCustomExamId(ExamId examId) => examId.startsWith(customExamIdPrefix);
 
+/// Removes every custom exam row from the content database, for a wipe.
+Future<void> deleteCustomContentExams(ContentDatabase content) =>
+    (content.delete(content.contentExams)
+          ..where((row) => row.isCustom.equals(true)))
+        .go();
+
 /// A custom exam's paper as `getCustomTracks` returns it.
 @immutable
 class CustomTrackBlueprintRow {

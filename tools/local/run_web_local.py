@@ -25,6 +25,8 @@ parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--lan', action='store_true')
 parser.add_argument('--host', help='Mac LAN address (with --lan), otherwise auto-detected')
 parser.add_argument('--port', type=int, default=7357)
+parser.add_argument('--port-offset', type=int, default=0,
+                    help='Add this to every emulator port, so a second run can sit beside the first')
 parser.add_argument('--corpus', choices=['code', 'cse'], default='cse',
                     help='Content source (default: cse, falling back to code if export fails)')
 parser.add_argument('--dry-run', action='store_true', help='Print every command; start nothing')
@@ -48,14 +50,17 @@ if args.lan:
         with socket.socket() as probe:
             probe.bind((host, 0))
 project = 'demo-pantas-local'
+def emulator_port(port):
+    return port + args.port_offset
 state = ROOT / 'build/local-web'
 env = {k: v for k, v in os.environ.items() if k not in (
     'GOOGLE_APPLICATION_CREDENTIALS', 'FIREBASE_TOKEN', 'GOOGLE_CLOUD_PROJECT',
     'GCLOUD_PROJECT', 'NODE_OPTIONS')}
 env.update(GCLOUD_PROJECT=project, GOOGLE_CLOUD_PROJECT=project,
-           FIRESTORE_EMULATOR_HOST=f'{host}:8080',
-           FIREBASE_AUTH_EMULATOR_HOST=f'{host}:9099',
-           FIREBASE_STORAGE_EMULATOR_HOST=f'{host}:9199',
+           FIRESTORE_EMULATOR_HOST=f'{host}:{emulator_port(8080)}',
+           FIREBASE_AUTH_EMULATOR_HOST=f'{host}:{emulator_port(9099)}',
+           FIREBASE_STORAGE_EMULATOR_HOST=f'{host}:{emulator_port(9199)}',
+           LOCAL_EMULATOR_PORT_OFFSET=str(args.port_offset),
            FIREBASE_CLI_DISABLE_MOTD='true', CI='true',
            XDG_CONFIG_HOME=str(state / 'cli-config'), CLOUDSDK_CONFIG=str(state / 'gcloud-config'))
 children = []
@@ -100,7 +105,7 @@ def request(url, data=None, headers=None):
 
 def main():
     if not args.dry_run:
-        for port in [8080, 9099, 9199, 5001, 4400, 4500, 9150, args.port]:
+        for port in [*map(emulator_port, [8080, 9099, 9199, 5001, 4400, 4500, 9150]), args.port]:
             with socket.socket() as probe:
                 # Connections from a run that just stopped must not count as busy.
                 probe.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
@@ -172,11 +177,11 @@ def main():
             'functions': {'source': 'functions', 'runtime': 'nodejs22'},
             'firestore': {'rules': str(ROOT / 'firestore.rules'), 'indexes': str(ROOT / 'firestore.indexes.json')},
             'storage': {'rules': str(ROOT / 'storage.rules')},
-            'emulators': {name: {'host': host, 'port': port} for name, port in
+            'emulators': {name: {'host': host, 'port': emulator_port(port)} for name, port in
                           [('auth', 9099), ('firestore', 8080), ('functions', 5001), ('storage', 9199),
                            ('hub', 4400), ('logging', 4500)]}}
         config['emulators'].update(ui={'enabled': False}, singleProjectMode=True)
-        config['emulators']['firestore']['websocketPort'] = 9150
+        config['emulators']['firestore']['websocketPort'] = emulator_port(9150)
         config_path.write_text(json.dumps(config))
     start(['functions/node_modules/.bin/firebase', 'emulators:start', '--project', project,
            '--config', config_path, '--only', 'auth,firestore,functions,storage'], state / 'emulators.log')
@@ -185,7 +190,7 @@ def main():
         deadline = time.monotonic() + 180
         while True:
             try:
-                for port in [9099, 8080, 5001, 9199]:
+                for port in map(emulator_port, [9099, 8080, 5001, 9199]):
                     with socket.create_connection((host, port), timeout=1):
                         pass
                 break
@@ -201,7 +206,8 @@ def main():
          '--export', 'build/export.json', '--project', project, *upload_options])
     run(['node', 'tools/local/seed_accounts.mjs'])
     run(['flutter', 'build', 'web', '--profile', '--no-web-resources-cdn', '-t', 'lib/main_dev.dart',
-         f'--dart-define=LOCAL_EMULATOR_HOST={host}'])
+         f'--dart-define=LOCAL_EMULATOR_HOST={host}',
+         f'--dart-define=LOCAL_EMULATOR_PORT_OFFSET={args.port_offset}'])
     print('+ install local App Check debug exchange, local account links and the test panel in build/web only', flush=True)
     print('+ dart run tool/list_routes.dart > build/web/local-panel-routes.json', flush=True)
     print('+ copy tools/local/panel/local-fps.js to build/web only (shown with ?localFps=1)', flush=True)
@@ -228,7 +234,7 @@ window.fetch = (input, init) => {
   // A saved session is checked while Firebase starts, before the emulator is connected. Without
   // this it reaches real Google, is refused, and the student is signed out at random on reload.
   if (url.hostname === 'identitytoolkit.googleapis.com' || url.hostname === 'securetoken.googleapis.com') {
-    const local = 'http://__LOCAL_HOST__:9099/' + url.hostname + url.pathname + url.search;
+    const local = 'http://__LOCAL_HOST__:__AUTH_PORT__/' + url.hostname + url.pathname + url.search;
     return localFetch(typeof input === 'string' ? local : new Request(local, input), init);
   }
   if (url.hostname === 'firebaseappcheck.googleapis.com' || url.hostname === 'content-firebaseappcheck.googleapis.com') {
@@ -258,7 +264,7 @@ try {
   }
 } catch (_) {}
 </script>'''
-        shim = shim.replace('__LOCAL_HOST__', host).replace('__LOCAL_RUN__', str(time.time_ns()))
+        shim = shim.replace('__LOCAL_HOST__', host).replace('__AUTH_PORT__', str(emulator_port(9099))).replace('__LOCAL_RUN__', str(time.time_ns()))
         index.write_text(index.read_text().replace('<head>', '<head>' + shim))
         # Do not register the production caching worker during a local visual check.
         Path('build/web/pantas_pwa.js').write_text('window.pantasPwa = null;\n')
@@ -338,7 +344,7 @@ try {
     url = f'http://{host}:{args.port}'
     # Run curl explicitly as requested. Do not print page bodies or Auth tokens.
     run(['curl', '--noproxy', '*', '--fail', '--silent', '--output', os.devnull, url])
-    signed = request(f'http://{host}:9099/identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=demo-pantas-local-api-key',
+    signed = request(f'http://{host}:{emulator_port(9099)}/identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=demo-pantas-local-api-key',
                      {'email': 'free@pantas.local', 'password': 'Local-visual-check-123!', 'returnSecureToken': True})
     app_check = request(url + '/local-app-check')['token']
     result_file = state / 'content-check.json'
@@ -349,7 +355,7 @@ try {
     try:
         run(['curl', '--noproxy', '*', '--fail', '--silent', '--config', curl_config,
              '-H', 'Content-Type: application/json', '--data', '{"data":{"kind":"catalog","ids":["index"]}}',
-             '--output', result_file, f'http://{host}:5001/{project}/asia-southeast1/getContent'])
+             '--output', result_file, f'http://{host}:{emulator_port(5001)}/{project}/asia-southeast1/getContent'])
         result = json.loads(result_file.read_text())['result']
         if result['items']['index']['status'] != 'ok' or 'exam_cse_pro' not in json.dumps(result):
             raise SystemExit('getContent did not serve the CSE catalog')

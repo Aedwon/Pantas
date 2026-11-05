@@ -31,11 +31,15 @@ Future<void> connectLocalFirebase() async {
   if (!kIsWeb || kReleaseMode) {
     throw StateError('Local emulators require a non-release web build.');
   }
-  await FirebaseAuth.instance.useAuthEmulator(localEmulatorHost, 9099);
-  FirebaseFirestore.instance.useFirestoreEmulator(localEmulatorHost, 8080);
+  // Lets a second local run sit beside the first. Zero everywhere else.
+  const offset = int.fromEnvironment('LOCAL_EMULATOR_PORT_OFFSET');
+  await FirebaseAuth.instance.useAuthEmulator(localEmulatorHost, 9099 + offset);
+  FirebaseFirestore.instance
+      .useFirestoreEmulator(localEmulatorHost, 8080 + offset);
   FirebaseFunctions.instanceFor(region: 'asia-southeast1')
-      .useFunctionsEmulator(localEmulatorHost, 5001);
-  await FirebaseStorage.instance.useStorageEmulator(localEmulatorHost, 9199);
+      .useFunctionsEmulator(localEmulatorHost, 5001 + offset);
+  await FirebaseStorage.instance
+      .useStorageEmulator(localEmulatorHost, 9199 + offset);
 
   // The app uses Google sign-in. These local-only links select password test
   // accounts before the normal auth bootstrap, without adding a product UI.

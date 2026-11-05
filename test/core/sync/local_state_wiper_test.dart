@@ -220,7 +220,10 @@ void _customExamSignOutTests() {
         isCustom: true,
       );
 
-      await SyncLocalStateWiper(db, contentDatabase: content).wipeAll();
+      await SyncLocalStateWiper(
+        db,
+        clearCustomExams: () => deleteCustomContentExams(content),
+      ).wipeAll();
 
       final ids = (await content.select(content.contentExams).get())
           .map((row) => row.id)
@@ -250,7 +253,10 @@ void _customExamSignOutTests() {
           .create(name: 'Maria exam', includedTopicIds: {});
       await _select(db, examId);
 
-      await SyncLocalStateWiper(db, contentDatabase: content).wipeAll();
+      await SyncLocalStateWiper(
+        db,
+        clearCustomExams: () => deleteCustomContentExams(content),
+      ).wipeAll();
       await CustomTrackRepository(db, content).reprojectAll();
 
       final exams = await ContentRepository(content).listExams();
