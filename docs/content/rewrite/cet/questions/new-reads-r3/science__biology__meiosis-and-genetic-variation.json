@@ -1,0 +1,10 @@
+{
+ "reader": "sol",
+ "round": 3,
+ "verdict": "clean",
+ "resolved": [
+  "q-biology-meiosis-and-genetic-variation-0001",
+  "q-biology-meiosis-and-genetic-variation-0008"
+ ],
+ "findings": []
+}

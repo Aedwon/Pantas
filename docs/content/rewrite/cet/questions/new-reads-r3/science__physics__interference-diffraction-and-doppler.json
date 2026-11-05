@@ -1,0 +1,19 @@
+{
+ "reader": "sol",
+ "round": 3,
+ "verdict": "major",
+ "resolved": [
+  "q-physics-waves-and-sound-0031",
+  "q-physics-waves-and-sound-0034"
+ ],
+ "findings": [
+  {
+   "question": "q-physics-waves-and-sound-0022",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This has the correct reason but the wrong result. Canceling needs a half wavelength. Check which path differences give canceling.",
+   "problem": "The note makes one half wavelength necessary for canceling. Odd multiples also give destructive interference: for example, a path difference of 3\u03bb/2 makes waves from the stated in-phase speakers arrive in opposite phases. This repeats the false restriction corrected in question 0034.",
+   "fix": "Say that canceling needs an odd multiple of half a wavelength."
+  }
+ ]
+}

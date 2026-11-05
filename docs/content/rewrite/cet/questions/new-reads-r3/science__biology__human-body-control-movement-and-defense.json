@@ -1,0 +1,9 @@
+{
+ "reader": "sol",
+ "round": 3,
+ "verdict": "clean",
+ "resolved": [
+  "q-biology-human-body-control-movement-and-defense-0008"
+ ],
+ "findings": []
+}

@@ -5,6 +5,7 @@
 - pulleys-and-levers 0013: the "speeding up" note assumes the block is rising; the choice does not say so.
 - botany 0012: the note's check does not test the revised distractor's claim ("light usually has no effect").
 - nuclear-chemistry 0011: the note says density alone decides gamma attenuation at equal thickness; composition and photon energy also matter.
+- interference-diffraction-and-doppler q-physics-waves-and-sound-0022 (a new question): the note implies only a half-wavelength path difference cancels; any odd multiple does.
 
 ## Figures to check visually
 
@@ -15,3 +16,4 @@
 
 - question-style-guide.md says YAML choice order is the display order. The app reorders choices by question id, so that line is stale.
 - 41 CET files shared with CSE got the blind solve but no lesson-fit read; they wait for CSE sign-off.
+- 160 new questions in 16 science files (mostly split lessons) were written by Sonnet and checked by Sol: blind solve 320 of 320, two fix rounds. They carry `approved: false` like most of the bank.
