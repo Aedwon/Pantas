@@ -42,6 +42,7 @@ import 'package:pantas/features/quiz/application/today_quiz_preparer.dart';
 import 'package:pantas/features/quiz/domain/models/session_origin.dart';
 import 'package:pantas/features/quiz/domain/quiz_session.dart';
 import 'package:pantas/features/quiz/presentation/question_flag_providers.dart';
+import 'package:pantas/features/quiz/presentation/questions_unavailable.dart';
 import 'package:pantas/features/quiz/presentation/quiz_controller.dart';
 import 'package:pantas/features/quiz/presentation/quiz_session_end_page.dart';
 import 'package:pantas/features/quiz/presentation/today_providers.dart';
@@ -598,21 +599,36 @@ class _QuizPageState extends ConsumerState<QuizPage> {
       _seenSessionId = state.session.sessionId;
     }
     if (state is! QuizRunning) {
+      if (state is QuizQuestionsUnavailable) {
+        return QuestionsUnavailable(
+          notFound: true,
+          onRetry: () => _startForMode(
+            ref.read(quizControllerProvider.notifier),
+          ),
+        );
+      }
+      final child =
+          state is QuizFailure && ref.watch(contentLimitReachedProvider)
+              ? const StateView(message: contentLimitMessage)
+              : state is QuizFailure
+                  ? errorFor(
+                      'quiz',
+                      () => _startForMode(
+                        ref.read(quizControllerProvider.notifier),
+                      ),
+                    )
+                  : const SkeletonQuestionPage();
+      if (context.wideWeb) {
+        return QuizUnavailableFrame(
+          onClose: () => _leave(context),
+          child: child,
+        );
+      }
       return Scaffold(
         body: SafeArea(
           child: Padding(
             padding: const EdgeInsets.all(16),
-            child:
-                state is QuizFailure && ref.watch(contentLimitReachedProvider)
-                    ? const StateView(message: contentLimitMessage)
-                    : state is QuizFailure
-                        ? errorFor(
-                            'quiz',
-                            () => _startForMode(
-                              ref.read(quizControllerProvider.notifier),
-                            ),
-                          )
-                        : const SkeletonQuestionPage(),
+            child: child,
           ),
         ),
       );

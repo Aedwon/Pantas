@@ -24,6 +24,7 @@ import 'package:pantas/features/lesson/presentation/widgets/web_ending_layout.da
 import 'package:pantas/features/lesson/presentation/widgets/web_lesson_search.dart';
 import 'package:pantas/features/lesson/presentation/widgets/web_reader_layout.dart';
 import 'package:pantas/features/lesson/presentation/widgets/web_study_layout.dart';
+import 'package:pantas/features/quiz/application/quiz_starts.dart';
 
 import '../../../helpers/in_memory_database.dart';
 
@@ -547,7 +548,11 @@ void main() {
           ),
         ),
         brightness,
+        overrides: [
+          lessonQuizAvailableProvider.overrideWith((_, __) async => true),
+        ],
       );
+      await tester.pumpAndSettle();
       final quiz =
           find.widgetWithText(TextButton, 'Quiz yourself, 5 questions');
       expect(

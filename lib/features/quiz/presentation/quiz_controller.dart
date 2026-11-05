@@ -65,6 +65,10 @@ class QuizFailure extends QuizControllerState {
   final String message;
 }
 
+class QuizQuestionsUnavailable extends QuizFailure {
+  const QuizQuestionsUnavailable(super.message);
+}
+
 /// Resume found no open session. Unlike a read error, retrying cannot help.
 class QuizNothingToResume extends QuizFailure {
   const QuizNothingToResume() : super('There is no session to pick up.');
@@ -432,7 +436,7 @@ class QuizController extends StateNotifier<QuizControllerState> {
             persisted: true,
           );
         case StartInlineLessonQuizNoQuestions(:final message):
-          state = QuizFailure(message);
+          state = QuizQuestionsUnavailable(message);
       }
     } catch (e) {
       state = QuizFailure(e.toString());

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
@@ -8,7 +9,7 @@ import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/quiz/application/quiz_starts.dart';
 
-class ReaderGap extends StatelessWidget {
+class ReaderGap extends ConsumerWidget {
   const ReaderGap({
     required this.isRead,
     required this.examId,
@@ -21,7 +22,16 @@ class ReaderGap extends StatelessWidget {
   final LessonId lessonId;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final canQuiz = examId != null &&
+        (ref
+                .watch(
+                  lessonQuizAvailableProvider(
+                    (examId: examId!, lessonId: lessonId),
+                  ),
+                )
+                .valueOrNull ??
+            false);
     final still = MediaQuery.disableAnimationsOf(context);
     final colors = context.colors;
     // The Read line pops in once per lesson, on the phone and the wide page.
@@ -94,7 +104,7 @@ class ReaderGap extends StatelessWidget {
                 ),
               ),
             const Spacer(),
-            if (examId != null)
+            if (canQuiz)
               TextButton(
                 style: TextButton.styleFrom(
                   minimumSize: const Size(0, 40),
@@ -123,7 +133,7 @@ class ReaderGap extends StatelessWidget {
           readPop(readLine)
         else
           SizedBox(height: MediaQuery.textScalerOf(context).scale(15) * 1.35),
-        if (examId != null) ...[
+        if (canQuiz) ...[
           const SizedBox(height: 18),
           if (context.wideWeb)
             Align(

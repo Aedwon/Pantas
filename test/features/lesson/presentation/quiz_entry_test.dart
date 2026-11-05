@@ -7,6 +7,7 @@ import 'package:pantas/features/lesson/application/study_map_providers.dart';
 import 'package:pantas/features/lesson/domain/models/study_map.dart';
 import 'package:pantas/features/lesson/presentation/learn_tab_home.dart';
 import 'package:pantas/features/lesson/presentation/widgets/reader_gap.dart';
+import 'package:pantas/features/quiz/application/quiz_starts.dart';
 
 import '../../../helpers/pump_app.dart';
 
@@ -46,7 +47,13 @@ void main() {
       ],
     );
     addTearDown(router.dispose);
-    await tester.pumpAppWithRouter(router);
+    await tester.pumpAppWithRouter(
+      router,
+      overrides: [
+        lessonQuizAvailableProvider.overrideWith((_, __) async => true),
+      ],
+    );
+    await tester.pumpAndSettle();
     await tester.tap(find.text('Quiz yourself, 5 questions'));
     await tester.pumpAndSettle();
     expect(find.text('Lesson quiz exam/one lesson/two?#'), findsOneWidget);
