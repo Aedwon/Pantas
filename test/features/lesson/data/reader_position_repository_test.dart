@@ -35,6 +35,32 @@ void main() {
   });
   tearDown(() => db.close());
 
+  test('captured reader boundary survives suspension of the same local owner',
+      () async {
+    final contexts = SyncActiveContextStore(db);
+    await contexts.publishStable(uid: 'user-1', generationId: 'gen-1');
+    final token = await positions.captureToken(isCurrent: () => true);
+    final boundary = ReaderBoundary(examId: 'e', token: token!);
+
+    await contexts.suspendStable();
+    expect(
+      await positions.isBoundaryCurrent(boundary, isCurrent: () => true),
+      isTrue,
+    );
+    await contexts.publishStable(uid: 'user-1', generationId: 'gen-1');
+    expect(
+      await positions.isBoundaryCurrent(boundary, isCurrent: () => true),
+      isTrue,
+    );
+
+    await contexts.suspendStable();
+    await contexts.publishStable(uid: 'user-1', generationId: 'gen-2');
+    expect(
+      await positions.isBoundaryCurrent(boundary, isCurrent: () => true),
+      isFalse,
+    );
+  });
+
   test('no saved fraction returns null, preserving the empty ring', () async {
     expect(await positions.readFraction('e', 'l'), isNull);
   });
@@ -235,14 +261,46 @@ void main() {
       expect(await SyncActiveContextStore(db).readSnapshot(), isNull);
     });
 
-    test('same account reset and another account expire the held write',
-        () async {
-      final contexts = SyncActiveContextStore(db);
-      await contexts.publishStable(uid: 'u', generationId: 'g');
-      final boundary =
-          (await positions.captureBoundary('e', isCurrent: () => true))!;
-      for (final uid in ['u', 'other']) {
-        await contexts.publishStable(uid: uid, generationId: 'g');
+    for (final suspended in [false, true]) {
+      test('same owner refresh keeps the held write when suspended=$suspended',
+          () async {
+        final contexts = SyncActiveContextStore(db);
+        await contexts.publishStable(uid: 'u', generationId: 'g');
+        final boundary =
+            (await positions.captureBoundary('e', isCurrent: () => true))!;
+        if (suspended) await contexts.suspendStable();
+        await contexts.publishStable(uid: 'u', generationId: 'g');
+
+        expect(
+          await positions.writeGuarded(
+            boundary,
+            'l',
+            120,
+            fraction: .25,
+            isCurrent: () => true,
+          ),
+          isTrue,
+        );
+        expect(await positions.read('e', 'l'), 120);
+        expect(await positions.readFraction('e', 'l'), .25);
+      });
+    }
+
+    for (final replacement in [
+      (label: 'same account reset', uid: 'u', generationId: 'g', clear: true),
+      (label: 'generation change', uid: 'u', generationId: 'g2', clear: false),
+      (label: 'another account', uid: 'other', generationId: 'g', clear: false),
+    ]) {
+      test('${replacement.label} expires the held write', () async {
+        final contexts = SyncActiveContextStore(db);
+        await contexts.publishStable(uid: 'u', generationId: 'g');
+        final boundary =
+            (await positions.captureBoundary('e', isCurrent: () => true))!;
+        if (replacement.clear) await contexts.clearStable();
+        await contexts.publishStable(
+          uid: replacement.uid,
+          generationId: replacement.generationId,
+        );
         expect(
           await positions.writeGuarded(
             boundary,
@@ -254,8 +312,8 @@ void main() {
           isFalse,
         );
         expect(await prefs.deviceValue('lesson_offset.e.l'), isNull);
-      }
-    });
+      });
+    }
 
     test('changed exam rejects capture and a previously held write', () async {
       await prefs.setSelectedExamId('e');

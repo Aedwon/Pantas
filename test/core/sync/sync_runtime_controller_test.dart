@@ -24,6 +24,139 @@ import 'package:pantas/core/sync/sync_status.dart';
 import '../../helpers/in_memory_database.dart';
 
 void main() {
+  for (final entitlement in SyncEntitlement.values) {
+    test('startup keeps the local owner token when ${entitlement.name} loads',
+        () async {
+      final h = _Harness();
+      addTearDown(h.close);
+      await h.runtime.update(
+        identity: const SyncIdentity(uid: 'user-1'),
+        entitlement: SyncEntitlement.pro,
+      );
+      h.seedGeneration(uid: 'user-1', generationId: 'gen-user-1-1');
+      final token = (await h.activeContext.readSnapshot())!.token;
+      final reloaded = h.reload();
+
+      await reloaded.update(
+        identity: const SyncIdentity(
+          uid: SyncIdentity.signedOutUid,
+          isAnonymous: true,
+        ),
+        entitlement: SyncEntitlement.free,
+      );
+      expect(await h.activeContext.readStable(), isNull);
+      expect((await h.activeContext.readSnapshot())!.token, token);
+
+      await reloaded.update(
+        identity: const SyncIdentity(uid: 'user-1'),
+        entitlement: entitlement,
+      );
+      expect((await h.activeContext.readSnapshot())!.token, token);
+
+      await reloaded.update(
+        identity: const SyncIdentity(uid: 'user-1'),
+        entitlement: SyncEntitlement.pro,
+      );
+      expect((await h.activeContext.readSnapshot())!.token, token);
+      expect(
+        await h.activeContext.readStable(),
+        const SyncActiveContext(
+          uid: 'user-1',
+          generationId: 'gen-user-1-1',
+        ),
+      );
+      expect(h.coordinator.pushCalls, 1);
+    });
+  }
+
+  test('same-owner activation hides context before a slow engine stop',
+      () async {
+    final h = _Harness();
+    addTearDown(h.close);
+    await h.runtime.update(
+      identity: const SyncIdentity(uid: 'user-1'),
+      entitlement: SyncEntitlement.pro,
+    );
+    h.seedGeneration(uid: 'user-1', generationId: 'gen-user-1-1');
+    final token = (await h.activeContext.readSnapshot())!.token;
+    h.engine.blockStops = true;
+
+    final update = h.runtime.update(
+      identity: const SyncIdentity(uid: 'user-1'),
+      entitlement: SyncEntitlement.pro,
+    );
+    await h.engine.stopEntered.future;
+    final suspended = (await h.activeContext.readSnapshot())!;
+    expect(suspended.context, isNull);
+    expect(suspended.token, token);
+    h.engine.releaseStop();
+    await update;
+    expect((await h.activeContext.readSnapshot())!.token, token);
+  });
+
+  for (final identity in [
+    const SyncIdentity(uid: 'user-2'),
+    const SyncIdentity(uid: 'anon-1', isAnonymous: true),
+    const SyncIdentity(uid: 'user-1', isAnonymous: true),
+  ]) {
+    test(
+        'switching to ${identity.uid} anonymous=${identity.isAnonymous} '
+        'forgets the suspended owner', () async {
+      final h = _Harness();
+      addTearDown(h.close);
+      await h.runtime.update(
+        identity: const SyncIdentity(uid: 'user-1'),
+        entitlement: SyncEntitlement.pro,
+      );
+      final token = (await h.activeContext.readSnapshot())!.token;
+      await h.runtime.update(
+        identity: const SyncIdentity(
+          uid: SyncIdentity.signedOutUid,
+          isAnonymous: true,
+        ),
+        entitlement: SyncEntitlement.free,
+      );
+
+      await h.runtime.update(
+        identity: identity,
+        entitlement: SyncEntitlement.free,
+      );
+
+      final cleared = (await h.activeContext.readSnapshot())!;
+      expect(cleared.token, isNot(token));
+      expect(cleared.context, isNull);
+      expect(cleared.rememberedContext, isNull);
+    });
+  }
+
+  for (final choice in SyncReconciliationChoice.values) {
+    test('${choice.name} replaces the token when the generation changes',
+        () async {
+      final h = _Harness();
+      addTearDown(h.close);
+      await h.runtime.update(
+        identity: const SyncIdentity(uid: 'user-1'),
+        entitlement: SyncEntitlement.pro,
+      );
+      final token = (await h.activeContext.readSnapshot())!.token;
+      h.seedGeneration(
+        uid: 'user-1',
+        generationId: 'gen-replaced',
+        meaningful: true,
+      );
+      await h.seedLocalLesson();
+      await h.runtime.update(
+        identity: const SyncIdentity(uid: 'user-1'),
+        entitlement: SyncEntitlement.pro,
+      );
+      expect(h.runtime.status, isA<SyncReconciliationRequired>());
+
+      await h.runtime.chooseReconciliation(choice);
+
+      expect((await h.activeContext.readSnapshot())!.token, isNot(token));
+    });
+  }
+
   for (final nativeDenial in [false, true]) {
     test(
         'bootstrap denial retries after cooldown '

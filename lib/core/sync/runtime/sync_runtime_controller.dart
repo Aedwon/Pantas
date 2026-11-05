@@ -105,9 +105,17 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
     // Again in the queue, after a push or pull already running has finished.
     await _forgetOtherAccountsGeneration(identity);
 
+    final snapshot = await _activeContextStore.readSnapshot();
+    if (identity.uid == SyncIdentity.signedOutUid ||
+        (!identity.isAnonymous &&
+            identity.uid == snapshot?.rememberedContext?.uid)) {
+      await _activeContextStore.suspendStable();
+    } else {
+      await _activeContextStore.clearStable();
+    }
+
     if (identity.isAnonymous || entitlement != SyncEntitlement.pro) {
       _emit(const SyncOff());
-      await _activeContextStore.clearStable();
       return _enqueue(() async {
         await _engine.stop();
         await _forgetOtherAccountsGeneration(identity);
@@ -118,7 +126,6 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
     }
 
     _emit(const SyncActivating());
-    await _activeContextStore.clearStable();
     return _enqueue(() async {
       await _forgetOtherAccountsGeneration(identity);
       await _activate(identity: identity, token: token);

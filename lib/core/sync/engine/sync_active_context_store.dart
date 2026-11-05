@@ -22,10 +22,17 @@ class SyncActiveContext {
 }
 
 class SyncActiveContextSnapshot {
-  const SyncActiveContextSnapshot({required this.token, required this.context});
+  const SyncActiveContextSnapshot({
+    required this.token,
+    required this.context,
+    required this.rememberedContext,
+  });
 
   final String token;
   final SyncActiveContext? context;
+
+  /// The local data owner, even while its active Sync context is suspended.
+  final SyncActiveContext? rememberedContext;
 }
 
 class SyncActiveContextStore {
@@ -57,13 +64,22 @@ class SyncActiveContextStore {
       final uid = decoded['uid'];
       final generationId = decoded['generationId'];
       if (uid == null && generationId == null) {
-        return SyncActiveContextSnapshot(token: token, context: null);
+        return SyncActiveContextSnapshot(
+          token: token,
+          context: null,
+          rememberedContext: null,
+        );
       }
       if (uid is! String || uid.isEmpty) return null;
       if (generationId is! String || generationId.isEmpty) return null;
+      final remembered = SyncActiveContext(
+        uid: uid,
+        generationId: generationId,
+      );
       return SyncActiveContextSnapshot(
         token: token,
-        context: SyncActiveContext(uid: uid, generationId: generationId),
+        context: decoded['suspended'] == true ? null : remembered,
+        rememberedContext: remembered,
       );
     } on FormatException {
       return null;
@@ -82,13 +98,30 @@ class SyncActiveContextStore {
         'must not be empty',
       );
     }
+    final current = await readSnapshot();
+    final owner = SyncActiveContext(uid: uid, generationId: generationId);
     await _writeEnvelope(
       <String, Object?>{
-        'token': _nextToken(),
+        'token':
+            current?.rememberedContext == owner ? current!.token : _nextToken(),
         'uid': uid,
         'generationId': generationId,
       },
     );
+  }
+
+  /// Stops exposing an active context without changing the local data owner.
+  Future<void> suspendStable() async {
+    final current = await readSnapshot();
+    if (current == null) return clearStable();
+    final owner = current.context;
+    if (owner == null) return;
+    await _writeEnvelope(<String, Object?>{
+      'token': current.token,
+      'uid': owner.uid,
+      'generationId': owner.generationId,
+      'suspended': true,
+    });
   }
 
   /// Clears the context. A context that is already cleared keeps its token:
@@ -96,7 +129,7 @@ class SyncActiveContextStore {
   /// guards that Home and Quiz captured from it fail with no real change.
   Future<void> clearStable() async {
     final current = await readSnapshot();
-    if (current != null && current.context == null) return;
+    if (current != null && current.rememberedContext == null) return;
     await _writeEnvelope(<String, Object?>{'token': _nextToken()});
   }
 
