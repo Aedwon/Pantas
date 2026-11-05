@@ -1,0 +1,20 @@
+{
+ "file": "science__chemistry__basic-organic-chemistry",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-chemistry-basic-organic-chemistry-0012",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Removed the mixes up wording; stem neutrally asks what the endings mean."
+  },
+  {
+   "question": "q-chemistry-basic-organic-chemistry-0014",
+   "severity": "Major",
+   "action": "rewritten",
+   "key_changed": false,
+   "summary": "Now uses a concrete alcohol with two candidate chains; choices, notes and explanation rewritten."
+  }
+ ]
+}

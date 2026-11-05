@@ -1,0 +1,20 @@
+{
+ "file": "science__physics__kinematics",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-physics-kinematics-0009",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Distractors are now plausible initial-velocity values; notes rewritten."
+  },
+  {
+   "question": "q-physics-kinematics-0012",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Note now says ignoring the minus sign leads to adding 5 each second."
+  }
+ ]
+}

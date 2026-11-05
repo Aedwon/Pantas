@@ -307,7 +307,7 @@ questions:
     type: which-is-true
     difficulty: hard
     stem: |
-      Three rays meeting at point $O$ form angles $\angle AOB = (4x - 5)^\circ$, $\angle BOC = (2x + 15)^\circ$, and reflex angle $\angle COA = (10x - 10)^\circ$. Which statement is true regarding the measure of $\angle AOB$?
+      Three rays meeting at point $O$ divide the plane into three consecutive, nonoverlapping sectors that together make a full turn. They form angles $\angle AOB = (4x - 5)^\circ$, $\angle BOC = (2x + 15)^\circ$, and reflex angle $\angle COA = (10x - 10)^\circ$. Which statement is true regarding the measure of $\angle AOB$?
     choices:
       - text: 'The measure of $\angle AOB$ is $85^\circ$.'
         correct: true

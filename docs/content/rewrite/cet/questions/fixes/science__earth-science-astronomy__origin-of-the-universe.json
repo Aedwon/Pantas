@@ -1,0 +1,27 @@
+{
+ "file": "science__earth-science-astronomy__origin-of-the-universe",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-earth-science-astronomy-origin-of-the-universe-0002",
+   "severity": "Blocker",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Stem now asks who published an expanding-universe model in 1927."
+  },
+  {
+   "question": "q-earth-science-astronomy-origin-of-the-universe-0007",
+   "severity": "Blocker",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Key and stem now speak of the 1927 expanding-universe model, not the Big Bang proposal."
+  },
+  {
+   "question": "q-earth-science-astronomy-origin-of-the-universe-0007",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Shortened the key and made all choices similar in length and detail."
+  }
+ ]
+}

@@ -10,7 +10,7 @@ questions:
     stem: |
       A steady siren moves toward a stationary listener at subsonic speed in still air. How does observed frequency compare with emitted frequency?
     choices:
-      - text: "It is higher."
+      - text: "It is higher because successive wavefronts reach the listener closer together"
         correct: true
       - text: "It is lower because wavefronts are farther apart ahead"
         rationale: |
@@ -20,7 +20,7 @@ questions:
           This equates emitted and observed frequencies despite motion. The siren does emit steadily. Check the arrival intervals.
       - text: "It is higher because sound itself travels faster in the air"
         rationale: |
-          This assigns the Doppler shift to propagation speed. Higher frequency is the observed result. Check the unchanged air conditions.
+          This gets the direction right but credits faster sound. Higher frequency comes from wavefront spacing. Check that the air conditions, and so the sound speed, do not change.
     explanation: |
       Successive wavefronts are emitted from positions closer to the listener. They arrive more frequently than for a stationary source. Observed frequency is higher.
     approved: true
@@ -31,7 +31,7 @@ questions:
     stem: |
       A steady siren recedes from a stationary listener in still air. How does observed frequency compare with emitted frequency?
     choices:
-      - text: "It is lower."
+      - text: "It is lower because successive wavefronts reach the listener farther apart"
         correct: true
       - text: "It is higher because separation increases"
         rationale: |

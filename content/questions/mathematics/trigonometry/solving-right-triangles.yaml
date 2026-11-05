@@ -198,7 +198,7 @@ questions:
     type: word-problem
     difficulty: hard
     stem: |
-      A person observes a plane at an angle of elevation of $20$ degrees. Two minutes later, after the plane has moved horizontally toward the observer, the angle of elevation is $50$ degrees. If the plane flies at a constant altitude of $5000$ meters, how far horizontally did the plane travel?
+      A person observes a plane at an angle of elevation of $20$ degrees. Two minutes later, after the plane has moved horizontally toward the observer, the angle of elevation is $50$ degrees. The observer's eyes are at ground level, and the plane flies at a constant altitude of $5000$ meters above that level. How far horizontally did the plane travel?
     choices:
       - text: '$5000 \left(\cot 20^\circ - \cot 50^\circ\right)$ meters'
         correct: true
@@ -212,7 +212,7 @@ questions:
         rationale: |
           This multiplies height by tangent instead of dividing. That uses the given height and initial angle. Check the equation $\tan20^\circ=5000/d_1$.
     explanation: |
-      Using the intended ground-level observation, let $d_1$ and $d_2$ be the horizontal distances before and after the plane moves. Tangent gives $d_1=5000\div\tan20^\circ$ and $d_2=5000\div\tan50^\circ$. Cotangent is reciprocal tangent, so these are $5000\cot20^\circ$ and $5000\cot50^\circ$. The plane stays on the same side and moves closer, so its travel is $d_1-d_2=5000(\cot20^\circ-\cot50^\circ)$ m.
+      Let $d_1$ and $d_2$ be the horizontal distances before and after the plane moves. Tangent gives $d_1=5000\div\tan20^\circ$ and $d_2=5000\div\tan50^\circ$. Cotangent is reciprocal tangent, so these are $5000\cot20^\circ$ and $5000\cot50^\circ$. The plane stays on the same side and moves closer, so its travel is $d_1-d_2=5000(\cot20^\circ-\cot50^\circ)$ m.
   - id: q-trigonometry-solving-right-triangles-0012
     type: direct-computation
     difficulty: hard
@@ -236,21 +236,21 @@ questions:
     type: word-problem
     difficulty: hard
     stem: |
-      A rescue helicopter hovers $100$ meters directly above a stranded person on a hillside. A rescue worker elsewhere on the hillside is $150$ meters from the stranded person when measured along the slope and sees the helicopter at an angle of elevation of $40$ degrees. Can the stated distances and angle be checked for consistency without additional information about the hill?
+      A rescue helicopter hovers $100$ meters directly above a stranded person on a hillside. A rescue worker elsewhere on the hillside is $150$ meters from the stranded person when measured along the slope and sees the helicopter at an angle of elevation of $40$ degrees. A student writes $\tan 40^\circ=\dfrac{100}{150}$ to check the data. Is this a valid check?
     choices:
-      - text: 'No additional information is needed because the $150$-meter slope distance is the horizontal distance used in tangent.'
+      - text: 'Yes. The $150$-meter slope distance is the horizontal side used in tangent.'
         rationale: |
-          This treats a slope distance as horizontal distance. That would work on level ground. Check which direction the stated distance follows.
-      - text: 'Yes, the angle of elevation of $40$ degrees confirms the setup exactly.'
+          This treats a slope distance as a horizontal distance. That would work on level ground. Check which direction the stated distance follows.
+      - text: 'Yes. The helicopter is $100$ meters above the worker as well as above the person.'
+        rationale: |
+          This treats the helicopter's height as the same for both people. The hill can put the worker higher or lower. Check where the worker stands compared with the stranded person.
+      - text: 'No. The $150$ meters is along the slope, and the helicopter may not be $100$ meters above the worker.'
+        correct: true
+      - text: 'Yes. The angle of elevation of $40$ degrees confirms that the distances agree.'
         rationale: |
           This treats a measured angle as proof that the distances agree. The angle describes the line of sight. Check that the triangle's horizontal and vertical sides are also known.
-      - text: 'No. The hill''s slope, or equivalent horizontal/vertical separation information, is needed to check the geometry.'
-        correct: true
-      - text: 'Yes, any $150$-meter slope distance is automatically compatible with a $40$ degree elevation angle.'
-        rationale: |
-          This assumes every slope orientation gives the same elevation angle. The slope distance is fixed. Check that changing the slope changes both the horizontal gap and the worker's height.
     explanation: |
-      The $150$ m is measured along the hill. It does not give the worker's horizontal separation or height relative to the stranded person. The helicopter is $100$ m above that person, but its height above the worker also depends on the hill. The hill's slope, or equivalent horizontal and vertical separations, is needed to check the actual geometry.
+      Tangent needs the horizontal distance and the height above the observer. The $150$ m is measured along the hill, so it is not the horizontal distance. The helicopter is $100$ m above the stranded person, but the worker may stand higher or lower on the hill. So $\dfrac{100}{150}$ is not the right ratio.
   - id: q-trigonometry-solving-right-triangles-0014
     type: which-is-true
     difficulty: hard
@@ -293,7 +293,7 @@ questions:
     type: word-problem
     difficulty: hard
     stem: |
-      An observer at point $A$ sees a hot-air balloon at an angle of elevation of $35$ degrees. The observer then walks $200$ meters directly away from the point on the ground beneath the balloon to point $B$, and the angle of elevation becomes $20$ degrees. How high is the balloon?
+      An observer at point $A$ sees a hot-air balloon at an angle of elevation of $35$ degrees. The ground is level and both angles are measured from ground level. The balloon stays still. The observer then walks $200$ meters directly away from the point on the ground beneath the balloon to point $B$, and the angle of elevation becomes $20$ degrees. How high is the balloon?
     choices:
       - text: '$\dfrac{200}{\cot 20^\circ - \cot 35^\circ}$ meters'
         correct: true
@@ -307,7 +307,7 @@ questions:
         rationale: |
           This treats the walk as the full farther distance and divides it by tangent. The larger triangle uses the farther point. Check both the distance label and the height-to-distance ratio.
     explanation: |
-      For the intended level-ground, ground-level observations of a stationary balloon, let the height be $h$. The first horizontal distance is $x=h\div\tan35^\circ=h\cot35^\circ$. After the walk it is $x+200=h\div\tan20^\circ=h\cot20^\circ$. Here cotangent means reciprocal tangent. Subtract: $200=h(\cot20^\circ-\cot35^\circ)$. Divide to get $h=\dfrac{200}{\cot20^\circ-\cot35^\circ}$ m.
+      Let the height be $h$. The first horizontal distance is $x=h\div\tan35^\circ=h\cot35^\circ$. After the walk it is $x+200=h\div\tan20^\circ=h\cot20^\circ$. Here cotangent means reciprocal tangent. Subtract: $200=h(\cot20^\circ-\cot35^\circ)$. Divide to get $h=\dfrac{200}{\cot20^\circ-\cot35^\circ}$ m.
   - id: q-trigonometry-solving-right-triangles-0017
     type: which-is-true
     difficulty: easy

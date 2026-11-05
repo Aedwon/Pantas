@@ -1,0 +1,27 @@
+{
+ "file": "mathematics__trigonometry__solving-right-triangles",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-trigonometry-solving-right-triangles-0011",
+   "severity": "Blocker",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Stem now states ground-level eyes and altitude measured from that level."
+  },
+  {
+   "question": "q-trigonometry-solving-right-triangles-0013",
+   "severity": "Blocker",
+   "action": "rewritten",
+   "key_changed": true,
+   "summary": "Now asks whether tan 40 = 100/150 is valid; key says slope distance is not horizontal and height above worker is unknown."
+  },
+  {
+   "question": "q-trigonometry-solving-right-triangles-0016",
+   "severity": "Blocker",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Stem now states level ground, ground-level angles and a stationary balloon."
+  }
+ ]
+}

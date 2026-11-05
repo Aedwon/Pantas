@@ -1,0 +1,20 @@
+{
+ "file": "science__physics__friction-tension-and-inclines",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-physics-dynamics-0010",
+   "severity": "Blocker",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Explanation now says kinetic friction opposes sliding between surfaces and limits the slowing claim to a stationary level surface."
+  },
+  {
+   "question": "q-physics-dynamics-0015",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Choices are now parallel comparisons (less than, equal to, greater than, cannot compare) with updated notes."
+  }
+ ]
+}

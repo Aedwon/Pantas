@@ -1,0 +1,20 @@
+{
+ "file": "mathematics__geometry__parallel-perpendicular-lines",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-geometry-parallel-perpendicular-lines-0007",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Replaced the false \"only corresponding\" check with one about different transversals."
+  },
+  {
+   "question": "q-geometry-parallel-perpendicular-lines-0020",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Reworded the note so the check addresses the crossed lines via the alternate interior angle rule."
+  }
+ ]
+}

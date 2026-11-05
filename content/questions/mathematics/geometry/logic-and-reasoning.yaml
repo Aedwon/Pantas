@@ -356,7 +356,7 @@ questions:
       - text: 'Inverse false; contrapositive false.'
         correct: false
         rationale: |
-          This ignores the known counterexample to the converse. The original and contrapositive are true. Check that the inverse shares the converse's falsity.
+          This passes the converse's falsity on to the contrapositive too, which looks right because both are rewritten forms. The contrapositive always matches the true original. Check that the contrapositive has the same truth value as the original.
     explanation: |
       The contrapositive shares the original conditional's truth value, so it is true. The inverse shares the converse's truth value. Since the converse has a counterexample, it is false and the inverse is false too.
 

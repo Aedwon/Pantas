@@ -43,7 +43,7 @@ questions:
         rationale: |
           This limits friction to the starting threshold. Static friction is often discussed first. Check whether there is relative sliding now.
     explanation: |
-      Kinetic friction can keep acting while surfaces slide. If it is the only horizontal force, it slows the object. Whether it can be ignored depends on its size and the accuracy needed.
+      Kinetic friction can keep acting while surfaces slide. It pushes against the sliding between the two touching surfaces. On a stationary level surface, that slows the sliding object. Whether it can be ignored depends on its size and the accuracy needed.
     approved: true
 
   - id: q-physics-dynamics-0015
@@ -54,15 +54,15 @@ questions:
     choices:
       - text: "It is less than the weight."
         correct: true
-      - text: "Yes: the normal force always equals $mg$, regardless of the surface's angle."
+      - text: "It equals the weight."
         rationale: |
           This applies the horizontal-table result to a ramp. The same weight is present, so the equality looks familiar. Check the component perpendicular to the surface.
-      - text: "No: the normal force is always greater than the full weight on an incline."
+      - text: "It is greater than the weight."
         rationale: |
           This treats an incline as increasing the inward part of weight. The slope changes the force directions. Check that a component cannot exceed the whole weight.
-      - text: "Yes: but only if the box is sliding down the ramp."
+      - text: "It cannot be compared without knowing the friction coefficient."
         rationale: |
-          This ties support force to sliding alone. Motion can seem to change every force. Check the forces perpendicular to the ramp.
+          This assumes friction sets the normal force. Friction acts along the ramp, so the choice looks reasonable. Check the forces perpendicular to the ramp.
     explanation: |
       On the ramp, part of the weight presses into the surface. The rest acts along it. With no other forces perpendicular to the ramp, the normal force balances only the perpendicular part.
     approved: true

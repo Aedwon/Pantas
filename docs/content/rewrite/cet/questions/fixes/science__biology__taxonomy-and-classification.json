@@ -1,0 +1,27 @@
+{
+ "file": "science__biology__taxonomy-and-classification",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-biology-taxonomy-and-classification-0009",
+   "severity": "Blocker",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Note now says Bacteria and Archaea contain DNA instead of all cells."
+  },
+  {
+   "question": "q-biology-taxonomy-and-classification-0015",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Removed \"rank\" from the three distractors so labels are parallel."
+  },
+  {
+   "question": "q-biology-taxonomy-and-classification-0016",
+   "severity": "Blocker",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Stem now says the cell is from a prokaryotic organism; key and choices unchanged."
+  }
+ ]
+}

@@ -113,7 +113,7 @@ questions:
     type: 'classify'
     difficulty: 'hard'
     stem: |
-      A student divides moles of solute by liters of solvent (instead of liters of solution) to calculate molarity. Is this correct?
+      A student divides moles of solute by liters of solvent to calculate molarity. Is this correct?
     choices:
       - text: 'No; use final solution volume.'
         correct: true
@@ -134,7 +134,7 @@ questions:
     type: 'classify'
     difficulty: 'hard'
     stem: |
-      To find percent by mass, a student divides the solute's mass by the solvent's mass alone, instead of the total solution's mass. Is this correct?
+      To find percent by mass, a student divides the solute's mass by the solvent's mass alone. Is this correct?
     choices:
       - text: 'No; use total solution mass.'
         correct: true
@@ -157,17 +157,17 @@ questions:
     stem: |
       Which statement about temperature and solubility is accurate?
     choices:
-      - text: 'Many solids become more soluble, with exceptions.'
+      - text: 'Many solids become more soluble when heated, with exceptions.'
         correct: true
-      - text: 'Every solid always becomes more soluble when heated.'
+      - text: 'Many solids become less soluble when heated, with exceptions.'
         rationale: |
-          This turns a common pattern into a universal law. Sugar is more soluble in hotter water. Check for other substances and exceptions.
-      - text: 'Every solute has exactly unchanged solubility at all temperatures.'
+          This reverses the common solid trend. Heating often lets water hold more dissolved solid. Check an example such as sugar in hot water.
+      - text: 'Many solids keep the same solubility when heated, with exceptions.'
         rationale: |
-          This treats solubility as independent of conditions. Substance identity matters. Check whether temperature also matters.
-      - text: 'Every dissolved gas becomes more soluble as temperature rises.'
+          This treats solubility as independent of temperature. Substance identity matters, but so does temperature. Check whether a hot drink dissolves more sugar than a cold one.
+      - text: 'Many gases become more soluble when heated, with exceptions.'
         rationale: |
-          This applies the common solid trend to every gas. Heating affects both. Check whether the solute is a solid or gas.
+          This applies the common solid trend to gases. Heating affects solids and gases differently. Check whether the solute is a solid or a gas.
     explanation: |
       Many solids become more soluble as temperature rises, but some change little or become less soluble. The behavior depends on the particular solute and solvent.
     approved: true
@@ -304,19 +304,19 @@ questions:
     stem: |
       Which description best identifies a solvent in a solution?
     choices:
-      - text: 'It determines the physical state.'
+      - text: 'The component that sets the physical state of the solution.'
         correct: true
-      - text: 'It must always be present in a smaller amount.'
+      - text: 'The component that is present in the smallest amount.'
         rationale: |
           This reverses the usual simple-case amount pattern. Solute often has a smaller amount. Check the physical-state role.
-      - text: 'It is always a substance made of water molecules.'
+      - text: 'The component that is the water in the solution.'
         rationale: |
           This treats the common solvent as the only possible one. Water is widely used. Check whether solutions can have other solvents.
-      - text: 'It must be a solid that disappears when stirred.'
+      - text: 'The component that is the solid that disappears when stirred.'
         rationale: |
-          This assigns a typical dissolving solid’s role to the solvent. Solids often dissolve in liquids. Check which component determines the state.
+          This assigns a typical dissolving solid's role to the solvent. Solids often dissolve in liquids. Check which component determines the state.
     explanation: |
-      The solvent determines the solution’s physical state and is often present in the greatest amount. Solutions can use solvents other than water.
+      The solvent determines the solution’s physical state and is often present in the greatest amount.
     approved: false
 
   - id: q-chemistry-solutions-0016
@@ -390,15 +390,15 @@ questions:
     choices:
       - text: 'Gas solubility decreases.'
         correct: true
-      - text: 'Every gas must become more soluble when heated.'
+      - text: 'Gas solubility increases, as it does for many solids.'
         rationale: |
-          This applies a common solid-solubility trend to gases. Some solids dissolve more when warm. Check the solute’s physical type.
-      - text: 'Solubility is unchanged for every gas and liquid pair.'
+          This applies a common solid-solubility trend to gases. Some solids dissolve more when warm. Check the solute's physical type.
+      - text: 'Gas solubility stays the same because the pressure is fixed.'
         rationale: |
-          This treats a broad variable property as universally constant. Pressure is fixed. Check the temperature change.
-      - text: 'Temperature affects only solids and never dissolved gases.'
+          This treats fixed pressure as fixing solubility. Temperature also changes how much gas the liquid holds. Check the temperature change.
+      - text: 'Gas solubility rises at first, then falls as warming continues.'
         rationale: |
-          This excludes gases from temperature effects. Solid examples are common. Check the lesson’s gas-solubility behavior.
+          This invents a turning point in the trend. Warmer liquids hold less gas at each step. Check the lesson's gas-solubility behavior.
     explanation: |
       Dissolved gases commonly become less soluble as the liquid warms at fixed gas partial pressure. The equilibrium concentration therefore commonly decreases.
     approved: false

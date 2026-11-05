@@ -1,0 +1,27 @@
+{
+ "file": "mathematics__trigonometry__laws-of-sines-and-cosines",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-trigonometry-laws-of-sines-and-cosines-0018",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Note now describes reversing the cosine signs."
+  },
+  {
+   "question": "q-trigonometry-laws-of-sines-and-cosines-0019",
+   "severity": "Blocker",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Stem now opens with a student checking whether the triangle can exist."
+  },
+  {
+   "question": "q-trigonometry-laws-of-sines-and-cosines-0020",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Zero-triangle note now describes swapping the sides so sin R exceeds 1."
+  }
+ ]
+}

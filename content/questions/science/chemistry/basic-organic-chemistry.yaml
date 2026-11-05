@@ -239,7 +239,7 @@ questions:
     type: 'classify'
     difficulty: 'hard'
     stem: |
-      A student mixes up the endings "-ene" and "-yne," using "-yne" for a molecule with a double bond. Is this correct?
+      Which statement correctly gives the bond type shown by the endings "-ene" and "-yne" in hydrocarbon names?
     choices:
       - text: '-ene marks a double bond; -yne marks a triple bond.'
         correct: true
@@ -281,21 +281,21 @@ questions:
     type: 'predict-outcome'
     difficulty: 'exam'
     stem: |
-      A longer candidate chain excludes the principal functional group required for the suffix. A shorter allowed parent includes it. Which approach follows the lesson?
+      The alcohol $\text{CH}_3\text{CH}_2\text{CH}(\text{CH}_2\text{OH})\text{CH}_2\text{CH}_3$ has a five-carbon chain and a four-carbon chain through the carbon that bears the OH group. Which chain is the parent chain in its name?
     choices:
-      - text: 'Use the parent required by the principal group.'
+      - text: 'The four-carbon chain that includes the carbon bonded to OH'
         correct: true
-      - text: 'Always choose the longer chain regardless of the group.'
+      - text: 'The five-carbon chain, because it is the longest'
         rationale: |
-          This applies the simple-alkane shortcut universally. Longest-chain selection is useful for simple alkanes. Check whether a principal functional group adds requirements.
-      - text: 'Always choose whichever chain was drawn first.'
+          This applies the simple-alkane shortcut to an alcohol. Longest-chain selection is useful for simple alkanes. Check whether the parent chain must include the carbon bonded to OH.
+      - text: 'The chain drawn first from left to right'
         rationale: |
-          This makes drawing order determine the parent. A prominent chain can look intended as the parent. Check the naming rules for the compound class.
-      - text: 'Ignore all functional groups when choosing a parent.'
+          This lets drawing order decide the parent. A chain drawn first can look intended as the parent. Check the naming rules for alcohols.
+      - text: 'Either chain, because the OH group does not affect the choice'
         rationale: |
-          This removes a required functional group from naming decisions. The carbon skeleton is easy to notice first. Check which group must appear through the suffix.
+          This ignores the functional group when choosing the parent. The carbon skeleton is easy to notice first. Check that the -ol suffix needs the carbon bonded to OH in the parent chain.
     explanation: |
-      For compounds with a principal functional group, parent choice must follow the rules for that group. A longer chain can be wrong if it excludes the group required for the suffix.
+      In an alcohol, the parent chain must include the carbon bonded to the OH group, because the name ends in -ol. The five-carbon chain does not include that carbon. The four-carbon chain does, so the compound is named as a butanol.
     approved: true
 
   - id: q-chemistry-basic-organic-chemistry-0015

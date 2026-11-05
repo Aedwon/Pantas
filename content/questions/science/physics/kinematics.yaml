@@ -180,15 +180,15 @@ questions:
     choices:
       - text: "Zero"
         correct: true
-      - text: "Yes: \"dropped\" gives no information about initial velocity."
+      - text: "$9.8\\,\\mathrm{m/s}$ downward"
         rationale: |
-          This ignores the stated release from rest. Dropping can be described loosely in everyday speech. Check the specified starting condition.
-      - text: "No: \"dropped\" means the final velocity is 0, not the initial velocity."
+          This gives the acceleration of gravity as the starting velocity. Both use similar numbers and downward direction. Check that rest means the ball has no speed at the start.
+      - text: "Equal to its speed just before landing"
         rationale: |
-          This assigns zero to the final velocity. The word rest is prominent. Check whether it describes release or later impact.
-      - text: "Yes: initial velocity must always be solved for separately."
+          This gives the final velocity as the initial velocity. The ball does reach a large speed later. Check whether the value is asked at release or at impact.
+      - text: "Greater than zero, because gravity is already acting"
         rationale: |
-          This treats initial velocity as always unknown. Some problems do ask for it. Check what information the stem already gives.
+          This treats gravity as giving the ball speed at the instant of release. Gravity changes velocity over time. Check what velocity means at the first instant.
     explanation: |
       Released from rest means the initial velocity is zero in the stated reference frame. That value is already given.
     approved: true
@@ -245,7 +245,7 @@ questions:
         correct: true
       - text: "50 m/s"
         rationale: |
-          This adds the acceleration magnitude instead of using its opposite direction. The five is printed as a positive magnitude. Check the direction relative to initial motion.
+          This adds the acceleration magnitude instead of using its opposite direction. Ignoring the minus sign can make adding 5 each second seem right. Check the direction relative to initial motion.
       - text: "20 m/s"
         rationale: |
           This reports the size of the velocity change as the final velocity. The product of rate and time is relevant. Check the initial velocity too.

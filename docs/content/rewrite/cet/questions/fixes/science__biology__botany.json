@@ -1,0 +1,20 @@
+{
+ "file": "science__biology__botany",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-biology-botany-0006",
+   "severity": "Blocker",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Companion cells now limited to flowering plants."
+  },
+  {
+   "question": "q-biology-botany-0012",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Replaced absolute distractors with similarly qualified alternatives; key text lengthened to match."
+  }
+ ]
+}

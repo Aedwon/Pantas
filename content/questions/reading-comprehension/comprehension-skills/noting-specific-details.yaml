@@ -293,9 +293,9 @@ questions:
       - text: "200 pesos"
         rationale: |
           This selects the 2019 price. It is the same product and unit. Check the year.
-      - text: "300 pesos"
+      - text: "3 pesos"
         rationale: |
-          This borrows the leading number of the grant amount. Three million funds a facility. Check the scale and purpose of the amount.
+          This copies the grant's number but drops "million." The grant pays for a facility, not for each kilogram of beans. Check that the number is a price per kilogram.
       - text: "86 pesos"
         rationale: |
           This uses the specialty rating as a price. Eighty-six is a score in points. Check the unit attached to the number.
@@ -352,7 +352,7 @@ questions:
         correct: true
       - text: "Beside the library's old reading room"
         rationale: |
-          This selects the old location. Both rooms are described together. Check the phrase after the move.
+          This reads the old reading room beside the library as a place beside the reading room, and it ignores the move. The two rooms have similar names. Check where the passage puts the entrance after the move.
       - text: "At the library's existing entrance"
         rationale: |
           This assumes the library and archive share an entrance. Their room names are similar. Check the separate directions.

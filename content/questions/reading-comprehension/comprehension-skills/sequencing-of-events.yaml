@@ -405,7 +405,7 @@ questions:
           This selects Wednesday afternoon. It is after Mika's return. Check the word before.
       - text: "The librarian sends the final follow-up message."
         rationale: |
-          This selects contact after handover. The librarian calls twice. Distinguish the response before arrival from the later follow-up.
+          This selects contact after handover. The librarian responds before Mika arrives and contacts the owner again after the handover. Distinguish the response before arrival from the later follow-up.
     explanation: |
       The owner calls Wednesday morning before Mika arrives. Mika's message had been sent Monday evening.
     approved: false

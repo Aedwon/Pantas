@@ -55,7 +55,7 @@ questions:
           This chooses one group's supporting argument as the whole point. Safe recreation motivates the petition. Check the resolution that serves both groups.
       - text: "Food prices explained why families might value a garden."
         rationale: |
-          This turns the garden's motive into forced farming. Food prices explain one proposal. Check whether the passage says families were forced.
+          This picks the reason behind one proposal as the main idea. Rising food prices explain the garden plan. Check whether the choice also covers the dispute and the shared solution.
       - text: "A full basketball court replaced the entire garden proposal."
         rationale: |
           This turns a compromise into a full court. The youth originally asks for basketball space. Check the actual shared design.
@@ -66,7 +66,7 @@ questions:
     type: "identify"
     difficulty: "easy"
     stem: |
-      What percentage of the vacant lot was allocated to raised garden beds?
+      What percentage of the vacant lot was allocated to raised garden beds and a composting station combined?
     choices:
       - text: "Sixty percent"
         correct: true
@@ -150,15 +150,15 @@ questions:
     choices:
       - text: "Trust and discipline help the store endure."
         correct: true
-      - text: "Supermarkets are certain to replace every neighborhood store."
+      - text: "Lower supermarket prices make small stores hard to keep open."
         rationale: |
-          This turns competition into an unsupported prediction. Supermarkets offer lower prices. Check how the passage explains continued survival.
-      - text: "Avoiding all customer credit is the key to continued profit."
+          This picks the competition detail as the main idea. Supermarkets do offer lower prices. Check whether the passage says why the store still survives.
+      - text: "A ledger of credit records helps Aling Rosa manage debts."
         rationale: |
-          This treats credit risk as a reason to avoid all credit. Debts require care. Check Rosa's actual limited-credit practice.
-      - text: "Weekly wholesale buying is the only requirement for survival."
+          This picks one business practice as the main idea. The ledger is part of her credit control. Check whether the choice also covers convenience and buying.
+      - text: "Monday wholesale buying lowers the cost of the store's stock."
         rationale: |
-          This turns a purchasing detail into a universal rule. Monday purchases save costs. Check the other practices supporting the store.
+          This picks a purchasing detail as the main idea. Bulk buying does secure discounts. Check whether the choice covers the whole account.
     explanation: |
       The store helps neighbors through convenience and credit while controlling stock and debts. The closing paragraph brings these together as trust balanced with business discipline.
   - id: "rc-cs-mi-0007"
@@ -315,7 +315,7 @@ questions:
           This supplies benefits from another kind of project. Tourism and construction can affect coastal towns. Check the outcomes named in the report.
       - text: "Free plastic clearing services and expanded coastal road lanes"
         rationale: |
-          This turns maintenance and roads into the two outcomes. Both connect to the project. Check the closing claims about waves and habitat.
+          This combines a real maintenance task with an unsupported road claim. Youth groups do remove plastic, which makes it look right. Check the two benefits the report names after three years.
       - text: "Elimination of all typhoons and expanded freshwater reservoirs"
         rationale: |
           This turns reduced impact into removal of storms. Mangroves protect coastlines. Check whether the project changes storm occurrence.
@@ -335,7 +335,7 @@ questions:
           This expands a restoration account into all fishpond history. Old dikes are discussed. Check whether historical construction is the central point.
       - text: "Cleaning Plastic: The Project's Only Environmental Goal"
         rationale: |
-          This combines a maintenance detail with a claim about youth. Plastic removal is mentioned. Check whether harm to youth is described.
+          This turns a maintenance detail into the project's only goal. Plastic removal is mentioned, which makes the title sound relevant. Check whether the title also covers coastal protection and nursery habitat.
       - text: "Commercial Fishing Methods for Typhoon Season"
         rationale: |
           This changes restoration into fishing during storms. Both waves and livelihoods appear. Check the project's actual activity.

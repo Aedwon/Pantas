@@ -115,7 +115,7 @@ questions:
       This repeats cosine. The given ratio is familiar. Flip it for secant.
   - text: '$\dfrac{12}{13}$'
     rationale: |
-      This reports sine. The missing opposite leg is twelve. Secant is reciprocal cosine.
+      This reports sine. In a triangle with adjacent leg five and hypotenuse thirteen, the opposite leg is twelve. Secant is reciprocal cosine.
   - text: '$\dfrac5{12}$'
     rationale: |
       This reports cotangent. Five over twelve uses the legs. Secant uses hypotenuse over adjacent.
@@ -171,7 +171,7 @@ questions:
     correct: true
   - text: '$\dfrac{5}{13}$'
     rationale: |
-      This repeats sine. The opposite side is five. Use adjacent over hypotenuse for cosine.
+      This repeats sine. The given ratio is opposite over hypotenuse. Use adjacent over hypotenuse for cosine.
   - text: '$\dfrac{13}{5}$'
     rationale: |
       This gives cosecant. It flips the stated sine. Check the requested function.

@@ -113,21 +113,21 @@ questions:
     type: classify
     difficulty: hard
     stem: |
-      The mineral pyrite looks golden on the outside but leaves a dark greenish-black powder when scratched on an unglazed tile. A student identifies pyrite as "golden-colored" based on this streak test. Is this correct?
+      The mineral pyrite looks golden on the outside but leaves a dark greenish-black powder when scratched on an unglazed tile. Which property does the dark powder describe?
     choices:
-      - text: 'No: the dark greenish-black powder is pyrite''s streak, which can be very different from its golden outer color; streak, not outer color, is what the scratch test reveals.'
+      - text: 'Streak'
         correct: true
-      - text: 'Yes: the streak test always reveals the mineral''s outer color.'
+      - text: 'Luster'
         rationale: |
-          This equates powder color with surface color. Both describe color. Check the actual powder left on the tile.
-      - text: 'No: but only because pyrite does not actually have a streak.'
+          This picks the property of the shiny surface. Pyrite's metallic shine is easy to notice. Check that luster describes how light reflects, not the color of a powder.
+      - text: 'Hardness'
         rationale: |
-          This denies the stated powder result. Some minerals are difficult to test on a tile. Check the observed powder in this setup.
-      - text: 'Yes: pyrite''s streak and outer color are always identical.'
+          This picks the property tied to scratching. The test involves rubbing the mineral on a tile. Check that hardness is resistance to being scratched, not powder color.
+      - text: 'Cleavage'
         rationale: |
-          This assumes one mineral has only one kind of color observation. The surface looks golden. Check powder color separately.
+          This picks a property about how the mineral breaks. Rubbing it on a tile breaks off some powder. Check that cleavage is the flat surfaces a mineral splits along.
     explanation: |
-      The powder produced in the stated test is dark greenish-black. That is the sample's streak. Its golden surface color is a separate observation.
+      The powder left on the tile is the mineral's streak. Streak is the color of the mineral in powder form. It can differ from the color of the surface. Pyrite is golden on the outside, but its streak is dark greenish-black.
     approved: true
 
   - id: q-earth-science-astronomy-minerals-and-rocks-0007
@@ -367,17 +367,17 @@ questions:
     stem: |
       A geologist finds an unknown mineral sample. It can be scratched by a steel knife (hardness about 5.5) but can itself scratch glass (hardness about 5.5 as well, roughly tied). Its outer color is silvery, but rubbing it on an unglazed tile produces a black powder. Which two properties did the geologist use to gather the most reliable identifying clues, and why?
     choices:
-      - text: 'Hardness (compared against known reference materials like a steel knife and glass) and streak (the black powder), since streak is more reliable than outer color, which can vary due to surface impurities.'
+      - text: 'Hardness and streak, because both are less affected by surface impurities than color.'
         correct: true
-      - text: 'Only the mineral''s outer silvery color, since color alone is always sufficient for identification.'
+      - text: 'Color and luster, because the silvery surface shows both.'
         rationale: |
-          This treats surface color as sufficient identification. The sample's silvery color is easy to notice. Check the actual scratch and powder tests.
-      - text: 'Only luster, since hardness and streak provide no useful identifying information.'
+          This relies on how the surface looks. The silvery look is easy to notice. Check which tests were actually done: scratching and rubbing on a tile.
+      - text: 'Hardness and luster, because both can be judged from the sample itself.'
         rationale: |
-          This substitutes a surface-reflection test for the tests described. The silvery appearance may suggest luster. Check what was measured against reference materials and a tile.
-      - text: 'Cleavage and fracture, since the scenario describes breaking patterns rather than hardness or color.'
+          This swaps the powder test for the surface shine. The silvery look suggests luster. Check that the black powder came from a streak test, not a luster check.
+      - text: 'Streak and cleavage, because the black powder shows how the mineral breaks.'
         rationale: |
-          This substitutes break geometry for scratching and powder color. All are mineral properties. Check whether any breaking pattern was reported.
+          This reads the powder as a breaking pattern. Rubbing on a tile does wear the mineral down. Check that cleavage was not reported, and that the powder gives streak.
     explanation: |
       The scratch comparisons test hardness. The powder on the tile tests streak. These observations give scratch resistance and powder color as identification clues; the stated approximate reference values do not establish a precise hardness.
     approved: true

@@ -1,0 +1,20 @@
+{
+ "file": "mathematics__trigonometry__basic-trigonometric-ratios",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-trigonometry-basic-trigonometric-ratios-0006",
+   "severity": "Blocker",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Note now uses a representative triangle with adjacent 5 and hypotenuse 13."
+  },
+  {
+   "question": "q-trigonometry-basic-trigonometric-ratios-0009",
+   "severity": "Blocker",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Note now says the given ratio is opposite over hypotenuse, with no length claim."
+  }
+ ]
+}

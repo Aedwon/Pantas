@@ -1,0 +1,55 @@
+{
+ "file": "science__chemistry__periodic-table",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-chemistry-periodic-table-0004",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Choices now compare plausible group predictions with similar qualifiers."
+  },
+  {
+   "question": "q-chemistry-periodic-table-0004",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Explanation now uses outer electrons in plain English."
+  },
+  {
+   "question": "q-chemistry-periodic-table-0007",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Explanation now uses electron layers and distance."
+  },
+  {
+   "question": "q-chemistry-periodic-table-0009",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Note now names the molar-mass ranking mistake."
+  },
+  {
+   "question": "q-chemistry-periodic-table-0011",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Distractors now use generally and vary the directions and properties."
+  },
+  {
+   "question": "q-chemistry-periodic-table-0017",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "All four choices are now bare property names."
+  },
+  {
+   "question": "q-chemistry-periodic-table-0019",
+   "severity": "Major",
+   "action": "rewritten",
+   "key_changed": true,
+   "summary": "Now ranks nitrogen and oxygen from supplied values and asks for the reason; new key."
+  }
+ ]
+}

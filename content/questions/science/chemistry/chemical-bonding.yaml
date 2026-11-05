@@ -71,17 +71,17 @@ questions:
     type: 'classify'
     difficulty: 'medium'
     stem: |
-      An electronegativity difference of 0.4 is used only as a rough guide. Which description is best supported?
+      A bond has an electronegativity difference of 0.4. This number is only a rough guide. What does it suggest about the bond?
     choices:
       - text: 'Nearly equal or weakly polar sharing'
         correct: true
-      - text: 'Complete electron transfer in every compound'
+      - text: 'Strongly polar sharing with a large charge separation'
         rationale: |
-          This turns a small difference into complete transfer. Unequal attraction does affect sharing. Check whether the difference is large or small.
-      - text: 'Strongly ionic behavior with no possible exception'
+          This treats a small difference as a large one. Unequal attraction does affect sharing, but 0.4 is small. Check whether the difference is large or small.
+      - text: 'Ionic bonding with complete electron transfer'
         rationale: |
-          This treats an approximate guide as an exception-free law. Textbook cutoffs can look exact. Check the lesson’s warning about a bonding continuum.
-      - text: 'Metallic bonding determined by this number alone'
+          This treats a small difference as the large difference needed for transfer. Ionic cutoffs are much higher, and they are approximate. Check the size of the difference against the bonding continuum.
+      - text: 'Metallic bonding with shared, free-moving electrons'
         rationale: |
           This uses one difference value to define metallic structure. Metal atoms may have similar values. Check the actual substance and its electron model.
     explanation: |
@@ -302,21 +302,21 @@ questions:
     type: 'predict-outcome'
     difficulty: 'exam'
     stem: |
-      A central atom has 3 bonding electron groups and 1 lone pair (4 total electron groups). Using the same reasoning that makes water's shape bent instead of tetrahedral, what can you predict about this molecule's shape?
+      A central atom has 3 bonding electron groups and 1 lone pair (4 total electron groups). What is the molecular shape?
     choices:
-      - text: 'The molecular shape is not tetrahedral.'
+      - text: 'Trigonal pyramidal'
         correct: true
-      - text: 'Lone pairs never change molecular geometry.'
+      - text: 'Tetrahedral'
         rationale: |
-          This removes the influence of a lone pair. Lone pairs do not mark atom positions, which can suggest they do not matter. Check whether their electron density still repels bonding groups.
-      - text: 'Only two groups count, giving a linear shape.'
+          This names the arrangement of all four electron groups as the molecular shape. A lone pair is not an atom. Check which groups hold atoms.
+      - text: 'Trigonal planar'
         rationale: |
-          This miscounts both bond regions and lone pairs. A straight shape is familiar for small counts. Check the three bonds plus the one lone pair.
-      - text: 'Only the three bonds count, giving a planar shape.'
+          This ignores the lone pair when arranging the groups. Three bonding regions alone suggest a flat triangle. Check the total electron-group count before naming molecular shape.
+      - text: 'Bent'
         rationale: |
-          This ignores the lone pair when arranging the groups. Three bonding regions alone suggest a planar arrangement. Check the total electron-group count before naming molecular shape.
+          This counts only two bonded atoms. Water is bent, so the shape can seem familiar. Check that this atom has three bonded atoms, not two.
     explanation: |
-      All four electron groups affect the arrangement. One group is a lone pair, leaving only three bonded-atom positions. Molecular shape describes those three atom positions, so it is not a four-atom tetrahedron.
+      All four electron groups spread out in a tetrahedral arrangement. One group is a lone pair, so only three groups hold atoms. Three atoms around a central atom, pushed down by the lone pair, make a trigonal pyramidal shape.
     approved: true
 
   - id: q-chemistry-chemical-bonding-0016

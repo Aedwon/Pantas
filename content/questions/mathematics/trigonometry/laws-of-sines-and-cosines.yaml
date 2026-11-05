@@ -338,7 +338,7 @@ questions:
         correct: true
       - text: 'The third side is longer in the first triangle.'
         rationale: |
-          This treats an obtuse cosine as positive in the subtraction term. Both cosine values have magnitude one-half. Check their signs before comparing the squares.
+          This reverses the cosine signs, using $-\dfrac{1}{2}$ for $60^\circ$ and $+\dfrac{1}{2}$ for $120^\circ$. Both values have size one-half, so the swap is easy to miss. Check that $\cos60^\circ$ is positive and $\cos120^\circ$ is negative.
       - text: 'The third side has the same length in both triangles.'
         rationale: |
           This assumes two matching side lengths determine the whole triangle. Both triangles share those lengths. Check whether the included angles also match.
@@ -352,7 +352,7 @@ questions:
     type: error-spotting
     difficulty: hard
     stem: |
-      In triangle $ABC$, $a=4$, $b=10$, and $A=30^\circ$. A student writes Step 1: $\dfrac{4}{\sin30^\circ}=\dfrac{10}{\sin B}$. Step 2: $\sin B=\dfrac{5}{4}$. Step 3: the calculator should return a real angle $B$ in degrees. Which is the first incorrect step?
+      A student checks whether a triangle $ABC$ can have $a=4$, $b=10$, and $A=30^\circ$. The student writes Step 1: $\dfrac{4}{\sin30^\circ}=\dfrac{10}{\sin B}$. Step 2: $\sin B=\dfrac{5}{4}$. Step 3: the calculator should return a real angle $B$ in degrees. Which is the first incorrect step?
     choices:
       - text: 'Step 3'
         correct: true
@@ -381,7 +381,7 @@ questions:
           This keeps only the principal arcsine angle. A calculator returns just that one. Check the supplementary angle and whether it also leaves a positive third angle.
       - text: 'Zero'
         rationale: |
-          This assumes the supplementary angle makes the angle sum too large. That can happen in SSA problems. Check each possible sum against $180^\circ$.
+          This swaps the two sides, giving $\sin R=\dfrac{10}{7\sin30^\circ}$, which is greater than $1$. The swap looks fine because both lengths appear. Check that each side is paired with its opposite angle.
       - text: 'Three'
         rationale: |
           This counts the remaining third angle as another solution. A triangle has three angle labels. Check that a solution needs a whole set of three angles, not a single angle.

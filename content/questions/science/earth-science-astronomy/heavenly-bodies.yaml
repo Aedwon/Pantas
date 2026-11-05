@@ -260,7 +260,7 @@ questions:
     type: identify
     difficulty: medium
     stem: |
-      Roughly how often does the most famous comet, Halley's Comet, swing by Earth?
+      About how often does the most famous comet, Halley's Comet, return to the inner Solar System?
     choices:
       - text: 'Roughly every 76 years'
         correct: true

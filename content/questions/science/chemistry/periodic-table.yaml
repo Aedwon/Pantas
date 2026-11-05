@@ -73,19 +73,19 @@ questions:
     stem: |
       Two main-group elements are in the same vertical group but different periods. What is reasonable to predict?
     choices:
-      - text: 'They often behave similarly.'
+      - text: 'They often react in similar ways.'
         correct: true
-      - text: 'They can have no chemical similarities.'
+      - text: 'They usually react very differently because their atoms differ in size.'
         rationale: |
-          This treats different periods as eliminating every chemical pattern. The atoms have different sizes. Check their analogous valence configurations.
-      - text: 'They must have the same atomic number.'
+          This lets atom size outweigh the group pattern. Atoms in lower periods are larger, so size looks important. Check what the group tells you about the outer electrons.
+      - text: 'They usually have the same number of electron shells.'
         rationale: |
-          This treats a shared group as identical atomic number. Group members share patterns. Check whether they are different elements in different periods.
-      - text: 'Their group position provides no useful pattern.'
+          This mixes up the group with the period. Both are shared labels on the table. Check that the period number gives the shells and the group gives the outer electrons.
+      - text: 'They usually have nearly the same atomic mass.'
         rationale: |
-          This treats a broad pattern as useless. Exceptions exist. Check what can reasonably be predicted for main-group elements.
+          This treats a shared group as a shared mass. Elements in a group look like a family. Check that each lower period adds many protons and neutrons.
     explanation: |
-      Same-group main-group elements generally have analogous valence-electron configurations. This often gives similar chemical behavior, although their properties are not identical.
+      Elements in the same group usually have the same number of outer electrons. Outer electrons take part in reactions. So these elements often react in similar ways. Their properties are not identical.
     approved: true
 
   - id: q-chemistry-periodic-table-0005
@@ -148,7 +148,7 @@ questions:
         rationale: |
           This changes radius into an electronegativity comparison. Fluorine’s electronegativity is high. Check which property is requested.
     explanation: |
-      Covalent radius generally increases down a group. Iodine is in a lower period than fluorine and has electrons in higher principal shells. Iodine is larger.
+      Atom size generally grows going down a group. Iodine has more electron layers than fluorine. Its outer electrons are farther from its center, so an iodine atom is larger.
     approved: true
 
   - id: q-chemistry-periodic-table-0008
@@ -188,7 +188,7 @@ questions:
           This assumes a shared period means equal energy. Both occupy the same principal shell. Check the effective attraction and subshell pattern.
       - text: 'Only their molar masses can determine the ranking.'
         rationale: |
-          This treats more electron mass as the ionization criterion. Atoms have different masses. Check that the property measures electron-removal energy.
+          This ranks ionization energy by molar mass. Mass often rises across the table, so it looks like a pattern. Check how tightly the outer electron is held, not how heavy the atom is.
     explanation: |
       Nitrogen has a higher first ionization energy than carbon. In this comparison, the increased effective nuclear attraction across period 2 supports the observed ordering.
     approved: true
@@ -222,13 +222,13 @@ questions:
     choices:
       - text: 'Ionization energy and electronegativity generally rise up and right.'
         correct: true
-      - text: 'Radius and ionization energy always increase together up and right.'
+      - text: 'Radius and ionization energy generally increase together up and right.'
         rationale: |
           This gives radius the same direction as electron attraction. All are atomic properties. Check that stronger attraction usually reduces radius.
-      - text: 'Electron affinity has exactly the same exception-free arrow as electronegativity.'
+      - text: 'Electronegativity generally rises down and left, while ionization energy rises up and right.'
         rationale: |
-          This treats electron affinity as an identical exception-free arrow. It involves electron addition. Check its sign convention and substantial exceptions.
-      - text: 'Ionization energy and electronegativity always increase down and left.'
+          This splits two properties that follow the same arrow. Both involve the pull of the nucleus on electrons. Check that both depend on distance and shielding in the same way.
+      - text: 'Ionization energy and electronegativity generally increase down and left.'
         rationale: |
           This sends both properties down and left. Larger atoms occur there. Check how distance and shielding affect electron removal and bonding attraction.
     explanation: |
@@ -348,15 +348,15 @@ questions:
     choices:
       - text: 'Electron affinity'
         correct: true
-      - text: 'Electronegativity in a chemical bond'
+      - text: 'Electronegativity'
         rationale: |
-          This substitutes attraction to shared bonding electrons. Both concern electrons. Check whether a bond or an isolated gas atom is specified.
-      - text: 'First ionization energy for electron removal'
+          This swaps in the pull on shared bonding electrons. Both concern electrons. Check whether the atom is isolated or bonded.
+      - text: 'First ionization energy'
         rationale: |
           This reverses electron addition into removal. Both are energy processes. Check the direction of electron transfer.
-      - text: 'Covalent radius inferred from bond distance'
+      - text: 'Covalent radius'
         rationale: |
-          This selects an atomic-size measure. Electron interactions affect size. Check whether the question asks for distance or energy change.
+          This picks an atomic-size measure. Electron interactions affect size. Check whether the question asks for a distance or an energy change.
     explanation: |
       Electron affinity describes the energy change when a gaseous atom gains an electron. Its sign must be interpreted using the stated convention.
     approved: false
@@ -386,21 +386,21 @@ questions:
     type: 'predict-outcome'
     difficulty: 'hard'
     stem: |
-      A reliable first-ionization data table disagrees with a simple across-period arrow for an adjacent pair. What should determine that pair’s ranking?
+      A reliable table lists first ionization energies of $1402$ kJ/mol for nitrogen and $1314$ kJ/mol for oxygen, although the across-period arrow predicts the reverse. Which statement correctly ranks the pair and explains why?
     choices:
-      - text: 'The actual values and subshell context'
+      - text: 'Nitrogen is higher, because oxygen has a paired p electron that is easier to remove.'
         correct: true
-      - text: 'The arrow must override every measured value'
+      - text: 'Oxygen is higher, because the arrow says ionization energy rises across a period.'
         rationale: |
-          This treats a broad prediction as an exception-free law. The arrow works for many comparisons. Check known local exceptions.
-      - text: 'Their shared period makes both values equal'
+          This lets the broad arrow override the measured values. The arrow works for most neighbors. Check the table values before using the arrow.
+      - text: 'Oxygen is higher, because its nucleus has more protons than nitrogen.'
         rationale: |
-          This treats a common period as identical energy. Both use the same principal shell. Check different subshell occupancy and attraction.
-      - text: 'Only the number of valence electrons matters'
+          This uses nuclear charge alone. More protons usually raise the pull on electrons. Check that the table shows oxygen lower, so another effect must matter.
+      - text: 'Nitrogen is higher, because its atoms are larger than oxygen atoms.'
         rationale: |
-          This reduces ionization energy to one electron count. Valence patterns matter. Check subshell structure and effective attraction too.
+          This gives the right ranking for the wrong reason. Nitrogen atoms are slightly larger, but a larger atom usually holds its outer electron more loosely. Check the reason against the p-electron pairing.
     explanation: |
-      Periodic arrows summarize broad patterns. Subshell structure creates local exceptions. The actual reliable values determine the specified pair’s ranking.
+      The table values show nitrogen is higher than oxygen. The arrow shows only the broad pattern. In oxygen, two electrons share one p orbital and push each other apart. So one of them is easier to remove. This lowers oxygen's value below nitrogen's.
     approved: false
 
   - id: q-chemistry-periodic-table-0020

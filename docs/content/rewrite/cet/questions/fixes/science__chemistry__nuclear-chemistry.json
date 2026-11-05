@@ -1,0 +1,48 @@
+{
+ "file": "science__chemistry__nuclear-chemistry",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-chemistry-nuclear-chemistry-0007",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Note now says beta processes occur in the chain but the overall joining is fusion."
+  },
+  {
+   "question": "q-chemistry-nuclear-chemistry-0009",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Replaced absolute distractors with electrons, heat and protons causing further fissions, with new notes."
+  },
+  {
+   "question": "q-chemistry-nuclear-chemistry-0011",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Replaced extreme distractors with plausible shielding mistakes about material and thickness."
+  },
+  {
+   "question": "q-chemistry-nuclear-chemistry-0014",
+   "severity": "Major",
+   "action": "rewritten",
+   "key_changed": true,
+   "summary": "Rewritten with the lesson MeV and nucleon values; key is fission higher per reaction, fusion higher per unit mass."
+  },
+  {
+   "question": "q-chemistry-nuclear-chemistry-0018",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Replaced absolute distractors with comparable claims about exposure routes and ionization."
+  },
+  {
+   "question": "q-chemistry-nuclear-chemistry-0019",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Note now says the Z change is correct."
+  }
+ ]
+}

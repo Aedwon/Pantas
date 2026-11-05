@@ -146,7 +146,7 @@ questions:
           This treats production of helium as emission of a preexisting alpha particle. Helium appears in both descriptions. Check the nuclear reaction sequence.
       - text: 'Beta decay'
         rationale: |
-          This treats the entire chain as one electron-emission decay. Some nuclear conversions occur within the chain. Check the overall joining of light nuclei.
+          This takes a step inside the chain as the whole process. Beta processes do occur within the chain, so it looks right. Check the overall joining of light nuclei.
     explanation: |
       Fusion combines light nuclei. In the Sun’s proton-proton chain, several steps give a net conversion of four hydrogen nuclei into helium-4, other particles, and energy.
     approved: true
@@ -180,15 +180,15 @@ questions:
     choices:
       - text: 'Released neutrons cause further fissions.'
         correct: true
-      - text: 'Outer electrons cause every nucleus to split.'
+      - text: 'Released electrons cause further fissions.'
         rationale: |
-          This assigns nuclear triggering to emitted outer electrons. Chemical reactions involve electrons. Check which particles induce the reactor fissions.
-      - text: 'Released heat guarantees every neighboring nucleus splits.'
+          This assigns nuclear triggering to electrons. Chemical reactions involve electrons. Check which particle induces fission in a reactor.
+      - text: 'Released heat causes further fissions.'
         rationale: |
-          This treats released heat as sufficient to trigger every further fission. Heat is produced. Check the role of neutrons and suitable conditions.
-      - text: 'Every fission always sustains a chain regardless of conditions.'
+          This treats the heat produced as the trigger for the next fission. Fission does release heat. Check which particle is absorbed by the next nucleus.
+      - text: 'Released protons cause further fissions.'
         rationale: |
-          This treats chain-reaction conditions as irrelevant. Fission releases neutrons. Check whether enough cause further fissions rather than escaping or being absorbed elsewhere.
+          This swaps the neutron for a proton. Both are nucleons, so they look alike. Check which particle fission releases and which has no charge to repel the nucleus.
     explanation: |
       Fission often releases neutrons. If enough of those neutrons cause further fissions, the process can sustain a chain reaction.
     approved: true
@@ -222,15 +222,15 @@ questions:
     choices:
       - text: 'Dense shielding reduces intensity.'
         correct: true
-      - text: 'An ordinary paper sheet stops every gamma photon.'
+      - text: 'A sheet of paper reduces gamma intensity as much as lead does.'
         rationale: |
-          This applies thin alpha shielding to gamma photons. Paper blocks external alpha particles. Check the radiation type.
-      - text: 'No element change means gamma radiation cannot penetrate.'
+          This applies thin alpha shielding to gamma photons. Paper blocks external alpha particles. Check the radiation type and the density of the shield.
+      - text: 'A lighter shield reduces gamma intensity more than a denser one.'
         rationale: |
-          This equates no element change with weak penetration. Gamma emission leaves Z unchanged. Check the properties of the emitted radiation separately.
-      - text: 'A lead barrier guarantees every gamma photon is stopped.'
+          This reverses the role of density. Light shields are easy to handle, so they seem fine. Check which material attenuates photons better, lead or paper.
+      - text: 'Making a shield thicker does not change the gamma intensity behind it.'
         rationale: |
-          This treats shielding as an all-or-nothing barrier. Dense lead reduces intensity. Check whether attenuation guarantees zero transmitted photons.
+          This treats thickness as irrelevant. A thin shield may seem to do the same job. Check how intensity changes as photons pass through more material.
     explanation: |
       Gamma photons can penetrate deeply. Dense or thick shielding reduces their intensity by attenuating the radiation. Ordinary shielding does not guarantee that every photon is stopped.
     approved: true
@@ -281,21 +281,21 @@ questions:
     type: 'compare-contrast'
     difficulty: 'exam'
     stem: |
-      A claim says fusion releases more energy than fission without naming reactions or a comparison basis. What is needed to assess it?
+      One fission of uranium-235 releases about 200 MeV and involves 236 nucleons. One deuterium-tritium fusion releases about 17.6 MeV and involves 5 nucleons. Which comparison is correct?
     choices:
-      - text: 'Specify reactions and energy per event or mass.'
+      - text: 'Fission releases more per reaction, but fusion releases more per unit mass of fuel.'
         correct: true
-      - text: 'Assume every fusion event exceeds every fission event.'
+      - text: 'Fusion releases more energy both per reaction and per unit mass of fuel.'
         rationale: |
-          This turns a comparison into an exception-free per-event claim. Fusion is very energy-dense per fuel mass. Check the basis and particular reaction.
-      - text: 'Assume every fission and fusion event releases equal energy.'
+          This applies the per-mass result to the per-reaction count. Fusion is higher per unit mass. Check 200 MeV against 17.6 MeV for one reaction.
+      - text: 'Fission releases more energy both per reaction and per unit mass of fuel.'
         rationale: |
-          This treats different nuclear processes as equal-energy events. Both release energy. Check their actual reactions and measurement basis.
-      - text: 'Assume equal fuel masses necessarily give equal energies.'
+          This applies the per-reaction result to the per-mass count. One fission does release more. Divide each energy by its number of nucleons and compare.
+      - text: 'Fusion releases more per reaction, but fission releases more per unit mass of fuel.'
         rationale: |
-          This assumes the same fuel mass produces the same energy automatically. Mass is a possible comparison basis. Check the reaction’s released energy per unit mass.
+          This reverses both comparisons. Fusion has a reputation for high energy. Check the two energies for one reaction, then the energy per nucleon.
     explanation: |
-      An energy comparison needs a stated basis. Energy per event and energy per unit fuel mass compare different quantities. The particular fission and fusion reactions must also be specified.
+      Per reaction, $200$ MeV is more than $17.6$ MeV, so fission is larger. Per nucleon, fission gives about $\dfrac{200}{236}\approx 0.85$ MeV and fusion gives $\dfrac{17.6}{5}\approx 3.5$ MeV. So fusion is larger per unit mass of fuel. The answer depends on the basis.
     approved: true
 
   - id: q-chemistry-nuclear-chemistry-0015
@@ -369,15 +369,15 @@ questions:
     choices:
       - text: 'Internal contamination can still be hazardous.'
         correct: true
-      - text: 'Paper shielding makes every exposure route harmless.'
+      - text: 'Alpha-emitting material is harmless inside the body because paper stops alpha particles.'
         rationale: |
           This extends external shielding to material inside the body. Paper can block an outside source. Check whether that barrier is between the source and exposed tissue.
-      - text: 'Low penetration means alpha particles cannot ionize matter.'
+      - text: 'Low penetration means alpha particles ionize matter only weakly.'
         rationale: |
-          This confuses low range with no ionization. Alpha particles stop quickly. Check whether stopping can involve strong interaction with matter.
-      - text: 'The material cannot affect living tissue in any circumstance.'
+          This confuses low range with weak ionization. Alpha particles stop quickly. Check whether stopping in a short distance means energy is given up in a small space.
+      - text: 'Alpha-emitting material is more hazardous outside the body than inside it.'
         rationale: |
-          This turns limited penetration into zero biological effect. External shielding is effective. Check the internal-contamination case.
+          This reverses the exposure routes. Outside the body, skin and paper block alpha particles. Check what happens when the source is next to living tissue.
     explanation: |
       Alpha particles can strongly ionize material over short distances. Alpha-emitting material inside the body can therefore be hazardous.
     approved: false
@@ -395,7 +395,7 @@ questions:
           This lowers Z for beta-minus instead of raising it. Alpha already lowers Z. Check beta-minus’s neutron-to-proton conversion.
       - text: 'A unchanged; Z decreases by 1'
         rationale: |
-          This tracks only net proton change and ignores alpha’s nucleons. The Z change is partly correct. Check the mass number too.
+          This tracks only net proton change and ignores alpha’s nucleons. The Z change is correct, which makes this answer look plausible. Check the mass number too.
       - text: 'A decreases by 5; Z decreases by 1'
         rationale: |
           This counts the emitted electron as one lost nucleon. An electron leaves. Check what particles contribute to mass number.

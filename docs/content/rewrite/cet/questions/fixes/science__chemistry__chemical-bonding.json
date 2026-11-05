@@ -1,0 +1,20 @@
+{
+ "file": "science__chemistry__chemical-bonding",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-chemistry-chemical-bonding-0004",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Stem asks what 0.4 suggests; choices are now parallel degrees of sharing and bond types."
+  },
+  {
+   "question": "q-chemistry-chemical-bonding-0015",
+   "severity": "Major",
+   "action": "rewritten",
+   "key_changed": true,
+   "summary": "Removed the water cue; asks for the shape with trigonal pyramidal as key and shape names as distractors."
+  }
+ ]
+}

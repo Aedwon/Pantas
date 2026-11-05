@@ -1,0 +1,20 @@
+{
+ "file": "science__earth-science-astronomy__minerals-and-rocks",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-earth-science-astronomy-minerals-and-rocks-0006",
+   "severity": "Major",
+   "action": "rewritten",
+   "key_changed": true,
+   "summary": "Now asks which property the dark powder describes, with parallel property names."
+  },
+  {
+   "question": "q-earth-science-astronomy-minerals-and-rocks-0018",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Every choice now gives two properties with a short reason."
+  }
+ ]
+}

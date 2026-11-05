@@ -1,0 +1,13 @@
+{
+ "file": "reading-comprehension__comprehension-skills__sequencing-of-events",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-comprehension-skills-sequencing-of-events-0018",
+   "severity": "Blocker",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Corrected the note about who calls whom."
+  }
+ ]
+}

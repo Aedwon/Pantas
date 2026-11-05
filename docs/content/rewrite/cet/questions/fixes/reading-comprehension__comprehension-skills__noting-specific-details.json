@@ -1,0 +1,20 @@
+{
+ "file": "reading-comprehension__comprehension-skills__noting-specific-details",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "rc-cs-nsd-0013",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Changed the 300 pesos choice to 3 pesos and rewrote its note."
+  },
+  {
+   "question": "q-comprehension-skills-noting-specific-details-0016",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Note now explains the misread of beside the reading room and the ignored move."
+  }
+ ]
+}

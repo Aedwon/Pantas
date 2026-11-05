@@ -1,0 +1,13 @@
+{
+ "file": "mathematics__geometry__basic-geometric-concepts",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-geometry-basic-geometric-concepts-0014",
+   "severity": "Blocker",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Stem now states the three angles are consecutive nonoverlapping sectors making a full turn."
+  }
+ ]
+}

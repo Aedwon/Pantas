@@ -127,7 +127,7 @@ questions:
         rationale: |
           This extends the dead state of xylem conductors to phloem. Both carry materials through the plant, so hollow dead tubes seem possible for both. Check whether phloem conducting cells remain living.
     explanation: |
-      The main water-conducting xylem cells are dead at maturity. Phloem conducting cells remain alive and work with companion cells.
+      The main water-conducting xylem cells are dead at maturity. Phloem conducting cells remain alive. In flowering plants, they work with companion cells.
     approved: true
 
   - id: q-biology-botany-0007
@@ -241,17 +241,17 @@ questions:
     stem: |
       A student observes a stem growing toward a light source and concludes that the plant's roots must also grow toward the light, since it is "the same plant responding to the same stimulus." Is this reasoning correct?
     choices:
-      - text: "No; root responses to light vary."
+      - text: "No; root responses to light vary with the plant and conditions."
         correct: true
-      - text: "Yes; every organ must respond identically to light."
+      - text: "Yes; roots and shoots of one plant respond to light in the same way."
         rationale: |
-          This assumes all plant organs have the same response. They share one plant body, so a shared response seems likely. Check whether observations of shoots also establish the root response.
-      - text: "No; every root must always grow away from light."
+          This assumes roots and shoots respond to light in the same way. They share one plant body, so a shared response seems likely. Check whether observations of shoots also establish the root response.
+      - text: "No; roots grow away from light, the opposite of shoots."
         rationale: |
-          This turns a common shoot response into a fixed opposite root response. Roots and shoots often grow in different directions, so that rule seems useful. Check whether root light responses can vary.
-      - text: "No; roots are completely unable to respond to light."
+          This turns a common shoot response into a set opposite root response. Roots and shoots often grow in different directions, so that rule seems useful. Check whether root light responses can differ between plants.
+      - text: "No; roots respond to gravity, not to light."
         rationale: |
-          This confuses lack of evidence with lack of any response. Roots often grow underground, so light can seem irrelevant to them. Check whether roots can respond under different conditions.
+          This mixes up the main cue for roots with the only cue. Roots respond strongly to gravity, so light can seem irrelevant to them. Check whether roots can also respond to light under some conditions.
     explanation: |
       A shoot commonly grows toward light. Root responses to light vary with the species and conditions. The shoot response alone cannot tell us how the roots will grow.
     approved: true

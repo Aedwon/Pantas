@@ -1,0 +1,41 @@
+{
+ "file": "reading-comprehension__comprehension-skills__main-idea",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "rc-cs-mi-0001",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Note now names the real mistake (one proposal's reason as main idea) and a relevant check."
+  },
+  {
+   "question": "rc-cs-mi-0002",
+   "severity": "Blocker",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Stem now asks for garden beds and composting station combined."
+  },
+  {
+   "question": "rc-cs-mi-0006",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Replaced the three extreme distractors with qualified single-detail choices and new notes."
+  },
+  {
+   "question": "rc-cs-mi-0014",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Note now says the choice pairs a real maintenance task with an unsupported road claim."
+  },
+  {
+   "question": "rc-cs-mi-0015",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Note now addresses the \"only goal\" error instead of a youth claim."
+  }
+ ]
+}

@@ -161,7 +161,7 @@ questions:
       - text: '$35^\circ$'
         correct: false
         rationale: |
-          This assumes the two outer inclinations are equal. Parallel lines can suggest equal angles. Check that only corresponding positions force equality.
+          This assumes the two outer inclinations are equal. Parallel lines can suggest equal angles. Check that these two segments are different transversals, so their angles with the parallel lines need not be equal.
     explanation: |
       A horizontal helper line through P splits the left-facing angle into the two inclinations. Alternate interior angles make the upper part $35^\circ$. The full angle is $80^\circ$, so the lower part is $80^\circ-35^\circ=45^\circ$. Its matching angle on the lower parallel line is also $45^\circ$.
 
@@ -443,7 +443,7 @@ questions:
         correct: true
       - text: 'Perpendicular'
         rationale: |
-          This treats equality of angles as requiring a right angle. Equal angles can have other measures. Check whether the common measure is ninety degrees.
+          This treats the equal angles as showing a right angle between the crossed lines. The measured angles are formed with the transversal, not between the two lines. Check the equal alternate interior angle rule to find how the crossed lines relate.
       - text: 'Intersecting at $70^\circ$'
         rationale: |
           This treats a transversal angle as the angle between the two crossed lines. Seventy is the measured angle in the setup. Check which two lines it belongs to.

@@ -29,7 +29,7 @@ questions:
     type: identify
     difficulty: medium
     stem: |
-      Which physicist first proposed the Big Bang theory, in 1927, using Einstein's equations for gravity?
+      Which physicist published an expanding-universe model in 1927 using Einstein's equations for gravity?
     choices:
       - text: 'Georges Lemaître'
         correct: true
@@ -134,17 +134,17 @@ questions:
     type: classify
     difficulty: hard
     stem: |
-      A choice credits Edwin Hubble with "inventing" the Big Bang theory in 1929. Is this accurate?
+      A choice credits Edwin Hubble with publishing the first expanding-universe model in 1929. Is this accurate?
     choices:
-      - text: 'No: Georges Lemaître first proposed the Big Bang theory in 1927; Hubble''s 1929 observation of galaxies moving apart provided strong supporting evidence for a theory that already existed.'
+      - text: 'No: Lemaître published an expanding-universe model in 1927, before Hubble''s 1929 observations.'
         correct: true
-      - text: 'Yes: Hubble was the first person to propose the Big Bang theory.'
+      - text: 'Yes: Hubble was the first person to publish such a model.'
         rationale: |
           This attributes the theoretical proposal to the observer. Hubble's name is prominent in cosmology. Check his role in measuring recession.
-      - text: 'No: but only because no one proposed the Big Bang theory before 1965.'
+      - text: 'No: no such model existed before the 1965 radiation discovery.'
         rationale: |
           This dates theory from later background-radiation evidence. The 1965 discovery was influential. Check whether expansion models already existed.
-      - text: 'Yes: Lemaître and Hubble proposed the theory together in the same year.'
+      - text: 'Yes: Lemaître and Hubble published the model together in 1929.'
         rationale: |
           This combines separate contributions into one joint event. The two scientists studied related ideas. Check their publication dates and roles.
     explanation: |

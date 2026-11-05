@@ -389,7 +389,7 @@ questions:
     type: "predict-outcome"
     difficulty: "hard"
     stem: |
-      A plant cell membrane permits water to cross but not the dissolved sugar used in an experiment. The external sugar concentration is increased above the concentration inside the cell. What is the expected initial change?
+      A plant cell membrane permits water to cross but not the dissolved sugar used in an experiment. A turgid cell is placed in a sugar solution with a higher total concentration of nonpenetrating solutes than its interior. What is the expected initial change?
     choices:
       - text: "Water leaves; turgor decreases."
         correct: true

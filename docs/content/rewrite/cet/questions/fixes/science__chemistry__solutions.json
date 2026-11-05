@@ -1,0 +1,48 @@
+{
+ "file": "science__chemistry__solutions",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-chemistry-solutions-0006",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Removed the parenthetical that gave the correct denominator."
+  },
+  {
+   "question": "q-chemistry-solutions-0007",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Removed the clause naming total solution mass."
+  },
+  {
+   "question": "q-chemistry-solutions-0008",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "All choices now use parallel \"Many ... with exceptions\" wording; key is solids more soluble when heated."
+  },
+  {
+   "question": "q-chemistry-solutions-0015",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Choices now parallel component descriptions without universal restrictions."
+  },
+  {
+   "question": "q-chemistry-solutions-0015",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Deleted the explanation sentence about solvents other than water."
+  },
+  {
+   "question": "q-chemistry-solutions-0019",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Distractors are now plausible alternative trends of comparable scope."
+  }
+ ]
+}

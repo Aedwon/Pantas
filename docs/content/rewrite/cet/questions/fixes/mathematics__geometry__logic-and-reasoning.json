@@ -1,0 +1,13 @@
+{
+ "file": "mathematics__geometry__logic-and-reasoning",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-geometry-logic-and-reasoning-0015",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Rewrote the note to say the choice wrongly passes the converse falsity to the contrapositive."
+  }
+ ]
+}

@@ -182,7 +182,7 @@ questions:
         correct: true
       - text: 'A membrane-enclosed nuclear compartment'
         rationale: |
-          This applies a eukaryotic feature to prokaryotes. All cells contain genetic material, which can suggest a nucleus. Check whether the DNA is enclosed in a nuclear membrane.
+          This applies a eukaryotic feature to prokaryotes. Bacteria and Archaea contain DNA, which can suggest a nucleus. Check whether the DNA is enclosed in a nuclear membrane.
       - text: 'Membership in the domain Eukarya'
         rationale: |
           This confuses being living cells with being eukaryotic. Eukarya contains many kinds of organisms. Check which domains lack a membrane-enclosed nucleus.
@@ -306,13 +306,13 @@ questions:
     choices:
       - text: 'Species'
         correct: true
-      - text: 'Genus rank'
+      - text: 'Genus'
         rationale: |
           This chooses the group used as the first part of a species name. Genus is closely associated with species. Check whether it can contain multiple species.
-      - text: 'Family rank'
+      - text: 'Family'
         rationale: |
           This chooses a group broader than genus. A family can seem like a small group. Check its position relative to genus and species.
-      - text: 'Order rank'
+      - text: 'Order'
         rationale: |
           This chooses a group broader than family. It is below class, so it may seem narrow. Check whether narrower listed ranks still follow it.
     explanation: |
@@ -323,7 +323,7 @@ questions:
     type: 'classify'
     difficulty: 'medium'
     stem: |
-      A cell lacks a membrane-enclosed nucleus. Based only on that observation, which domain assignment is justified?
+      A cell from a prokaryotic organism lacks a membrane-enclosed nucleus. Based only on that observation, which domain assignment is justified?
     choices:
       - text: 'Bacteria or Archaea'
         correct: true

@@ -125,9 +125,9 @@ questions:
     choices:
       - text: "Through the pivot edge"
         correct: true
-      - text: "Through the top corner"
+      - text: "Through the center of the top face"
         rationale: |
-          This uses a visible corner unrelated to ground support. The top moves most during tilting. Check which edge acts as the pivot.
+          This follows the box's own center line instead of the vertical. The top face center sits above the center of gravity inside the box. Check that the box is tilted, so its center line is no longer vertical.
       - text: "Halfway between center and pivot"
         rationale: |
           This treats half the shift as the threshold. Halfway sounds like a balance point. Check when the weight's turning arm about the pivot becomes zero.
@@ -296,19 +296,19 @@ questions:
     type: "structural-stability"
     difficulty: "medium"
     stem: |
-      A bottom-heavy roly-poly toy (weighted heavily at its rounded base) is pushed over onto its side. Why does it always return to standing upright?
+      A bottom-heavy roly-poly toy (weighted heavily at its rounded base) is pushed over onto its side. Why does it return to standing upright?
     choices:
-      - text: "Its center of gravity is very low (concentrated near its heavy base), so the vertical line from its center of gravity quickly returns within its base of support as it rocks, pulling it back upright"
+      - text: "Gravity turns it back because tilting raises its low center of gravity"
         correct: true
-      - text: "Its base of support is extremely narrow, which always causes objects to return upright"
+      - text: "Friction on its rounded base turns it back upright"
+        rationale: |
+          This credits friction with the turning effect. The toy touches the table at one small spot as it rocks. Check which force acts on the raised center of gravity.
+      - text: "Its narrow base of support turns it back upright"
         rationale: |
           This makes narrow support the cause of self-righting. The toy touches a small area as it rocks. Check whether gravity creates a turning force back toward upright.
-      - text: "The toy has no center of gravity, so it cannot tip over in the first place"
+      - text: "Air pressure on its curved surface turns it back upright"
         rationale: |
-          This removes the center of gravity from the toy. Its unusual rocking motion may suggest unusual gravity. Check that its mass still has a point through which its weight acts.
-      - text: "The toy is simply too light to be affected by gravity at all"
-        rationale: |
-          This assumes small mass is unaffected by gravity. The toy is easy to push. Check that gravity acts on light objects too.
+          This credits air with the turning effect. A curved toy may seem to catch the air. Check that the toy also rights itself where there is little air movement.
     explanation: |
       For a self-righting toy with its center of gravity below the center of its rounded base, a sideways tilt raises its center of gravity. Gravity then gives a turning force toward the lower-energy upright position. This is the physical reason a properly designed toy rocks back up.
     approved: true
@@ -458,19 +458,19 @@ questions:
     type: "structural-stability"
     difficulty: "medium"
     stem: |
-      The uniform hollow box shown has its center of gravity in the empty interior. What does this demonstrate about a center of gravity?
+      The uniform hollow box shown has walls of equal thickness on every side and nothing inside. Where does its center of gravity lie?
     choices:
-      - text: "It can lie outside the material"
+      - text: "At the center of the empty interior"
         correct: true
-      - text: "It must be on a solid surface"
+      - text: "In the middle of the bottom wall"
         rationale: |
-          This requires the weight point to touch material. Forces seem to need a physical contact. Check the single-force description of distributed weight.
-      - text: "It disappears whenever an object is hollow"
+          This puts the weight point where the box touches the ground. The bottom wall carries the load. Check that the walls on opposite sides balance each other.
+      - text: "Nowhere, because a hollow box has no center of gravity"
         rationale: |
-          This treats empty space as removing all weight. The box has an empty center. Check that its walls still have mass.
-      - text: "It always moves to the bottom wall"
+          This treats empty space as removing all weight. The inside holds no mass. Check that the walls still have mass.
+      - text: "In the material of the top wall"
         rationale: |
-          This makes gravity pull the defined center into the lowest material. Gravity acts downward. Check the symmetric mass distribution before locating the center.
+          This assumes the weight point must lie inside material. The top wall is heavy. Check that equal walls on opposite sides balance about the middle.
     explanation: |
       Symmetric mass on opposite sides of an empty interior can balance about a point in that space. The resultant weight can act through that point even though there is no material there.
     approved: false

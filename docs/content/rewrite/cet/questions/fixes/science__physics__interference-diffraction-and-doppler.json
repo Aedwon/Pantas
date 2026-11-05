@@ -1,0 +1,20 @@
+{
+ "file": "science__physics__interference-diffraction-and-doppler",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-physics-waves-and-sound-0009",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Key now carries a reason like the distractors."
+  },
+  {
+   "question": "q-physics-waves-and-sound-0010",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Key now carries a reason like the distractors."
+  }
+ ]
+}
