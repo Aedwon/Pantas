@@ -5,6 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/domain/exam_date.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/time/study_days.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/onboarding/application/onboarding_flow.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_study_days_step.dart';
 import 'package:pantas/features/settings/data/settings_repository.dart';
@@ -56,6 +57,30 @@ void main() {
       });
     }
   }
+  testWidgets('wide: the hint is flush with the title, as the board has it',
+      (tester) async {
+    debugWebPlatformOverride = true;
+    addTearDown(() => debugWebPlatformOverride = null);
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    await pumpAccessibilitySurface(
+      tester,
+      ProviderScope(
+        overrides: [appDatabaseProvider.overrideWithValue(db)],
+        child: OnboardingStudyDaysStep(
+          now: DateTime(2026, 10, 3),
+          onCompleted: () {},
+        ),
+      ),
+      disableAnimations: true,
+      viewportSize: const Size(1440, 900),
+    );
+    await tester.pumpAndSettle();
+    expect(
+      tester.getTopLeft(find.text('Pick at least one day to continue.')).dx,
+      tester.getTopLeft(find.text('Which days will you study?')).dx,
+    );
+  });
   for (final width in [320.0, 340.0, 360.0, 390.0]) {
     testWidgets('the seven days stay on one row at $width', (tester) async {
       final db = inMemoryDatabase();

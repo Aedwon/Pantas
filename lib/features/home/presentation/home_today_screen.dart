@@ -36,6 +36,7 @@ import 'package:pantas/features/home/presentation/widgets/home_skeletons.dart';
 import 'package:pantas/features/home/presentation/widgets/home_state_card.dart';
 import 'package:pantas/features/home/presentation/widgets/home_today_checklist.dart';
 import 'package:pantas/features/home/presentation/widgets/home_web_layout.dart';
+import 'package:pantas/features/lesson/application/reader_providers.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
 import 'package:pantas/features/quiz/domain/paused_quiz_conflict.dart';
 import 'package:pantas/features/quiz/presentation/today_providers.dart';
@@ -66,6 +67,9 @@ String? homeDayNoteLabel(HomeTodayData data) {
     null => null,
   };
 }
+
+/// The longest Home waits for a lesson's content before opening it anyway.
+const _lessonReadWait = Duration(milliseconds: 500);
 
 /// Owns one Home request, including its retries and every asynchronous launch.
 /// Closing the page invalidates the original captured account/exam boundary.
@@ -201,6 +205,17 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
     final telemetry = ref.read(telemetryProvider);
     try {
       if (!await (await _guard)() || !mounted || !current()) return;
+      // Home stays on screen until the lesson can draw. Opening at once left
+      // the screen empty while the lesson read its content (7W-7). A slow
+      // read is not waited on for long: the reader draws its skeleton.
+      try {
+        await ref
+            .read(readerContextProvider(lesson.id).future)
+            .timeout(_lessonReadWait);
+      } on Object {
+        // The reader reports its own failure.
+      }
+      if (!mounted || !current()) return;
       _dismiss();
       await context.push<void>(
         '/lesson/${Uri.encodeComponent(lesson.id)}?from=home',
@@ -665,7 +680,7 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
               boardMetrics: true,
               divider: !last,
               value: lesson.read ? null : '${lesson.minutes} min',
-              leading: _drawerRing(
+              leading: HomeDrawerRing(
                 lesson.read ? 1 : lesson.fraction ?? 0,
                 done: lesson.read,
               ),
@@ -839,25 +854,6 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
     );
   }
 
-  /// Board drawer rows: a 22 px box holding a 20 px ring or a 22 px check.
-  Widget _drawerRing(double fraction, {required bool done}) => SizedBox.square(
-        dimension: 22,
-        child: done
-            ? const FittedBox(child: CheckMark())
-            : Center(
-                child: fraction > 0
-                    ? ProgressRing(fraction: fraction, size: 21)
-                    : ProgressRing(
-                        fraction: 0,
-                        size: 20,
-                        emptyStrokeWidth: 2,
-                        emptyTrackColor: context.webTokens.dark
-                            ? null
-                            : const Color(0xFFD1D1D6),
-                      ),
-              ),
-      );
-
   Widget _questionRow(
     String title,
     int done,
@@ -865,18 +861,11 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
     bool last = false,
   }) =>
       context.wideWeb
-          ? WebRow(
+          ? HomeDrawerQuestionRow(
               title: title,
-              wrapTitle: true,
-              titleStyle: context.webTokens.style(16, height: 1.3),
-              boardMetrics: true,
-              divider: !last,
-              value: '$total',
-              compact: true,
-              leading: _drawerRing(
-                total == 0 ? 0 : done / total,
-                done: done == total,
-              ),
+              done: done,
+              total: total,
+              last: last,
             )
           : ListRow(
               title: title,

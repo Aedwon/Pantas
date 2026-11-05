@@ -61,6 +61,7 @@ class _WebRouteShellState extends ConsumerState<WebRouteShell> {
         child: child,
       );
     }
+    if (webFocusRoute(path)) return child;
     const tabs = ['/home', '/study', '/quiz', '/settings'];
     // Plan, Performance, Record and Tendencies belong to Home on the boards.
     const homeGroup = ['/record', '/tendencies', '/plan', '/performance'];

@@ -325,7 +325,11 @@ class _OnboardingStudyDaysStepState
                 ),
                 child: _days.isEmpty
                     ? Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 4),
+                        // Wide web: flush with the title, as in OB_DaysNone
+                        // (7W-4). The phone keeps its 4 px.
+                        padding: EdgeInsets.symmetric(
+                          horizontal: context.wideWeb ? 0 : 4,
+                        ),
                         child: Text(
                           'Pick at least one day to continue.',
                           style: context.type.subhead

@@ -32,6 +32,28 @@ bool webSidebarRoute(String path) =>
     path.startsWith('/performance/') ||
     RegExp(r'^/quiz/practice/[^/]+$').hasMatch(path);
 
+/// Pages that run in focus mode and place their own bar 28 px above the
+/// window bottom: the lesson reader, a quiz being answered or looked back
+/// over, and a mock being sat or reviewed. From 1024 to 1279 px they take the
+/// whole window, with no phone navigation over them and no padding that moved
+/// their bars up (7W-18, 3K-9a). Tab pages and result pages keep the
+/// navigation (Oct 30 decision).
+bool webFocusRoute(String path) =>
+    const [
+      '/lesson/',
+      '/mock/review/',
+      '/quiz/today/',
+      '/quiz/resume/',
+      '/quiz/quick/',
+      '/quiz/retake/',
+      '/quiz/inline/',
+      '/quiz/viewer/',
+      '/quiz/mock/start',
+      '/quiz/mock/resume/',
+    ].any(path.startsWith) ||
+    path.startsWith('/quiz/practice/') && path.endsWith('/run') ||
+    path.startsWith('/quiz/flagged/') && path.contains('/view/');
+
 class WebShellFrame extends StatelessWidget {
   const WebShellFrame({
     required this.child,

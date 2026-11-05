@@ -24,6 +24,7 @@ import 'package:pantas/core/ui/web/web_key_focus.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/home/application/today_questions.dart';
+import 'package:pantas/features/home/presentation/widgets/home_web_layout.dart';
 import 'package:pantas/features/quiz/domain/paused_quiz_conflict.dart';
 import 'package:pantas/features/quiz/presentation/practice_row_providers.dart';
 import 'package:pantas/features/quiz/presentation/quiz_controller.dart';
@@ -255,11 +256,26 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
             ],
           );
     final examId = focus.unwrapPrevious().asData?.value.exam?.id;
+    final label = _questionSheet == TodayQuestionKind.newQuestions
+        ? 'New questions'
+        : 'Reviews';
+    // Wide web opens the same right drawer as Home, over the sidebar too
+    // (7W-8). The phone keeps its sheet.
+    if (context.wideWeb) {
+      return HomeWebOverlay(
+        page: page,
+        label: label,
+        open: _questionSheet != null && examId != null,
+        drawer: true,
+        onDismiss: _dismissQuestions,
+        child: _questionSheet != null && examId != null
+            ? _questionsSheet(examId)
+            : const SizedBox.shrink(),
+      );
+    }
     return PantasSheet(
       page: page,
-      label: _questionSheet == TodayQuestionKind.newQuestions
-          ? 'New questions'
-          : 'Reviews',
+      label: label,
       open: _questionSheet != null && examId != null,
       onDismiss: _dismissQuestions,
       readerContents: true,
@@ -769,22 +785,47 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
           data: (data) {
             final reviews = kind == TodayQuestionKind.reviews;
             final rows = <Widget>[];
+            final wide = context.wideWeb;
+            Widget row(
+              String title,
+              int done,
+              int total, {
+              bool last = false,
+            }) =>
+                wide
+                    ? HomeDrawerQuestionRow(
+                        title: title,
+                        done: done,
+                        total: total,
+                        last: last,
+                      )
+                    : _sheetRow(title, done, total);
             if (reviews) {
               for (var i = 0; i < data.reviewSizes.length; i++) {
                 rows.add(
-                  _sheetRow(
+                  row(
                     'Session ${i + 1}',
                     data.reviewProgress[i],
                     data.reviewSizes[i],
+                    last: i == data.reviewSizes.length - 1,
                   ),
                 );
               }
             } else {
-              for (final row in data.newRows) {
-                rows.add(_sheetRow(row.title, row.done, row.total));
+              for (final r in data.newRows) {
+                rows.add(
+                  row(
+                    r.title,
+                    r.done,
+                    r.total,
+                    last: r == data.newRows.last,
+                  ),
+                );
               }
             }
-            return TodayQuestionsSheet(
+            final sheet =
+                wide ? HomeWebQuestionsSheet.new : TodayQuestionsSheet.new;
+            return sheet(
               title: reviews ? 'Reviews' : 'New questions',
               done: reviews ? data.reviewsDone : data.newDone,
               total: reviews ? data.reviewsTotal : data.newTotal,

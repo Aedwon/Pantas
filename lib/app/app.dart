@@ -58,6 +58,10 @@ class App extends ConsumerWidget {
       theme: appLightTheme(),
       darkTheme: appDarkTheme(),
       themeMode: themeMode,
+      // On the web the theme changes in one step. The page background glided
+      // while the cards, which read the brightness, flipped at the midpoint,
+      // so a dark card showed on a light page for a moment (7W-15).
+      themeAnimationDuration: kIsWeb ? Duration.zero : kThemeAnimationDuration,
       scrollBehavior: const NoScrollBarsBehavior(),
       routerConfig: kIsWeb ? ref.watch(_webRouterConfigProvider) : router,
       builder: (context, child) => WebLayoutTheme(

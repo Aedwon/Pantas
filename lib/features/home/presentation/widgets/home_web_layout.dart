@@ -3,6 +3,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart' show RenderAbstractViewport;
 import 'package:flutter/services.dart';
+import 'package:pantas/core/ui/components/check_mark.dart';
+import 'package:pantas/core/ui/components/progress_ring.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
@@ -783,6 +785,63 @@ class HomeWebQuestionsSheet extends StatelessWidget {
                 ),
             ],
           ),
+        ),
+      );
+}
+
+/// Board drawer rows: a 22 px box holding a 20 px ring or a 22 px check.
+class HomeDrawerRing extends StatelessWidget {
+  const HomeDrawerRing(this.fraction, {required this.done, super.key});
+  final double fraction;
+  final bool done;
+
+  @override
+  Widget build(BuildContext context) => SizedBox.square(
+        dimension: 22,
+        child: done
+            ? const FittedBox(child: CheckMark())
+            : Center(
+                child: fraction > 0
+                    ? ProgressRing(fraction: fraction, size: 21)
+                    : ProgressRing(
+                        fraction: 0,
+                        size: 20,
+                        emptyStrokeWidth: 2,
+                        emptyTrackColor: context.webTokens.dark
+                            ? null
+                            : const Color(0xFFD1D1D6),
+                      ),
+              ),
+      );
+}
+
+/// One row of the Reviews and New questions drawers, on Home and on the Quiz
+/// tab: the title, the ring of what is done and the count.
+class HomeDrawerQuestionRow extends StatelessWidget {
+  const HomeDrawerQuestionRow({
+    required this.title,
+    required this.done,
+    required this.total,
+    this.last = false,
+    super.key,
+  });
+  final String title;
+  final int done;
+  final int total;
+  final bool last;
+
+  @override
+  Widget build(BuildContext context) => WebRow(
+        title: title,
+        wrapTitle: true,
+        titleStyle: context.webTokens.style(16, height: 1.3),
+        boardMetrics: true,
+        divider: !last,
+        value: '$total',
+        compact: true,
+        leading: HomeDrawerRing(
+          total == 0 ? 0 : done / total,
+          done: done == total,
         ),
       );
 }

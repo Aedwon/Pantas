@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
+import 'package:pantas/core/ui/components/pantas_sheet.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/home/application/today_questions.dart';
+import 'package:pantas/features/home/presentation/widgets/home_web_layout.dart';
 import 'package:pantas/features/mock_exam/presentation/widgets/mock_card.dart';
 import 'package:pantas/features/quiz/domain/use_cases/build_today_plan.dart';
 import 'package:pantas/features/quiz/presentation/quiz_tab_screen.dart';
@@ -221,4 +223,53 @@ void main() {
       expect(tester.takeException(), isNull);
     });
   }
+
+  testWidgets("wide Today rows open Home's right drawer over the sidebar too",
+      (tester) async {
+    await pump(
+      tester,
+      const Padding(
+        padding: EdgeInsets.fromLTRB(288, 28, 44, 44),
+        child: QuizTabScreen(),
+      ),
+      dark: false,
+      overrides: [
+        activeExamFocusProvider.overrideWith(
+          (_) async => ActiveExamFocus.selected(buildExam(id: 'e')),
+        ),
+        sessionPanelProvider('e').overrideWith(
+          (_) async => const SessionPanelAvailable(
+            plan: TodaySessionPlan(
+              questions: [],
+              dueCount: 14,
+              weaknessCount: 0,
+              freshCount: 0,
+            ),
+          ),
+        ),
+        todayQuestionWorkProvider('e').overrideWith((_) async => _ReviewWork()),
+        quizTodayCountsProvider('e').overrideWith(
+          (_) async => const QuizTodayCounts(
+            reviewsDone: 18,
+            reviewsTotal: 32,
+            newDone: 7,
+            newTotal: 7,
+          ),
+        ),
+        quizPracticeCountsProvider('e')
+            .overrideWith((_) async => (mistakes: 28, flags: 12)),
+      ],
+    );
+    expect(find.byType(HomeWebOverlay), findsOneWidget);
+    expect(find.byType(PantasSheet), findsNothing);
+    await tester.tap(find.text('New questions'));
+    await tester.pump();
+    await tester.pump();
+    // 7W-8: the scrim covers the whole window, sidebar included (the page
+    // here starts 288 px in, where the sidebar ends), as it does on Home.
+    final scrim = tester.getRect(find.byType(AnimatedModalBarrier).last);
+    expect(scrim.left, 0);
+    expect(scrim.size, const Size(1440, 900));
+    expect(find.byType(PantasSheet), findsNothing);
+  });
 }

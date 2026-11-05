@@ -9,7 +9,7 @@ import 'package:pantas/core/ui/motion/pantas_durations.dart';
 /// The fade is local: only [builder] runs on each frame, so a selection never
 /// rebuilds the screen around it. With reduced motion the new color is simply
 /// there.
-class FadingColor extends StatelessWidget {
+class FadingColor extends StatefulWidget {
   const FadingColor({
     required this.color,
     required this.builder,
@@ -31,15 +31,31 @@ class FadingColor extends StatelessWidget {
   final Widget? child;
 
   @override
-  Widget build(BuildContext context) => TweenAnimationBuilder<Color?>(
-        tween: ColorTween(end: color),
-        duration:
-            MediaQuery.disableAnimationsOf(context) ? Duration.zero : duration,
-        curve: curve,
-        child: child,
-        builder: (context, value, child) =>
-            builder(context, value ?? color, child),
-      );
+  State<FadingColor> createState() => _FadingColorState();
+}
+
+class _FadingColorState extends State<FadingColor> {
+  Brightness? _brightness;
+
+  @override
+  Widget build(BuildContext context) {
+    // A switch between light and dark is not a selection. The page changes in
+    // one step, so a card that faded over it showed the old theme's color on
+    // the new page for a moment (7W-15).
+    final brightness = Theme.of(context).brightness;
+    final themeChanged = _brightness != null && _brightness != brightness;
+    _brightness = brightness;
+    return TweenAnimationBuilder<Color?>(
+      tween: ColorTween(end: widget.color),
+      duration: themeChanged || MediaQuery.disableAnimationsOf(context)
+          ? Duration.zero
+          : widget.duration,
+      curve: widget.curve,
+      child: widget.child,
+      builder: (context, value, child) =>
+          widget.builder(context, value ?? widget.color, child),
+    );
+  }
 }
 
 /// A marker that glides between slots: the tab bar pill, the sidebar tint and
