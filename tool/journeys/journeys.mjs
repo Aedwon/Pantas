@@ -123,6 +123,20 @@ const journeys = {
     await refuse(page, /Could not load your quiz/);
   },
 
+  // A commit on IndexedDB stayed in memory until the next plain write, so the
+  // last answer before a reload was lost.
+  async 'The last answer survives a reload'(page) {
+    await page.goto(`${BASE}/local-panel.html`, {waitUntil: 'load'});
+    await page.evaluate(() => localStorage.setItem('pantas.local.preset', 'days'));
+    await page.goto(`${BASE}/local-reset.html`, {waitUntil: 'domcontentloaded'});
+    await seeLabel(page, /Which days will you study/, 120, 'Study days');
+    await clickLabel(page, /^Continue/);
+    await seeLabel(page, /What should we call you/, 30, 'Name');
+    await page.waitForTimeout(1000);
+    await page.reload({waitUntil: 'domcontentloaded'});
+    await seeLabel(page, /What should we call you/, 90, 'Name after the reload');
+  },
+
   // Every student starts here.
   async 'A first visit reaches onboarding'(page) {
     await page.goto(BASE, {waitUntil: 'domcontentloaded'});

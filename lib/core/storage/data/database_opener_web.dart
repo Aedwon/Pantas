@@ -3,6 +3,7 @@ import 'dart:js_interop';
 
 import 'package:drift/wasm.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/core/storage/data/durable_writes.dart';
 // The browser API package is already locked through Flutter's web plugins.
 // ignore: depend_on_referenced_packages
 import 'package:web/web.dart' as web;
@@ -84,6 +85,10 @@ Future<AppDatabase> _openOnce(String name, Uri wasm, Uri worker) async {
     if (api != null && _isDamaged(error)) throw _UnreadableDatabase(api, error);
     rethrow;
   }
+  flushAfterWrites(
+    database,
+    flush: () => database.customStatement('SELECT 1'),
+  );
   return database;
 }
 
