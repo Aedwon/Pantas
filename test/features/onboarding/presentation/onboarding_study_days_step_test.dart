@@ -5,6 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/domain/exam_date.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/time/study_days.dart';
+import 'package:pantas/features/onboarding/application/onboarding_flow.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_study_days_step.dart';
 import 'package:pantas/features/settings/data/settings_repository.dart';
 
@@ -119,6 +120,45 @@ void main() {
     await tester.pumpAndSettle();
     expect((await repo.readUserSettings()).studyDays.weekdays, {1, 6});
     await tester.pumpWidget(const SizedBox.shrink());
+  });
+  // 6U-4: the days are saved the moment Continue is pressed, not at Done, so
+  // a reload on the Name step resumes at Name with the days kept.
+  testWidgets('Continue saves the days, so a reload resumes at Name',
+      (tester) async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final prefs = AppPreferencesRepository(db);
+    final repo = DriftSettingsRepository(db);
+    await prefs.setPassedAgeGate(value: true);
+    await repo.recordPolicyAcceptance();
+    await prefs.setSelectedExamId('cse');
+    await prefs.setDeviceValue(onboardingDateAnsweredKey, 'true');
+    final today = DateTime(2026, 10, 3);
+    await pumpAccessibilitySurface(
+      tester,
+      ProviderScope(
+        overrides: [appDatabaseProvider.overrideWithValue(db)],
+        child: OnboardingStudyDaysStep(now: today, onCompleted: () {}),
+      ),
+      disableAnimations: true,
+    );
+    await tester.pumpAndSettle();
+    for (final day in [1, 2, 3, 4, 5]) {
+      await tester.tap(find.byKey(ValueKey('study-day-$day')));
+      await tester.pumpAndSettle();
+    }
+    await tester.tap(find.text('Continue'));
+    await tester.pumpAndSettle();
+    await tester.pumpWidget(const SizedBox.shrink());
+
+    // A reload: a new app on the same stored data.
+    final reloaded = ProviderContainer(
+      overrides: [appDatabaseProvider.overrideWithValue(db)],
+    );
+    addTearDown(reloaded.dispose);
+    final progress = await reloaded.read(onboardingProgressProvider.future);
+    expect(progress.resumeStep, OnboardingStep.name);
+    expect((await repo.readUserSettings()).studyDays.weekdays, {1, 2, 3, 4, 5});
   });
   testWidgets('returning restores explicitly saved study days', (tester) async {
     final db = inMemoryDatabase();

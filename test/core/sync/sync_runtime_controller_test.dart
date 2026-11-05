@@ -285,6 +285,241 @@ void main() {
     await off;
   });
 
+  group('device already holding the active generation', () {
+    const identity = SyncIdentity(uid: 'user-1');
+
+    Future<_Harness> promptOnce() async {
+      final h = _Harness();
+      addTearDown(h.close);
+      h.seedGeneration(
+        uid: 'user-1',
+        generationId: 'gen-cloud',
+        meaningful: true,
+      );
+      await h.seedLocalLesson();
+      await h.runtime.update(
+        identity: identity,
+        entitlement: SyncEntitlement.pro,
+      );
+      expect(h.runtime.status, isA<SyncReconciliationRequired>());
+      return h;
+    }
+
+    test('a reload after Keep my account does not ask again', () async {
+      final h = await promptOnce();
+      await h.runtime.chooseReconciliation(
+        SyncReconciliationChoice.keepMyAccount,
+      );
+      final pulls = h.coordinator.operations.length;
+
+      final reloaded = h.reload();
+      await reloaded.update(
+        identity: identity,
+        entitlement: SyncEntitlement.pro,
+      );
+
+      expect(reloaded.status, isNot(isA<SyncReconciliationRequired>()));
+      expect(h.coordinator.operations, hasLength(pulls));
+      expect(h.engine.starts.last, 'user-1:gen-cloud');
+      expect((await h.activeContext.readStable())!.generationId, 'gen-cloud');
+    });
+
+    test('a reload after Keep this device does not ask again', () async {
+      final h = await promptOnce();
+      await h.runtime.chooseReconciliation(
+        SyncReconciliationChoice.keepThisDevice,
+      );
+      expect(h.coordinator.pushCalls, 1);
+      h.seedGeneration(
+        uid: 'user-1',
+        generationId: 'gen-user-1-1',
+        meaningful: true,
+      );
+
+      final reloaded = h.reload();
+      await reloaded.update(
+        identity: identity,
+        entitlement: SyncEntitlement.pro,
+      );
+
+      expect(reloaded.status, isNot(isA<SyncReconciliationRequired>()));
+      expect(h.coordinator.pushCalls, 1);
+      expect(h.engine.starts.last, 'user-1:gen-user-1-1');
+    });
+
+    test('startup reporting Free first still does not ask', () async {
+      final h = await promptOnce();
+      await h.runtime.chooseReconciliation(
+        SyncReconciliationChoice.keepMyAccount,
+      );
+
+      final reloaded = h.reload();
+      await reloaded.update(
+        identity: identity,
+        entitlement: SyncEntitlement.free,
+      );
+      await reloaded.update(
+        identity: identity,
+        entitlement: SyncEntitlement.pro,
+      );
+
+      expect(reloaded.status, isNot(isA<SyncReconciliationRequired>()));
+      expect(h.engine.starts.last, 'user-1:gen-cloud');
+    });
+
+    test('a reload reads no cloud rows to decide', () async {
+      final h = await promptOnce();
+      await h.runtime.chooseReconciliation(
+        SyncReconciliationChoice.keepMyAccount,
+      );
+      h.firestore.reads = 0;
+
+      await h.reload().update(
+            identity: identity,
+            entitlement: SyncEntitlement.pro,
+          );
+
+      expect(h.firestore.reads, 1, reason: 'only the active generation');
+    });
+
+    test('a generation another device replaced still asks', () async {
+      final h = await promptOnce();
+      await h.runtime.chooseReconciliation(
+        SyncReconciliationChoice.keepMyAccount,
+      );
+      h.seedGeneration(
+        uid: 'user-1',
+        generationId: 'gen-other-device',
+        meaningful: true,
+      );
+
+      final reloaded = h.reload();
+      await reloaded.update(
+        identity: identity,
+        entitlement: SyncEntitlement.pro,
+      );
+
+      expect(reloaded.status, isA<SyncReconciliationRequired>());
+    });
+
+    for (final marker in ['pending_full_push', 'pending_full_pull']) {
+      test('an unfinished $marker still asks', () async {
+        final h = await promptOnce();
+        await h.runtime.chooseReconciliation(
+          SyncReconciliationChoice.keepMyAccount,
+        );
+        await h.db.customStatement(
+          'insert into sync_meta (key,value) values (?,?)',
+          [marker, 'gen-unfinished'],
+        );
+
+        final reloaded = h.reload();
+        await reloaded.update(
+          identity: identity,
+          entitlement: SyncEntitlement.pro,
+        );
+
+        expect(reloaded.status, isA<SyncReconciliationRequired>());
+      });
+    }
+
+    test('an empty device with no held generation still downloads', () async {
+      final h = _Harness();
+      addTearDown(h.close);
+      h.seedGeneration(
+        uid: 'user-1',
+        generationId: 'gen-cloud',
+        meaningful: true,
+      );
+
+      await h.runtime.update(
+        identity: identity,
+        entitlement: SyncEntitlement.pro,
+      );
+
+      expect(h.coordinator.operations, ['pull:user-1:gen-cloud']);
+    });
+
+    test('changes made while Sync was off upload after a reload', () async {
+      final h = await promptOnce();
+      await h.runtime.chooseReconciliation(
+        SyncReconciliationChoice.keepMyAccount,
+      );
+      final rowMeta = SyncRowMetaRepository(h.db);
+      await rowMeta.acceptKnownVersion(
+        collection: 'lesson_progress',
+        rowId: 'known-row',
+        updatedAt: DateTime.utc(2026, 8, 30, 1),
+      );
+      await rowMeta.acceptKnownAbsent(
+        collection: 'lesson_progress',
+        rowId: 'tombstoned-row',
+      );
+      await h.activeContext.clearStable();
+      final recorder = LocalSyncMutationRecorder.forDatabase(h.db);
+      for (final rowId in ['known-row', 'tombstoned-row', 'new-row']) {
+        await recorder.runRecorded<void>(
+          collection: 'lesson_progress',
+          rowId: rowId,
+          op: SyncLocalMutationOp.upsert,
+          mutate: () {},
+        );
+      }
+      await h.db.customStatement(
+        'insert into sync_local_mutations '
+        '(collection,row_id,op,revision,mutation_epoch,causal_uid,'
+        'causal_generation_id,causal_base_state,recorded_at) '
+        'values (?,?,?,?,?,?,?,?,?)',
+        [
+          'lesson_progress',
+          'older-generation-row',
+          'upsert',
+          1,
+          99,
+          'user-1',
+          'gen-retired',
+          'knownAbsent',
+          DateTime.utc(2026, 8, 30).millisecondsSinceEpoch,
+        ],
+      );
+
+      await h.reload().update(
+            identity: identity,
+            entitlement: SyncEntitlement.pro,
+          );
+
+      final promoted = await SyncOutboxPromoter(
+        h.db,
+        activeContextStore: h.activeContext,
+        pendingQueue: PendingQueue(h.db),
+      ).promoteAvailable();
+      expect(promoted, 3);
+
+      final pending = {
+        for (final row in await h.db.select(h.db.pendingSync).get())
+          row.rowId: row,
+      };
+      expect(pending.keys, {'known-row', 'tombstoned-row', 'new-row'});
+      expect(pending['known-row']!.baseState, 'knownVersion');
+      expect(
+        pending['known-row']!.baseUpdatedAt!.toUtc(),
+        DateTime.utc(2026, 8, 30, 1),
+      );
+      expect(pending['tombstoned-row']!.baseState, 'knownAbsent');
+      expect(pending['new-row']!.baseState, 'knownAbsent');
+      expect(pending['new-row']!.generationId, 'gen-cloud');
+      expect(pending['new-row']!.uid, 'user-1');
+
+      final left = await h.db
+          .customSelect('select row_id from sync_local_mutations')
+          .get();
+      expect(
+        left.map((row) => row.read<String>('row_id')),
+        ['older-generation-row'],
+      );
+    });
+  });
+
   test('all local-only runtime states keep mutations unbound and out of outbox',
       () async {
     Future<void> expectLocalOnlyMutation(_Harness h, String label) async {
@@ -512,19 +747,26 @@ class _Harness {
             : _CountingClaimGateway(hasClaim: hasClaim) {
     final configuredClaim = claimGateway ?? claim;
     activeContext = SyncActiveContextStore(db);
-    runtime = SyncRuntimeController(
-      db: db,
-      claimGateway: configuredClaim,
-      activeContextStore: activeContext,
-      generationRepositoryForUid: (uid) => GenerationRepository(
-        gateway: firestore,
-        functionsGateway: FakeSyncFunctionsGateway(),
-        uid: uid,
-      ),
-      coordinator: coordinator,
-      engine: engine,
-    );
+    coordinator.db = db;
+    runtime = _newRuntime(configuredClaim);
   }
+
+  SyncRuntimeController _newRuntime(SyncClaimGateway claimGateway) =>
+      SyncRuntimeController(
+        db: db,
+        claimGateway: claimGateway,
+        activeContextStore: activeContext,
+        generationRepositoryForUid: (uid) => GenerationRepository(
+          gateway: firestore,
+          functionsGateway: FakeSyncFunctionsGateway(),
+          uid: uid,
+        ),
+        coordinator: coordinator,
+        engine: engine,
+      );
+
+  /// A page reload: a fresh controller over the same stored database.
+  SyncRuntimeController reload() => _newRuntime(claim);
 
   final AppDatabase db;
   final _CountingFirestoreGateway firestore;
@@ -661,6 +903,9 @@ class _BlockingClaimGateway implements SyncClaimGateway {
 }
 
 class _FakeCoordinator implements SyncCoordinator {
+  /// Set by the harness. The real push and pull record the generation this
+  /// device now holds (full_push_test, full_pull_test), so the fake does too.
+  late AppDatabase db;
   final operations = <String>[];
   final _pushPerUid = <String, int>{};
   int failuresRemaining = 0;
@@ -690,11 +935,20 @@ class _FakeCoordinator implements SyncCoordinator {
         generationId: 'gen-$uid-$count',
       );
     }
+    await _hold('gen-$uid-$count');
     return FullPushResult(
       outcome: FullPushOutcome.activated,
       generationId: 'gen-$uid-$count',
     );
   }
+
+  Future<void> _hold(String generationId) =>
+      db.into(db.syncMeta).insertOnConflictUpdate(
+            SyncMetaCompanion.insert(
+              key: 'currentLocalGenerationId',
+              value: generationId,
+            ),
+          );
 
   @override
   Future<FullPullResult> keepMyAccount({
@@ -703,6 +957,7 @@ class _FakeCoordinator implements SyncCoordinator {
     SyncContinuation? shouldContinue,
   }) async {
     operations.add('pull:$uid:$generationId');
+    await _hold(generationId);
     return const FullPullResult(FullPullOutcome.applied);
   }
 }

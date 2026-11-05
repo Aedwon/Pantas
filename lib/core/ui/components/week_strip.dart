@@ -101,6 +101,12 @@ class _WeekStripState extends State<WeekStrip> {
   Widget build(BuildContext context) {
     final start = PantasDates.weekStart(widget.today);
     final c = context.colors;
+    // The board's pale gray vanishes into the dark page, so it would show an
+    // off-day as bright as a study day. Dark uses the dimmed gray that the
+    // wide web strip uses (6U-6).
+    final off = Theme.of(context).brightness == Brightness.dark
+        ? c.tertiaryLabel
+        : c.inactiveDateLabel;
     final scale = MediaQuery.textScalerOf(context);
     final size = WeekStrip._markSize(scale);
     return LayoutBuilder(
@@ -122,7 +128,7 @@ class _WeekStripState extends State<WeekStrip> {
                 final today = state == WeekDayState.today;
                 final dayOff = state == WeekDayState.dayOff;
                 final color = dayOff
-                    ? c.inactiveDateLabel
+                    ? off
                     : today
                         ? c.accent
                         : c.secondaryLabel;
@@ -133,7 +139,7 @@ class _WeekStripState extends State<WeekStrip> {
                     context,
                     today: today,
                     color: dayOff
-                        ? c.inactiveDateLabel
+                        ? off
                         : today
                             ? (c.onAccent)
                             : c.label,

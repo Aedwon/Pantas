@@ -397,7 +397,9 @@ class WebCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final t = context.webTokens;
     // Item 17, demo 4: the tint and the outline fade 160 ms on the ease. The
-    // dark edge goes at once, since it takes up room the outline would cover.
+    // dark edge is the board's inset outline: it is drawn over the card and
+    // takes up no room, so a card is the same size in dark and light (6T-11).
+    final edge = t.dark && !selected && !floating ? t.cardEdge : null;
     return FadingColor(
       color: selected
           ? (t.dark ? t.colors.accentTint : const Color(0xFFE4F1EE))
@@ -412,16 +414,17 @@ class WebCard extends StatelessWidget {
           decoration: BoxDecoration(
             color: fill,
             borderRadius: BorderRadius.circular(radius),
-            border: floating
-                ? Border.all(color: webFloatingEdge(t))
-                : t.dark && !selected
-                    ? Border.all(color: t.cardEdge)
-                    : null,
+            border: floating ? Border.all(color: webFloatingEdge(t)) : null,
             boxShadow: floating ? webFloatingShadow(t, blur: 24, dy: 4) : null,
           ),
           // Drawn on top like the board inset outline; content stays put.
           foregroundDecoration: outline.a == 0
-              ? null
+              ? edge == null
+                  ? null
+                  : BoxDecoration(
+                      borderRadius: BorderRadius.circular(radius),
+                      border: Border.all(color: edge),
+                    )
               : BoxDecoration(
                   borderRadius: BorderRadius.circular(radius),
                   border: Border.all(color: outline, width: 2),

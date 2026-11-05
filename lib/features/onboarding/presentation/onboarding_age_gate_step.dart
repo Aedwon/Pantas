@@ -17,6 +17,7 @@ import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
+import 'package:pantas/features/onboarding/application/onboarding_flow.dart';
 import 'package:pantas/features/onboarding/domain/age_policy.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_web_page.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_welcome_step.dart';
@@ -49,7 +50,20 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
           if (mounted) unawaited(_continue());
         },
       ) ??
+      _rememberedYear ??
       widget.currentYear - 14;
+
+  /// The year chosen earlier in this visit, when it is still a valid choice.
+  int? get _rememberedYear {
+    final year = ref.read(onboardingBirthYearProvider);
+    if (year == null ||
+        year < widget.currentYear - 100 ||
+        year > widget.currentYear) {
+      return null;
+    }
+    return year;
+  }
+
   late final _yearController = TextEditingController(text: '$_selectedYear');
   final _yearFocus = FocusNode();
   @override
@@ -112,6 +126,8 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
   Future<void> _continue() async {
     if (_saving || (context.wideWeb && !_validYear)) return;
     final policy = AgePolicy.forExam(null);
+    // Memory only, so Back from the next step shows the same year.
+    ref.read(onboardingBirthYearProvider.notifier).state = _selectedYear;
     final outcome = policy.evaluate(
       birthYear: _selectedYear,
       currentYear: widget.currentYear,

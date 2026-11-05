@@ -13,6 +13,7 @@ void main() {
     expect(context.lessonIds, ['cell-biology', 'stoichiometry', 'circles']);
     expect(context.index, 1);
     expect(context.lessonIds[context.index], 'stoichiometry');
+    expect(context.moreToDo, isFalse);
   });
 
   test('day context keeps its lesson order after the caller changes its list',

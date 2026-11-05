@@ -492,7 +492,7 @@ void main() {
       expect(find.text('Finish the Notes'), findsOneWidget);
       expect(find.text('Left blank'), findsOneWidget);
       expect(tester.getSize(find.byType(WebSegmentedControl)).width, 464);
-      expect(tester.getSize(find.byType(WebRow)).width, dark ? 758 : 760);
+      expect(tester.getSize(find.byType(WebRow)).width, 760);
       await tester.tap(find.text('Flagged 1'));
       await tester.pump();
       expect(find.text('Save All 1'), findsOneWidget);

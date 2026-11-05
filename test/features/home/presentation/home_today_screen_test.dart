@@ -173,6 +173,9 @@ void main() {
     expect(context?.lessonIds, ['l1', 'l2']);
     expect(context?.index, 0);
     expect(context?.date, day);
+    // New questions and reviews are still on the list, so the reader must not
+    // close the day (6U-7).
+    expect(context?.moreToDo, isTrue);
   });
   testWidgets('Lessons sheet groups subjects and omits row subtitles',
       (tester) async {

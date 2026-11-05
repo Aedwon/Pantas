@@ -260,6 +260,7 @@ class _LessonPageState extends ConsumerState<LessonPage> {
       date: day.date,
       lessonIds: day.lessonIds,
       index: index,
+      moreToDo: day.moreToDo,
     );
   }
 
@@ -474,7 +475,9 @@ class _LessonPageState extends ConsumerState<LessonPage> {
     final day = reader == null ? null : _dayContextFor(reader.lesson.id);
     final endingTarget = reader == null || _ending != null || nextId != null
         ? null
-        : day != null
+        // The day line says the day is done, so it waits until nothing else
+        // is on the list. Otherwise the lesson closes like any other (6U-7).
+        : day != null && !day.moreToDo
             ? const DayFinished()
             : reader.topicEnding;
     final title = endingTarget is DayFinished

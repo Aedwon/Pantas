@@ -416,6 +416,9 @@ class _PlanDayScreenState extends ConsumerState<PlanDayScreen> {
     }
     final plan = view.plan!;
     final remaining = view.remaining;
+    final moreToDo = remaining != null &&
+        (remaining.newQuestionIds.isNotEmpty ||
+            remaining.reviewQuestionIds.isNotEmpty);
     final page = PlanDayPage(
       date: view.date,
       backLabel: widget.backLabel,
@@ -439,6 +442,7 @@ class _PlanDayScreenState extends ConsumerState<PlanDayScreen> {
           date: view.date,
           lessonIds: plan.lessonIds,
           index: plan.lessonIds.indexOf(lesson.id),
+          moreToDo: moreToDo,
         );
         if (context.wideWeb && widget.onReadEarly != null) {
           await widget.onReadEarly!(
@@ -455,6 +459,7 @@ class _PlanDayScreenState extends ConsumerState<PlanDayScreen> {
               date: view.date,
               lessonIds: plan.lessonIds,
               index: plan.lessonIds.indexOf(lesson.id),
+              moreToDo: moreToDo,
             ),
           );
         }

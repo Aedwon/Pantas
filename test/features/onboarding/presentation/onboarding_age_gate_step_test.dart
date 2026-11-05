@@ -361,6 +361,55 @@ void main() {
     expect(find.text('When were you born?'), findsOneWidget);
     expect(find.text('Back'), findsOneWidget);
   });
+
+  // 6U-2: Back from Terms showed 2012 again, and Continue then sent an adult
+  // to the guardian screen.
+  testWidgets('phone: Back to the year step shows the year the student chose',
+      (tester) async {
+    final shown = ValueNotifier<bool>(true);
+    addTearDown(shown.dispose);
+    var passed = 0;
+    await pumpAccessibilitySurface(
+      tester,
+      ProviderScope(
+        overrides: [appDatabaseProvider.overrideWithValue(db)],
+        child: ValueListenableBuilder<bool>(
+          valueListenable: shown,
+          builder: (_, on, __) => on
+              ? OnboardingAgeGateStep(
+                  currentYear: 2026,
+                  onAgeGatePassed: () => passed++,
+                  onGuardianNeeded: () => fail('an adult needs no guardian'),
+                )
+              : const SizedBox(),
+        ),
+      ),
+      viewportSize: const Size(390, 844),
+    );
+    var wheel = tester.widget<ValueWheel>(find.byType(ValueWheel));
+    expect(wheel.values[wheel.selectedIndex], '2012');
+    wheel.onSelected(wheel.values.indexOf('2006'));
+    await tester.pump();
+    await tester.tap(find.text('Continue'));
+    await tester.pumpAndSettle();
+    expect(passed, 1);
+
+    shown.value = false;
+    await tester.pump();
+    shown.value = true;
+    await tester.pump();
+    wheel = tester.widget<ValueWheel>(find.byType(ValueWheel));
+    expect(wheel.values[wheel.selectedIndex], '2006');
+    await tester.tap(find.text('Continue'));
+    await tester.pumpAndSettle();
+    expect(passed, 2);
+  });
+
+  testWidgets('a new visit starts on the default year', (tester) async {
+    await pump(tester);
+    final wheel = tester.widget<ValueWheel>(find.byType(ValueWheel));
+    expect(wheel.values[wheel.selectedIndex], '2012');
+  });
 }
 
 class _FrameHost extends StatefulWidget {

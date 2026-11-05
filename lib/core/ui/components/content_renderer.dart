@@ -7,6 +7,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pantas/core/platform/figure_viewer_back.dart';
+import 'package:pantas/core/platform/figure_viewer_history.dart';
 import 'package:pantas/core/platform/route_leave_guard.dart';
 import 'package:pantas/core/ui/components/lesson_svg.dart';
 import 'package:pantas/core/ui/components/math_support.dart';
@@ -1661,14 +1662,23 @@ class _FigureViewerState extends State<_FigureViewer> {
     return false;
   }
 
+  VoidCallback? _releaseHistory;
+
   @override
   void initState() {
     super.initState();
     _backGuard = figureViewerBackIn(context)?..running = _closeForBack;
+    // The viewer's own history entry, so Back closes it even when the page
+    // has no earlier page of the app behind it (6U-5).
+    _releaseHistory = openFigureViewerHistory(
+      context,
+      () => unawaited(_closeForBack()),
+    );
   }
 
   @override
   void dispose() {
+    _releaseHistory?.call();
     _backGuard?.detach(_closeForBack);
     _zoom.dispose();
     super.dispose();

@@ -282,6 +282,28 @@ void main() {
     );
   });
 
+  // 6U-3: the counter sat at the top of its 44 px box, 12 px above the Back
+  // word and the bookmark.
+  testWidgets('day counter is centered on the bar like Back and the bookmark',
+      (tester) async {
+    await pumpBar(
+      tester,
+      origin: ReaderOrigin.home,
+      dayContext: LessonDayContext(
+        date: DateTime(2026, 10, 14),
+        lessonIds: const ['l1'],
+        index: 0,
+      ),
+    );
+    final counter = tester.getCenter(find.text('1 of 1')).dy;
+    final bookmark = tester
+        .getCenter(find.byKey(const ValueKey('reader-bookmark-control')))
+        .dy;
+    final back = tester.getCenter(find.text('Home')).dy;
+    expect(counter, closeTo(bookmark, 1));
+    expect(counter, closeTo(back, 1));
+  });
+
   testWidgets('day counter preserves all touch targets at320 and200% text',
       (tester) async {
     tester.view

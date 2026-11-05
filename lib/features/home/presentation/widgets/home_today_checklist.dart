@@ -388,6 +388,7 @@ class HomeTodayChecklist extends StatelessWidget {
                   if (isMockDay)
                     WebRow(
                       boardMetrics: true,
+                      chevron: WebRowChevron.hover,
                       title: 'Mock exam',
                       subtitle: mockSubtitle,
                       value: mockDuration,

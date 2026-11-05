@@ -43,7 +43,7 @@ void main() {
       );
       expect(
         tester.getSize(find.byType(MockPastChart)).width,
-        dark ? 998 : 1000,
+        1000,
       );
       expect(
         tester.getTopLeft(find.text('Done')).dy,
@@ -113,6 +113,10 @@ void main() {
 
       await pump(fromRecord: true);
       expect(find.text('Your record'), findsOneWidget);
+      // 6T-10: the board's 64 px header, as other full-screen pages have, and
+      // the title stays where 64 + 16 puts it.
+      expect(tester.getCenter(find.text('Your record')).dy, 32);
+      expect(tester.getTopLeft(find.text('CSE simulation')).dy, 80);
       expect(find.text('Done'), findsNothing);
       expect(find.byTooltip('Close'), findsNothing);
       expect(find.text('See full record'), findsOneWidget);

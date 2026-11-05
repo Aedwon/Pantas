@@ -313,3 +313,18 @@ test('on a short window the Welcome stack starts near the top, clear of the butt
   // 450 px window's button top (450 - 34 - 52 = 364).
   assert.ok(28 + 72 + 20 + 38 + 10 + 50 < 450 - 34 - 52);
 });
+
+// 6U-1: WebKit on a phone lays a page without a viewport tag out 980 px wide
+// and scaled down, so the Welcome logo showed small near the top, then jumped
+// when Flutter added its own tag. The page declares the same tag up front.
+test('index.html declares the viewport Flutter writes, before any stylesheet', () => {
+  const html = readFileSync(new URL('../../web/index.html', import.meta.url), 'utf8');
+  const tag = /<meta name="viewport" content="([^"]*)">/.exec(html);
+  assert.ok(tag, 'a viewport tag exists');
+  assert.equal(
+    tag[1],
+    'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no',
+  );
+  assert.ok(html.indexOf(tag[0]) < html.indexOf('<style>'));
+  assert.ok(html.indexOf(tag[0]) < html.indexOf('pantas_welcome.js'));
+});

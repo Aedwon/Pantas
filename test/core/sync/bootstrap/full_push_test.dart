@@ -238,6 +238,13 @@ void main() {
     addTearDown(db.close);
     await _seedLesson(db);
     await _seedJournal(db, revision: 1, mutationEpoch: 1);
+    // A Keep my account that failed earlier must not outlive this choice.
+    await db.into(db.syncMeta).insert(
+          SyncMetaCompanion.insert(
+            key: 'pending_full_pull',
+            value: 'gen-failed',
+          ),
+        );
 
     final result = await FullPushBootstrap(
       db: db,
@@ -256,6 +263,7 @@ void main() {
     );
     expect(await db.select(db.pendingSync).get(), isEmpty);
     expect(await _marker(db, 'pending_full_push'), isNull);
+    expect(await _marker(db, 'pending_full_pull'), isNull);
     expect(await _marker(db, 'currentLocalGenerationId'), 'gen-new');
   });
   test(

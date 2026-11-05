@@ -282,15 +282,15 @@ class MockResultsPage extends StatelessWidget {
           body: Column(
             children: [
               if (fromRecord)
-                // The board's header is the 40 px link alone.
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
-                  child: SizedBox(
-                    height: 40,
+                // Board (MK_PastPro): the 64 px header every full-screen page
+                // has, with the link's chevron 6 px into the padding.
+                WebTopBar(
+                  leading: Transform.translate(
+                    offset: const Offset(-6, 0),
                     child: WebBackLink(
                       label: 'Your record',
                       onPressed: onDone ?? () {},
-                      tightIcon: true,
+                      nudge: false,
                     ),
                   ),
                 )
@@ -304,8 +304,7 @@ class MockResultsPage extends StatelessWidget {
                 ),
               Expanded(
                 child: SingleChildScrollView(
-                  padding:
-                      EdgeInsets.fromLTRB(40, fromRecord ? 40 : 16, 40, 56),
+                  padding: const EdgeInsets.fromLTRB(40, 16, 40, 56),
                   child: Center(
                     child: ConstrainedBox(
                       constraints: const BoxConstraints(maxWidth: 1040),

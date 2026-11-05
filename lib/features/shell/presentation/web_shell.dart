@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -88,8 +90,11 @@ class WebShellFrame extends StatelessWidget {
 /// Tab starts in the sidebar, as the screen reads left to right (5Q-12). A
 /// page holds focus on its own key node until something is focused, and Tab
 /// from that node went to the page's controls and reached the sidebar last.
-/// The first Tab from such a node now goes to the sidebar's first control;
-/// Tab on from the sidebar's last control enters the page.
+/// The first Tab from such a node now goes to the sidebar's first control.
+/// Tab on from the sidebar's last control goes straight to the page's first
+/// control: Flutter first lands on the node the page holds focus on, which
+/// shows nothing and does nothing, and from there the rule above sent Tab
+/// back to the sidebar, so page content was never reached (6T-2).
 class _DesktopShell extends StatefulWidget {
   const _DesktopShell({
     required this.child,
@@ -114,11 +119,30 @@ class _DesktopShell extends StatefulWidget {
 
 class _DesktopShellState extends State<_DesktopShell> {
   final _sidebarEntry = FocusNode(debugLabel: 'sidebar entry');
+  final _sidebar = FocusNode(debugLabel: 'sidebar');
 
   @override
   void dispose() {
     _sidebarEntry.dispose();
+    _sidebar.dispose();
     super.dispose();
+  }
+
+  /// The sidebar is one column, so its last stop is its lowest.
+  bool _isLastSidebarStop(FocusNode node) {
+    final stops = _sidebar.traversalDescendants;
+    return stops.contains(node) &&
+        stops.every((stop) => stop.rect.top <= node.rect.top);
+  }
+
+  void _enterPage(FocusNode from) {
+    from.nextFocus();
+    // Runs after the focus change above, and before anything is drawn.
+    scheduleMicrotask(() {
+      final landed = FocusManager.instance.primaryFocus;
+      if (landed == null || landed == from) return;
+      if (landed.skipTraversal || landed is FocusScopeNode) landed.nextFocus();
+    });
   }
 
   KeyEventResult _onKey(FocusNode node, KeyEvent event) {
@@ -132,14 +156,19 @@ class _DesktopShellState extends State<_DesktopShell> {
         keyboard.isMetaPressed) {
       return KeyEventResult.ignored;
     }
-    // Only from a node that exists to hold keys: a page's own key node, or
-    // this one. A real control keeps Flutter's own order.
     final primary = FocusManager.instance.primaryFocus;
-    if (primary == null || !primary.skipTraversal) {
-      return KeyEventResult.ignored;
+    if (primary == null) return KeyEventResult.ignored;
+    // A node that exists to hold keys: a page's own key node, or this one.
+    if (primary.skipTraversal) {
+      _sidebarEntry.requestFocus();
+      return KeyEventResult.handled;
     }
-    _sidebarEntry.requestFocus();
-    return KeyEventResult.handled;
+    if (_isLastSidebarStop(primary)) {
+      _enterPage(primary);
+      return KeyEventResult.handled;
+    }
+    // Any other real control keeps Flutter's own order.
+    return KeyEventResult.ignored;
   }
 
   @override
@@ -157,14 +186,19 @@ class _DesktopShellState extends State<_DesktopShell> {
         child: Scaffold(
           body: Row(
             children: [
-              WebSidebar(
-                activeIndex: widget.activeIndex,
-                person: widget.person,
-                exam: widget.exam,
-                plan: widget.plan,
-                onNavigate: widget.onNavigate,
-                onSearch: onSearch,
-                entryFocus: _sidebarEntry,
+              Focus(
+                focusNode: _sidebar,
+                canRequestFocus: false,
+                skipTraversal: true,
+                child: WebSidebar(
+                  activeIndex: widget.activeIndex,
+                  person: widget.person,
+                  exam: widget.exam,
+                  plan: widget.plan,
+                  onNavigate: widget.onNavigate,
+                  onSearch: onSearch,
+                  entryFocus: _sidebarEntry,
+                ),
               ),
               Expanded(
                 child: Padding(

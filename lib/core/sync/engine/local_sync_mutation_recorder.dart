@@ -135,6 +135,53 @@ class LocalSyncMutationRecorder {
     });
   }
 
+  /// Gives changes made while Sync was stopped their causal base, so a device
+  /// that already holds [generationId] uploads them row by row.
+  ///
+  /// Call only with the engine stopped and before the context is published.
+  /// Nothing moves `sync_row_meta` while the engine is stopped, so the accepted
+  /// state read here is the one the change was made against, and a newer cloud
+  /// row still wins through the usual stale-base check. No accepted state means
+  /// the cloud has not seen the row. Work from another generation stays
+  /// blocked.
+  Future<void> bindUnboundMutations({
+    required String uid,
+    required String generationId,
+  }) {
+    return _db.transaction(() async {
+      final rows = await _db
+          .customSelect(
+            'select collection,row_id,revision from sync_local_mutations '
+            "where causal_base_state = 'unbound'",
+          )
+          .get();
+      for (final row in rows) {
+        final collection = row.read<String>('collection');
+        final rowId = row.read<String>('row_id');
+        final base = await _rowMetaRepository.readAcceptedBase(
+              collection: collection,
+              rowId: rowId,
+            ) ??
+            const SyncCausalBase.knownAbsent();
+        await _db.customStatement(
+          'update sync_local_mutations set causal_uid = ?, '
+          'causal_generation_id = ?, causal_base_state = ?, '
+          'base_updated_at = ? '
+          'where collection = ? and row_id = ? and revision = ?',
+          <Object?>[
+            uid,
+            generationId,
+            base.state.storageValue,
+            base.updatedAt?.toUtc().millisecondsSinceEpoch,
+            collection,
+            rowId,
+            row.read<int>('revision'),
+          ],
+        );
+      }
+    });
+  }
+
   Future<int> readMutationEpoch() async {
     final rows = await _db
         .customSelect(

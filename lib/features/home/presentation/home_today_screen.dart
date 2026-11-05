@@ -198,6 +198,8 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
           date: data.today.snapshot.day,
           lessonIds: data.today.snapshot.plan.lessonIds,
           index: data.today.snapshot.plan.lessonIds.indexOf(lesson.id),
+          moreToDo: data.today.remaining.newQuestionIds.isNotEmpty ||
+              data.today.remaining.reviewQuestionIds.isNotEmpty,
         ),
       );
       if (_current()) _retry();

@@ -103,8 +103,12 @@ class FullPullBootstrap {
                 value: generationId,
               ),
             );
+        // This choice finished, so any unfinished upload is over too.
         await (_db.delete(_db.syncMeta)
-              ..where((row) => row.key.equals('pending_full_pull')))
+              ..where(
+                (row) => row.key
+                    .isIn(const ['pending_full_pull', 'pending_full_push']),
+              ))
             .go();
       });
     } on _SyncCancelled {

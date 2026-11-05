@@ -17,6 +17,13 @@
   <base href="$FLUTTER_BASE_HREF">
 
   <meta charset="UTF-8">
+  <!--
+    Without this, WebKit on a phone lays the page out 980 px wide and scales it
+    down until Flutter adds its own viewport tag, so the Welcome logo first
+    shows small near the top and then jumps (6U-1). This is the same content
+    Flutter writes, so nothing moves at the handover.
+  -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
   <meta name="description" content="Philippine exam reviewer.">
 

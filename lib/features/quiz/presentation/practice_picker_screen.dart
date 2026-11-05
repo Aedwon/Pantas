@@ -998,7 +998,12 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
             unawaited(_back()),
       },
       child: Focus(
-        onKeyEvent: enterKeyHandler(start),
+        // Clicking a group's chevron leaves focus on it, and Enter must still
+        // press Start, as its label says. A control reached by Tab keeps Enter.
+        onKeyEvent: enterKeyHandler(
+          start,
+          keepsEnter: (_) => webFocusFromPointer,
+        ),
         autofocus: true,
         child: LayoutBuilder(
           builder: (context, constraints) => CustomScrollView(

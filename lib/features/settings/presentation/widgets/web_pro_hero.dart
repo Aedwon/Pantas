@@ -61,7 +61,6 @@ class WebProHero extends StatelessWidget {
       padding: const EdgeInsets.fromLTRB(26, 26, 26, 24),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
-        border: t.dark ? Border.all(color: t.cardEdge) : null,
         gradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
@@ -69,6 +68,14 @@ class WebProHero extends StatelessWidget {
           stops: const [0, .55, 1],
         ),
       ),
+      // The dark edge takes up no room: the card is the same size in both
+      // themes (6T-11).
+      foregroundDecoration: t.dark
+          ? BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              border: Border.all(color: t.cardEdge),
+            )
+          : null,
       child: LayoutBuilder(
         builder: (context, constraints) {
           // The perks take the width of the longest one, so none wraps while

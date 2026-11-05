@@ -357,6 +357,49 @@ void main() {
     }
   });
 
+  // 6U-7: the day line says the day is done, so it does not close the last
+  // lesson while Home still lists new questions or reviews.
+  testWidgets('the last lesson does not say the day is done while work is left',
+      (tester) async {
+    await seedContentTopic(
+      contentDb,
+      topicId: 't2',
+      subjectId: 's1',
+      name: 'Cells',
+    );
+    await seedContentLesson(
+      contentDb,
+      lessonId: 'l3',
+      topicId: 't2',
+      title: 'Only lesson',
+      bodyJson: '[]',
+      estimatedMinutes: 12,
+    );
+    await pumpApp(tester);
+    final container =
+        ProviderScope.containerOf(tester.element(find.byType(App)));
+    container.read(routerProvider).go(
+          '/lesson/l3?from=home',
+          extra: LessonDayContext(
+            date: DateTime.now(),
+            lessonIds: const ['l3'],
+            index: 0,
+            moreToDo: true,
+          ),
+        );
+    await tester.pumpAndSettle();
+    try {
+      expect(find.text('1 of 1'), findsOneWidget);
+      expect(find.text('Pull up to finish today'), findsNothing);
+      await tester.tap(find.byKey(const ValueKey('pull-handle')));
+      await tester.pumpAndSettle();
+      expect(find.text("That's enough for today."), findsNothing);
+      expect(find.text('Cells'), findsWidgets);
+    } finally {
+      await unmountReader(tester);
+    }
+  });
+
   testWidgets('pull follows real day order across topics and finishes the day',
       (tester) async {
     await seedContentLesson(

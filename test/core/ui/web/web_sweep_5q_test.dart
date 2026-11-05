@@ -281,6 +281,44 @@ void main() {
     });
   });
 
+  group('6T-11: a card is the same size in dark and light', () {
+    Future<Size> cardSize(
+      WidgetTester tester,
+      Widget card, {
+      required bool dark,
+    }) async {
+      await mount(
+        tester,
+        SizedBox(width: 400, child: card),
+        dark: dark,
+      );
+      await tester.pumpAndSettle();
+      return tester.getSize(find.byKey(const ValueKey('sized-card')));
+    }
+
+    testWidgets('WebCard', (tester) async {
+      size(tester, 1440);
+      const card = WebCard(
+        key: ValueKey('sized-card'),
+        padding: EdgeInsets.all(20),
+        child: SizedBox(height: 50, width: double.infinity),
+      );
+      final dark = await cardSize(tester, card, dark: true);
+      final light = await cardSize(tester, card, dark: false);
+      expect(dark, light);
+      // The edge is still drawn in dark, over the card.
+      await cardSize(tester, card, dark: true);
+      final box = tester.widget<Container>(
+        find.descendant(
+          of: find.byKey(const ValueKey('sized-card')),
+          matching: find.byType(Container),
+        ),
+      );
+      final edge = box.foregroundDecoration! as BoxDecoration;
+      expect((edge.border! as Border).top.color, const Color(0xFF2C2C2C));
+    });
+  });
+
   group('5Q-15: the Pro perks do not wrap while the heading has room', () {
     for (final width in [700.0, 620.0]) {
       testWidgets('perks stay on one line at a card width of $width',

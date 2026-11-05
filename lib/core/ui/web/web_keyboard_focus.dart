@@ -27,6 +27,9 @@ bool webKeyboardFocus(Set<WidgetState> states) {
 class _LastInput {
   static final ValueNotifier<bool> input = ValueNotifier<bool>(false);
   static bool get key => input.value;
+
+  /// What [key] was before the key press being handled.
+  static bool keyBeforeThis = false;
   static bool _watching = false;
   static PointerRouter? _router;
 
@@ -44,6 +47,7 @@ class _LastInput {
 
   static void reset() {
     input.value = false;
+    keyBeforeThis = false;
     _watching = false;
   }
 
@@ -52,7 +56,10 @@ class _LastInput {
   }
 
   static bool _key(KeyEvent event) {
-    if (event is KeyDownEvent) input.value = true;
+    if (event is KeyDownEvent) {
+      keyBeforeThis = input.value;
+      input.value = true;
+    }
     return false;
   }
 }
@@ -63,6 +70,15 @@ class _LastInput {
 ValueListenable<bool> get webKeyboardInput {
   _LastInput.watch();
   return _LastInput.input;
+}
+
+/// While a key press is handled: true when a pointer press came just before
+/// it, so a mouse click, not the keyboard, put focus where it is. A control the
+/// student only clicked has not been chosen for its keys, so a page's Enter
+/// shortcut can pass this as `keepsEnter`.
+bool get webFocusFromPointer {
+  _LastInput.watch();
+  return !_LastInput.keyBeforeThis;
 }
 
 /// A test binding is new for each test, so the listeners start again too.

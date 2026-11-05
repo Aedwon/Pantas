@@ -59,10 +59,12 @@ String? planHistoryText(RoadmapChange change, {required String examName}) =>
     };
 
 ({int done, int total}) planChecklistProgress(DayPlan plan, DayPlan remaining) {
-  final total = plan.lessonIds.length +
+  final total = (plan.isMockDay ? 1 : 0) +
+      plan.lessonIds.length +
       (plan.reviewQuestionIds.isEmpty ? 0 : 1) +
       (plan.newQuestionIds.isEmpty ? 0 : 1);
-  final left = remaining.lessonIds.length +
+  final left = (remaining.isMockDay ? 1 : 0) +
+      remaining.lessonIds.length +
       (remaining.reviewQuestionIds.isEmpty ? 0 : 1) +
       (remaining.newQuestionIds.isEmpty ? 0 : 1);
   return (done: total - left, total: total);
@@ -73,6 +75,7 @@ String? planHistoryText(RoadmapChange change, {required String examName}) =>
 String? planLeftText(DayPlan remaining) {
   final lessons = remaining.lessonIds.length;
   final parts = [
+    if (remaining.isMockDay) 'Mock exam',
     if (lessons > 0) '$lessons ${lessons == 1 ? 'lesson' : 'lessons'}',
     if (remaining.reviewQuestionIds.isNotEmpty) 'reviews',
     if (remaining.newQuestionIds.isNotEmpty) 'new questions',

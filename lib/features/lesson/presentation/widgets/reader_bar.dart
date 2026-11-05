@@ -192,14 +192,17 @@ class ReaderBar extends StatelessWidget {
                                       padding: const EdgeInsets.symmetric(
                                         horizontal: 10,
                                       ),
-                                      child: Text(
-                                        dayLabel,
-                                        style: context.type.subhead
-                                            .copyWith(
-                                              fontWeight: FontWeight.w500,
-                                              color: colors.secondaryLabel,
-                                            )
-                                            .tabular,
+                                      child: Center(
+                                        widthFactor: 1,
+                                        child: Text(
+                                          dayLabel,
+                                          style: context.type.subhead
+                                              .copyWith(
+                                                fontWeight: FontWeight.w500,
+                                                color: colors.secondaryLabel,
+                                              )
+                                              .tabular,
+                                        ),
                                       ),
                                     ),
                                   ),
