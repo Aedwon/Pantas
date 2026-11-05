@@ -7,21 +7,23 @@ meta:
     - "acet"
     - "dlsucet"
     - "ustet"
+    - "cse-pro"
+    - "cse-sub"
 passages:
   - id: "rc-cs-ic-p1"
     title: "The Shifting Harvest in Isabela"
     body: |
       In this fictional field report, agricultural extension worker Ramon Gomez visited farm plots in Isabela for three consecutive years to document seasonal crop cycles. During his first visit in 2021, local farmers planted traditional wet-season rice varieties in late May, relying on predictable monsoonal rainfall. By 2023, however, Ramon noted that farmers had shifted their planting schedule to early April and substituted traditional seed varieties with short-maturing, drought-tolerant hybrid rice.
       
-      Additionally, three farm owners had dug shallow tube wells along the perimeter of their fields and installed solar-powered water pumps. When Ramon reviewed municipal rainfall records, he observed that total annual precipitation had remained constant, but dry spells during the traditional growing months had doubled in duration. Furthermore, local farm cooperatives began purchasing communal crop insurance policies that provide financial protection against losses for the first time in their thirty-year history.
+      Additionally, three farm owners had dug shallow tube wells along the perimeter of their fields and installed solar-powered water pumps. When Ramon reviewed municipal rainfall records, he observed that total annual precipitation had remained constant, but dry spells during the traditional growing months had doubled in duration. Furthermore, local farm cooperatives began purchasing communal crop insurance policies for the first time in their thirty-year history.
       
-      Although the farmers did not issue formal statements regarding climate patterns, their operational adjustments reflected a coordinated effort to mitigate agricultural vulnerability. The rapid adoption of new technology and financial safeguards transformed how the community managed environmental risk.
+      Ramon included copies of the rainfall records in his field notes. At the cooperative office, he examined dated planting records, pump invoices, and insurance receipts. The farmers had kept these documents alongside records from his earlier visits.
   - id: "rc-cs-ic-p2"
     title: "Archaeological Finds in Cagayan"
     body: |
       In a fictional excavation report, archaeologists describe a buried settlement layer beside a river. The layer contains earthenware jars, carbonized rice grains, and clay weights used to hold fishing nets in place. The team also recovers stone tools and small metal tokens with designs associated with places beyond the valley. The report does not establish exactly how those tokens arrived.
       
-      Testing the rice gives a date range between the tenth and twelfth centuries. Jars lie in orderly rows beside holes left by wooden posts, suggesting that structures once stood there. Most tokens are found near the former riverbank. Their location raises questions about whether the river connected the settlement with people elsewhere.
+      Testing the rice gives a date range between the tenth and twelfth centuries. Jars lie in orderly rows beside holes left by wooden posts. Most tokens are found near the former riverbank. The team marks each find on a grid map before lifting it from the soil.
       
       No written records are recovered. The team therefore compares the objects and their positions to build a cautious account of life at the site. Food remains and tools offer clues about activities. They do not, by themselves, reveal every occupation, belief, or event in the community's history. Further discoveries could strengthen or change the account.
   - id: "rc-cs-ic-p3"
@@ -39,7 +41,7 @@ passages:
       
       Paolo looked toward the waiting chairs, then at the clock. He had arrived before the office opened and had asked twice when applications would be accepted. Now he opened the envelope carefully along one edge and took out the certificate. The clerk compared it with the copy and returned it without comment.
       
-      As Paolo left, another applicant said she had not brought an original. He pointed to the instruction sheet on the wall and told her where to ask about returning later. The scene did not reveal why he wanted to preserve the envelope or how either application would be decided. It showed the difference between what people could observe and what they might only guess.
+      As Paolo left, another applicant said she had not brought an original. He pointed to the instruction sheet on the wall and told her where to ask about returning later. The clerk called the next applicant to the desk. Paolo put the certificate back inside the envelope, placed it in his folder, and walked outside.
 questions:
   - id: "rc-cs-ic-0001"
     passage: "rc-cs-ic-p1"
@@ -80,7 +82,7 @@ questions:
         rationale: |
           This transfers a crop property to a financial policy. Faster maturity appears in the seed description. Check what insurance actually protects.
     explanation: |
-      The passage defines insurance as financial protection against losses. Buying it alongside tools to handle dry spells suggests concern about crop risk.
+      The farmers installed pumps as dry spells grew longer. The cooperatives also bought crop insurance. These steps suggest they wanted to limit crop losses. Buying protection does not mean they were certain crops would fail.
   - id: "rc-cs-ic-0003"
     passage: "rc-cs-ic-p1"
     type: "inferencing-and-conclusions"

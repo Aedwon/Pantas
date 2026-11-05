@@ -7,6 +7,8 @@ meta:
     - "acet"
     - "dlsucet"
     - "ustet"
+    - "cse-pro"
+    - "cse-sub"
 passages:
   - id: "rc-cs-fo-p1"
     title: "A Fictional Transport Debate"
@@ -37,9 +39,9 @@ passages:
     body: |
       In a fictional town, residents wrote to a water service office after an interruption. Their letter stated that the outage had lasted two days. It also called the service the worst in the region and said every other town had reliable water throughout the same week. The residents asked the office to provide an explanation and improve its response.
       
-      The office checked its logs and found that service had been interrupted for one day. This did not make the residents' duration claim an opinion. It made a checkable claim inconsistent with the available record. The comparison with every other town would require separate records; the letter supplied none. Calling the service the worst also required a standard for judging quality, not just a forceful phrase.
+      The office checked its logs and found that service had been interrupted for one day. At the next meeting, a staff member placed the local log on the table beside a copy of the letter. Residents passed both papers around and asked when the office would reply. The letter included no records from other towns.
       
-      A resident later wrote, "The outage lasted one day, and the delay was unacceptable." The first part could be checked against the logs. The second expressed a judgment about what residents should have to endure. Clear complaints can contain both evidence and evaluation without treating them as the same thing.
+      A resident later wrote, "The outage lasted one day, and the delay was unacceptable." She asked for the office's response to be read at the next meeting. Other residents signed the revised letter, and a volunteer delivered it to the service desk that afternoon.
 questions:
   - id: "rc-cs-fo-0001"
     passage: "rc-cs-fo-p1"

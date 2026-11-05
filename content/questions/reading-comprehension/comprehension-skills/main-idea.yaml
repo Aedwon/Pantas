@@ -7,6 +7,8 @@ meta:
     - "acet"
     - "dlsucet"
     - "ustet"
+    - "cse-pro"
+    - "cse-sub"
 passages:
   - id: "rc-cs-mi-p1"
     title: "The Barangay Vacant Lot Dispute"
@@ -66,7 +68,7 @@ questions:
     type: "identify"
     difficulty: "easy"
     stem: |
-      What percentage of the vacant lot was allocated to raised garden beds?
+      What percentage of the vacant lot was allocated to raised garden beds and a composting station together?
     choices:
       - text: "Sixty percent"
         correct: true

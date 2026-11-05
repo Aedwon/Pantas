@@ -22,7 +22,11 @@ sourceNote: 'No totalPublishedItems: the mock setup screen shows that
   per-area item counts: the split of 36 Verbal, 36 Numerical, 36 Clerical and
   37 General Information is an even division chosen here until a taker of this
   level supplies the real counts. The topic weights within each section are
-  also an even split chosen here, a sampling parameter never printed to a
+  also an even split chosen here, except Verbal Ability. Verbal Ability assigns
+  5 of 36 questions to comprehension skills so five-question passage groups fit
+  exactly. The other Verbal topics share the remaining 31 questions in their
+  current proportions. The CSC publishes no topic weights. These weights are a
+  sampling parameter never printed to a
   student. One booklet, no sectional timing.'
 sections:
   - id: sec_cse_sub_verbal_ability
@@ -33,10 +37,13 @@ sections:
       - topic_cse_sub_vocabulary
       - topic_cse_sub_grammar_and_structure
       - topic_cse_sub_language_application
+      - topic_cse_sub_comprehension_skills
     topicWeights:
-      topic_cse_sub_vocabulary: 0.3333333333333333
-      topic_cse_sub_grammar_and_structure: 0.3333333333333333
-      topic_cse_sub_language_application: 0.33333333333333337
+      # Comprehension gets 5/36; the other topics share 31/36 in their current proportions.
+      topic_cse_sub_vocabulary: 0.28703703703703703
+      topic_cse_sub_grammar_and_structure: 0.28703703703703703
+      topic_cse_sub_language_application: 0.28703703703703703
+      topic_cse_sub_comprehension_skills: 0.1388888888888889
   - id: sec_cse_sub_numerical_ability
     name: Numerical Ability
     questionCount: 36

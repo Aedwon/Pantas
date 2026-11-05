@@ -7,9 +7,11 @@ meta:
     - "acet"
     - "dlsucet"
     - "ustet"
+    - "cse-pro"
+    - "cse-sub"
 passages:
   - id: "rc-cs-ct-p1"
-    title: "Preserving the Ifugao Rice Terraces"
+    title: "A Mountain Farming System"
     body: |
       The ancient Ifugao Rice Terraces of the Philippine Cordilleras represent a masterpiece of indigenous engineering and communal land stewardship developed across generations of mountain farmers. Carved into the steep contours of the mountains, the terraces rely on hand-built stone retaining walls and intricate gravity-fed irrigation channels that distribute mountain spring water across hundreds of terraced pond-fields.
       

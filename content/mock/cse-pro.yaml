@@ -22,7 +22,11 @@ sourceNote: 'No totalPublishedItems: the mock setup screen shows that
   the PIA and by CSC-relaying outlets; it is one booklet with one clock, no
   sectional timing. The Civil Service Commission publishes no per-area item
   counts or time limits. The topic weights within each section are an even
-  split chosen here, not a published composition, except Numerical Ability:
+  split chosen here, not a published composition, except Verbal Ability and
+  Numerical Ability. Verbal Ability assigns 10 of 55 questions to comprehension
+  skills so five-question passage groups fit exactly. The other Verbal topics
+  share the remaining 45 questions in their current proportions.
+  The CSC publishes no topic weights. Numerical Ability uses
   0.6 arithmetic and 0.4 algebra, because the bank holds only 20 CSE algebra
   questions and an even split asks for 23. They are a sampling
   parameter and are never printed to a student.'
@@ -49,10 +53,13 @@ sections:
       - topic_cse_pro_vocabulary
       - topic_cse_pro_grammar_and_structure
       - topic_cse_pro_language_application
+      - topic_cse_pro_comprehension_skills
     topicWeights:
-      topic_cse_pro_vocabulary: 0.3333333333333333
-      topic_cse_pro_grammar_and_structure: 0.3333333333333333
-      topic_cse_pro_language_application: 0.33333333333333337
+      # Comprehension gets 10/55; the other topics share 45/55 in their current proportions.
+      topic_cse_pro_vocabulary: 0.2727272727272727
+      topic_cse_pro_grammar_and_structure: 0.2727272727272727
+      topic_cse_pro_language_application: 0.2727272727272727
+      topic_cse_pro_comprehension_skills: 0.18181818181818182
   - id: sec_cse_pro_analytical_ability
     name: Analytical Ability
     questionCount: 35

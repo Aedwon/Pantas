@@ -7,6 +7,8 @@ meta:
     - "acet"
     - "dlsucet"
     - "ustet"
+    - "cse-pro"
+    - "cse-sub"
 passages:
   - id: "rc-cs-cc-p1"
     title: "Aquaculture Strategies in Laguna de Bay"

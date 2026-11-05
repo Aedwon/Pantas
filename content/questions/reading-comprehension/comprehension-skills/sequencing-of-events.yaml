@@ -7,23 +7,25 @@ meta:
     - "acet"
     - "dlsucet"
     - "ustet"
+    - "cse-pro"
+    - "cse-sub"
 passages:
   - id: "rc-cs-se-p1"
     title: "A Fictional Water-Facility Shutdown"
     body: |
-      In this fictional investigation, a municipal filtration facility suspends operations on June 15 after its intake machinery jams. Replacement parts are ordered later that day. The investigation begins with the shutdown, then looks back at decisions made before the failure.
+      In this fictional investigation, a municipal filtration facility suspends operations on June 15 after its intake machinery jams. Replacement parts are ordered later that day. Staff close the intake and post a notice at the entrance while the facility remains out of service.
       
-      In January, maintenance engineers had requested replacement intake filters. During March, the procurement committee delayed approval because members disputed the budget. By late April, worn filters were allowing coarse gravel into the machinery. Technicians attempted emergency flushing in early May, but material continued to accumulate. The June failure followed those earlier problems.
+      In January, maintenance engineers had requested replacement intake filters. During March, the procurement committee delayed approval because members disputed the budget. By late April, worn filters were allowing coarse gravel into the machinery. Technicians attempted emergency flushing in early May, but material continued to accumulate.
       
-      The ordered replacement parts finally arrive on July 1. Workers install them, test the machinery, and restore full operations on July 2. The report distinguishes the repair from the earlier request: the original request concerned filters, while the emergency order concerned damaged machinery. Reconstructing the dates helps explain how the facility reached the shutdown and how it later returned to service. It also prevents the opening event from being mistaken for the first event in time.
+      The ordered replacement parts finally arrive on July 1. The delivery contains machinery parts for the damaged intake. Workers check the shipment against the order before starting the installation. They keep the damaged parts at the site and maintain a record of the repair work for the maintenance engineers. They fit the parts and test the machinery while the facility remains closed. Full operations resume on July 2.
   - id: "rc-cs-se-p2"
     title: "A Fictional Storm Rescue"
     body: |
-      At six on Tuesday morning in this fictional account, rescue boats reach a village chapel and evacuate forty residents. The group had gathered above the low-lying streets before the boats arrived. The account begins with the rescue, then returns to the warnings and flooding that preceded it.
+      At six on Tuesday morning in this fictional account, rescue boats reach a village chapel and evacuate forty residents. The group had gathered above the low-lying streets before the boats arrived. Rescuers help residents board while others wait beside the chapel entrance with their bags.
       
       Captain Mendoza received an early storm warning on Sunday afternoon. On Monday afternoon, he instructed elderly residents to move to the chapel, and they reached it before evening. Hours after their move, an earthen dike burst late Monday evening. At midnight, Mendoza sounded an iron gong to warn the remaining families. Those families then reached the chapel before the Tuesday rescue.
       
-      By early Tuesday, floodwater covered the low-lying houses. The chapel group waited together until the motorboats arrived at six. The final evacuation depended on the earlier movement to the refuge and the later arrival of rescue transport. Keeping those two movements separate helps readers reconstruct the sequence, even though the account introduces the last one first.
+      By early Tuesday, floodwater covered the low-lying houses. The chapel group waited together until the motorboats arrived at six. The residents had brought blankets and drinking water to the chapel. From the entrance, they could see water covering the road that led back to their homes.
   - id: "p-comprehension-skills-sequencing-of-events-0003"
     title: "The Delayed Performance"
     body: |
@@ -196,9 +198,9 @@ questions:
       - text: "\"At six on Tuesday morning\""
         rationale: |
           This selects the boat arrival time. Both moves involve the chapel. Check the earlier refuge movement.
-      - text: "\"The account begins with the rescue\""
+      - text: "\"Floodwater covered the low-lying houses\""
         rationale: |
-          This describes writing order. The rescue starts the account. Check a clue about actual event order.
+          This describes conditions early Tuesday. The flooded houses explain the need for rescue. Check for a phrase linking the earlier chapel move to the dike burst.
     explanation: |
       The dike burst is introduced as happening hours after their move. That phrase directly places the move first.
   - id: "rc-cs-se-0009"
