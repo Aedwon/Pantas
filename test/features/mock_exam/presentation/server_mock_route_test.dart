@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
@@ -10,13 +11,16 @@ import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/telemetry/telemetry.dart';
 import 'package:pantas/core/ui/components/choice_row.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/mock_exam/application/mock_leave_guard.dart';
 import 'package:pantas/features/mock_exam/application/server_mock_providers.dart';
 import 'package:pantas/features/mock_exam/application/server_mock_results_providers.dart';
 import 'package:pantas/features/mock_exam/data/server_mock_api.dart';
+import 'package:pantas/features/mock_exam/domain/mock_session_state.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/mock_start_route.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/server_mock_route.dart';
+import 'package:pantas/features/mock_exam/presentation/part_transition_page.dart';
 import 'package:pantas/features/mock_exam/presentation/pause_page.dart';
 import 'package:pantas/features/mock_exam/presentation/widgets/mock_finale.dart';
 import 'package:pantas/features/paywall/application/paywall_providers.dart';
@@ -57,7 +61,76 @@ class _Server {
   Exception? failStart;
   Completer<void>? holdStart;
 
-  Map<String, Object?> view() => {
+  // ---- a paper timed part by part: three parts of two questions ----
+  bool byPart = false;
+  int partIndex = 0;
+  bool partWaiting = false;
+  bool partEndedEarly = false;
+  int partRemainingMs = 600000;
+  int? startsInMs;
+  int readFailures = 0;
+
+  /// Holds the answer to startPart until the test lets it go.
+  Completer<void>? holdStartPart;
+
+  static const partNames = ['Mathematics', 'Reasoning', 'Science'];
+  static const partIds = [
+    ['q1', 'q2'],
+    ['q3', 'q4'],
+    ['q5', 'q6'],
+  ];
+
+  /// The server closed the running part and the next one waits.
+  void closePart({bool early = false}) {
+    partIndex += 1;
+    partWaiting = true;
+    partEndedEarly = early;
+    partRemainingMs = 600000;
+    startsInMs = strict ? 60000 : null;
+  }
+
+  /// A strict break ran out and the server started the part by itself.
+  void startByItself() {
+    partWaiting = false;
+    startsInMs = null;
+  }
+
+  Map<String, Object?> partsView() => {
+        'mockId': _mockId,
+        'examId': examId,
+        if (examName != null) 'examName': examName,
+        'startedAt': 1790000000000,
+        'strict': strict,
+        'limitMs': 1800000,
+        'remainingMs': partRemainingMs + 600000 * (2 - partIndex),
+        'paused': paused,
+        'paper': {
+          'expectedQuestionCount': 6,
+          'sections': [
+            for (final (i, name) in partNames.indexed)
+              {
+                'sectionId': 's$i',
+                'name': name,
+                'questions': [
+                  for (final id in partIds[i]) {'id': id, 'setId': ''},
+                ],
+              },
+          ],
+        },
+        'answers': answers,
+        'parts': {
+          'index': partIndex,
+          'limitsMs': [600000, 600000, 600000],
+          'remainingMs': partRemainingMs,
+          'waiting': partWaiting,
+          'endedEarly': partEndedEarly,
+          'startsInMs': startsInMs,
+        },
+      };
+
+  Map<String, Object?> view() => byPart ? partsView() : listedView();
+
+  Map<String, Object?> listedView() => {
         'mockId': _mockId,
         'examId': examId,
         if (examName != null) 'examName': examName,
@@ -109,6 +182,10 @@ class _Server {
             'open': {'mockId': _mockId, 'examId': examId, 'paused': paused},
         };
       case 'getMockPaper':
+        if (readFailures > 0) {
+          readFailures -= 1;
+          throw const ServerMockException(code: 'unavailable');
+        }
         return completed ? {'open': false} : {'open': true, ...view()};
       case 'getMockResults':
         return {
@@ -142,10 +219,36 @@ class _Server {
       case 'controlMock':
         switch (data['action']) {
           case 'save':
-            answers = [
+            final sent = [
               for (final a in data['answers']! as List<Object?>)
                 Map<String, Object?>.of(a! as Map<String, Object?>),
             ];
+            if (!byPart) {
+              answers = sent;
+              break;
+            }
+            // Only the running part takes answers. A closed part keeps what
+            // it has, and a later part has none.
+            for (final a in sent) {
+              final part = partIds.indexWhere(
+                (ids) => ids.contains(a['questionId']),
+              );
+              if (partWaiting || part != partIndex) continue;
+              answers = [
+                for (final held in answers)
+                  if (held['questionId'] != a['questionId']) held,
+                a,
+              ];
+            }
+          case 'startPart':
+            await holdStartPart?.future;
+            if (partWaiting) {
+              partWaiting = false;
+              startsInMs = null;
+              partRemainingMs = 600000;
+            }
+          case 'endPart':
+            closePart(early: true);
           case 'pause':
             paused = true;
           case 'resume':
@@ -188,6 +291,7 @@ Future<_Fixture> _open(
   bool resume = false,
   bool stableEntitlement = false,
   bool underQuiz = false,
+  List<String> questionIds = const ['q1', 'q2', 'q3'],
 }) async {
   final db = inMemoryDatabase();
   addTearDown(db.close);
@@ -200,7 +304,7 @@ Future<_Fixture> _open(
     examId: 'exam_cse_pro',
   );
   await seedContentTopic(content, topicId: 'topic', subjectId: 'subject');
-  for (final id in ['q1', 'q2', 'q3']) {
+  for (final id in questionIds) {
     await seedContentQuestion(
       content,
       questionId: id,
@@ -856,6 +960,543 @@ void main() {
 
     expect(server.named('controlMock'), isEmpty);
     expect(find.text('Quiz tab'), findsOneWidget);
+  });
+
+  group('a paper timed part by part', () {
+    const custom = 'exam_custom_6f1d0a52-3c1b-4c0e-8a52-0f6a3d2c9b11';
+    const six = ['q1', 'q2', 'q3', 'q4', 'q5', 'q6'];
+
+    void screen(WidgetTester tester, {required bool wide}) {
+      debugWebPlatformOverride = wide ? true : null;
+      addTearDown(() => debugWebPlatformOverride = null);
+      tester.view
+        ..physicalSize = wide ? const Size(1440, 900) : const Size(390, 844)
+        ..devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+    }
+
+    _Server byPart({
+      int index = 0,
+      int remainingMs = 600000,
+      bool strict = false,
+      bool waiting = false,
+      bool early = false,
+      int? startsInMs,
+    }) =>
+        _Server()
+          ..examId = custom
+          ..examName = 'PUP CET'
+          ..strict = strict
+          ..byPart = true
+          ..partIndex = index
+          ..partRemainingMs = remainingMs
+          ..partWaiting = waiting
+          ..partEndedEarly = early
+          ..startsInMs = startsInMs;
+
+    Future<_Fixture> open(
+      WidgetTester tester,
+      _Server server, {
+      bool resume = false,
+    }) =>
+        _open(
+          tester,
+          server: server,
+          examId: custom,
+          strict: server.strict,
+          questionIds: six,
+          resume: resume,
+        );
+
+    Future<void> next(WidgetTester tester, {required bool wide}) async {
+      await tester.tap(
+        wide
+            ? find.byType(WebBarArrow).last
+            : find.byKey(const ValueKey('mock-next')),
+      );
+      await advance(tester, 500);
+    }
+
+    Future<void> previous(WidgetTester tester, {required bool wide}) async {
+      await tester.tap(
+        wide
+            ? find.byType(WebBarArrow).first
+            : find.byKey(const ValueKey('mock-prev')),
+      );
+      await advance(tester, 500);
+    }
+
+    /// Time passes on the display clock and on the screen together.
+    Future<void> elapse(
+      WidgetTester tester,
+      _Fixture fixture,
+      Duration time,
+    ) async {
+      for (var spent = 0; spent < time.inMilliseconds; spent += 50) {
+        fixture.clock.now += const Duration(milliseconds: 50);
+        await tester.pump(const Duration(milliseconds: 50));
+      }
+    }
+
+    for (final wide in [true, false]) {
+      final name = wide ? 'wide' : 'phone';
+
+      group('on the $name paper', () {
+        testWidgets('the running part is the whole paper: clock, count, grid',
+            (tester) async {
+          screen(tester, wide: wide);
+          final server = byPart(index: 1, remainingMs: 450000);
+          await open(tester, server);
+
+          expect(find.text('07:30'), findsOneWidget);
+          expect(find.text('17:30'), findsNothing);
+          expect(find.text('Question q3?'), findsOneWidget);
+          expect(find.text('1 of 2'), findsOneWidget);
+          if (wide) {
+            expect(find.text('left in Part 2'), findsOneWidget);
+            // The panel and the question both name the part.
+            expect(find.text('PART 2 · REASONING'), findsNWidgets(2));
+            expect(find.text('0 of 2'), findsOneWidget);
+            expect(find.text('PART 3 · SCIENCE'), findsOneWidget);
+            expect(find.text('Opens when this part starts.'), findsOneWidget);
+            // A closed part is not shown.
+            expect(find.textContaining('PART 1'), findsNothing);
+            expect(find.textContaining('Part 1'), findsNothing);
+            expect(find.text('WHOLE PAPER'), findsNothing);
+          } else {
+            // The part is under the clock, not above the question.
+            expect(find.text('Part 2 · Reasoning'), findsOneWidget);
+            expect(find.text('PART 2 · REASONING'), findsNothing);
+            await tester.tap(find.byKey(const ValueKey('mock-grid')));
+            await advance(tester, 500);
+            expect(find.text('Part 1 is closed'), findsOneWidget);
+            expect(find.text('PART 3 · SCIENCE'), findsOneWidget);
+            expect(find.text('Opens when this part starts.'), findsOneWidget);
+          }
+          expect(server.calls.map((c) => c.$1), ['startMock']);
+        });
+
+        testWidgets('moving stays inside the running part', (tester) async {
+          screen(tester, wide: wide);
+          final server = byPart(index: 1, remainingMs: 450000);
+          await open(tester, server);
+          await previous(tester, wide: wide);
+          expect(find.text('Question q3?'), findsOneWidget);
+          await next(tester, wide: wide);
+          expect(find.text('Question q4?'), findsOneWidget);
+          expect(find.text('2 of 2'), findsOneWidget);
+          expect(server.calls.map((c) => c.$1), ['startMock']);
+        });
+
+        testWidgets('a paper without the block stays one block',
+            (tester) async {
+          screen(tester, wide: wide);
+          final server = _Server();
+          await _open(tester, server: server);
+          expect(find.textContaining('left in Part'), findsNothing);
+          expect(
+            find.textContaining('Opens when this part starts'),
+            findsNothing,
+          );
+          if (wide) expect(find.text('WHOLE PAPER'), findsOneWidget);
+          expect(find.text('1 of 3'), findsOneWidget);
+        });
+
+        testWidgets('between parts, the screen waits for the student',
+            (tester) async {
+          screen(tester, wide: wide);
+          final server = byPart(index: 1, waiting: true)
+            ..answers = [
+              {
+                'questionId': 'q1',
+                'chosen': 'q1_a',
+                'correct': true,
+                'answeredAt': 1790000100000,
+              },
+            ];
+          final fixture = await open(tester, server);
+          await advance(tester, 300);
+
+          expect(find.byType(PartTransitionPage), findsOneWidget);
+          expect(find.text('Time is up.'), findsOneWidget);
+          expect(find.text('Part 1 · Mathematics'), findsWidgets);
+          expect(
+            find.text(wide ? 'Part 3 · Science' : 'Science'),
+            findsOneWidget,
+          );
+          expect(find.text('Start Part 2'), findsOneWidget);
+          if (wide) {
+            expect(find.text('1 answered · 1 blank'), findsOneWidget);
+            expect(
+              find.text('The clock starts when you click.'),
+              findsOneWidget,
+            );
+          } else {
+            expect(find.text('1 answered'), findsOneWidget);
+            expect(find.text('1 blank'), findsOneWidget);
+            expect(
+              find.text('The clock starts when you tap.'),
+              findsOneWidget,
+            );
+          }
+          // The clock is stopped while it waits.
+          fixture.clock.now += const Duration(minutes: 30);
+          await advance(tester, 500);
+          expect(server.calls.map((c) => c.$1), ['startMock']);
+
+          await tester.tap(find.text('Start Part 2'));
+          await advance(tester, 500);
+          expect(server.named('controlMock').single.$2['action'], 'startPart');
+          expect(find.byType(PartTransitionPage), findsNothing);
+          expect(find.text('Question q3?'), findsOneWidget);
+          expect(find.text('10:00'), findsOneWidget);
+        });
+
+        testWidgets('a part the student closed says so', (tester) async {
+          screen(tester, wide: wide);
+          await open(tester, byPart(index: 1, waiting: true, early: true));
+          await advance(tester, 300);
+          expect(find.text('Part 1 ended.'), findsOneWidget);
+          expect(find.text('Time is up.'), findsNothing);
+        });
+
+        testWidgets('a second tap while the start is on its way sends nothing',
+            (tester) async {
+          screen(tester, wide: wide);
+          final hold = Completer<void>();
+          final server = byPart(index: 1, waiting: true)..holdStartPart = hold;
+          await open(tester, server);
+          await advance(tester, 300);
+          await tester.tap(find.text('Start Part 2'));
+          await advance(tester, 100);
+          await tester.tap(find.text('Start Part 2'), warnIfMissed: false);
+          if (wide) {
+            await tester.sendKeyEvent(LogicalKeyboardKey.enter);
+          }
+          await advance(tester, 100);
+          expect(server.named('controlMock'), hasLength(1));
+          hold.complete();
+          await advance(tester, 500);
+          expect(server.named('controlMock'), hasLength(1));
+          expect(find.text('Question q3?'), findsOneWidget);
+        });
+
+        testWidgets('a strict break shows its clock and no hint',
+            (tester) async {
+          screen(tester, wide: wide);
+          final server = byPart(
+            index: 1,
+            waiting: true,
+            strict: true,
+            startsInMs: 42000,
+          );
+          await open(tester, server);
+          await advance(tester, 300);
+
+          expect(find.byType(PartTransitionPage), findsOneWidget);
+          expect(find.text('0:42'), findsOneWidget);
+          expect(find.text('until Part 2 starts'), findsOneWidget);
+          expect(find.textContaining('The clock starts when'), findsNothing);
+          expect(find.text('Start Part 2'), findsOneWidget);
+          if (wide) {
+            expect(find.text('PUP CET simulation'), findsOneWidget);
+            expect(find.text('Part 1 of 3 · Mathematics'), findsOneWidget);
+          }
+        });
+
+        testWidgets('the break runs out: the part started and the note shows',
+            (tester) async {
+          screen(tester, wide: wide);
+          final server = byPart(
+            index: 1,
+            waiting: true,
+            strict: true,
+            startsInMs: 3000,
+          );
+          final fixture = await open(tester, server);
+          await advance(tester, 300);
+
+          // The server starts the part on its own clock.
+          server
+            ..startByItself()
+            ..partRemainingMs = 599000;
+          await elapse(tester, fixture, const Duration(milliseconds: 3500));
+          await advance(tester, 300);
+
+          expect(server.named('getMockPaper'), hasLength(1));
+          expect(server.named('submitMock'), isEmpty);
+          expect(find.byType(PartTransitionPage), findsNothing);
+          expect(find.text('Part 2 started'), findsOneWidget);
+          expect(find.text('Question q3?'), findsOneWidget);
+          if (wide) {
+            expect(find.text('Part 2 of 3 · Reasoning'), findsOneWidget);
+            // The other parts, done or still to open, as a list.
+            expect(find.text('Part 1 · Mathematics'), findsOneWidget);
+            expect(find.text('Part 3 · Science'), findsOneWidget);
+            expect(find.text('Opens when this part starts.'), findsOneWidget);
+            expect(find.text('Pause'), findsNothing);
+            expect(find.text('left in Part 2'), findsNothing);
+          } else {
+            expect(find.text('PART 2 · REASONING'), findsOneWidget);
+          }
+
+          // The first answer ends it.
+          await tester.tap(find.text('Choice A'));
+          await advance(tester, 100);
+          expect(find.text('Part 2 started'), findsNothing);
+          if (wide) {
+            expect(find.text('left in Part 2'), findsOneWidget);
+            expect(find.text('Part 2 of 3 · Reasoning'), findsNothing);
+          } else {
+            expect(find.text('Part 2 · Reasoning'), findsOneWidget);
+            expect(find.text('PART 2 · REASONING'), findsNothing);
+          }
+        });
+
+        testWidgets('the note ends after fifteen seconds', (tester) async {
+          screen(tester, wide: wide);
+          final server = byPart(
+            index: 1,
+            waiting: true,
+            strict: true,
+            startsInMs: 1000,
+          );
+          final fixture = await open(tester, server);
+          server
+            ..startByItself()
+            ..partRemainingMs = 599000;
+          await elapse(tester, fixture, const Duration(seconds: 2));
+          await advance(tester, 300);
+          expect(find.text('Part 2 started'), findsOneWidget);
+          await elapse(tester, fixture, const Duration(seconds: 14));
+          expect(find.text('Part 2 started'), findsOneWidget);
+          await elapse(tester, fixture, const Duration(seconds: 2));
+          expect(find.text('Part 2 started'), findsNothing);
+        });
+
+        testWidgets('a start the student asked for never shows the note',
+            (tester) async {
+          screen(tester, wide: wide);
+          final server = byPart(
+            index: 1,
+            waiting: true,
+            strict: true,
+            startsInMs: 40000,
+          );
+          await open(tester, server);
+          await advance(tester, 300);
+          await tester.tap(find.text('Start Part 2'));
+          await advance(tester, 500);
+          expect(find.text('Question q3?'), findsOneWidget);
+          expect(find.text('Part 2 started'), findsNothing);
+        });
+
+        testWidgets('pause shows the part clock', (tester) async {
+          screen(tester, wide: wide);
+          final server = byPart(index: 1, remainingMs: 450000);
+          await open(tester, server);
+          if (wide) {
+            await tester.tap(find.text('Pause'));
+          } else {
+            await tester.tap(find.byKey(const ValueKey('mock-pause')));
+          }
+          await advance(tester, 3500);
+          expect(find.byType(PausePage), findsOneWidget);
+          expect(find.text('07:30'), findsWidgets);
+          expect(find.text('left in this part'), findsOneWidget);
+          expect(find.text('17:30'), findsNothing);
+        });
+
+        testWidgets('ending a part sends endPart after the answers',
+            (tester) async {
+          screen(tester, wide: wide);
+          final server = byPart(remainingMs: 450000);
+          await open(tester, server);
+          await tester.tap(find.text('Choice A'));
+          await next(tester, wide: wide);
+          await next(tester, wide: wide);
+          expect(find.text('End Part 1 now?'), findsOneWidget);
+          await tester.tap(find.text('End Part 1'));
+          await advance(tester, 500);
+
+          expect(
+            server.named('controlMock').map((c) => c.$2['action']),
+            ['save', 'endPart'],
+          );
+          expect(find.byType(PartTransitionPage), findsOneWidget);
+          expect(find.text('Part 1 ended.'), findsOneWidget);
+          expect(
+            find.text(wide ? '1 answered · 1 blank' : '1 blank'),
+            findsOneWidget,
+          );
+        });
+
+        testWidgets('a strict paper never ends a part', (tester) async {
+          screen(tester, wide: wide);
+          final server = byPart(strict: true, remainingMs: 450000);
+          await open(tester, server);
+          await next(tester, wide: wide);
+          await next(tester, wide: wide);
+          expect(find.textContaining('End Part'), findsNothing);
+          expect(server.named('controlMock'), isEmpty);
+          expect(
+            find.text('Part 1 runs to the end of its time. Strict mode is on.'),
+            findsOneWidget,
+          );
+        });
+
+        testWidgets('the last part is submitted, not ended', (tester) async {
+          screen(tester, wide: wide);
+          final server = byPart(index: 2, remainingMs: 300000);
+          await open(tester, server);
+          await next(tester, wide: wide);
+          await next(tester, wide: wide);
+          expect(find.text('End Part 3 now?'), findsOneWidget);
+          await tester.tap(find.text('End Part 3'));
+          await advance(tester, 700);
+
+          expect(server.named('submitMock').single.$2['reason'], 'student');
+          expect(
+            server.named('controlMock').map((c) => c.$2['action']),
+            isNot(contains('endPart')),
+          );
+          final input = GoRouterState.of(
+            tester.element(find.text('Server results $_mockId')),
+          ).extra! as MockFinaleInput;
+          // The finale draws the real parts.
+          expect(
+            input.parts.map((part) => part.name),
+            ['Mathematics', 'Reasoning', 'Science'],
+          );
+          expect(input.currentPartIndex, 2);
+          expect(input.currentQuestionIndex, 1);
+          expect(
+            input.parts.map((part) => part.questions.length),
+            [2, 2, 2],
+          );
+        });
+
+        testWidgets('a clock at zero asks the server and does not submit',
+            (tester) async {
+          screen(tester, wide: wide);
+          final server = byPart(remainingMs: 600);
+          final fixture = await open(tester, server);
+          await tester.tap(find.text('Choice A'));
+          await advance(tester, 100);
+          // The answer went out at once, since the part was about to close.
+          expect(
+            server.named('controlMock').map((c) => c.$2['action']),
+            ['save'],
+          );
+          // The server closes the part on time while the screen counts down.
+          server.closePart();
+          await elapse(tester, fixture, const Duration(seconds: 2));
+          await advance(tester, 500);
+
+          expect(server.named('getMockPaper'), hasLength(1));
+          expect(server.named('submitMock'), isEmpty);
+          expect(find.byType(PartTransitionPage), findsOneWidget);
+          expect(find.text('Time is up.'), findsOneWidget);
+          expect(
+            find.text(wide ? '1 answered · 1 blank' : '1 answered'),
+            findsOneWidget,
+          );
+        });
+
+        testWidgets('a read that fails is tried again, never in a loop',
+            (tester) async {
+          screen(tester, wide: wide);
+          final server = byPart(remainingMs: 600)..readFailures = 2;
+          final fixture = await open(tester, server);
+          server.closePart();
+          await elapse(tester, fixture, const Duration(seconds: 1));
+          expect(server.named('getMockPaper'), hasLength(1));
+          expect(find.text('Could not save your progress.'), findsOneWidget);
+          expect(find.text('Try Again'), findsOneWidget);
+          // The clock stays at zero.
+          expect(find.text('00:00'), findsOneWidget);
+          await elapse(tester, fixture, const Duration(milliseconds: 500));
+          expect(server.named('getMockPaper'), hasLength(1));
+          await elapse(tester, fixture, const Duration(milliseconds: 1500));
+          expect(server.named('getMockPaper'), hasLength(2));
+          await elapse(tester, fixture, const Duration(seconds: 3));
+          await advance(tester, 300);
+          expect(server.named('getMockPaper'), hasLength(3));
+          expect(find.text('Could not save your progress.'), findsNothing);
+          expect(find.byType(PartTransitionPage), findsOneWidget);
+          expect(server.named('submitMock'), isEmpty);
+        });
+
+        testWidgets('Try Again asks the server at once', (tester) async {
+          screen(tester, wide: wide);
+          final server = byPart(remainingMs: 600)..readFailures = 1;
+          final fixture = await open(tester, server);
+          server.closePart();
+          await elapse(tester, fixture, const Duration(seconds: 1));
+          expect(find.text('Try Again'), findsOneWidget);
+          await tester.tap(find.text('Try Again'));
+          await advance(tester, 300);
+          expect(server.named('getMockPaper'), hasLength(2));
+          expect(find.byType(PartTransitionPage), findsOneWidget);
+        });
+
+        testWidgets('a mock the server finished goes to its results',
+            (tester) async {
+          screen(tester, wide: wide);
+          final server = byPart(index: 2, remainingMs: 600);
+          final fixture = await open(tester, server);
+          server.completed = true;
+          await elapse(tester, fixture, const Duration(seconds: 2));
+          await advance(tester, 700);
+
+          expect(server.named('getMockPaper'), hasLength(1));
+          expect(server.named('submitMock'), isEmpty);
+          final input = GoRouterState.of(
+            tester.element(find.text('Server results $_mockId')),
+          ).extra! as MockFinaleInput;
+          expect(input.reason, MockSubmitReason.timeUp);
+          expect(input.parts, hasLength(3));
+        });
+
+        testWidgets('a reload lands on the state the server holds',
+            (tester) async {
+          screen(tester, wide: wide);
+          final server = byPart(index: 2, waiting: true, early: true)
+            ..resumed = true;
+          await open(tester, server, resume: true);
+          await advance(tester, 300);
+          expect(server.named('getMockPaper'), hasLength(1));
+          expect(find.byType(PartTransitionPage), findsOneWidget);
+          expect(find.text('Part 2 ended.'), findsOneWidget);
+          expect(find.text('Start Part 3'), findsOneWidget);
+        });
+
+        testWidgets('strict mode still hands in a paper left on a break',
+            (tester) async {
+          screen(tester, wide: wide);
+          final server = byPart(
+            index: 1,
+            waiting: true,
+            strict: true,
+            startsInMs: 60000,
+          );
+          await open(tester, server);
+          await advance(tester, 300);
+          tester.binding
+              .handleAppLifecycleStateChanged(AppLifecycleState.paused);
+          await advance(tester, 11000);
+          tester.binding
+              .handleAppLifecycleStateChanged(AppLifecycleState.resumed);
+          await advance(tester, 700);
+          expect(server.named('submitMock').single.$2['reason'], 'strict-exit');
+          expect(
+            server.named('submitMock').single.$2['answers']! as List<Object?>,
+            hasLength(6),
+          );
+        });
+      });
+    }
   });
 
   group('the title of the paper', () {

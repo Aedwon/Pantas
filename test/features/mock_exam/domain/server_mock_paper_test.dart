@@ -249,4 +249,209 @@ void main() {
       );
     });
   });
+
+  group('by-part clocks', () {
+    Map<String, Object?> parts({
+      Object? index = 1,
+      Object? limitsMs = const [600000, 600000, 600000],
+      Object? remainingMs = 450000,
+      Object? waiting = false,
+      Object? endedEarly = false,
+      Object? startsInMs,
+    }) =>
+        {
+          'index': index,
+          'limitsMs': limitsMs,
+          'remainingMs': remainingMs,
+          'waiting': waiting,
+          'endedEarly': endedEarly,
+          'startsInMs': startsInMs,
+        };
+
+    Map<String, Object?> byPart({
+      Object? block,
+      bool strict = false,
+      Object? limitMs = 1800000,
+      Object? remainingMs = 1050000,
+    }) =>
+        {
+          ..._view(
+            strict: strict,
+            limitMs: limitMs,
+            remainingMs: remainingMs,
+            paper: {
+              'expectedQuestionCount': 6,
+              'sections': [
+                for (final (i, name)
+                    in ['Mathematics', 'Reasoning', 'Science'].indexed)
+                  {
+                    'sectionId': 's$i',
+                    'name': name,
+                    'questions': [
+                      {'id': 'p${i}a', 'setId': ''},
+                      {'id': 'p${i}b', 'setId': ''},
+                    ],
+                  },
+              ],
+            },
+          ),
+          'parts': block ?? parts(),
+        };
+
+    test('a running part decodes with its limits and time left', () {
+      final decoded = ServerMockPaper.decode(byPart());
+      final block = decoded.parts!;
+      expect(block.index, 1);
+      expect(block.limits, const [
+        Duration(minutes: 10),
+        Duration(minutes: 10),
+        Duration(minutes: 10),
+      ]);
+      expect(block.remaining, const Duration(milliseconds: 450000));
+      expect(block.waiting, isFalse);
+      expect(block.endedEarly, isFalse);
+      expect(block.startsIn, isNull);
+      expect(block.count, 3);
+    });
+
+    test('a waiting part that the student closed decodes', () {
+      final block = ServerMockPaper.decode(
+        byPart(
+          block: parts(
+            index: 2,
+            remainingMs: 600000,
+            waiting: true,
+            endedEarly: true,
+          ),
+        ),
+      ).parts!;
+      expect(block.waiting, isTrue);
+      expect(block.endedEarly, isTrue);
+      expect(block.startsIn, isNull);
+    });
+
+    test('a strict break carries the time until the part starts', () {
+      final block = ServerMockPaper.decode(
+        byPart(
+          strict: true,
+          block: parts(
+            index: 2,
+            remainingMs: 600000,
+            waiting: true,
+            startsInMs: 42000,
+          ),
+        ),
+      ).parts!;
+      expect(block.startsIn, const Duration(seconds: 42));
+    });
+
+    test('a whole double is a whole number, as on the web', () {
+      final block = ServerMockPaper.decode(
+        byPart(
+          block: parts(
+            index: 1.0,
+            limitsMs: const [600000.0, 600000.0, 600000.0],
+            remainingMs: 450000.0,
+          ),
+        ),
+      ).parts!;
+      expect(block.index, 1);
+    });
+
+    test('a paper without the block runs one block, as it always did', () {
+      expect(ServerMockPaper.decode(_view()).parts, isNull);
+      expect(ServerMockPaper.decode({..._view(), 'parts': null}).parts, isNull);
+    });
+
+    test('the block is held unchanged: nothing in it can be edited', () {
+      final block = ServerMockPaper.decode(byPart()).parts!;
+      expect(() => block.limits.add(Duration.zero), throwsUnsupportedError);
+    });
+
+    group('a bad block is refused', () {
+      final cases = <String, Map<String, Object?>>{
+        'not an object': byPart(block: 'yes'),
+        'limits not a list': byPart(block: parts(limitsMs: 600000)),
+        'fewer limits than parts':
+            byPart(block: parts(limitsMs: const [900000, 900000])),
+        'more limits than parts': byPart(
+          block: parts(limitsMs: const [450000, 450000, 450000, 450000]),
+        ),
+        'a zero limit': byPart(
+          block: parts(limitsMs: const [1200000, 600000, 0]),
+        ),
+        'a fractional limit': byPart(
+          block: parts(limitsMs: const [600000.5, 600000, 599999.5]),
+        ),
+        'limits that do not add up to the paper': byPart(
+          block: parts(limitsMs: const [600000, 600000, 700000]),
+        ),
+        'index not a number': byPart(block: parts(index: '1')),
+        'index below zero': byPart(block: parts(index: -1)),
+        'index past the last part': byPart(block: parts(index: 3)),
+        'remaining below zero': byPart(block: parts(remainingMs: -1)),
+        'remaining past the part limit':
+            byPart(block: parts(remainingMs: 600001)),
+        'waiting as text': byPart(block: parts(waiting: 'no')),
+        'ended early as a number': byPart(block: parts(endedEarly: 0)),
+        'waiting before the first part': byPart(
+          block: parts(index: 0, remainingMs: 600000, waiting: true),
+        ),
+        'a countdown on a running part':
+            byPart(strict: true, block: parts(startsInMs: 5000)),
+        'a countdown that is negative': byPart(
+          strict: true,
+          block: parts(
+            index: 2,
+            remainingMs: 600000,
+            waiting: true,
+            startsInMs: -1,
+          ),
+        ),
+        'a countdown when not strict': byPart(
+          block: parts(
+            index: 2,
+            remainingMs: 600000,
+            waiting: true,
+            startsInMs: 5000,
+          ),
+        ),
+        'a strict break with no countdown': byPart(
+          strict: true,
+          block: parts(index: 2, remainingMs: 600000, waiting: true),
+        ),
+        'only one part': {
+          ..._view(
+            limitMs: 600000,
+            remainingMs: 600000,
+            paper: {
+              'expectedQuestionCount': 1,
+              'sections': [
+                {
+                  'sectionId': 'a',
+                  'name': 'A',
+                  'questions': [
+                    {'id': 'q1', 'setId': ''},
+                  ],
+                },
+              ],
+            },
+          ),
+          'parts': parts(
+            index: 0,
+            limitsMs: const [600000],
+            remainingMs: 600000,
+          ),
+        },
+      };
+      for (final entry in cases.entries) {
+        test(entry.key, () {
+          expect(
+            () => ServerMockPaper.decode(entry.value),
+            throwsA(isA<ServerMockFormatException>()),
+          );
+        });
+      }
+    });
+  });
 }

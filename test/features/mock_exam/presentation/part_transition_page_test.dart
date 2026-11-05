@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/mock_exam/presentation/part_transition_page.dart';
 
 void main() {
@@ -104,5 +106,98 @@ void main() {
           .opacity,
       1,
     );
+  });
+
+  group('a strict break', () {
+    Widget breakPage({
+      Duration? left = const Duration(seconds: 42),
+      bool starting = false,
+      VoidCallback? onStart,
+      bool wide = false,
+    }) =>
+        MaterialApp(
+          theme: wide ? buildLightTheme(web: true) : buildLightTheme(),
+          builder: (context, child) => MediaQuery(
+            data: MediaQuery.of(context).copyWith(disableAnimations: true),
+            child: child!,
+          ),
+          home: PartTransitionPage(
+            partNames: const ['Mathematics', 'Reasoning', 'Science'],
+            nextPartIndex: 2,
+            endedEarly: false,
+            answeredQuestions: const [true, true, false],
+            onStartNext: onStart ?? () {},
+            starting: starting,
+            breakRemaining: left,
+            examTitle: 'PUP CET simulation',
+          ),
+        );
+
+    testWidgets('the phone shows the clock, its bar and no hint',
+        (tester) async {
+      tester.view
+        ..physicalSize = const Size(390, 844)
+        ..devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      await tester.pumpWidget(breakPage());
+      expect(find.text('0:42'), findsOneWidget);
+      expect(find.text('until Part 3 starts'), findsOneWidget);
+      expect(find.textContaining('The clock starts when'), findsNothing);
+      expect(find.text('Start Part 3'), findsOneWidget);
+      final bar = tester.widget<FractionallySizedBox>(
+        find.descendant(
+          of: find.byType(Scaffold),
+          matching: find.byType(FractionallySizedBox),
+        ),
+      );
+      expect(bar.widthFactor, closeTo(.7, .0001));
+    });
+
+    testWidgets('the wide page puts the closed part under the exam name',
+        (tester) async {
+      debugWebPlatformOverride = true;
+      addTearDown(() => debugWebPlatformOverride = null);
+      tester.view
+        ..physicalSize = const Size(1440, 900)
+        ..devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      var started = 0;
+      await tester.pumpWidget(breakPage(wide: true, onStart: () => started++));
+      expect(find.text('PUP CET simulation'), findsOneWidget);
+      expect(find.text('Part 2 of 3 · Reasoning'), findsOneWidget);
+      expect(find.text('0:42'), findsOneWidget);
+      expect(find.text('until Part 3 starts'), findsOneWidget);
+      expect(find.text('The clock starts when you click.'), findsNothing);
+      await tester.sendKeyEvent(LogicalKeyboardKey.enter);
+      expect(started, 1);
+    });
+
+    testWidgets('the clock never goes past 0:00 or shows a negative',
+        (tester) async {
+      await tester.pumpWidget(breakPage(left: Duration.zero));
+      expect(find.text('0:00'), findsOneWidget);
+    });
+
+    testWidgets('a start on its way cannot be asked for again', (tester) async {
+      var started = 0;
+      await tester.pumpWidget(
+        breakPage(starting: true, onStart: () => started++),
+      );
+      await tester.tap(find.text('Start Part 3'), warnIfMissed: false);
+      expect(started, 0);
+    });
+  });
+
+  testWidgets('a wait for the student keeps its hint and takes no clock',
+      (tester) async {
+    await tester.pumpWidget(transition());
+    expect(find.text('The clock starts when you tap.'), findsOneWidget);
+    expect(find.textContaining('until Part'), findsNothing);
+    var started = 0;
+    await tester.pumpWidget(transition(onStart: () => started++));
+    await tester.tap(find.text('Start Part 4'));
+    expect(started, 1);
   });
 }

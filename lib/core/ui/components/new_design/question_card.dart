@@ -9,9 +9,13 @@ class QuestionCard extends StatelessWidget {
     this.figure,
     this.passage,
     this.choices = const [],
+    this.showSubject = true,
     super.key,
   });
   final String subject;
+
+  /// False draws the card with no eyebrow and none of its space.
+  final bool showSubject;
   final String stem;
   final Widget? figure;
   final Widget? passage;
@@ -22,8 +26,10 @@ class QuestionCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           if (passage != null) ...[passage!, const SizedBox(height: 20)],
-          Text(subject.toUpperCase(), style: context.type.sectionHeader),
-          const SizedBox(height: 8),
+          if (showSubject) ...[
+            Text(subject.toUpperCase(), style: context.type.sectionHeader),
+            const SizedBox(height: 8),
+          ],
           ContentRenderer(
             text: stem,
             style: context.type.emphasized.copyWith(

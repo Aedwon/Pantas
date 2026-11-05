@@ -69,6 +69,8 @@ class MockSessionPage extends StatefulWidget {
     this.currentPartNumber = 1,
     this.partName = '',
     this.oneBlock = false,
+    this.partNames = const [],
+    this.partStarted = false,
     this.onSubmitExam,
     this.partLength,
     this.examTitle = 'Mock exam',
@@ -113,10 +115,22 @@ class MockSessionPage extends StatefulWidget {
   final int currentPartNumber;
   final String partName;
   final bool oneBlock;
+
+  /// Every part of a paper timed part by part, in order. Empty for any other
+  /// paper. When it is set the paper follows the by-part board: the part is
+  /// under the clock on the phone, a closed part is not listed, and a later
+  /// part is a faded grid.
+  final List<String> partNames;
+
+  /// A strict part the server started by itself, as the board says it:
+  /// "Part N started" in place of the usual caption.
+  final bool partStarted;
   final VoidCallback? onSubmitExam;
 
   Duration get effectivePartLength =>
       partLength ?? Duration(seconds: state.durationSeconds);
+
+  bool get _byPart => partNames.isNotEmpty;
 
   @override
   State<MockSessionPage> createState() => _MockSessionPageState();
@@ -130,6 +144,8 @@ class _MockSessionPageState extends State<MockSessionPage> {
   var _gridOpen = false;
   var _widePanelOpen = true;
   var _gridJump = 0;
+
+  bool get _byPart => widget._byPart;
 
   @override
   void initState() {
@@ -359,7 +375,11 @@ class _MockSessionPageState extends State<MockSessionPage> {
         page: Scaffold(
           appBar: AppBar(
             automaticallyImplyLeading: false,
-            toolbarHeight: (scale * 1.35 + 21).clamp(50.0, double.infinity),
+            toolbarHeight: _byPart
+                // Board PaperPh: 10 above, the clock line, 3, the rule, 5, the
+                // caption line, 6 below.
+                ? (29 + 44 * scale / 17).clamp(50.0, double.infinity)
+                : (scale * 1.35 + 21).clamp(50.0, double.infinity),
             centerTitle: true,
             title: Column(
               mainAxisSize: MainAxisSize.min,
@@ -367,13 +387,14 @@ class _MockSessionPageState extends State<MockSessionPage> {
                 Text(
                   _formatRemaining(widget.remainingInPart),
                   style: context.type.subheadStrong.copyWith(
-                    fontSize: 17,
+                    fontSize: _byPart ? 19 : 17,
+                    height: _byPart ? 26 / 19 : null,
                     fontWeight: FontWeight.w700,
                     color: clockColor,
                     fontFeatures: const [FontFeature.tabularFigures()],
                   ),
                 ),
-                const SizedBox(height: 6),
+                SizedBox(height: _byPart ? 3 : 6),
                 SizedBox(
                   width: 120,
                   height: 5,
@@ -382,6 +403,25 @@ class _MockSessionPageState extends State<MockSessionPage> {
                     partLength: widget.effectivePartLength,
                   ),
                 ),
+                if (_byPart) ...[
+                  const SizedBox(height: 5),
+                  Text(
+                    widget.partStarted
+                        ? 'Part ${widget.currentPartNumber} started'
+                        : 'Part ${widget.currentPartNumber} · '
+                            '${widget.partName}',
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: context.type.footnote.copyWith(
+                      fontSize: 13,
+                      height: 18 / 13,
+                      color: widget.partStarted ? c.accent : c.secondaryLabel,
+                      fontWeight: widget.partStarted
+                          ? FontWeight.w600
+                          : FontWeight.w400,
+                    ),
+                  ),
+                ],
               ],
             ),
             actions: [
@@ -550,6 +590,10 @@ class _MockSessionPageState extends State<MockSessionPage> {
                                     widget.partName
                                 : 'Part ${widget.currentPartNumber} · '
                                     '${widget.partName}',
+                            // Board PaperPh: the part is under the clock, so
+                            // the question has no eyebrow, until the part
+                            // starts by itself and the board draws both.
+                            showSubject: !_byPart || widget.partStarted,
                             selectedIndex: widget
                                 .state
                                 .answers[widget.state.currentQuestionId]
@@ -677,6 +721,15 @@ class _MockSessionPageState extends State<MockSessionPage> {
               ),
           ],
         );
+    Widget faded(MockUpcomingPart part) => Opacity(
+          opacity: .4,
+          child: grid(
+            [
+              for (var i = 0; i < part.count; i++) 'upcoming-${part.number}-$i',
+            ],
+            enabled: false,
+          ),
+        );
     final panel = Container(
       key: const ValueKey('web-mock-panel'),
       width: 300,
@@ -710,7 +763,8 @@ class _MockSessionPageState extends State<MockSessionPage> {
                 ],
               ),
             ),
-            if (!widget.oneBlock && _gridSummary() != null) ...[
+            // Board Paper: a closed part is not listed on a paper by part.
+            if (!widget.oneBlock && !_byPart && _gridSummary() != null) ...[
               const SizedBox(height: 8),
               Text(_gridSummary()!, style: t.sm),
             ],
@@ -758,26 +812,32 @@ class _MockSessionPageState extends State<MockSessionPage> {
                 ),
               ),
             ),
-            for (final part in widget.upcomingParts) ...[
-              const SizedBox(height: 28),
-              Text(
-                'PART ${part.number} · ${part.name.toUpperCase()}',
-                style: t.eb,
-              ),
-              const SizedBox(height: 6),
-              Text('Opens when this part starts.', style: t.sm),
-              const SizedBox(height: 14),
-              Opacity(
-                opacity: .4,
-                child: grid(
-                  [
-                    for (var i = 0; i < part.count; i++)
-                      'upcoming-${part.number}-$i',
-                  ],
-                  enabled: false,
+            if (_byPart && widget.partStarted) ...[
+              // Board Paper, break ran out: the other parts, done or still to
+              // open, as a list.
+              const SizedBox(height: 22),
+              for (final (i, name) in widget.partNames.indexed)
+                if (i != part - 1)
+                  _PartListRow(number: i + 1, name: name, done: i < part - 1),
+            ] else
+              for (final part in widget.upcomingParts) ...[
+                SizedBox(height: _byPart ? 22 : 28),
+                Text(
+                  'PART ${part.number} · ${part.name.toUpperCase()}',
+                  style: t.eb,
                 ),
-              ),
-            ],
+                SizedBox(height: _byPart ? 4 : 6),
+                Text('Opens when this part starts.', style: t.sm),
+                SizedBox(height: _byPart ? 10 : 14),
+                // Board Paper: a later part is a faded grid cut at 120 px.
+                if (_byPart)
+                  ConstrainedBox(
+                    constraints: const BoxConstraints(maxHeight: 120),
+                    child: ClipRect(child: faded(part)),
+                  )
+                else
+                  faded(part),
+              ],
             if (widget.oneBlock && !widget.state.strictMode) ...[
               const SizedBox(height: 28),
               // MK_SubmitCSE: the button fills the panel's width.
@@ -820,7 +880,11 @@ class _MockSessionPageState extends State<MockSessionPage> {
         subject: widget.oneBlock
             ? widget.questionSubjects[widget.state.currentQuestionId] ??
                 widget.partName
-            : 'Part $part · ${widget.partName}',
+            // Board Paper, break ran out: the header and the list name the
+            // part, so the question carries no eyebrow.
+            : widget.partStarted
+                ? ''
+                : 'Part $part · ${widget.partName}',
         selectedIndex:
             widget.state.answers[widget.state.currentQuestionId]?.selectedIndex,
         onAnswer: widget.onAnswer,
@@ -861,7 +925,30 @@ class _MockSessionPageState extends State<MockSessionPage> {
                       child: Row(
                         children: [
                           Expanded(
-                            child: Text(widget.examTitle, style: t.sm),
+                            child: widget.partStarted
+                                // Board Paper, break ran out: the part line
+                                // sits under the exam's name.
+                                ? Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(widget.examTitle, style: t.sm),
+                                      Text(
+                                        'Part $part of '
+                                        '${widget.partNames.length} · '
+                                        '${widget.partName}',
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
+                                        style: t.style(
+                                          15,
+                                          weight: FontWeight.w600,
+                                          height: 21 / 15,
+                                        ),
+                                      ),
+                                    ],
+                                  )
+                                : Text(widget.examTitle, style: t.sm),
                           ),
                           Column(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -880,15 +967,23 @@ class _MockSessionPageState extends State<MockSessionPage> {
                                     ? proctorCopyFor(
                                         _proctorToastMinutes!,
                                       )
-                                    : widget.oneBlock
-                                        ? 'left'
-                                        : 'left in Part '
-                                            '$part',
+                                    : widget.partStarted
+                                        ? 'Part $part started'
+                                        : widget.oneBlock
+                                            ? 'left'
+                                            : 'left in Part '
+                                                '$part',
                                 style: t.style(
                                   12,
+                                  weight: widget.partStarted &&
+                                          _proctorToastMinutes == null
+                                      ? FontWeight.w600
+                                      : FontWeight.w400,
                                   color: _proctorToastMinutes != null
                                       ? clockColor
-                                      : c.tertiaryLabel,
+                                      : widget.partStarted
+                                          ? c.accent
+                                          : c.tertiaryLabel,
                                 ),
                               ),
                             ],
@@ -896,19 +991,20 @@ class _MockSessionPageState extends State<MockSessionPage> {
                           Expanded(
                             child: Align(
                               alignment: Alignment.centerRight,
-                              child: widget.state.strictMode
-                                  ? const SizedBox.shrink()
-                                  : WebButton(
-                                      label: 'Pause',
-                                      icon: CustomPaint(
-                                        size: const Size.square(18),
-                                        painter: _PauseGlyphPainter(
-                                          c.secondaryLabel,
+                              child:
+                                  widget.state.strictMode || widget.partStarted
+                                      ? const SizedBox.shrink()
+                                      : WebButton(
+                                          label: 'Pause',
+                                          icon: CustomPaint(
+                                            size: const Size.square(18),
+                                            painter: _PauseGlyphPainter(
+                                              c.secondaryLabel,
+                                            ),
+                                          ),
+                                          variant: WebButtonVariant.tertiary,
+                                          onPressed: _onPausePressed,
                                         ),
-                                      ),
-                                      variant: WebButtonVariant.tertiary,
-                                      onPressed: _onPausePressed,
-                                    ),
                             ),
                           ),
                         ],
@@ -1303,11 +1399,15 @@ class _QuestionBody extends ConsumerWidget {
     required this.subject,
     required this.selectedIndex,
     required this.onAnswer,
+    this.showSubject = true,
     super.key,
   });
 
   final String questionId;
   final String subject;
+
+  /// False draws the phone question with no eyebrow.
+  final bool showSubject;
   final int? selectedIndex;
   final ValueChanged<int> onAnswer;
 
@@ -1343,6 +1443,7 @@ class _QuestionBody extends ConsumerWidget {
         return QuestionCard(
           key: ValueKey(hydrated.question.id),
           subject: subject,
+          showSubject: showSubject,
           stem: hydrated.question.stem,
           passage: hydrated.passage == null
               ? null
@@ -1517,6 +1618,68 @@ class _PauseGlyphPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(_PauseGlyphPainter old) => old.color != color;
+}
+
+/// One other part in the list beside the question (board Paper, break ran
+/// out): a closed part is a filled check, a part still to open an empty ring
+/// with the line that says when it opens.
+class _PartListRow extends StatelessWidget {
+  const _PartListRow({
+    required this.number,
+    required this.name,
+    required this.done,
+  });
+  final int number;
+  final String name;
+  final bool done;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = context.webTokens;
+    final c = t.colors;
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(top: 1),
+            child: Container(
+              width: 20,
+              height: 20,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: done ? c.accentFill : null,
+                border: done
+                    ? null
+                    : Border.all(color: t.strongDivider, width: 1.5),
+              ),
+              child: done
+                  ? const Icon(Icons.check, size: 11, color: Colors.white)
+                  : null,
+            ),
+          ),
+          const SizedBox(width: 10),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Part $number · $name',
+                  style: t.style(
+                    15,
+                    height: 21 / 15,
+                    color: done ? c.secondaryLabel : c.label,
+                  ),
+                ),
+                if (!done) Text('Opens when this part starts.', style: t.sm),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 }
 
 /// A legend entry: a 10 px dot and its word (board `.hrow`, 12 px).

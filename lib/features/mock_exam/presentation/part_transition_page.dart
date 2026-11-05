@@ -17,6 +17,10 @@ class PartTransitionPage extends StatefulWidget {
     required this.answeredQuestions,
     required this.endedEarly,
     required this.onStartNext,
+    this.starting = false,
+    this.breakRemaining,
+    this.breakLength = const Duration(seconds: 60),
+    this.examTitle = '',
     super.key,
   }) : assert(
           nextPartIndex > 0 && nextPartIndex < partNames.length,
@@ -28,6 +32,38 @@ class PartTransitionPage extends StatefulWidget {
   final List<bool> answeredQuestions;
   final bool endedEarly;
   final VoidCallback onStartNext;
+
+  /// The start is on its way to the server. The button is off until it comes
+  /// back, so it cannot be asked for twice.
+  final bool starting;
+
+  /// A strict break: the time until the server starts the next part by
+  /// itself. When set, the clock shows in a header and there is no hint line.
+  /// Null is every other between-parts screen, which waits for the student.
+  final Duration? breakRemaining;
+
+  /// What [breakRemaining] counts down from, for the bar.
+  final Duration breakLength;
+
+  /// The exam's name in the wide header of a strict break.
+  final String examTitle;
+
+  bool get _strictBreak => breakRemaining != null;
+
+  VoidCallback? get _onStart => starting ? null : onStartNext;
+
+  /// "0:42", as the board draws a break clock.
+  String get _breakClock {
+    final seconds = (breakRemaining ?? Duration.zero).inSeconds.clamp(0, 3600);
+    return '${seconds ~/ 60}:${(seconds % 60).toString().padLeft(2, '0')}';
+  }
+
+  double get _breakFraction {
+    if (breakLength <= Duration.zero) return 0;
+    return ((breakRemaining ?? Duration.zero).inMilliseconds /
+            breakLength.inMilliseconds)
+        .clamp(0.0, 1.0);
+  }
 
   @override
   State<PartTransitionPage> createState() => _PartTransitionPageState();
@@ -88,9 +124,15 @@ class _PartTransitionPageState extends State<PartTransitionPage>
         body: SafeArea(
           child: Column(
             children: [
+              if (widget._strictBreak) _phoneBreakHeader(context),
               Expanded(
                 child: SingleChildScrollView(
-                  padding: const EdgeInsets.fromLTRB(16, 54, 16, 24),
+                  padding: EdgeInsets.fromLTRB(
+                    16,
+                    widget._strictBreak ? 20 : 54,
+                    16,
+                    24,
+                  ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
@@ -339,15 +381,17 @@ class _PartTransitionPageState extends State<PartTransitionPage>
                   children: [
                     PantasButton(
                       label: 'Start Part ${widget.nextPartIndex + 1}',
-                      onPressed: widget.onStartNext,
+                      onPressed: widget._onStart,
                     ),
-                    const SizedBox(height: 8),
-                    Text(
-                      'The clock starts when you tap.',
-                      textAlign: TextAlign.center,
-                      style: context.type.footnote
-                          .copyWith(color: c.secondaryLabel),
-                    ),
+                    if (!widget._strictBreak) ...[
+                      const SizedBox(height: 8),
+                      Text(
+                        'The clock starts when you tap.',
+                        textAlign: TextAlign.center,
+                        style: context.type.footnote
+                            .copyWith(color: c.secondaryLabel),
+                      ),
+                    ],
                   ],
                 ),
               ),
@@ -360,145 +404,282 @@ class _PartTransitionPageState extends State<PartTransitionPage>
 
   Widget _wide(BuildContext context, int answered, int blank) {
     final t = context.webTokens;
+    final starting = widget.starting;
     return Focus(
-      onKeyEvent: enterKeyHandler(widget.onStartNext),
+      onKeyEvent: enterKeyHandler(starting ? () {} : widget.onStartNext),
       autofocus: true,
       child: PopScope(
         canPop: false,
         child: Scaffold(
-          body: Center(
-            child: SingleChildScrollView(
-              key: const ValueKey('web-mock-between'),
-              padding: const EdgeInsets.all(40),
-              child: SizedBox(
-                width: 800,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+          body: widget._strictBreak
+              ? Column(
                   children: [
-                    Text(
-                      widget.endedEarly
-                          ? 'Part ${widget.nextPartIndex} ended.'
-                          : 'Time is up.',
-                      style: t.h1,
-                    ),
-                    const SizedBox(height: 8),
-                    Text(
-                      'Part ${widget.nextPartIndex} · '
-                      '${widget.partNames[widget.nextPartIndex - 1]}',
-                      style: t.style(
-                        17,
-                        color: t.colors.secondaryLabel,
+                    _wideBreakHeader(t),
+                    Expanded(child: _wideBody(t, answered, blank)),
+                  ],
+                )
+              : _wideBody(t, answered, blank),
+        ),
+      ),
+    );
+  }
+
+  Widget _wideBody(WebTokens t, int answered, int blank) {
+    return Center(
+      child: SingleChildScrollView(
+        key: const ValueKey('web-mock-between'),
+        padding: const EdgeInsets.all(40),
+        child: SizedBox(
+          width: 800,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                widget.endedEarly
+                    ? 'Part ${widget.nextPartIndex} ended.'
+                    : 'Time is up.',
+                style: t.h1,
+              ),
+              const SizedBox(height: 8),
+              Text(
+                'Part ${widget.nextPartIndex} · '
+                '${widget.partNames[widget.nextPartIndex - 1]}',
+                style: t.style(
+                  17,
+                  color: t.colors.secondaryLabel,
+                ),
+              ),
+              const SizedBox(height: 28),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(
+                    child: WebCard(
+                      padding: const EdgeInsets.all(
+                        24,
                       ),
-                    ),
-                    const SizedBox(height: 28),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Expanded(
-                          child: WebCard(
-                            padding: const EdgeInsets.all(
-                              24,
-                            ),
-                            child: Column(
+                      child: Column(
+                        children: [
+                          Text(
+                            '$answered answered · $blank blank',
+                            style: t.sub,
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          // The phone's dots: 12 ms apart, 200 ms each.
+                          AnimatedBuilder(
+                            animation: _motion,
+                            builder: (context, _) => Wrap(
+                              spacing: 8,
+                              runSpacing: 8,
                               children: [
-                                Text(
-                                  '$answered answered · $blank blank',
-                                  style: t.sub,
-                                ),
-                                const SizedBox(
-                                  height: 20,
-                                ),
-                                // The phone's dots: 12 ms apart, 200 ms each.
-                                AnimatedBuilder(
-                                  animation: _motion,
-                                  builder: (context, _) => Wrap(
-                                    spacing: 8,
-                                    runSpacing: 8,
-                                    children: [
-                                      for (var i = 0;
-                                          i < widget.answeredQuestions.length;
-                                          i++)
-                                        _wideDot(t, i),
-                                    ],
-                                  ),
-                                ),
+                                for (var i = 0;
+                                    i < widget.answeredQuestions.length;
+                                    i++)
+                                  _wideDot(t, i),
                               ],
                             ),
                           ),
-                        ),
-                        const SizedBox(width: 28),
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              for (final (i, name) in widget.partNames.indexed)
-                                Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                    vertical: 14,
+                        ],
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 28),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        for (final (i, name) in widget.partNames.indexed)
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
+                              vertical: 14,
+                            ),
+                            child: Row(
+                              children: [
+                                if (i == widget.nextPartIndex - 1)
+                                  _wideClosedCheck(t)
+                                else
+                                  Icon(
+                                    i < widget.nextPartIndex
+                                        ? Icons.check_circle
+                                        : Icons.circle_outlined,
+                                    size: 22,
+                                    color: i <= widget.nextPartIndex
+                                        ? t.colors.accent
+                                        : t.colors.tertiaryLabel,
                                   ),
-                                  child: Row(
-                                    children: [
-                                      if (i == widget.nextPartIndex - 1)
-                                        _wideClosedCheck(t)
-                                      else
-                                        Icon(
-                                          i < widget.nextPartIndex
-                                              ? Icons.check_circle
-                                              : Icons.circle_outlined,
-                                          size: 22,
-                                          color: i <= widget.nextPartIndex
-                                              ? t.colors.accent
-                                              : t.colors.tertiaryLabel,
-                                        ),
-                                      const SizedBox(
-                                        width: 12,
-                                      ),
-                                      Expanded(
-                                        child: Text(
-                                          'Part ${i + 1} · $name',
-                                          style: t.style(
-                                            17,
-                                            weight: i == widget.nextPartIndex
-                                                ? FontWeight.w600
-                                                : FontWeight.w400,
-                                          ),
-                                        ),
-                                      ),
-                                      if (i == widget.nextPartIndex)
-                                        Text(
-                                          'Next →',
-                                          style: t.sm,
-                                        ),
-                                    ],
+                                const SizedBox(
+                                  width: 12,
+                                ),
+                                Expanded(
+                                  child: Text(
+                                    'Part ${i + 1} · $name',
+                                    style: t.style(
+                                      17,
+                                      weight: i == widget.nextPartIndex
+                                          ? FontWeight.w600
+                                          : FontWeight.w400,
+                                    ),
                                   ),
                                 ),
-                            ],
+                                if (i == widget.nextPartIndex)
+                                  Text(
+                                    'Next →',
+                                    style: t.sm,
+                                  ),
+                              ],
+                            ),
                           ),
-                        ),
                       ],
                     ),
-                    const SizedBox(height: 28),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Text(
-                          'The clock starts when you click.',
-                          style: t.sm,
+                  ),
+                ],
+              ),
+              const SizedBox(height: 28),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  if (!widget._strictBreak) ...[
+                    Text(
+                      'The clock starts when you click.',
+                      style: t.sm,
+                    ),
+                    const SizedBox(width: 20),
+                  ],
+                  WebButton(
+                    label: 'Start Part ${widget.nextPartIndex + 1}',
+                    keyHint: 'Enter',
+                    onPressed: widget._onStart,
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  /// Board Paper, strict: the break's clock where the paper's clock was, and
+  /// the part that just closed under the exam's name. Nothing to pause.
+  Widget _wideBreakHeader(WebTokens t) {
+    final c = t.colors;
+    return Column(
+      children: [
+        SizedBox(
+          height: 72,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Row(
+              children: [
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(widget.examTitle, style: t.sm),
+                      Text(
+                        'Part ${widget.nextPartIndex} of '
+                        '${widget.partNames.length} · '
+                        '${widget.partNames[widget.nextPartIndex - 1]}',
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: t.style(
+                          15,
+                          weight: FontWeight.w600,
+                          height: 21 / 15,
                         ),
-                        const SizedBox(width: 20),
-                        WebButton(
-                          label: 'Start Part ${widget.nextPartIndex + 1}',
-                          keyHint: 'Enter',
-                          onPressed: widget.onStartNext,
-                        ),
-                      ],
+                      ),
+                    ],
+                  ),
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      widget._breakClock,
+                      style: t.style(
+                        30,
+                        weight: FontWeight.w700,
+                        height: 1.1,
+                        color: c.label,
+                      ),
+                    ),
+                    Text(
+                      'until Part ${widget.nextPartIndex + 1} starts',
+                      style: t.style(12, color: c.tertiaryLabel),
                     ),
                   ],
+                ),
+                const Expanded(child: SizedBox.shrink()),
+              ],
+            ),
+          ),
+        ),
+        SizedBox(
+          height: 6,
+          child: LinearProgressIndicator(
+            value: widget._breakFraction,
+            backgroundColor: c.separator,
+            color: c.label,
+          ),
+        ),
+      ],
+    );
+  }
+
+  /// Board PaperPh, strict: the break's clock, its bar and the words under it.
+  Widget _phoneBreakHeader(BuildContext context) {
+    final c = context.colors;
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(16, 10, 16, 6),
+      child: Column(
+        children: [
+          Text(
+            widget._breakClock,
+            style: context.type.subheadStrong.copyWith(
+              fontSize: 19,
+              height: 26 / 19,
+              fontWeight: FontWeight.w700,
+              color: c.label,
+              fontFeatures: const [FontFeature.tabularFigures()],
+            ),
+          ),
+          const SizedBox(height: 3),
+          SizedBox(
+            width: 120,
+            height: 5,
+            child: DecoratedBox(
+              decoration: BoxDecoration(
+                color: c.separator,
+                borderRadius: BorderRadius.circular(99),
+              ),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: FractionallySizedBox(
+                  widthFactor: widget._breakFraction,
+                  child: DecoratedBox(
+                    decoration: BoxDecoration(
+                      color: c.accentFill,
+                      borderRadius: BorderRadius.circular(99),
+                    ),
+                    child: const SizedBox(height: 5),
+                  ),
                 ),
               ),
             ),
           ),
-        ),
+          const SizedBox(height: 5),
+          Text(
+            'until Part ${widget.nextPartIndex + 1} starts',
+            style: context.type.footnote.copyWith(
+              fontSize: 13,
+              height: 18 / 13,
+              color: c.secondaryLabel,
+            ),
+          ),
+        ],
       ),
     );
   }
