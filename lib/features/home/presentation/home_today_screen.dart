@@ -39,7 +39,6 @@ import 'package:pantas/features/home/presentation/widgets/home_web_layout.dart';
 import 'package:pantas/features/lesson/application/reader_providers.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
 import 'package:pantas/features/quiz/domain/paused_quiz_conflict.dart';
-import 'package:pantas/features/quiz/presentation/today_providers.dart';
 import 'package:pantas/features/roadmap/application/roadmap_providers.dart';
 import 'package:pantas/features/roadmap/domain/day_snapshot.dart';
 import 'package:uuid/uuid.dart';

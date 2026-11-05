@@ -48,6 +48,9 @@ import 'package:pantas/features/roadmap/domain/sitting_planner.dart';
 import 'package:pantas/features/settings/application/settings_providers.dart';
 import 'package:pantas/features/settings/domain/session_ordering.dart';
 
+/// The user id every local write already uses. Mirrors `quiz_controller.dart`.
+const todayUserId = 'local';
+
 /// The local durable quiz identity. All local Today launch owners use this
 /// value so Home, the Quiz tab, and the controller cannot split one user into
 /// parallel session namespaces.

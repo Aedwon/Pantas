@@ -9,8 +9,8 @@ import 'package:pantas/features/quiz/data/repos/quiz_session_repository.dart';
 import 'package:pantas/features/quiz/domain/use_cases/build_today_plan.dart';
 import 'package:pantas/features/quiz/presentation/quiz_controller.dart';
 
-/// The user id every local write already uses. Mirrors `quiz_controller.dart`.
-const todayUserId = 'local';
+export 'package:pantas/features/quiz/application/quiz_providers.dart'
+    show todayUserId;
 
 /// What the session panel shows today. One per condition of the day, in the
 /// order the panel checks them.
