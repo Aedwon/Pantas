@@ -413,7 +413,7 @@ questions:
         correct: true
       - text: "588 N"
         rationale: |
-          This equals the weight, $mg$. The normal force equals the weight only when the vertical acceleration is zero and just these two vertical forces act. Check that the elevator is accelerating.
+          This equals the weight, $mg$. The normal force equals the weight when the vertical acceleration is zero and just these two vertical forces act. Check that the elevator is accelerating.
       - text: "468 N"
         rationale: |
           This uses $m(g-a)$, which is for an elevator accelerating downward. Gravity points down and the acceleration points up, so their opposite directions can tempt you to subtract the sizes. Check the direction of the acceleration.

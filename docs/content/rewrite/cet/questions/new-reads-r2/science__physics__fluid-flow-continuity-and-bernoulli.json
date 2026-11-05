@@ -1,0 +1,10 @@
+{
+ "reader": "sol",
+ "round": 2,
+ "verdict": "clean",
+ "resolved": [
+  "q-physics-fluid-flow-continuity-and-bernoulli-0009",
+  "q-physics-fluid-flow-continuity-and-bernoulli-0016"
+ ],
+ "findings": []
+}

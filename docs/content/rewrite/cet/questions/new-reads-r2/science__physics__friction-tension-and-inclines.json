@@ -1,0 +1,12 @@
+{
+ "reader": "sol",
+ "round": 2,
+ "verdict": "clean",
+ "resolved": [
+  "q-physics-friction-tension-and-inclines-0005",
+  "q-physics-friction-tension-and-inclines-0006",
+  "q-physics-friction-tension-and-inclines-0007",
+  "q-physics-friction-tension-and-inclines-0014"
+ ],
+ "findings": []
+}

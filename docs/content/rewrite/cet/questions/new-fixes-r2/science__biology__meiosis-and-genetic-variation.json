@@ -1,0 +1,13 @@
+{
+ "file": "science__biology__meiosis-and-genetic-variation",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-biology-meiosis-and-genetic-variation-0008",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "AaBb note now says why keeping all parent alleles looks right."
+  }
+ ]
+}

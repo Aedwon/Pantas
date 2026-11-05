@@ -1,0 +1,51 @@
+{
+ "reader": "sol",
+ "round": 2,
+ "verdict": "major",
+ "resolved": [
+  "q-physics-waves-and-sound-0023",
+  "q-physics-waves-and-sound-0024",
+  "q-physics-waves-and-sound-0026",
+  "q-physics-waves-and-sound-0027",
+  "q-physics-waves-and-sound-0030",
+  "q-physics-waves-and-sound-0031",
+  "q-physics-waves-and-sound-0032",
+  "q-physics-waves-and-sound-0033",
+  "q-physics-waves-and-sound-0034",
+  "q-physics-waves-and-sound-0035"
+ ],
+ "findings": [
+  {
+   "question": "q-physics-waves-and-sound-0031",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This uses $v+v_s$, which gives the longer wavelength behind the source. Check which side of the source the listener is on.",
+   "problem": "The 0.90 m note identifies the wrong formula and gives a check, but does not explain why that formula looks right. For example, a student may add the source speed because the source is moving toward the listener, confusing faster approach with a longer wavelength.",
+   "fix": "Add why adding the two speeds is tempting, then retain the front-versus-behind check."
+  },
+  {
+   "question": "q-physics-waves-and-sound-0031",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This divides the source speed by the frequency. That is the distance the source moves in one period. Check that the wavelength in front comes from subtracting the source speed from the sound speed, then dividing by the frequency. Equivalently, subtract the distance the source moves in one period from $\\dfrac{v}{f}$.",
+   "problem": "The dimensional error from round 1 is fixed, but the 0.05 m note still omits why this answer looks right. A student may use wavelength = speed/frequency with the supplied source speed, mistaking the source travel per period for the distance between crests.",
+   "fix": "Explain that using the familiar speed/frequency rule with the wrong speed makes 0.05 m tempting; keep the corrected calculation check."
+  },
+  {
+   "question": "q-physics-waves-and-sound-0034",
+   "severity": "Major",
+   "field": "note",
+   "quote": "The path difference is $0.5$ m, which is a quarter of a wavelength. A small difference seems enough to cancel. Check that cancelling needs a half wavelength.",
+   "problem": "The final sentence still makes one half wavelength necessary for cancellation. Odd multiples also give destructive interference. With the stated 2.0 m wavelength, a 3.0 m path difference (for example, 13.0 m from B and 10.0 m from A) also makes the waves oppose each other. The explanation was corrected, but this note retains the same false restriction.",
+   "fix": "Say that cancellation needs an odd multiple of half a wavelength, whereas 0.5 m is only a quarter wavelength here."
+  },
+  {
+   "question": "q-physics-waves-and-sound-0034",
+   "severity": "Minor",
+   "field": "note",
+   "quote": "Unequal distances make cancelling seem likely, so any path difference seems to work.",
+   "problem": "\u201cCancelling\u201d uses British spelling. The requested American spelling is \u201ccanceling\u201d; the 10.5 m note uses the same spelling.",
+   "fix": "Use \u201ccanceling\u201d in both notes."
+  }
+ ]
+}

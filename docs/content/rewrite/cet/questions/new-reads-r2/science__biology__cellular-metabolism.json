@@ -1,0 +1,13 @@
+{
+ "reader": "sol",
+ "round": 2,
+ "verdict": "clean",
+ "resolved": [
+  "q-biology-cellular-metabolism-0022",
+  "q-biology-cellular-metabolism-0024",
+  "q-biology-cellular-metabolism-0029",
+  "q-biology-cellular-metabolism-0032",
+  "q-biology-cellular-metabolism-0034"
+ ],
+ "findings": []
+}

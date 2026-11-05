@@ -1,0 +1,20 @@
+{
+ "reader": "sol",
+ "round": 2,
+ "verdict": "major",
+ "resolved": [
+  "q-physics-dynamics-0021",
+  "q-physics-dynamics-0025",
+  "q-physics-dynamics-0026"
+ ],
+ "findings": [
+  {
+   "question": "q-physics-dynamics-0026",
+   "severity": "Major",
+   "field": "note",
+   "quote": "The normal force equals the weight only when the vertical acceleration is zero and just these two vertical forces act.",
+   "problem": "The added \"only when\" makes these sufficient conditions necessary. A stationary person on a scale can also have an extra 10 N upward pull and an extra 10 N downward push. Those forces cancel, so the normal force still equals the weight even though more than two vertical forces act.",
+   "fix": "Replace \"only when\" with \"when\" to state sufficient conditions without excluding other balanced cases."
+  }
+ ]
+}

@@ -1,0 +1,13 @@
+{
+ "reader": "sol",
+ "round": 2,
+ "verdict": "clean",
+ "resolved": [
+  "q-earth-science-astronomy-stars-and-galaxies-0001",
+  "q-earth-science-astronomy-stars-and-galaxies-0008",
+  "q-earth-science-astronomy-stars-and-galaxies-0009",
+  "q-earth-science-astronomy-stars-and-galaxies-0011",
+  "q-earth-science-astronomy-stars-and-galaxies-0014"
+ ],
+ "findings": []
+}

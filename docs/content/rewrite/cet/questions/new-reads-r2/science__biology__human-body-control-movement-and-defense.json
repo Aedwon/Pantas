@@ -1,0 +1,22 @@
+{
+ "reader": "sol",
+ "round": 2,
+ "verdict": "major",
+ "resolved": [
+  "q-biology-human-body-control-movement-and-defense-0002",
+  "q-biology-human-body-control-movement-and-defense-0003",
+  "q-biology-human-body-control-movement-and-defense-0004",
+  "q-biology-human-body-control-movement-and-defense-0008",
+  "q-biology-human-body-control-movement-and-defense-0009"
+ ],
+ "findings": [
+  {
+   "question": "q-biology-human-body-control-movement-and-defense-0008",
+   "severity": "Major",
+   "field": "note",
+   "quote": "They act the same way for every germ.",
+   "problem": "This is a false absolute about skin and mucus barriers. For example, the acidic skin surface inhibits some bacteria while acid-tolerant microbes can survive there. A broad defense does not act identically against every germ. This also fails to explain directly why strengthening these barriers is not the vaccine mechanism being tested.",
+   "fix": "Replace with: \"These barriers help block germs, but the protection tested here comes from memory cells. Check which defense remembers a specific target.\""
+  }
+ ]
+}

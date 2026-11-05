@@ -1,0 +1,13 @@
+{
+ "file": "science__physics__dynamics",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-physics-dynamics-0026",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Changed 'only when' to 'when' in the 588 N note."
+  }
+ ]
+}

@@ -1,0 +1,12 @@
+{
+ "reader": "sol",
+ "round": 2,
+ "verdict": "clean",
+ "resolved": [
+  "q-biology-cellular-reproduction-0021",
+  "q-biology-cellular-reproduction-0026",
+  "q-biology-cellular-reproduction-0027",
+  "q-biology-cellular-reproduction-0029"
+ ],
+ "findings": []
+}

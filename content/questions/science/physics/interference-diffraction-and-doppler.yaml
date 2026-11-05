@@ -140,13 +140,13 @@ questions:
         correct: true
       - text: "Destructive interference, because the path difference is a whole number of wavelengths"
         rationale: |
-          This has the correct reason but the wrong result. Cancelling needs a half wavelength. Check which path differences give cancelling.
+          This has the correct reason but the wrong result. Canceling needs a half wavelength. Check which path differences give canceling.
       - text: "Constructive interference, because the path difference is a half wavelength"
         rationale: |
           This has the correct result but the wrong reason. The path difference is given as $2\lambda$, not $\dfrac{\lambda}{2}$. Check the value in the question.
       - text: "Destructive interference, because the path difference is a half wavelength"
         rationale: |
-          This is the rule for cancelling, but it does not fit the given path difference. Check whether $2\lambda$ is a half wavelength.
+          This is the rule for canceling, but it does not fit the given path difference. Check whether $2\lambda$ is a half wavelength.
     explanation: |
       A path difference of $0$, $\lambda$, $2\lambda$ and so on makes crest meet crest. The waves add and the sound is louder. So $2\lambda$ gives constructive interference.
     approved: false
@@ -332,10 +332,10 @@ questions:
           This is the wavelength of the sound from a source at rest, $\dfrac{340}{400}$. The source frequency is right. Check that the motion of the source shortens the wavelength in front of it.
       - text: "0.90 m"
         rationale: |
-          This uses $v+v_s$, which gives the longer wavelength behind the source. Check which side of the source the listener is on.
+          This uses $v+v_s$, which gives the longer wavelength behind the source. Adding the two speeds is tempting because the source moves toward the listener, but a faster approach does not lengthen the wavelength in front. Check which side of the source the listener is on.
       - text: "0.05 m"
         rationale: |
-          This divides the source speed by the frequency. That is the distance the source moves in one period. Check that the wavelength in front comes from subtracting the source speed from the sound speed, then dividing by the frequency. Equivalently, subtract the distance the source moves in one period from $\dfrac{v}{f}$.
+          This divides the source speed by the frequency, which looks right because wavelength is speed divided by frequency. But it uses the source speed, not the wave speed. That is the distance the source moves in one period. Check that the wavelength in front comes from subtracting the source speed from the sound speed, then dividing by the frequency. Equivalently, subtract the distance the source moves in one period from $\dfrac{v}{f}$.
     explanation: |
       In one period the source moves toward the listener. The wavelength in front is $\lambda'=\dfrac{v-v_s}{f}=\dfrac{340-20}{400}=0.80$ m.
     approved: false
@@ -392,10 +392,10 @@ questions:
         correct: true
       - text: "12.0 m"
         rationale: |
-          Unequal distances make cancelling seem likely, so any path difference seems to work. The path difference is $2.0$ m, which is one wavelength. A whole wavelength gives a loud sound. Check the wavelength, $\lambda=2.0$ m, first.
+          Unequal distances make canceling seem likely, so any path difference seems to work. The path difference is $2.0$ m, which is one wavelength. A whole wavelength gives a loud sound. Check the wavelength, $\lambda=2.0$ m, first.
       - text: "10.5 m"
         rationale: |
-          The path difference is $0.5$ m, which is a quarter of a wavelength. A small difference seems enough to cancel. Check that cancelling needs a half wavelength.
+          The path difference is $0.5$ m, which is a quarter of a wavelength. A small difference seems enough to cancel. Check that canceling needs an odd multiple of half a wavelength, and $0.5$ m is only a quarter wavelength here.
       - text: "14.0 m"
         rationale: |
           The path difference is $4.0$ m, which is two wavelengths. A larger difference seems to give a bigger effect. Check that whole wavelengths give a loud sound.

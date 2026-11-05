@@ -1,0 +1,29 @@
+{
+ "reader": "sol",
+ "round": 2,
+ "verdict": "major",
+ "resolved": [
+  "q-biology-meiosis-and-genetic-variation-0001",
+  "q-biology-meiosis-and-genetic-variation-0006",
+  "q-biology-meiosis-and-genetic-variation-0007",
+  "q-biology-meiosis-and-genetic-variation-0008"
+ ],
+ "findings": [
+  {
+   "question": "q-biology-meiosis-and-genetic-variation-0001",
+   "severity": "Minor",
+   "field": "explanation",
+   "quote": "Heterozygous means the two alleles are different. $Aa$ has one $A$ and one $a$.    approved: false",
+   "problem": "The missing newline puts approved: false inside the YAML explanation block. The app will display this administrative text as part of the explanation instead of reading it as a separate field.",
+   "fix": "Move approved: false onto its own line, indented to match explanation."
+  },
+  {
+   "question": "q-biology-meiosis-and-genetic-variation-0008",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This is the genotype of the parent cell. The question asks for gametes, and a gamete is haploid. Check that a gamete does not carry both alleles of a gene.",
+   "problem": "The note for $AaBb$ identifies the mistake and gives a check, but does not explain why the choice looks right. For example, a student may think each gamete must retain all the parent's alleles to pass both genes to offspring. This is the same missing component identified in round 1 for the $AaBb$ note in question 0007.",
+   "fix": "Add that keeping all the parent's alleles may seem necessary to pass on both genes."
+  }
+ ]
+}

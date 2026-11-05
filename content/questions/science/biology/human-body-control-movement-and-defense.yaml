@@ -377,7 +377,7 @@ questions:
           Antibodies are important in immunity, so this seems reasonable. Antibodies recognize particular targets and do not match every antigen. Check whether an antibody is specific or general.
       - text: 'It makes the skin and mucus barriers stronger against that germ.'
         rationale: |
-          Barriers are part of the body's defense, so this seems reasonable. They act the same way for every germ. Check which defense is specific to one antigen.
+          Barriers are part of the body's defense, so this seems reasonable. These barriers help block germs, but the protection tested here comes from memory cells. Check which defense remembers a specific target.
     explanation: |
       A vaccine shows the immune system an antigen without the disease. The body forms memory cells. If the real germ comes later, the response is faster and stronger.
     approved: false

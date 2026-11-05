@@ -253,7 +253,8 @@ questions:
         rationale: |
           This is one allele. A gamete carries one allele, so a single letter can seem right. Check that a diploid cell has two alleles of the gene.
     explanation: |
-      Heterozygous means the two alleles are different. $Aa$ has one $A$ and one $a$.    approved: false
+      Heterozygous means the two alleles are different. $Aa$ has one $A$ and one $a$.
+    approved: false
 
   - id: q-biology-meiosis-and-genetic-variation-0002
     type: "simple-quantitative"
@@ -397,7 +398,7 @@ questions:
           Splitting the written genotype into $Aa$ and $Bb$ can look like dividing the genetic material into two gametes. These show two alleles of the same gene together. A gamete is haploid, so it carries one allele of each gene. Check how many alleles of a gene a gamete carries.
       - text: "$AaBb$"
         rationale: |
-          This is the genotype of the parent cell. The question asks for gametes, and a gamete is haploid. Check that a gamete does not carry both alleles of a gene.
+          Keeping all the parent's alleles may seem necessary to pass on both genes. But this is the genotype of the parent cell. The question asks for gametes, and a gamete is haploid. Check that a gamete does not carry both alleles of a gene.
     explanation: |
       A gamete gets one allele of each gene. The pairs sort independently, so each allele of the first gene can go with each allele of the second gene. Many cells together can make $AB$, $Ab$, $aB$, and $ab$.
     approved: false

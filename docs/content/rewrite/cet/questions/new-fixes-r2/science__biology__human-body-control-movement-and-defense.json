@@ -1,0 +1,13 @@
+{
+ "file": "science__biology__human-body-control-movement-and-defense",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-biology-human-body-control-movement-and-defense-0008",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Barrier note no longer claims they act the same for every germ; says memory cells are what is tested."
+  }
+ ]
+}

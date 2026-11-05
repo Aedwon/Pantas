@@ -1,0 +1,10 @@
+{
+ "reader": "sol",
+ "round": 2,
+ "verdict": "clean",
+ "resolved": [
+  "q-biology-human-anatomy-physiology-0023",
+  "q-biology-human-anatomy-physiology-0027"
+ ],
+ "findings": []
+}

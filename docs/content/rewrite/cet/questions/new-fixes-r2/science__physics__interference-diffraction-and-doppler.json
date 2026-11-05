@@ -1,0 +1,27 @@
+{
+ "file": "science__physics__interference-diffraction-and-doppler",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-physics-waves-and-sound-0031",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "0.90 m note explains why adding speeds is tempting."
+  },
+  {
+   "question": "q-physics-waves-and-sound-0031",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "0.05 m note explains why speed/frequency with the source speed looks right."
+  },
+  {
+   "question": "q-physics-waves-and-sound-0034",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "0.5 m note now says canceling needs an odd multiple of half a wavelength."
+  }
+ ]
+}
