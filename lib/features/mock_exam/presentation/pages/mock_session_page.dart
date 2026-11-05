@@ -829,6 +829,23 @@ class _MockSessionPageState extends State<MockSessionPage> {
     return CallbackShortcuts(
       bindings: {
         const SingleActivator(LogicalKeyboardKey.keyF): widget.onToggleFlag,
+        // A to E pick a choice, as on the assessment. The count comes from
+        // the question the page shows.
+        ...answerKeyBindings(
+          choiceCount: () =>
+              ProviderScope.containerOf(context, listen: false)
+                  .read(
+                    hydratedMockQuestionProvider(
+                      widget.state.currentQuestionId,
+                    ),
+                  )
+                  .valueOrNull
+                  ?.question
+                  .choices
+                  .length ??
+              0,
+          onPick: widget.onAnswer,
+        ),
         if (!widget.state.strictMode)
           const SingleActivator(LogicalKeyboardKey.keyP): _onPausePressed,
         if (widget.canGoPrevious)

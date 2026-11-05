@@ -958,6 +958,17 @@ class _QuizPageState extends ConsumerState<QuizPage> {
             setState(() => _gridOpen = !_gridOpen);
           }
         },
+        // A to E pick a choice, as on the assessment. They stop once the
+        // question is checked, while it is being checked, and in a dialog.
+        ...answerKeyBindings(
+          choiceCount: () => question.choices.length,
+          onPick: (i) {
+            if (_leaveOpen || state.checking || outcome != null) return;
+            ref
+                .read(quizControllerProvider.notifier)
+                .pick(chosenChoiceId: question.choices[i].id);
+          },
+        ),
       },
       child: KeyFocusKeeper(
         // The page's own node only holds its keys: Tab skips it.

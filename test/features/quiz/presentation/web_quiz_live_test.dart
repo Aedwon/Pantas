@@ -572,6 +572,33 @@ void main() {
       });
     });
 
+    testWidgets('A and B pick a choice, and a letter past the last does not',
+        (tester) async {
+      await pumpLive(tester);
+      await tester.sendKeyEvent(LogicalKeyboardKey.keyB);
+      expect(picked(), 'b');
+      await tester.sendKeyEvent(LogicalKeyboardKey.keyA);
+      expect(picked(), 'a');
+      await tester.sendKeyEvent(LogicalKeyboardKey.keyE);
+      expect(picked(), 'a', reason: 'the question has two choices');
+    });
+
+    testWidgets('F flags and does not pick', (tester) async {
+      await pumpLive(tester);
+      await tester.sendKeyEvent(LogicalKeyboardKey.keyF);
+      await tester.pump(const Duration(milliseconds: 500));
+      expect(picked(), isNull);
+      expect(find.text('Flagged. Find it in the Quiz tab.'), findsOneWidget);
+    });
+
+    testWidgets('the letters pick nothing once the question is checked',
+        (tester) async {
+      await pumpLive(tester);
+      await pickAndCheck(tester, key: true);
+      await tester.sendKeyEvent(LogicalKeyboardKey.keyA);
+      expect(picked(), isNull);
+    });
+
     testWidgets('Enter moves on after Check', (tester) async {
       await pumpLive(tester);
       await pickAndCheck(tester, key: false);

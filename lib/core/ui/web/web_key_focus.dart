@@ -194,3 +194,37 @@ class EnterShortcut extends StatelessWidget {
         child: child,
       );
 }
+
+/// Whether a text field holds the keyboard focus.
+bool textFieldHasFocus() {
+  final context = FocusManager.instance.primaryFocus?.context;
+  if (context == null) return false;
+  return context.widget is EditableText ||
+      context.findAncestorWidgetOfExactType<EditableText>() != null;
+}
+
+/// The A to E keys that pick an answer, for a page's `CallbackShortcuts`.
+///
+/// The keys stand for the first five choices in order, as on the assessment.
+/// F is not one of them: it flags the question on the quiz and the mock, and
+/// no question in the bank has more than five choices. A key held down picks
+/// once. A key typed into a text field goes to the field, not to the page.
+/// [onPick] receives the choice's position and decides whether a pick is
+/// allowed right now. [choiceCount] is read when the key is pressed.
+Map<ShortcutActivator, VoidCallback> answerKeyBindings({
+  required int Function() choiceCount,
+  required ValueChanged<int> onPick,
+}) =>
+    {
+      for (final (i, key) in const [
+        LogicalKeyboardKey.keyA,
+        LogicalKeyboardKey.keyB,
+        LogicalKeyboardKey.keyC,
+        LogicalKeyboardKey.keyD,
+        LogicalKeyboardKey.keyE,
+      ].indexed)
+        SingleActivator(key, includeRepeats: false): () {
+          if (textFieldHasFocus()) return;
+          if (i < choiceCount()) onPick(i);
+        },
+    };

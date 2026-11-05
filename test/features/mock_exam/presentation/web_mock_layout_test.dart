@@ -426,7 +426,13 @@ void main() {
       expect(find.text('Which answer is correct?'), findsOneWidget);
       await tester.tap(find.text('First answer'));
       expect(picked, 0);
+      await tester.sendKeyEvent(LogicalKeyboardKey.keyB);
+      expect(picked, 1);
+      await tester.sendKeyEvent(LogicalKeyboardKey.keyC);
+      expect(picked, 1, reason: 'the question has two choices');
+      picked = null;
       await tester.sendKeyEvent(LogicalKeyboardKey.keyF);
+      expect(picked, isNull, reason: 'F flags and never picks');
       await tester.sendKeyEvent(LogicalKeyboardKey.arrowRight);
       expect(flagged, 1);
       expect(next, 1);
