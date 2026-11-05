@@ -4,13 +4,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:go_router/go_router.dart';
 import 'package:pantas/core/storage/domain/lesson.dart';
 import 'package:pantas/core/time/pantas_dates.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/pantas_sheet.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/pantas_colors.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/home/domain/lesson_day_context.dart';
 import 'package:pantas/features/lesson/application/reader_providers.dart';
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
@@ -103,6 +106,81 @@ void main() {
     }
     await fonts.load();
   });
+
+  for (final web in [false, true]) {
+    testWidgets('Choose Exam from contents navigates web=$web', (tester) async {
+      debugWebPlatformOverride = web;
+      addTearDown(() => debugWebPlatformOverride = null);
+      final examPicker = GoRoute(
+        path: '/settings/exam/change',
+        builder: (_, __) => const Scaffold(body: Text('Exam picker')),
+      );
+      final router = GoRouter(
+        initialLocation: '/study',
+        routes: [
+          ShellRoute(
+            builder: (context, state, child) => child,
+            routes: [
+              GoRoute(
+                path: '/study',
+                builder: (_, __) => const Scaffold(body: Text('Study')),
+              ),
+              if (web) examPicker,
+            ],
+          ),
+          if (!web) examPicker,
+          GoRoute(
+            path: '/lesson/l1',
+            builder: (_, __) => Scaffold(
+              body: LessonContentsSheet(
+                reader: reader,
+                dayContext: LessonDayContext(
+                  date: DateTime(2026, 11, 5),
+                  lessonIds: const ['l1'],
+                  index: 0,
+                ),
+                onSelectLesson: (_) {},
+              ),
+            ),
+          ),
+        ],
+      );
+      addTearDown(() async {
+        await tester.pumpWidget(const SizedBox.shrink());
+        router.dispose();
+      });
+      await tester.pumpWidget(
+        ProviderScope(
+          overrides: [studyMapProvider.overrideWith((_) async => null)],
+          child: MaterialApp.router(
+            theme: buildLightTheme(),
+            routerConfig: router,
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+      unawaited(router.push<void>('/lesson/l1'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Choose Exam'));
+      await tester.pumpAndSettle();
+      expect(find.text('Exam picker'), findsOneWidget);
+      expect(tester.takeException(), isNull);
+      if (web) {
+        expect(
+          router.routerDelegate.currentConfiguration.matches.last,
+          isA<ShellRouteMatch>(),
+        );
+        expect(router.canPop(), isFalse);
+      } else {
+        expect(router.canPop(), isTrue);
+        router.pop();
+        await tester.pumpAndSettle();
+        expect(find.text('Choose Exam'), findsOneWidget);
+      }
+      router.go('/study');
+      await tester.pumpAndSettle();
+    });
+  }
 
   LessonDayContext day({DateTime? date}) => LessonDayContext(
         date: date ?? DateTime.now(),

@@ -6,6 +6,7 @@ import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 
 /// Mount only while loading, so each new load starts its own 300ms delay.
 Widget loadingFor<T>(AsyncValue<T> value) =>
@@ -65,7 +66,17 @@ Widget chooseExamFallback(BuildContext context) => StateView(
       actionLabel: 'Choose Exam',
       primaryAction: true,
       icon: Icon(PantasIcons.studyTab),
-      onRetry: () => context.push('/settings/exam/change'),
+      onRetry: () {
+        final router = GoRouter.of(context);
+        // Pages above the web shell cannot push a page inside it.
+        if (context.webPlatform &&
+            router.routerDelegate.currentConfiguration.matches.last
+                is! ShellRouteMatch) {
+          router.go('/settings/exam/change');
+        } else {
+          router.push('/settings/exam/change');
+        }
+      },
     );
 
 Widget assessmentNotReady() => Builder(

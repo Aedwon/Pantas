@@ -33,7 +33,8 @@ LessonEnding decideEnding({
       next: nextTopic,
     );
   } else {
-    final footing = '$read of $total lessons read';
+    final lessonWord = total == 1 ? 'lesson' : 'lessons';
+    final footing = '$read of $total $lessonWord read';
     final unread = topic.lessons.where((l) => !l.isRead).toList();
     return TopicStoppedShort(
       studentName: studentName,

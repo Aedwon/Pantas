@@ -20,7 +20,8 @@ class RushedCause extends MissCause {
   final String topicName;
 
   /// "You answered in 4 seconds. You usually take 21 on Chemistry."
-  String get line => 'You answered in $responseSeconds seconds. '
+  String get line => 'You answered in $responseSeconds '
+      "${responseSeconds == 1 ? 'second' : 'seconds'}. "
       'You usually take $usualSeconds on $topicName.';
 }
 

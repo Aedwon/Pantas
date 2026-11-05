@@ -71,6 +71,18 @@ void main() {
     expect((ending as TopicFinished).footing, '9 lessons, all read');
   });
 
+  test('one unread lesson is singular', () {
+    final ending = decideEnding(
+      topic: topicWith(read: 0, total: 1),
+      subject: mathematics,
+      examShortName: 'UPCAT',
+      studentName: null,
+      today: DateTime(2026, 7, 27),
+      nextTopic: null,
+    ) as TopicStoppedShort;
+    expect(ending.footing, '0 of 1 lesson read');
+  });
+
   test('one lesson is singular', () {
     final ending = decideEnding(
       topic: topicWith(read: 1, total: 1),
