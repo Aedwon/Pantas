@@ -6,6 +6,7 @@
 import 'dart:convert';
 import 'dart:js_interop';
 
+import 'package:pantas/core/metrics/overall_accuracy.dart';
 import 'package:pantas/features/roadmap/domain/build_roadmap.dart';
 
 import 'diagnosis_codec.dart';
@@ -30,6 +31,27 @@ external set _pantasRoadmapState(JSFunction f);
 String roadmapStateJson(String json) => jsonEncode(
       roadmapStateFromJson((jsonDecode(json) as Map).cast<String, Object?>()),
     );
+
+@JS('pantasOverallAccuracy')
+external set _pantasOverallAccuracy(JSFunction f);
+
+String overallAccuracyJson(String json) {
+  final input = (jsonDecode(json) as Map).cast<String, Object?>();
+  final topics = (input['topics']! as List).cast<Map<String, Object?>>();
+  return jsonEncode(
+    OverallAccuracy.fromTopics(
+      examId: input['examId']! as String,
+      topics: [
+        for (final row in topics)
+          (
+            topicId: row['topicId']! as String,
+            correct: (row['correct']! as num).toInt(),
+            answered: (row['answered']! as num).toInt(),
+          ),
+      ],
+    ).value,
+  );
+}
 
 @JS('pantasStudyInsights')
 external set _pantasStudyInsights(JSFunction f);
@@ -68,6 +90,8 @@ String sampleMockJson(String inputJson) => jsonEncode(
     );
 
 void main() {
+  _pantasOverallAccuracy =
+      ((JSString json) => overallAccuracyJson(json.toDart).toJS).toJS;
   _pantasSessionDiagnosis =
       ((JSString json) => sessionDiagnosisJson(json.toDart).toJS).toJS;
   _pantasRoadmapState =
