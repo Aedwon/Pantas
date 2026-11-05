@@ -61,9 +61,16 @@ class CustomTrackSubjectsStep extends ConsumerStatefulWidget {
     this.onBack,
     this.existingTrackId,
     this.onCreated,
+    this.fromSettings = false,
     super.key,
   });
   final String name;
+
+  /// Opened from Settings, where onboarding is already complete. The step
+  /// makes the track and says it is done, and leaves everything else to
+  /// Settings: onboarding stays complete, and the exam is changed by the same
+  /// save that changes it for a listed exam.
+  final bool fromSettings;
 
   /// A track this onboarding already created. Returning here from the date
   /// step reuses it instead of creating a second one.
@@ -131,8 +138,10 @@ class _CustomTrackSubjectsStepState
       final id = await _createOrReuse(repo, subjects, included);
       _createdId = id;
       if (!mounted || generation != _generation) return;
-      await prefs.setCompletedOnboarding(value: false);
-      await prefs.setSelectedExamId(id);
+      if (!widget.fromSettings) {
+        await prefs.setCompletedOnboarding(value: false);
+        await prefs.setSelectedExamId(id);
+      }
       if (!mounted || generation != _generation) return;
       // The exam list was read before this track existed. Without a fresh
       // read, the focus finds no chosen exam and the router never lets the

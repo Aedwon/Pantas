@@ -56,6 +56,13 @@ void main() {
       subjectId: 's1',
       name: 'Algebra',
     );
+    // Only a topic that holds a question is offered.
+    await seedContentQuestion(
+      content,
+      questionId: 'q1',
+      topicId: 't1',
+      examId: 'exam_cse_pro',
+    );
     final router = GoRouter(
       initialLocation: '/onboarding',
       routes: [

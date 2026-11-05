@@ -25,6 +25,8 @@ List<RouteBase> settingsRoutes(Ref ref) => [
         '/settings/appearance',
         '/settings/exam',
         '/settings/exam/change',
+        '/settings/exam/custom/name',
+        '/settings/exam/custom/subjects',
         '/settings/exam/upgrade',
         '/settings/exam/transfer',
         '/settings/exam/included',
@@ -39,11 +41,20 @@ List<RouteBase> settingsRoutes(Ref ref) => [
       ])
         GoRoute(
           path: path,
-          redirect: path == '/settings/exam/transfer'
-              ? (_, state) => carryOverRequestFor(state.extra) == null
-                  ? '/settings/exam'
-                  : null
-              : null,
+          redirect: switch (path) {
+            '/settings/exam/transfer' => (_, state) =>
+                carryOverRequestFor(state.extra) == null
+                    ? '/settings/exam'
+                    : null,
+            // The name travels in the route's extra. Without it, as after a
+            // reload or a typed address, there is no step to show.
+            '/settings/exam/custom/subjects' => (_, state) =>
+                state.extra is String &&
+                        (state.extra! as String).trim().isNotEmpty
+                    ? null
+                    : '/settings/exam/change',
+            _ => null,
+          },
           // The tab root stays an ordinary route. Every other Settings page
           // and the legal pages open without a page-level slide, see
           // [PaneTransitionPage].
@@ -56,9 +67,11 @@ List<RouteBase> settingsRoutes(Ref ref) => [
                     key: state.pageKey,
                     transition: path.startsWith('/legal/')
                         ? (context) => _legalTransition(ref, context)
-                        : _modalPages.contains(path)
-                            ? _modalTransition
-                            : _settingsTransition,
+                        : _stepPages.contains(path)
+                            ? _stepTransition
+                            : _modalPages.contains(path)
+                                ? _modalTransition
+                                : _settingsTransition,
                     child: _screen(ref, path, state),
                   ),
         ),
@@ -78,6 +91,15 @@ const _modalPages = {
   '/settings/account/delete',
 };
 
+/// The steps of a student's own exam draw a whole page of their own, as the
+/// onboarding steps do, and open with the platform's transition as those do.
+const _stepPages = {
+  '/settings/exam/custom/name',
+  '/settings/exam/custom/subjects',
+};
+
+PaneTransition _stepTransition(BuildContext context) => PaneTransition.platform;
+
 PaneTransition _modalTransition(BuildContext context) =>
     context.wideWeb ? PaneTransition.instant : PaneTransition.platform;
 
@@ -96,6 +118,7 @@ const _dataScreens = {
   '/settings/pro',
   '/settings/exam/upgrade',
   '/settings/exam/change',
+  '/settings/exam/custom/subjects',
   '/settings/exam/included',
 };
 

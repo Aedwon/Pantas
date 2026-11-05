@@ -4,19 +4,42 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/app/telemetry_providers.dart';
+import 'package:pantas/core/auth/auth_state.dart';
+import 'package:pantas/core/auth/providers.dart';
+import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/content/data/exam_catalog_repository.dart';
 import 'package:pantas/core/content/remote/content_limit.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/core/storage/data/repos/custom_track_repository.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/storage/track_scope.dart';
+import 'package:pantas/core/telemetry/telemetry.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/selection_row.dart';
+import 'package:pantas/core/ui/icons/pantas_icons.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/core/ui/web/web_tokens.dart';
+import 'package:pantas/features/home/application/study_remote_providers.dart';
+import 'package:pantas/features/home/data/study_api.dart';
 import 'package:pantas/features/onboarding/presentation/exam_picker_screen.dart';
 
 import '../../../helpers/accessibility.dart';
 import '../../../helpers/in_memory_database.dart';
+import '../../../helpers/pump_app.dart';
+
+class _RecordingTelemetry extends DisabledTelemetry {
+  final errors = <Object>[];
+  @override
+  Future<void> recordError(Object error, StackTrace stack) async {
+    errors.add(error);
+  }
+}
 
 const entries = [
   ExamCatalogEntry(
@@ -612,6 +635,440 @@ void main() {
           await tester.enterText(find.byType(TextField), 'upcat');
           await tester.pumpAndSettle();
           expect(find.textContaining('Nothing matched'), findsNothing);
+          expect(find.text('UPCAT'), findsOneWidget);
+        });
+      }
+    }
+  });
+
+  group('your exams', () {
+    const mine = 'exam_custom_a';
+    const other = 'exam_custom_b';
+    const away = 'exam_custom_c';
+    late ContentDatabase contentDb;
+    setUp(() => contentDb = openTestContentDatabase());
+
+    Future<void> seed(List<(String, String)> tracks) async {
+      for (final (id, name) in tracks) {
+        await db.into(db.customTrackMetaLocal).insert(
+              CustomTrackMetaLocalCompanion.insert(examId: id, name: name),
+            );
+      }
+    }
+
+    Map<String, Object?> serverTrack(String id, String? name) => {
+          'examId': id,
+          'name': name,
+          'excludedTopicIds': <String>['topic_x'],
+          'excludedLessonIds': <String>[],
+          'blueprint': null,
+          'createdAt': 1,
+          'updatedAt': 2,
+        };
+
+    /// Overrides for a browser that asks the server: the answer comes from
+    /// [reply], and every call is counted in [calls].
+    List<Override> web(
+      List<String> calls, {
+      Object? Function()? reply,
+    }) =>
+        [
+          studyUsesServerProvider.overrideWithValue(true),
+          authStateProvider.overrideWith(
+            (ref) => Stream.value(const AuthState.anonymous(uid: 'u1')),
+          ),
+          studyApiProvider.overrideWithValue(
+            StudyApi((name, data) async {
+              calls.add(name);
+              return reply?.call() ??
+                  {'activeExamId': null, 'tracks': <Object?>[]};
+            }),
+          ),
+          customTrackRepositoryProvider.overrideWithValue(
+            CustomTrackRepository(db, contentDb),
+          ),
+        ];
+
+    Finder row(String id) => find.byKey(ValueKey('exam-$id'));
+    final add = find.byKey(const ValueKey('custom-exam-add'));
+
+    bool after(WidgetTester tester, Finder later, Finder earlier) {
+      final a = tester.getTopLeft(later);
+      final b = tester.getTopLeft(earlier);
+      return a.dy > b.dy || (a.dy == b.dy && a.dx > b.dx);
+    }
+
+    Size viewportFor({required bool wide}) =>
+        wide ? const Size(1440, 900) : const Size(390, 844);
+
+    for (final wide in [false, true]) {
+      for (final mode in ExamPickerMode.values) {
+        for (final brightness in Brightness.values) {
+          final name = '${wide ? 'wide' : 'phone'} $mode $brightness';
+          testWidgets('rows, small line and the add row last, $name',
+              (tester) async {
+            debugWebPlatformOverride = wide;
+            addTearDown(() => debugWebPlatformOverride = null);
+            await seed([(mine, 'PUP CET'), (other, 'Bar Exam')]);
+            await pump(
+              tester,
+              mode: mode,
+              brightness: brightness,
+              viewport: viewportFor(wide: wide),
+            );
+            await tester.pumpAndSettle();
+            expect(find.text('YOUR EXAMS'), findsOneWidget);
+            expect(find.text('PUP CET'), findsOneWidget);
+            expect(find.text('Bar Exam'), findsOneWidget);
+            expect(find.text('Your own exam'), findsNWidgets(2));
+            expect(find.text("My exam isn't listed"), findsOneWidget);
+            // The board's old row, with its small line, is gone.
+            expect(
+              find.text('Set up your own and pick what it covers'),
+              findsNothing,
+            );
+            // Newest first, the add row inside the group after the last exam,
+            // and the listed exams below the group.
+            expect(after(tester, row(mine), row(other)), isTrue);
+            expect(after(tester, add, row(mine)), isTrue);
+            expect(after(tester, find.text('UPCAT'), add), isTrue);
+            // The add row: its label in the accent color and no small line.
+            expect(
+              find.descendant(of: add, matching: find.byType(Text)),
+              findsOneWidget,
+            );
+            final accent = wide
+                ? tester.element(add).webTokens.colors.accent
+                : tester.element(add).colors.accent;
+            expect(
+              tester
+                  .widget<Text>(
+                    find.descendant(of: add, matching: find.byType(Text)),
+                  )
+                  .style
+                  ?.color,
+              accent,
+            );
+            if (!wide && mode == ExamPickerMode.settings) {
+              // Phone Settings (SettingsPh, kind pick, v B): no plus, a
+              // chevron at the right, the name 16 px in and the chevron 16 px
+              // from the right edge, the divider above inset 16.
+              expect(
+                find.descendant(of: add, matching: find.byType(SvgPicture)),
+                findsNothing,
+              );
+              final chevron = find.descendant(
+                of: add,
+                matching: find.byType(Icon),
+              );
+              expect(chevron, findsOneWidget);
+              expect(
+                tester.widget<Icon>(chevron).icon,
+                PantasIcons.next,
+              );
+              final rect = tester.getRect(add);
+              expect(
+                tester.getTopLeft(find.text("My exam isn't listed")).dx -
+                    rect.left,
+                16,
+              );
+              expect(rect.right - tester.getBottomRight(chevron).dx, 16);
+              final divider = find.byKey(
+                const ValueKey('custom-exam-add-divider'),
+              );
+              expect(divider, findsOneWidget);
+              expect(tester.widget<Divider>(divider).indent, 16);
+            } else {
+              // Onboarding and the wide Settings dialog: a plus, no chevron.
+              expect(
+                find.descendant(of: add, matching: find.byType(SvgPicture)),
+                findsOneWidget,
+              );
+              expect(
+                find.descendant(of: add, matching: find.byType(Icon)),
+                findsNothing,
+              );
+            }
+            expect(tester.takeException(), isNull);
+          });
+        }
+
+        testWidgets(
+            'with no exams of your own the group holds the add row alone, '
+            '${wide ? 'wide' : 'phone'} $mode', (tester) async {
+          debugWebPlatformOverride = wide;
+          addTearDown(() => debugWebPlatformOverride = null);
+          await pump(tester, mode: mode, viewport: viewportFor(wide: wide));
+          await tester.pumpAndSettle();
+          expect(find.text('YOUR EXAMS'), findsOneWidget);
+          expect(add, findsOneWidget);
+          expect(find.text("My exam isn't listed"), findsOneWidget);
+          expect(find.text('Your own exam'), findsNothing);
+          expect(find.text('UPCAT'), findsOneWidget);
+          // First in its group, the add row has no divider above it.
+          expect(
+            find.byKey(const ValueKey('custom-exam-add-divider')),
+            findsNothing,
+          );
+        });
+
+        testWidgets(
+            'searching narrows your exams and keeps the add row, '
+            '${wide ? 'wide' : 'phone'} $mode', (tester) async {
+          debugWebPlatformOverride = wide;
+          addTearDown(() => debugWebPlatformOverride = null);
+          await seed([(mine, 'PUP CET'), (other, 'Bar Exam')]);
+          await pump(tester, mode: mode, viewport: viewportFor(wide: wide));
+          await tester.pumpAndSettle();
+          await tester.enterText(find.byType(TextField), 'bar');
+          await tester.pumpAndSettle();
+          expect(find.text('Bar Exam'), findsOneWidget);
+          expect(find.text('PUP CET'), findsNothing);
+          expect(add, findsOneWidget);
+          expect(find.textContaining('Nothing matched'), findsNothing);
+          await tester.enterText(find.byType(TextField), 'zzzz');
+          await tester.pumpAndSettle();
+          expect(find.text('Bar Exam'), findsNothing);
+          expect(add, findsOneWidget);
+          expect(find.textContaining('Nothing matched'), findsOneWidget);
+        });
+      }
+
+      testWidgets(
+          'Settings marks the current exam and picks another at once, '
+          '${wide ? 'wide' : 'phone'}', (tester) async {
+        debugWebPlatformOverride = wide;
+        addTearDown(() => debugWebPlatformOverride = null);
+        await seed([(mine, 'PUP CET'), (other, 'Bar Exam')]);
+        final picked = <String>[];
+        await pump(
+          tester,
+          mode: ExamPickerMode.settings,
+          viewport: viewportFor(wide: wide),
+          picked: (id) async => picked.add(id),
+          extra: [
+            activeExamFocusProvider.overrideWith(
+              (ref) async => ActiveExamFocus.selected(
+                buildExam(id: mine, shortName: 'PUP CET'),
+              ),
+            ),
+          ],
+        );
+        await tester.pumpAndSettle();
+        bool marked(String id) => wide
+            ? find
+                .descendant(
+                  of: row(id),
+                  matching: find.byIcon(PantasIcons.check),
+                )
+                .evaluate()
+                .isNotEmpty
+            : tester.widget<ListRow>(row(id)).selected;
+        expect(marked(mine), isTrue);
+        expect(marked(other), isFalse);
+        await tester.tap(row(mine));
+        await tester.pumpAndSettle();
+        expect(picked, isEmpty);
+        await tester.tap(row(other));
+        await tester.pumpAndSettle();
+        expect(picked, [other]);
+      });
+
+      testWidgets(
+          'onboarding picks an exam of your own, then saves it on Continue, '
+          '${wide ? 'wide' : 'phone'}', (tester) async {
+        debugWebPlatformOverride = wide;
+        addTearDown(() => debugWebPlatformOverride = null);
+        await seed([(mine, 'PUP CET')]);
+        final picked = <String>[];
+        await pump(
+          tester,
+          viewport: viewportFor(wide: wide),
+          picked: (id) async => picked.add(id),
+        );
+        await tester.pumpAndSettle();
+        await tester.tap(row(mine));
+        await tester.pump();
+        expect(picked, isEmpty);
+        expect(
+          wide
+              ? tester.widget<RadioRow>(row(mine)).selected
+              : tester.widget<ListRow>(row(mine)).selected,
+          isTrue,
+        );
+        // The wide card also shows the board's check disc.
+        if (wide) expect(find.byIcon(PantasIcons.check), findsOneWidget);
+        await tester.tap(find.text('Continue'));
+        await tester.pumpAndSettle();
+        expect(picked, [mine]);
+        final prefs = AppPreferencesRepository(db);
+        expect(await prefs.selectedExamId(), mine);
+        expect(await prefs.hasCompletedOnboarding(), isFalse);
+      });
+
+      testWidgets(
+          'onboarding shows the saved exam of your own chosen again, '
+          '${wide ? 'wide' : 'phone'}', (tester) async {
+        debugWebPlatformOverride = wide;
+        addTearDown(() => debugWebPlatformOverride = null);
+        await seed([(mine, 'PUP CET')]);
+        await AppPreferencesRepository(db).setSelectedExamId(mine);
+        await pump(tester, viewport: viewportFor(wide: wide));
+        await tester.pumpAndSettle();
+        expect(
+          wide
+              ? tester.widget<RadioRow>(row(mine)).selected
+              : tester.widget<ListRow>(row(mine)).selected,
+          isTrue,
+        );
+      });
+
+      for (final mode in ExamPickerMode.values) {
+        final layout = '${wide ? 'wide' : 'phone'} $mode';
+        testWidgets(
+            'the browser lists the exams it lacks, local wins, a nameless '
+            'one is left out, $layout', (tester) async {
+          debugWebPlatformOverride = wide;
+          addTearDown(() => debugWebPlatformOverride = null);
+          await seed([(mine, 'Local name')]);
+          final calls = <String>[];
+          await pump(
+            tester,
+            mode: mode,
+            viewport: viewportFor(wide: wide),
+            extra: web(
+              calls,
+              reply: () => {
+                'activeExamId': mine,
+                'tracks': [
+                  serverTrack(mine, 'Server name'),
+                  serverTrack(other, 'From the server'),
+                  serverTrack(away, null),
+                  serverTrack('exam_custom_d', '   '),
+                ],
+              },
+            ),
+          );
+          await tester.pumpAndSettle();
+          expect(calls, ['getCustomTracks']);
+          expect(find.text('Local name'), findsOneWidget);
+          expect(find.text('From the server'), findsOneWidget);
+          expect(find.text('Server name'), findsNothing);
+          expect(find.text('Your own exam'), findsNWidgets(2));
+          expect(row(away), findsNothing);
+          expect(row('exam_custom_d'), findsNothing);
+          expect(after(tester, add, row(other)), isTrue);
+        });
+
+        testWidgets(
+            'picking an exam only the server holds brings it here first, '
+            '$layout', (tester) async {
+          debugWebPlatformOverride = wide;
+          addTearDown(() => debugWebPlatformOverride = null);
+          final order = <String>[];
+          await pump(
+            tester,
+            mode: mode,
+            viewport: viewportFor(wide: wide),
+            picked: (id) async {
+              final held = await db.select(db.customTrackMetaLocal).get();
+              order.add('picked $id after ${held.map((r) => r.name)}');
+            },
+            extra: web(
+              [],
+              reply: () => {
+                'activeExamId': null,
+                'tracks': [serverTrack(other, 'From the server')],
+              },
+            ),
+          );
+          await tester.pumpAndSettle();
+          await tester.tap(row(other));
+          await tester.pumpAndSettle();
+          if (mode == ExamPickerMode.onboarding) {
+            expect(order, isEmpty);
+            await tester.tap(find.text('Continue'));
+            await tester.pumpAndSettle();
+          }
+          expect(order, ['picked $other after (From the server)']);
+          // The track is now this browser's own, with its scope.
+          final scope = await db.select(db.trackScopeLocal).get();
+          expect(scope.map((r) => r.topicId), ['topic_x']);
+          // And it is listed once, not twice.
+          expect(find.text('From the server'), findsOneWidget);
+        });
+
+        testWidgets(
+            'a failed read shows this device and the add row, and is '
+            'reported with no name, $layout', (tester) async {
+          debugWebPlatformOverride = wide;
+          addTearDown(() => debugWebPlatformOverride = null);
+          await seed([(mine, 'PUP CET')]);
+          final telemetry = _RecordingTelemetry();
+          await pump(
+            tester,
+            mode: mode,
+            viewport: viewportFor(wide: wide),
+            extra: [
+              ...web([], reply: () => throw StateError('offline')),
+              telemetryProvider.overrideWithValue(telemetry),
+            ],
+          );
+          await tester.pumpAndSettle();
+          expect(find.text('PUP CET'), findsOneWidget);
+          expect(add, findsOneWidget);
+          expect(find.text('UPCAT'), findsOneWidget);
+          expect(telemetry.errors, hasLength(1));
+          expect(telemetry.errors.single.toString(), isNot(contains('PUP')));
+        });
+
+        testWidgets('a phone never asks the server, $layout', (tester) async {
+          debugWebPlatformOverride = wide;
+          addTearDown(() => debugWebPlatformOverride = null);
+          await seed([(mine, 'PUP CET')]);
+          final calls = <String>[];
+          await pump(
+            tester,
+            mode: mode,
+            viewport: viewportFor(wide: wide),
+            extra: [
+              ...web(calls),
+              studyUsesServerProvider.overrideWithValue(false),
+            ],
+          );
+          await tester.pumpAndSettle();
+          expect(calls, isEmpty);
+          expect(find.text('PUP CET'), findsOneWidget);
+        });
+
+        testWidgets(
+            'with the own-exam flag off nothing shows and nothing is read, '
+            '$layout', (tester) async {
+          debugWebPlatformOverride = wide;
+          addTearDown(() => debugWebPlatformOverride = null);
+          await seed([(mine, 'PUP CET')]);
+          final calls = <String>[];
+          await pump(
+            tester,
+            mode: mode,
+            customExams: false,
+            viewport: viewportFor(wide: wide),
+            extra: web(
+              calls,
+              reply: () => {
+                'activeExamId': null,
+                'tracks': [serverTrack(other, 'From the server')],
+              },
+            ),
+          );
+          await tester.pumpAndSettle();
+          expect(calls, isEmpty);
+          expect(find.text('YOUR EXAMS'), findsNothing);
+          expect(find.text('PUP CET'), findsNothing);
+          expect(find.text('From the server'), findsNothing);
+          expect(find.text('Your own exam'), findsNothing);
+          expect(add, findsNothing);
+          expect(find.text("My exam isn't listed"), findsNothing);
           expect(find.text('UPCAT'), findsOneWidget);
         });
       }

@@ -7,13 +7,17 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/app/telemetry_providers.dart';
+import 'package:pantas/core/auth/auth_state.dart';
+import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/content/data/exam_catalog_repository.dart';
 import 'package:pantas/core/content/remote/content_limit.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/platform/first_screen_ready.dart';
+import 'package:pantas/core/storage/data/repos/custom_track_repository.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/storage/track_scope.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
@@ -31,6 +35,7 @@ import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_key_focus.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
+import 'package:pantas/features/home/application/study_remote_providers.dart';
 import 'package:pantas/features/onboarding/presentation/exam_picker_skeletons.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_web_page.dart';
 
@@ -47,6 +52,56 @@ const kCustomExamsOffered = !kIsWeb || kCustomExamsOnWeb;
 final examPickerCatalogProvider = StreamProvider<List<ExamCatalogEntry>>(
   (ref) => ExamCatalogRepository(ref.watch(contentDatabaseProvider)).watchAll(),
 );
+
+/// One of the student's own exams in "Your exams".
+@immutable
+class _YourExam {
+  const _YourExam({required this.examId, required this.name, this.server});
+  final String examId;
+  final String name;
+
+  /// Set for an exam this device does not hold yet, which the server listed.
+  /// Picking it brings it here first.
+  final CustomTrackRow? server;
+}
+
+/// The own exams this device holds, newest first.
+final _localCustomTracksProvider =
+    FutureProvider.autoDispose<List<_YourExam>>((ref) async {
+  final db = ref.watch(appDatabaseProvider);
+  final rows = await db.select(db.customTrackMetaLocal).get();
+  return [
+    for (final row in rows.reversed)
+      _YourExam(examId: row.examId, name: row.name),
+  ];
+});
+
+/// The own exams the server holds for this account. Read only on the web,
+/// where another browser or a phone may have made them. A read that fails
+/// leaves the local list alone and is recorded without any exam name.
+final _serverCustomTracksProvider =
+    FutureProvider.autoDispose<List<CustomTrackRow>>((ref) async {
+  if (!ref.read(studyUsesServerProvider)) return const [];
+  final telemetry = ref.read(telemetryProvider);
+  try {
+    final auth = await ref.watch(authStateProvider.future);
+    final uid = switch (auth) {
+      SignedInAuthState(:final user) => user.uid,
+      AnonymousAuthState(:final uid) => uid,
+      _ => null,
+    };
+    if (uid == null) return const [];
+    final reply = await ref
+        .read(studyApiProvider)
+        .requestAccount('getCustomTracks', expectedUid: uid);
+    final tracks = reply['tracks'];
+    if (tracks is! List) throw const FormatException('Bad tracks');
+    return [for (final track in tracks) CustomTrackRow.fromJson(track)];
+  } on Object catch (error, stack) {
+    unawaited(telemetry.recordError(error, stack));
+    return const [];
+  }
+});
 
 const _groups = <(String, String, String)>[
   ('College entrance', 'College', 'College entrance tests'),
@@ -112,6 +167,10 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
   String _typed = '';
   bool _saving = false;
   bool _failed = false;
+
+  /// The server's copy of the own exam picked last, when this device does not
+  /// hold it yet. Saving brings it here first.
+  CustomTrackRow? _restoring;
   bool get _settings => widget.mode == ExamPickerMode.settings;
 
   @override
@@ -122,8 +181,9 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
 
   /// Back from the date step returns here. The pick was saved when the student
   /// moved on, so show it chosen again instead of an empty list (4P-15). A
-  /// saved id that is not a selectable catalog exam (a custom track) is not
-  /// shown as picked.
+  /// saved id that is not a selectable catalog exam is not shown as picked,
+  /// unless it is one of the student's own exams, which show under "Your
+  /// exams".
   Future<void> _restorePick() async {
     try {
       final saved =
@@ -132,6 +192,14 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
       final entries = await ref.read(examPickerCatalogProvider.future);
       if (!mounted || _selectedId != null) return;
       if (entries.any((e) => e.id == saved && widget.selectable(e))) {
+        setState(() => _selectedId = saved);
+        return;
+      }
+      if (!widget.customExams || !isCustomExamId(saved)) return;
+      final mine = await ref.read(_localCustomTracksProvider.future);
+      if (mounted &&
+          _selectedId == null &&
+          mine.any((e) => e.examId == saved)) {
         setState(() => _selectedId = saved);
       }
     } on Object catch (error, stack) {
@@ -190,12 +258,34 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
     }
   }
 
-  void _custom() {
+  /// "My exam isn't listed". Onboarding makes the exam in its own steps. From
+  /// Settings the student has finished onboarding, which they cannot reopen,
+  /// so the steps are Settings pages. They come back with the new exam's id,
+  /// and it is saved as any pick is.
+  Future<void> _custom() async {
     if (widget.onCustom != null) {
       widget.onCustom!();
+    } else if (!_settings) {
+      unawaited(context.push('/onboarding/custom/name'));
     } else {
-      context.push('/onboarding/custom/name');
+      final made = await context.push<String>('/settings/exam/custom/name');
+      if (made == null || !mounted) return;
+      ref.invalidate(_localCustomTracksProvider);
+      setState(() => _selectedId = made);
+      await _save();
     }
+  }
+
+  /// Brings an own exam this device does not hold yet from the server, and
+  /// lets everything that listed exams know it exists.
+  Future<void> _restoreTrack(CustomTrackRow row) async {
+    await ref.read(customTrackRepositoryProvider).restoreFromServer(row);
+    ref
+      ..invalidate(_localCustomTracksProvider)
+      ..invalidate(examListProvider)
+      ..invalidate(activeExamFocusProvider)
+      ..invalidate(scopedTopicsProvider)
+      ..invalidate(scopedSubjectsProvider);
   }
 
   Future<void> _save() async {
@@ -207,6 +297,11 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
       _failed = false;
     });
     try {
+      final restore = _restoring;
+      if (restore != null && restore.examId == id) {
+        await _restoreTrack(restore);
+        _restoring = null;
+      }
       if (!_settings) {
         final prefs = ref.read(appPreferencesRepositoryProvider);
         await prefs.setCompletedOnboarding(value: false);
@@ -231,6 +326,173 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
     }
     setState(() => _selectedId = entry.id);
     if (_settings) unawaited(_save());
+  }
+
+  /// "Your own exam", the small line under each own exam.
+  static const _ownExam = 'Your own exam';
+
+  /// "Your exams" on a phone, in both modes. The add row is the last row of
+  /// the group, and is the one place to make an exam of one's own.
+  Widget _phoneYours(
+    BuildContext context,
+    List<_YourExam> yours,
+    String? selected,
+    String? active,
+  ) =>
+      GroupedSection(
+        header: 'Your exams',
+        headerStyle: context.type.sectionHeader.copyWith(
+          fontWeight: _settings ? FontWeight.w600 : FontWeight.w500,
+        ),
+        children: [
+          for (final (index, exam) in yours.indexed) ...[
+            ListRow.exam(
+              key: ValueKey('exam-${exam.examId}'),
+              title: exam.name,
+              subtitle: _ownExam,
+              selected: selected == exam.examId,
+              settingsMode: _settings,
+              // In Settings the add row draws the line above itself, inset.
+              divider: !_settings || index < yours.length - 1,
+              onTap: () => _pickCustom(exam, active),
+            ),
+            if (_failed && _settings && _selectedId == exam.examId)
+              saveFailureLine(_save),
+          ],
+          // Phone Settings (SettingsPh, kind pick, v B): no plus, a chevron at
+          // the right, the name in the accent color. Onboarding keeps the plus.
+          if (_settings && yours.isNotEmpty)
+            Divider(
+              key: const ValueKey('custom-exam-add-divider'),
+              height: .5,
+              thickness: .5,
+              indent: 16,
+              color: context.colors.separator,
+            ),
+          ListRow(
+            key: const ValueKey('custom-exam-add'),
+            title: "My exam isn't listed",
+            titleColor: context.colors.accent,
+            variant:
+                _settings ? ListRowVariant.navigation : ListRowVariant.value,
+            leading: _settings
+                ? null
+                : _AddExamIcon(color: context.colors.accent, size: 24),
+            contentPadding: _settings
+                ? const EdgeInsets.symmetric(horizontal: 16, vertical: 8)
+                : null,
+            onTap: _saving ? null : _custom,
+          ),
+        ],
+      );
+
+  /// "Your exams" over the wide Settings dialog: two columns, like the lists
+  /// below it.
+  Widget _settingsYours(
+    WebTokens t,
+    List<_YourExam> yours,
+    String? selected,
+    String? active,
+  ) =>
+      Padding(
+        padding: const EdgeInsets.only(bottom: 14),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Padding(
+              padding: const EdgeInsets.fromLTRB(12, 0, 12, 4),
+              child: Text('YOUR EXAMS', style: t.eb),
+            ),
+            LayoutBuilder(
+              builder: (context, constraints) => Wrap(
+                spacing: 8,
+                children: [
+                  for (final exam in yours)
+                    SizedBox(
+                      width: (constraints.maxWidth - 8) / 2,
+                      child: _settingsRow(
+                        t,
+                        key: ValueKey('exam-${exam.examId}'),
+                        title: exam.name,
+                        subtitle: _ownExam,
+                        enabled: true,
+                        chosen: selected == exam.examId,
+                        onTap: _saving ? null : () => _pickCustom(exam, active),
+                      ),
+                    ),
+                  SizedBox(
+                    width: (constraints.maxWidth - 8) / 2,
+                    child: _settingsRow(
+                      t,
+                      key: const ValueKey('custom-exam-add'),
+                      title: "My exam isn't listed",
+                      subtitle: null,
+                      enabled: true,
+                      chosen: false,
+                      accentTitle: true,
+                      leading: _AddExamIcon(color: t.colors.accent, size: 20),
+                      onTap: _saving ? null : _custom,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      );
+
+  /// The add row of "Your exams" on the wide onboarding picker.
+  Widget _webAddRow(WebTokens t) => PressScale(
+        enabled: !_saving,
+        child: WebCard(
+          radius: 14,
+          minHeight: 64,
+          child: WebRow(
+            key: const ValueKey('custom-exam-add'),
+            title: "My exam isn't listed",
+            titleStyle: t.style(
+              16,
+              weight: FontWeight.w600,
+              color: t.colors.accent,
+            ),
+            horizontalPadding: 16,
+            verticalPadding: 11,
+            leadingGap: 10,
+            leading: _AddExamIcon(color: t.colors.accent, size: 20),
+            onPressed: _saving ? null : _custom,
+            divider: false,
+          ),
+        ),
+      );
+
+  void _pickCustom(_YourExam exam, String? active) {
+    if (_saving || (_settings && active == exam.examId)) return;
+    setState(() {
+      _selectedId = exam.examId;
+      _restoring = exam.server;
+    });
+    if (_settings) unawaited(_save());
+  }
+
+  /// Own exams to show: this device's, then the server's that it lacks. The
+  /// server lists one with no name, which cannot be shown, so that one is
+  /// left out. Typing in the search narrows them as it does the listed exams.
+  /// Null while the device's own list is still being read.
+  List<_YourExam>? _yourExams() {
+    if (!widget.customExams) return null;
+    final local = ref.watch(_localCustomTracksProvider);
+    if (local.isLoading && !local.hasValue) return null;
+    final mine = local.valueOrNull ?? const <_YourExam>[];
+    final held = {for (final row in mine) row.examId};
+    final server = ref.watch(_serverCustomTracksProvider).valueOrNull ??
+        const <CustomTrackRow>[];
+    return [
+      ...mine,
+      for (final row in server)
+        if (!held.contains(row.examId) &&
+            (row.name?.trim().isNotEmpty ?? false))
+          _YourExam(examId: row.examId, name: row.name!.trim(), server: row),
+    ].where((row) => row.name.toLowerCase().contains(_query)).toList();
   }
 
   List<ExamCatalogEntry> _orderedEntries(List<ExamCatalogEntry> entries) => [
@@ -287,12 +549,34 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
     ExamCatalogEntry entry, {
     required bool chosen,
     required VoidCallback? onTap,
+  }) =>
+      _settingsRow(
+        t,
+        key: ValueKey('exam-${entry.id}'),
+        title: entry.shortName,
+        subtitle: _organizations[entry.id] ?? entry.name,
+        enabled: widget.selectable(entry),
+        chosen: chosen,
+        onTap: onTap,
+      );
+
+  /// The row itself. An own exam's row has its own small line, and the add row
+  /// has none, a plus in front and its label in the accent color.
+  Widget _settingsRow(
+    WebTokens t, {
+    required Key key,
+    required String title,
+    required String? subtitle,
+    required bool enabled,
+    required bool chosen,
+    required VoidCallback? onTap,
+    Widget? leading,
+    bool accentTitle = false,
   }) {
-    final enabled = widget.selectable(entry);
     return Opacity(
       opacity: enabled ? 1 : .45,
       child: Semantics(
-        inMutuallyExclusiveGroup: true,
+        inMutuallyExclusiveGroup: leading == null,
         selected: chosen,
         // The chosen tint fades 160 ms on the ease (item 17, demo 4) and the
         // label keeps one weight. It is a layer behind: Material does not
@@ -309,7 +593,7 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
             child: child,
           ),
           child: TextButton(
-            key: ValueKey('exam-${entry.id}'),
+            key: key,
             onPressed: onTap,
             style: ButtonStyle(
               minimumSize:
@@ -331,22 +615,31 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
             ),
             child: Row(
               children: [
+                if (leading != null) ...[leading, const SizedBox(width: 8)],
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        entry.shortName,
-                        style: t.style(16, height: 1.3),
+                        title,
+                        style: accentTitle
+                            ? t.style(
+                                16,
+                                weight: FontWeight.w600,
+                                height: 1.3,
+                                color: t.colors.accent,
+                              )
+                            : t.style(16, height: 1.3),
                       ),
-                      Text(
-                        _organizations[entry.id] ?? entry.name,
-                        style: t.style(
-                          14,
-                          height: 1.3,
-                          color: t.colors.secondaryLabel,
+                      if (subtitle != null)
+                        Text(
+                          subtitle,
+                          style: t.style(
+                            14,
+                            height: 1.3,
+                            color: t.colors.secondaryLabel,
+                          ),
                         ),
-                      ),
                     ],
                   ),
                 ),
@@ -388,8 +681,29 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
     ExamCatalogEntry entry,
     bool chosen,
     String? active,
-  ) {
-    final enabled = widget.selectable(entry);
+  ) =>
+      _webRow(
+        t,
+        key: ValueKey('exam-${entry.id}'),
+        title: entry.shortName,
+        subtitle: _organizations[entry.id] ?? entry.name,
+        enabled: widget.selectable(entry),
+        chosen: chosen,
+        onTap: () => _pick(entry, active),
+      );
+
+  /// The card itself. An own exam's card is picked the same way, and shows the
+  /// board's check disc when it is.
+  Widget _webRow(
+    WebTokens t, {
+    required Key key,
+    required String title,
+    required String subtitle,
+    required bool enabled,
+    required bool chosen,
+    required VoidCallback onTap,
+    bool disc = false,
+  }) {
     return PressScale(
       enabled: !_saving && enabled,
       child: WebCard(
@@ -397,52 +711,59 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
         minHeight: 64,
         selected: chosen,
         child: RadioRow(
-          key: ValueKey('exam-${entry.id}'),
-          title: entry.shortName,
+          key: key,
+          title: title,
           showMark: false,
           selected: chosen,
-          onTap: _saving || !enabled ? null : () => _pick(entry, active),
+          onTap: _saving || !enabled ? null : onTap,
           padding: const EdgeInsets.fromLTRB(16, 11, 14, 11),
           content: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                entry.shortName,
+                title,
                 style: t.style(16, weight: FontWeight.w600),
               ),
               Text(
-                _organizations[entry.id] ?? entry.name,
+                subtitle,
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
                 style: t.sm,
               ),
             ],
           ),
-          trailing: enabled
-              ? null
-              : Padding(
-                  padding: const EdgeInsets.only(right: 14),
-                  child: DecoratedBox(
-                    decoration: BoxDecoration(
-                      color: t.disabledBackground,
-                      borderRadius: BorderRadius.circular(99),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 7,
-                        vertical: 2,
-                      ),
-                      child: Text(
-                        'Coming soon',
-                        style: t.style(
-                          11,
-                          weight: FontWeight.w600,
-                          color: t.colors.secondaryLabel,
+          trailing: disc
+              ? chosen
+                  ? const Padding(
+                      padding: EdgeInsets.only(right: 14),
+                      child: _PickedDisc(),
+                    )
+                  : null
+              : enabled
+                  ? null
+                  : Padding(
+                      padding: const EdgeInsets.only(right: 14),
+                      child: DecoratedBox(
+                        decoration: BoxDecoration(
+                          color: t.disabledBackground,
+                          borderRadius: BorderRadius.circular(99),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 7,
+                            vertical: 2,
+                          ),
+                          child: Text(
+                            'Coming soon',
+                            style: t.style(
+                              11,
+                              weight: FontWeight.w600,
+                              color: t.colors.secondaryLabel,
+                            ),
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                ),
         ),
       ),
     );
@@ -456,6 +777,7 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
         ? ref.watch(activeExamFocusProvider).valueOrNull?.exam?.id
         : null;
     final selected = _selectedId ?? active;
+    final yours = _yourExams();
     if (!_settings && context.wideWeb) {
       final t = context.webTokens;
       final emptyCatalog = catalog.hasValue && catalog.requireValue.isEmpty;
@@ -568,30 +890,23 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
                     ],
                   ),
                   const SizedBox(height: 24),
-                  if (widget.customExams) ...[
-                    WebCard(
-                      child: WebRow(
-                        title: "My exam isn't listed",
-                        subtitle: 'Set up your own and pick what it covers',
-                        titleColor: t.colors.label,
-                        leading: SvgPicture.string(
-                          '<svg viewBox="0 0 24 24" fill="none" '
-                          'stroke="currentColor" stroke-width="1.9" '
-                          'stroke-linecap="round"> '
-                          '<circle cx="12" cy="12" r="8.5"/> '
-                          '<path d="M12 8.5v7M8.5 12h7"/></svg>',
-                          width: 22,
-                          height: 22,
-                          colorFilter: ColorFilter.mode(
-                            t.colors.accent,
-                            BlendMode.srcIn,
-                          ),
-                        ),
-                        onPressed: _saving ? null : _custom,
-                        trailing: const Icon(Icons.chevron_right),
-                        divider: false,
+                  if (yours != null) ...[
+                    Text('YOUR EXAMS', style: t.eb),
+                    const SizedBox(height: 8),
+                    for (final exam in yours) ...[
+                      _webRow(
+                        t,
+                        key: ValueKey('exam-${exam.examId}'),
+                        title: exam.name,
+                        subtitle: _ownExam,
+                        enabled: true,
+                        chosen: selected == exam.examId,
+                        disc: true,
+                        onTap: () => _pickCustom(exam, active),
                       ),
-                    ),
+                      const SizedBox(height: 10),
+                    ],
+                    _webAddRow(t),
                     const SizedBox(height: 24),
                   ],
                   // Picking a chip swaps the list with the approved view
@@ -601,7 +916,9 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        if (visible.isEmpty && _query.isNotEmpty)
+                        if (visible.isEmpty &&
+                            _query.isNotEmpty &&
+                            (yours?.isEmpty ?? true))
                           _noMatch(context),
                         for (final group in _orderedGroups(visible))
                           if (visible
@@ -672,92 +989,107 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
                 Expanded(
                   child: SingleChildScrollView(
                     padding: const EdgeInsets.fromLTRB(8, 4, 8, 0),
-                    child: catalog.when(
-                      loading: () => const SkeletonGroups(
-                        rowHeight: 66,
-                        headerWidth: 110,
-                      ),
-                      error: (error, _) => errorFor(
-                        'exams',
-                        () => ref.invalidate(examPickerCatalogProvider),
-                        error: error,
-                      ),
-                      data: (catalogEntries) {
-                        if (_limitBlocks(catalogEntries)) {
-                          return const StateView(message: contentLimitMessage);
-                        }
-                        final all = _orderedEntries(catalogEntries);
-                        final visible = all
-                            .where(
-                              (entry) => '${entry.name} ${entry.shortName} '
-                                      '${_organizations[entry.id] ?? ''}'
-                                  .toLowerCase()
-                                  .contains(_query),
-                            )
-                            .toList();
-                        if (all.isEmpty) {
-                          return widget.customExams
-                              ? StateView(
-                                  message: 'No exams available right now.',
-                                  detail: 'Check back soon, or set up '
-                                      'your own exam.',
-                                  actionLabel: 'Set Up My Own Exam',
-                                  onRetry: _custom,
-                                )
-                              : const StateView(
-                                  message: 'No exams available right now.',
-                                  detail: 'Check back soon.',
-                                );
-                        }
-                        if (visible.isEmpty && _query.isNotEmpty) {
-                          return _noMatch(context);
-                        }
-                        return LayoutBuilder(
-                          builder: (context, constraints) => Wrap(
-                            spacing: 8,
-                            runSpacing: 14,
-                            children: [
-                              for (final group in _orderedGroups(visible))
-                                if (visible.any(
-                                  (entry) => entry.group == group.$1,
-                                ))
-                                  SizedBox(
-                                    width: (constraints.maxWidth - 8) / 2,
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.stretch,
-                                      children: [
-                                        Padding(
-                                          padding: const EdgeInsets.fromLTRB(
-                                            12,
-                                            0,
-                                            12,
-                                            4,
-                                          ),
-                                          child: Text(
-                                            group.$3.toUpperCase(),
-                                            style: t.eb,
-                                          ),
-                                        ),
-                                        for (final entry in visible.where(
-                                          (entry) => entry.group == group.$1,
-                                        ))
-                                          _settingsExamRow(
-                                            t,
-                                            entry,
-                                            chosen: selected == entry.id,
-                                            onTap: _saving ||
-                                                    !widget.selectable(entry)
-                                                ? null
-                                                : () => _pick(entry, active),
-                                          ),
-                                      ],
-                                    ),
-                                  ),
-                            ],
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        if (yours != null)
+                          _settingsYours(t, yours, selected, active),
+                        catalog.when(
+                          loading: () => const SkeletonGroups(
+                            rowHeight: 66,
+                            headerWidth: 110,
                           ),
-                        );
-                      },
+                          error: (error, _) => errorFor(
+                            'exams',
+                            () => ref.invalidate(examPickerCatalogProvider),
+                            error: error,
+                          ),
+                          data: (catalogEntries) {
+                            if (_limitBlocks(catalogEntries)) {
+                              return const StateView(
+                                message: contentLimitMessage,
+                              );
+                            }
+                            final all = _orderedEntries(catalogEntries);
+                            final visible = all
+                                .where(
+                                  (entry) => '${entry.name} ${entry.shortName} '
+                                          '${_organizations[entry.id] ?? ''}'
+                                      .toLowerCase()
+                                      .contains(_query),
+                                )
+                                .toList();
+                            if (all.isEmpty) {
+                              return widget.customExams
+                                  ? StateView(
+                                      message: 'No exams available right now.',
+                                      detail: 'Check back soon, or set up '
+                                          'your own exam.',
+                                      actionLabel: 'Set Up My Own Exam',
+                                      onRetry: _custom,
+                                    )
+                                  : const StateView(
+                                      message: 'No exams available right now.',
+                                      detail: 'Check back soon.',
+                                    );
+                            }
+                            if (visible.isEmpty &&
+                                _query.isNotEmpty &&
+                                (yours?.isEmpty ?? true)) {
+                              return _noMatch(context);
+                            }
+                            return LayoutBuilder(
+                              builder: (context, constraints) => Wrap(
+                                spacing: 8,
+                                runSpacing: 14,
+                                children: [
+                                  for (final group in _orderedGroups(visible))
+                                    if (visible.any(
+                                      (entry) => entry.group == group.$1,
+                                    ))
+                                      SizedBox(
+                                        width: (constraints.maxWidth - 8) / 2,
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.stretch,
+                                          children: [
+                                            Padding(
+                                              padding:
+                                                  const EdgeInsets.fromLTRB(
+                                                12,
+                                                0,
+                                                12,
+                                                4,
+                                              ),
+                                              child: Text(
+                                                group.$3.toUpperCase(),
+                                                style: t.eb,
+                                              ),
+                                            ),
+                                            for (final entry in visible.where(
+                                              (entry) =>
+                                                  entry.group == group.$1,
+                                            ))
+                                              _settingsExamRow(
+                                                t,
+                                                entry,
+                                                chosen: selected == entry.id,
+                                                onTap: _saving ||
+                                                        !widget
+                                                            .selectable(entry)
+                                                    ? null
+                                                    : () =>
+                                                        _pick(entry, active),
+                                              ),
+                                          ],
+                                        ),
+                                      ),
+                                ],
+                              ),
+                            );
+                          },
+                        ),
+                      ],
                     ),
                   ),
                 ),
@@ -770,18 +1102,11 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
                 Padding(
                   padding: const EdgeInsets.fromLTRB(20, 16, 20, 18),
                   child: Wrap(
-                    alignment: widget.customExams
-                        ? WrapAlignment.spaceBetween
-                        : WrapAlignment.end,
+                    alignment: WrapAlignment.end,
                     spacing: 16,
                     runSpacing: 12,
                     crossAxisAlignment: WrapCrossAlignment.center,
                     children: [
-                      if (widget.customExams)
-                        WebTextAction(
-                          label: "My exam isn't listed",
-                          onPressed: _saving ? () {} : _custom,
-                        ),
                       SizedBox(
                         width: 380,
                         child: Text(
@@ -799,17 +1124,6 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
         ),
       );
     }
-    final custom = GroupedSection(
-      children: [
-        ListRow(
-          title: "My exam isn't listed",
-          titleColor: context.colors.accent,
-          subtitle:
-              _settings ? null : 'Set up your own and pick what it covers',
-          onTap: _saving ? null : _custom,
-        ),
-      ],
-    );
     final children = <Widget>[
       SearchField(
         hint: 'Search exams',
@@ -840,8 +1154,8 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
         ),
         const SizedBox(height: 24),
       ],
-      if (widget.customExams) ...[
-        custom,
+      if (yours != null) ...[
+        _phoneYours(context, yours, selected, active),
         const SizedBox(height: 24),
       ],
       catalog.when(
@@ -889,7 +1203,10 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                if (visible.isEmpty && _query.isNotEmpty) _noMatch(context),
+                if (visible.isEmpty &&
+                    _query.isNotEmpty &&
+                    (yours?.isEmpty ?? true))
+                  _noMatch(context),
                 for (final group in _orderedGroups(visible))
                   if (visible.any((entry) => entry.group == group.$1)) ...[
                     _section(
@@ -938,6 +1255,46 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
         if (!didPop && widget.onBack != null) _back();
       },
       child: page,
+    );
+  }
+}
+
+/// The plus of the add row, drawn in the accent color.
+class _AddExamIcon extends StatelessWidget {
+  const _AddExamIcon({required this.color, required this.size});
+  final Color color;
+  final double size;
+  @override
+  Widget build(BuildContext context) => ExcludeSemantics(
+        child: SvgPicture.string(
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" '
+          'stroke-width="1.8" stroke-linecap="round"> '
+          '<circle cx="12" cy="12" r="9.5"/> '
+          '<path d="M12 8v8M8 12h8"/></svg>',
+          width: size,
+          height: size,
+          colorFilter: ColorFilter.mode(color, BlendMode.srcIn),
+        ),
+      );
+}
+
+/// The board's check disc on a picked own exam of the wide onboarding picker.
+class _PickedDisc extends StatelessWidget {
+  const _PickedDisc();
+  @override
+  Widget build(BuildContext context) {
+    final t = context.webTokens;
+    return ExcludeSemantics(
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          color: t.colors.accentFill,
+          shape: BoxShape.circle,
+        ),
+        child: SizedBox.square(
+          dimension: 22,
+          child: Icon(PantasIcons.check, size: 13, color: t.colors.onAccent),
+        ),
+      ),
     );
   }
 }

@@ -309,6 +309,8 @@ void main() {
     StudyApi fakeApi() => StudyApi((name, data) async {
           calls.add((name, data));
           if (name == 'deleteCustomTrack' && failure != null) throw failure!;
+          // The picker lists the account's own exams when it opens.
+          if (name == 'getCustomTracks') return {'tracks': <Object?>[]};
           return <String, Object?>{};
         });
 
