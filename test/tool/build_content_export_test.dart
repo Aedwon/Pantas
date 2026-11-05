@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/content/remote/content_catalog.dart';
 import 'package:pantas/core/content/sanity/parsers/exam_parser.dart';
 import 'package:pantas/core/content/sanity/parsers/lesson_parser.dart';
 import 'package:pantas/core/content/sanity/parsers/question_parser.dart';
@@ -9,6 +10,83 @@ import 'package:pantas/core/content/sanity/parsers/subject_parser.dart';
 import 'package:pantas/core/content/sanity/parsers/topic_parser.dart';
 
 void main() {
+  test('historical CSE samples stay inactive through export parsing', () async {
+    final temp = Directory.systemTemp.createTempSync('retired_cse');
+    addTearDown(() => temp.deleteSync(recursive: true));
+    final path = '${temp.path}/export.json';
+    final result = await Process.run('dart', [
+      'run',
+      'tools/build_content_export/build_content_export.dart',
+      path,
+    ]);
+    expect(result.exitCode, 0, reason: result.stderr.toString());
+    final output =
+        jsonDecode(File(path).readAsStringSync()) as Map<String, dynamic>;
+    Map<String, Object?> row(String kind, String id) =>
+        (output[kind] as List).cast<Map<String, Object?>>().singleWhere(
+              (doc) => doc['_id'] == id,
+            );
+
+    expect(
+      parseSubject(row('subject', 'subj_cse_verbal')).isActive.value,
+      isFalse,
+    );
+    expect(
+      parseTopic(row('topic', 'topic_cse_vocab')).isActive.value,
+      isFalse,
+    );
+    for (final id in [
+      'les_vocab_intro',
+      'les_vocab_synonyms',
+      'les_vocab_context',
+    ]) {
+      expect(parseLesson(row('lesson', id)).isActive.value, isFalse);
+    }
+    for (final id in ['q_001', 'q_002']) {
+      expect(
+        parseQuestion(row('question', id)).question.isActive.value,
+        isFalse,
+      );
+    }
+    final index = parseCatalogIndex({
+      'subjects': output['subject'],
+      'topics': output['topic'],
+    });
+    expect(
+      index.subjects
+          .singleWhere((s) => s.id.value == 'subj_cse_verbal')
+          .isActive
+          .value,
+      isFalse,
+    );
+    expect(
+      index.topics
+          .singleWhere((t) => t.id.value == 'topic_cse_vocab')
+          .isActive
+          .value,
+      isFalse,
+    );
+    expect(row('topic', 'topic_upcat_vocabulary')['isActive'], isTrue);
+    expect(row('exam', 'exam_cse_pro')['isActive'], isTrue);
+    final vocabularyLessons =
+        (output['lesson'] as List).cast<Map<String, Object?>>().where(
+              (doc) =>
+                  (doc['topic']! as Map<String, Object?>)['_ref'] ==
+                  'topic_upcat_vocabulary',
+            );
+    expect(vocabularyLessons, isNotEmpty);
+    expect(vocabularyLessons.every((doc) => doc['isActive'] == true), isTrue);
+    final blueprints =
+        (output['mockBlueprint'] as List).cast<Map<String, Object?>>();
+    expect(
+      blueprints.where(
+        (doc) =>
+            (doc['exam']! as Map<String, Object?>)['_ref'] == 'exam_cse_pro',
+      ),
+      isNotEmpty,
+    );
+  });
+
   test('build_content_export builds parseable Sanity documents', () async {
     final tempDir = Directory.systemTemp.createTempSync('content_export_test');
     addTearDown(() => tempDir.deleteSync(recursive: true));

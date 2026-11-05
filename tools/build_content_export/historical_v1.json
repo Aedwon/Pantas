@@ -13,6 +13,7 @@
       "subjects": [
         {
           "id": "subj_cse_verbal",
+          "isActive": false,
           "examId": "exam_cse_pro",
           "name": "Verbal Ability",
           "ordering": 1
@@ -114,6 +115,7 @@
   "topics": [
     {
       "id": "topic_cse_vocab",
+      "isActive": false,
       "subjectId": "subj_cse_verbal",
       "name": "Vocabulary",
       "ordering": 1
@@ -530,6 +532,7 @@
   "questions": [
     {
       "id": "q_001",
+      "isActive": false,
       "version": 1,
       "examIds": [
         "exam_cse_pro"
@@ -567,6 +570,7 @@
     },
     {
       "id": "q_002",
+      "isActive": false,
       "version": 1,
       "examIds": [
         "exam_cse_pro"
@@ -106019,6 +106023,7 @@
   "lessons": [
     {
       "id": "les_vocab_intro",
+      "isActive": false,
       "topicId": "topic_cse_vocab",
       "title": "Building a CSE Vocabulary",
       "summary": "Strategies for memorizing high-frequency CSE vocabulary words.",
@@ -106177,6 +106182,7 @@
     },
     {
       "id": "les_vocab_synonyms",
+      "isActive": false,
       "topicId": "topic_cse_vocab",
       "title": "Synonyms and Antonyms",
       "summary": "How to identify synonyms and antonyms quickly under exam conditions.",
@@ -106335,6 +106341,7 @@
     },
     {
       "id": "les_vocab_context",
+      "isActive": false,
       "topicId": "topic_cse_vocab",
       "title": "Reading Context Clues",
       "summary": "Use the surrounding sentence to unlock unfamiliar words without memorizing every definition.",

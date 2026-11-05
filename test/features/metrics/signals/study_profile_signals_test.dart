@@ -213,6 +213,17 @@ void main() {
     expect(TendencyEvidence.memory(result), TendencyConfidence.forming);
   });
 
+  test('coverage breadth excludes retired sample content', () async {
+    await (contentDb.update(contentDb.contentSubjects)
+          ..where((s) => s.id.equals('subject_v')))
+        .write(const ContentSubjectsCompanion(isActive: Value(false)));
+    final result = await CoverageBreadthSignal(db, contentDb).compute(
+      window: _allTime(),
+      examId: 'exam_cse',
+    );
+    expect(result, isNull);
+  });
+
   test('coverage breadth counts topics with at least one read lesson',
       () async {
     await db.into(db.lessonProgressLocal).insert(

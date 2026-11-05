@@ -1,3 +1,4 @@
+import 'package:drift/drift.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/features/metrics/domain/metric_signal.dart';
@@ -24,10 +25,15 @@ class CoverageBreadthSignal implements Signal<CoveragePct> {
   }) async {
     if (!window.hasEnoughData) return null;
     final subjects = await (_contentDb.select(_contentDb.contentSubjects)
-          ..where((subject) => subject.examId.equals(examId)))
+          ..where(
+            (subject) =>
+                subject.examId.equals(examId) & subject.isActive.equals(true),
+          ))
         .get();
     final subjectIds = subjects.map((subject) => subject.id).toSet();
-    final topics = await _contentDb.select(_contentDb.contentTopics).get();
+    final topics = await (_contentDb.select(_contentDb.contentTopics)
+          ..where((topic) => topic.isActive.equals(true)))
+        .get();
     final examTopics = topics
         .where((topic) => subjectIds.contains(topic.subjectId))
         .map((topic) => topic.id)
@@ -38,7 +44,10 @@ class CoverageBreadthSignal implements Signal<CoveragePct> {
     final progress = await _db.select(_db.lessonProgressLocal).get();
     for (final row in progress) {
       final lesson = await (_contentDb.select(_contentDb.contentLessons)
-            ..where((lesson) => lesson.id.equals(row.lessonId)))
+            ..where(
+              (lesson) =>
+                  lesson.id.equals(row.lessonId) & lesson.isActive.equals(true),
+            ))
           .getSingleOrNull();
       if (lesson != null && examTopics.contains(lesson.topicId)) {
         covered.add(lesson.topicId);

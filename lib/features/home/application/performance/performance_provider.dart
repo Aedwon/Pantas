@@ -127,7 +127,7 @@ final performanceProvider =
   final examId = exam.id;
 
   final ownedSubjectRows = await (contentDb.select(contentDb.contentSubjects)
-        ..where((s) => s.examId.equals(examId))
+        ..where((s) => s.examId.equals(examId) & s.isActive.equals(true))
         ..orderBy([(s) => OrderingTerm.asc(s.ordering)]))
       .get();
   // Subjects filed under another exam that this exam's questions are tagged
@@ -143,7 +143,11 @@ final performanceProvider =
   final sharedSubjectRows = sharedSubjectIds.isEmpty
       ? const <ContentSubjectRow>[]
       : await (contentDb.select(contentDb.contentSubjects)
-            ..where((s) => s.id.isIn(sharedSubjectIds.toList()))
+            ..where(
+              (s) =>
+                  s.id.isIn(sharedSubjectIds.toList()) &
+                  s.isActive.equals(true),
+            )
             ..orderBy([
               (s) => OrderingTerm.asc(s.ordering),
               (s) => OrderingTerm.asc(s.id),
@@ -161,7 +165,7 @@ final performanceProvider =
   final subjectIds = [for (final s in subjectRows) s.id];
 
   final topicRows = await (contentDb.select(contentDb.contentTopics)
-        ..where((t) => t.subjectId.isIn(subjectIds))
+        ..where((t) => t.subjectId.isIn(subjectIds) & t.isActive.equals(true))
         ..orderBy([(t) => OrderingTerm.asc(t.ordering)]))
       .get()
     ..removeWhere(
@@ -175,7 +179,11 @@ final performanceProvider =
   );
   final lessonRows = groups.values.expand((lessons) => lessons).toList();
   final questionRows = await (contentDb.select(contentDb.contentQuestions)
-        ..where((q) => q.topicId.isIn([for (final t in topicRows) t.id])))
+        ..where(
+          (q) =>
+              q.topicId.isIn([for (final t in topicRows) t.id]) &
+              q.isActive.equals(true),
+        ))
       .get();
 
   final subjectNameById = {for (final s in subjectRows) s.id: s.name};

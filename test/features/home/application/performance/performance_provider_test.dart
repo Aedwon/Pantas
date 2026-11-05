@@ -204,6 +204,19 @@ void main() {
     );
   }
 
+  test('retired sample subjects stay hidden with saved answers', () async {
+    await seedSyllabus();
+    await seedAttempt('old_sample', [('q_c1', true)]);
+    await (contentDb.update(contentDb.contentSubjects)
+          ..where((s) => s.id.equals('sci')))
+        .write(const ContentSubjectsCompanion(isActive: Value(false)));
+
+    final table = await read(TableLevel.subject);
+
+    expect(table.rows.map((row) => row.title), isNot(contains('Science')));
+    expect(await db.select(db.attemptsLocal).get(), hasLength(1));
+  });
+
   test('subject level groups by subject and carries the published size',
       () async {
     await seedSyllabus();

@@ -171,7 +171,7 @@ void _export(List<String> arguments) {
   );
   final lessons = buildLessons(topicIdBySlug, root);
 
-  // Keep the CSE demo exam and its rows; replace everything UPCAT.
+  // Keep historical CSE IDs for saved progress, including inactive sample rows.
   final existing = jsonDecode(
     File('$root/tools/build_content_export/historical_v1.json')
         .readAsStringSync(),
@@ -230,7 +230,7 @@ void _export(List<String> arguments) {
         '_id': subject['id'],
         '_updatedAt': v1UpdatedAt,
         'schemaVersion': 1,
-        'isActive': true,
+        'isActive': subject['isActive'] ?? true,
         'exam': {'_ref': exam['id']},
         'name': subject['name'],
         'ordering': subject['ordering'],
@@ -269,7 +269,7 @@ void _export(List<String> arguments) {
       '_id': topic['id'],
       '_updatedAt': v1UpdatedAt,
       'schemaVersion': 1,
-      'isActive': true,
+      'isActive': topic['isActive'] ?? true,
       'subject': {'_ref': topic['subjectId']},
       'name': topic['name'],
       'ordering': topic['ordering'],
@@ -281,7 +281,7 @@ void _export(List<String> arguments) {
       '_id': q['id'],
       '_updatedAt': v1UpdatedAt,
       'schemaVersion': 1,
-      'isActive': true,
+      'isActive': q['isActive'] ?? true,
       'topic': {'_ref': q['topicId']},
       if (q['lessonId'] != null) 'lesson': {'_ref': q['lessonId']},
       if (q['passageId'] != null) 'passage': {'_ref': q['passageId']},
@@ -313,7 +313,7 @@ void _export(List<String> arguments) {
       '_id': l['id'],
       '_updatedAt': v1UpdatedAt,
       'schemaVersion': 1,
-      'isActive': true,
+      'isActive': l['isActive'] ?? true,
       'topic': {'_ref': l['topicId']},
       'title': l['title'],
       'summary': l['summary'],
