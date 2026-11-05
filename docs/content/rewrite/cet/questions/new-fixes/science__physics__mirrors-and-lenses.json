@@ -1,0 +1,13 @@
+{
+ "file": "science__physics__mirrors-and-lenses",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-physics-light-and-optics-0033",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Keyed choice and explanation now say no image forms at a finite distance."
+  }
+ ]
+}

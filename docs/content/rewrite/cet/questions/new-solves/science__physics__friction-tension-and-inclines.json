@@ -1,0 +1,187 @@
+{
+  "file_id": "science__physics__friction-tension-and-inclines",
+  "source": "content/questions/science/physics/friction-tension-and-inclines.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-physics-dynamics-0007",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The threshold push is 200 N, while steady sliding requires 150 N."
+    },
+    {
+      "n": 2,
+      "id": "q-physics-dynamics-0010",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Kinetic friction can remain significant throughout sliding."
+    },
+    {
+      "n": 3,
+      "id": "q-physics-dynamics-0015",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The normal force is mg cos θ, less than mg on an incline."
+    },
+    {
+      "n": 4,
+      "id": "q-physics-dynamics-0016",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "A taut rope exerts tension."
+    },
+    {
+      "n": 5,
+      "id": "q-physics-dynamics-0017",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Static friction balances the applied 80 N push."
+    },
+    {
+      "n": 6,
+      "id": "q-physics-dynamics-0020",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Modeled kinetic friction is μkN and does not depend on apparent contact area."
+    },
+    {
+      "n": 7,
+      "id": "q-physics-friction-tension-and-inclines-0001",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "An ideal rope transmits a pulling force along its length."
+    },
+    {
+      "n": 8,
+      "id": "q-physics-friction-tension-and-inclines-0002",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "For most dry surface pairs, μs exceeds μk."
+    },
+    {
+      "n": 9,
+      "id": "q-physics-friction-tension-and-inclines-0003",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Kinetic friction opposes the box's sliding relative to the floor."
+    },
+    {
+      "n": 10,
+      "id": "q-physics-friction-tension-and-inclines-0004",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The threshold force is μsmg = 0.50 × 20 × 9.8 = 98 N."
+    },
+    {
+      "n": 11,
+      "id": "q-physics-friction-tension-and-inclines-0005",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The acceleration is g sin 30° = 4.9 m/s²."
+    },
+    {
+      "n": 12,
+      "id": "q-physics-friction-tension-and-inclines-0006",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The upward rope component reduces the normal force to mg − T sin 30°."
+    },
+    {
+      "n": 13,
+      "id": "q-physics-friction-tension-and-inclines-0007",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The acceleration is 30/6 = 5 m/s², so the tension is 2 × 5 = 10 N."
+    },
+    {
+      "n": 14,
+      "id": "q-physics-friction-tension-and-inclines-0008",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The tension is m(g − a) = 5 × 7.8 = 39 N."
+    },
+    {
+      "n": 15,
+      "id": "q-physics-friction-tension-and-inclines-0009",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Static friction balances mg sin 30° = 19.6 N up the slope."
+    },
+    {
+      "n": 16,
+      "id": "q-physics-friction-tension-and-inclines-0010",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The acceleration is (4 − 1)g/(4 + 1) = 5.88 m/s²."
+    },
+    {
+      "n": 17,
+      "id": "q-physics-friction-tension-and-inclines-0011",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The acceleration is g(sin 30° − 0.30 cos 30°) ≈ 2.35 m/s² down the slope."
+    },
+    {
+      "n": 18,
+      "id": "q-physics-friction-tension-and-inclines-0012",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The fixed rope length makes the block's upward acceleration half the free end's acceleration."
+    },
+    {
+      "n": 19,
+      "id": "q-physics-friction-tension-and-inclines-0013",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Unchanged kinetic friction leaves a forward net force of 50 N."
+    },
+    {
+      "n": 20,
+      "id": "q-physics-friction-tension-and-inclines-0014",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Using N = 98 − 25 = 73 N gives a = (43.3 − 0.20 × 73)/10 = 2.87 m/s²."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

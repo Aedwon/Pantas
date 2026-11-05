@@ -358,7 +358,7 @@ questions:
         rationale: |
           This uses an odd fact about Venus as a cause. Spin is a real feature of Venus. Check which fact is about the air around the planet.
     explanation: |
-      Venus has a thick atmosphere. The air traps heat near the surface. This makes Venus the hottest planet, even though Mercury is closer to the Sun.
+      Venus has a thick atmosphere. The air traps heat near the surface. This trapped heat makes Venus the hottest planet.
 
   - id: q-earth-science-astronomy-heavenly-bodies-0022
     type: classify

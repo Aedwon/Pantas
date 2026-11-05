@@ -1,0 +1,187 @@
+{
+  "file_id": "science__earth-science-astronomy__stars-and-galaxies",
+  "source": "content/questions/science/earth-science-astronomy/stars-and-galaxies.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-earth-science-astronomy-heavenly-bodies-0001",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Stars generate light and heat through nuclear fusion."
+    },
+    {
+      "n": 2,
+      "id": "q-earth-science-astronomy-heavenly-bodies-0002",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "A galaxy is a gravitationally bound collection of stars and other matter."
+    },
+    {
+      "n": 3,
+      "id": "q-earth-science-astronomy-heavenly-bodies-0017",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Fusion in the solar core supplies the Sun’s energy."
+    },
+    {
+      "n": 4,
+      "id": "q-earth-science-astronomy-heavenly-bodies-0020",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Resolving many separate stars rules out a single star."
+    },
+    {
+      "n": 5,
+      "id": "q-earth-science-astronomy-stars-and-galaxies-0001",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Blue-white stellar surfaces are hotter than red stellar surfaces."
+    },
+    {
+      "n": 6,
+      "id": "q-earth-science-astronomy-stars-and-galaxies-0002",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "A light-year is the distance light travels in one year."
+    },
+    {
+      "n": 7,
+      "id": "q-earth-science-astronomy-stars-and-galaxies-0003",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Stars form from collapsing gas and dust in nebulae."
+    },
+    {
+      "n": 8,
+      "id": "q-earth-science-astronomy-stars-and-galaxies-0004",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Light cannot escape from within a black hole’s event horizon."
+    },
+    {
+      "n": 9,
+      "id": "q-earth-science-astronomy-stars-and-galaxies-0005",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Class K follows class G toward cooler surface temperatures."
+    },
+    {
+      "n": 10,
+      "id": "q-earth-science-astronomy-stars-and-galaxies-0006",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Equal luminosity makes the nearer star appear brighter."
+    },
+    {
+      "n": 11,
+      "id": "q-earth-science-astronomy-stars-and-galaxies-0007",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Outward pressure balances inward gravity in a stable star."
+    },
+    {
+      "n": 12,
+      "id": "q-earth-science-astronomy-stars-and-galaxies-0008",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The Milky Way is a spiral galaxy roughly 100,000 light-years across."
+    },
+    {
+      "n": 13,
+      "id": "q-earth-science-astronomy-stars-and-galaxies-0009",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Dark matter is inferred from its gravitational effects."
+    },
+    {
+      "n": 14,
+      "id": "q-earth-science-astronomy-stars-and-galaxies-0010",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Massive stars consume their fuel much faster than red dwarfs."
+    },
+    {
+      "n": 15,
+      "id": "q-earth-science-astronomy-stars-and-galaxies-0011",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "A Sun-like star becomes a red giant, sheds a planetary nebula, and leaves a white dwarf."
+    },
+    {
+      "n": 16,
+      "id": "q-earth-science-astronomy-stars-and-galaxies-0012",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "A stellar remnant about 20 kilometers across is a neutron star."
+    },
+    {
+      "n": 17,
+      "id": "q-earth-science-astronomy-stars-and-galaxies-0013",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "A giant’s large emitting surface can outweigh its lower surface temperature."
+    },
+    {
+      "n": 18,
+      "id": "q-earth-science-astronomy-stars-and-galaxies-0014",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Apparent proximity on the sky does not establish equal distance."
+    },
+    {
+      "n": 19,
+      "id": "q-earth-science-astronomy-stars-and-galaxies-0015",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Light takes eight years to travel eight light-years."
+    },
+    {
+      "n": 20,
+      "id": "q-earth-science-astronomy-stars-and-galaxies-0016",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Equal luminosity and greater surface area require a lower surface temperature."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

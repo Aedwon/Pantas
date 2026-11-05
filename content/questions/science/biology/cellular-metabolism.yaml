@@ -161,7 +161,7 @@ questions:
         correct: true
       - text: "ADP forms, and the cell must take in energy"
         rationale: |
-          This gets the molecule right but the energy wrong. Making a bond takes energy, so breaking one seems to take it too. Check that the cell uses ATP as its ready energy source.
+          This gets the molecule right but the energy wrong. Breaking a bond takes some energy, so the cell seems to spend energy here. Check that the whole reaction, ATP to ADP, releases energy for cell work.
       - text: "A new ATP forms, and energy is released"
         rationale: |
           This treats the new molecule as ATP. ATP is the energy molecule, so it seems to be the product. Check that ATP loses one phosphate and becomes ADP.
@@ -203,15 +203,15 @@ questions:
         correct: true
       - text: "Carbon dioxide"
         rationale: |
-          This molecule has a carbon atom, so it seems organic. It is a carbon compound but is not called organic. Check that organic molecules are built around chains or rings of carbon and hydrogen.
+          This molecule has a carbon atom, so it seems organic. It is a carbon compound but is not called organic. Check for a carbon-based molecule of living things, such as a sugar, fat, or protein.
       - text: "Oxygen gas"
         rationale: |
-          Oxygen gas is vital for living things, so it seems linked to life. It has no carbon. Check for carbon and hydrogen chains or rings.
+          Oxygen gas is vital for living things, so it seems linked to life. It has no carbon. Check for a carbon-based molecule, such as a sugar, fat, or protein.
       - text: "Water"
         rationale: |
-          Water is in every cell, so it seems like a biological molecule. It has no carbon. Check for carbon and hydrogen chains or rings.
+          Water is in every cell, so it seems like a biological molecule. It has no carbon. Check for a carbon-based molecule, such as a sugar, fat, or protein.
     explanation: |
-      An organic molecule is built around chains or rings of carbon and hydrogen. Glucose, $C_6H_{12}O_6$, is a sugar of this kind. Carbon dioxide, oxygen gas and water are not organic molecules.
+      Glucose, $C_6H_{12}O_6$, is a carbon-based sugar. Living things make sugars, so glucose is an organic molecule.
     approved: false
 
   - id: q-biology-cellular-metabolism-0025
@@ -316,7 +316,7 @@ questions:
         rationale: |
           This says photosynthesis needs organelles. Plants use chloroplasts, so the link seems fair. Check that cyanobacteria release oxygen.
     explanation: |
-      A prokaryote has no organelles. Cyanobacteria have no chloroplasts and no stroma. They run both stages of photosynthesis inside the cell.
+      A prokaryote has no membrane-bound organelles. Cyanobacteria have no chloroplasts and no stroma. They run both stages of photosynthesis inside the cell.
     approved: false
 
   - id: q-biology-cellular-metabolism-0030
@@ -379,7 +379,7 @@ questions:
         rationale: |
           Plants are eukaryotes, which seems to make the pair work. Bacteria are prokaryotes. Check which of the two lacks a nucleus.
     explanation: |
-      A eukaryote has a nucleus and organelles. Fungi and algae are both eukaryotes. Bacteria and cyanobacteria are prokaryotes.
+      A eukaryote has a nucleus and organelles. Fungi and algae both have cells with a nucleus, so both are eukaryotes.
     approved: false
 
   - id: q-biology-cellular-metabolism-0033
@@ -419,7 +419,7 @@ questions:
           This describes chlorophyll. NADPH is also made in the light reactions. Check which molecule absorbs light.
       - text: "It splits water to release oxygen gas in the stroma"
         rationale: |
-          Water is split in the light reactions, in the thylakoid membranes, and not by NADPH. Check which part of the light reactions NADPH takes part in.
+          NADPH is made in the light reactions, so its electron-carrying job is easy to mix up with water splitting, which also happens there. Water is split in the thylakoid membranes, not by NADPH. Check that NADPH carries electrons to the Calvin cycle.
     explanation: |
       An electron carrier picks up electrons in one place and drops them off in another. NADPH is made in the light reactions. The Calvin cycle uses it to turn carbon dioxide into sugar.
     approved: false

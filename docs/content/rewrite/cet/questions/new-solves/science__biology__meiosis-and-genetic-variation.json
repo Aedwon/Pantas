@@ -1,0 +1,187 @@
+{
+  "file_id": "science__biology__meiosis-and-genetic-variation",
+  "source": "content/questions/science/biology/meiosis-and-genetic-variation.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-biology-cellular-reproduction-0001",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Mitosis preserves the chromosome-set number during tissue repair."
+    },
+    {
+      "n": 2,
+      "id": "q-biology-cellular-reproduction-0002",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Meiosis reduces diploid germ cells to haploid products."
+    },
+    {
+      "n": 3,
+      "id": "q-biology-cellular-reproduction-0003",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "One primary spermatocyte produces four haploid nuclei with 23 chromosomes each."
+    },
+    {
+      "n": 4,
+      "id": "q-biology-cellular-reproduction-0010",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Crossing over and independent assortment generate different genetic combinations."
+    },
+    {
+      "n": 5,
+      "id": "q-biology-cellular-reproduction-0011",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Crossing over occurs during prophase I."
+    },
+    {
+      "n": 6,
+      "id": "q-biology-cellular-reproduction-0013",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Haploid gametes allow fertilization to restore the diploid chromosome number."
+    },
+    {
+      "n": 7,
+      "id": "q-biology-cellular-reproduction-0015",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The two gametes contribute 23 chromosomes each, totaling 46."
+    },
+    {
+      "n": 8,
+      "id": "q-biology-cellular-reproduction-0017",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Meiosis I separates homologs, and meiosis II separates sister chromatids."
+    },
+    {
+      "n": 9,
+      "id": "q-biology-cellular-reproduction-0018",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Unequal cytokinesis concentrates cytoplasm in the functional ovum."
+    },
+    {
+      "n": 10,
+      "id": "q-biology-cellular-reproduction-0019",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Independent orientation produces new combinations of maternal and paternal chromosomes."
+    },
+    {
+      "n": 11,
+      "id": "q-biology-cellular-reproduction-0020",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Sister chromatids separate in meiosis II without intervening DNA replication."
+    },
+    {
+      "n": 12,
+      "id": "q-biology-meiosis-and-genetic-variation-0001",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "A heterozygote carries two different alleles, as in Aa."
+    },
+    {
+      "n": 13,
+      "id": "q-biology-meiosis-and-genetic-variation-0002",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Three homologous pairs give 2^3 = 8 possible chromosome combinations."
+    },
+    {
+      "n": 14,
+      "id": "q-biology-meiosis-and-genetic-variation-0003",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Four homologous pairs give 2^4 = 16 possible chromosome combinations."
+    },
+    {
+      "n": 15,
+      "id": "q-biology-meiosis-and-genetic-variation-0004",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Each cell has 23 chromosomes that retain two chromatids each, totaling 46 chromatids."
+    },
+    {
+      "n": 16,
+      "id": "q-biology-meiosis-and-genetic-variation-0005",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Meiosis commonly produces haploid spores in plants and fungi."
+    },
+    {
+      "n": 17,
+      "id": "q-biology-meiosis-and-genetic-variation-0006",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Homologous pairs align together at the equator during metaphase I."
+    },
+    {
+      "n": 18,
+      "id": "q-biology-meiosis-and-genetic-variation-0007",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Ab is recombinant relative to the parental AB and ab chromosomes."
+    },
+    {
+      "n": 19,
+      "id": "q-biology-meiosis-and-genetic-variation-0008",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Independent assortment allows AB, Ab, aB, and ab gametes across many cells."
+    },
+    {
+      "n": 20,
+      "id": "q-biology-meiosis-and-genetic-variation-0009",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "A normal human metaphase II cell has 23 chromosomes with two chromatids each."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

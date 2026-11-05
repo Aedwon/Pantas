@@ -1,0 +1,54 @@
+{
+ "reader": "sol",
+ "verdict": "major",
+ "findings": [
+  {
+   "question": "q-biology-meiosis-and-genetic-variation-0001",
+   "severity": "Major",
+   "field": "explanation",
+   "quote": "A pair of matching alleles, such as $AA$, is homozygous.",
+   "problem": "The explanation discusses $AA$, which is a wrong choice. The review requires explanations to explain only the correct answer.",
+   "fix": "Keep only the definition of heterozygous and why $Aa$ has two different alleles."
+  },
+  {
+   "question": "q-biology-meiosis-and-genetic-variation-0006",
+   "severity": "Major",
+   "field": "explanation",
+   "quote": "In mitosis and metaphase II, the chromosomes line up in single file.",
+   "problem": "This sentence discusses the wrong choices Metaphase of mitosis and Metaphase II. Those comparisons belong in their wrong-choice notes.",
+   "fix": "Explain that homologous pairs line up at the middle during metaphase I, matching the two pairs described."
+  },
+  {
+   "question": "q-biology-meiosis-and-genetic-variation-0007",
+   "severity": "Major",
+   "field": "stem",
+   "quote": "Which gamete can form only if crossing over happens between the genes?",
+   "problem": "The word \"only\" excludes other real mechanisms without stating an assumption. For example, a mutation changing B to b on an AB chromosome can produce Ab without crossing over between the genes. Gene conversion can also change one allele without a crossover.",
+   "fix": "Ask which new allele combination crossing over between the genes can produce from the stated homologs."
+  },
+  {
+   "question": "q-biology-meiosis-and-genetic-variation-0007",
+   "severity": "Major",
+   "field": "explanation",
+   "quote": "Without crossing over, the gametes are $AB$ and $ab$, because each chromosome goes in as it is.",
+   "problem": "This explains the two wrong choices $AB$ and $ab$, contrary to the requirement to discuss only why the correct answer is correct.",
+   "fix": "Explain that exchanging DNA between the genes can put A and b on the same chromatid, producing an Ab gamete."
+  },
+  {
+   "question": "q-biology-meiosis-and-genetic-variation-0007",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This is a diploid genotype. A gamete is haploid and carries one allele of each gene. Check that a gamete does not carry both alleles of a gene.",
+   "problem": "The $AaBb$ note identifies the ploidy mistake and gives a check, but never explains why this choice looks right. For example, a student may copy both homologs into the gamete to preserve all the parent's alleles.",
+   "fix": "Add that carrying all the parent's alleles can seem necessary to pass both genes to offspring."
+  },
+  {
+   "question": "q-biology-meiosis-and-genetic-variation-0008",
+   "severity": "Major",
+   "field": "note",
+   "quote": "These show two alleles of the same gene together. A gamete is haploid, so it carries one allele of each gene. Check how many alleles of a gene a gamete carries.",
+   "problem": "The note for $Aa$ and $Bb$ names the mistake and supplies a check, but omits why the choice is tempting. A student may split AaBb into two letter groups and mistake those groups for the products of division.",
+   "fix": "Add that splitting the written genotype into Aa and Bb may look like dividing the genetic material into two gametes."
+  }
+ ]
+}

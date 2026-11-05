@@ -367,7 +367,7 @@ questions:
     stem: |
       An object is placed exactly at the focal point of a concave mirror. Which statement about the image is correct?
     choices:
-      - text: "No image forms, because the reflected rays are parallel"
+      - text: "No image forms at a finite distance, because the reflected rays are parallel"
         correct: true
       - text: "A real, same-size image forms at the center of curvature"
         rationale: |
@@ -379,7 +379,7 @@ questions:
         rationale: |
           This is the result for an object beyond $2f$. Moving the object nearer should change the image a little. Check the equation as $d_o$ approaches $f$.
     explanation: |
-      When $d_o=f$, the reflected rays leave the mirror parallel to one another. They never meet and do not seem to come from a point. So no image forms.
+      When $d_o=f$, the reflected rays leave the mirror parallel to one another. They never meet and do not seem to come from a point at a finite distance. So no image forms at a finite distance.
     approved: false
 
   - id: q-physics-light-and-optics-0034

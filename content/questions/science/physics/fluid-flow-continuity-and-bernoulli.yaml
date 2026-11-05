@@ -258,7 +258,7 @@ questions:
         correct: true
       - text: "Steady, incompressible, nonviscous flow between different streamlines"
         rationale: |
-          This drops the requirement of one streamline. The flow still has the right properties. Check that the equation is applied along a single streamline.
+          This drops the single streamline. The flow still has the right properties, so it can look fine. Comparing different streamlines needs extra conditions. Check that the simple form is applied along one streamline.
       - text: "Incompressible, viscous flow along one streamline with no pump"
         rationale: |
           This allows viscosity. Honey-like friction can seem small. Check that the simple form needs a nonviscous fluid.
@@ -266,7 +266,7 @@ questions:
         rationale: |
           This allows the fluid to be compressed. Gases are fluids too. Check that the simple form needs an incompressible fluid.
     explanation: |
-      The simple form of Bernoulli's equation needs steady, incompressible, nonviscous flow. It also needs both points to be on the same streamline. Without these, the energy balance can change.
+      The simple form of Bernoulli's equation needs steady, incompressible, nonviscous flow. Applying it along one streamline then guarantees the comparison between the two points. Without these conditions, the energy balance can change.
 
   - id: q-physics-fluid-flow-continuity-and-bernoulli-0010
     type: "cause-effect"
@@ -398,12 +398,12 @@ questions:
         correct: true
       - text: "$60\\,\\mathrm{s}$"
         rationale: |
-          This divides the volume by the area only. The speed of the water is left out. Check that the flow rate is area times speed.
+          This divides the volume by the area only. Dividing by the pipe area may seem to count how much water can pass, but area alone gives no amount per second. The speed is left out. Check that the flow rate is area times speed.
       - text: "$0.050\\,\\mathrm{s}$"
         rationale: |
           This divides the flow rate by the volume, which flips the ratio. Both numbers are correct. Check that time is volume divided by flow rate.
       - text: "$0.010\\,\\mathrm{s}$"
         rationale: |
-          This divides the volume by the speed only. The area is left out. Check that the volume flow rate needs the area.
+          This divides the volume by the speed only. It copies time = distance divided by speed, but the bucket volume is not a distance. Volume must be divided by the volume per second. Check that the volume flow rate needs the area.
     explanation: |
       The volume flow rate is $Av=(5.0\times10^{-4})(3.0)=1.5\times10^{-3}\,\mathrm{m^3/s}$. The time is the volume divided by the flow rate: $\dfrac{0.030}{1.5\times10^{-3}}=20\,\mathrm{s}$.

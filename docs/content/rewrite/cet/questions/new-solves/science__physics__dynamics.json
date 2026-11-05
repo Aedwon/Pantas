@@ -1,0 +1,187 @@
+{
+  "file_id": "science__physics__dynamics",
+  "source": "content/questions/science/physics/dynamics.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-physics-dynamics-0001",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The acceleration is 20/5 = 4 m/s²."
+    },
+    {
+      "n": 2,
+      "id": "q-physics-dynamics-0002",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The net force is 8 × 3 = 24 N."
+    },
+    {
+      "n": 3,
+      "id": "q-physics-dynamics-0003",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The mass is 50/2 = 25 kg."
+    },
+    {
+      "n": 4,
+      "id": "q-physics-dynamics-0004",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Newton's first law describes constant velocity when the net external force is zero."
+    },
+    {
+      "n": 5,
+      "id": "q-physics-dynamics-0005",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Newton's third law states that interaction forces are equal and opposite."
+    },
+    {
+      "n": 6,
+      "id": "q-physics-dynamics-0006",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The book and table exert equal and opposite contact forces on each other."
+    },
+    {
+      "n": 7,
+      "id": "q-physics-dynamics-0008",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Third-law partners act on different objects, whereas these forces both act on the book."
+    },
+    {
+      "n": 8,
+      "id": "q-physics-dynamics-0009",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Since a = F/m, doubling mass at fixed net force halves acceleration."
+    },
+    {
+      "n": 9,
+      "id": "q-physics-dynamics-0011",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Upward acceleration requires the upward normal force to exceed the downward weight."
+    },
+    {
+      "n": 10,
+      "id": "q-physics-dynamics-0012",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Weight equals mass times gravitational acceleration."
+    },
+    {
+      "n": 11,
+      "id": "q-physics-dynamics-0013",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The acceleration is (50 − 20)/10 = 3 m/s²."
+    },
+    {
+      "n": 12,
+      "id": "q-physics-dynamics-0014",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The box experiences downward gravity and the table's upward normal force."
+    },
+    {
+      "n": 13,
+      "id": "q-physics-dynamics-0018",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Balanced forces act on the same object, while third-law partners act on different objects."
+    },
+    {
+      "n": 14,
+      "id": "q-physics-dynamics-0019",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "A swimmer's free-body diagram contains only forces acting on the swimmer."
+    },
+    {
+      "n": 15,
+      "id": "q-physics-dynamics-0021",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Constant velocity requires friction of 80 N opposite the motion to balance the push."
+    },
+    {
+      "n": 16,
+      "id": "q-physics-dynamics-0022",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Mass remains 70 kg and lunar weight is 70 × 1.6 = 112 N."
+    },
+    {
+      "n": 17,
+      "id": "q-physics-dynamics-0023",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The normal force balances gravity plus the hand's push: 4.0 × 9.8 + 20 = 59.2 N."
+    },
+    {
+      "n": 18,
+      "id": "q-physics-dynamics-0024",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The horizontal acceleration is 10 × 0.50/2.0 = 2.5 m/s²."
+    },
+    {
+      "n": 19,
+      "id": "q-physics-dynamics-0025",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The cart's backward pull acts on the horse, so it does not cancel the horse's forward pull on the cart."
+    },
+    {
+      "n": 20,
+      "id": "q-physics-dynamics-0026",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The normal force is m(g + a) = 60 × 11.8 = 708 N."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

@@ -1,0 +1,25 @@
+{
+  "totals": {
+    "files": 16,
+    "questions": 320,
+    "match": 320,
+    "mismatch": 0,
+    "low": 1,
+    "problem": 0
+  },
+  "files_without_answers": [],
+  "flagged": [
+    {
+      "file_id": "science__physics__mirrors-and-lenses",
+      "n": 18,
+      "id": "q-physics-light-and-optics-0033",
+      "key": "D",
+      "answer": "D",
+      "confidence": "low",
+      "reasons": [
+        "low-confidence"
+      ],
+      "note": "The image is conventionally at infinity, so D is correct only if 'no image' means no finite image."
+    }
+  ]
+}

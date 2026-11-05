@@ -1,0 +1,14 @@
+{
+ "reader": "sol",
+ "verdict": "clean",
+ "findings": [
+  {
+   "question": "q-physics-light-and-optics-0033",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "",
+   "problem": "Blind solver flag (low confidence): an object at the focal point forms its image at infinity, so the keyed 'no image' is right only if it means no finite image. Make the wording exact.",
+   "fix": "Say the rays leave parallel and form no image at a finite distance, or similar."
+  }
+ ]
+}

@@ -1,0 +1,22 @@
+{
+ "reader": "sol",
+ "verdict": "major",
+ "findings": [
+  {
+   "question": "q-biology-cellular-respiration-and-fermentation-0006",
+   "severity": "Major",
+   "field": "note",
+   "quote": "Both pathways make ATP without oxygen. This puts oxygen into fermentation. Check whether either pathway uses oxygen as its final acceptor.",
+   "problem": "The note identifies the oxygen error and gives a check, but never explains why the oxygen-requiring fermentation choice might look right. For example, a student may transfer the familiar oxygen requirement of aerobic respiration to fermentation.",
+   "fix": "Add that the student may be applying the oxygen requirement of aerobic respiration to fermentation."
+  },
+  {
+   "question": "q-biology-cellular-respiration-and-fermentation-0006",
+   "severity": "Major",
+   "field": "note",
+   "quote": "Some fermentation forms carbon dioxide, as in yeast. The products do not separate the two pathways. Check which feature all anaerobic respiration shares.",
+   "problem": "The note corrects the product-based distinction and gives a check, but omits why this choice might look right. For example, a student who remembers muscle fermentation may assume all fermentation produces lactate.",
+   "fix": "Explain that remembering muscle fermentation can lead a student to treat lactate as the product of every kind of fermentation."
+  }
+ ]
+}

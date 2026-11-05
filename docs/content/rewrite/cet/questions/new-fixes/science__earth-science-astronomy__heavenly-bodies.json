@@ -1,0 +1,13 @@
+{
+ "file": "science__earth-science-astronomy__heavenly-bodies",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-earth-science-astronomy-heavenly-bodies-0021",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Removed the Mercury comparison from the explanation."
+  }
+ ]
+}

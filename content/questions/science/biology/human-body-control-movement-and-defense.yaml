@@ -253,7 +253,7 @@ questions:
         rationale: |
           This picks the cell that carries signals to a muscle. It reaches the muscle, so it can seem to join it. Check whether the structure holds a muscle to a bone or only signals it.
     explanation: |
-      A tendon joins a muscle to a bone. When the muscle shortens, the tendon pulls on the bone. A ligament joins one bone to another bone.
+      A tendon joins a muscle to a bone. When the muscle shortens, the tendon pulls on the bone.
     approved: false
 
   - id: q-biology-human-body-control-movement-and-defense-0003
@@ -266,7 +266,7 @@ questions:
         correct: true
       - text: 'A muscle can only push, so a partner muscle pushes the bone the opposite way.'
         rationale: |
-          This reverses what a muscle can do. A limb seems to be pushed when it straightens. Check whether a muscle makes force by shortening or by lengthening.
+          This reverses what a muscle can do. A limb seems to be pushed when it straightens. Check whether a muscle pulls or pushes on the bone it is attached to.
       - text: 'One muscle is voluntary, so a partner muscle must be involuntary.'
         rationale: |
           This mixes up muscle types. Both control types exist in the body, so the idea seems reasonable. Check that biceps and triceps are both skeletal muscles.
@@ -274,7 +274,7 @@ questions:
         rationale: |
           This mixes up muscle types. Striated and smooth muscle are both real, so the pair seems reasonable. Check that the biceps and triceps are both skeletal.
     explanation: |
-      A muscle makes force only by shortening, so it can pull but not push. The biceps pulls the forearm one way. The triceps pulls it the other way.
+      Muscles pull on bones. The biceps pulls the forearm one way. The triceps pulls it the other way. So the two muscles work as a pair.
     approved: false
 
   - id: q-biology-human-body-control-movement-and-defense-0004
@@ -295,7 +295,7 @@ questions:
         rationale: |
           These respond to signals, so they seem linked to them. They are effectors and do not carry a signal to the central nervous system. Check which cells do the carrying.
     explanation: |
-      Sensory neurons carry signals from receptors toward the brain and spinal cord. Motor neurons carry signals away from them, to muscles and glands.
+      Sensory neurons carry signals from receptors toward the brain and spinal cord.
     approved: false
 
   - id: q-biology-human-body-control-movement-and-defense-0005
@@ -371,10 +371,10 @@ questions:
         correct: true
       - text: 'It trains phagocytes to remember the pathogen.'
         rationale: |
-          Phagocytes act in the immune response, so this seems reasonable. They belong to innate immunity, which builds no memory. Check which cells stay behind after a response.
+          Phagocytes act in the immune response, so this seems reasonable. The memory a vaccine builds is in B and T cells that respond to one antigen. Phagocytes act first and do not form that kind of memory. Check which cells stay behind after a response.
       - text: 'It supplies antibodies that match any antigen.'
         rationale: |
-          Antibodies are important in immunity, so this seems reasonable. Each antibody binds one particular antigen. Check whether an antibody is specific or general.
+          Antibodies are important in immunity, so this seems reasonable. Antibodies recognize particular targets and do not match every antigen. Check whether an antibody is specific or general.
       - text: 'It makes the skin and mucus barriers stronger against that germ.'
         rationale: |
           Barriers are part of the body's defense, so this seems reasonable. They act the same way for every germ. Check which defense is specific to one antigen.
@@ -400,7 +400,7 @@ questions:
         rationale: |
           This pairs the vertebral column with the hip girdle. The hip girdle is appendicular, but the vertebral column is axial, so the pair looks half right. Check where the vertebral column belongs.
     explanation: |
-      The appendicular skeleton is the limbs and the girdles that attach them to the body. The shoulder and hip girdles are included. The skull, vertebral column, and rib cage form the axial skeleton.
+      The appendicular skeleton is the limbs and the girdles that attach them to the body. The shoulder and hip girdles are included.
     approved: false
 
   - id: q-biology-human-body-control-movement-and-defense-0010

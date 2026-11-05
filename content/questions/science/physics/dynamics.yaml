@@ -314,7 +314,7 @@ questions:
           This gets the size right but the direction wrong. Friction resists sliding. Check which way friction must point to cancel the push.
       - text: "160 N, opposite to the motion"
         rationale: |
-          This adds the push and its reaction. Equal pairs act on different objects. Check that the net force on the crate is zero.
+          This adds the push and its reaction. The two equal 80 N forces can tempt you to add their sizes. Equal pairs act on different objects. Check that the net force on the crate is zero.
     explanation: |
       The crate moves at a constant velocity, so the net force on it is zero. The push of $80$ N forward must be canceled by friction. Friction is $80$ N backward.
     approved: false
@@ -392,13 +392,13 @@ questions:
         correct: true
       - text: "The horse's pull is stronger than the cart's pull on the horse"
         rationale: |
-          This says the pair can be unequal. The third law makes them equal in size. Check that interaction pairs are always the same size.
+          This says the pair can be unequal. The cart speeds up forward, so the horse's force can seem stronger. The third law makes them equal in size. Check that interaction pairs are always the same size.
       - text: "The cart's pull on the horse starts only after the cart is moving"
         rationale: |
-          This says the reaction comes later. The two forces act at the same time. Check the timing in the third law.
+          This says the reaction comes later. The words action and reaction can sound like a time sequence. The two forces act at the same time. Check the timing in the third law.
       - text: "The two forces cancel, but the cart has less inertia than the horse"
         rationale: |
-          This says they cancel and then adds a reason for the motion. Forces cancel only if they act on one object. Check which object each force acts on.
+          This says they cancel and then uses inertia to explain the motion. A smaller mass does speed up more easily, but only when the net force is not zero. Forces cancel only if they act on one object. Check which object each force acts on.
     explanation: |
       The horse pulls on the cart, and the cart pulls on the horse. These forces act on different objects, so they cannot cancel each other. The cart accelerates when the net force on the cart, such as the pull from the horse minus friction, is forward.
     approved: false
@@ -413,10 +413,10 @@ questions:
         correct: true
       - text: "588 N"
         rationale: |
-          This equals the weight, $mg$. A person standing still has a normal force equal to the weight. Check that the elevator is accelerating.
+          This equals the weight, $mg$. The normal force equals the weight only when the vertical acceleration is zero and just these two vertical forces act. Check that the elevator is accelerating.
       - text: "468 N"
         rationale: |
-          This uses $m(g-a)$, which is for an elevator accelerating downward. Check the direction of the acceleration.
+          This uses $m(g-a)$, which is for an elevator accelerating downward. Gravity points down and the acceleration points up, so their opposite directions can tempt you to subtract the sizes. Check the direction of the acceleration.
       - text: "120 N"
         rationale: |
           This is $ma$ alone. The acceleration is in the problem, so it seems to give the force. Check that the normal force also supports the weight.

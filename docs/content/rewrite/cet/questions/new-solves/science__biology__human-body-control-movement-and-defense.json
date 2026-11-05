@@ -1,0 +1,187 @@
+{
+  "file_id": "science__biology__human-body-control-movement-and-defense",
+  "source": "content/questions/science/biology/human-body-control-movement-and-defense.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-biology-human-anatomy-physiology-0003",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Deliberate kicking uses voluntary skeletal muscles."
+    },
+    {
+      "n": 2,
+      "id": "q-biology-human-anatomy-physiology-0004",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The heart consists of cardiac muscle that contracts involuntarily."
+    },
+    {
+      "n": 3,
+      "id": "q-biology-human-anatomy-physiology-0005",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The pituitary is traditionally called the master gland."
+    },
+    {
+      "n": 4,
+      "id": "q-biology-human-anatomy-physiology-0006",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The hypothalamus regulates pituitary activity."
+    },
+    {
+      "n": 5,
+      "id": "q-biology-human-anatomy-physiology-0009",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Rapid inflammation and phagocytosis are innate immune defenses."
+    },
+    {
+      "n": 6,
+      "id": "q-biology-human-anatomy-physiology-0010",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Specific memory cells provide adaptive immunity."
+    },
+    {
+      "n": 7,
+      "id": "q-biology-human-anatomy-physiology-0012",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "An intrinsic cardiac pacemaker initiates the normal heartbeat."
+    },
+    {
+      "n": 8,
+      "id": "q-biology-human-anatomy-physiology-0013",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The pancreas secretes digestive enzymes and the endocrine hormone insulin."
+    },
+    {
+      "n": 9,
+      "id": "q-biology-human-anatomy-physiology-0014",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Activated B cells differentiate into antibody-secreting plasma cells."
+    },
+    {
+      "n": 10,
+      "id": "q-biology-human-anatomy-physiology-0020",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Insulin lowers blood glucose while glucagon raises it."
+    },
+    {
+      "n": 11,
+      "id": "q-biology-human-body-control-movement-and-defense-0001",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The withdrawal reflex carries sensory input to the spinal cord and motor output to muscle."
+    },
+    {
+      "n": 12,
+      "id": "q-biology-human-body-control-movement-and-defense-0002",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "A tendon connects muscle to bone."
+    },
+    {
+      "n": 13,
+      "id": "q-biology-human-body-control-movement-and-defense-0003",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Antagonistic muscles pull bones in opposite directions."
+    },
+    {
+      "n": 14,
+      "id": "q-biology-human-body-control-movement-and-defense-0004",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Sensory neurons carry signals toward the central nervous system."
+    },
+    {
+      "n": 15,
+      "id": "q-biology-human-body-control-movement-and-defense-0005",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Raising low blood glucose reverses the initial change through negative feedback."
+    },
+    {
+      "n": 16,
+      "id": "q-biology-human-body-control-movement-and-defense-0006",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "ADH promotes water conservation by the kidneys."
+    },
+    {
+      "n": 17,
+      "id": "q-biology-human-body-control-movement-and-defense-0007",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Fertilization usually occurs in the uterine tube."
+    },
+    {
+      "n": 18,
+      "id": "q-biology-human-body-control-movement-and-defense-0008",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Vaccination safely presents antigens to generate immune memory."
+    },
+    {
+      "n": 19,
+      "id": "q-biology-human-body-control-movement-and-defense-0009",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The appendicular skeleton includes the limbs and their shoulder and hip girdles."
+    },
+    {
+      "n": 20,
+      "id": "q-biology-human-body-control-movement-and-defense-0010",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Brain stem centers regulate breathing and blood pressure."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

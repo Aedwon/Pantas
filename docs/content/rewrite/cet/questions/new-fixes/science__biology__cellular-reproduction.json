@@ -1,0 +1,34 @@
+{
+ "file": "science__biology__cellular-reproduction",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-biology-cellular-reproduction-0021",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Stem limited to a cell that copied its DNA without errors; explanation says the copies are identical if copying has no errors."
+  },
+  {
+   "question": "q-biology-cellular-reproduction-0026",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Removed animal-cell sentence from explanation."
+  },
+  {
+   "question": "q-biology-cellular-reproduction-0027",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Removed the interphase sentence from explanation."
+  },
+  {
+   "question": "q-biology-cellular-reproduction-0029",
+   "severity": "Blocker",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Explanation now says DNA is copied before mitosis; errors and sorting mistakes change daughter cells."
+  }
+ ]
+}

@@ -1,0 +1,54 @@
+{
+ "reader": "sol",
+ "verdict": "major",
+ "findings": [
+  {
+   "question": "q-biology-human-body-control-movement-and-defense-0002",
+   "severity": "Major",
+   "field": "explanation",
+   "quote": "A ligament joins one bone to another bone.",
+   "problem": "The explanation discusses the ligament distractor. The requested explanation rule allows only why the correct answer is correct; the ligament comparison already belongs in its wrong-choice note.",
+   "fix": "Delete this sentence; retain the tendon explanation."
+  },
+  {
+   "question": "q-biology-human-body-control-movement-and-defense-0003",
+   "severity": "Major",
+   "field": "explanation",
+   "quote": "A muscle makes force only by shortening, so it can pull but not push.",
+   "problem": "The word \"only\" makes this false. A biceps muscle produces force while holding a weight still (an isometric contraction) and while slowly lowering it as the muscle lengthens (an eccentric contraction). Pulling does not require shortening. The related wrong-choice note also treats shortening versus lengthening as the test for force production.",
+   "fix": "Say that muscles exert pulling force, so opposing muscles move the forearm in opposite directions. Revise the note to check pulling versus pushing."
+  },
+  {
+   "question": "q-biology-human-body-control-movement-and-defense-0004",
+   "severity": "Major",
+   "field": "explanation",
+   "quote": "Motor neurons carry signals away from them, to muscles and glands.",
+   "problem": "This explains the motor-neuron distractor instead of explaining only the correct answer. For example, it gives the function of the listed wrong choice \"Motor neurons.\"",
+   "fix": "Keep only the sensory-neuron explanation; leave the motor-neuron comparison in its note."
+  },
+  {
+   "question": "q-biology-human-body-control-movement-and-defense-0008",
+   "severity": "Major",
+   "field": "note",
+   "quote": "They belong to innate immunity, which builds no memory.",
+   "problem": "This is a false absolute. Innate immune cells can develop trained immunity; for example, BCG vaccination can produce lasting changes in monocytes and macrophages that strengthen later responses. This differs from antigen-specific memory B and T cells, but it contradicts \"no memory.\"",
+   "fix": "Explain that the vaccine mechanism tested here is antigen-specific memory in B and T cells, rather than claiming innate immunity has no memory of any kind."
+  },
+  {
+   "question": "q-biology-human-body-control-movement-and-defense-0008",
+   "severity": "Major",
+   "field": "note",
+   "quote": "Each antibody binds one particular antigen.",
+   "problem": "This overstates specificity. An antibody recognizes an epitope and can cross-react with similar epitopes on different antigens; for example, an antibody can bind related proteins from different viral strains. Specificity does not mean exactly one antigen.",
+   "fix": "Say that antibodies recognize particular targets and do not match every antigen."
+  },
+  {
+   "question": "q-biology-human-body-control-movement-and-defense-0009",
+   "severity": "Major",
+   "field": "explanation",
+   "quote": "The skull, vertebral column, and rib cage form the axial skeleton.",
+   "problem": "This discusses a wrong choice by explaining the axial-skeleton group, which is listed as a distractor. The requested rule limits explanations to why the correct answer is correct.",
+   "fix": "Delete this sentence; retain the explanation of limbs and their attaching girdles."
+  }
+ ]
+}

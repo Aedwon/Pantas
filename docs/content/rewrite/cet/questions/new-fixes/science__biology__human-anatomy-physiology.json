@@ -1,0 +1,20 @@
+{
+ "file": "science__biology__human-anatomy-physiology",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-biology-human-anatomy-physiology-0023",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Removed the pulmonary vein sentence from the explanation."
+  },
+  {
+   "question": "q-biology-human-anatomy-physiology-0027",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Stem now says the urinary system is the only system that excretes wastes."
+  }
+ ]
+}

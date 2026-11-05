@@ -220,7 +220,7 @@ questions:
         correct: true
       - text: "$8.5\\,\\mathrm{m/s^2}$"
         rationale: |
-          This uses $g\cos\theta$, the part of weight into the slope. Cosine is easy to use for a slope. Check that the part along the slope uses $\sin\theta$.
+          This uses $g\cos\theta$, the part of gravity's acceleration that points into the slope. Cosine is easy to use for a slope. Check that the part along the slope is $g\sin\theta$.
       - text: "$9.8\\,\\mathrm{m/s^2}$"
         rationale: |
           This treats the block as in free fall. The block is pulled by gravity. Check that the slope carries only part of the weight along it.
@@ -234,7 +234,7 @@ questions:
     type: "predict-outcome"
     difficulty: "medium"
     stem: |
-      A box on a level floor is pulled by a rope at $30^\circ$ above the horizontal and stays on the floor. How does the normal force on the box compare with its weight?
+      A box on a level floor is pulled by a rope at $30^\circ$ above the horizontal. The box stays on the floor and presses on it. How does the normal force on the box compare with its weight?
     choices:
       - text: "It is less than the weight."
         correct: true
@@ -244,9 +244,9 @@ questions:
       - text: "It is greater than the weight."
         rationale: |
           This adds the rope's upward part to the support. More forces upward seem to mean more push. Check that the rope lifts, so the floor supports less.
-      - text: "It equals the horizontal part of the pull."
+      - text: "It is zero, because the rope is pulling the box."
         rationale: |
-          This mixes up which part of the pull acts along the floor. The horizontal part is the one that moves the box. Check that the normal force balances the vertical forces.
+          This assumes any pull on the rope lifts the box clear of the floor. A pull that has an upward part seems to remove the support. Check that the box still presses on the floor, so the normal force is not zero.
     explanation: |
       The rope pulls partly upward, so it holds up part of the weight. The floor has less to support. The normal force is $N=mg-T\sin30^\circ$, which is less than the weight.
 
@@ -260,7 +260,7 @@ questions:
         correct: true
       - text: "$30\\,\\mathrm{N}$"
         rationale: |
-          This takes the tension to equal the applied force. The rope seems to pass the whole pull along. Check that the rope pulls only B, which has part of the mass.
+          This takes the tension to equal the applied force. The rope seems to pass the whole pull along. Check that tension is the only horizontal force on B, so $T=m_Ba$.
       - text: "$20\\,\\mathrm{N}$"
         rationale: |
           This uses the mass of A with the acceleration. A is the block that is pulled. Check that the tension is the net force on B alone.
@@ -394,7 +394,7 @@ questions:
     type: "simple-quantitative"
     difficulty: "exam"
     stem: |
-      A $10\,\mathrm{kg}$ box is on a level floor. A rope pulls it with $50\,\mathrm{N}$ at $30^\circ$ above the horizontal. The coefficient of kinetic friction is $0.20$. Use $g=9.8\,\mathrm{m/s^2}$, $\sin30^\circ=0.50$, and $\cos30^\circ=0.866$. What is the acceleration of the box?
+      A $10\,\mathrm{kg}$ box is on a level floor and is already sliding in the direction of the pull. A rope pulls it with $50\,\mathrm{N}$ at $30^\circ$ above the horizontal. The coefficient of kinetic friction is $0.20$. Use $g=9.8\,\mathrm{m/s^2}$, $\sin30^\circ=0.50$, and $\cos30^\circ=0.866$. What is the acceleration of the box?
     choices:
       - text: "$2.87\\,\\mathrm{m/s^2}$"
         correct: true

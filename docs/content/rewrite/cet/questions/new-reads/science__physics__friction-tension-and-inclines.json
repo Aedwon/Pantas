@@ -1,0 +1,38 @@
+{
+ "reader": "sol",
+ "verdict": "blocker",
+ "findings": [
+  {
+   "question": "q-physics-friction-tension-and-inclines-0005",
+   "severity": "Blocker",
+   "field": "note",
+   "quote": "This uses $g\\cos\\theta$, the part of weight into the slope. Cosine is easy to use for a slope. Check that the part along the slope uses $\\sin\\theta$.",
+   "problem": "The note calls g cos(theta) a component of weight, but it is an acceleration. Here g cos(30 degrees) is about 8.49 m/s^2, whereas the perpendicular component of the 4.0 kg block's weight is mg cos(30 degrees), about 33.95 N.",
+   "fix": "Say that g cos(theta) is the perpendicular component of gravitational acceleration; the component along the slope is g sin(theta)."
+  },
+  {
+   "question": "q-physics-friction-tension-and-inclines-0006",
+   "severity": "Blocker",
+   "field": "choices",
+   "quote": "It equals the horizontal part of the pull.",
+   "problem": "This choice can also be true while the keyed comparison is true. For example, with weight 136.6 N and rope tension 100 N, N = 136.6 - 100(0.50) = 86.6 N, and the horizontal pull is also 100(0.866) = 86.6 N. The normal force is both less than the weight and equal to the horizontal pull. No stated condition excludes this case.",
+   "fix": "Replace this option with an incompatible comparison, such as zero normal force while the floor still supports part of the weight."
+  },
+  {
+   "question": "q-physics-friction-tension-and-inclines-0007",
+   "severity": "Blocker",
+   "field": "note",
+   "quote": "This takes the tension to equal the applied force. The rope seems to pass the whole pull along. Check that the rope pulls only B, which has part of the mass.",
+   "problem": "The rope pulls both blocks, not only B. In this very setup it pulls B forward with 10 N and A backward with 10 N. The valid reason to use B is that tension is its only horizontal force.",
+   "fix": "Replace the final sentence with: Check that tension is the only horizontal force on B, so T = m_B a."
+  },
+  {
+   "question": "q-physics-friction-tension-and-inclines-0014",
+   "severity": "Blocker",
+   "field": "stem",
+   "quote": "A $10\\,\\mathrm{kg}$ box is on a level floor. A rope pulls it with $50\\,\\mathrm{N}$ at $30^\\circ$ above the horizontal. The coefficient of kinetic friction is $0.20$. Use $g=9.8\\,\\mathrm{m/s^2}$, $\\sin30^\\circ=0.50$, and $\\cos30^\\circ=0.866$. What is the acceleration of the box?",
+   "problem": "The stem never says the box is sliding or gives its sliding direction. The keyed 2.87 m/s^2 assumes sliding in the horizontal direction of the pull. If the box is sliding opposite that direction, friction acts with the pull and a = (43.3 + 14.6)/10 = 5.79 m/s^2. It could also remain at rest if the unspecified static coefficient is large enough; for example, mu_s = 0.60 gives a maximum static friction of 43.8 N, greater than the 43.3 N horizontal pull.",
+   "fix": "State that the box is already sliding in the horizontal direction of the pull."
+  }
+ ]
+}

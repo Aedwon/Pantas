@@ -1,0 +1,187 @@
+{
+  "file_id": "science__biology__cellular-metabolism",
+  "source": "content/questions/science/biology/cellular-metabolism.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-biology-cellular-metabolism-0001",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Photosynthesis produces glucose and oxygen from carbon dioxide and water."
+    },
+    {
+      "n": 2,
+      "id": "q-biology-cellular-metabolism-0003",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Chloroplasts contain the machinery for photosynthesis in plant cells."
+    },
+    {
+      "n": 3,
+      "id": "q-biology-cellular-metabolism-0005",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Reduced light capture limits ATP and NADPH supplies for sugar production."
+    },
+    {
+      "n": 4,
+      "id": "q-biology-cellular-metabolism-0007",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Splitting water during the light reactions releases oxygen gas."
+    },
+    {
+      "n": 5,
+      "id": "q-biology-cellular-metabolism-0009",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "These inputs and products describe oxygenic photosynthesis."
+    },
+    {
+      "n": 6,
+      "id": "q-biology-cellular-metabolism-0013",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Six oxygen molecules balance the simplified photosynthesis equation."
+    },
+    {
+      "n": 7,
+      "id": "q-biology-cellular-metabolism-0021",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "DNA and RNA are nucleic acids."
+    },
+    {
+      "n": 8,
+      "id": "q-biology-cellular-metabolism-0022",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "ATP hydrolysis forms ADP and releases usable energy."
+    },
+    {
+      "n": 9,
+      "id": "q-biology-cellular-metabolism-0023",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Enzymes lower activation energy without being consumed."
+    },
+    {
+      "n": 10,
+      "id": "q-biology-cellular-metabolism-0024",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Glucose is an organic carbohydrate."
+    },
+    {
+      "n": 11,
+      "id": "q-biology-cellular-metabolism-0025",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Phospholipids form the basic bilayer of cell membranes."
+    },
+    {
+      "n": 12,
+      "id": "q-biology-cellular-metabolism-0026",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "High heat can irreversibly denature the enzyme and alter its active site."
+    },
+    {
+      "n": 13,
+      "id": "q-biology-cellular-metabolism-0027",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Thylakoid light reactions produce ATP, NADPH, and oxygen."
+    },
+    {
+      "n": 14,
+      "id": "q-biology-cellular-metabolism-0028",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The Calvin cycle uses ATP and NADPH to reduce fixed carbon dioxide."
+    },
+    {
+      "n": 15,
+      "id": "q-biology-cellular-metabolism-0029",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Cyanobacteria perform these processes within their cells without chloroplasts."
+    },
+    {
+      "n": 16,
+      "id": "q-biology-cellular-metabolism-0030",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Three glucose molecules correspond to eighteen oxygen molecules."
+    },
+    {
+      "n": 17,
+      "id": "q-biology-cellular-metabolism-0031",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Fats provide more energy per unit mass than carbohydrates."
+    },
+    {
+      "n": 18,
+      "id": "q-biology-cellular-metabolism-0032",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Fungi and algae are eukaryotes."
+    },
+    {
+      "n": 19,
+      "id": "q-biology-cellular-metabolism-0033",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "ADP can be phosphorylated to regenerate ATP."
+    },
+    {
+      "n": 20,
+      "id": "q-biology-cellular-metabolism-0034",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Electron carriers transfer electrons between reactions."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

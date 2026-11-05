@@ -101,7 +101,7 @@ questions:
           This treats red as the hottest color, as in a glowing fire. Red feels like heat in daily life. Check the star color order, from blue-white (hottest) to red (coolest).
       - text: 'It is the same.'
         rationale: |
-          This assumes every star has one temperature because every star shines by fusion. Fusion powers all of them. Check that color changes with surface temperature.
+          This assumes every star has one temperature because many stars shine by fusion. Fusion does not give every star the same surface temperature. Check that color changes with surface temperature.
       - text: 'It is unknown from color.'
         rationale: |
           This treats color as unrelated to temperature. Many colors in daily life tell us little about heat. Check that a star's color shows its surface temperature.
@@ -246,7 +246,7 @@ questions:
         rationale: |
           This gets both the shape and the size wrong. Large numbers suggest an odd, huge galaxy. Check the shape and the width separately.
     explanation: |
-      The Milky Way is a spiral galaxy about $100{,}000$ light-years across. The $2.5$ million light-years is the distance to the nearby Andromeda galaxy, not the width of the Milky Way.
+      The Milky Way is a spiral galaxy about $100{,}000$ light-years across.
 
   - id: q-earth-science-astronomy-stars-and-galaxies-0009
     type: cause-effect
@@ -258,7 +258,7 @@ questions:
         correct: true
       - text: 'They measure the light it reflects from nearby stars.'
         rationale: |
-          This gives dark matter a way to shine. Many dark objects can be seen by reflected light. Check that dark matter does not give off light.
+          This gives dark matter a way to shine. Many dark objects, like the Moon, can be seen by reflected light. Check that dark matter gives off no detectable light, reflected or its own, and is found by its gravitational pull.
       - text: 'They see the fusion taking place in its core.'
         rationale: |
           This treats dark matter as a kind of star. Stars are found in galaxies. Check that fusion is how stars make light, and dark matter gives off none.
@@ -301,7 +301,7 @@ questions:
           This is the path of a star many times the Sun's mass. Both paths end in a dense core. Check the star's mass before choosing the path.
       - text: 'Red giant, supernova, white dwarf'
         rationale: |
-          This mixes the Sun-like path with a supernova. A white dwarf follows a red giant, which looks right. Check that a supernova belongs to a much more massive star.
+          This mixes the Sun-like path with a supernova. A white dwarf follows a red giant, which looks right. Check that a Sun-like star normally sheds its outer layers as a planetary nebula and leaves a white dwarf.
       - text: 'White dwarf, red giant, planetary nebula'
         rationale: |
           This puts the stages in reverse. The same three names appear. Check that the white dwarf is the hot core left at the end.
@@ -366,7 +366,7 @@ questions:
         rationale: |
           This assumes neighbors in a pattern are alike. Stars that look similar may seem the same. Check that the pattern says nothing about their energy output.
     explanation: |
-      A constellation is only a pattern that people see in the sky. Its stars are at very different distances from Earth. They are not a group held together by gravity.
+      A constellation is only a pattern that people see in the sky. Stars in the same constellation can be at very different distances. Appearing close in the sky does not tell us their distances.
 
   - id: q-earth-science-astronomy-stars-and-galaxies-0015
     type: simple-quantitative

@@ -1,0 +1,22 @@
+{
+ "reader": "sol",
+ "verdict": "blocker",
+ "findings": [
+  {
+   "question": "q-physics-light-and-optics-0041",
+   "severity": "Blocker",
+   "field": "note",
+   "quote": "Check that the distance between her and the image crosses the mirror twice.",
+   "problem": "The straight distance from the student to her virtual image crosses the mirror plane once, not twice. With the student 2.0 m in front and the image 2.0 m behind, the two distances add to 4.0 m; they do not represent two mirror crossings.",
+   "fix": "Say: Add the student-to-mirror distance and the mirror-to-image distance."
+  },
+  {
+   "question": "q-physics-light-and-optics-0044",
+   "severity": "Major",
+   "field": "note",
+   "quote": "A ray keeps its direction only along the normal.",
+   "problem": "This states a false absolute. A ray crossing obliquely between two media with equal refractive indices also keeps its direction, as the lesson teaches. The stated glass-air boundary has different indices, but the note presents an unrestricted rule.",
+   "fix": "Say: At this boundary, where the refractive indices differ, a transmitted ray keeps its direction only at normal incidence."
+  }
+ ]
+}

@@ -1,0 +1,34 @@
+{
+ "file": "science__physics__friction-tension-and-inclines",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-physics-friction-tension-and-inclines-0005",
+   "severity": "Blocker",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Note now calls g cos(theta) a component of gravity's acceleration and names g sin(theta) for the slope."
+  },
+  {
+   "question": "q-physics-friction-tension-and-inclines-0006",
+   "severity": "Blocker",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Replaced the horizontal-pull choice with \"zero normal force\" and added that the box presses on the floor, so it is incompatible with the key."
+  },
+  {
+   "question": "q-physics-friction-tension-and-inclines-0007",
+   "severity": "Blocker",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Note now says tension is the only horizontal force on B, so T = m_B a."
+  },
+  {
+   "question": "q-physics-friction-tension-and-inclines-0014",
+   "severity": "Blocker",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Stem now says the box is already sliding in the direction of the pull."
+  }
+ ]
+}

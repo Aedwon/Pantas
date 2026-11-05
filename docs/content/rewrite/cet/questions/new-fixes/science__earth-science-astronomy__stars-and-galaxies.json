@@ -1,0 +1,41 @@
+{
+ "file": "science__earth-science-astronomy__stars-and-galaxies",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-earth-science-astronomy-stars-and-galaxies-0001",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Removed the false absolute that fusion powers all stars in the wrong-choice note."
+  },
+  {
+   "question": "q-earth-science-astronomy-stars-and-galaxies-0008",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Removed the Andromeda sentence from the explanation."
+  },
+  {
+   "question": "q-earth-science-astronomy-stars-and-galaxies-0009",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Note now separates reflection from emission and points to the gravitational pull."
+  },
+  {
+   "question": "q-earth-science-astronomy-stars-and-galaxies-0011",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Note now limits the claim to the normal path of a Sun-like star."
+  },
+  {
+   "question": "q-earth-science-astronomy-stars-and-galaxies-0014",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Explanation now says stars can be at very different distances, not that they are."
+  }
+ ]
+}

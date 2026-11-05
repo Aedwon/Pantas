@@ -1,0 +1,41 @@
+{
+ "file": "science__biology__human-body-control-movement-and-defense",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-biology-human-body-control-movement-and-defense-0002",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Removed the ligament sentence."
+  },
+  {
+   "question": "q-biology-human-body-control-movement-and-defense-0003",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Explanation says muscles pull, without the only-by-shortening claim; note checks pull versus push."
+  },
+  {
+   "question": "q-biology-human-body-control-movement-and-defense-0004",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Removed the motor-neuron sentence."
+  },
+  {
+   "question": "q-biology-human-body-control-movement-and-defense-0008",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Phagocyte note now names B and T cell memory without claiming innate immunity has no memory; antibody note no longer says one antigen."
+  },
+  {
+   "question": "q-biology-human-body-control-movement-and-defense-0009",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Removed the axial skeleton sentence."
+  }
+ ]
+}

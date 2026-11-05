@@ -1,0 +1,48 @@
+{
+ "file": "science__biology__meiosis-and-genetic-variation",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-biology-meiosis-and-genetic-variation-0001",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Removed the AA discussion from the explanation."
+  },
+  {
+   "question": "q-biology-meiosis-and-genetic-variation-0006",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Removed the mitosis and metaphase II comparison from the explanation."
+  },
+  {
+   "question": "q-biology-meiosis-and-genetic-variation-0007",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Stem now asks which new combination crossing over can produce, removing 'only'; key unchanged."
+  },
+  {
+   "question": "q-biology-meiosis-and-genetic-variation-0007",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Explanation now covers only why Ab is correct."
+  },
+  {
+   "question": "q-biology-meiosis-and-genetic-variation-0007",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Added why carrying both alleles looks right to the AaBb note."
+  },
+  {
+   "question": "q-biology-meiosis-and-genetic-variation-0008",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Added why splitting the genotype into Aa and Bb looks right."
+  }
+ ]
+}

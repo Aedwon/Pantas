@@ -1,0 +1,125 @@
+{
+ "file": "science__physics__interference-diffraction-and-doppler",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-physics-waves-and-sound-0023",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Removed wrong-choice sentence from explanation."
+  },
+  {
+   "question": "q-physics-waves-and-sound-0023",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "20 m note now names the more-sound-means-more-spreading confusion."
+  },
+  {
+   "question": "q-physics-waves-and-sound-0024",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Note now explains the one-wavelength rule is valid but misapplied."
+  },
+  {
+   "question": "q-physics-waves-and-sound-0026",
+   "severity": "Blocker",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Note now says approaching raises pitch by encounter rate while crest spacing stays fixed."
+  },
+  {
+   "question": "q-physics-waves-and-sound-0027",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "530 Hz note now explains why adding looks tempting."
+  },
+  {
+   "question": "q-physics-waves-and-sound-0027",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "470 Hz note now explains the confusion with subtracting in the denominator."
+  },
+  {
+   "question": "q-physics-waves-and-sound-0030",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Supersonic note now says matching conditions hide the speed limit."
+  },
+  {
+   "question": "q-physics-waves-and-sound-0031",
+   "severity": "Blocker",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "0.05 m note check now subtracts source speed from v before dividing by f, or subtracts travel per period from v/f."
+  },
+  {
+   "question": "q-physics-waves-and-sound-0032",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Explanation rewritten without absolutes or wrong-choice talk."
+  },
+  {
+   "question": "q-physics-waves-and-sound-0032",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Faster-than-sound note now explains why the comparison looks like wave evidence."
+  },
+  {
+   "question": "q-physics-waves-and-sound-0033",
+   "severity": "Blocker",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Explanation now says strong spreading at about one wavelength or narrower, strongest among listed."
+  },
+  {
+   "question": "q-physics-waves-and-sound-0033",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "10 m note names the more-sound-through confusion."
+  },
+  {
+   "question": "q-physics-waves-and-sound-0033",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "20 m note names the reversed width-to-spreading assumption."
+  },
+  {
+   "question": "q-physics-waves-and-sound-0034",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Explanation now says 11.0 m gives half a wavelength path difference without claiming it is the only distance."
+  },
+  {
+   "question": "q-physics-waves-and-sound-0034",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "12.0 m note names the any-path-difference-cancels misconception."
+  },
+  {
+   "question": "q-physics-waves-and-sound-0035",
+   "severity": "Blocker",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Stem now says the source moves directly toward and directly away from the listener."
+  },
+  {
+   "question": "q-physics-waves-and-sound-0035",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "34 Hz note explains the one-for-one speed-to-pitch temptation."
+  }
+ ]
+}

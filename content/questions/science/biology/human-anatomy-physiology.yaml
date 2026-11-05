@@ -282,7 +282,7 @@ questions:
         rationale: |
           These large veins do carry oxygen-poor blood, so they seem to fit. They carry it toward the heart. Check the direction of flow.
     explanation: |
-      Arteries carry blood away from the heart, and veins carry blood toward it. The pulmonary arteries take oxygen-poor blood from the heart to the lungs. The pulmonary veins carry oxygen-rich blood back.
+      Arteries carry blood away from the heart, and veins carry blood toward it. The pulmonary arteries take oxygen-poor blood from the heart to the lungs.
     approved: false
 
   - id: q-biology-human-anatomy-physiology-0024
@@ -352,7 +352,7 @@ questions:
     type: 'classify'
     difficulty: 'hard'
     stem: |
-      A student says the kidneys are the only organs that excrete wastes. Which fact shows the student is wrong?
+      A student says the urinary system is the only system that excretes wastes. Which fact shows the student is wrong?
     choices:
       - text: 'The lungs remove carbon dioxide, which is a metabolic waste.'
         correct: true

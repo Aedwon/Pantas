@@ -1,0 +1,46 @@
+{
+ "reader": "sol",
+ "verdict": "major",
+ "findings": [
+  {
+   "question": "q-earth-science-astronomy-stars-and-galaxies-0001",
+   "severity": "Major",
+   "field": "note",
+   "quote": "Fusion powers all of them.",
+   "problem": "This makes fusion universal to stars. A white dwarf, explicitly included in the lesson, shines by releasing stored heat rather than ongoing fusion. The note reinforces a false absolute while correcting the temperature misconception.",
+   "fix": "Replace with: Many stars shine by fusion, but their surface temperatures can differ. Check the color-temperature order."
+  },
+  {
+   "question": "q-earth-science-astronomy-stars-and-galaxies-0008",
+   "severity": "Major",
+   "field": "explanation",
+   "quote": "The $2.5$ million light-years is the distance to the nearby Andromeda galaxy, not the width of the Milky Way.",
+   "problem": "This discusses the number used in the wrong choices and explains why those choices are wrong. The requested explanation must explain only the correct answer.",
+   "fix": "Keep only the sentence identifying the Milky Way as a spiral galaxy about 100,000 light-years across."
+  },
+  {
+   "question": "q-earth-science-astronomy-stars-and-galaxies-0009",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This gives dark matter a way to shine. Many dark objects can be seen by reflected light. Check that dark matter does not give off light.",
+   "problem": "The proposed check does not rule out the choice about reflected light. An object can reflect light without producing its own light; the Moon is a familiar example. The note needs to distinguish reflection from emission.",
+   "fix": "Explain that dark matter does not detectably reflect light either, and tell the student to check for evidence from its gravitational pull."
+  },
+  {
+   "question": "q-earth-science-astronomy-stars-and-galaxies-0011",
+   "severity": "Major",
+   "field": "note",
+   "quote": "Check that a supernova belongs to a much more massive star.",
+   "problem": "This categorically assigns supernovae to much more massive stars. A Type Ia supernova instead involves a white dwarf in a binary system. The question concerns the ordinary evolution of a Sun-like star, so the note should limit its claim to that path.",
+   "fix": "Say: Check that a Sun-like star normally sheds its outer layers as a planetary nebula and leaves a white dwarf."
+  },
+  {
+   "question": "q-earth-science-astronomy-stars-and-galaxies-0014",
+   "severity": "Major",
+   "field": "explanation",
+   "quote": "Its stars are at very different distances from Earth.",
+   "problem": "This turns a possibility into an absolute. Two stars in the same constellation can be a physical binary and lie at essentially the same distance from Earth. The keyed choice correctly says they can be at very different distances.",
+   "fix": "Say: Stars in the same constellation can be at very different distances. Appearing close in the sky does not tell us their distances."
+  }
+ ]
+}

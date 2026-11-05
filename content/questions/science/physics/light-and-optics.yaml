@@ -333,7 +333,7 @@ questions:
           This gives the distance from the mirror to the image. The image is as far behind the mirror as she is in front, so $2.0\,\mathrm m$ is only one part. Check that the question asks for the distance from her.
       - text: "$1.0\\,\\mathrm m$"
         rationale: |
-          This halves the distance. The mirror sits halfway between her and the image, so a half seems to fit. Check that the distance between her and the image crosses the mirror twice.
+          This halves the distance. The mirror sits halfway between her and the image, so a half seems to fit. Check that you add the student-to-mirror distance and the mirror-to-image distance.
       - text: "$8.0\\,\\mathrm m$"
         rationale: |
           This doubles the distance a second time. The image distance is already equal to the object distance. Check that each distance is counted once.
@@ -399,7 +399,7 @@ questions:
           This happens at the critical angle exactly. The angle is close to it, so it seems to fit. Check whether $38^\circ$ equals $\sin^{-1}\!\left(\dfrac{1.00}{1.50}\right)$.
       - text: "It passes into the air without bending."
         rationale: |
-          A ray keeps its direction only along the normal. This ray is slanted, and the index changes. Check which way the ray bends going to a smaller index.
+          At this boundary, where the refractive indices differ, a transmitted ray keeps its direction only at normal incidence. This ray is slanted, and the index changes. Check which way the ray bends going to a smaller index.
     explanation: |
       The critical angle satisfies $\sin\theta_c=\dfrac{1.00}{1.50}=0.667$, so $\theta_c\approx41.8^\circ$. The angle of incidence, $38^\circ$, is smaller. So the light leaves the glass and bends away from the normal, and a weak part also reflects.
 

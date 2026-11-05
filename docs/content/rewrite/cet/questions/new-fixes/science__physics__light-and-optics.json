@@ -1,0 +1,20 @@
+{
+ "file": "science__physics__light-and-optics",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-physics-light-and-optics-0041",
+   "severity": "Blocker",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Check now says add student-to-mirror and mirror-to-image distances."
+  },
+  {
+   "question": "q-physics-light-and-optics-0044",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Note now limits the rule to this boundary with differing indices at normal incidence."
+  }
+ ]
+}

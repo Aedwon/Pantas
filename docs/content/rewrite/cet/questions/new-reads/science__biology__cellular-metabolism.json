@@ -1,0 +1,54 @@
+{
+ "reader": "sol",
+ "verdict": "blocker",
+ "findings": [
+  {
+   "question": "q-biology-cellular-metabolism-0022",
+   "severity": "Blocker",
+   "field": "note",
+   "quote": "Making a bond takes energy, so breaking one seems to take it too.",
+   "problem": "The note states the bond-energy rule backward. Forming a chemical bond releases energy; breaking a bond requires energy. ATP hydrolysis releases energy overall because of the full reaction, not because breaking a bond alone releases energy.",
+   "fix": "Explain that breaking a bond requires energy, but the complete ATP-to-ADP reaction releases energy overall."
+  },
+  {
+   "question": "q-biology-cellular-metabolism-0024",
+   "severity": "Major",
+   "field": "explanation",
+   "quote": "Carbon dioxide, oxygen gas and water are not organic molecules.",
+   "problem": "The explanation explicitly discusses all three wrong choices, contrary to the requirement to explain only the correct answer.",
+   "fix": "Remove this sentence and explain only why glucose is organic."
+  },
+  {
+   "question": "q-biology-cellular-metabolism-0024",
+   "severity": "Blocker",
+   "field": "explanation",
+   "quote": "An organic molecule is built around chains or rings of carbon and hydrogen.",
+   "problem": "This categorical definition excludes real organic molecules. Urea, CO(NH2)2, is organic but has just one carbon atom and no carbon chain or ring. The same restrictive rule is repeated in the wrong-choice notes.",
+   "fix": "Say that glucose is a carbon-based sugar and an organic molecule; avoid making carbon-and-hydrogen chains or rings a requirement for all organic molecules."
+  },
+  {
+   "question": "q-biology-cellular-metabolism-0029",
+   "severity": "Blocker",
+   "field": "explanation",
+   "quote": "A prokaryote has no organelles.",
+   "problem": "Prokaryotes lack membrane-bound organelles, but they do have ribosomes, which are non-membrane-bound organelles. The lesson itself uses the more accurate qualification \"no membrane-bound organelles.\"",
+   "fix": "Change this to \"A prokaryote has no membrane-bound organelles.\""
+  },
+  {
+   "question": "q-biology-cellular-metabolism-0032",
+   "severity": "Major",
+   "field": "explanation",
+   "quote": "Bacteria and cyanobacteria are prokaryotes.",
+   "problem": "This sentence discusses organisms from the wrong choices. The explanation must explain only why the correct pair consists of eukaryotes.",
+   "fix": "Replace it with a short statement that fungi and algae have cells with nuclei."
+  },
+  {
+   "question": "q-biology-cellular-metabolism-0034",
+   "severity": "Major",
+   "field": "note",
+   "quote": "Water is split in the light reactions, in the thylakoid membranes, and not by NADPH. Check which part of the light reactions NADPH takes part in.",
+   "problem": "The note corrects the water-splitting claim and gives a check, but never explains why this wrong choice might look right. For example, a learner could confuse NADPH with water-splitting machinery because both are associated with the light reactions.",
+   "fix": "Add that NADPH is made during the light reactions, so it is easy to confuse its electron-carrying job with water splitting; retain the location correction and give an electron-carrying check."
+  }
+ ]
+}

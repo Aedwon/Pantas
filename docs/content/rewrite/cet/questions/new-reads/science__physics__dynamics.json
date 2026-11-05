@@ -1,0 +1,54 @@
+{
+ "reader": "sol",
+ "verdict": "major",
+ "findings": [
+  {
+   "question": "q-physics-dynamics-0021",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This adds the push and its reaction. Equal pairs act on different objects. Check that the net force on the crate is zero.",
+   "problem": "The 160 N note names the mistake and gives a check, but never explains why adding the two forces looks right. A student may count two equal 80 N forces as a total of 160 N.",
+   "fix": "Add that the two equal 80 N forces can tempt a student to add their sizes."
+  },
+  {
+   "question": "q-physics-dynamics-0025",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This says the pair can be unequal. The third law makes them equal in size. Check that interaction pairs are always the same size.",
+   "problem": "The stronger-pull note identifies the error and repeats the law, but omits why the choice looks right. Seeing the cart speed up can suggest that the horse must win a contest between the two interaction forces.",
+   "fix": "Explain that forward acceleration can make the horse's force seem stronger."
+  },
+  {
+   "question": "q-physics-dynamics-0025",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This says the reaction comes later. The two forces act at the same time. Check the timing in the third law.",
+   "problem": "The delayed-reaction note gives the error and a check, but omits the tempting reasoning. The everyday meaning of reaction suggests a response that happens after an action.",
+   "fix": "Add that the words action and reaction can sound like a time sequence."
+  },
+  {
+   "question": "q-physics-dynamics-0025",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This says they cancel and then adds a reason for the motion. Forces cancel only if they act on one object. Check which object each force acts on.",
+   "problem": "The less-inertia note does not explain why the choice looks right or identify the misuse of inertia. A student may correctly remember that a smaller mass accelerates more easily, then incorrectly use that fact to allow acceleration with zero net force.",
+   "fix": "Name the misuse of inertia and explain that smaller mass increases acceleration only when there is a nonzero net force."
+  },
+  {
+   "question": "q-physics-dynamics-0026",
+   "severity": "Major",
+   "field": "note",
+   "quote": "A person standing still has a normal force equal to the weight.",
+   "problem": "This states the equality without its conditions. The person in this question stands still relative to the scale yet has N = 708 N and weight 588 N. Even at rest relative to the ground, an additional downward push would make the normal force greater than the weight.",
+   "fix": "Say that N equals weight when vertical acceleration is zero and weight and the normal force are the only vertical forces."
+  },
+  {
+   "question": "q-physics-dynamics-0026",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This uses $m(g-a)$, which is for an elevator accelerating downward. Check the direction of the acceleration.",
+   "problem": "The 468 N note identifies the wrong formula and gives a check, but omits why subtraction looks right. A student may subtract because gravity points down while the elevator accelerates up.",
+   "fix": "Explain that the opposite directions of gravity and acceleration can tempt a student to subtract their sizes."
+  }
+ ]
+}

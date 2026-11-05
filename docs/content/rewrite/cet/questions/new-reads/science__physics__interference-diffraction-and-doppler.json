@@ -1,0 +1,142 @@
+{
+ "reader": "sol",
+ "verdict": "blocker",
+ "findings": [
+  {
+   "question": "q-physics-waves-and-sound-0023",
+   "severity": "Major",
+   "field": "explanation",
+   "quote": "The wider openings let the wave go mostly straight.",
+   "problem": "This sentence discusses the three wrong choices. The requested explanation must explain only why the correct answer is correct.",
+   "fix": "Delete this sentence; keep the comparison of the 0.40 m opening with the 0.50 m wavelength."
+  },
+  {
+   "question": "q-physics-waves-and-sound-0023",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This opening is forty wavelengths wide. The wave passes through with very little spreading. Check how the opening compares with the wavelength.",
+   "problem": "The note for the 20 m opening states correct facts and a check, but never names the mistaken reasoning or explains its appeal. For example, a student may confuse more sound passing through a large opening with greater spreading.",
+   "fix": "Name that confusion, explain why a large opening seems attractive, and retain the wavelength comparison check."
+  },
+  {
+   "question": "q-physics-waves-and-sound-0024",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This finds the wavelength wrongly. The path difference is $0.25$ m and the wavelength is $0.50$ m. Check the ratio of the two.",
+   "problem": "The note for the loud-sound/one-wavelength choice gives the correct numbers but does not explain why the choice looks right. Its appeal is that a full wavelength really would give constructive interference; the student has mislabeled the path difference.",
+   "fix": "Explain that the constructive-interference rule is valid but the path difference was incorrectly treated as a full wavelength; keep the ratio check."
+  },
+  {
+   "question": "q-physics-waves-and-sound-0026",
+   "severity": "Blocker",
+   "field": "note",
+   "quote": "This is the case for a listener moving toward the speaker. Both are Doppler shifts. Check the direction of the walk.",
+   "problem": "This endorses the entire higher-pitch/packed-crests choice for a moving listener. With a stationary speaker, walking toward it increases the rate of meeting crests but does not pack the crests closer together in the air. The wavelength stays fixed in both walking directions.",
+   "fix": "Say that moving toward the speaker raises the heard pitch by increasing the encounter rate, while crest spacing in the air stays fixed."
+  },
+  {
+   "question": "q-physics-waves-and-sound-0027",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This adds the source speed to the frequency. Both numbers have different units, so they cannot be added. Check that the formula uses the ratio $\\dfrac{v}{v-v_s}$.",
+   "problem": "The 530 Hz note names the operation and gives a check but omits why it seems reasonable. A student may know approach raises pitch and assume adding the source-speed number gives that rise.",
+   "fix": "Add that the expected rise makes simple addition tempting, then retain the units and ratio checks."
+  },
+  {
+   "question": "q-physics-waves-and-sound-0027",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This subtracts the source speed from the frequency. It lowers the answer when the pitch should rise. Check the direction of the shift for an approaching source.",
+   "problem": "The 470 Hz note identifies the mistake and direction check but omits its appeal. A student may transfer the subtraction in v minus source speed directly to the frequency.",
+   "fix": "Explain that confusion between subtracting speeds in the denominator and subtracting from frequency makes this answer tempting."
+  },
+  {
+   "question": "q-physics-waves-and-sound-0030",
+   "severity": "Major",
+   "field": "note",
+   "quote": "The formula needs $v_s<v$. If $v_s>v$, the denominator would be negative. Check the speed condition in the lesson.",
+   "problem": "The supersonic-source note gives a restriction and a check but does not identify why the situation seems to fit. The source still moves straight toward a resting listener, matching the other conditions.",
+   "fix": "Say that matching the motion and listener conditions can hide the overlooked subsonic restriction."
+  },
+  {
+   "question": "q-physics-waves-and-sound-0031",
+   "severity": "Blocker",
+   "field": "note",
+   "quote": "This divides the source speed by the frequency. That is the distance the source moves in one period. Check that the wavelength in front is $v$ minus this distance, divided by $f$.",
+   "problem": "The final sentence subtracts a distance from speed v, then divides by frequency. That is dimensionally invalid. Here the source travels 0.05 m per period, so the wavelength is 0.85 m minus 0.05 m, or (340-20)/400 m, not (340-0.05)/400.",
+   "fix": "Replace the final check with: subtract the source speed from the sound speed, then divide by the frequency; equivalently, subtract the source travel per period from v/f."
+  },
+  {
+   "question": "q-physics-waves-and-sound-0032",
+   "severity": "Major",
+   "field": "explanation",
+   "quote": "Only waves add and cancel when they overlap, and only waves spread at edges and openings.",
+   "problem": "The second absolute is false as written: ordinary streams of water or particles can fan out at an opening without that spreading being wave diffraction. The evidence is the specific interference and diffraction behavior, not every kind of spreading.",
+   "fix": "Write: Interference and diffraction are wave behaviors. Light shows both, so these observations are evidence that it behaves as a wave."
+  },
+  {
+   "question": "q-physics-waves-and-sound-0032",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This compares two speeds. A fast speed is not specific to waves. Check whether the observation shows adding or spreading.",
+   "problem": "The faster-than-sound note identifies the comparison and a check but omits why it looks like evidence. A student may assume that comparing light with a known wave, sound, establishes the same kind of behavior.",
+   "fix": "Add that comparing light with sound can seem to establish wave behavior, although speed alone does not establish it."
+  },
+  {
+   "question": "q-physics-waves-and-sound-0033",
+   "severity": "Blocker",
+   "field": "explanation",
+   "quote": "A wave spreads most when the opening is about as wide as the wavelength.",
+   "problem": "This incorrectly makes equal opening width and wavelength a universal maximum. With the same 2.0 m wavelength, an opening much wider than the wavelength becomes more strongly diffracting as it narrows, and strong spreading also occurs for openings narrower than 2.0 m. Matching the wavelength is not a unique optimum.",
+   "fix": "Say that spreading is strong when the opening is about one wavelength wide or narrower, and that 2.0 m gives the strongest spreading among the listed openings."
+  },
+  {
+   "question": "q-physics-waves-and-sound-0033",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This opening is five wavelengths wide. It lets the wave go mostly straight. Check the wavelength first, using $\\lambda=\\dfrac{v}{f}$.",
+   "problem": "The 10 m note gives the correct comparison and a check but names no misconception or reason the choice looks right. A student may confuse a larger opening transmitting more sound with stronger diffraction.",
+   "fix": "Name that confusion and explain its appeal before the wavelength check."
+  },
+  {
+   "question": "q-physics-waves-and-sound-0033",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This opening is ten wavelengths wide. The wave passes with very little spreading. Check how the opening compares with the wavelength.",
+   "problem": "The 20 m note states correct facts and a check but does not name the mistake or its appeal. Choosing the largest opening can come from assuming the widest opening produces the widest angular spread.",
+   "fix": "Explain that tempting but reversed width-to-spreading assumption and retain the wavelength comparison check."
+  },
+  {
+   "question": "q-physics-waves-and-sound-0034",
+   "severity": "Major",
+   "field": "explanation",
+   "quote": "A quiet sound needs a path difference of $\\dfrac{\\lambda}{2}=1.0$ m. So speaker B must be $10.0+1.0=11.0$ m away.",
+   "problem": "The words needs and must make the half-wavelength condition exclusive. The lesson also allows odd multiples of half a wavelength. For wavelength 2.0 m, distances of 9.0 m or 13.0 m from B also give destructive interference with the stated 10.0 m distance from A, when the geometry permits them. The keyed choice is still the only suitable listed distance.",
+   "fix": "Say that 11.0 m gives a 1.0 m path difference, which is half a wavelength and therefore produces destructive interference; avoid claiming it is the only possible distance."
+  },
+  {
+   "question": "q-physics-waves-and-sound-0034",
+   "severity": "Major",
+   "field": "note",
+   "quote": "The path difference is $2.0$ m, which is one wavelength. A whole wavelength gives a loud sound. Check the wavelength, $\\lambda=2.0$ m, first.",
+   "problem": "The 12.0 m note supplies the correct calculation and check but never names why someone would select it. A student may assume any nonzero path difference causes cancellation, including one full wavelength.",
+   "fix": "Name that misconception, explain that the unequal distances make cancellation seem plausible, and keep the full-wavelength check."
+  },
+  {
+   "question": "q-physics-waves-and-sound-0035",
+   "severity": "Blocker",
+   "field": "stem",
+   "quote": "A siren of 600 Hz moves at 34 m/s in still air where sound travels at 340 m/s. A stationary listener hears it first as it approaches and then as it recedes. Which pair of changes from 600 Hz is correct?",
+   "problem": "The numerical key assumes straight motion directly toward and directly away from the listener, which the stem does not specify. A source can approach and recede along a road beside the listener: its radial speed then varies. At an emission angle of 60 degrees, the relevant component is 17 m/s, giving about 632 Hz on approach rather than 667 Hz. The supplied speed alone does not fix the shifts.",
+   "fix": "Specify that the source moves directly toward the listener and directly away at 34 m/s in the two cases being compared."
+  },
+  {
+   "question": "q-physics-waves-and-sound-0035",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This uses the source speed as the change in frequency. The numbers have different units. Check the approach and recession formulas.",
+   "problem": "The 34 Hz note names the units mistake and gives a check but omits why it seems right. A student may assume that the same source speed causes an equally large numerical pitch change in each direction.",
+   "fix": "Explain that tempting one-for-one numerical link between source speed and pitch change, then retain the units and formula checks."
+  }
+ ]
+}

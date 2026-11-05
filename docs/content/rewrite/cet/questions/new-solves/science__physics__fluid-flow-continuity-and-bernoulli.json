@@ -1,0 +1,187 @@
+{
+  "file_id": "science__physics__fluid-flow-continuity-and-bernoulli",
+  "source": "content/questions/science/physics/fluid-flow-continuity-and-bernoulli.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-physics-fluid-mechanics-0006",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Bernoulli’s equation gives lower static pressure at higher speed at equal height."
+    },
+    {
+      "n": 2,
+      "id": "q-physics-fluid-mechanics-0007",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The greater pressure below produces an upward force."
+    },
+    {
+      "n": 3,
+      "id": "q-physics-fluid-mechanics-0010",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Height and the conditions required for Bernoulli’s equation also matter."
+    },
+    {
+      "n": 4,
+      "id": "q-physics-fluid-mechanics-0020",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The pressure drop is 0.5 × 1000 × (16 − 4) = 6000 Pa."
+    },
+    {
+      "n": 5,
+      "id": "q-physics-fluid-flow-continuity-and-bernoulli-0001",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Conservation of volume flow requires greater speed through a smaller area."
+    },
+    {
+      "n": 6,
+      "id": "q-physics-fluid-flow-continuity-and-bernoulli-0002",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Volume flow rate is volume passing a location per unit time."
+    },
+    {
+      "n": 7,
+      "id": "q-physics-fluid-flow-continuity-and-bernoulli-0003",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "One-half density times speed squared is kinetic energy per unit volume."
+    },
+    {
+      "n": 8,
+      "id": "q-physics-fluid-flow-continuity-and-bernoulli-0004",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Continuity gives 1.5 × 6.0 / 2.0 = 4.5 m/s."
+    },
+    {
+      "n": 9,
+      "id": "q-physics-fluid-flow-continuity-and-bernoulli-0005",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Halving the diameter quarters the area and quadruples the speed to 12 m/s."
+    },
+    {
+      "n": 10,
+      "id": "q-physics-fluid-flow-continuity-and-bernoulli-0006",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The wider section has lower speed and higher static pressure."
+    },
+    {
+      "n": 11,
+      "id": "q-physics-fluid-flow-continuity-and-bernoulli-0007",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "In ideal horizontal pipe flow the lower pressure corresponds to higher speed."
+    },
+    {
+      "n": 12,
+      "id": "q-physics-fluid-flow-continuity-and-bernoulli-0008",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "A cubic meter has kinetic energy 0.5 × 1000 × 3.0² = 4500 J."
+    },
+    {
+      "n": 13,
+      "id": "q-physics-fluid-flow-continuity-and-bernoulli-0009",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The simple Bernoulli relation applies to steady incompressible nonviscous flow along a streamline."
+    },
+    {
+      "n": 14,
+      "id": "q-physics-fluid-flow-continuity-and-bernoulli-0010",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The pump supplies energy that must be included in the energy balance."
+    },
+    {
+      "n": 15,
+      "id": "q-physics-fluid-flow-continuity-and-bernoulli-0011",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Constant area preserves speed while increased height lowers static pressure."
+    },
+    {
+      "n": 16,
+      "id": "q-physics-fluid-flow-continuity-and-bernoulli-0012",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Viscous dissipation reduces mechanical energy and causes the pressure drop."
+    },
+    {
+      "n": 17,
+      "id": "q-physics-fluid-flow-continuity-and-bernoulli-0013",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Continuity gives 4.0 m/s and Bernoulli gives 300000 − 6000 − 19600 = 274400 Pa."
+    },
+    {
+      "n": 18,
+      "id": "q-physics-fluid-flow-continuity-and-bernoulli-0014",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The speed rises to 4.0 m/s and the pressure falls by 7500 Pa to 142500 Pa."
+    },
+    {
+      "n": 19,
+      "id": "q-physics-fluid-flow-continuity-and-bernoulli-0015",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Bernoulli gives v₂² = 2.0² + 2 × 6000 / 1000 = 16, so v₂ = 4.0 m/s."
+    },
+    {
+      "n": 20,
+      "id": "q-physics-fluid-flow-continuity-and-bernoulli-0016",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The filling time is 0.030 / (0.00050 × 3.0) = 20 seconds."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

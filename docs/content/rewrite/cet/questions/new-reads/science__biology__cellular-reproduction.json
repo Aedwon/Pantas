@@ -1,0 +1,38 @@
+{
+ "reader": "sol",
+ "verdict": "blocker",
+ "findings": [
+  {
+   "question": "q-biology-cellular-reproduction-0021",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "They are the two identical copies of one chromosome, joined at the centromere.",
+   "problem": "This presents identical DNA as an unconditional property of sister chromatids. As the lesson explains, crossing over can leave sister chromatids with different DNA, and copying errors can also make them differ. The explanation repeats the unqualified claim.",
+   "fix": "Limit the stem to a cell preparing for mitosis with no DNA-copying errors, or qualify the choice and explanation with \"usually identical.\""
+  },
+  {
+   "question": "q-biology-cellular-reproduction-0026",
+   "severity": "Major",
+   "field": "explanation",
+   "quote": "In animal cells, the membrane pinches inward instead.",
+   "problem": "This discusses the wrong choice about a membrane pinching inward. The requested explanation must explain only the correct answer.",
+   "fix": "Remove this sentence. Explain that the cell plate forms across the middle and develops into the wall separating the daughter cells."
+  },
+  {
+   "question": "q-biology-cellular-reproduction-0027",
+   "severity": "Major",
+   "field": "explanation",
+   "quote": "The other parts of interphase lead toward division.",
+   "problem": "This discusses the three wrong choices collectively: G1, G2, and S phase. The requested explanation must explain only why G0 is correct.",
+   "fix": "Delete this sentence and retain the explanation of the non-dividing G0 state."
+  },
+  {
+   "question": "q-biology-cellular-reproduction-0029",
+   "severity": "Blocker",
+   "field": "explanation",
+   "quote": "Mitosis copies DNA with high accuracy.",
+   "problem": "Mitosis separates copied chromosomes; DNA replication occurs earlier, during S phase. For example, a cell entering metaphase has already copied its DNA and does not copy it during mitosis.",
+   "fix": "Replace with \"DNA is copied before mitosis. Copying errors can change the DNA, and chromosomes can sometimes be sorted incorrectly during mitosis.\""
+  }
+ ]
+}

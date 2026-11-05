@@ -1,0 +1,30 @@
+{
+ "reader": "sol",
+ "verdict": "major",
+ "findings": [
+  {
+   "question": "q-physics-fluid-flow-continuity-and-bernoulli-0009",
+   "severity": "Major",
+   "field": "explanation",
+   "quote": "It also needs both points to be on the same streamline.",
+   "problem": "This states the same-streamline condition as an absolute necessity. In steady, incompressible, nonviscous, irrotational flow, the Bernoulli constant is the same across different streamlines too. Uniform horizontal ideal flow is a concrete example. The listed answer gives sufficient conditions, but the explanation overstates them.",
+   "fix": "Say that applying the equation along one streamline guarantees the comparison under the stated assumptions; comparisons across streamlines need additional conditions. Qualify the corresponding wrong-choice note too."
+  },
+  {
+   "question": "q-physics-fluid-flow-continuity-and-bernoulli-0016",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This divides the volume by the area only. The speed of the water is left out. Check that the flow rate is area times speed.",
+   "problem": "The note for 60 s names the mistake and gives a check, but never explains why dividing volume by area might look right. Repeating that speed was omitted does not supply that explanation.",
+   "fix": "Add that dividing by the pipe area may seem to account for how much water can pass, but area alone gives no amount per second."
+  },
+  {
+   "question": "q-physics-fluid-flow-continuity-and-bernoulli-0016",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This divides the volume by the speed only. The area is left out. Check that the volume flow rate needs the area.",
+   "problem": "The note for 0.010 s names the mistake and gives a check, but omits why the method looks right. A student may remember that time is distance divided by speed and mistakenly use volume as distance.",
+   "fix": "Add the mistaken connection to time = distance divided by speed, then explain that bucket volume must instead be divided by volume per second."
+  }
+ ]
+}

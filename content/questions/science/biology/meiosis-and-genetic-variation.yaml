@@ -253,8 +253,7 @@ questions:
         rationale: |
           This is one allele. A gamete carries one allele, so a single letter can seem right. Check that a diploid cell has two alleles of the gene.
     explanation: |
-      Heterozygous means the two alleles are different. $Aa$ has one $A$ and one $a$. A pair of matching alleles, such as $AA$, is homozygous.
-    approved: false
+      Heterozygous means the two alleles are different. $Aa$ has one $A$ and one $a$.    approved: false
 
   - id: q-biology-meiosis-and-genetic-variation-0002
     type: "simple-quantitative"
@@ -358,14 +357,14 @@ questions:
         rationale: |
           The homologs pair up side by side here, so the pairs seem to fit. They do not line up at the middle yet. Check whether the pairs are lined up at the middle.
     explanation: |
-      In metaphase I, the homologous pairs line up at the middle as pairs. In mitosis and metaphase II, the chromosomes line up in single file. So this stage is metaphase I.
+      In metaphase I, the homologous pairs line up at the middle as pairs. The two pairs described match this stage. So this stage is metaphase I.
     approved: false
 
   - id: q-biology-meiosis-and-genetic-variation-0007
     type: "predict-outcome"
     difficulty: "hard"
     stem: |
-      Two genes are close together on one chromosome. One homolog carries $A$ and $B$, and the other homolog carries $a$ and $b$. Which gamete can form only if crossing over happens between the genes?
+      Two genes are close together on one chromosome. One homolog carries $A$ and $B$, and the other homolog carries $a$ and $b$. Which new allele combination can crossing over between the genes produce in a gamete from these homologs?
     choices:
       - text: "$Ab$"
         correct: true
@@ -377,9 +376,9 @@ questions:
           This is the other chromosome as it already exists. The gene letters look like a mix. Check whether this chromosome needs any swapping.
       - text: "$AaBb$"
         rationale: |
-          This is a diploid genotype. A gamete is haploid and carries one allele of each gene. Check that a gamete does not carry both alleles of a gene.
+          This is a diploid genotype. Carrying all the parent's alleles can seem necessary to pass on both genes. A gamete is haploid and carries one allele of each gene. Check that a gamete does not carry both alleles of a gene.
     explanation: |
-      Without crossing over, the gametes are $AB$ and $ab$, because each chromosome goes in as it is. Crossing over swaps pieces between the homologs. Then a chromosome can carry $A$ with $b$, which gives the gamete $Ab$.
+      Crossing over swaps pieces of DNA between the homologs, between the two genes. Then one chromosome can carry $A$ with $b$. That chromosome gives the gamete $Ab$.
     approved: false
 
   - id: q-biology-meiosis-and-genetic-variation-0008
@@ -395,7 +394,7 @@ questions:
           This keeps the alleles together as they appear in the genotype. The letters are written side by side, so they seem linked. Check whether the genes are on different pairs.
       - text: "$Aa$ and $Bb$"
         rationale: |
-          These show two alleles of the same gene together. A gamete is haploid, so it carries one allele of each gene. Check how many alleles of a gene a gamete carries.
+          Splitting the written genotype into $Aa$ and $Bb$ can look like dividing the genetic material into two gametes. These show two alleles of the same gene together. A gamete is haploid, so it carries one allele of each gene. Check how many alleles of a gene a gamete carries.
       - text: "$AaBb$"
         rationale: |
           This is the genotype of the parent cell. The question asks for gametes, and a gamete is haploid. Check that a gamete does not carry both alleles of a gene.

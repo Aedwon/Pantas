@@ -1,0 +1,22 @@
+{
+ "reader": "sol",
+ "verdict": "major",
+ "findings": [
+  {
+   "question": "q-biology-human-anatomy-physiology-0023",
+   "severity": "Major",
+   "field": "explanation",
+   "quote": "The pulmonary veins carry oxygen-rich blood back.",
+   "problem": "This sentence discusses the pulmonary-vein distractor. The requested explanation must explain only why the correct answer is correct; discussion of a wrong choice belongs in its own note.",
+   "fix": "Delete this sentence. Keep the explanation of arteries carrying blood away and pulmonary arteries carrying oxygen-poor blood to the lungs."
+  },
+  {
+   "question": "q-biology-human-anatomy-physiology-0027",
+   "severity": "Major",
+   "field": "note",
+   "quote": "Check whether the fact names an organ outside the urinary system.",
+   "problem": "All three wrong-choice notes use this check, but the student claims that only the kidneys excrete wastes, not that only the urinary system does. Membership in the urinary system does not establish that an organ is a kidney: the bladder and ureters are concrete counterexamples. Their notes should explain that storage and transport alone do not demonstrate another organ removing metabolic wastes. The nephron note should identify reabsorption as returning useful substances rather than removing waste.",
+   "fix": "Change the student\u2019s claim in the stem to say that the urinary system is the only system that excretes wastes, so the existing outside-the-urinary-system checks address the claim."
+  }
+ ]
+}

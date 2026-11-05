@@ -1,0 +1,187 @@
+{
+  "file_id": "science__biology__cellular-reproduction",
+  "source": "content/questions/science/biology/cellular-reproduction.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-biology-cellular-reproduction-0004",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Mitosis and cytokinesis produce two daughter cells with 46 chromosomes each."
+    },
+    {
+      "n": 2,
+      "id": "q-biology-cellular-reproduction-0005",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Chromosomes align at the cell's equator during metaphase."
+    },
+    {
+      "n": 3,
+      "id": "q-biology-cellular-reproduction-0006",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Chromosome condensation and initial spindle formation occur in prophase."
+    },
+    {
+      "n": 4,
+      "id": "q-biology-cellular-reproduction-0007",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Sister chromatids separate and move toward opposite poles during anaphase."
+    },
+    {
+      "n": 5,
+      "id": "q-biology-cellular-reproduction-0008",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Nuclear envelopes re-form around the chromosome sets during telophase."
+    },
+    {
+      "n": 6,
+      "id": "q-biology-cellular-reproduction-0009",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The nuclei divided by mitosis while the cytoplasm remained undivided."
+    },
+    {
+      "n": 7,
+      "id": "q-biology-cellular-reproduction-0012",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Metaphase alignment precedes anaphase separation."
+    },
+    {
+      "n": 8,
+      "id": "q-biology-cellular-reproduction-0014",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The order is prophase, metaphase, anaphase, then telophase."
+    },
+    {
+      "n": 9,
+      "id": "q-biology-cellular-reproduction-0016",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "DNA replication occurs during S phase."
+    },
+    {
+      "n": 10,
+      "id": "q-biology-cellular-reproduction-0021",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Sister chromatids are replicated copies of one chromosome joined at the centromere."
+    },
+    {
+      "n": 11,
+      "id": "q-biology-cellular-reproduction-0022",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "At metaphase, each of the 46 chromosomes has two chromatids, totaling 92."
+    },
+    {
+      "n": 12,
+      "id": "q-biology-cellular-reproduction-0023",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Separated chromatids count as chromosomes, giving 92 across the whole undivided cell."
+    },
+    {
+      "n": 13,
+      "id": "q-biology-cellular-reproduction-0024",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "A haploid cell has one complete chromosome set."
+    },
+    {
+      "n": 14,
+      "id": "q-biology-cellular-reproduction-0025",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Mitosis preserves chromosome number and cytokinesis produces two cells."
+    },
+    {
+      "n": 15,
+      "id": "q-biology-cellular-reproduction-0026",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "A cell plate forms between the daughter cells and develops into the separating wall."
+    },
+    {
+      "n": 16,
+      "id": "q-biology-cellular-reproduction-0027",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Nondividing cells can occupy the quiescent G0 state."
+    },
+    {
+      "n": 17,
+      "id": "q-biology-cellular-reproduction-0028",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Spindle fibers attach at centromeric kinetochores and move chromosomes."
+    },
+    {
+      "n": 18,
+      "id": "q-biology-cellular-reproduction-0029",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Mutations and chromosome segregation errors can create genetic differences."
+    },
+    {
+      "n": 19,
+      "id": "q-biology-cellular-reproduction-0030",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Homologous chromosomes carry corresponding genes but can have different alleles."
+    },
+    {
+      "n": 20,
+      "id": "q-biology-cellular-reproduction-0031",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The standard sequence is G1, S, G2, mitosis, then completion of cytokinesis."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

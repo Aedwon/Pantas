@@ -201,7 +201,7 @@ questions:
     type: "classify"
     difficulty: "easy"
     stem: |
-      Which statement correctly describes sister chromatids?
+      Which statement correctly describes sister chromatids in a cell that has copied its DNA without errors before mitosis?
     choices:
       - text: "They are the two identical copies of one chromosome, joined at the centromere."
         correct: true
@@ -215,7 +215,7 @@ questions:
         rationale: |
           Sisters seem to mean two cells that came from one. Chromatids are parts of a chromosome. Check whether the term names cells or copies of DNA.
     explanation: |
-      Before a cell divides, it copies each chromosome. The two identical copies stay joined at the centromere. Each copy is a sister chromatid.
+      Before a cell divides, it copies each chromosome. If the copying has no errors, the two copies are identical. They stay joined at the centromere. Each copy is a sister chromatid.
     approved: false
 
   - id: q-biology-cellular-reproduction-0022
@@ -320,7 +320,7 @@ questions:
         rationale: |
           New nuclear envelopes form at the end of mitosis, so this seems to fit. They divide the nucleus, not the cytoplasm. Check which process this part of the question describes.
     explanation: |
-      In plant cells, a new cell wall called the cell plate forms across the middle. It divides the cytoplasm into two cells. In animal cells, the membrane pinches inward instead.
+      In plant cells, a new cell wall called the cell plate forms across the middle. It divides the cytoplasm into two cells.
     approved: false
 
   - id: q-biology-cellular-reproduction-0027
@@ -341,7 +341,7 @@ questions:
         rationale: |
           This is the part of interphase where DNA is copied. A cell in S phase is preparing to divide. Check whether the cell is resting.
     explanation: |
-      Not every cell is always cycling. Many specialized cells rest in a non-dividing state called $G_0$. The other parts of interphase lead toward division.
+      Not every cell is always cycling. Many specialized cells rest in a non-dividing state called $G_0$.
     approved: false
 
   - id: q-biology-cellular-reproduction-0028
@@ -383,7 +383,7 @@ questions:
         rationale: |
           Copying and dividing are linked, so the order seems flexible. Copying happens in S phase, before mitosis. Check when the DNA is copied.
     explanation: |
-      Mitosis copies DNA with high accuracy. A mutation or a chromosome-sorting error can still happen. So the daughter cells are almost, but not always exactly, the same as the parent cell.
+      DNA is copied before mitosis. Copying errors can change the DNA, and chromosomes can sometimes be sorted incorrectly during mitosis. So the daughter cells are almost, but not always exactly, the same as the parent cell.
     approved: false
 
   - id: q-biology-cellular-reproduction-0030

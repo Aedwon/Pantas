@@ -1,0 +1,27 @@
+{
+ "file": "science__physics__fluid-flow-continuity-and-bernoulli",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-physics-fluid-flow-continuity-and-bernoulli-0009",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Reworded the explanation so one streamline is how the comparison is guaranteed, and added the extra-conditions point to the different-streamlines note."
+  },
+  {
+   "question": "q-physics-fluid-flow-continuity-and-bernoulli-0016",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Added why dividing volume by area looks right to the 60 s note."
+  },
+  {
+   "question": "q-physics-fluid-flow-continuity-and-bernoulli-0016",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Added the time = distance divided by speed confusion to the 0.010 s note."
+  }
+ ]
+}

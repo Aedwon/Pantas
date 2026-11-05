@@ -1,0 +1,13 @@
+{
+ "file": "science__biology__cellular-respiration-and-fermentation",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-biology-cellular-respiration-and-fermentation-0006",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Two notes now say why each wrong choice looks right (aerobic oxygen need, muscle lactate)."
+  }
+ ]
+}

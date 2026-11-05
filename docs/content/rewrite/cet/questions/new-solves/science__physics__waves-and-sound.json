@@ -1,0 +1,187 @@
+{
+  "file_id": "science__physics__waves-and-sound",
+  "source": "content/questions/science/physics/waves-and-sound.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-physics-waves-and-sound-0001",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Speed is frequency times wavelength: 5 × 2 = 10 m/s."
+    },
+    {
+      "n": 2,
+      "id": "q-physics-waves-and-sound-0002",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Wavelength is speed divided by frequency: 340/170 = 2 m."
+    },
+    {
+      "n": 3,
+      "id": "q-physics-waves-and-sound-0003",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Frequency is speed divided by wavelength: 300/5 = 60 Hz."
+    },
+    {
+      "n": 4,
+      "id": "q-physics-waves-and-sound-0004",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Sound propagates through vibrations of particles in a material medium."
+    },
+    {
+      "n": 5,
+      "id": "q-physics-waves-and-sound-0005",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Electromagnetic fields can propagate through vacuum."
+    },
+    {
+      "n": 6,
+      "id": "q-physics-waves-and-sound-0006",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Adjacent points in the same phase are one wavelength apart."
+    },
+    {
+      "n": 7,
+      "id": "q-physics-waves-and-sound-0007",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Perpendicular displacement defines a transverse wave."
+    },
+    {
+      "n": 8,
+      "id": "q-physics-waves-and-sound-0008",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Parallel oscillations and compressions characterize a longitudinal wave."
+    },
+    {
+      "n": 9,
+      "id": "q-physics-waves-and-sound-0011",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Ordinary sound requires a material medium to propagate."
+    },
+    {
+      "n": 10,
+      "id": "q-physics-waves-and-sound-0012",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Sound in air is longitudinal while the specified string disturbance is transverse."
+    },
+    {
+      "n": 11,
+      "id": "q-physics-waves-and-sound-0016",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Hertz measures frequency in cycles per second."
+    },
+    {
+      "n": 12,
+      "id": "q-physics-waves-and-sound-0017",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Doubling amplitude multiplies its square, and hence power, by four."
+    },
+    {
+      "n": 13,
+      "id": "q-physics-waves-and-sound-0018",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Sound speed depends on the medium and its physical state."
+    },
+    {
+      "n": 14,
+      "id": "q-physics-waves-and-sound-0019",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "At fixed frequency, wavelength changes in proportion to speed."
+    },
+    {
+      "n": 15,
+      "id": "q-physics-waves-and-sound-0020",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Light involves oscillating fields while a string wave involves oscillating matter."
+    },
+    {
+      "n": 16,
+      "id": "q-physics-waves-and-sound-0041",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Frequency is the reciprocal of period: 1/0.25 = 4 Hz."
+    },
+    {
+      "n": 17,
+      "id": "q-physics-waves-and-sound-0042",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Increased amplitude increases loudness while unchanged frequency preserves pitch."
+    },
+    {
+      "n": 18,
+      "id": "q-physics-waves-and-sound-0043",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Frequency remains 500 Hz, so the water wavelength is 1480/500 = 2.96 m."
+    },
+    {
+      "n": 19,
+      "id": "q-physics-waves-and-sound-0044",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Frequency increases from radio through infrared and ultraviolet to gamma rays."
+    },
+    {
+      "n": 20,
+      "id": "q-physics-waves-and-sound-0045",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Longitudinal P waves travel faster than transverse S waves."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

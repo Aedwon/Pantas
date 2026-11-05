@@ -1,0 +1,41 @@
+{
+ "file": "science__biology__cellular-metabolism",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-biology-cellular-metabolism-0022",
+   "severity": "Blocker",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Note no longer says making a bond takes energy; it says the whole ATP to ADP reaction releases energy."
+  },
+  {
+   "question": "q-biology-cellular-metabolism-0024",
+   "severity": "Blocker",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Explanation drops the wrong-choice sentence and the chains-or-rings definition; notes now say carbon-based molecule such as a sugar, fat, or protein."
+  },
+  {
+   "question": "q-biology-cellular-metabolism-0029",
+   "severity": "Blocker",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Changed to no membrane-bound organelles."
+  },
+  {
+   "question": "q-biology-cellular-metabolism-0032",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Explanation now says fungi and algae have cells with a nucleus and drops the prokaryote sentence."
+  },
+  {
+   "question": "q-biology-cellular-metabolism-0034",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Note now says why NADPH looks like water splitting and gives an electron-carrying check."
+  }
+ ]
+}

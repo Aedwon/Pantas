@@ -1,0 +1,48 @@
+{
+ "file": "science__physics__dynamics",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-physics-dynamics-0021",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Added why adding the two 80 N forces looks right."
+  },
+  {
+   "question": "q-physics-dynamics-0025",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Added why a stronger horse pull looks right."
+  },
+  {
+   "question": "q-physics-dynamics-0025",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Added the action/reaction time-sequence wording to the delayed-reaction note."
+  },
+  {
+   "question": "q-physics-dynamics-0025",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Named the inertia misuse in the less-inertia note."
+  },
+  {
+   "question": "q-physics-dynamics-0026",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Gave the conditions for N equal to weight in the 588 N note."
+  },
+  {
+   "question": "q-physics-dynamics-0026",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Added why subtracting looks right to the 468 N note."
+  }
+ ]
+}

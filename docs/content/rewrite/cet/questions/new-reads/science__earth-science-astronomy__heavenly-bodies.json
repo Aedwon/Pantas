@@ -1,0 +1,14 @@
+{
+ "reader": "sol",
+ "verdict": "major",
+ "findings": [
+  {
+   "question": "q-earth-science-astronomy-heavenly-bodies-0021",
+   "severity": "Major",
+   "field": "explanation",
+   "quote": "This makes Venus the hottest planet, even though Mercury is closer to the Sun.",
+   "problem": "The comparison with Mercury explains why the closest-to-the-Sun distractor is wrong. The explanation must explain only the correct answer; distractor discussion belongs in its own note.",
+   "fix": "Remove the Mercury comparison: \"This trapped heat makes Venus the hottest planet.\""
+  }
+ ]
+}
