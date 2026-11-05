@@ -62,6 +62,8 @@ void main() {
       topicId: 'topic_algebra',
       topicName: 'Algebra',
       questionIds: ['q_1', 'q_2', 'q_3'],
+      lessonIds: ['l_1'],
+      questionLessonMap: {'q_1': 'l_1', 'q_2': 'l_1', 'q_3': 'l_1'},
     );
     await AssessmentRepository(db).saveResult(
       'exam_cse_pro',
@@ -82,6 +84,8 @@ void main() {
       topicId: 'topic_algebra',
       topicName: 'Algebra',
       questionIds: ['q_1'],
+      lessonIds: ['l_1'],
+      questionLessonMap: {'q_1': 'l_1'},
     );
     await AssessmentRepository(db).saveResult(
       'exam_cse_pro',

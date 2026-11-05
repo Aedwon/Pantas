@@ -391,6 +391,7 @@ class ReviewRow extends StatelessWidget {
                           Expanded(
                             child: ContentRenderer(
                               text: entry.label,
+                              questionStem: entry.labelIsStem,
                               maxLines: entry.labelIsStem ? 2 : null,
                             ),
                           ),

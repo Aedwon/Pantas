@@ -26,6 +26,7 @@ class QuestionCard extends StatelessWidget {
           const SizedBox(height: 8),
           ContentRenderer(
             text: stem,
+            questionStem: true,
             style: context.type.emphasized.copyWith(
               fontSize: figure == null ? 21 : 19,
               height: 1.35,

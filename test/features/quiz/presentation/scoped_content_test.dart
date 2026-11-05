@@ -50,11 +50,17 @@ void main() {
         name: entry.value,
         ordering: ordering++,
       );
+      await seedContentLesson(
+        contentDb,
+        lessonId: 'lesson_${entry.key}',
+        topicId: entry.key,
+      );
       for (var i = 1; i <= 5; i++) {
         await seedContentQuestion(
           contentDb,
           questionId: 'q_${entry.key}_$i',
           topicId: entry.key,
+          lessonId: 'lesson_${entry.key}',
           examId: 'exam_cse',
           stem: 'Question $i for ${entry.key}',
         );

@@ -957,6 +957,7 @@ class _MockReviewRow extends StatelessWidget {
                         children: [
                           ContentRenderer(
                             text: entry.label,
+                            questionStem: entry.labelIsStem,
                             maxLines: entry.labelIsStem ? 1 : null,
                           ),
                           if (!entry.isAnswered) ...[

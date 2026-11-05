@@ -37,6 +37,7 @@ class ContentRenderer extends StatelessWidget {
     this.maxLines,
     this.figureBuilder,
     this.readerFigures = false,
+    this.questionStem = false,
     super.key,
   }) : assert(blocks != null || text != null, 'Provide blocks or text.');
   final List<Map<String, Object?>>? blocks;
@@ -45,6 +46,19 @@ class ContentRenderer extends StatelessWidget {
   final int? maxLines;
   final Widget Function(BuildContext, Map<String, Object?>)? figureBuilder;
   final bool readerFigures;
+
+  /// Keeps authored bold words distinct from the rest of a question stem.
+  final bool questionStem;
+
+  bool get _hasStemBold =>
+      questionStem &&
+      (text == null ? blocks! : _parseTextToBlocks(text!)).any(
+        (block) => maps(block['children']).any(
+          (run) =>
+              run['marks'] is List<Object?> &&
+              (run['marks']! as List<Object?>).contains('strong'),
+        ),
+      );
   static List<Map<String, Object?>> _parseTextToBlocks(String text) {
     final children = <Map<String, Object?>>[];
     final markerBuffer = StringBuffer('\uE000');
@@ -249,6 +263,7 @@ class ContentRenderer extends StatelessWidget {
     List<Map<String, Object?>> runs,
     TextStyle type,
   ) {
+    final stemBold = _hasStemBold;
     final spans = <InlineSpan>[];
     final spoken = StringBuffer();
     var hasMath = false;
@@ -259,7 +274,9 @@ class ContentRenderer extends StatelessWidget {
           ? (run['marks']! as List<Object?>).whereType<String>().toSet()
           : <String>{};
       final runStyle = type.copyWith(
-        fontWeight: marks.contains('strong') ? FontWeight.w600 : null,
+        fontWeight: stemBold
+            ? (marks.contains('strong') ? FontWeight.w800 : FontWeight.w500)
+            : (marks.contains('strong') ? FontWeight.w600 : null),
         // Bold is a step brighter than body text in the reader.
         color: readerFigures && marks.contains('strong')
             ? context.colors.readerStrong
@@ -597,13 +614,21 @@ class ContentRenderer extends StatelessWidget {
     required bool numeric,
   }) {
     final cellStyle = context.type.subhead.copyWith(
-      fontWeight: header ? FontWeight.w600 : FontWeight.w400,
+      fontWeight: _hasStemBold
+          ? FontWeight.w500
+          : header
+              ? FontWeight.w600
+              : FontWeight.w400,
       fontFeatures: numeric ? const [FontFeature.tabularFigures()] : null,
     );
     // Bold and italic marks in a cell, as in `**$T$**`, need the same parsing
     // as a paragraph. Plain cells keep the lighter path.
     if (text.contains('*')) {
-      return ContentRenderer(text: text, style: cellStyle);
+      return ContentRenderer(
+        text: text,
+        style: cellStyle,
+        questionStem: questionStem,
+      );
     }
     return MathText(
       text,
