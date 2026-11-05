@@ -274,6 +274,9 @@ on the completed feature. The lead owns final combined verification. Follow
 `SUBAGENTS.md` for evidence, independent review, and content checks. Do not rerun
 unchanged full suites merely because the reviewer changed. Evidence must still
 apply to the actual inputs and acceptance object. Fixes require relevant new checks.
+When Aedwon rejects or corrects work, follow `docs/workflow/process-improvement.md` in
+the same turn: log it, and add a check that fails on the bad version. On code branches
+that have them, run `dart run tool/checks/run_checks.dart` before saying work is done.
 
 Approved release and high-risk verification requirements remain binding. This
 repository is public, so standard hosted runners are free: run full check sets on
