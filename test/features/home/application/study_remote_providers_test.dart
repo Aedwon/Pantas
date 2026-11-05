@@ -23,6 +23,48 @@ import '../../../helpers/in_memory_database.dart';
 import '../../../helpers/pump_app.dart';
 
 void main() {
+  test('a changed token fails the read in hand and renews the reader',
+      () async {
+    final db = inMemoryDatabase();
+    final content = inMemoryContentDatabase();
+    addTearDown(content.close);
+    addTearDown(db.close);
+    await SyncActiveContextStore(db).clearStable();
+    await AppPreferencesRepository(db).setSelectedExamId('e');
+    final container = ProviderContainer(
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(content),
+        authStateProvider.overrideWith(
+          (_) => Stream.value(const AuthState.anonymous(uid: 'u')),
+        ),
+        activeExamFocusProvider.overrideWith(
+          (_) async => ActiveExamFocus.selected(buildExam(id: 'e')),
+        ),
+      ],
+    );
+    addTearDown(container.dispose);
+    await container.read(authStateProvider.future);
+    await container.read(activeExamFocusProvider.future);
+    final hold = container.listen(
+      studySnapshotReaderProvider('e'),
+      (_, __) {},
+    );
+    addTearDown(hold.close);
+    final first = await container.read(studySnapshotReaderProvider('e').future);
+    expect(await first.request.isCurrent(), isTrue);
+
+    await SyncActiveContextStore(db).publishStable(
+      uid: 'u',
+      generationId: 'gen-1',
+    );
+
+    expect(await first.request.isCurrent(), isFalse);
+    final next = await container.read(studySnapshotReaderProvider('e').future);
+    expect(identical(next, first), isFalse);
+    expect(await next.request.isCurrent(), isTrue);
+  });
+
   for (final local in [true, false]) {
     test('missing settings recovers or opens exam onboarding: $local',
         () async {

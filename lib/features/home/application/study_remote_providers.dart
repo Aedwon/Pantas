@@ -62,8 +62,17 @@ final studySnapshotReaderProvider = FutureProvider.autoDispose
   final focus = await ref.watch(activeExamFocusProvider.future);
   if (focus.exam?.id != examId) throw StateError('Study exam changed');
   final db = ref.watch(appDatabaseProvider);
-  final guard =
+  final captured =
       await captureQuizLaunchGuard(ref, examId: examId, isAlive: () => alive);
+  // The token can change with no write this provider hears of, such as Sync
+  // publishing its context. The read in hand still fails, and the next one
+  // gets a new guard instead of failing the same way for good.
+  Future<bool> guard() async {
+    final current = await captured();
+    if (!current && alive) ref.invalidateSelf();
+    return current;
+  }
+
   final original = await SyncActiveContextStore(db).readSnapshot();
   if (!await guard()) throw StateError('Study owner changed');
   Future<bool>? repair;
