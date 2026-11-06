@@ -55,6 +55,13 @@ pass 15, retire or merge one first.
 Newest first. When this file passes about 120 lines, move the oldest closed entries to
 the current decision log.
 
+### Beta sign-in shipped broken: codes never sent, Google sign-in left the domain (Nov 6)
+
+- **His words:** "why does it do this unclean redirect" and "the reason i tried to sign in was because i couldn't manually use my own email". Then: "please note this problems on main first".
+- **What was wrong:** The email code sign-in was deployed to pantas-prod and announced as ready, but every code request failed. The callables consume App Check tokens, and the functions service account lacked `roles/firebaseappcheck.tokenVerifier`, so the server rejected every call with "We couldn't send the code." The beta access check has the same dependency. Separately, Google sign-in used `pantas-prod.firebaseapp.com` as the auth domain: Google's page said "continue to pantas-prod.firebaseapp.com", and inside Messenger's in-app browser the hand-off page stayed blank.
+- **Why the process let it through:** The deploy was gated on CI and unit tests only. Unit tests fake App Check and IAM, so a missing production permission cannot fail them. No live call was made against production after the deploy, and the custom domain was added without moving the auth domain to it. Aedwon had said he would do the visual check; that was read as covering whether the flow works at all.
+- **Fix:** (1) A check: a deploy preflight under `tool/checks/` that reads pantas-prod IAM and fails when a callable with `consumeAppCheckToken` is deployed without `roles/firebaseappcheck.tokenVerifier`, or `createCustomToken` without `roles/iam.serviceAccountTokenCreator`, on the functions service account. (2) A required step: after any production deploy that touches sign-in, beta access or a callable, the agent makes one live call against production (request a code to an owner test address) and confirms success before telling Aedwon it is ready. His visual check never replaces it. (3) The web auth domain is the custom domain on every hosted flavor.
+
 ### CSE showed the app's subjects, not the exam's parts (Nov 6)
 
 - **His words:** "is this the actual subjects of CSE Professional?"
