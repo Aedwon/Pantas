@@ -6,7 +6,7 @@
     "display": "standalone",
     "background_color": "#F5F5F7",
     "theme_color": "#F5F5F7",
-    "description": "Philippine exam reviewer.",
+    "description": "Your personal review companion for Philippine exams.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
