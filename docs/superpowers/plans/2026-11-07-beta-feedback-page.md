@@ -63,12 +63,25 @@ All callables: region `asia-southeast1`, App Check limited-use token, signed-in 
   content type, size <= 5 MB), idempotent by `feedbackId`, limit 40/day. Tests.
 - **S3** `recordBetaDay`, `getBetaReward`. Tests: outside window, duplicate date, 5-day count.
 - **S4** `submitBetaSurvey`. Tests: each field's validation, window edges, single submission.
-- **S5** `activateBetaReward` and the `beta_reward` grant: every exam, one calendar year, queued
-  after paid coverage via existing `stackable`/`reanchorQueued`, claims refreshed like
-  `betaPro.ts`, excluded from trial-eligibility counting like beta grants. Tests: not eligible
-  (days, survey), deadline, double activation, queued after an active paid grant, entitlement
-  covers every catalog exam, trial eligibility unchanged. If every-exam coverage needs a model
-  change, stop and report.
+- **S5** `activateBetaReward` and the reward grants. Lead ruling (Nov 7, after Codex found that
+  one tier grant cannot cover both NCE and the other tiers, `revenuecatCoverage.ts` `coversExam`):
+  the reward is **one grant per exam in the catalog at activation time**, at
+  `users/{uid}/grants/beta_reward_{examId}`, `source: 'beta_reward'`, `product: 'beta_reward'`,
+  `tier` = that exam's tier, `examId` set. Coverage treats `beta_reward` exactly like `beta`
+  (a per-exam pass in `passes`), so no tier or claims model change. Start per exam = max(now,
+  the latest end of live coverage that already covers that exam, excluding `beta` grants): paid
+  or trial tier coverage of equal or higher rank (NCE only by NCE), store subscriptions or
+  promotions, and passes for that exam. End = start + 1 calendar year in Asia/Manila. Make sure
+  entitlement claims become correct when a queued reward grant's start time arrives (follow how
+  queued paid grants get their claims refreshed; if nothing does, recompute on `getBetaReward`
+  and on `getWebEntitlement`, and say which). Exams added to the catalog after activation are not
+  covered; note that limit in a code comment. `beta_reward` grants do not count against
+  web-trial eligibility (same rule as `beta`). Add `'beta_reward'` to every source union
+  (`grants.ts`, `revenuecatCoverage.ts` `LedgerGrant`) and handle it wherever `'beta'` is
+  special-cased. Write all grants in one transaction with `state.activatedAt`; a second
+  activation returns the existing result. Tests: not eligible (days, survey), deadline, double
+  activation, queued after an active paid grant (start equals paid end), NCE and non-NCE exams
+  both covered, trial eligibility unchanged, claims after the queued start.
 - **S6** Rules: Firestore owner-read/no-write for `users/{uid}/betaFeedback/*` and
   `users/{uid}/betaReward/*`; Storage `betaFeedback/{uid}/{feedbackId}/{0|1|2}` owner create
   only, <= 5 MB, png/jpeg/webp, owner read. Rules tests in the existing style.
