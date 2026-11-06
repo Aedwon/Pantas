@@ -2566,3 +2566,7 @@ Beta selection (Aedwon, Nov 6): "Yes, select all". Eligible: not deleted, accept
 ## 6 November 2026: beta sign-in by email code
 
 Aedwon judged email links bad UX (they often open in another browser) and chose a 6-digit email code. Sign-in screens were redesigned in Claude Design ("Pantas beta sign-in" canvas: combined welcome plus email-first form, BETA mark, code states) and built in the app. Server: `requestSignInCode` and `verifySignInCode` (challenge-based, stand-in challenges when delivery is held back, per-IP, per-email and daily caps with a reserved allowance for selected testers, unverified or disabled accounts refused). Three Codex Astra audits and an automated review drove the hardening; accepted residual risks are in `docs/deploy-prod.md` section 11. Configured on pantas-prod: Token Creator role for the functions service account, `SIGN_IN_CODE_KEY` (generated unseen), Resend key (entered by Aedwon), guardian cap 20, sign-in open cap 20 and reserved cap 40. Deployed from `094261eb7` after CI. Not yet checked by eye in a browser; Aedwon does that check.
+
+## 6 November 2026: noted for later, do not fix until Aedwon says
+
+Study page (phone web): an opened subject's header stays pinned while scrolling, but it leaves a gap below the search bar and the next subject's rows show above it. Aedwon wants the opened panel to merge cleanly so it sits right under the search bar with no gaps. Reported with a screenshot on Nov 6; wait for his go-ahead.

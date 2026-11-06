@@ -55,6 +55,13 @@ pass 15, retire or merge one first.
 Newest first. When this file passes about 120 lines, move the oldest closed entries to
 the current decision log.
 
+### Home could not load the plan on first use (Nov 6)
+
+- **His words:** "when i finally got around to the Home for the first time, the screenshot shows what I encountered. please fix this" (Home showed "Could not load your plan." twice).
+- **What was wrong:** `getRoadmap` and `setExamSettings` run a range query on today's study history (`examId ==`, `occurredAt` range). Production had no composite index for it, so both failed with FAILED_PRECONDITION.
+- **Why the process let it through:** the Firestore emulator does not enforce composite indexes, so every local and CI test passed. The post-deploy live step added earlier the same day covered sign-in only, not reaching Home.
+- **Fix:** the index is added and deployed, and `test/tool/firebase_indexes_layout_test.dart` now requires it (it names this failure). Required step widened: after a production deploy, the live check goes through onboarding to Home with an owner test account, and the agent reads the production error log for `FAILED_PRECONDITION` before saying it is ready.
+
 ### Beta sign-in shipped broken: codes never sent, Google sign-in left the domain (Nov 6)
 
 - **His words:** "why does it do this unclean redirect" and "the reason i tried to sign in was because i couldn't manually use my own email". Then: "please note this problems on main first".
