@@ -244,8 +244,8 @@ class _OnboardingFrameState extends State<OnboardingFrame>
                   opacity: _fade,
                   child: OnboardingProgressBar(progress: spec.progress!),
                 ),
-              // Aedwon, Nov 6, 2026, over the boards' 4 px: the step title needs
-              // more room below the progress bar on a phone.
+              // Aedwon, Nov 6, 2026, over the boards' 4 px: the step title
+              // needs more room below the progress bar on a phone.
               if (spec.progress != null) const SizedBox(height: 16),
               Expanded(child: child),
             ],
