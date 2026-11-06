@@ -5,6 +5,7 @@ import {getAuth, type Auth} from 'firebase-admin/auth';
 import {HttpsError, onCall} from 'firebase-functions/v2/https';
 import {assertFreshAppCheck, enforceAppCheck} from './_appCheck.js';
 import {assertNamedUser} from './_audit.js';
+import {canonicalEmail} from './_email.js';
 import {allowAtMost} from './_limits.js';
 import {claimsFromInputs, entitlementWrite, readEntitlementInputs, type EntitlementInputs} from './entitlementInputs.js';
 import {DAY_MS, TRIAL_DAYS, TRIAL_PRODUCT, type Grant} from './grants.js';
@@ -18,21 +19,31 @@ export function identityMarkers(auth: Parameters<typeof assertNamedUser>[0], db:
   if (!key) throw new HttpsError('failed-precondition', 'Trial eligibility is unavailable.');
   const provider = auth?.token.firebase?.sign_in_provider;
   const identities = auth?.token.firebase?.identities as Record<string, unknown> | undefined;
-  const verifiedEmail = auth?.token.email_verified === true && typeof auth.token.email === 'string'
-    ? JSON.stringify(['email', auth.token.email.toLowerCase()]) : null;
+  // Both forms: the raw one keeps trials recorded before aliases were merged blocking, and the
+  // canonical one makes `a+x@` and `a.b@gmail.com` share a trial with `ab@gmail.com`.
+  const verifiedEmails = auth?.token.email_verified === true && typeof auth.token.email === 'string'
+    ? [auth.token.email.toLowerCase(), canonicalEmail(auth.token.email)]
+      .map(email => JSON.stringify(['email', email])) : [];
   const refused = () => new HttpsError('failed-precondition', 'A verified sign-in identity is required.');
   const values: string[] = [];
   if (provider === 'custom') {
     // Email code sign-in: the server proved the address, and there is no provider account id.
     // The email is then the only identity, so it must be verified.
-    if (!verifiedEmail) throw refused();
-    values.push(verifiedEmail);
+    if (verifiedEmails.length === 0) throw refused();
+    values.push(...verifiedEmails);
+    // The account may also carry linked providers, such as a Google account used before.
+    // Those identities count too, so a code sign-in cannot dodge a trial a Google sign-in used.
+    for (const [linked, uids] of Object.entries(identities ?? {})) {
+      if (linked === 'email' || !Array.isArray(uids)) continue;
+      values.push(...uids.filter((value): value is string => typeof value === 'string' && value.length > 0)
+        .map(value => JSON.stringify(['provider', linked, value])));
+    }
   } else {
     const providerUids = provider ? identities?.[provider] : undefined;
     if (!provider || provider === 'anonymous' || !Array.isArray(providerUids) || providerUids.length === 0) throw refused();
     values.push(...providerUids.filter((value): value is string => typeof value === 'string' && value.length > 0)
       .map(value => JSON.stringify(['provider', provider, value])));
-    if (verifiedEmail) values.push(verifiedEmail);
+    values.push(...verifiedEmails);
   }
   if (values.length === 0) throw refused();
   return [...new Set(values)].map(value => db.doc(`trialUsedIdentities/${createHmac('sha256', key).update(value).digest('hex')}`));

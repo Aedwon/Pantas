@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:pantas/core/auth/account_transition_gateway.dart';
 import 'package:pantas/core/auth/auth_state.dart';
 import 'package:pantas/core/auth/email_code_auth.dart';
@@ -177,6 +179,7 @@ class AuthRepository implements EmailCodeAuth {
 
   /// Leaves the current account and signs in as another one.
   Future<SignInResult> _switchAccount(Future<void> Function() signIn) async {
+    _identityEpoch++;
     await _accountTransitionGateway.prepareForAccountSwitch();
     await beforeIdentityChange?.call();
     try {
@@ -195,7 +198,7 @@ class AuthRepository implements EmailCodeAuth {
   }
 
   @override
-  Future<int> requestCode(String email) {
+  Future<EmailCodeRequest> requestCode(String email) {
     final gateway = _emailCodeGateway;
     if (gateway == null) {
       throw const EmailCodeException(EmailCodeFailure.unavailable);
@@ -203,31 +206,59 @@ class AuthRepository implements EmailCodeAuth {
     return gateway.requestCode(email.trim().toLowerCase());
   }
 
+  // Bumped by every identity change this repository makes and by
+  // [cancelVerification]. A code check that began under an older value must
+  // not sign anyone in when its token comes back.
+  int _identityEpoch = 0;
+  Future<void> _verifyTail = Future<void>.value();
+
   @override
-  Future<SignInResult> verifyCode(String email, String code) async {
+  void cancelVerification() => _identityEpoch++;
+
+  @override
+  Future<SignInResult> verifyCode(String challengeId, String code) async {
     final gateway = _emailCodeGateway;
     final signIn = _customTokenGateway;
     if (gateway == null || signIn == null) {
       throw const EmailCodeException(EmailCodeFailure.unavailable);
     }
-    final token = await gateway.verifyCode(email.trim().toLowerCase(), code);
-    Future<void> signInWithToken() => signIn.signInWithCustomToken(token);
-    final session = _gateway.currentSession;
-    // The server upgrades an anonymous caller in place when the email is new.
-    // The token then names the caller's own uid, and its progress stays.
-    if (session != null && customTokenUid(token) == session.uid) {
-      try {
-        await signInWithToken();
-        await _functionsGateway.recordSignInEvent();
-        return const SignInResult.linkedExisting();
-      } on AuthGatewayException catch (error) {
-        return SignInResult.failed(reason: error.code);
+    // One check at a time. A check cancelled while it waits its turn is
+    // discarded when the turn comes.
+    final epoch = _identityEpoch;
+    final previous = _verifyTail;
+    final turn = Completer<void>();
+    _verifyTail = turn.future;
+    try {
+      await previous;
+      if (epoch != _identityEpoch) return const SignInResult.cancelled();
+      final uidBefore = _gateway.currentSession?.uid;
+      final token = await gateway.verifyCode(challengeId, code);
+      // The server answered for the user who asked. If that user is gone, or
+      // the flow was cancelled, the token is not for the current user: drop it.
+      final session = _gateway.currentSession;
+      if (epoch != _identityEpoch || session?.uid != uidBefore) {
+        return const SignInResult.cancelled();
       }
+      Future<void> signInWithToken() => signIn.signInWithCustomToken(token);
+      // The server upgrades an anonymous caller in place when the email is
+      // new. The token then names the caller's own uid, and its progress stays.
+      if (session != null && customTokenUid(token) == session.uid) {
+        try {
+          await signInWithToken();
+          await _functionsGateway.recordSignInEvent();
+          return const SignInResult.linkedExisting();
+        } on AuthGatewayException catch (error) {
+          return SignInResult.failed(reason: error.code);
+        }
+      }
+      return await _switchAccount(signInWithToken);
+    } finally {
+      turn.complete();
     }
-    return _switchAccount(signInWithToken);
   }
 
   Future<void> signOut() async {
+    _identityEpoch++;
     cancelEmailLink();
     await _accountTransitionGateway.prepareForSignOut();
     await beforeIdentityChange?.call();
@@ -242,6 +273,7 @@ class AuthRepository implements EmailCodeAuth {
   }
 
   Future<void> deleteAccount() async {
+    _identityEpoch++;
     final session = _gateway.currentSession;
     final lastSignInTime = session?.lastSignInTime;
     if (lastSignInTime == null ||
@@ -265,6 +297,7 @@ class AuthRepository implements EmailCodeAuth {
   Future<SignInResult> _switchToExistingGoogleAccount(
     GoogleAuthTokens tokens,
   ) async {
+    _identityEpoch++;
     await _accountTransitionGateway.prepareForAccountSwitch();
     await beforeIdentityChange?.call();
     try {

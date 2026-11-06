@@ -6,6 +6,7 @@ import {startTrial, trialEligible} from '../lib/webTrial.js';
 import {changeBetaPro, BETA_CUTOFF} from '../lib/betaPro.js';
 import {fakeAuth} from './_paymongo-helpers.mjs';
 import {identityMarkers} from '../lib/webTrial.js';
+import {canonicalEmail} from '../lib/_email.js';
 import {assertNamedUser} from '../lib/_audit.js';
 import {selectedBetaApplication} from '../lib/betaAccess.js';
 import {ensurePublicId} from '../lib/publicId.js';
@@ -177,4 +178,59 @@ test('other server checks already treat a verified-email code sign-in as a named
     {...d, until: () => BETA_CUTOFF}), {enabled: true, betaProUntil: BETA_CUTOFF});
   // Public ids stay a Google-only feature, so a code sign-in gets none.
   assert.equal(await ensurePublicId(memoryDb(), auth), null);
+});
+
+test('canonicalEmail strips plus tags everywhere and dots only for Gmail', () => {
+  for (const [input, expected] of [
+    ['Tester@Example.com', 'tester@example.com'],
+    [' tester+promo@example.com ', 'tester@example.com'],
+    ['te.ster@example.com', 'te.ster@example.com'],
+    ['Te.St.Er+a+b@gmail.com', 'tester@gmail.com'],
+    ['te.ster@googlemail.com', 'tester@gmail.com'],
+    ['+odd@example.com', '+odd@example.com'],
+    ['not-an-email', 'not-an-email'],
+  ]) assert.equal(canonicalEmail(input), expected, input);
+});
+
+test('aliases of one mailbox share one trial across Google and code sign-ins', async () => {
+  const db = memoryDb();
+  const alias = (uid, email, provider = 'custom') => ({uid, token: {email, email_verified: true,
+    firebase: {sign_in_provider: provider, ...(provider === 'google.com' ? {identities: {'google.com': [uid]}} : {})}}});
+  await startTrial(alias('first', 'ab@gmail.com'), deps(db));
+  for (const [uid, email, provider] of [['second', 'a.b+trial@gmail.com'], ['third', 'ab@googlemail.com', 'google.com'],
+    ['fourth', 'A.B+x@GMAIL.com']]) {
+    const auth = alias(uid, email, provider);
+    assert.equal(await trialEligible(auth, db), false, email);
+    await assert.rejects(startTrial(auth, deps(db)), {code: 'failed-precondition'}, email);
+  }
+  assert.equal(await trialEligible(alias('other', 'someone@gmail.com'), db), true);
+});
+
+test('markers keep the raw email form as well, so trials recorded before aliases still block', async () => {
+  const db = memoryDb();
+  const dotted = {uid: 'old', token: {email: 'a.b+x@gmail.com', email_verified: true, firebase: {sign_in_provider: 'custom'}}};
+  assert.equal(identityMarkers(dotted, db).length, 2);
+  const {createHmac} = await import('node:crypto');
+  const raw = createHmac('sha256', process.env.TRIAL_IDENTITY_HMAC_KEY).update(JSON.stringify(['email', 'a.b+x@gmail.com'])).digest('hex');
+  db.rows.set(`trialUsedIdentities/${raw}`, {used: true});
+  assert.equal(await trialEligible(dotted, db), false);
+  await assert.rejects(startTrial(dotted, deps(db)), {code: 'failed-precondition'});
+  assert.equal(identityMarkers(codeUser('c'), db).length, 1);
+});
+
+test('a code sign-in also counts the providers linked to the account', async () => {
+  const db = memoryDb();
+  const linked = (uid, email) => ({uid, token: {email, email_verified: true, firebase: {sign_in_provider: 'custom',
+    identities: {'google.com': ['guser'], email: [email]}}}});
+  // Email plus the Google identity. The "email" identity list is not a provider marker.
+  assert.equal(identityMarkers(linked('c1', 'new@example.com'), db).length, 2);
+  // A Google sign-in under another address already used the trial.
+  const google = {uid: 'g1', token: {email: 'old@example.com', email_verified: true,
+    firebase: {sign_in_provider: 'google.com', identities: {'google.com': ['guser']}}}};
+  await startTrial(google, deps(db));
+  const auth = linked('c1', 'new@example.com');
+  assert.equal(await trialEligible(auth, db), false);
+  await assert.rejects(startTrial(auth, deps(db)), {code: 'failed-precondition'});
+  // Without the link the same code sign-in is a different person.
+  assert.equal(await trialEligible(codeUser('c2', {email: 'new@example.com'}), db), true);
 });

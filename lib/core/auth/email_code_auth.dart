@@ -41,13 +41,25 @@ class EmailCodeException implements Exception {
   String toString() => 'EmailCodeException($failure)';
 }
 
+/// The server's answer to a code request.
+class EmailCodeRequest {
+  const EmailCodeRequest({required this.resendAfterSeconds, this.challengeId});
+
+  /// Names the code this caller asked for. Null when the server only reports
+  /// a cooldown that this caller did not start: nothing was sent for it.
+  final String? challengeId;
+
+  /// Seconds before another code may be requested.
+  final int resendAfterSeconds;
+}
+
 /// The two server calls behind email code sign-in.
 abstract interface class EmailCodeGateway {
-  /// Mails a code. Returns the seconds before another one may be requested.
-  Future<int> requestCode(String email);
+  /// Mails a code.
+  Future<EmailCodeRequest> requestCode(String email);
 
-  /// Checks a code. Returns the custom token to sign in with.
-  Future<String> verifyCode(String email, String code);
+  /// Checks a code for [challengeId]. Returns the custom token to sign in with.
+  Future<String> verifyCode(String challengeId, String code);
 }
 
 /// Signs in with the custom token that [EmailCodeGateway.verifyCode] returns.
@@ -59,13 +71,18 @@ abstract interface class CustomTokenAuthGateway {
 
 /// What the sign-in screen needs from email code sign-in.
 abstract interface class EmailCodeAuth {
-  /// Mails a code. Returns the seconds before a resend is allowed.
-  /// Throws [EmailCodeException].
-  Future<int> requestCode(String email);
+  /// Mails a code. Throws [EmailCodeException].
+  Future<EmailCodeRequest> requestCode(String email);
 
-  /// Checks the code and signs in. Throws [EmailCodeException] when the code
-  /// is refused. Returns a [FailedSignInResult] if Firebase refuses the token.
-  Future<SignInResult> verifyCode(String email, String code);
+  /// Checks the code for [challengeId] and signs in. Throws
+  /// [EmailCodeException] when the code is refused. Returns a
+  /// [FailedSignInResult] if Firebase refuses the token, and
+  /// [CancelledSignInResult] if the flow was cancelled or the signed-in user
+  /// changed while the server was checking; auth is then untouched.
+  Future<SignInResult> verifyCode(String challengeId, String code);
+
+  /// Drops any check in flight: its result will not sign anyone in.
+  void cancelVerification();
 }
 
 class FirebaseEmailCodeGateway implements EmailCodeGateway {
@@ -75,20 +92,24 @@ class FirebaseEmailCodeGateway implements EmailCodeGateway {
   final AuthFunctionsCallableClient _client;
 
   @override
-  Future<int> requestCode(String email) async {
+  Future<EmailCodeRequest> requestCode(String email) async {
     final data = await _call('requestSignInCode', {'email': email});
     final seconds = data is Map ? data['resendAfterSeconds'] : null;
-    if (seconds is! num) {
+    final id = data is Map ? data['challengeId'] : null;
+    if (seconds is! num || (id != null && id is! String)) {
       throw const EmailCodeException(EmailCodeFailure.unavailable);
     }
-    return seconds.toInt();
+    return EmailCodeRequest(
+      resendAfterSeconds: seconds.toInt(),
+      challengeId: id is String && id.isNotEmpty ? id : null,
+    );
   }
 
   @override
-  Future<String> verifyCode(String email, String code) async {
+  Future<String> verifyCode(String challengeId, String code) async {
     final data = await _call(
       'verifySignInCode',
-      {'email': email, 'code': code},
+      {'challengeId': challengeId, 'code': code},
       verifying: true,
     );
     final token = data is Map ? data['token'] : null;

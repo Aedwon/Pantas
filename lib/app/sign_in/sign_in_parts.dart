@@ -301,8 +301,8 @@ class _SignInShakeState extends State<SignInShake>
 
 /// Lets a block change height smoothly (240 ms, shared ease). With reduced
 /// motion it changes at once; an animated size cannot run with no duration.
-class _SmoothSize extends StatelessWidget {
-  const _SmoothSize({required this.child});
+class SmoothSize extends StatelessWidget {
+  const SmoothSize({required this.child, super.key});
   final Widget child;
 
   @override
@@ -339,7 +339,7 @@ class StepSwitcher extends StatelessWidget {
     final still = MediaQuery.disableAnimationsOf(context);
     const rise = Duration(milliseconds: 450);
     final total = delay + rise;
-    return _SmoothSize(
+    return SmoothSize(
       child: AnimatedSwitcher(
         duration: still ? Duration.zero : total,
         reverseDuration:
@@ -416,7 +416,7 @@ class SignInMessage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final text = message;
-    return _SmoothSize(
+    return SmoothSize(
       child: text == null
           ? SizedBox(width: double.infinity, height: gap)
           : Column(

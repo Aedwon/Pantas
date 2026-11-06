@@ -19,22 +19,32 @@ class FakeCodes implements EmailCodeAuth {
   final requests = <String>[];
   final verifies = <List<String>>[];
   int resendAfter = 42;
+  int cancels = 0;
+
+  /// False answers like a cooldown the caller did not start.
+  bool issuesChallenge = true;
   Exception? requestError;
-  Future<SignInResult> Function(String email, String code)? onVerify;
+  Future<SignInResult> Function(String challengeId, String code)? onVerify;
 
   @override
-  Future<int> requestCode(String email) async {
+  Future<EmailCodeRequest> requestCode(String email) async {
     requests.add(email);
     final error = requestError;
     if (error != null) throw error;
-    return resendAfter;
+    return EmailCodeRequest(
+      resendAfterSeconds: resendAfter,
+      challengeId: issuesChallenge ? 'challenge-${requests.length}' : null,
+    );
   }
 
   @override
-  Future<SignInResult> verifyCode(String email, String code) {
-    verifies.add([email, code]);
-    return onVerify!(email, code);
+  Future<SignInResult> verifyCode(String challengeId, String code) {
+    verifies.add([challengeId, code]);
+    return onVerify!(challengeId, code);
   }
+
+  @override
+  void cancelVerification() => cancels++;
 }
 
 class _Repository extends AuthRepository {
@@ -246,6 +256,57 @@ void main() {
       );
     });
 
+    testWidgets('a cooldown without a challenge waits on the email step',
+        (tester) async {
+      await pumpPage(tester);
+      codes
+        ..issuesChallenge = false
+        ..resendAfter = 3;
+      await tester.enterText(find.byType(TextField), 'juan@gmail.com');
+      await tester.tap(find.text('Continue'));
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 400));
+      expect(find.text('Enter the code'), findsNothing);
+      expect(find.text('You can request a code in 0:03.'), findsOneWidget);
+      expect(codes.requests, hasLength(1));
+
+      // While the wait runs, Continue does not ask again for the same email.
+      await tester.tap(find.text('Continue'));
+      await tester.pump();
+      expect(codes.requests, hasLength(1));
+
+      await tester.pump(const Duration(seconds: 1));
+      expect(find.text('You can request a code in 0:02.'), findsOneWidget);
+      await tester.pump(const Duration(seconds: 2));
+      expect(find.textContaining('You can request'), findsNothing);
+
+      // After it ends, Continue asks again, and a challenge opens the step.
+      codes.issuesChallenge = true;
+      await tester.tap(find.text('Continue'));
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 400));
+      expect(codes.requests, hasLength(2));
+      expect(find.text('Enter the code'), findsOneWidget);
+    });
+
+    testWidgets('a different email is not held by the wait', (tester) async {
+      await pumpPage(tester);
+      codes
+        ..issuesChallenge = false
+        ..resendAfter = 40;
+      await tester.enterText(find.byType(TextField), 'juan@gmail.com');
+      await tester.tap(find.text('Continue'));
+      await tester.pump();
+      expect(find.textContaining('You can request a code in'), findsOneWidget);
+
+      await tester.enterText(find.byType(TextField), 'maria@gmail.com');
+      await tester.pump();
+      expect(find.textContaining('You can request'), findsNothing);
+      await tester.tap(find.text('Continue'));
+      await tester.pump();
+      expect(codes.requests, ['juan@gmail.com', 'maria@gmail.com']);
+    });
+
     testWidgets('Enter submits the email', (tester) async {
       await pumpPage(tester);
       await tester.enterText(find.byType(TextField), 'juan@gmail.com');
@@ -299,7 +360,7 @@ void main() {
       expect(codes.verifies, isEmpty);
       await typeCode(tester, '482139');
       expect(codes.verifies, [
-        ['juan@gmail.com', '482139'],
+        ['challenge-1', '482139'],
       ]);
       expect(find.byType(SignInSpinner), findsOneWidget);
       pending.complete(const SignInResult.failed(reason: 'x'));
@@ -390,6 +451,10 @@ void main() {
         find.text("Didn't get it? You can resend in 1:00."),
         findsOneWidget,
       );
+      // The new challenge replaces the old one.
+      codes.onVerify = (_, __) => Completer<SignInResult>().future;
+      await typeCode(tester, '111111');
+      expect(codes.verifies.last, ['challenge-2', '111111']);
     });
 
     testWidgets('too many tries has its own message', (tester) async {
@@ -524,6 +589,40 @@ void main() {
         find.text("Didn't get it? You can resend in 1:00."),
         findsOneWidget,
       );
+    });
+
+    testWidgets('Use a Different Email mid-check cancels it', (tester) async {
+      final pending = Completer<SignInResult>();
+      codes.onVerify = (_, __) => pending.future;
+      final container = await pumpPage(tester);
+      await goToCode(tester);
+      await typeCode(tester, '482139');
+      expect(container.read(signInHoldProvider), isTrue);
+
+      await tester.tap(find.text('Use a Different Email'));
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 600));
+      expect(codes.cancels, 1);
+      expect(container.read(signInHoldProvider), isFalse);
+      expect(find.text('Email'), findsOneWidget);
+
+      // The late answer changes nothing on screen.
+      pending.complete(const SignInResult.switchedToExisting());
+      await tester.pump();
+      await tester.pump(signInHold);
+      expect(find.text('Signed In'), findsNothing);
+      expect(find.text('gate screen'), findsNothing);
+      expect(find.text('Email'), findsOneWidget);
+    });
+
+    testWidgets('closing the screen mid-check cancels it', (tester) async {
+      codes.onVerify = (_, __) => Completer<SignInResult>().future;
+      await pumpPage(tester);
+      await goToCode(tester);
+      await typeCode(tester, '482139');
+      await tester.pumpWidget(const SizedBox.shrink());
+      await tester.pump();
+      expect(codes.cancels, 1);
     });
 
     testWidgets('leaving mid-check releases the gate hold', (tester) async {

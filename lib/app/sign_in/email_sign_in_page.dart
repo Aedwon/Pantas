@@ -51,11 +51,13 @@ class _EmailSignInPageState extends ConsumerState<EmailSignInPage> {
   final _emailFocus = FocusNode();
   final _code = TextEditingController();
   final _codeFocus = FocusNode();
-  final _resendLeft = ValueNotifier<int>(0);
+  final _resend = _Countdown();
+  final _wait = _Countdown();
   late final CodeDigitsFormatter _formatter = CodeDigitsFormatter(
     replacing: () => _phase == _Phase.wrong || _phase == _Phase.wrongFading,
   );
   late final StateController<bool> _hold;
+  late final EmailCodeAuth _codes;
 
   _Step _step = _Step.email;
   _Phase _phase = _Phase.entering;
@@ -69,6 +71,12 @@ class _EmailSignInPageState extends ConsumerState<EmailSignInPage> {
 
   // Code step.
   String _sentTo = '';
+  String? _challengeId;
+  // Bumped each time the code step opens or closes, so a late answer from an
+  // earlier visit is ignored.
+  int _flow = 0;
+  // The address a code cooldown was reported for, while the email step waits.
+  String? _waitEmail;
   bool _resending = false;
   bool _released = false;
   String? _codeMessage;
@@ -78,7 +86,6 @@ class _EmailSignInPageState extends ConsumerState<EmailSignInPage> {
   // Not on the list.
   bool _signingOut = false;
 
-  Timer? _countdown;
   Timer? _wrongTimer;
   Timer? _holdTimer;
 
@@ -86,15 +93,19 @@ class _EmailSignInPageState extends ConsumerState<EmailSignInPage> {
   void initState() {
     super.initState();
     _hold = ref.read(signInHoldProvider.notifier);
+    _codes = ref.read(emailCodeAuthProvider);
     _code.addListener(_keepCursorAtEnd);
   }
 
   @override
   void dispose() {
-    _countdown?.cancel();
+    _resend.dispose();
+    _wait.dispose();
     _wrongTimer?.cancel();
     _holdTimer?.cancel();
     _code.removeListener(_keepCursorAtEnd);
+    // A check still running must not sign anyone in once this screen is gone.
+    if (_phase == _Phase.verifying) _codes.cancelVerification();
     final hold = _hold;
     // Leaving the screen must not leave the gate held.
     Future<void>.microtask(() {
@@ -104,7 +115,6 @@ class _EmailSignInPageState extends ConsumerState<EmailSignInPage> {
     _emailFocus.dispose();
     _code.dispose();
     _codeFocus.dispose();
-    _resendLeft.dispose();
     super.dispose();
   }
 
@@ -129,15 +139,27 @@ class _EmailSignInPageState extends ConsumerState<EmailSignInPage> {
       _refuseEmail('Enter a full email address, like juan@gmail.com.');
       return;
     }
+    // The server said to wait for this address. Asking again only repeats it.
+    if (_wait.left.value > 0 && _waitEmail == email.toLowerCase()) return;
     setState(() {
       _sending = true;
       _emailInvalid = false;
       _emailMessage = null;
     });
     try {
-      final seconds = await ref.read(emailCodeAuthProvider).requestCode(email);
+      final request = await _codes.requestCode(email);
       if (!mounted) return;
-      _openCodeStep(email, seconds);
+      final id = request.challengeId;
+      if (id == null) {
+        // A cooldown for a code this screen did not ask for: no code step
+        // without a challenge. Show the wait and let Continue try again later.
+        _waitEmail = email.toLowerCase();
+        _wait.start(request.resendAfterSeconds);
+      } else {
+        _wait.stop();
+        _waitEmail = null;
+        _openCodeStep(email, id, request.resendAfterSeconds);
+      }
     } on EmailCodeException catch (error) {
       if (!mounted) return;
       switch (error.failure) {
@@ -196,29 +218,17 @@ class _EmailSignInPageState extends ConsumerState<EmailSignInPage> {
 
   // ------------------------------------------------------------- code step
 
-  void _openCodeStep(String email, int resendAfterSeconds) {
+  void _openCodeStep(String email, String challengeId, int resendAfterSeconds) {
     _wrongTimer?.cancel();
     _code.clear();
-    _startCountdown(resendAfterSeconds);
+    _flow++;
+    _resend.start(resendAfterSeconds);
     setState(() {
       _sentTo = email;
+      _challengeId = challengeId;
       _step = _Step.code;
       _phase = _Phase.entering;
       _codeMessage = null;
-    });
-  }
-
-  void _startCountdown(int seconds) {
-    _countdown?.cancel();
-    _resendLeft.value = math.max(0, seconds);
-    if (seconds <= 0) return;
-    _countdown = Timer.periodic(const Duration(seconds: 1), (timer) {
-      if (_resendLeft.value <= 1) {
-        _resendLeft.value = 0;
-        timer.cancel();
-      } else {
-        _resendLeft.value -= 1;
-      }
     });
   }
 
@@ -250,25 +260,28 @@ class _EmailSignInPageState extends ConsumerState<EmailSignInPage> {
   Future<void> _verify() async {
     if (_celebrating || _phase == _Phase.expired) return;
     final code = _code.text;
-    if (code.length != 6) return;
+    final challengeId = _challengeId;
+    if (code.length != 6 || challengeId == null) return;
+    final flow = _flow;
     setState(() {
       _phase = _Phase.verifying;
       _codeMessage = null;
     });
     _hold.state = true;
     try {
-      final result =
-          await ref.read(emailCodeAuthProvider).verifyCode(_sentTo, code);
-      if (!mounted) return;
+      final result = await _codes.verifyCode(challengeId, code);
+      if (!mounted || flow != _flow) return;
       if (result is FailedSignInResult || result is CancelledSignInResult) {
         _failCode("We couldn't sign you in. Try again.");
       } else {
         _signedIn();
       }
     } on EmailCodeException catch (error) {
-      if (mounted) _codeRefused(error);
+      if (mounted && flow == _flow) _codeRefused(error);
     } on Object {
-      if (mounted) _failCode("We couldn't sign you in. Try again.");
+      if (mounted && flow == _flow) {
+        _failCode("We couldn't sign you in. Try again.");
+      }
     }
   }
 
@@ -342,23 +355,38 @@ class _EmailSignInPageState extends ConsumerState<EmailSignInPage> {
     });
   }
 
-  Future<void> _resend() async {
+  Future<void> _resendCode() async {
     if (_resending || _celebrating) return;
+    final flow = _flow;
     setState(() {
       _resending = true;
       _codeMessage = null;
     });
     try {
-      final seconds =
-          await ref.read(emailCodeAuthProvider).requestCode(_sentTo);
-      if (!mounted) return;
+      final request = await _codes.requestCode(_sentTo);
+      if (!mounted || flow != _flow) return;
+      _resend.start(request.resendAfterSeconds);
+      final id = request.challengeId;
+      if (id == null) {
+        // Still cooling down from an earlier code: nothing new was sent.
+        if (_phase == _Phase.expired) {
+          setState(() {
+            final wait = _clock(request.resendAfterSeconds);
+            _codeMessage = 'You can request a code in $wait.';
+            _codeMessageIsError = false;
+          });
+        }
+        return;
+      }
       _wrongTimer?.cancel();
       _code.clear();
-      _startCountdown(seconds);
-      setState(() => _phase = _Phase.entering);
+      setState(() {
+        _challengeId = id;
+        _phase = _Phase.entering;
+      });
       _codeFocus.requestFocus();
     } on EmailCodeException catch (error) {
-      if (!mounted) return;
+      if (!mounted || flow != _flow) return;
       setState(() {
         _codeMessage = error.failure == EmailCodeFailure.tooManyRequests
             ? 'Too many codes requested. Try again later.'
@@ -366,7 +394,7 @@ class _EmailSignInPageState extends ConsumerState<EmailSignInPage> {
         _codeMessageIsError = false;
       });
     } on Object {
-      if (mounted) {
+      if (mounted && flow == _flow) {
         setState(() {
           _codeMessage = "We couldn't send the code. Try again.";
           _codeMessageIsError = false;
@@ -378,11 +406,19 @@ class _EmailSignInPageState extends ConsumerState<EmailSignInPage> {
   }
 
   void _useDifferentEmail() {
-    if (_celebrating) return;
+    if (_phase == _Phase.signedIn) return;
+    // Leaving mid-check cancels it: its token must not sign anyone in.
+    if (_phase == _Phase.verifying) {
+      _codes.cancelVerification();
+      _hold.state = false;
+    }
+    _flow++;
     _wrongTimer?.cancel();
-    _countdown?.cancel();
+    _resend.stop();
     _code.clear();
+    _challengeId = null;
     setState(() {
+      _resending = false;
       _step = _Step.email;
       _phase = _Phase.entering;
       _codeMessage = null;
@@ -399,7 +435,10 @@ class _EmailSignInPageState extends ConsumerState<EmailSignInPage> {
     try {
       await ref.read(authRepositoryProvider).signOut();
       if (!mounted) return;
-      _countdown?.cancel();
+      _flow++;
+      _resend.stop();
+      _wait.stop();
+      _challengeId = null;
       _email.clear();
       _code.clear();
       setState(() {
@@ -648,7 +687,13 @@ class _EmailSignInPageState extends ConsumerState<EmailSignInPage> {
             focusNode: _emailFocus,
             style: style,
             invalid: _emailInvalid,
-            onChanged: (_) {
+            onChanged: (text) {
+              // A different address is not waiting on the old cooldown.
+              if (_waitEmail != null &&
+                  text.trim().toLowerCase() != _waitEmail) {
+                _wait.stop();
+                _waitEmail = null;
+              }
               if (_emailInvalid || _emailMessage != null) {
                 setState(() {
                   _emailInvalid = false;
@@ -674,6 +719,21 @@ class _EmailSignInPageState extends ConsumerState<EmailSignInPage> {
           state: _sending ? SignInButtonState.busy : SignInButtonState.idle,
           keyHint: wide ? 'Enter' : null,
           onPressed: _continueEmail,
+        ),
+        ValueListenableBuilder<int>(
+          valueListenable: _wait.left,
+          builder: (context, left, _) => SmoothSize(
+            child: left > 0
+                ? Padding(
+                    padding: const EdgeInsets.only(top: 8),
+                    child: Text(
+                      'You can request a code in ${_clock(left)}.',
+                      textAlign: TextAlign.center,
+                      style: style.small,
+                    ),
+                  )
+                : const SizedBox(width: double.infinity),
+          ),
         ),
         const SizedBox(height: 8),
         SignInTextButton(
@@ -705,7 +765,7 @@ class _EmailSignInPageState extends ConsumerState<EmailSignInPage> {
             label: 'Send a New Code',
             style: style,
             state: _resending ? SignInButtonState.busy : SignInButtonState.idle,
-            onPressed: _resend,
+            onPressed: _resendCode,
           )
         : SignInButton(
             label: 'Continue',
@@ -759,7 +819,7 @@ class _EmailSignInPageState extends ConsumerState<EmailSignInPage> {
         ] else ...[
           const SizedBox(height: 16),
           ValueListenableBuilder<int>(
-            valueListenable: _resendLeft,
+            valueListenable: _resend.left,
             builder: (context, left, _) => left > 0
                 ? Text(
                     "Didn't get it? You can resend in ${_clock(left)}.",
@@ -771,7 +831,7 @@ class _EmailSignInPageState extends ConsumerState<EmailSignInPage> {
                     link: 'Resend Code',
                     bold: true,
                     style: style,
-                    onTap: _resend,
+                    onTap: _resendCode,
                   ),
           ),
           const SizedBox(height: 6),
@@ -899,5 +959,35 @@ class _NotOnList extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+/// A whole-second countdown that other widgets can listen to.
+class _Countdown {
+  final left = ValueNotifier<int>(0);
+  Timer? _timer;
+
+  void start(int seconds) {
+    _timer?.cancel();
+    left.value = math.max(0, seconds);
+    if (seconds <= 0) return;
+    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
+      if (left.value <= 1) {
+        left.value = 0;
+        timer.cancel();
+      } else {
+        left.value -= 1;
+      }
+    });
+  }
+
+  void stop() {
+    _timer?.cancel();
+    left.value = 0;
+  }
+
+  void dispose() {
+    _timer?.cancel();
+    left.dispose();
   }
 }

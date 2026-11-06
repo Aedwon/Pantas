@@ -178,10 +178,15 @@ custom token for the client to sign in with.
   Never print it or commit it. Changing it invalidates any code still waiting.
 - The mail reuses `GUARDIAN_MAIL_API_KEY` and `GUARDIAN_MAIL_FROM`. The Resend
   100-a-day allowance is shared with guardian email and the website.
-  `SIGN_IN_DAILY_SEND_CAP` (60 in `.env.pantas-prod`) limits sign-in codes per
-  Manila day and logs a warning at 80% of it. With the guardian cap of 20 the two
-  stay at 80, leaving room for website mail. Raise them only after moving Resend
-  off Free.
+  Sign-in codes have two daily buckets per Manila day, each logging a warning at 80%.
+  `SIGN_IN_DAILY_RESERVED_CAP` (40) is for selected beta applicants and existing
+  accounts. `SIGN_IN_DAILY_SEND_CAP` (20) is for everyone else. With the guardian cap
+  of 20 the three total 80, leaving room for website mail. Raise them only after
+  moving Resend off Free.
+- Each IP may request 10 codes an hour, counted as a keyed hash. A school or office
+  behind one address can hit this, so watch support reports.
+- Verifying a code on an unverified existing account unlinks its password and revokes
+  its sessions, so a password set before the owner proved the email stops working.
 - IAM: `createCustomToken` signs with the functions runtime service account. Grant
   that account `roles/iam.serviceAccountTokenCreator` on itself (done for
   pantas-prod on Nov 6, 2026) (it needs
@@ -189,8 +194,12 @@ custom token for the client to sign in with.
   API is enabled. Without it `verifySignInCode` returns `unavailable`.
 - Both callables enforce and consume App Check. The client must send a limited-use
   token on each call.
-- Optional cleanup: add a Firestore TTL policy on collection group `signInCodes`,
-  field `purgeAt`. Clients cannot read or write `signInCodes`; rules deny it.
+- Each request makes a challenge in `signInChallenges` with a random id that only the
+  requesting user can verify. Per-mailbox limits live in `signInCodes`, and counters in
+  `signInLimits` and `signInUpgrades`. Clients cannot read or write any of them; rules
+  deny them.
+- Optional cleanup: add Firestore TTL policies on `signInChallenges.expiresAt`, and on
+  `purgeAt` for the collection groups `signInCodes`, `signInLimits` and `signInUpgrades`.
 - Smoke test: request a code, enter it, confirm sign-in. Then enter a wrong code and
   confirm the tries count down, and confirm a second request within 60 seconds does
   not send another email.
