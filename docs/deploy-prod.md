@@ -132,6 +132,15 @@ firebase deploy --only hosting:app --project pantas-prod
 A build without the site key compiles but refuses to start in release mode.
 Do not deploy that artifact. Do not use staging's key or entry point.
 
+Before any functions deploy, check the runtime account's roles (fails on a missing one):
+
+```sh
+ACCESS_TOKEN=$(gcloud auth print-access-token) node tool/deploy/prod_iam_preflight.mjs pantas-prod
+```
+
+After a deploy that touches sign-in, beta access or a callable, request a sign-in code at
+https://app.pantas.study for an owner test address and confirm the code step opens.
+
 ## 9. Connect app.pantas.study (Aedwon-only)
 
 In prod Firebase Hosting, select the confirmed **app site**, then Add custom domain:
