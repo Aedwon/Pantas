@@ -64,6 +64,12 @@ export function guardianMessage(input: GuardianMailInput): GuardianMessage {
   return {to: input.guardianEmail, subject, text, html};
 }
 
+/** `Name <addr>` is used as written. A bare address gets the default name `Pantas`. */
+export function senderField(from: string): string {
+  const value = from.trim();
+  return value.includes('<') ? value : `Pantas <${value}>`;
+}
+
 /** Production sender. The caller supplies the key; this file never reads a secret. */
 export function resendMailer(apiKey: string, from: string, fetchImpl: typeof fetch = fetch): GuardianMailer {
   return {
@@ -71,7 +77,7 @@ export function resendMailer(apiKey: string, from: string, fetchImpl: typeof fet
       const response = await fetchImpl('https://api.resend.com/emails', {
         method: 'POST',
         headers: {authorization: `Bearer ${apiKey}`, 'content-type': 'application/json'},
-        body: JSON.stringify({from: `Pantas <${from}>`, to: [message.to], subject: message.subject,
+        body: JSON.stringify({from: senderField(from), to: [message.to], subject: message.subject,
           text: message.text, html: message.html}),
       });
       if (!response.ok) throw new Error(`Mail provider refused the message (${response.status}).`);

@@ -5,6 +5,10 @@ import {listPlans} from '../lib/webPlans.js';
 import {startTrial, trialEligible} from '../lib/webTrial.js';
 import {changeBetaPro, BETA_CUTOFF} from '../lib/betaPro.js';
 import {fakeAuth} from './_paymongo-helpers.mjs';
+import {identityMarkers} from '../lib/webTrial.js';
+import {assertNamedUser} from '../lib/_audit.js';
+import {selectedBetaApplication} from '../lib/betaAccess.js';
+import {ensurePublicId} from '../lib/publicId.js';
 
 const NOW = BETA_CUTOFF - 86400000;
 const named = uid => ({uid, token: {email: 'tester@example.com', email_verified: true, firebase: {sign_in_provider: 'google.com', identities: {'google.com': ['beta-tester']}}}});
@@ -111,3 +115,66 @@ for (const record of [{pro: true}, {proUntil: 1}]) {
     await assert.rejects(startTrial(named('tester'), deps(db)), {code: 'failed-precondition'});
   });
 }
+
+// Email code sign-in arrives as provider "custom", with the email read from the user record.
+const codeUser = (uid, token = {}) => ({uid, token: {email: 'tester@example.com', email_verified: true,
+  firebase: {sign_in_provider: 'custom'}, ...token}});
+const identityRows = db => [...db.rows.keys()].filter(path => path.startsWith('trialUsedIdentities/'));
+
+test('a verified-email code sign-in gets the trial, keyed by the email alone', async () => {
+  const db = memoryDb();
+  const auth = codeUser('coder');
+  assert.equal(identityMarkers(auth, db).length, 1);
+  assert.equal(await trialEligible(auth, db), true);
+  assert.deepEqual(await startTrial(auth, deps(db)), {startsAt: NOW, endsAt: NOW + 604800000});
+  assert.equal(identityRows(db).length, 1);
+  await assert.rejects(startTrial(auth, deps(db)), {code: 'failed-precondition'});
+  // The same address through Google shares the marker, so it cannot take a second trial.
+  assert.equal(await trialEligible(named('other'), db), false);
+  await assert.rejects(startTrial(named('other'), deps(db)), {code: 'failed-precondition'});
+  // The marker is not case sensitive.
+  const upper = codeUser('coder2', {email: 'Tester@Example.com'});
+  assert.equal(await trialEligible(upper, db), false);
+});
+
+test('the Google marker is unchanged: a provider id and the verified email', () => {
+  assert.equal(identityMarkers(named('g1'), memoryDb()).length, 2);
+  assert.equal(identityMarkers({uid: 'g2', token: {firebase: {sign_in_provider: 'google.com',
+    identities: {'google.com': ['g2']}}}}, memoryDb()).length, 1);
+});
+
+for (const [name, token] of [
+  ['an unverified email', {email_verified: false}],
+  ['a missing verified flag', {email_verified: undefined}],
+  ['no email', {email: undefined}],
+  ['a non-string email', {email: 5}],
+]) {
+  test(`a code sign-in with ${name} gets no trial`, async () => {
+    const db = memoryDb();
+    const auth = codeUser('coder', token);
+    assert.throws(() => identityMarkers(auth, db), {code: 'failed-precondition'});
+    await assert.rejects(trialEligible(auth, db), {code: 'failed-precondition'});
+    await assert.rejects(startTrial(auth, deps(db)), {code: 'failed-precondition'});
+    assert.equal(identityRows(db).length, 0);
+  });
+}
+
+test('anonymous and signed-out callers still get no trial', async () => {
+  const db = memoryDb();
+  const anon = {uid: 'a', token: {email: 'tester@example.com', email_verified: true, firebase: {sign_in_provider: 'anonymous'}}};
+  assert.equal(await trialEligible(anon, db), false);
+  assert.equal(await trialEligible(undefined, db), false);
+  await assert.rejects(startTrial(anon, deps(db)), {code: 'permission-denied'});
+  assert.throws(() => identityMarkers(anon, db), {code: 'failed-precondition'});
+});
+
+test('other server checks already treat a verified-email code sign-in as a named user', async () => {
+  const auth = codeUser('coder');
+  assert.equal(assertNamedUser(auth), 'coder');
+  assert.equal(await selectedBetaApplication(auth, memoryDb()), true);
+  const d = deps(memoryDb());
+  assert.deepEqual(await changeBetaPro({auth, app: {appId: 'test'}, data: {enabled: true, examId: 'exam_cse_pro'}},
+    {...d, until: () => BETA_CUTOFF}), {enabled: true, betaProUntil: BETA_CUTOFF});
+  // Public ids stay a Google-only feature, so a code sign-in gets none.
+  assert.equal(await ensurePublicId(memoryDb(), auth), null);
+});

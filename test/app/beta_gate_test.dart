@@ -5,15 +5,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/app/beta_gate.dart';
+import 'package:pantas/app/sign_in/email_sign_in_page.dart';
 import 'package:pantas/app/theme.dart';
 import 'package:pantas/core/auth/auth_state.dart';
 import 'package:pantas/core/auth/auth_user.dart';
 import 'package:pantas/core/auth/beta_access.dart';
 import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
-
-const _denied = "This email isn't on the beta list. "
-    'Use the email you applied with.';
 
 void main() {
   test('gate requires web and the build flag until Manila midnight', () {
@@ -69,6 +67,21 @@ void main() {
     expect(redirect('/beta', const AsyncData(true)), '/home');
   });
 
+  test('the gate waits while the sign-in screen plays its signed-in beat', () {
+    final container = ProviderContainer(
+      overrides: [
+        betaGateActiveProvider.overrideWithValue(true),
+        betaAccessProvider.overrideWith((ref) async => true),
+      ],
+    );
+    addTearDown(container.dispose);
+    container.listen(betaAccessProvider, (_, __) {});
+    container.read(signInHoldProvider.notifier).state = true;
+    final held = container.read(betaGateStatusProvider);
+    expect(held.isLoading, isTrue);
+    expect(redirect('/beta', held), isNull, reason: 'stay on the sign-in');
+  });
+
   Future<void> pump(
     WidgetTester tester,
     Future<bool> result,
@@ -98,22 +111,23 @@ void main() {
     final pending = Completer<bool>();
     await pump(tester, pending.future, const AuthState.anonymous(uid: 'anon'));
     expect(find.byType(SkeletonPulse), findsOneWidget);
-    expect(find.text('Sign in with Google'), findsNothing);
+    expect(find.text('Use Google Instead'), findsNothing);
     pending.complete(true);
     await tester.pump();
     await tester.pumpWidget(const SizedBox.shrink());
   });
 
-  testWidgets('anonymous gate has both sign-in options', (tester) async {
+  testWidgets('anonymous gate offers the email code and Google',
+      (tester) async {
     await pump(
       tester,
       Future.value(false),
       const AuthState.anonymous(uid: 'anon'),
     );
-    await tester.pumpAndSettle();
-    expect(find.text('Sign in with Google'), findsOneWidget);
-    expect(find.text('Send email link'), findsOneWidget);
-    expect(find.text(_denied), findsNothing);
+    await tester.pump(const Duration(seconds: 2));
+    expect(find.text('Use Google Instead'), findsOneWidget);
+    expect(find.text('Continue'), findsOneWidget);
+    expect(find.text("This email isn't on the beta list"), findsNothing);
   });
 
   testWidgets('failed match explains the email and gives support',
@@ -129,8 +143,9 @@ void main() {
         ),
       ),
     );
-    await tester.pumpAndSettle();
-    expect(find.text(_denied), findsOneWidget);
-    expect(find.text('support@pantas.study'), findsOneWidget);
+    await tester.pump(const Duration(seconds: 2));
+    expect(find.text("This email isn't on the beta list"), findsOneWidget);
+    expect(find.textContaining('other@example.com'), findsOneWidget);
+    expect(find.textContaining('support@pantas.study'), findsOneWidget);
   });
 }

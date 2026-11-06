@@ -5,18 +5,26 @@ import 'package:pantas/core/platform/callable_options.dart';
 // Single-method interface is intentional for callable-client test DI.
 // ignore: one_member_abstracts
 abstract interface class AuthFunctionsCallableClient {
-  Future<Object?> call({required String region, required String name});
+  Future<Object?> call({
+    required String region,
+    required String name,
+    Object? data,
+  });
 }
 
 class FirebaseFunctionsCallableClient implements AuthFunctionsCallableClient {
   const FirebaseFunctionsCallableClient();
 
   @override
-  Future<Object?> call({required String region, required String name}) async {
+  Future<Object?> call({
+    required String region,
+    required String name,
+    Object? data,
+  }) async {
     final functions = FirebaseFunctions.instanceFor(region: region);
     final result = await functions
         .httpsCallable(name, options: callableOptionsFor(name))
-        .call<Object?>();
+        .call<Object?>(data);
     return result.data;
   }
 }

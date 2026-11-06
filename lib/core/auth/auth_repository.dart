@@ -1,5 +1,6 @@
 import 'package:pantas/core/auth/account_transition_gateway.dart';
 import 'package:pantas/core/auth/auth_state.dart';
+import 'package:pantas/core/auth/email_code_auth.dart';
 import 'package:pantas/core/auth/email_link_auth.dart';
 import 'package:pantas/core/auth/sign_in_result.dart';
 
@@ -34,7 +35,7 @@ abstract interface class AuthGateway {
   Future<void> signOut();
 }
 
-class AuthRepository {
+class AuthRepository implements EmailCodeAuth {
   AuthRepository({
     required AuthGateway gateway,
     GoogleSignInGateway? googleGateway,
@@ -45,6 +46,8 @@ class AuthRepository {
     EmailLinkAuthGateway? emailLinkGateway,
     EmailLinkStore? emailLinkStore,
     GooglePopupAuthGateway? googlePopupGateway,
+    EmailCodeGateway? emailCodeGateway,
+    CustomTokenAuthGateway? customTokenGateway,
   })  : _gateway = gateway,
         _googleGateway =
             googleGateway ?? const UnconfiguredGoogleSignInGateway(),
@@ -56,7 +59,9 @@ class AuthRepository {
         _clock = clock ?? DateTime.now,
         _emailLinkGateway = emailLinkGateway,
         _emailLinkStore = emailLinkStore ?? const BrowserEmailLinkStore(),
-        _googlePopupGateway = googlePopupGateway;
+        _googlePopupGateway = googlePopupGateway,
+        _emailCodeGateway = emailCodeGateway,
+        _customTokenGateway = customTokenGateway;
 
   final AuthGateway _gateway;
   final GoogleSignInGateway _googleGateway;
@@ -67,6 +72,8 @@ class AuthRepository {
   final EmailLinkAuthGateway? _emailLinkGateway;
   final EmailLinkStore _emailLinkStore;
   final GooglePopupAuthGateway? _googlePopupGateway;
+  final EmailCodeGateway? _emailCodeGateway;
+  final CustomTokenAuthGateway? _customTokenGateway;
 
   /// Installed by the payment bootstrap without importing a feature into core.
   Future<void> Function()? beforeIdentityChange;
@@ -165,6 +172,11 @@ class AuthRepository {
         }
       }
     }
+    return _switchAccount(signIn);
+  }
+
+  /// Leaves the current account and signs in as another one.
+  Future<SignInResult> _switchAccount(Future<void> Function() signIn) async {
     await _accountTransitionGateway.prepareForAccountSwitch();
     await beforeIdentityChange?.call();
     try {
@@ -180,6 +192,39 @@ class AuthRepository {
       }
       return SignInResult.failed(reason: error.code);
     }
+  }
+
+  @override
+  Future<int> requestCode(String email) {
+    final gateway = _emailCodeGateway;
+    if (gateway == null) {
+      throw const EmailCodeException(EmailCodeFailure.unavailable);
+    }
+    return gateway.requestCode(email.trim().toLowerCase());
+  }
+
+  @override
+  Future<SignInResult> verifyCode(String email, String code) async {
+    final gateway = _emailCodeGateway;
+    final signIn = _customTokenGateway;
+    if (gateway == null || signIn == null) {
+      throw const EmailCodeException(EmailCodeFailure.unavailable);
+    }
+    final token = await gateway.verifyCode(email.trim().toLowerCase(), code);
+    Future<void> signInWithToken() => signIn.signInWithCustomToken(token);
+    final session = _gateway.currentSession;
+    // The server upgrades an anonymous caller in place when the email is new.
+    // The token then names the caller's own uid, and its progress stays.
+    if (session != null && customTokenUid(token) == session.uid) {
+      try {
+        await signInWithToken();
+        await _functionsGateway.recordSignInEvent();
+        return const SignInResult.linkedExisting();
+      } on AuthGatewayException catch (error) {
+        return SignInResult.failed(reason: error.code);
+      }
+    }
+    return _switchAccount(signInWithToken);
   }
 
   Future<void> signOut() async {

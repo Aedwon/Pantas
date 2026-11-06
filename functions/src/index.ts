@@ -43,3 +43,5 @@ export {setBetaPro} from './betaPro.js';
 export {sendGuardianLink, answerGuardianRequest, getGuardianStatus, getGuardianRequest, purgeOldGuardianRecords} from './guardianConsent.js';
 
 export {getBetaAccess} from './betaAccess.js';
+
+export {requestSignInCode, verifySignInCode} from './signInCode.js';

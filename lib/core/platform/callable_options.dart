@@ -17,6 +17,8 @@ const replayProtectedCallables = <String>{
   'updateMockReview',
   'sendGuardianLink',
   'answerGuardianRequest',
+  'requestSignInCode',
+  'verifySignInCode',
 };
 
 /// Options for calling [name]: limited-use App Check tokens for the callables

@@ -166,3 +166,31 @@ routes. Wait for Hosting to show Connected and a valid HTTPS certificate.
 Record deployed commit, content revision, Hosting site, public site key identifier,
 commands/results, and smoke outcomes. Never record secret values. If a smoke test
 fails, stop invitations and have the lead prepare a reviewed rollback or fix.
+
+## 11. Email sign-in code (Aedwon-only)
+
+Web sign-in uses a six-digit email code. Two callables in `asia-southeast1` do it:
+`requestSignInCode` mails the code and `verifySignInCode` checks it and returns a
+custom token for the client to sign in with.
+
+- New secret, set privately before deploying functions:
+  `openssl rand -hex 32 | firebase functions:secrets:set SIGN_IN_CODE_KEY --data-file=- --project pantas-prod`.
+  Never print it or commit it. Changing it invalidates any code still waiting.
+- The mail reuses `GUARDIAN_MAIL_API_KEY` and `GUARDIAN_MAIL_FROM`. The Resend
+  100-a-day allowance is shared with guardian email and the website.
+  `SIGN_IN_DAILY_SEND_CAP` (60 in `.env.pantas-prod`) limits sign-in codes per
+  Manila day and logs a warning at 80% of it. With the guardian cap of 20 the two
+  stay at 80, leaving room for website mail. Raise them only after moving Resend
+  off Free.
+- IAM: `createCustomToken` signs with the functions runtime service account. Grant
+  that account `roles/iam.serviceAccountTokenCreator` on itself (done for
+  pantas-prod on Nov 6, 2026) (it needs
+  `iam.serviceAccounts.signBlob`), and confirm the IAM Service Account Credentials
+  API is enabled. Without it `verifySignInCode` returns `unavailable`.
+- Both callables enforce and consume App Check. The client must send a limited-use
+  token on each call.
+- Optional cleanup: add a Firestore TTL policy on collection group `signInCodes`,
+  field `purgeAt`. Clients cannot read or write `signInCodes`; rules deny it.
+- Smoke test: request a code, enter it, confirm sign-in. Then enter a wrong code and
+  confirm the tries count down, and confirm a second request within 60 seconds does
+  not send another email.

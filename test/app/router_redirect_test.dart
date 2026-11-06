@@ -97,7 +97,7 @@ void main() {
         betaAccessProvider.overrideWith((ref) async => false),
       ],
     );
-    expect(find.text('Sign in with Google'), findsOneWidget);
+    expect(find.text('Use Google Instead'), findsOneWidget);
     expect(find.byType(AppShell), findsNothing);
     final container =
         ProviderScope.containerOf(tester.element(find.byType(App)));
@@ -126,7 +126,7 @@ void main() {
       container.read(routerProvider).routeInformationProvider.value.uri.path,
       '/onboarding',
     );
-    expect(find.text('Sign in with Google'), findsNothing);
+    expect(find.text('Use Google Instead'), findsNothing);
   });
 
   testWidgets('disabled beta gate leaves anonymous onboarding unchanged',
@@ -144,7 +144,7 @@ void main() {
       container.read(routerProvider).routeInformationProvider.value.uri.path,
       '/onboarding',
     );
-    expect(find.text('Sign in with Google'), findsNothing);
+    expect(find.text('Use Google Instead'), findsNothing);
   });
 
   testWidgets('missing server and local settings opens the exam step',

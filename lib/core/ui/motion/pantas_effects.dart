@@ -143,6 +143,11 @@ abstract final class PantasEffects {
     };
   }
 
+  /// The sideways offset, in logical pixels, of the shake at [t] (0 to 1).
+  /// For a widget that must replay the shake without being rebuilt, such as
+  /// a text field that has to keep its focus.
+  static double shakeOffset(double t) => _shake(t);
+
   static double _shake(double t) => _keyframes(
         t,
         const [0, 0.18, 0.36, 0.54, 0.72, 1],

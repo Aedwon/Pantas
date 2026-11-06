@@ -2,6 +2,7 @@
 
 import 'package:flutter/foundation.dart';
 import 'package:pantas/app/beta_gate.dart';
+import 'package:pantas/app/sign_in/email_sign_in_page.dart';
 import 'package:pantas/features/home/application/study_remote_providers.dart';
 import 'package:pantas/app/web_route_shell.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -172,11 +173,7 @@ List<RouteBase> buildAppRoutes(
     GoRoute(path: '/beta', builder: (context, state) => const BetaGatePage()),
     GoRoute(
       path: '/auth/email-link',
-      builder: (context, state) => EmailSignInPage(
-        link: state.uri.hasQuery
-            ? Uri.base.resolve(state.uri.toString()).toString()
-            : null,
-      ),
+      builder: (context, state) => const EmailSignInPage(),
     ),
     ...guardianRoutes(ref),
     ...wrappedRoutes(ref),

@@ -2,10 +2,15 @@ import 'package:firebase_auth/firebase_auth.dart' as firebase;
 import 'package:flutter/foundation.dart';
 import 'package:pantas/core/auth/auth_repository.dart';
 import 'package:pantas/core/auth/auth_state.dart';
+import 'package:pantas/core/auth/email_code_auth.dart';
 import 'package:pantas/core/auth/email_link_auth.dart';
 
 class FirebaseAuthGateway
-    implements AuthGateway, EmailLinkAuthGateway, GooglePopupAuthGateway {
+    implements
+        AuthGateway,
+        EmailLinkAuthGateway,
+        GooglePopupAuthGateway,
+        CustomTokenAuthGateway {
   FirebaseAuthGateway({firebase.FirebaseAuth? auth, bool web = kIsWeb})
       : _auth = auth ?? firebase.FirebaseAuth.instance,
         _web = web;
@@ -124,6 +129,15 @@ class FirebaseAuthGateway
   Future<void> signIn(String email, String link) async {
     try {
       await _auth.signInWithEmailLink(email: email, emailLink: link);
+    } on firebase.FirebaseAuthException catch (error) {
+      throw AuthGatewayException(error.code);
+    }
+  }
+
+  @override
+  Future<void> signInWithCustomToken(String token) async {
+    try {
+      await _auth.signInWithCustomToken(token);
     } on firebase.FirebaseAuthException catch (error) {
       throw AuthGatewayException(error.code);
     }

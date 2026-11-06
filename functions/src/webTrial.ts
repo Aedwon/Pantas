@@ -18,17 +18,23 @@ export function identityMarkers(auth: Parameters<typeof assertNamedUser>[0], db:
   if (!key) throw new HttpsError('failed-precondition', 'Trial eligibility is unavailable.');
   const provider = auth?.token.firebase?.sign_in_provider;
   const identities = auth?.token.firebase?.identities as Record<string, unknown> | undefined;
-  const providerUids = provider ? identities?.[provider] : undefined;
-  if (!provider || provider === 'anonymous' || provider === 'custom' ||
-      !Array.isArray(providerUids) || providerUids.length === 0) {
-    throw new HttpsError('failed-precondition', 'A verified sign-in identity is required.');
+  const verifiedEmail = auth?.token.email_verified === true && typeof auth.token.email === 'string'
+    ? JSON.stringify(['email', auth.token.email.toLowerCase()]) : null;
+  const refused = () => new HttpsError('failed-precondition', 'A verified sign-in identity is required.');
+  const values: string[] = [];
+  if (provider === 'custom') {
+    // Email code sign-in: the server proved the address, and there is no provider account id.
+    // The email is then the only identity, so it must be verified.
+    if (!verifiedEmail) throw refused();
+    values.push(verifiedEmail);
+  } else {
+    const providerUids = provider ? identities?.[provider] : undefined;
+    if (!provider || provider === 'anonymous' || !Array.isArray(providerUids) || providerUids.length === 0) throw refused();
+    values.push(...providerUids.filter((value): value is string => typeof value === 'string' && value.length > 0)
+      .map(value => JSON.stringify(['provider', provider, value])));
+    if (verifiedEmail) values.push(verifiedEmail);
   }
-  const values = providerUids.filter((value): value is string => typeof value === 'string' && value.length > 0)
-    .map(value => JSON.stringify(['provider', provider, value]));
-  if (auth?.token.email_verified === true && typeof auth.token.email === 'string') {
-    values.push(JSON.stringify(['email', auth.token.email.toLowerCase()]));
-  }
-  if (values.length === 0) throw new HttpsError('failed-precondition', 'A verified sign-in identity is required.');
+  if (values.length === 0) throw refused();
   return [...new Set(values)].map(value => db.doc(`trialUsedIdentities/${createHmac('sha256', key).update(value).digest('hex')}`));
 }
 

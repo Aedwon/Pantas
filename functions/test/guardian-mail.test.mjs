@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import {emulatorMailer, expiryLabel, guardianMessage, mailerFor, resendMailer} from '../lib/guardianMail.js';
+import {emulatorMailer, expiryLabel, guardianMessage, mailerFor, resendMailer, senderField} from '../lib/guardianMail.js';
 import {hashValue, maskEmail, validEmail} from '../lib/guardianConsent.js';
 
 const input = {guardianName: 'Maria', guardianEmail: 'maria@gmail.com',
@@ -78,4 +78,17 @@ test('outside the emulator a missing key or sender refuses to build a mailer', (
   assert.throws(() => mailerFor({}, {apiKey: () => '', from: () => 'a@b.co'}), /not configured/);
   assert.throws(() => mailerFor({}, {apiKey: () => 'k', from: () => ''}), /not configured/);
   assert.doesNotThrow(() => mailerFor({}, {apiKey: () => 'k', from: () => 'a@b.co'}));
+});
+
+test('the sender accepts a bare address or "Name <addr>" and never wraps twice', async () => {
+  assert.equal(senderField('noreply@pantas.study'), 'Pantas <noreply@pantas.study>');
+  assert.equal(senderField(' noreply@pantas.study '), 'Pantas <noreply@pantas.study>');
+  assert.equal(senderField('Pantas <noreply@pantas.study>'), 'Pantas <noreply@pantas.study>');
+  assert.equal(senderField('Pantas Team <hello@pantas.study>'), 'Pantas Team <hello@pantas.study>');
+  for (const from of ['hello@pantas.test', 'Pantas <hello@pantas.test>']) {
+    const calls = [];
+    await resendMailer('KEY', from, async (url, init) => { calls.push(JSON.parse(init.body)); return {ok: true, status: 200}; })
+      .send(guardianMessage(input));
+    assert.equal(calls[0].from, 'Pantas <hello@pantas.test>');
+  }
 });
