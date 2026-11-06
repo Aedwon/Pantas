@@ -95,6 +95,8 @@ export type RequestDeps = {
   now?: () => number;
   /** A whole number from 0 up to 999999. */
   random?: () => number;
+  /** The secret code of a stand-in challenge: a whole number from 0 up to 999999. Never mailed. */
+  standInCode?: () => number;
   /** A new random 128-bit challenge id as 32 hex characters. */
   challengeId?: () => string;
   allow?: (uid: string, bucket: string, max: number, windowMs: number) => Promise<boolean>;
@@ -150,7 +152,7 @@ async function reservedBucket(deps: RequestDeps, email: string): Promise<boolean
 
 type Suppressed = 'cooldown' | 'hourlyCap' | 'dailyCap';
 type Slot =
-  | {kind: 'mine'; seconds: number; challengeId: string}
+  | {kind: 'cached'; seconds: number; challengeId: string}
   | {kind: 'suppressed'; reason: Suppressed; firstFull: boolean}
   | {kind: 'stored'};
 
@@ -188,6 +190,8 @@ export async function sendSignInCode(request: Req, deps: RequestDeps):
   const emailKey = codeDocId(email);
   const challengeId = (deps.challengeId ?? (() => randomBytes(16).toString('hex')))();
   const limitRef = deps.db.doc(`signInCodes/${emailKey}`);
+  // One entry per caller and mailbox, so asking again returns the same challenge and the true wait.
+  const cacheRef = deps.db.doc(`signInRequests/${createHash('sha256').update(`${uid}:${emailKey}`).digest('hex')}`);
   const challengeRef = deps.db.doc(challengePath(challengeId));
   const at = now();
   const dayRef = deps.db.doc(`signInLimits/global-${bucket}-${phDay(at)}`);
@@ -196,25 +200,25 @@ export async function sendSignInCode(request: Req, deps: RequestDeps):
   // for a reason that depends on the recipient, a challenge with no code stands in for it, so the
   // reply cannot be used to learn who is signed up, selected, or recently emailed.
   const slot = await deps.db.runTransaction<Slot>(async transaction => {
-    const [snapshot, day] = await Promise.all([transaction.get(limitRef), transaction.get(dayRef)]);
+    const [cached, snapshot, day] = await Promise.all(
+      [transaction.get(cacheRef), transaction.get(limitRef), transaction.get(dayRef)]);
+    const askedAt = millis(cached.get('sentAt'));
+    const askedId: unknown = cached.get('challengeId');
+    if (askedAt > 0 && typeof askedId === 'string' && at - askedAt < RESEND_COOLDOWN_MS) {
+      const left = Math.min(RESEND_COOLDOWN_MS, RESEND_COOLDOWN_MS - Math.max(at - askedAt, 0));
+      return {kind: 'cached', seconds: Math.ceil(left / 1000), challengeId: askedId};
+    }
+    transaction.set(cacheRef, {challengeId, sentAt: at, purgeAt: new Date(at + 2 * HOUR_MS)});
+    // A stand-in has a secret code that nobody is sent. It behaves like a real challenge for wrong
+    // guesses, lockout and expiry, and even its own code never signs anyone in.
     const decoy = (reason: Suppressed, firstFull = false): Slot => {
-      transaction.set(challengeRef, {emailKey, codeHash: null, requesterUid: uid, attempts: 0,
-        expiresAt: new Date(at + CODE_TTL_MS)});
+      const secret = String((deps.standInCode ?? (() => randomInt(0, 1_000_000)))()).padStart(6, '0');
+      transaction.set(challengeRef, {emailKey, email, codeHash: hashCode(deps.key, email, secret), standIn: true,
+        requesterUid: uid, attempts: 0, expiresAt: new Date(at + CODE_TTL_MS)});
       return {kind: 'suppressed', reason, firstFull};
     };
     const sentAt = millis(snapshot.get('sentAt'));
-    if (sentAt > 0) {
-      const elapsed = at - sentAt;
-      if (elapsed < RESEND_COOLDOWN_MS) {
-        const left = Math.min(RESEND_COOLDOWN_MS, RESEND_COOLDOWN_MS - Math.max(elapsed, 0));
-        // Only the person who asked for the latest code is told its challenge and the true wait.
-        const latest: unknown = snapshot.get('lastChallengeId');
-        if (snapshot.get('lastRequesterUid') === uid && typeof latest === 'string') {
-          return {kind: 'mine', seconds: Math.ceil(left / 1000), challengeId: latest};
-        }
-        return decoy('cooldown');
-      }
-    }
+    if (sentAt > 0 && at - sentAt < RESEND_COOLDOWN_MS) return decoy('cooldown');
     const windowStartedAt = millis(snapshot.get('windowStartedAt'));
     const inWindow = windowStartedAt > 0 && at - windowStartedAt < HOUR_MS;
     const sendCount = inWindow ? Number(snapshot.get('sendCount') ?? 0) : 0;
@@ -240,15 +244,13 @@ export async function sendSignInCode(request: Req, deps: RequestDeps):
       sentAt: at,
       windowStartedAt: inWindow ? windowStartedAt : at,
       sendCount: sendCount + 1,
-      lastChallengeId: challengeId,
-      lastRequesterUid: uid,
       open: [...openList(snapshot.get('open')).filter(row => row.exp > at), {id: challengeId, exp: at + CODE_TTL_MS}],
       purgeAt: new Date(at + 2 * HOUR_MS),
     });
     return {kind: 'stored'};
   });
 
-  if (slot.kind === 'mine') return {challengeId: slot.challengeId, resendAfterSeconds: slot.seconds};
+  if (slot.kind === 'cached') return {challengeId: slot.challengeId, resendAfterSeconds: slot.seconds};
   if (slot.kind === 'suppressed') {
     // Logged without the address: the first eight characters of the mailbox key are enough to correlate.
     logger.warn('Sign-in code held back', {reason: slot.reason, bucket, emailKey: emailKey.slice(0, 8)});
@@ -263,7 +265,7 @@ export async function sendSignInCode(request: Req, deps: RequestDeps):
     await deps.mailer.send(signInCodeMessage({to: email, code}));
   } catch (error) {
     logger.warn('Sign-in code email failed', {message: error instanceof Error ? error.message : 'unknown'});
-    await dropChallenge(deps.db, limitRef, challengeRef, challengeId, dayRef);
+    await dropChallenge(deps.db, limitRef, challengeRef, challengeId, dayRef, cacheRef);
     throw new HttpsError('unavailable', 'We could not send the email. Try again soon.');
   }
   return {challengeId, resendAfterSeconds: RESEND_COOLDOWN_MS / 1000};
@@ -271,14 +273,13 @@ export async function sendSignInCode(request: Req, deps: RequestDeps):
 
 /** Delete the challenge this call made. The send counters stay, but the cap place goes back. */
 async function dropChallenge(db: Firestore, limitRef: ReturnType<Firestore['doc']>,
-  challengeRef: ReturnType<Firestore['doc']>, challengeId: string, dayRef: ReturnType<Firestore['doc']>): Promise<void> {
+  challengeRef: ReturnType<Firestore['doc']>, challengeId: string, dayRef: ReturnType<Firestore['doc']>,
+  cacheRef: ReturnType<Firestore['doc']>): Promise<void> {
   await db.runTransaction(async transaction => {
     const [limit, day] = await Promise.all([transaction.get(limitRef), transaction.get(dayRef)]);
     transaction.delete(challengeRef);
-    transaction.set(limitRef, {
-      open: openList(limit.get('open')).filter(row => row.id !== challengeId),
-      ...(limit.get('lastChallengeId') === challengeId ? {lastChallengeId: null, lastRequesterUid: null} : {}),
-    }, {merge: true});
+    transaction.delete(cacheRef);
+    transaction.set(limitRef, {open: openList(limit.get('open')).filter(row => row.id !== challengeId)}, {merge: true});
     const sentToday = Number(day.get('count') ?? 0);
     if (sentToday > 0) transaction.set(dayRef, {count: sentToday - 1}, {merge: true});
   });
@@ -376,7 +377,9 @@ export async function checkSignInCode(request: Req, deps: VerifyDeps): Promise<{
     }
     const attempts = Number(snapshot.get('attempts') ?? 0);
     if (attempts >= MAX_WRONG_TRIES) return {kind: 'tooManyTries'};
-    if (sameHash(stored, hashCode(deps.key, email, code))) {
+    // A stand-in can never succeed, even with its own secret code: that counts as a wrong guess.
+    const matches = sameHash(stored, hashCode(deps.key, email, code));
+    if (matches && snapshot.get('standIn') !== true) {
       // Read the list of open challenges before writing, then close every one of them.
       const limitRef = deps.db.doc(`signInCodes/${emailKey}`);
       const open = openList((await transaction.get(limitRef)).get('open'));

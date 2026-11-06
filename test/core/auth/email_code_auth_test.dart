@@ -516,7 +516,7 @@ void main() {
         verifyNever(() => custom.signInWithCustomToken(any()));
       });
 
-      test('a sign-out asked during the sign-in runs after it', () async {
+      test('a sign-out asked during the exchange runs after it', () async {
         tokenSignIn = Completer<void>();
         final result = repository.verifyCode('c-1', '482139');
         await turn();
@@ -525,14 +525,76 @@ void main() {
         await turn();
         expect(log.where((e) => e == 'prepareSignOut'), isEmpty);
         tokenSignIn.complete();
-        expect(await result, const SignInResult.switchedToExisting());
+        // The sign-out cancels the check: its account is undone first.
+        expect(await result, const SignInResult.cancelled());
         await signOut;
         expect(
           log,
-          ['prepare', 'before', 'signOut', 'signIn', 'record'].followedBy(
-            ['prepareSignOut', 'before', 'signOut', 'anonymous'],
-          ),
+          [
+            'prepare',
+            'before',
+            'signOut',
+            'signIn',
+            'signOut',
+            'anonymous',
+          ].followedBy(['prepareSignOut', 'before', 'signOut', 'anonymous']),
         );
+        verifyNever(() => functions.recordSignInEvent());
+      });
+
+      test('cancelling during the token exchange signs the account out',
+          () async {
+        tokenSignIn = Completer<void>();
+        final result = repository.verifyCode('c-1', '482139');
+        await turn();
+        expect(log.last, 'signIn');
+        repository.cancelVerification();
+        tokenSignIn.complete();
+        expect(await result, const SignInResult.cancelled());
+        expect(
+          log,
+          ['prepare', 'before', 'signOut', 'signIn', 'signOut', 'anonymous'],
+        );
+        expect(session?.isAnonymous, isTrue);
+        verifyNever(() => functions.recordSignInEvent());
+      });
+
+      test(
+          'cancelling leaves another user alone if the exchange did not '
+          'install this account', () async {
+        when(() => custom.signInWithCustomToken(any())).thenAnswer((_) async {
+          log.add('signIn');
+          await tokenSignIn.future;
+          session = const AuthSession(uid: 'tab-two', email: 'z@y.co');
+        });
+        tokenSignIn = Completer<void>();
+        final result = repository.verifyCode('c-1', '482139');
+        await turn();
+        repository.cancelVerification();
+        tokenSignIn.complete();
+        expect(await result, const SignInResult.cancelled());
+        expect(log.where((e) => e == 'signOut'), hasLength(1));
+        expect(session?.uid, 'tab-two');
+        verifyNever(() => functions.recordSignInEvent());
+      });
+
+      test('cancelling during a same-user exchange keeps the user', () async {
+        when(() => codes.verifyCode(any(), any()))
+            .thenAnswer((_) async => _token('anon'));
+        final done = Completer<void>();
+        when(() => custom.signInWithCustomToken(any())).thenAnswer((_) async {
+          log.add('signIn');
+          await done.future;
+        });
+        final result = repository.verifyCode('c-1', '482139');
+        await turn();
+        repository.cancelVerification();
+        done.complete();
+        expect(await result, const SignInResult.cancelled());
+        expect(log, ['signIn']);
+        expect(session?.uid, 'anon');
+        verifyNever(() => auth.signOut());
+        verifyNever(() => functions.recordSignInEvent());
       });
 
       test('two sign-outs run one after the other', () async {

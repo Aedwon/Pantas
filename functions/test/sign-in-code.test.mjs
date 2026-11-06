@@ -101,7 +101,7 @@ test('a send makes a challenge that holds only a keyed hash of the code', async 
   assert.equal(row.attempts, 0);
   assert.equal(row.expiresAt.getTime(), 1_000_000 + 10 * 60_000);
   assert.ok(!JSON.stringify([...r.db.rows.values()]).includes(CODE));
-  assert.equal(limits(r).lastChallengeId, ID1);
+  assert.equal(r.db.rows.get(`signInRequests/${[...r.db.rows.keys()].find(k => k.startsWith('signInRequests/')).split('/')[1]}`).challengeId, ID1);
   assert.equal(limits(r).codeHash, undefined);
   assert.equal(r.mailer.sent.length, 1);
   assert.equal(r.mailer.sent[0].to, EMAIL);
@@ -127,23 +127,23 @@ test('the email escapes values and uses the app palette without em dashes', () =
   assert.ok(!/—/.test(clean.text + clean.html));
 });
 
-test('inside the cooldown the latest requester gets the real challenge and wait, others get a look-alike', async () => {
+test('inside the cooldown anyone asking again gets the same challenge and the true wait, real or not', async () => {
   const r = rig();
   await r.send();
   r.clock.advance(20_000);
   assert.deepEqual(await r.send(), {challengeId: ID1, resendAfterSeconds: 40});
-  const stranger = await r.send(EMAIL, {auth: caller('anonymous', 'anon2')});
+  const other = caller('anonymous', 'anon2');
+  const stranger = await r.send(EMAIL, {auth: other});
   assert.deepEqual(Object.keys(stranger).sort(), ['challengeId', 'resendAfterSeconds']);
   assert.equal(stranger.resendAfterSeconds, 60);
   assert.notEqual(stranger.challengeId, ID1);
   assert.equal(r.mailer.sent.length, 1);
-  // The look-alike holds no code, belongs to the stranger, and verifies as expired.
-  assert.equal(challenge(r, stranger.challengeId).codeHash, null);
+  assert.equal(challenge(r, stranger.challengeId).standIn, true);
   assert.equal(challenge(r, stranger.challengeId).requesterUid, 'anon2');
-  await assert.rejects(() => r.verify(stranger.challengeId, CODE, {auth: caller('anonymous', 'anon2')}), isExpired);
+  r.clock.advance(15_000);
+  assert.deepEqual(await r.send(EMAIL, {auth: other}), {challengeId: stranger.challengeId, resendAfterSeconds: 45});
   r.clock.advance(40_000);
-  const again = await r.send();
-  assert.equal(again.resendAfterSeconds, 60);
+  assert.equal((await r.send()).resendAfterSeconds, 60);
   assert.equal(r.mailer.sent.length, 2);
 });
 
@@ -164,8 +164,9 @@ test('after five sends in an hour the next looks like a send but nothing is mail
   assert.deepEqual(Object.keys(sixth).sort(), ['challengeId', 'resendAfterSeconds']);
   assert.equal(sixth.resendAfterSeconds, 60);
   assert.equal(r.mailer.sent.length, 5);
-  assert.equal(challenge(r, sixth.challengeId).codeHash, null);
-  await assert.rejects(() => r.verify(sixth.challengeId), isExpired);
+  assert.equal(challenge(r, sixth.challengeId).standIn, true);
+  await assert.rejects(() => r.verify(sixth.challengeId),
+    error => error.code === 'invalid-argument' && error.details.triesLeft === 4);
   r.clock.advance(3_600_000);
   await r.send();
   assert.equal(r.mailer.sent.length, 6);
@@ -190,7 +191,7 @@ test('a mail failure deletes the challenge, keeps the cooldown and gives the cap
   // The cooldown does not hand out the dead challenge. The reply is a look-alike.
   const next = await r.send();
   assert.notEqual(next.challengeId, ID1);
-  assert.equal(challenge(r, next.challengeId).codeHash, null);
+  assert.equal(challenge(r, next.challengeId).standIn, true);
 });
 
 test('requests need a signed-in caller and a fresh App Check token', async () => {
@@ -407,14 +408,16 @@ test('a full bucket never blocks the other, and a held-back send looks exactly l
     assert.equal(reply.resendAfterSeconds, 60);
     assert.match(reply.challengeId, /^[0-9a-f]{32}$/);
   }
-  assert.equal(challenge(r, openFull.challengeId).codeHash, null);
-  assert.equal(challenge(r, reservedFull2.challengeId).codeHash, null);
-  assert.ok(challenge(r, real.challengeId).codeHash);
+  assert.equal(challenge(r, openFull.challengeId).standIn, true);
+  assert.equal(challenge(r, reservedFull2.challengeId).standIn, true);
+  assert.equal(challenge(r, real.challengeId).standIn, undefined);
+  assert.equal(typeof challenge(r, openFull.challengeId).codeHash, 'string');
   // The daily count does not move, and the full day is flagged once so it is logged once.
   assert.equal(r.db.rows.get('signInLimits/global-open-1970-01-01').count, 1);
   assert.equal(r.db.rows.get('signInLimits/global-open-1970-01-01').fullLogged, true);
   assert.equal(r.db.rows.get('signInLimits/global-reserved-1970-01-01').fullLogged, true);
-  await assert.rejects(() => r.verify(openFull.challengeId), isExpired);
+  await assert.rejects(() => r.verify(openFull.challengeId),
+    error => error.code === 'invalid-argument' && error.details.triesLeft === 4);
 });
 
 test('a held-back send waits on the pad so it takes as long as a real one, and a real send does not', async () => {
@@ -459,7 +462,7 @@ test('aliases of one mailbox share one limit document, and the challenge keeps t
   r.clock.advance(61_000);
   const held = await r.send('ab@gmail.com');
   assert.equal(r.mailer.sent.length, 5);
-  assert.equal(challenge(r, held.challengeId).codeHash, null);
+  assert.equal(challenge(r, held.challengeId).standIn, true);
 });
 
 test('the account takes the exact typed address, not the canonical one', async () => {
@@ -512,3 +515,105 @@ test('the default open cap is 60 and the production file sets 20 and 40', async 
   assert.equal(r.mailer.sent.length, 60);
 });
 
+
+// ------------------------------------------------ stand-ins behave like real challenges
+
+/** Every observable part of a call's result, so two calls can be compared. */
+const seen = async promise => {
+  const {value, error} = await outcome(promise);
+  return error ? {code: error.code, message: error.message, details: error.details} : {ok: Object.keys(value).sort()};
+};
+
+/** A real challenge for anon1 and a stand-in for anon2 on the same mailbox, with a known stand-in secret. */
+async function pair() {
+  const r = rig({send: {standInCode: () => 777}});
+  const realReply = await r.send();
+  const other = caller('anonymous', 'anon2');
+  const fakeReply = await r.send(EMAIL, {auth: other});
+  assert.equal(challenge(r, fakeReply.challengeId).standIn, true);
+  const guess = (which, code) => which === 'real'
+    ? r.verify(realReply.challengeId, code) : r.verify(fakeReply.challengeId, code, {auth: other});
+  return {r, realReply, fakeReply, other, guess};
+}
+
+test('a real and a stand-in challenge get replies of the same shape', async () => {
+  const {r, realReply, fakeReply} = await pair();
+  assert.deepEqual(Object.keys(realReply).sort(), Object.keys(fakeReply).sort());
+  assert.equal(realReply.resendAfterSeconds, fakeReply.resendAfterSeconds);
+  assert.equal(r.mailer.sent.length, 1);
+});
+
+test('a wrong guess gives the same answer on a real and a stand-in challenge', async () => {
+  const {guess} = await pair();
+  assert.deepEqual(await seen(guess('fake', '111111')), await seen(guess('real', '111111')));
+  assert.equal((await seen(guess('fake', '222222'))).details.triesLeft, 3);
+});
+
+test('five wrong guesses lock a stand-in exactly as they lock a real challenge', async () => {
+  const {r, guess} = await pair();
+  for (let i = 0; i < 7; i += 1) {
+    assert.deepEqual(await seen(guess('fake', `11111${i}`)), await seen(guess('real', `11111${i}`)), `try ${i + 1}`);
+  }
+  const locked = await seen(guess('fake', '999999'));
+  assert.equal(locked.code, 'resource-exhausted');
+  assert.deepEqual(locked, await seen(guess('real', '999999')));
+  assert.equal(r.auth.calls.length, 0);
+});
+
+test('the stand-in secret code is treated as a wrong guess and never signs anyone in', async () => {
+  const {r, fakeReply, guess} = await pair();
+  const result = await seen(guess('fake', '000777'));
+  assert.equal(result.code, 'invalid-argument');
+  assert.equal(result.details.reason, 'wrong');
+  assert.equal(result.details.triesLeft, 4);
+  assert.ok(challenge(r, fakeReply.challengeId), 'the stand-in is not consumed');
+  assert.equal(r.auth.calls.length, 0);
+  // The real challenge, by contrast, accepts its own code.
+  assert.match((await guess('real', CODE)).token, /^token-for-new/);
+});
+
+test('a stand-in expires exactly as a real challenge does', async () => {
+  const {r, guess} = await pair();
+  r.clock.advance(10 * 60_000 - 1);
+  assert.deepEqual(await seen(guess('fake', '111111')), await seen(guess('real', '111111')));
+  r.clock.advance(2);
+  const fake = await seen(guess('fake', '111111'));
+  assert.deepEqual(fake, await seen(guess('real', '111111')));
+  assert.equal(fake.details.reason, 'expired');
+});
+
+test('asking again gives the same id and a falling countdown for a real and a stand-in challenge alike', async () => {
+  const {r, realReply, fakeReply, other} = await pair();
+  for (const [wait, left] of [[10_000, 50], [25_000, 25]]) {
+    r.clock.advance(wait);
+    assert.deepEqual(await r.send(), {challengeId: realReply.challengeId, resendAfterSeconds: left});
+    assert.deepEqual(await r.send(EMAIL, {auth: other}), {challengeId: fakeReply.challengeId, resendAfterSeconds: left});
+  }
+  assert.equal(r.mailer.sent.length, 1);
+  assert.equal(r.db.rows.get('signInLimits/global-open-1970-01-01').count, 1);
+  // After the minute both ask afresh: a new send for the real one's mailbox slot is again a stand-in
+  // or a real send, and either way a new challenge id comes back.
+  r.clock.advance(30_000);
+  const [a, b] = [await r.send(), await r.send(EMAIL, {auth: other})];
+  assert.notEqual(a.challengeId, realReply.challengeId);
+  assert.notEqual(b.challengeId, fakeReply.challengeId);
+  assert.equal(a.resendAfterSeconds, 60);
+  assert.equal(b.resendAfterSeconds, 60);
+});
+
+test('the stand-in secret is random by default and is never mailed', async () => {
+  const r = rig();
+  await r.send();
+  const fake = await r.send(EMAIL, {auth: caller('anonymous', 'anon2')});
+  assert.equal(r.mailer.sent.length, 1);
+  assert.ok(!r.mailer.sent[0].text.includes('777'));
+  const secrets = new Set();
+  for (let i = 0; i < 6; i += 1) {
+    const q = rig();
+    await q.send();
+    const reply = await q.send(EMAIL, {auth: caller('anonymous', 'anon2')});
+    secrets.add(challenge(q, reply.challengeId).codeHash);
+  }
+  assert.ok(secrets.size > 1);
+  assert.ok(fake.challengeId);
+});

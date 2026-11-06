@@ -192,8 +192,11 @@ custom token for the client to sign in with.
   the account that owns the address, or creates one, and the app switches to it.
 - A send held back for a reason about the recipient (cooldown for someone else's
   request, the hourly limit for that address, or a full daily bucket) still returns a
-  normal-looking reply, with a challenge that holds no code and verifies as expired.
-  No mail goes out. Watch the logs for "Sign-in code held back" (warning, with the first
+  normal-looking reply. Its challenge is a stand-in with a random secret code that is
+  never mailed: wrong guesses, the five-try lockout and expiry behave as for a real
+  one, and even the secret code never signs anyone in. No mail goes out. Asking again
+  within 60 seconds returns the same challenge and the true wait, real or stand-in,
+  from a per-caller, per-mailbox entry in `signInRequests`. Watch the logs for "Sign-in code held back" (warning, with the first
   characters of the mailbox key) and for "the open bucket is full for the day" or "the
   reserved bucket is full for the day" (error, once per bucket per day).
 - Plus tags are merged only for Gmail, Outlook, Hotmail, Live, iCloud, Me, Mac and
@@ -207,9 +210,9 @@ custom token for the client to sign in with.
   token on each call.
 - Each request makes a challenge in `signInChallenges` with a random id that only the
   requesting user can verify. Per-mailbox limits live in `signInCodes`, and counters in
-  `signInLimits`. Clients cannot read or write any of them; rules deny them.
+  `signInLimits` and `signInRequests`. Clients cannot read or write any of them; rules deny them.
 - Optional cleanup: add Firestore TTL policies on `signInChallenges.expiresAt`, and on
-  `purgeAt` for the collection groups `signInCodes` and `signInLimits`.
+  `purgeAt` for the collection groups `signInCodes`, `signInLimits` and `signInRequests`.
 - Smoke test: request a code, enter it, confirm sign-in. Then enter a wrong code and
   confirm the tries count down, and confirm a second request within 60 seconds does
   not send another email.

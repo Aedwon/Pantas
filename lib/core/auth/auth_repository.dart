@@ -211,9 +211,14 @@ class AuthRepository implements EmailCodeAuth {
   /// step that waits, and `signedOut` is true once this call has signed the
   /// old account out. If it says no, nothing more is touched and the session
   /// is returned to an anonymous one if this call had ended the old one.
+  ///
+  /// [undoIfCancelled] runs right after [signIn] and before the sign-in event
+  /// is recorded. If it returns true, the flow was cancelled during the
+  /// exchange and it has already undone it.
   Future<SignInResult> _switchAccount(
     Future<void> Function() signIn, {
     bool Function({required bool signedOut})? valid,
+    Future<bool> Function()? undoIfCancelled,
   }) async {
     bool wanted({required bool signedOut}) =>
         valid?.call(signedOut: signedOut) ?? true;
@@ -228,6 +233,9 @@ class AuthRepository implements EmailCodeAuth {
         return const SignInResult.cancelled();
       }
       await signIn();
+      if (await (undoIfCancelled?.call() ?? Future.value(false))) {
+        return const SignInResult.cancelled();
+      }
       await _functionsGateway.recordSignInEvent();
       return const SignInResult.switchedToExisting();
     } on AuthGatewayException catch (error) {
@@ -284,6 +292,28 @@ class AuthRepository implements EmailCodeAuth {
         }
 
         if (!wanted(signedOut: false)) return const SignInResult.cancelled();
+
+        // The flow may be cancelled while Firebase exchanges the token. The
+        // exchange then leaves the cancelled account signed in: undo it, but
+        // only if the signed-in user is the one this exchange installed.
+        final target = customTokenUid(token);
+        Future<bool> undoIfCancelled() async {
+          if (epoch == _identityEpoch) return false;
+          final uid = _gateway.currentSession?.uid;
+          final installed = uid != null &&
+              uid != uidBefore &&
+              (target == null || uid == target);
+          if (installed) {
+            try {
+              await _gateway.signOut();
+              await ensureAnonymous();
+            } on AuthGatewayException {
+              // Best effort: the caller still learns the flow was cancelled.
+            }
+          }
+          return true;
+        }
+
         Future<void> signInWithToken() => signIn.signInWithCustomToken(token);
         final session = _gateway.currentSession;
         SignInResult result;
@@ -291,13 +321,18 @@ class AuthRepository implements EmailCodeAuth {
           // A token for the user already signed in: no switch is needed.
           try {
             await signInWithToken();
+            if (await undoIfCancelled()) return const SignInResult.cancelled();
             await _functionsGateway.recordSignInEvent();
             result = const SignInResult.linkedExisting();
           } on AuthGatewayException catch (error) {
             return SignInResult.failed(reason: error.code);
           }
         } else {
-          result = await _switchAccount(signInWithToken, valid: wanted);
+          result = await _switchAccount(
+            signInWithToken,
+            valid: wanted,
+            undoIfCancelled: undoIfCancelled,
+          );
         }
         // Checks that started before this sign-in belong to the old user.
         if (result is! FailedSignInResult && result is! CancelledSignInResult) {
