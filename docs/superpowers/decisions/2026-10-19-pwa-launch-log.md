@@ -2570,3 +2570,11 @@ Aedwon judged email links bad UX (they often open in another browser) and chose 
 ## 6 November 2026: noted for later, do not fix until Aedwon says
 
 Study page (phone web): an opened subject's header stays pinned while scrolling, but it leaves a gap below the search bar and the next subject's rows show above it. Aedwon wants the opened panel to merge cleanly so it sits right under the search bar with no gaps. Reported with a screenshot on Nov 6; wait for his go-ahead.
+
+## 7 November 2026: beta results email, ready except the guide (handoff)
+
+- **Selection (ran 00:06 Nov 7):** 20 applicants selected in `betaApplications` on pantas-prod: 19 adults and 1 minor with guardian consent `confirmed`. 6 applications are deleted and get nothing. No eligible applicant was left out, so there are no `not_selected` emails. Two owner-added docs (`ownerTest: true`: aerol.balayon@gmail.com, valderrickjames0214@gmail.com) are selected for access but must not be in the results export.
+- **Email:** `pantas-web/tools/send-beta-results.mjs` with templates in `pantas-web/worker/beta/mail.js` (`accepted`). 21 messages: 20 testers plus the minor's guardian copy. Subject "You're in the Pantas beta", from noreply@pantas.study, links to https://app.pantas.study (code sign-in is live) and https://www.pantas.study/beta/guide. Aedwon reviewed the rendered text on Nov 7.
+- **Blocker before sending:** `pantas-web/beta/guide.html` still says Pro lasts the "first 7 days". Beta Pro runs through Nov 15 (`BETA_PRO_UNTIL=2026-11-16T00:00:00+08:00`). Fix the guide and deploy the site (wrangler, per pantas-web docs), then confirm the live guide.
+- **Send steps:** build the export from the 20 selected, non-deleted, non-`ownerTest` applications (fields per `tools/send-beta-results.md`), dry run, then send only with Aedwon's explicit approval. Resend Free allows 100 a day; sign-in codes and guardian mail share that allowance, so 21 is safe.
+- **Also open (Pantas app, branch web/visual-check-fixes-r1):** Home shows the plan before quiz content (task 2 of `docs/superpowers/plans/2026-11-06-load-speed-minimal.md`; Codex failed it twice, goes to a lead); the balanced load-speed batch awaits Aedwon's go; the Study panel note above waits for his go; `WARMUP_ENABLED` goes to false after Nov 15.
