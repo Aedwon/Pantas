@@ -47,7 +47,10 @@ All callables: region `asia-southeast1`, App Check limited-use token, signed-in 
   usefulness: 1..5, continue: 'yes'|'maybe'|'no', recommend: 0..10, improve: string,
   other?: string}})` → `{submittedAt: number}`. Errors: `failed-precondition` (window),
   `already-exists`.
-- `activateBetaReward({})` → `{grantId, startsAt: number, endsAt: number}`. Errors:
+- `activateBetaReward({})` → `{startsAt: number, endsAt: number, exams: number}` where
+  `startsAt` is the earliest start and `endsAt` the latest end across the per-exam reward
+  grants, and `exams` the number of grants written. `getBetaReward` reports the same aggregate
+  as `rewardStartsAt` / `rewardEndsAt`. Errors:
   `failed-precondition` with message naming the unmet condition.
 - `getBetaReward({})` → `{days: string[], betaDays: string[7], surveyOpensAt, surveyClosesAt,
   surveySubmitted: boolean, eligible: boolean, activatedAt: number|null, rewardStartsAt:
