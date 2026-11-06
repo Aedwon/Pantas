@@ -17,7 +17,6 @@ export function fixture(at = Date.parse('2026-11-15T12:00:00+08:00')) {
     }, set: (ref, value, options) => {writes.push(() => rows.set(ref.path, options?.merge ? {...rows.get(ref.path), ...value} : value));}};
     const result = await fn(tx); writes.forEach(f => f()); return result;
   }};
-  const auth = {getUser: async () => ({customClaims: {}}), setCustomUserClaims: async () => {}};
-  return {db, auth, rows, now: () => at, allow: async () => true,
+  return {db, rows, now: () => at, allow: async () => true,
     metadata: async () => ({contentType:'image/png', size:'10'})};
 }

@@ -3,7 +3,7 @@ import type {LedgerGrant, PriceTier} from './revenuecatCoverage.js';
 
 /** One row of users/{uid}/grants/{grantId}. Server-only writes; the owner may read. */
 export interface Grant {
-  source: 'paymongo' | 'trial' | 'beta';
+  source: 'paymongo' | 'trial' | 'beta' | 'beta_reward';
   product: string;
   tier: PriceTier;
   startsAt: number;

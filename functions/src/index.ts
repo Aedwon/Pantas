@@ -48,4 +48,4 @@ export {requestSignInCode, verifySignInCode} from './signInCode.js';
 
 export {keepCallablesWarm} from './keepWarm.js';
 
-export {sendBetaFeedback, recordBetaDay, submitBetaSurvey, getBetaReward} from './betaReward.js';
+export {activateBetaReward, sendBetaFeedback, recordBetaDay, submitBetaSurvey, getBetaReward} from './betaReward.js';

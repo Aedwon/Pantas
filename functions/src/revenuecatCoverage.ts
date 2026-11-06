@@ -6,7 +6,7 @@ export interface CoveragePeriod {id: string; endsAt: number; active: boolean}
 // Trusted server ledger input only. Task 5 owns reading records in its transaction.
 export interface LedgerPass {examId: string; endsAt: number; active: boolean}
 // Server-owned grant ledger input (PayMongo purchases and the web trial).
-export interface LedgerGrant {source: 'paymongo' | 'trial' | 'beta'; examId?: string; product: string; tier: PriceTier;
+export interface LedgerGrant {source: 'paymongo' | 'trial' | 'beta' | 'beta_reward'; examId?: string; product: string; tier: PriceTier;
   startsAt: number; endsAt: number; active: boolean}
 type Product = {id: string; kind: string; tier: PriceTier; examId?: string | null};
 const products = JSON.parse(readFileSync(join(__dirname, 'products.json'), 'utf8')) as Product[];
@@ -54,7 +54,7 @@ export function coverageAt(input: {
   // A grant covers only [startsAt, endsAt).
   for (const grant of input.grants ?? []) {
     if (!live(grant) || !(grant.startsAt <= input.at)) continue;
-    if (grant.source === 'beta') {
+    if ((grant.source === 'beta' || grant.source === 'beta_reward')) {
       if (!grant.examId) continue;
       passes.set(grant.examId, Math.max(passes.get(grant.examId) ?? 0, grant.endsAt));
       includeEnd(grant.endsAt, false);
