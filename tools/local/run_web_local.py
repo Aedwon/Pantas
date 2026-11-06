@@ -202,6 +202,7 @@ def main():
     run(['node', 'tools/local/seed_accounts.mjs'])
     run(['flutter', 'build', 'web', '--profile', '--no-web-resources-cdn', '-t', 'lib/main_dev.dart',
          f'--dart-define=LOCAL_EMULATOR_HOST={host}'])
+    run(['node', 'tool/web/stamp_worker_version.mjs', 'build/web'])
     print('+ install local App Check debug exchange, local account links and the test panel in build/web only', flush=True)
     print('+ dart run tool/list_routes.dart > build/web/local-panel-routes.json', flush=True)
     print('+ copy tools/local/panel/local-fps.js to build/web only (shown with ?localFps=1)', flush=True)

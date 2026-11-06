@@ -125,6 +125,7 @@ The upload writes server-only content paths, not `betaApplications`.
 
 ```sh
 flutter build web --release -t lib/main_prod.dart --dart-define=APP_CHECK_WEB_SITE_KEY=<PROD_PUBLIC_SITE_KEY>
+node tool/web/stamp_worker_version.mjs build/web
 firebase deploy --only hosting:app --project pantas-prod
 ```
 
