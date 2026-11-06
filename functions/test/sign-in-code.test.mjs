@@ -417,6 +417,15 @@ test('a full bucket never blocks the other, and a held-back send looks exactly l
   await assert.rejects(() => r.verify(openFull.challengeId), isExpired);
 });
 
+test('a held-back send waits on the pad so it takes as long as a real one, and a real send does not', async () => {
+  let pads = 0;
+  const r = rig({send: {openCap: 1, pad: async () => { pads += 1; }}});
+  await r.send('a@example.com');
+  assert.equal(pads, 0);
+  await r.send('b@example.com');
+  assert.equal(pads, 1);
+});
+
 test('the reply for a known address has the same shape as for a stranger', async () => {
   const r = rig({users: {u9: {uid: 'u9', email: 'known@example.com'}}});
   r.db.rows.set('betaApplications/a', {email: 'beta@example.com', selected: true});

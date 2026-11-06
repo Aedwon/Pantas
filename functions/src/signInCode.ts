@@ -102,6 +102,8 @@ export type RequestDeps = {
   openCap?: number;
   reservedCap?: number;
   alert?: (message: string) => void;
+  /** Waits on a held-back send so it takes about as long as a real one. */
+  pad?: () => Promise<void>;
 };
 
 type Req = Pick<CallableRequest, 'auth' | 'app' | 'data'> & {rawRequest?: {ip?: string}};
@@ -253,6 +255,7 @@ export async function sendSignInCode(request: Req, deps: RequestDeps):
     if (slot.reason === 'dailyCap' && slot.firstFull) {
       logger.error(`Sign-in emails: the ${bucket} bucket is full for the day.`, {bucket, cap});
     }
+    await deps.pad?.();
     return {challengeId, resendAfterSeconds: RESEND_COOLDOWN_MS / 1000};
   }
 
@@ -420,6 +423,8 @@ export const requestSignInCode = onCall({region: 'asia-southeast1', enforceAppCh
   assertFreshAppCheck(request);
   return sendSignInCode(request, {db: getFirestore(), key: key(),
     openCap: signInOpenCap.value(), reservedCap: signInReservedCap.value(),
+    // A held-back send skips the mail provider; match its usual 250 to 700 ms.
+    pad: () => new Promise(resolve => setTimeout(resolve, 250 + randomInt(0, 450))),
     mailer: {send: message => mailerFor(process.env,
       {apiKey: () => guardianMailKey.value(), from: () => guardianMailFrom.value()}).send(message)}});
 });
