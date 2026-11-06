@@ -15,7 +15,7 @@ void main() {
     final prod = firebaseConfigForFlavor(Flavor.prod, isWeb: true);
     expect(prod.projectId, 'pantas-prod');
     expect(prod.appId, '1:416041343210:web:cdf805fbfb28ca13639f93');
-    expect(prod.authDomain, 'pantas-prod.firebaseapp.com');
+    expect(prod.authDomain, 'app.pantas.study');
   });
 
   test('dev selects the generated dev Firebase options', () {

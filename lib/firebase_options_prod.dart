@@ -53,7 +53,7 @@ class DefaultFirebaseOptions {
     appId: '1:416041343210:web:cdf805fbfb28ca13639f93',
     messagingSenderId: '416041343210',
     projectId: 'pantas-prod',
-    authDomain: 'pantas-prod.firebaseapp.com',
+    authDomain: 'app.pantas.study',
     storageBucket: 'pantas-prod.firebasestorage.app',
     measurementId: 'G-H9VNWM6S32',
   );
