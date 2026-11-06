@@ -51,11 +51,14 @@ void main() {
       'items|COLLECTION|examId:ASCENDING,submittedAt:DESCENDING',
       'items|COLLECTION|examId:ASCENDING,day:DESCENDING',
       'items|COLLECTION|examId:ASCENDING,occurredAt:DESCENDING',
+      // Today's study-history range query in roadmap.ts. Missing in pantas-prod
+      // on Nov 6, 2026: Home showed "Could not load your plan." twice.
+      'items|COLLECTION|examId:ASCENDING,occurredAt:ASCENDING',
       'sync_generations|COLLECTION_GROUP|status:ASCENDING,createdAt:ASCENDING',
       'sync_generations|COLLECTION_GROUP|status:ASCENDING,retiredAt:ASCENDING',
     };
 
-    expect(indexes, hasLength(15));
+    expect(indexes, hasLength(16));
     expect(indexes.map(_indexSignature), unorderedEquals(expectedSignatures));
   });
 
