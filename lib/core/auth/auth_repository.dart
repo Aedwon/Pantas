@@ -91,7 +91,32 @@ class AuthRepository implements EmailCodeAuth {
     await _gateway.signInAnonymously();
   }
 
-  Future<SignInResult> signInWithGoogle() async {
+  // Bumped when an identity change is requested and when a code sign-in
+  // completes, and by [cancelVerification]. A code check that began under an
+  // older value must not sign anyone in when its token comes back.
+  int _identityEpoch = 0;
+
+  // Every change of identity runs one at a time, in the order it was asked.
+  Future<void> _identityTail = Future<void>.value();
+
+  Future<T> _exclusive<T>(Future<T> Function() action) async {
+    final previous = _identityTail;
+    final turn = Completer<void>();
+    _identityTail = turn.future;
+    try {
+      await previous;
+      return await action();
+    } finally {
+      turn.complete();
+    }
+  }
+
+  Future<SignInResult> signInWithGoogle() {
+    _identityEpoch++;
+    return _exclusive(_signInWithGoogle);
+  }
+
+  Future<SignInResult> _signInWithGoogle() async {
     final popup = _googlePopupGateway;
     if (popup != null) {
       return _signInWithLink(
@@ -144,10 +169,13 @@ class AuthRepository implements EmailCodeAuth {
     if (address == null || address.isEmpty) {
       return const SignInResult.failed(reason: 'email-required');
     }
+    _identityEpoch++;
     try {
-      return await _signInWithLink(
-        () => gateway.link(address, link),
-        () => gateway.signIn(address, link),
+      return await _exclusive(
+        () => _signInWithLink(
+          () => gateway.link(address, link),
+          () => gateway.signIn(address, link),
+        ),
       );
     } finally {
       cancelEmailLink();
@@ -178,12 +206,27 @@ class AuthRepository implements EmailCodeAuth {
   }
 
   /// Leaves the current account and signs in as another one.
-  Future<SignInResult> _switchAccount(Future<void> Function() signIn) async {
-    _identityEpoch++;
+  ///
+  /// [valid] says whether the change is still wanted. It is asked after each
+  /// step that waits, and `signedOut` is true once this call has signed the
+  /// old account out. If it says no, nothing more is touched and the session
+  /// is returned to an anonymous one if this call had ended the old one.
+  Future<SignInResult> _switchAccount(
+    Future<void> Function() signIn, {
+    bool Function({required bool signedOut})? valid,
+  }) async {
+    bool wanted({required bool signedOut}) =>
+        valid?.call(signedOut: signedOut) ?? true;
     await _accountTransitionGateway.prepareForAccountSwitch();
+    if (!wanted(signedOut: false)) return const SignInResult.cancelled();
     await beforeIdentityChange?.call();
+    if (!wanted(signedOut: false)) return const SignInResult.cancelled();
     try {
       if (_gateway.currentSession != null) await _gateway.signOut();
+      if (!wanted(signedOut: true)) {
+        await ensureAnonymous();
+        return const SignInResult.cancelled();
+      }
       await signIn();
       await _functionsGateway.recordSignInEvent();
       return const SignInResult.switchedToExisting();
@@ -206,10 +249,6 @@ class AuthRepository implements EmailCodeAuth {
     return gateway.requestCode(email.trim().toLowerCase());
   }
 
-  // Bumped by every identity change this repository makes and by
-  // [cancelVerification]. A code check that began under an older value must
-  // not sign anyone in when its token comes back.
-  int _identityEpoch = 0;
   Future<void> _verifyTail = Future<void>.value();
 
   @override
@@ -233,32 +272,50 @@ class AuthRepository implements EmailCodeAuth {
       if (epoch != _identityEpoch) return const SignInResult.cancelled();
       final uidBefore = _gateway.currentSession?.uid;
       final token = await gateway.verifyCode(challengeId, code);
-      // The server answered for the user who asked. If that user is gone, or
-      // the flow was cancelled, the token is not for the current user: drop it.
-      final session = _gateway.currentSession;
-      if (epoch != _identityEpoch || session?.uid != uidBefore) {
-        return const SignInResult.cancelled();
-      }
-      Future<void> signInWithToken() => signIn.signInWithCustomToken(token);
-      // The server upgrades an anonymous caller in place when the email is
-      // new. The token then names the caller's own uid, and its progress stays.
-      if (session != null && customTokenUid(token) == session.uid) {
-        try {
-          await signInWithToken();
-          await _functionsGateway.recordSignInEvent();
-          return const SignInResult.linkedExisting();
-        } on AuthGatewayException catch (error) {
-          return SignInResult.failed(reason: error.code);
+      // The token is for the user who asked. The sign-in waits its turn behind
+      // any other change of identity, and re-checks, before every step that
+      // touches auth, that the same user is still here and the flow was not
+      // cancelled. If not, the token is dropped.
+      return await _exclusive(() async {
+        bool wanted({required bool signedOut}) {
+          if (epoch != _identityEpoch) return false;
+          final uid = _gateway.currentSession?.uid;
+          return uid == uidBefore || (signedOut && uid == null);
         }
-      }
-      return await _switchAccount(signInWithToken);
+
+        if (!wanted(signedOut: false)) return const SignInResult.cancelled();
+        Future<void> signInWithToken() => signIn.signInWithCustomToken(token);
+        final session = _gateway.currentSession;
+        SignInResult result;
+        if (session != null && customTokenUid(token) == session.uid) {
+          // A token for the user already signed in: no switch is needed.
+          try {
+            await signInWithToken();
+            await _functionsGateway.recordSignInEvent();
+            result = const SignInResult.linkedExisting();
+          } on AuthGatewayException catch (error) {
+            return SignInResult.failed(reason: error.code);
+          }
+        } else {
+          result = await _switchAccount(signInWithToken, valid: wanted);
+        }
+        // Checks that started before this sign-in belong to the old user.
+        if (result is! FailedSignInResult && result is! CancelledSignInResult) {
+          _identityEpoch++;
+        }
+        return result;
+      });
     } finally {
       turn.complete();
     }
   }
 
-  Future<void> signOut() async {
+  Future<void> signOut() {
     _identityEpoch++;
+    return _exclusive(_signOut);
+  }
+
+  Future<void> _signOut() async {
     cancelEmailLink();
     await _accountTransitionGateway.prepareForSignOut();
     await beforeIdentityChange?.call();
@@ -272,8 +329,12 @@ class AuthRepository implements EmailCodeAuth {
     return _functionsGateway.exportData();
   }
 
-  Future<void> deleteAccount() async {
+  Future<void> deleteAccount() {
     _identityEpoch++;
+    return _exclusive(_deleteAccount);
+  }
+
+  Future<void> _deleteAccount() async {
     final session = _gateway.currentSession;
     final lastSignInTime = session?.lastSignInTime;
     if (lastSignInTime == null ||
@@ -297,7 +358,6 @@ class AuthRepository implements EmailCodeAuth {
   Future<SignInResult> _switchToExistingGoogleAccount(
     GoogleAuthTokens tokens,
   ) async {
-    _identityEpoch++;
     await _accountTransitionGateway.prepareForAccountSwitch();
     await beforeIdentityChange?.call();
     try {

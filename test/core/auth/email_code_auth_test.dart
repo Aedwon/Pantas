@@ -23,6 +23,8 @@ class _Transition extends Mock implements AccountTransitionGateway {}
 
 class _Functions extends Mock implements AuthFunctionsGateway {}
 
+class _Google extends Mock implements GoogleSignInGateway {}
+
 class _Wiper implements LocalStateWiper {
   @override
   Future<bool> hasMeaningfulProgress() async => false;
@@ -402,6 +404,183 @@ void main() {
       });
     });
 
+    group('the sign-in itself', () {
+      late AuthSession? session;
+      late Completer<void> prepare;
+      late Completer<void> before;
+      late Completer<void> signedOut;
+      late Completer<void> tokenSignIn;
+      late List<String> log;
+
+      Future<void> turn() => Future<void>.delayed(Duration.zero);
+
+      setUp(() {
+        session = const AuthSession(uid: 'anon', isAnonymous: true);
+        log = [];
+        prepare = Completer<void>()..complete();
+        before = Completer<void>()..complete();
+        signedOut = Completer<void>()..complete();
+        tokenSignIn = Completer<void>()..complete();
+        when(() => auth.currentSession).thenAnswer((_) => session);
+        when(() => codes.verifyCode(any(), any()))
+            .thenAnswer((_) async => _token('other'));
+        when(() => transition.prepareForAccountSwitch()).thenAnswer((_) {
+          log.add('prepare');
+          return prepare.future;
+        });
+        repository.beforeIdentityChange = () {
+          log.add('before');
+          return before.future;
+        };
+        when(() => auth.signOut()).thenAnswer((_) async {
+          log.add('signOut');
+          await signedOut.future;
+          session = null;
+        });
+        when(() => auth.signInAnonymously()).thenAnswer((_) async {
+          log.add('anonymous');
+          return session = const AuthSession(uid: 'anon-2', isAnonymous: true);
+        });
+        when(() => custom.signInWithCustomToken(any())).thenAnswer((_) async {
+          log.add('signIn');
+          await tokenSignIn.future;
+          session = const AuthSession(uid: 'other', email: 'x@y.co');
+        });
+        when(() => functions.recordSignInEvent()).thenAnswer((_) async {
+          log.add('record');
+        });
+        when(() => transition.prepareForSignOut()).thenAnswer((_) async {
+          log.add('prepareSignOut');
+        });
+      });
+
+      test('a plain code sign-in is a switch to the other account', () async {
+        expect(
+          await repository.verifyCode('c-1', '482139'),
+          const SignInResult.switchedToExisting(),
+        );
+        expect(log, ['prepare', 'before', 'signOut', 'signIn', 'record']);
+      });
+
+      test('a change requested during preparation stops before sign-out',
+          () async {
+        prepare = Completer<void>();
+        final result = repository.verifyCode('c-1', '482139');
+        await turn();
+        expect(log, ['prepare']);
+        repository.cancelVerification();
+        prepare.complete();
+        expect(await result, const SignInResult.cancelled());
+        expect(log, ['prepare']);
+        verifyNever(() => custom.signInWithCustomToken(any()));
+      });
+
+      test('a change requested during payment cleanup stops before sign-out',
+          () async {
+        before = Completer<void>();
+        final result = repository.verifyCode('c-1', '482139');
+        await turn();
+        expect(log, ['prepare', 'before']);
+        session = const AuthSession(uid: 'intruder', email: 'z@y.co');
+        before.complete();
+        expect(await result, const SignInResult.cancelled());
+        expect(log, ['prepare', 'before']);
+        verifyNever(() => auth.signOut());
+        verifyNever(() => custom.signInWithCustomToken(any()));
+      });
+
+      test('a change requested during sign-out stops before sign-in', () async {
+        signedOut = Completer<void>();
+        final result = repository.verifyCode('c-1', '482139');
+        await turn();
+        expect(log, ['prepare', 'before', 'signOut']);
+        repository.cancelVerification();
+        signedOut.complete();
+        expect(await result, const SignInResult.cancelled());
+        // The session this call ended is replaced, and nobody is signed in.
+        expect(log, ['prepare', 'before', 'signOut', 'anonymous']);
+        verifyNever(() => custom.signInWithCustomToken(any()));
+        verifyNever(() => functions.recordSignInEvent());
+      });
+
+      test('a different user signing in during sign-out is left alone',
+          () async {
+        when(() => auth.signOut()).thenAnswer((_) async {
+          log.add('signOut');
+          session = const AuthSession(uid: 'tab-two', email: 'z@y.co');
+        });
+        expect(
+          await repository.verifyCode('c-1', '482139'),
+          const SignInResult.cancelled(),
+        );
+        verifyNever(() => custom.signInWithCustomToken(any()));
+      });
+
+      test('a sign-out asked during the sign-in runs after it', () async {
+        tokenSignIn = Completer<void>();
+        final result = repository.verifyCode('c-1', '482139');
+        await turn();
+        expect(log.last, 'signIn');
+        final signOut = repository.signOut();
+        await turn();
+        expect(log.where((e) => e == 'prepareSignOut'), isEmpty);
+        tokenSignIn.complete();
+        expect(await result, const SignInResult.switchedToExisting());
+        await signOut;
+        expect(
+          log,
+          ['prepare', 'before', 'signOut', 'signIn', 'record'].followedBy(
+            ['prepareSignOut', 'before', 'signOut', 'anonymous'],
+          ),
+        );
+      });
+
+      test('two sign-outs run one after the other', () async {
+        signedOut = Completer<void>();
+        final a = repository.signOut();
+        final b = repository.signOut();
+        await turn();
+        expect(log.where((e) => e == 'prepareSignOut'), hasLength(1));
+        signedOut.complete();
+        await a;
+        await b;
+        expect(log.where((e) => e == 'prepareSignOut'), hasLength(2));
+      });
+
+      test('a Google sign-in asked during the server check wins', () async {
+        final server = Completer<String>();
+        when(() => codes.verifyCode(any(), any()))
+            .thenAnswer((_) => server.future);
+        final google = _Google();
+        when(google.signIn).thenAnswer((_) async => null);
+        final repo = AuthRepository(
+          gateway: auth,
+          googleGateway: google,
+          emailCodeGateway: codes,
+          customTokenGateway: custom,
+          accountTransitionGateway: transition,
+          functionsGateway: functions,
+        );
+        final result = repo.verifyCode('c-1', '482139');
+        await turn();
+        expect(await repo.signInWithGoogle(), const SignInResult.cancelled());
+        server.complete(_token('other'));
+        expect(await result, const SignInResult.cancelled());
+        verifyNever(() => custom.signInWithCustomToken(any()));
+      });
+
+      test('a failed token sign-in returns the user to an anonymous one',
+          () async {
+        when(() => custom.signInWithCustomToken(any()))
+            .thenThrow(const AuthGatewayException('invalid-custom-token'));
+        expect(
+          await repository.verifyCode('c-1', '482139'),
+          const SignInResult.failed(reason: 'invalid-custom-token'),
+        );
+        expect(log.last, 'anonymous');
+      });
+    });
+
     test('only one check runs at a time', () async {
       final first = Completer<String>();
       final second = Completer<String>();
@@ -411,16 +590,30 @@ void main() {
 
       final one = repository.verifyCode('c-1', '111111');
       final two = repository.verifyCode('c-2', '222222');
+      final refused = expectLater(one, throwsA(isA<EmailCodeException>()));
       await Future<void>.delayed(Duration.zero);
       verify(() => codes.verifyCode('c-1', '111111')).called(1);
       verifyNever(() => codes.verifyCode('c-2', '222222'));
 
-      first.complete(_token('anon'));
-      expect(await one, const SignInResult.linkedExisting());
+      first.completeError(const EmailCodeException(EmailCodeFailure.wrong));
+      await refused;
       await Future<void>.delayed(Duration.zero);
       verify(() => codes.verifyCode('c-2', '222222')).called(1);
       second.complete(_token('anon'));
       expect(await two, const SignInResult.linkedExisting());
+    });
+
+    test('a check queued behind a sign-in is dropped', () async {
+      final first = Completer<String>();
+      when(() => codes.verifyCode(any(), any()))
+          .thenAnswer((_) => first.future);
+      final one = repository.verifyCode('c-1', '111111');
+      final two = repository.verifyCode('c-2', '222222');
+      await Future<void>.delayed(Duration.zero);
+      first.complete(_token('anon'));
+      expect(await one, const SignInResult.linkedExisting());
+      expect(await two, const SignInResult.cancelled());
+      verifyNever(() => codes.verifyCode('c-2', '222222'));
     });
 
     test('a check cancelled while it waits its turn is skipped', () async {

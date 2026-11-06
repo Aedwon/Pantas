@@ -104,8 +104,9 @@ class _EmailSignInPageState extends ConsumerState<EmailSignInPage> {
     _wrongTimer?.cancel();
     _holdTimer?.cancel();
     _code.removeListener(_keepCursorAtEnd);
-    // A check still running must not sign anyone in once this screen is gone.
-    if (_phase == _Phase.verifying) _codes.cancelVerification();
+    // A check still running must not sign anyone in once this screen is gone,
+    // whatever the screen was showing.
+    _codes.cancelVerification();
     final hold = _hold;
     // Leaving the screen must not leave the gate held.
     Future<void>.microtask(() {
@@ -261,7 +262,8 @@ class _EmailSignInPageState extends ConsumerState<EmailSignInPage> {
     if (_celebrating || _phase == _Phase.expired) return;
     final code = _code.text;
     final challengeId = _challengeId;
-    if (code.length != 6 || challengeId == null) return;
+    // A new code is on its way: this one is about to be replaced.
+    if (code.length != 6 || challengeId == null || _resending) return;
     final flow = _flow;
     setState(() {
       _phase = _Phase.verifying;
@@ -364,7 +366,7 @@ class _EmailSignInPageState extends ConsumerState<EmailSignInPage> {
     });
     try {
       final request = await _codes.requestCode(_sentTo);
-      if (!mounted || flow != _flow) return;
+      if (!mounted || flow != _flow || _celebrating) return;
       _resend.start(request.resendAfterSeconds);
       final id = request.challengeId;
       if (id == null) {
@@ -407,11 +409,10 @@ class _EmailSignInPageState extends ConsumerState<EmailSignInPage> {
 
   void _useDifferentEmail() {
     if (_phase == _Phase.signedIn) return;
-    // Leaving mid-check cancels it: its token must not sign anyone in.
-    if (_phase == _Phase.verifying) {
-      _codes.cancelVerification();
-      _hold.state = false;
-    }
+    // Leaving cancels any check in flight and ends the hold, whatever the
+    // screen shows: the check's token must not sign anyone in.
+    _codes.cancelVerification();
+    _hold.state = false;
     _flow++;
     _wrongTimer?.cancel();
     _resend.stop();
@@ -431,6 +432,8 @@ class _EmailSignInPageState extends ConsumerState<EmailSignInPage> {
 
   Future<void> _signOutToEmail() async {
     if (_signingOut) return;
+    _codes.cancelVerification();
+    _hold.state = false;
     setState(() => _signingOut = true);
     try {
       await ref.read(authRepositoryProvider).signOut();

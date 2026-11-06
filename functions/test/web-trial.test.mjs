@@ -180,14 +180,19 @@ test('other server checks already treat a verified-email code sign-in as a named
   assert.equal(await ensurePublicId(memoryDb(), auth), null);
 });
 
-test('canonicalEmail strips plus tags everywhere and dots only for Gmail', () => {
+test('canonicalEmail strips plus tags only where they are known to work, and dots only for Gmail', () => {
   for (const [input, expected] of [
     ['Tester@Example.com', 'tester@example.com'],
-    [' tester+promo@example.com ', 'tester@example.com'],
+    [' tester+promo@example.com ', 'tester+promo@example.com'],
+    ['te.ster+x@example.com', 'te.ster+x@example.com'],
     ['te.ster@example.com', 'te.ster@example.com'],
     ['Te.St.Er+a+b@gmail.com', 'tester@gmail.com'],
-    ['te.ster@googlemail.com', 'tester@gmail.com'],
-    ['+odd@example.com', '+odd@example.com'],
+    ['te.ster+x@googlemail.com', 'tester@gmail.com'],
+    ['te.ster+x@outlook.com', 'te.ster@outlook.com'],
+    ['a+x@hotmail.com', 'a@hotmail.com'], ['a+x@live.com', 'a@live.com'], ['a+x@icloud.com', 'a@icloud.com'],
+    ['a+x@me.com', 'a@me.com'], ['a+x@mac.com', 'a@mac.com'], ['a+x@proton.me', 'a@proton.me'],
+    ['a+x@protonmail.com', 'a@protonmail.com'],
+    ['+odd@gmail.com', '+odd@gmail.com'],
     ['not-an-email', 'not-an-email'],
   ]) assert.equal(canonicalEmail(input), expected, input);
 });

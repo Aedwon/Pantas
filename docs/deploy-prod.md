@@ -179,14 +179,25 @@ custom token for the client to sign in with.
 - The mail reuses `GUARDIAN_MAIL_API_KEY` and `GUARDIAN_MAIL_FROM`. The Resend
   100-a-day allowance is shared with guardian email and the website.
   Sign-in codes have two daily buckets per Manila day, each logging a warning at 80%.
-  `SIGN_IN_DAILY_RESERVED_CAP` (40) is for selected beta applicants and existing
-  accounts. `SIGN_IN_DAILY_SEND_CAP` (20) is for everyone else. With the guardian cap
+  `SIGN_IN_DAILY_RESERVED_CAP` (40) is only for addresses on a selected beta
+  application. `SIGN_IN_DAILY_SEND_CAP` (20) is for everyone else. With the guardian cap
   of 20 the three total 80, leaving room for website mail. Raise them only after
   moving Resend off Free.
 - Each IP may request 10 codes an hour, counted as a keyed hash. A school or office
   behind one address can hit this, so watch support reports.
-- Verifying a code on an unverified existing account unlinks its password and revokes
-  its sessions, so a password set before the owner proved the email stops working.
+- Verifying a code never changes an existing account. If the account is disabled or
+  its email is unverified, the call returns `permission-denied` ("This account can't
+  sign in. Write to support@pantas.study."). The fix for an unverified account is a
+  manual support action. Verifying never upgrades an anonymous user: it signs in as
+  the account that owns the address, or creates one, and the app switches to it.
+- A send held back for a reason about the recipient (cooldown for someone else's
+  request, the hourly limit for that address, or a full daily bucket) still returns a
+  normal-looking reply, with a challenge that holds no code and verifies as expired.
+  No mail goes out. Watch the logs for "Sign-in code held back" (warning, with the first
+  characters of the mailbox key) and for "the open bucket is full for the day" or "the
+  reserved bucket is full for the day" (error, once per bucket per day).
+- Plus tags are merged only for Gmail, Outlook, Hotmail, Live, iCloud, Me, Mac and
+  Proton addresses (and dots for Gmail). Other domains are matched exactly.
 - IAM: `createCustomToken` signs with the functions runtime service account. Grant
   that account `roles/iam.serviceAccountTokenCreator` on itself (done for
   pantas-prod on Nov 6, 2026) (it needs
@@ -196,10 +207,9 @@ custom token for the client to sign in with.
   token on each call.
 - Each request makes a challenge in `signInChallenges` with a random id that only the
   requesting user can verify. Per-mailbox limits live in `signInCodes`, and counters in
-  `signInLimits` and `signInUpgrades`. Clients cannot read or write any of them; rules
-  deny them.
+  `signInLimits`. Clients cannot read or write any of them; rules deny them.
 - Optional cleanup: add Firestore TTL policies on `signInChallenges.expiresAt`, and on
-  `purgeAt` for the collection groups `signInCodes`, `signInLimits` and `signInUpgrades`.
+  `purgeAt` for the collection groups `signInCodes` and `signInLimits`.
 - Smoke test: request a code, enter it, confirm sign-in. Then enter a wrong code and
   confirm the tries count down, and confirm a second request within 60 seconds does
   not send another email.

@@ -24,6 +24,9 @@ class FakeCodes implements EmailCodeAuth {
   /// False answers like a cooldown the caller did not start.
   bool issuesChallenge = true;
   Exception? requestError;
+
+  /// When set, the next request waits for it.
+  Completer<void>? requestGate;
   Future<SignInResult> Function(String challengeId, String code)? onVerify;
 
   @override
@@ -31,6 +34,11 @@ class FakeCodes implements EmailCodeAuth {
     requests.add(email);
     final error = requestError;
     if (error != null) throw error;
+    final gate = requestGate;
+    if (gate != null) {
+      requestGate = null;
+      await gate.future;
+    }
     return EmailCodeRequest(
       resendAfterSeconds: resendAfter,
       challengeId: issuesChallenge ? 'challenge-${requests.length}' : null,
@@ -615,6 +623,50 @@ void main() {
       expect(find.text('Email'), findsOneWidget);
     });
 
+    testWidgets('a code typed while a resend is in flight is not checked',
+        (tester) async {
+      codes.onVerify = (_, __) => Completer<SignInResult>().future;
+      await pumpPage(tester);
+      codes.resendAfter = 0;
+      await goToCode(tester);
+      expect(find.textContaining('Resend Code'), findsOneWidget);
+
+      codes.requestGate = Completer<void>();
+      final gate = codes.requestGate!;
+      await tester.tapOnText(find.textRange.ofSubstring('Resend Code'));
+      await tester.pump();
+      await typeCode(tester, '482139');
+      expect(codes.verifies, isEmpty);
+
+      gate.complete();
+      await tester.pump();
+      await tester.pump();
+      // The new code replaced the typed one, and checks against its challenge.
+      await typeCode(tester, '111111');
+      expect(codes.verifies, [
+        ['challenge-2', '111111'],
+      ]);
+    });
+
+    testWidgets('Use a Different Email always cancels and ends the hold',
+        (tester) async {
+      final container = await pumpPage(tester);
+      await goToCode(tester);
+      container.read(signInHoldProvider.notifier).state = true;
+      await tester.tap(find.text('Use a Different Email'));
+      await tester.pump();
+      expect(codes.cancels, 1, reason: 'though no check was showing');
+      expect(container.read(signInHoldProvider), isFalse);
+    });
+
+    testWidgets('closing the screen always cancels', (tester) async {
+      await pumpPage(tester);
+      await goToCode(tester);
+      await tester.pumpWidget(const SizedBox.shrink());
+      await tester.pump();
+      expect(codes.cancels, 1);
+    });
+
     testWidgets('closing the screen mid-check cancels it', (tester) async {
       codes.onVerify = (_, __) => Completer<SignInResult>().future;
       await pumpPage(tester);
@@ -749,6 +801,7 @@ void main() {
       await tester.pump();
       await tester.pump();
       expect(repository.signOutCalls, 1);
+      expect(codes.cancels, greaterThan(0), reason: 'signing out cancels');
       expect(find.text('Email'), findsOneWidget);
       expect(find.text("This email isn't on the beta list"), findsNothing);
     });

@@ -98,9 +98,7 @@ export type RequestDeps = {
   /** A new random 128-bit challenge id as 32 hex characters. */
   challengeId?: () => string;
   allow?: (uid: string, bucket: string, max: number, windowMs: number) => Promise<boolean>;
-  /** Used to tell an existing account from a stranger, for the reserved daily bucket. */
-  auth: Pick<Auth, 'getUserByEmail'>;
-  /** Daily caps: the open bucket for strangers, the reserved one for beta testers and existing accounts. */
+  /** Daily caps: the open bucket for everyone, the reserved one for selected beta applicants. */
   openCap?: number;
   reservedCap?: number;
   alert?: (message: string) => void;
@@ -135,26 +133,24 @@ async function allowIp(db: Firestore, key: string, ip: string, at: number): Prom
 }
 
 /**
- * Selected beta applicants and existing accounts draw on the reserved daily bucket. Callers never see
- * which bucket they used: the reply and the cap-hit error are the same for both.
+ * Only an address on a selected beta application draws on the reserved daily bucket. Callers never
+ * see which bucket they used: the reply is the same for both.
  */
 async function reservedBucket(deps: RequestDeps, email: string): Promise<boolean> {
   try {
     const applications = await deps.db.collection('betaApplications').where('email', '==', email).get();
-    if (applications.docs.some(application => application.get('selected') === true)) return true;
-    await deps.auth.getUserByEmail(email);
-    return true;
+    return applications.docs.some(application => application.get('selected') === true);
   } catch (error) {
-    if (authCode(error) !== 'auth/user-not-found') {
-      logger.warn('Sign-in bucket lookup failed', {message: error instanceof Error ? error.message : 'unknown'});
-    }
+    logger.warn('Sign-in bucket lookup failed', {message: error instanceof Error ? error.message : 'unknown'});
     return false;
   }
 }
 
+type Suppressed = 'cooldown' | 'hourlyCap' | 'dailyCap';
 type Slot =
-  | {kind: 'cooldown'; seconds: number; challengeId?: string}
-  | {kind: 'capped'} | {kind: 'busy'} | {kind: 'stored'};
+  | {kind: 'mine'; seconds: number; challengeId: string}
+  | {kind: 'suppressed'; reason: Suppressed; firstFull: boolean}
+  | {kind: 'stored'};
 
 type Open = {id: string; exp: number};
 const openList = (value: unknown): Open[] => (Array.isArray(value) ? value : [])
@@ -194,26 +190,40 @@ export async function sendSignInCode(request: Req, deps: RequestDeps):
   const at = now();
   const dayRef = deps.db.doc(`signInLimits/global-${bucket}-${phDay(at)}`);
 
+  // Whatever the recipient's state, the caller sees a real-looking send. When delivery is held back
+  // for a reason that depends on the recipient, a challenge with no code stands in for it, so the
+  // reply cannot be used to learn who is signed up, selected, or recently emailed.
   const slot = await deps.db.runTransaction<Slot>(async transaction => {
     const [snapshot, day] = await Promise.all([transaction.get(limitRef), transaction.get(dayRef)]);
+    const decoy = (reason: Suppressed, firstFull = false): Slot => {
+      transaction.set(challengeRef, {emailKey, codeHash: null, requesterUid: uid, attempts: 0,
+        expiresAt: new Date(at + CODE_TTL_MS)});
+      return {kind: 'suppressed', reason, firstFull};
+    };
     const sentAt = millis(snapshot.get('sentAt'));
     if (sentAt > 0) {
       const elapsed = at - sentAt;
       if (elapsed < RESEND_COOLDOWN_MS) {
         const left = Math.min(RESEND_COOLDOWN_MS, RESEND_COOLDOWN_MS - Math.max(elapsed, 0));
-        // Only the person who asked for the latest code is told its challenge.
+        // Only the person who asked for the latest code is told its challenge and the true wait.
         const latest: unknown = snapshot.get('lastChallengeId');
-        const mine = snapshot.get('lastRequesterUid') === uid && typeof latest === 'string';
-        return {kind: 'cooldown', seconds: Math.ceil(left / 1000), ...(mine ? {challengeId: latest as string} : {})};
+        if (snapshot.get('lastRequesterUid') === uid && typeof latest === 'string') {
+          return {kind: 'mine', seconds: Math.ceil(left / 1000), challengeId: latest};
+        }
+        return decoy('cooldown');
       }
     }
     const windowStartedAt = millis(snapshot.get('windowStartedAt'));
     const inWindow = windowStartedAt > 0 && at - windowStartedAt < HOUR_MS;
     const sendCount = inWindow ? Number(snapshot.get('sendCount') ?? 0) : 0;
-    if (sendCount >= SENDS_PER_EMAIL_PER_HOUR) return {kind: 'capped'};
+    if (sendCount >= SENDS_PER_EMAIL_PER_HOUR) return decoy('hourlyCap');
     const sentToday = Number(day.get('count') ?? 0);
-    if (!Number.isFinite(cap) || cap < 1 || sentToday + 1 > cap) return {kind: 'busy'};
-    transaction.set(dayRef, {count: sentToday + 1, purgeAt: new Date(at + 3 * 24 * HOUR_MS)});
+    if (!Number.isFinite(cap) || cap < 1 || sentToday + 1 > cap) {
+      const firstFull = day.get('fullLogged') !== true;
+      if (firstFull) transaction.set(dayRef, {fullLogged: true}, {merge: true});
+      return decoy('dailyCap', firstFull);
+    }
+    transaction.set(dayRef, {count: sentToday + 1, purgeAt: new Date(at + 3 * 24 * HOUR_MS)}, {merge: true});
     const threshold = Math.ceil(cap * 0.8);
     if (sentToday < threshold && sentToday + 1 >= threshold) {
       (deps.alert ?? ((m: string) => console.error(m)))(
@@ -236,14 +246,14 @@ export async function sendSignInCode(request: Req, deps: RequestDeps):
     return {kind: 'stored'};
   });
 
-  if (slot.kind === 'capped') {
-    throw new HttpsError('resource-exhausted', 'Too many codes for this email. Try again later.');
-  }
-  if (slot.kind === 'busy') {
-    throw new HttpsError('resource-exhausted', 'Sign-in emails are busy right now. Try again later.');
-  }
-  if (slot.kind === 'cooldown') {
-    return {...(slot.challengeId ? {challengeId: slot.challengeId} : {}), resendAfterSeconds: slot.seconds};
+  if (slot.kind === 'mine') return {challengeId: slot.challengeId, resendAfterSeconds: slot.seconds};
+  if (slot.kind === 'suppressed') {
+    // Logged without the address: the first eight characters of the mailbox key are enough to correlate.
+    logger.warn('Sign-in code held back', {reason: slot.reason, bucket, emailKey: emailKey.slice(0, 8)});
+    if (slot.reason === 'dailyCap' && slot.firstFull) {
+      logger.error(`Sign-in emails: the ${bucket} bucket is full for the day.`, {bucket, cap});
+    }
+    return {challengeId, resendAfterSeconds: RESEND_COOLDOWN_MS / 1000};
   }
 
   try {
@@ -275,7 +285,7 @@ async function dropChallenge(db: Firestore, limitRef: ReturnType<Firestore['doc'
 
 export type VerifyDeps = {
   db: Firestore;
-  auth: Pick<Auth, 'getUser' | 'getUserByEmail' | 'createUser' | 'updateUser' | 'createCustomToken' | 'revokeRefreshTokens'>;
+  auth: Pick<Auth, 'getUserByEmail' | 'createUser' | 'createCustomToken'>;
   key: string;
   now?: () => number;
   allow?: (uid: string, bucket: string, max: number, windowMs: number) => Promise<boolean>;
@@ -304,58 +314,29 @@ async function findUser(auth: VerifyDeps['auth'], email: string): Promise<UserRe
   }
 }
 
-/**
- * An anonymous ID token can outlive the anonymous user: the same uid may have gained an email or a
- * provider since. Upgrade in place only if the record is still truly anonymous, and only once per uid.
- */
-async function upgradableAnonymous(request: Req, deps: VerifyDeps, at: number): Promise<boolean> {
-  if (request.auth?.token.firebase?.sign_in_provider !== 'anonymous') return false;
-  const uid = request.auth.uid;
-  let record: UserRecord;
-  try {
-    record = await deps.auth.getUser(uid);
-  } catch (error) {
-    if (authCode(error) === 'auth/user-not-found') return false;
-    throw error;
-  }
-  if (record.email || record.phoneNumber || record.disabled || (record.providerData ?? []).length > 0) return false;
-  const lock = deps.db.doc(`signInUpgrades/${uid}`);
-  return deps.db.runTransaction(async transaction => {
-    if ((await transaction.get(lock)).exists) return false;
-    transaction.set(lock, {createdAt: at, purgeAt: new Date(at + 24 * HOUR_MS)});
-    return true;
-  });
-}
+const CANNOT_SIGN_IN = "This account can't sign in. Write to support@pantas.study.";
 
-async function accountFor(request: Req, email: string, deps: VerifyDeps, at: number): Promise<string> {
-  const auth = deps.auth;
+/**
+ * The uid to sign in as: the account that already has this address, or a new one. The caller's
+ * own (anonymous) uid is never reused, so the client switches accounts. An existing account is
+ * never modified: if it is disabled or its address is unverified, it is refused. An unverified
+ * address may have been registered by someone else with a password, and the only ways to clear
+ * that password would also remove the email.
+ */
+async function accountFor(email: string, auth: VerifyDeps['auth']): Promise<string> {
   let user = await findUser(auth, email);
-  if (!user && await upgradableAnonymous(request, deps, at)) {
-    // Upgrade the caller's anonymous user in place, so its uid and data are kept.
-    const uid = request.auth!.uid;
+  if (!user) {
     try {
-      await auth.updateUser(uid, {email, emailVerified: true});
-      return uid;
+      return (await auth.createUser({email, emailVerified: true})).uid;
     } catch (error) {
-      // Let a later attempt try again unless another account took the address.
-      const code = authCode(error);
-      if (code !== 'auth/email-already-exists') await deps.db.doc(`signInUpgrades/${uid}`).delete();
-      if (code === 'auth/email-already-exists') user = await findUser(auth, email);
-      else if (code !== 'auth/user-not-found') throw error;
+      // Another sign-in created it first.
+      if (authCode(error) !== 'auth/email-already-exists') throw error;
+      user = await findUser(auth, email);
+      if (!user) throw error;
     }
   }
-  if (user) {
-    if (user.disabled) throw new HttpsError('permission-denied', 'This account is disabled.');
-    if (!user.emailVerified) {
-      // Anyone could have registered this address with a password before its owner proved it.
-      // Drop that password and every session it opened, then mark the address verified.
-      const unlink = (user.providerData ?? []).some(info => info.providerId === 'password');
-      await auth.updateUser(user.uid, unlink ? {emailVerified: true, providersToUnlink: ['password']} : {emailVerified: true});
-      await auth.revokeRefreshTokens(user.uid);
-    }
-    return user.uid;
-  }
-  return (await auth.createUser({email, emailVerified: true})).uid;
+  if (user.disabled || !user.emailVerified) throw new HttpsError('permission-denied', CANNOT_SIGN_IN);
+  return user.uid;
 }
 
 const expired = (): HttpsError =>
@@ -415,7 +396,7 @@ export async function checkSignInCode(request: Req, deps: VerifyDeps): Promise<{
       {reason: 'wrong', triesLeft: outcome.triesLeft});
   }
 
-  const accountUid = await accountFor(request, outcome.email, deps, now());
+  const accountUid = await accountFor(outcome.email, deps.auth);
   try {
     return {token: await deps.auth.createCustomToken(accountUid)};
   } catch (error) {
@@ -437,7 +418,7 @@ function key(): string {
 export const requestSignInCode = onCall({region: 'asia-southeast1', enforceAppCheck: enforceAppCheck,
   consumeAppCheckToken: enforceAppCheck, secrets: [signInCodeKey, guardianMailKey]}, request => {
   assertFreshAppCheck(request);
-  return sendSignInCode(request, {db: getFirestore(), auth: getAuth(), key: key(),
+  return sendSignInCode(request, {db: getFirestore(), key: key(),
     openCap: signInOpenCap.value(), reservedCap: signInReservedCap.value(),
     mailer: {send: message => mailerFor(process.env,
       {apiKey: () => guardianMailKey.value(), from: () => guardianMailFrom.value()}).send(message)}});
