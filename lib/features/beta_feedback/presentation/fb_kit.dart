@@ -81,6 +81,9 @@ String phKey(DateTime instant) {
   return '${p.year}-${two(p.month)}-${two(p.day)}';
 }
 
+/// "Nov" for a month number, 1 to 12.
+String monthAbbr(int month) => _months[(month - 1) % 12];
+
 /// "Nov 11".
 String monthDay(DateTime instant) {
   final p = phTime(instant);

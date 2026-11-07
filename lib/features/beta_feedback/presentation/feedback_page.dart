@@ -7,6 +7,7 @@ import 'package:pantas/features/beta_feedback/domain/beta_feedback_models.dart';
 import 'package:pantas/features/beta_feedback/presentation/compose_card.dart';
 import 'package:pantas/features/beta_feedback/presentation/days_card.dart';
 import 'package:pantas/features/beta_feedback/presentation/fb_kit.dart';
+import 'package:pantas/features/beta_feedback/presentation/reward_card.dart';
 import 'package:pantas/features/beta_feedback/presentation/sent_list.dart';
 
 export 'package:pantas/features/beta_feedback/presentation/compose_card.dart'
@@ -37,7 +38,17 @@ class _FeedbackPageState extends ConsumerState<FeedbackPage> {
     final data = reward.valueOrNull;
 
     final Widget top;
-    if (data != null) {
+    if (data != null && (data.eligible || data.activated)) {
+      // The reward replaces the top days card; the days move below it.
+      top = Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          RewardCard(reward: data, now: now),
+          const SizedBox(height: 24),
+          DaysCard(reward: data, now: now, condensed: true),
+        ],
+      );
+    } else if (data != null) {
       top = Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
