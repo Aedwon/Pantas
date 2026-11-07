@@ -4,6 +4,19 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/platform/first_screen_ready.dart';
 
 void main() {
+  test('the speed report hears the first screen settle, once', () {
+    var heard = 0;
+    firstScreenListener = () => heard++;
+    addTearDown(() => firstScreenListener = null);
+    var sent = 0;
+    FirstScreenSignal(() => sent++)
+      ..ready()
+      ..ready();
+
+    expect(sent, 1);
+    expect(heard, 1);
+  });
+
   for (final error in [false, true]) {
     testWidgets('first route signals once after data settles, error=$error',
         (tester) async {

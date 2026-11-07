@@ -37,8 +37,10 @@ import 'package:pantas/core/platform/local_firebase.dart';
 import 'package:pantas/core/platform/remote_flags_providers.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/telemetry/client_report.dart';
 import 'package:pantas/core/telemetry/error_boundary.dart';
 import 'package:pantas/core/telemetry/firebase_telemetry.dart';
+import 'package:pantas/core/telemetry/perf_timeline.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/theme/font_licenses.dart';
 import 'package:pantas/features/mock_exam/application/mock_availability_provider.dart';
@@ -120,11 +122,16 @@ void handleBootstrapError(
   StackTrace stack, {
   ProviderContainer? container,
 }) {
+  var handed = false;
   try {
     container?.read(telemetryProvider).recordError(error, stack).ignore();
+    handed = container != null;
   } catch (e) {
     debugPrint('Telemetry recordError failed: $e');
   }
+  // Before the app has a container, or if it cannot be read, the web reporter
+  // still hears the error. With a container it already did, through the gate.
+  if (!handed) ClientReporter.active?.recordError(error, stack);
   debugPrint('Uncaught: $error\n$stack');
 }
 
@@ -248,13 +255,18 @@ Future<void> _bootstrap(
   rememberLocalAccount();
   try {
     final firebaseResult = await bootstrapFirebaseForStartup(flavor);
+    PerfTimeline.mark('boot.firebase');
+    // Web only, always on, sends no identity. Never blocks startup.
+    ClientReporter.startForWeb();
     await activateAppCheck(flavor);
+    PerfTimeline.mark('boot.appcheck');
 
     final overrides = await bootstrapStorageOverrides();
     // Capture the facade's handle. Its value override has no auto-disposal.
     final storageLookup = ProviderContainer(overrides: overrides);
     database = storageLookup.read(appDatabaseProvider);
     storageLookup.dispose();
+    PerfTimeline.mark('boot.storage');
     // Web has no bundled content package. Lessons and question sets come
     // from the server through the content service (plan task C7).
     if (!kIsWeb) {
@@ -281,7 +293,9 @@ Future<void> _bootstrap(
               return opened;
             },
           );
+    PerfTimeline.mark('boot.contentdb');
     final remoteFlagsOverrides = await bootstrapRemoteFlagsOverrides();
+    PerfTimeline.mark('boot.flags');
     final authOverrides = authRepositoryOverrides(firebaseResult);
 
     final container = ProviderContainer(
@@ -323,17 +337,22 @@ Future<void> _bootstrap(
     onContainerReady(container);
 
     await bootstrapAuthSession(container, firebaseResult);
+    PerfTimeline.mark('boot.auth');
     if (kIsWeb) {
       // Listen for the browser's install events from the first frame and ask
       // it to keep storage once Pantas runs installed.
       container.read(installPlatformProvider).start();
       await _startWebContent(container);
     }
+    PerfTimeline.mark('boot.content');
     await applyPersistedTelemetryConsent(container);
+    PerfTimeline.mark('boot.consent');
     await registerDevProSwitch(container);
     await registerDevDemoSwitch(container);
     await bootstrapRevenueCat(container);
+    PerfTimeline.mark('boot.payments');
     await bootstrapSyncRuntime(container, firebaseResult);
+    PerfTimeline.mark('boot.sync');
     // Local runs with ?localStudent=: the server records are written before the
     // first screen, so Home never holds a read from before them.
     if (await loadLocalStudentFromUrl(container)) {
@@ -346,6 +365,7 @@ Future<void> _bootstrap(
     // No page, Home included, may mount before the onboarding redirect can
     // see where the student is.
     await settleGatesBeforeFirstPage(container);
+    PerfTimeline.mark('boot.gates');
 
     final notificationsLifecycleObserver = NotificationsLifecycleObserver(
       service: container.read(notificationServiceProvider),
@@ -353,6 +373,7 @@ Future<void> _bootstrap(
     WidgetsBinding.instance.addObserver(notificationsLifecycleObserver);
 
     sendAppStarted();
+    PerfTimeline.mark('boot.runapp');
     runApp(
       UncontrolledProviderScope(
         container: container,

@@ -13,6 +13,8 @@ function setup({ welcomeShown = false, reduced = false } = {}) {
   const links = [];
   const loads = [];
   const frameListeners = [];
+  const marks = [];
+  let printed = 0;
   let splashRemoved = false;
   const doc = {
     head: { appendChild: (link) => links.push(link) },
@@ -36,6 +38,8 @@ function setup({ welcomeShown = false, reduced = false } = {}) {
     afterPaint: (fn) => fn(),
     reducedMotion: () => reduced,
     onFirstFrame: (fn) => frameListeners.push(fn),
+    mark: (name) => marks.push(name),
+    printTiming: () => printed++,
   });
   return {
     splash,
@@ -44,6 +48,8 @@ function setup({ welcomeShown = false, reduced = false } = {}) {
     links,
     loads,
     frameListeners,
+    marks,
+    printed: () => printed,
     removed: () => splashRemoved,
   };
 }
@@ -187,4 +193,56 @@ test('the hard limit also ends a fade that started just before the limit', () =>
   assert.equal(t.removed(), false);
   t.timers.find((x) => x.ms === GIVE_UP_MS).fn();
   assert.equal(t.removed(), true);
+});
+
+test('the timeline gets splash.ready once, then splash.removed when the logo leaves', () => {
+  const t = setup();
+  assert.deepEqual(t.marks, []);
+  t.splash.ready();
+  t.splash.ready();
+  assert.deepEqual(t.marks, ['splash.ready']);
+  t.timers.find((x) => x.ms === FADE_MS).fn();
+  assert.deepEqual(t.marks, ['splash.ready', 'splash.removed']);
+  assert.equal(t.printed(), 1, 'the ?timing=1 table prints at removal');
+});
+
+test('a splash that gives up still marks its removal', () => {
+  const t = setup({ reduced: true });
+  t.timers.find((x) => x.ms === NEVER_STARTED_MS).fn();
+  assert.deepEqual(t.marks, ['splash.removed']);
+});
+
+test('a first-time visit marks nothing from the splash', () => {
+  const t = setup({ welcomeShown: true });
+  t.splash.ready();
+  assert.deepEqual(t.marks, []);
+});
+
+test('a failing mark or table never stops the splash', () => {
+  const t = setup({ reduced: true });
+  const splash = create({
+    document: { documentElement: { classList: { add() {}, remove() {} } },
+      getElementById: () => null },
+    welcome: { isShown: () => false },
+    setTimeout: () => {},
+    afterPaint: (fn) => fn(),
+    reducedMotion: () => true,
+    mark: () => { throw new Error('no performance API'); },
+    printTiming: () => { throw new Error('no console'); },
+  });
+  splash.ready();
+  assert.equal(splash.state.gone, true);
+  assert.ok(t);
+});
+
+test('the page marks page.helpers after the helper scripts and before the app starts', () => {
+  const html = readFileSync(new URL('../../web/index.html', import.meta.url), 'utf8');
+  const mark = html.indexOf("performance.mark('page.helpers')");
+  assert.ok(mark > 0, 'page.helpers mark present');
+  assert.ok(mark > html.indexOf('src="pantas_splash.js"'));
+  assert.ok(mark < html.indexOf('</head>'));
+  const bootstrap = readFileSync(new URL('../../web/flutter_bootstrap.js', import.meta.url), 'utf8');
+  const loader = bootstrap.indexOf("performance.mark('page.loader')");
+  assert.ok(loader > 0, 'page.loader mark present');
+  assert.ok(loader < bootstrap.indexOf('_flutter.loader.load'));
 });

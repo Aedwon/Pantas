@@ -4,6 +4,7 @@ import 'package:pantas/core/auth/auth_repository.dart';
 import 'package:pantas/core/auth/auth_state.dart';
 import 'package:pantas/core/auth/firebase_auth_functions_gateway.dart';
 import 'package:pantas/core/auth/providers.dart';
+import 'package:pantas/core/telemetry/perf_timeline.dart';
 
 /// What the server says about the signed-in account.
 ///
@@ -79,6 +80,9 @@ final betaClockProvider = Provider<DateTime Function()>((ref) => DateTime.now);
 
 final betaAccessProvider = FutureProvider<BetaAccess>((ref) async {
   final state = await ref.watch(authStateProvider.future);
-  if (state is! SignedInAuthState) return BetaAccess.denied;
-  return ref.watch(betaAccessGatewayProvider).check();
+  final access = state is! SignedInAuthState
+      ? BetaAccess.denied
+      : await ref.watch(betaAccessGatewayProvider).check();
+  PerfTimeline.mark('beta.resolved');
+  return access;
 });

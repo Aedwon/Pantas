@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/auth/auth_state.dart';
 import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/storage/domain/attempt.dart';
@@ -8,7 +9,9 @@ import 'package:pantas/core/storage/domain/choice.dart';
 import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/telemetry/telemetry.dart';
 import 'package:pantas/features/quiz/application/quiz_completion_coordinator.dart';
+import 'package:pantas/features/quiz/domain/models/session_origin.dart';
 import 'package:pantas/features/quiz/domain/quiz_session.dart';
 import 'package:pantas/features/quiz/domain/use_cases/start_quick_quiz.dart';
 import 'package:pantas/features/quiz/domain/use_cases/submit_answer.dart';
@@ -16,6 +19,7 @@ import 'package:pantas/features/quiz/presentation/quiz_controller.dart';
 
 import '../../../helpers/in_memory_database.dart';
 import '../../../helpers/pump_app.dart';
+import '../../../helpers/recording_telemetry.dart';
 
 class _MockStart extends Mock implements StartQuickQuiz {}
 
@@ -52,7 +56,9 @@ void main() {
   late _MockSubmit submit;
   late _MockCompletionCoordinator complete;
 
-  Future<ProviderContainer> makeContainer() async {
+  Future<ProviderContainer> makeContainer({
+    List<Override> extra = const [],
+  }) async {
     final db = inMemoryDatabase();
     addTearDown(db.close);
     final container = ProviderContainer(
@@ -68,6 +74,7 @@ void main() {
         submitAnswerProvider.overrideWithValue(submit),
         quizCompletionCoordinatorProvider.overrideWithValue(complete),
         nowProvider.overrideWithValue(() => DateTime.utc(2026, 5, 9, 12)),
+        ...extra,
       ],
     );
     addTearDown(container.dispose);
@@ -184,5 +191,124 @@ void main() {
 
     await notifier.next();
     expect(container.read(quizControllerProvider), isA<QuizComplete>());
+  });
+
+  group('study-loop events', () {
+    final session = QuizSession.start(
+      sessionId: 'sess',
+      examId: 'e',
+      questions: const [q1],
+      startedAt: DateTime.utc(2026, 5, 9, 12),
+      origin: SessionOrigin.drill,
+    );
+
+    void stubFullRun() {
+      when(
+        () => start(
+          examId: any(named: 'examId'),
+          count: any(named: 'count'),
+          now: any(named: 'now'),
+          randomSeed: any(named: 'randomSeed'),
+        ),
+      ).thenAnswer((_) async => session);
+      when(
+        () => submit(
+          question: any(named: 'question'),
+          chosenChoiceId: any(named: 'chosenChoiceId'),
+          responseMs: any(named: 'responseMs'),
+          now: any(named: 'now'),
+          origin: any(named: 'origin'),
+          sessionId: any(named: 'sessionId'),
+          userId: any(named: 'userId'),
+          examId: any(named: 'examId'),
+        ),
+      ).thenAnswer(
+        (_) async => const AnswerOutcome(
+          questionId: 'q1',
+          questionVersion: 1,
+          chosenChoiceId: 'c1a',
+          correctChoiceId: 'c1a',
+          responseMs: 1500,
+        ),
+      );
+      when(
+        () => complete.complete(
+          session: any(named: 'session'),
+          now: any(named: 'now'),
+          persisted: any(named: 'persisted'),
+        ),
+      ).thenAnswer(
+        (_) async => Attempt(
+          id: 'sess',
+          examId: 'e',
+          startedAt: DateTime.utc(2026, 5, 9, 12),
+          completedAt: DateTime.utc(2026, 5, 9, 12, 1),
+          items: const [],
+        ),
+      );
+    }
+
+    Future<void> runSession(ProviderContainer container) async {
+      final notifier = container.read(quizControllerProvider.notifier);
+      await notifier.start(examId: 'e', count: 1);
+      notifier.markQuestionReady(sessionId: 'sess', questionIndex: 0);
+      await notifier.answer(chosenChoiceId: 'c1a');
+      await notifier.next();
+    }
+
+    test('a session logs one start and one finish, with exam, kind and count',
+        () async {
+      stubFullRun();
+      final sink = RecordingTelemetry();
+      final container = await makeContainer(
+        extra: [
+          telemetrySinkProvider.overrideWithValue(sink),
+          effectiveTelemetryConsentProvider.overrideWithValue(true),
+        ],
+      );
+
+      await runSession(container);
+      expect(container.read(quizControllerProvider), isA<QuizComplete>());
+
+      expect(
+        sink.events,
+        [TelemetryEvent.studySessionStart, TelemetryEvent.studySessionFinish],
+      );
+      for (final entry in sink.logged) {
+        expect(entry.$2, {'exam_id': 'e', 'kind': 'drill', 'count': 1});
+      }
+    });
+
+    test('answering inside a running session logs nothing more', () async {
+      stubFullRun();
+      final sink = RecordingTelemetry();
+      final container = await makeContainer(
+        extra: [
+          telemetrySinkProvider.overrideWithValue(sink),
+          effectiveTelemetryConsentProvider.overrideWithValue(true),
+        ],
+      );
+      final notifier = container.read(quizControllerProvider.notifier);
+      await notifier.start(examId: 'e', count: 1);
+      notifier.markQuestionReady(sessionId: 'sess', questionIndex: 0);
+      await notifier.answer(chosenChoiceId: 'c1a');
+
+      expect(sink.events, [TelemetryEvent.studySessionStart]);
+    });
+
+    test('nothing is sent while usage sharing is off', () async {
+      stubFullRun();
+      final sink = RecordingTelemetry();
+      final container = await makeContainer(
+        extra: [
+          telemetrySinkProvider.overrideWithValue(sink),
+          effectiveTelemetryConsentProvider.overrideWithValue(false),
+        ],
+      );
+
+      await runSession(container);
+
+      expect(sink.logged, isEmpty);
+    });
   });
 }

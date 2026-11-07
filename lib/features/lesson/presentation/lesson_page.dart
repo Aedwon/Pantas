@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
+import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/app/web_address.dart';
 import 'package:pantas/core/auth/auth_state.dart';
 import 'package:pantas/core/auth/providers.dart';
@@ -15,6 +16,8 @@ import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/telemetry/perf_timeline.dart';
+import 'package:pantas/core/telemetry/telemetry.dart';
 import 'package:pantas/core/time/pantas_dates.dart';
 import 'package:pantas/core/ui/components/content_renderer.dart';
 import 'package:pantas/core/ui/components/pantas_sheet.dart';
@@ -79,6 +82,7 @@ class LessonPage extends ConsumerStatefulWidget {
 
 class _LessonPageState extends ConsumerState<LessonPage> {
   late LessonId _lessonId = widget.lessonId;
+  final ScreenTimer _timing = ScreenTimer('screen.lesson');
 
   /// The last lesson that actually loaded.
   ///
@@ -448,6 +452,7 @@ class _LessonPageState extends ConsumerState<LessonPage> {
     final asyncReader = ref.watch(readerContextProvider(lessonId));
     firstScreenReady(context, ref, ready: !asyncReader.isLoading);
     final loaded = asyncReader.valueOrNull;
+    _timing.settled(ready: loaded != null);
     if (loaded != null) {
       if (loaded.boundary?.token != _boundary!.token ||
           loaded.examId != _boundary!.examId) {
@@ -948,6 +953,24 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody>
     _onScroll();
   }
 
+  /// The study-loop counts: which exam, and where the student came from. No
+  /// lesson id and nothing about how the lesson went.
+  void _logLesson(TelemetryEvent event, ReaderContext reader) {
+    try {
+      unawaited(
+        ref.read(telemetryProvider).log(
+          event,
+          properties: {
+            if (reader.examId != null) 'exam_id': reader.examId!,
+            'kind': widget.origin.name,
+          },
+        ),
+      );
+    } on Object {
+      // A usage count must never interrupt reading.
+    }
+  }
+
   void _initMarking() {
     final activation = _activation;
     final reader = widget.reader;
@@ -975,10 +998,12 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody>
           ref
             ..invalidate(lastOpenedLessonProvider)
             ..invalidate(recentlyOpenedLessonsProvider);
+          _logLesson(TelemetryEvent.lessonOpen, reader);
         }
       },
       onMarked: () {
         if (_owns(reader, activation)) {
+          _logLesson(TelemetryEvent.lessonFinish, reader);
           ref
             ..read(roadmapRevisionProvider.notifier).bump()
             ..invalidate(studyMapProvider)

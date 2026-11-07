@@ -10,5 +10,8 @@
       await pwa.registerWorker({{flutter_service_worker_version}});
     } catch (_) {}
   }
+  try {
+    performance.mark('page.loader');
+  } catch (_) {}
   _flutter.loader.load({});
 })();

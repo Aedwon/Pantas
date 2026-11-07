@@ -10,6 +10,7 @@ import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
+import 'package:pantas/core/telemetry/perf_timeline.dart';
 import 'package:pantas/core/ui/components/check_mark.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/pantas_sheet.dart';
@@ -115,6 +116,7 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
   /// the failure is real: it is not a settling failure, or the retries ran out.
   late final SettlingRetry _settling = SettlingRetry(retry: _retryQuietly);
   bool _holding = false;
+  final ScreenTimer _timing = ScreenTimer('screen.home');
 
   bool _current() =>
       mounted &&
@@ -131,6 +133,9 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
     super.initState();
     _guard = _captureGuard();
     _reload();
+    WidgetsBinding.instance.addPostFrameCallback(
+      (_) => PerfTimeline.mark('home.firstframe'),
+    );
   }
 
   Future<Future<bool> Function()> _captureGuard() => ref
@@ -426,6 +431,8 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
         final holding = failed && _holding;
         firstScreenReady(context, ref, ready: done && !holding);
         final data = done ? snapshot.data : null;
+        if (data != null) PerfTimeline.mark('home.data');
+        _timing.settled(ready: data != null);
         final today = data == null
             ? failed && !holding
                 ? errorFor(

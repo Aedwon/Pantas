@@ -12,6 +12,7 @@ import 'package:pantas/core/storage/data/report_queue.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/telemetry/perf_timeline.dart';
 import 'package:pantas/core/ui/components/centered_dialog.dart';
 import 'package:pantas/core/ui/components/choice_row.dart';
 import 'package:pantas/core/ui/components/floating_bar.dart';
@@ -511,6 +512,8 @@ class _QuestionContent extends ConsumerWidget {
 }
 
 class _QuizPageState extends ConsumerState<QuizPage> {
+  final ScreenTimer _timing = ScreenTimer('screen.quizstart');
+
   @override
   void initState() {
     super.initState();
@@ -584,6 +587,7 @@ class _QuizPageState extends ConsumerState<QuizPage> {
       ref,
       ready: state is QuizRunning || state is QuizFailure,
     );
+    _timing.settled(ready: state is QuizRunning);
     if (state is QuizComplete) {
       return QuizSessionEndPage(
         key: ValueKey('quiz-end-${state.attempt.id}'),
