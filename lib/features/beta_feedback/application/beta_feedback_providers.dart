@@ -1,14 +1,23 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/auth/beta_access.dart';
+import 'package:pantas/core/auth/providers.dart';
+import 'package:pantas/core/storage/selected_exam_focus.dart';
+import 'package:pantas/features/beta_feedback/data/firebase_beta_feedback_api.dart';
+import 'package:pantas/features/beta_feedback/data/picker_beta_image_source.dart';
 import 'package:pantas/features/beta_feedback/domain/beta_feedback_models.dart';
 
-/// Replaced by the Firebase implementation; tests override it with a fake.
+/// The Firebase implementation; tests override it with a fake.
 final betaFeedbackApiProvider = Provider<BetaFeedbackApi>(
-  (ref) => throw UnimplementedError('betaFeedbackApiProvider'),
+  (ref) => FirebaseBetaFeedbackApi(
+    uid: () => ref.read(currentUserProvider).valueOrNull?.uid,
+    examId: () => ref.read(activeExamFocusProvider).valueOrNull?.exam?.id,
+  ),
 );
 
+/// The system picker everywhere, plus drops and pastes on web. Tests override
+/// it with a fake.
 final betaImageSourceProvider = Provider<BetaImageSource>(
-  (ref) => throw UnimplementedError('betaImageSourceProvider'),
+  (ref) => PickerBetaImageSource(),
 );
 
 /// The Feedback (Beta) row and page exist only for selected testers,
