@@ -86,14 +86,16 @@ Proposed notice section for A (in-app privacy notice; needs your approval of the
 And in "Where your data goes", after the Analytics sentence: "Speed and error reports from
 the web app go to Google Cloud logs."
 
-### Splash hand-over (board)
+### Splash hand-over (board): decided
 
-Board (Claude Design canvas "Splash Hand-off", version 5): https://claude.ai/artifact/VFNGCm2nCqhxqD1Je7mbRe,
-built from the live splash code and the approved Pantas Web and Pantas Redesign boards
-(L_PlanSlow, HM_DayStart, X_Side). Options:
-A keep today's behavior; B fade to Home's loading skeleton as soon as Home first draws;
-C (recommended) keep the logo until the data arrives or 0.8 seconds after Home first draws,
-whichever is first. Your choice and its version are recorded here before building.
+Board: Claude Design canvas "Splash Hand-off", https://claude.ai/artifact/VFNGCm2nCqhxqD1Je7mbRe,
+version 6, boards Web_B_Still and Phone_B_Fade, built from the live splash code and the
+approved Pantas Web and Pantas Redesign boards (L_PlanSlow, HM_DayStart, X_Side).
+
+Aedwon chose B, then "Smoothest": the logo fades as soon as Home first draws, Home's loading
+shapes pulse until the plan arrives, then the content fades in over the shapes while they fade
+out underneath (shapes out over 0.2 s, content in over 0.3 s after 0.06 s), with no rise or
+other movement at that moment. Phone and web behave the same.
 
 ### Order of work and deploys
 
@@ -160,10 +162,15 @@ File and line references are at 571eea1aa. Implementers re-read each cited line 
   in-flight flush per uid+exam+core across `StudyObservations` instances (provider-level
   future). Server idempotency and receipts unchanged. Tests: sent rows are not loaded;
   concurrent lifecycle and reader flushes send once.
-- **S8 splash.** Implement exactly the approved board option. If C: `pantas_splash.js`
-  gains a hold timer started by a new `firstFrame()` call from Home's first build; on timer
-  or `ready()`, whichever first, finish. Reduced motion and 8 s / 60 s limits unchanged.
-  JS unit tests in the existing splash test file.
+- **S8 splash (board version 6, B Smoothest).** Home calls the splash `ready()` at its first
+  frame with the skeleton drawn, not after the data (`home_today_screen.dart:427`); other
+  routes keep today's rule. When data arrives, the loaded Today and performance sections
+  cross-fade over the skeleton: skeleton opacity 1 to 0 over 200 ms, content 0 to 1 over
+  300 ms starting at 60 ms, the skeleton kept in the tree until the fade ends; no slide,
+  scale or entrance replay on that change. Errors after the skeleton keep today's handling.
+  Reduced motion: instant swap. Splash fade, 8 s and 60 s limits unchanged. Widget test: the
+  skeleton and content are both present mid-fade and no translation is applied; JS test:
+  ready at Home's first frame.
 
 ### Telemetry
 
