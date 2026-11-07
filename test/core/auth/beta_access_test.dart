@@ -19,9 +19,44 @@ void main() {
         'getBetaAccess': {'selected': true},
       },
     );
-    expect(await BetaAccessGateway(client: client).check(), isTrue);
+    expect(await BetaAccessGateway(client: client).check(), BetaAccess.open);
     expect(client.calls.single.name, 'getBetaAccess');
     expect(client.calls.single.region, 'asia-southeast1');
+  });
+
+  test('the wait date is read as a UTC instant', () async {
+    final start = DateTime.utc(2026, 11, 8, 16);
+    for (final value in <Object>[
+      start.millisecondsSinceEpoch,
+      start.millisecondsSinceEpoch.toDouble(),
+    ]) {
+      final client = RecordingFunctionsClient(
+        responses: {
+          'getBetaAccess': {'selected': true, 'waitUntil': value},
+        },
+      );
+      final access = await BetaAccessGateway(client: client).check();
+      expect(access.selected, isTrue);
+      expect(access.waitUntil, start);
+      expect(
+        access.isWaiting(start.subtract(const Duration(seconds: 1))),
+        isTrue,
+      );
+      expect(access.isWaiting(start), isFalse);
+      expect(access.canEnter(start), isTrue);
+    }
+  });
+
+  test('a response with no wait date has no wait', () async {
+    final client = RecordingFunctionsClient(
+      responses: {
+        'getBetaAccess': {'selected': true, 'waitUntil': null},
+      },
+    );
+    final access = await BetaAccessGateway(client: client).check();
+    expect(access.waitUntil, isNull);
+    expect(access.isWaiting(DateTime.utc(2026)), isFalse);
+    expect(access.canEnter(DateTime.utc(2026)), isTrue);
   });
 
   test('malformed selection responses fail closed', () async {
@@ -29,6 +64,8 @@ void main() {
       null,
       <String, Object?>{},
       {'selected': 'true'},
+      {'selected': true, 'waitUntil': 'soon'},
+      {'selected': true, 'waitUntil': true},
     ]) {
       final client = RecordingFunctionsClient(
         responses: {'getBetaAccess': response},
@@ -51,7 +88,10 @@ void main() {
       ],
     );
     addTearDown(container.dispose);
-    expect(container.read(betaGateStatusProvider).valueOrNull, isTrue);
+    expect(
+      container.read(betaGateStatusProvider).valueOrNull,
+      BetaAccess.open,
+    );
     await Future<void>.delayed(Duration.zero);
     expect(client.calls, isEmpty);
   });
@@ -69,7 +109,10 @@ void main() {
       ],
     );
     addTearDown(container.dispose);
-    expect(await container.read(betaAccessProvider.future), isFalse);
+    expect(
+      await container.read(betaAccessProvider.future),
+      BetaAccess.denied,
+    );
     expect(client.calls, isEmpty);
   });
 
@@ -106,19 +149,22 @@ void main() {
       ),
     );
     await Future<void>.delayed(Duration.zero);
-    gateway.requests.first.complete(true);
+    gateway.requests.first.complete(BetaAccess.open);
     await Future<void>.delayed(Duration.zero);
     expect(container.read(betaAccessProvider).isLoading, isTrue);
-    gateway.requests.last.complete(false);
-    expect(await container.read(betaAccessProvider.future), isFalse);
+    gateway.requests.last.complete(BetaAccess.denied);
+    expect(
+      await container.read(betaAccessProvider.future),
+      BetaAccess.denied,
+    );
   });
 }
 
 class _PendingAccess extends BetaAccessGateway {
-  final requests = <Completer<bool>>[];
+  final requests = <Completer<BetaAccess>>[];
   @override
-  Future<bool> check() {
-    final result = Completer<bool>();
+  Future<BetaAccess> check() {
+    final result = Completer<BetaAccess>();
     requests.add(result);
     return result.future;
   }

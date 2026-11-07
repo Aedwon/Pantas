@@ -2,6 +2,7 @@
 
 import 'package:flutter/foundation.dart';
 import 'package:pantas/app/beta_gate.dart';
+import 'package:pantas/core/auth/beta_access.dart';
 import 'package:pantas/app/sign_in/email_sign_in_page.dart';
 import 'package:pantas/features/home/application/study_remote_providers.dart';
 import 'package:pantas/app/web_route_shell.dart';
@@ -83,6 +84,7 @@ final routerProvider = Provider<GoRouter>((ref) {
         path: path,
         active: betaActive,
         access: ref.read(betaGateStatusProvider),
+        now: ref.read(betaClockProvider)(),
       );
       if (betaRedirect != null) return betaRedirect;
       if (path == '/beta') return null;

@@ -2,9 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 
 class PantasLogo extends StatelessWidget {
-  const PantasLogo({required this.size, this.monochrome = false, super.key});
+  const PantasLogo({
+    required this.size,
+    this.monochrome = false,
+    this.tasselAngle = 0,
+    super.key,
+  });
   final double size;
   final bool monochrome;
+
+  /// Swings the tassel about the top of its cord, in radians. Clockwise is
+  /// positive. The waiting screen's logo uses it.
+  final double tasselAngle;
 
   @override
   Widget build(BuildContext context) => Semantics(
@@ -16,6 +25,7 @@ class PantasLogo extends StatelessWidget {
             painter: _PantasLogoPainter(
               ink: context.colors.label,
               tassel: monochrome ? context.colors.label : context.colors.accent,
+              tasselAngle: tasselAngle,
             ),
           ),
         ),
@@ -24,9 +34,14 @@ class PantasLogo extends StatelessWidget {
 
 // Exact paths and viewBox from O_Launch. Colors come from W1 in both themes.
 class _PantasLogoPainter extends CustomPainter {
-  const _PantasLogoPainter({required this.ink, required this.tassel});
+  const _PantasLogoPainter({
+    required this.ink,
+    required this.tassel,
+    required this.tasselAngle,
+  });
   final Color ink;
   final Color tassel;
+  final double tasselAngle;
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -34,7 +49,12 @@ class _PantasLogoPainter extends CustomPainter {
       ..scale(size.width / 640, size.height / 640)
       ..translate(-307, -309);
     final accentPaint = Paint()..color = tassel;
+    // The cord's top is the pivot, as in the board's `transform-origin`.
     canvas
+      ..save()
+      ..translate(887, 515.69)
+      ..rotate(tasselAngle)
+      ..translate(-887, -515.69)
       ..drawLine(
         const Offset(887, 515.69),
         const Offset(887, 664),
@@ -54,7 +74,8 @@ class _PantasLogoPainter extends CustomPainter {
           ..quadraticBezierTo(859, 790, 862, 774)
           ..close(),
         accentPaint,
-      );
+      )
+      ..restore();
     final paint = Paint()..color = ink;
     canvas
       ..drawPath(
@@ -143,5 +164,7 @@ class _PantasLogoPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(_PantasLogoPainter oldDelegate) =>
-      ink != oldDelegate.ink || tassel != oldDelegate.tassel;
+      ink != oldDelegate.ink ||
+      tassel != oldDelegate.tassel ||
+      tasselAngle != oldDelegate.tasselAngle;
 }

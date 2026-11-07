@@ -148,6 +148,15 @@ abstract final class PantasEffects {
   /// a text field that has to keep its focus.
   static double shakeOffset(double t) => _shake(t);
 
+  /// The tassel's swing angle, in degrees, at [t] (0 to 1) of the waiting
+  /// screen's logo: it swings out, back, and settles. Clockwise is positive.
+  static double tasselSwing(double t) => _keyframes(
+        t,
+        const [0, 0.18, 0.38, 0.56, 0.74, 1],
+        const [0, 11, -8, 5, -2.5, 0],
+        PantasCurves.shake,
+      );
+
   static double _shake(double t) => _keyframes(
         t,
         const [0, 0.18, 0.36, 0.54, 0.72, 1],

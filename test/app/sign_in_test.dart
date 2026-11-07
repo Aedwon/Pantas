@@ -117,7 +117,7 @@ void main() {
         authRepositoryProvider.overrideWithValue(repository),
         betaAccessProvider.overrideWith((ref) async {
           accessChecks++;
-          return false;
+          return BetaAccess.denied;
         }),
       ],
     );
@@ -767,7 +767,7 @@ void main() {
           overrides: [
             emailCodeAuthProvider.overrideWithValue(codes),
             authRepositoryProvider.overrideWithValue(repository),
-            betaAccessProvider.overrideWith((ref) async => false),
+            betaAccessProvider.overrideWith((ref) async => BetaAccess.denied),
             authStateProvider.overrideWith((ref) => states.stream),
           ],
           child: MaterialApp.router(
@@ -806,7 +806,7 @@ void main() {
         findsOneWidget,
       );
       expect(
-        find.textContaining('Selected testers got an email on Nov 7.'),
+        find.textContaining('Selected testers get an email from Pantas.'),
         findsOneWidget,
       );
       expect(find.textContaining('Need help?'), findsOneWidget);
@@ -861,7 +861,7 @@ Future<ProviderContainer> _pumpHeld(
     routes: [GoRoute(path: '/', builder: (_, __) => const BetaGatePage())],
   );
   addTearDown(router.dispose);
-  final pending = Completer<bool>();
+  final pending = Completer<BetaAccess>();
   await tester.pumpWidget(
     ProviderScope(
       overrides: [

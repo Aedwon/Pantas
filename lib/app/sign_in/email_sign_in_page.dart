@@ -927,7 +927,7 @@ class _NotOnList extends StatelessWidget {
           const SizedBox(height: 14),
           SupportLine(
             style: style,
-            note: 'Selected testers got an email on Nov 7.\n',
+            note: 'Selected testers get an email from Pantas.\n',
           ),
         ],
       ),
