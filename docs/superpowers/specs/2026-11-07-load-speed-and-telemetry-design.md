@@ -1,6 +1,6 @@
 # Load speed and telemetry before the beta (Nov 7, 2026)
 
-Status: draft for Aedwon's approval. Workstream: `web/visual-check-fixes-r1` at 571eea1aa
+Status: approved by Aedwon on Nov 7, 2026 ("Approved"), telemetry option A. Workstream: `web/visual-check-fixes-r1` at 571eea1aa
 (the build live at https://app.pantas.study). Policy: main at 8d81dad6f.
 
 Sources: three read-only audits on Nov 7 (two Codex Astra, one Opus) and the Nov 6 Sol
@@ -69,7 +69,7 @@ delicate concurrency code. It moves to after the beta.
 All of this stays free: reports go to Google Cloud logs (50 GB a month free, kept 30 days),
 about 1 to 3 small reports per app open. No Firestore reads or writes.
 
-### Decision needed: who sends speed and error reports
+### Decided: who sends speed and error reports (option A)
 
 | Option | What it means | Cost |
 |---|---|---|
