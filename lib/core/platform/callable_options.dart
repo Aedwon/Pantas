@@ -19,6 +19,7 @@ const replayProtectedCallables = <String>{
   'answerGuardianRequest',
   'requestSignInCode',
   'verifySignInCode',
+  'exchangeGoogleSignIn',
 };
 
 /// Options for calling [name]: limited-use App Check tokens for the callables

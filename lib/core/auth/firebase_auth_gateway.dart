@@ -168,6 +168,19 @@ class FirebaseAuthGateway
       if (link && error.code == 'credential-already-in-use') {
         _pendingGoogleCredential = error.credential;
       }
+      // The address already has an account with no Google link. Hand the
+      // Google proof to the repository, which trades it at the server.
+      if (error.code == 'email-already-in-use' ||
+          error.code == 'account-exists-with-different-credential') {
+        final credential = error.credential;
+        final idToken = credential is firebase.OAuthCredential &&
+                credential.providerId == 'google.com'
+            ? credential.idToken
+            : null;
+        if (idToken != null && idToken.isNotEmpty) {
+          throw GoogleAccountExistsException(idToken);
+        }
+      }
       throw AuthGatewayException(error.code);
     }
   }

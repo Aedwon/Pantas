@@ -42,6 +42,7 @@ List<Override> authRepositoryOverrides(
             ? gateway as EmailLinkAuthGateway
             : null,
         emailCodeGateway: FirebaseEmailCodeGateway(),
+        googleExchangeGateway: FirebaseGoogleAccountExchangeGateway(),
         customTokenGateway: gateway is CustomTokenAuthGateway
             ? gateway as CustomTokenAuthGateway
             : null,

@@ -21,6 +21,27 @@ class AuthGatewayException implements Exception {
   final String code;
 }
 
+/// Google returned a verified address that already belongs to a Pantas account
+/// with no Google link, so Firebase refused to link or sign in.
+///
+/// [idToken] is Google's proof for that address. It stays in memory, is only
+/// handed to [GoogleAccountExchangeGateway.exchange], and is never in the
+/// exception text.
+class GoogleAccountExistsException extends AuthGatewayException {
+  const GoogleAccountExistsException(this.idToken)
+      : super('google-account-exists');
+
+  final String idToken;
+}
+
+/// Trades Google's proof of an address for a custom token for the existing
+/// account. The server checks the proof and links Google to that account.
+// Single-method interface keeps the callable injectable.
+// ignore: one_member_abstracts
+abstract interface class GoogleAccountExchangeGateway {
+  Future<String> exchange(String idToken);
+}
+
 abstract interface class AuthGateway {
   AuthSession? get currentSession;
 
@@ -50,6 +71,7 @@ class AuthRepository implements EmailCodeAuth {
     GooglePopupAuthGateway? googlePopupGateway,
     EmailCodeGateway? emailCodeGateway,
     CustomTokenAuthGateway? customTokenGateway,
+    GoogleAccountExchangeGateway? googleExchangeGateway,
   })  : _gateway = gateway,
         _googleGateway =
             googleGateway ?? const UnconfiguredGoogleSignInGateway(),
@@ -63,7 +85,8 @@ class AuthRepository implements EmailCodeAuth {
         _emailLinkStore = emailLinkStore ?? const BrowserEmailLinkStore(),
         _googlePopupGateway = googlePopupGateway,
         _emailCodeGateway = emailCodeGateway,
-        _customTokenGateway = customTokenGateway;
+        _customTokenGateway = customTokenGateway,
+        _googleExchangeGateway = googleExchangeGateway;
 
   final AuthGateway _gateway;
   final GoogleSignInGateway _googleGateway;
@@ -76,6 +99,7 @@ class AuthRepository implements EmailCodeAuth {
   final GooglePopupAuthGateway? _googlePopupGateway;
   final EmailCodeGateway? _emailCodeGateway;
   final CustomTokenAuthGateway? _customTokenGateway;
+  final GoogleAccountExchangeGateway? _googleExchangeGateway;
 
   /// Installed by the payment bootstrap without importing a feature into core.
   Future<void> Function()? beforeIdentityChange;
@@ -196,6 +220,9 @@ class AuthRepository implements EmailCodeAuth {
             error.code == 'cancelled-popup-request') {
           return const SignInResult.cancelled();
         }
+        if (error is GoogleAccountExistsException) {
+          return _signInToExistingGoogleAddress(error.idToken);
+        }
         if (error.code != 'credential-already-in-use' &&
             error.code != 'email-already-in-use') {
           return SignInResult.failed(reason: error.code);
@@ -203,6 +230,27 @@ class AuthRepository implements EmailCodeAuth {
       }
     }
     return _switchAccount(signIn);
+  }
+
+  /// Signs in to the account that already has the address Google proved.
+  ///
+  /// The server call needs the signed-in (anonymous) caller, so it runs before
+  /// the switch. If it fails nothing has changed and the anonymous session
+  /// stays usable. The switch then follows the email code path and records the
+  /// sign-in event. There is no second Google pop-up.
+  Future<SignInResult> _signInToExistingGoogleAddress(String idToken) async {
+    final exchange = _googleExchangeGateway;
+    final signIn = _customTokenGateway;
+    if (exchange == null || signIn == null) {
+      return const SignInResult.failed(reason: 'firebase-unavailable');
+    }
+    final String token;
+    try {
+      token = await exchange.exchange(idToken);
+    } on AuthGatewayException catch (error) {
+      return SignInResult.failed(reason: error.code);
+    }
+    return _switchAccount(() => signIn.signInWithCustomToken(token));
   }
 
   /// Leaves the current account and signs in as another one.

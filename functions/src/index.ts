@@ -46,5 +46,6 @@ export {sendGuardianLink, answerGuardianRequest, getGuardianStatus, getGuardianR
 export {getBetaAccess} from './betaAccess.js';
 
 export {requestSignInCode, verifySignInCode} from './signInCode.js';
+export {exchangeGoogleSignIn} from './googleSignIn.js';
 
 export {keepCallablesWarm} from './keepWarm.js';
