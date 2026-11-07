@@ -41,6 +41,27 @@ final betaGateActiveProvider = Provider<bool>((ref) {
   return active;
 });
 
+/// Starts the beta check during startup, so its server call runs beside the
+/// rest of startup instead of after it. It does nothing unless the gate is
+/// active and a named account is signed in, the same test the gate applies.
+/// The router reads [betaAccessProvider] for the same result, so this makes no
+/// second call, and a changed identity still checks again. The check is not
+/// awaited and its errors are ignored here: the gate shows them as before.
+void startBetaAccessCheck(ProviderContainer container) {
+  if (!container.read(betaGateActiveProvider)) return;
+  unawaited(_checkBetaAccess(container));
+}
+
+Future<void> _checkBetaAccess(ProviderContainer container) async {
+  try {
+    final auth = await container.read(authStateProvider.future);
+    if (auth is! SignedInAuthState) return;
+    await container.read(betaAccessProvider.future);
+  } on Object catch (error) {
+    debugPrint('Early beta check did not finish: $error');
+  }
+}
+
 String? betaGateRedirect({
   required String path,
   required bool active,

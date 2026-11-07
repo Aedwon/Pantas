@@ -32,4 +32,29 @@ void main() {
       reason: 'the start is not also the wait',
     );
   });
+  test('the beta check starts right after the account session', () {
+    final auth = at('await bootstrapAuthSession(container, firebaseResult)');
+    final check = at('startBetaAccessCheck(container)');
+    final content = at('await _startWebContent(container)');
+    expect(check, greaterThan(auth));
+    expect(check, lessThan(content), reason: 'runs beside the content restore');
+  });
+
+  test('payments start before the content restore and finish before sync', () {
+    final started = at('final payments = bootstrapRevenueCat(container)');
+    final content = at('await _startWebContent(container)');
+    final consent = at('await applyPersistedTelemetryConsent(container)');
+    final awaited = at('await payments;');
+    final sync = at('await bootstrapSyncRuntime(container, firebaseResult)');
+    final firstPage = at('await settleGatesBeforeFirstPage(container)');
+    final runApp = at('runApp(\n      UncontrolledProviderScope');
+
+    expect(started, lessThan(content));
+    expect(awaited, greaterThan(consent));
+    expect(awaited, lessThan(sync));
+    expect(sync, lessThan(firstPage));
+    expect(firstPage, lessThan(runApp));
+    // Never fire and forget: the entitlement is settled before the first page.
+    expect(source, isNot(contains('unawaited(bootstrapRevenueCat')));
+  });
 }
