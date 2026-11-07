@@ -14,6 +14,7 @@ import 'firebase_auth_functions_gateway_test.dart'
     show RecordingFunctionsClient;
 
 void main() {
+  _sameAccountTests();
   test('selection callable derives identity without a client email', () async {
     final client = RecordingFunctionsClient(
       responses: {
@@ -187,6 +188,55 @@ void main() {
       await container.read(betaAccessProvider.future),
       BetaAccess.denied,
     );
+  });
+}
+
+// Nov 7: after a sign-in the auth stream emits the same account several
+// times (token refresh, Pro claims). Each emission re-ran the check, so the
+// gate showed loading and every screen behind it played its entrance three
+// times, with a server call each time.
+void _sameAccountTests() {
+  test('a token refresh for the same account does not check again', () async {
+    final states = StreamController<AuthState>();
+    final gateway = _PendingAccess();
+    final container = ProviderContainer(
+      overrides: [
+        authStateProvider.overrideWith((ref) => states.stream),
+        betaAccessGatewayProvider.overrideWithValue(gateway),
+      ],
+    );
+    addTearDown(container.dispose);
+    addTearDown(states.close);
+    final seen = <AsyncValue<BetaAccess>>[];
+    final subscription = container.listen(
+      betaAccessProvider,
+      (_, next) => seen.add(next),
+    );
+    addTearDown(subscription.close);
+    const user = AuthUser(uid: 'u1', email: 'u1@example.com', displayName: '');
+    states.add(const AuthState.signedIn(user: user));
+    await Future<void>.delayed(Duration.zero);
+    gateway.requests.single.complete(BetaAccess.open);
+    await Future<void>.delayed(Duration.zero);
+    expect(container.read(betaAccessProvider).valueOrNull, BetaAccess.open);
+    seen.clear();
+    states
+      ..add(const AuthState.signedIn(user: user))
+      ..add(
+        const AuthState.signedIn(
+          user: AuthUser(
+            uid: 'u1',
+            email: 'u1@example.com',
+            displayName: 'Juan',
+            isPro: true,
+          ),
+        ),
+      );
+    await Future<void>.delayed(Duration.zero);
+    await Future<void>.delayed(Duration.zero);
+    expect(gateway.requests, hasLength(1));
+    expect(seen.where((v) => v.isLoading), isEmpty);
+    expect(container.read(betaAccessProvider).valueOrNull, BetaAccess.open);
   });
 }
 

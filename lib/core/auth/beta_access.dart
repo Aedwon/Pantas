@@ -78,9 +78,18 @@ final betaAccessGatewayProvider = Provider<BetaAccessGateway>(
 /// The clock the gate and the waiting screen read. Tests replace it.
 final betaClockProvider = Provider<DateTime Function()>((ref) => DateTime.now);
 
+/// The account the beta check is about: its uid and email, or null when no
+/// named account is signed in. The auth stream also emits for token
+/// refreshes and Pro claims on the same account; those must not re-run the
+/// check, or the gate shows loading and every screen behind it replays.
+String? _betaIdentity(AuthState state) => state is SignedInAuthState
+    ? '${state.user.uid}\n${state.user.email}'
+    : null;
+
 final betaAccessProvider = FutureProvider<BetaAccess>((ref) async {
-  final state = await ref.watch(authStateProvider.future);
-  final access = state is! SignedInAuthState
+  final identity =
+      await ref.watch(authStateProvider.selectAsync(_betaIdentity));
+  final access = identity == null
       ? BetaAccess.denied
       : await ref.watch(betaAccessGatewayProvider).check();
   PerfTimeline.mark('beta.resolved');
