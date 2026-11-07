@@ -256,6 +256,10 @@ Future<void> _bootstrap(
   try {
     final firebaseResult = await bootstrapFirebaseForStartup(flavor);
     PerfTimeline.mark('boot.firebase');
+    // The flags fetch only needs Firebase, so it runs beside the steps below
+    // and is awaited where the flags are used. It never throws: a failure or
+    // a timeout yields the fallback flags.
+    final remoteFlags = bootstrapRemoteFlagsOverrides();
     // Web only, always on, sends no identity. Never blocks startup.
     ClientReporter.startForWeb();
     await activateAppCheck(flavor);
@@ -294,7 +298,7 @@ Future<void> _bootstrap(
             },
           );
     PerfTimeline.mark('boot.contentdb');
-    final remoteFlagsOverrides = await bootstrapRemoteFlagsOverrides();
+    final remoteFlagsOverrides = await remoteFlags;
     PerfTimeline.mark('boot.flags');
     final authOverrides = authRepositoryOverrides(firebaseResult);
 

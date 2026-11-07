@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:firebase_remote_config/firebase_remote_config.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:pantas/core/platform/remote_flags.dart';
@@ -98,6 +99,46 @@ void main() {
 
       expect(flags.minimumSupportedBuild, equals(0));
       expect(flags.serviceMessage, isNull);
+    });
+  });
+  group('bootstrapRemoteFlagsOverrides', () {
+    late MockFirebaseRemoteConfig mockConfig;
+
+    setUp(() {
+      mockConfig = MockFirebaseRemoteConfig();
+      when(() => mockConfig.setConfigSettings(any())).thenAnswer((_) async {});
+      when(() => mockConfig.setDefaults(any())).thenAnswer((_) async {});
+    });
+
+    test('starts the fetch when called, before the result is awaited',
+        () async {
+      final gate = Completer<bool>();
+      when(() => mockConfig.fetchAndActivate()).thenAnswer((_) => gate.future);
+      when(() => mockConfig.getInt('minimum_supported_build')).thenReturn(7);
+      when(() => mockConfig.getString('service_message')).thenReturn('');
+
+      final pending = bootstrapRemoteFlagsOverrides(remoteConfig: mockConfig);
+      // Startup keeps the future and awaits it later, so the work must
+      // already be running here.
+      verify(() => mockConfig.setConfigSettings(any())).called(1);
+
+      gate.complete(true);
+      final overrides = await pending;
+      final container = ProviderContainer(overrides: overrides);
+      addTearDown(container.dispose);
+      expect(container.read(remoteFlagsProvider).minimumSupportedBuild, 7);
+    });
+
+    test('a failing fetch still yields the fallback override', () async {
+      when(() => mockConfig.fetchAndActivate())
+          .thenThrow(Exception('Network error'));
+
+      final overrides =
+          await bootstrapRemoteFlagsOverrides(remoteConfig: mockConfig);
+      final container = ProviderContainer(overrides: overrides);
+      addTearDown(container.dispose);
+
+      expect(container.read(remoteFlagsProvider), RemoteFlags.fallback);
     });
   });
 }
