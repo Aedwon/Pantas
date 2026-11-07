@@ -16,6 +16,7 @@ import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
+import 'package:pantas/features/beta_feedback/application/beta_feedback_providers.dart';
 import 'package:pantas/features/settings/presentation/settings_home_page.dart';
 import 'package:pantas/features/settings/presentation/widgets/beta_pro_row.dart';
 import 'package:pantas/features/settings/settings.dart';
@@ -39,6 +40,10 @@ class SettingsPanePage extends StatelessWidget {
     this.compactTitle = false,
     this.titleLineHeight = 1.12,
     this.titleGap = 22,
+    this.titleSuffix,
+    this.headingGlyph,
+    this.headingGap = 24,
+    this.hideHeading = false,
   });
   final String title;
   final List<Widget> children;
@@ -63,6 +68,18 @@ class SettingsPanePage extends StatelessWidget {
   final double titleLineHeight;
   final double titleGap;
 
+  /// Drawn right after the title (the BETA mark).
+  final Widget? titleSuffix;
+
+  /// Wide web: a 22 px glyph before the title.
+  final Widget? headingGlyph;
+
+  /// Wide web: space between the heading and the first child.
+  final double headingGap;
+
+  /// Wide web: no heading at all, only the back link above the children.
+  final bool hideHeading;
+
   @override
   Widget build(BuildContext context) {
     if (!context.wideWeb) {
@@ -82,13 +99,21 @@ class SettingsPanePage extends StatelessWidget {
             : const EdgeInsets.fromLTRB(4, 0, 4, 20),
         hero: noHeading
             ? const SizedBox.shrink()
-            : hero
-                ? _SettingsHero(
-                    section: section,
+            : titleSuffix != null || (compactTitle && description != null)
+                ? _PhoneHeading(
                     title: title,
-                    subtitle: description ?? '',
+                    suffix: titleSuffix,
+                    subline: description,
+                    lineHeight: titleLineHeight,
+                    gap: titleGap,
                   )
-                : null,
+                : hero
+                    ? _SettingsHero(
+                        section: section,
+                        title: title,
+                        subtitle: description ?? '',
+                      )
+                    : null,
         children: children,
       );
     }
@@ -195,30 +220,50 @@ class SettingsPanePage extends StatelessWidget {
                                   ),
                                   const SizedBox(height: 14),
                                 ],
-                                Padding(
-                                  padding:
-                                      const EdgeInsets.fromLTRB(4, 4, 4, 0),
-                                  child: Row(
-                                    children: [
-                                      if (headingIcon != null) ...[
-                                        headingIcon,
-                                        const SizedBox(width: 14),
-                                      ],
-                                      Expanded(
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Text(title, style: t.h2),
-                                            if (description != null)
-                                              Text(description!, style: t.sub),
-                                          ],
+                                if (!hideHeading) ...[
+                                  Padding(
+                                    padding:
+                                        const EdgeInsets.fromLTRB(4, 4, 4, 0),
+                                    child: Row(
+                                      children: [
+                                        if (headingGlyph != null) ...[
+                                          headingGlyph!,
+                                          const SizedBox(width: 14),
+                                        ] else if (headingIcon != null) ...[
+                                          headingIcon,
+                                          const SizedBox(width: 14),
+                                        ],
+                                        Expanded(
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              if (titleSuffix == null)
+                                                Text(title, style: t.h2)
+                                              else
+                                                Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.min,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    Text(title, style: t.h2),
+                                                    titleSuffix!,
+                                                  ],
+                                                ),
+                                              if (description != null)
+                                                Text(
+                                                  description!,
+                                                  style: t.sub,
+                                                ),
+                                            ],
+                                          ),
                                         ),
-                                      ),
-                                    ],
+                                      ],
+                                    ),
                                   ),
-                                ),
-                                const SizedBox(height: 24),
+                                  SizedBox(height: headingGap),
+                                ],
                                 ...children,
                                 if (bottom != null) ...[
                                   const SizedBox(height: 24),
@@ -336,9 +381,20 @@ class SettingsNavigation extends ConsumerWidget {
       unawaited(router.push<void>(path));
     }
 
-    Widget row(String label, String path, Widget glyph, {String? value}) =>
+    final tester = ref.watch(betaFeedbackVisibleProvider);
+    Widget row(
+      String label,
+      String path,
+      Widget glyph, {
+      String? value,
+      Widget? titleSuffix,
+      Widget? trailing,
+      bool? divider,
+    }) =>
         WebRow(
           title: label,
+          titleSuffix: titleSuffix,
+          trailing: trailing,
           // The label keeps one weight, so the text does not jump while the
           // tint fades (item 17, demo 4).
           titleStyle: t.style(16),
@@ -352,9 +408,10 @@ class SettingsNavigation extends ConsumerWidget {
           selectedValueColor: t.colors.accent,
           leading: glyph,
           onPressed: () => open(path),
-          divider: label != 'Appearance' &&
-              label != 'Pantas Pro' &&
-              label != 'About',
+          divider: divider ??
+              (label != 'Appearance' &&
+                  label != 'Pantas Pro' &&
+                  label != 'About'),
         );
     return Column(
       key: const ValueKey('settings-navigation'),
@@ -395,6 +452,32 @@ class SettingsNavigation extends ConsumerWidget {
                 ),
         ),
         const SizedBox(height: 18),
+        if (tester) ...[
+          // FbDesk: Feedback and the Beta switch share the first card.
+          WebCard(
+            radius: 16,
+            child: Column(
+              children: [
+                row(
+                  'Feedback',
+                  '/settings/beta-feedback',
+                  SettingsFeedbackGlyph(size: 22, color: t.colors.accent),
+                  titleSuffix: const SettingsBetaMark(),
+                  trailing: FeedbackRowValue(
+                    value: ref.watch(feedbackRowValueProvider),
+                    style: t.style(15, color: t.colors.secondaryLabel),
+                    selectedColor: t.colors.accent,
+                    selected: selected == 'Feedback',
+                  ),
+                  divider: false,
+                ),
+                const BetaProRow(),
+              ],
+            ),
+          ),
+          const BetaProNote(),
+          const SizedBox(height: 18),
+        ],
         WebCard(
           radius: 16,
           child: Column(
@@ -405,11 +488,11 @@ class SettingsNavigation extends ConsumerWidget {
                 Icon(PantasIcons.proSettings, size: 22, color: t.colors.accent),
                 value: ref.watch(proRowValueProvider),
               ),
-              const BetaProRow(),
+              if (!tester) const BetaProRow(),
             ],
           ),
         ),
-        const BetaProNote(),
+        if (!tester) const BetaProNote(),
         const SizedBox(height: 18),
         WebCard(
           radius: 16,
@@ -450,6 +533,60 @@ class SettingsNavigation extends ConsumerWidget {
           child:
               row('About', '/settings/about', _grayGlyph(t, PantasIcons.about)),
         ),
+      ],
+    );
+  }
+}
+
+/// The phone title with a mark after it and, when given, a grey line under
+/// it (FbPage, FbSurvey): 28 px, 6 px above, then the line 22 px above the
+/// first card.
+class _PhoneHeading extends StatelessWidget {
+  const _PhoneHeading({
+    required this.title,
+    required this.suffix,
+    required this.subline,
+    required this.lineHeight,
+    required this.gap,
+  });
+  final String title;
+  final Widget? suffix;
+  final String? subline;
+  final double lineHeight;
+  final double gap;
+
+  @override
+  Widget build(BuildContext context) {
+    final style = context.type.pageTitleCompact.copyWith(height: lineHeight);
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Padding(
+          padding: EdgeInsets.fromLTRB(4, 6, 4, subline == null ? gap : 6),
+          child: Semantics(
+            header: true,
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(title, style: style),
+                if (suffix != null) suffix!,
+              ],
+            ),
+          ),
+        ),
+        if (subline != null)
+          Padding(
+            padding: const EdgeInsets.fromLTRB(4, 0, 4, 22),
+            child: Text(
+              subline!,
+              style: context.type.body.copyWith(
+                fontSize: 15,
+                height: 1.4,
+                letterSpacing: 0,
+                color: context.colors.secondaryLabel,
+              ),
+            ),
+          ),
       ],
     );
   }
