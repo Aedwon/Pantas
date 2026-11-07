@@ -106,6 +106,9 @@ class _SentImage extends ConsumerWidget {
             u,
             width: double.infinity,
             fit: BoxFit.fitWidth,
+            // Storage download URLs carry no CORS headers unless the bucket
+            // is configured for them; an <img> element shows them anyway.
+            webHtmlElementStrategy: WebHtmlElementStrategy.fallback,
             loadingBuilder: (context, child, progress) =>
                 progress == null ? child : placeholder(),
             errorBuilder: (_, __, ___) => placeholder(
