@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
@@ -389,6 +390,44 @@ void main() {
         tester.widget<TextField>(find.byType(TextField)).controller!.text,
         '482139',
       );
+    });
+
+    testWidgets('a copied code can be pasted and submits', (tester) async {
+      final pending = Completer<SignInResult>();
+      codes.onVerify = (_, __) => pending.future;
+      final messenger = tester.binding.defaultBinaryMessenger
+        ..setMockMethodCallHandler(SystemChannels.platform, (call) async {
+          if (call.method == 'Clipboard.getData') {
+            return <String, Object?>{'text': 'Your code: 482-139'};
+          }
+          if (call.method == 'Clipboard.hasStrings') {
+            return <String, Object?>{'value': true};
+          }
+          return null;
+        });
+      addTearDown(
+        () => messenger.setMockMethodCallHandler(SystemChannels.platform, null),
+      );
+      await pumpPage(tester);
+      await goToCode(tester);
+      // The web engine drops clipboard events when selection is off.
+      expect(
+        tester
+            .widget<TextField>(find.byType(TextField))
+            .enableInteractiveSelection,
+        isTrue,
+      );
+      final field = tester.state<EditableTextState>(find.byType(EditableText));
+      await field.clipboardStatus.update();
+      await tester.pump();
+      expect(field.pasteEnabled, isTrue);
+      await field.pasteText(SelectionChangedCause.keyboard);
+      await tester.pump();
+      expect(codes.verifies, [
+        ['challenge-1', '482139'],
+      ]);
+      pending.complete(const SignInResult.failed(reason: 'x'));
+      await tester.pump();
     });
 
     testWidgets('a wrong code shows the message, then clears the digits',
