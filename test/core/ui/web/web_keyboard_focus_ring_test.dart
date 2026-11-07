@@ -185,7 +185,12 @@ void main() {
       (w) =>
           w is DecoratedBox &&
           w.decoration is ShapeDecoration &&
-          (w.decoration as ShapeDecoration).shape is StadiumBorder,
+          // Back link A: the ghost buttons' rounded rectangle, not a pill.
+          (w.decoration as ShapeDecoration).shape is RoundedRectangleBorder &&
+          ((w.decoration as ShapeDecoration).shape as RoundedRectangleBorder)
+                  .side
+                  .width ==
+              2,
     );
     for (final stop in stops) {
       await tester.sendKeyEvent(LogicalKeyboardKey.tab);
