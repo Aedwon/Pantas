@@ -25,6 +25,10 @@ void afterSplashGone(VoidCallback action) => splashGoneProbe(action);
 @visibleForTesting
 void Function(VoidCallback) splashGoneProbe = platform.afterSplashGone;
 
+/// Runs when the first screen has settled. The speed report listens here; it
+/// is never set in tests that do not ask for it.
+VoidCallback? firstScreenListener;
+
 final firstScreenSignalProvider = Provider<FirstScreenSignal>(
   (ref) => FirstScreenSignal(platform.sendFirstScreenReady),
 );
@@ -37,6 +41,7 @@ class FirstScreenSignal {
     if (_sent) return;
     _sent = true;
     _send();
+    firstScreenListener?.call();
   }
 }
 

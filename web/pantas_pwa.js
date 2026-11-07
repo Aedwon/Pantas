@@ -145,6 +145,10 @@
     },
     registerWorker: registerWorker,
     visitKind: visitKind,
+    // The build id the page was started with, for the speed report.
+    buildVersion: function () {
+      return buildVersion;
+    },
     // Forced update: removes this browser's worker and cached app files, then
     // reloads so the next load comes from the network. Always reloads.
     updateNow: function () {

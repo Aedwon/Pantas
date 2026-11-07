@@ -37,6 +37,7 @@ import 'package:pantas/core/platform/local_firebase.dart';
 import 'package:pantas/core/platform/remote_flags_providers.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/telemetry/client_report.dart';
 import 'package:pantas/core/telemetry/error_boundary.dart';
 import 'package:pantas/core/telemetry/firebase_telemetry.dart';
 import 'package:pantas/core/telemetry/perf_timeline.dart';
@@ -250,6 +251,8 @@ Future<void> _bootstrap(
   try {
     final firebaseResult = await bootstrapFirebaseForStartup(flavor);
     PerfTimeline.mark('boot.firebase');
+    // Web only, always on, sends no identity. Never blocks startup.
+    ClientReporter.startForWeb();
     await activateAppCheck(flavor);
     PerfTimeline.mark('boot.appcheck');
 

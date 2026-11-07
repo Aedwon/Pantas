@@ -77,6 +77,13 @@ test('the visit kind is decided at load, not after the new worker takes over', a
   assert.equal(pwa.visitKind(), 'first');
 });
 
+test('the page can say which build it started with', async () => {
+  const { pwa } = load({ controller: null });
+  assert.equal(pwa.buildVersion(), null, 'before the worker step');
+  await pwa.registerWorker('1293236267-5bbf79dc07b4');
+  assert.equal(pwa.buildVersion(), '1293236267-5bbf79dc07b4');
+});
+
 test('a browser without workers counts as a first visit', () => {
   const { pwa } = load({ supported: false });
   assert.equal(pwa.visitKind(), 'first');
