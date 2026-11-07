@@ -59,6 +59,13 @@ pass 15, retire or merge one first.
 Newest first. When this file passes about 120 lines, move the oldest closed entries to
 the current decision log.
 
+### Beta notice board adapted carelessly (Nov 7)
+
+- **His words:** "lol this is the type of UI that made me realize we needed a robust design system in the first place. this looks terrible"
+- **What was wrong:** the "Welcome to the Pantas beta" Home notice board copied HM_ProWelcome and swapped in longer copy. The button pair then wrapped: Got It floated beside the text and Read the Guide dropped to its own line at the left, against the placement rule he had just approved (P2). Got It kept the light-mode gray, so it looked disabled on dark, and a stray ↗ glyph and the collapse arrow added clutter.
+- **Why the process let it through:** written rule 3 makes boards start from approved screens, but nothing says to re-check an adapted board's layout once its copy or theme changes, and there is no written notice component to build from.
+- **Fix:** required step (a repeat of the board-quality failure on the splash board, so it moves up from a written rule): before showing an adapted board, the lead lists each changed text block and button group, confirms every button group keeps its order and alignment at the frame width in each theme shown, and names the approved board and the design-system rule it follows in the board's note. The design system being built (Pantas Design System canvas) defines the notice anatomy so boards use it rather than a copied screen. The board was rebuilt (canvas version 5).
+
 ### Splash board hand-drawn, not built in Claude Design (Nov 7)
 
 - **His words:** "what is that ew, why didn't you use claude design, and the fidelity is awful from the actual thing"
