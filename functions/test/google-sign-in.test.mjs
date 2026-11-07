@@ -11,6 +11,24 @@ const caller = (provider = 'anonymous', uid = 'anon1') =>
   ({uid, token: {firebase: {sign_in_provider: provider}}});
 const req = (data, overrides = {}) => ({auth: caller(), app: {appId: 'web'}, data, ...overrides});
 
+/** A Firestore stand-in: doc and serialized transactions, as the email-code tests use. */
+function fakeDb() {
+  const rows = new Map();
+  let chain = Promise.resolve();
+  return {
+    rows,
+    doc: path => ({path}),
+    runTransaction: fn => {
+      const run = chain.then(() => fn({
+        get: async r => ({exists: rows.has(r.path), get: field => rows.get(r.path)?.[field]}),
+        set: (r, data, options) => rows.set(r.path, options?.merge ? {...rows.get(r.path), ...data} : {...data}),
+      }));
+      chain = run.catch(() => {});
+      return run;
+    },
+  };
+}
+
 /** What Google's tokeninfo returns for a good token. All values are strings, as Google sends them. */
 const goodInfo = (changes = {}) => ({
   aud: CLIENT, iss: 'https://accounts.google.com', email: EMAIL, email_verified: 'true',
@@ -42,17 +60,19 @@ function fakeAuth(users = {maria: account()}) {
 }
 
 /** A tokeninfo stand-in. The tests never reach Google. */
-function rig({users, info = goodInfo(), status = 200, clientId = CLIENT, allow = async () => true} = {}) {
+function rig({users, info = goodInfo(), status = 200, clientId = CLIENT, allow = async () => true,
+  extra = {}} = {}) {
   const auth = fakeAuth(users);
+  const db = fakeDb();
   const fetched = [];
   const deps = {
-    auth, clientId, now: () => NOW, allow,
+    auth, db, key: 'test-key', clientId, now: () => NOW, allow, ...extra,
     fetchTokenInfo: async idToken => {
       fetched.push(idToken);
       return {status, body: info};
     },
   };
-  return {auth, fetched, deps, run: (data = {idToken: 'google-id-token'}, overrides = {}) =>
+  return {auth, db, fetched, deps, run: (data = {idToken: 'google-id-token'}, overrides = {}) =>
     checkGoogleSignIn(req(data, overrides), deps)};
 }
 
@@ -262,6 +282,57 @@ test('the rate limit is ten tries in ten minutes per caller and stops the call b
   assert.deepEqual(r.fetched, []);
 });
 
+// ----------------------------------------------- IP limit and daily cap
+
+const fromIp = (r, ip, uid) =>
+  r.run({idToken: 'google-id-token'}, {auth: caller('anonymous', uid), rawRequest: {ip}});
+
+// Tokens that outlive the clock moves below.
+const longLived = () => goodInfo({exp: String(NOW / 1000 + 3 * 86_400)});
+
+test('one IP gets 20 exchanges in ten minutes whatever accounts it uses, and only a hash of it is stored', async () => {
+  const r = rig({info: longLived()});
+  for (let i = 0; i < 20; i += 1) await fromIp(r, '203.0.113.9', `anon${i}`);
+  await refused(fromIp(r, '203.0.113.9', 'anon99'), 'resource-exhausted');
+  assert.equal(r.fetched.length, 20);
+  assert.ok(![...r.db.rows.keys()].some(path => path.includes('203.0.113.9')));
+  // Another address is not affected, and neither is a call that carries no address.
+  await fromIp(r, '203.0.113.10', 'anon1');
+  await r.run();
+  r.deps.now = () => NOW + 10 * 60_000 + 1;
+  await fromIp(r, '203.0.113.9', 'anon99');
+});
+
+test('the global cap is 500 verifications a day', async () => {
+  const r = rig();
+  const ip = i => `10.0.${Math.floor(i / 250)}.${i % 250}`;
+  for (let i = 0; i < 500; i += 1) await fromIp(r, ip(i), `anon${i}`);
+  assert.equal(r.fetched.length, 500);
+  await refused(fromIp(r, '192.0.2.1', 'fresh'), 'resource-exhausted');
+  assert.equal(r.fetched.length, 500);
+});
+
+test('a full day stops the call before Google is asked, and the next day starts fresh', async () => {
+  const r = rig({info: longLived(), extra: {dailyCap: 3}});
+  for (let i = 0; i < 3; i += 1) await fromIp(r, `192.0.2.${i}`, `anon${i}`);
+  await refused(fromIp(r, '192.0.2.50', 'anon50'), 'resource-exhausted');
+  assert.equal(r.fetched.length, 3);
+  r.deps.now = () => NOW + 24 * 3_600_000;
+  await fromIp(r, '192.0.2.50', 'anon50');
+  assert.equal(r.fetched.length, 4);
+});
+
+test('a call refused by the caller or IP limit, or by bad input, does not use up the daily cap', async () => {
+  const r = rig({extra: {dailyCap: 25}, allow: async uid => uid !== 'blocked'});
+  await refused(fromIp(r, '192.0.2.1', 'blocked'), 'resource-exhausted');
+  await refused(r.run({idToken: ''}, {rawRequest: {ip: '192.0.2.1'}}), 'invalid-argument');
+  for (let i = 0; i < 20; i += 1) await fromIp(r, '192.0.2.7', 'u');
+  for (let i = 0; i < 5; i += 1) await refused(fromIp(r, '192.0.2.7', 'u'), 'resource-exhausted');
+  for (let i = 0; i < 5; i += 1) await fromIp(r, `192.0.2.${100 + i}`, 'u');
+  assert.equal(r.fetched.length, 25);
+  await refused(fromIp(r, '192.0.2.200', 'u'), 'resource-exhausted');
+});
+
 // ------------------------------------------------------------- deployment
 
 test('the callable is deployed with App Check, a used-once token and the timing wrapper', () => {
@@ -272,6 +343,7 @@ test('the callable is deployed with App Check, a used-once token and the timing 
   assert.match(source, /consumeAppCheckToken: enforceAppCheck/);
   assert.match(source, /timed\('exchangeGoogleSignIn'/);
   assert.match(source, /defineString\('GOOGLE_WEB_CLIENT_ID'/);
+  assert.match(source, /secrets: \[signInCodeKey\]/);
   const index = readFileSync(new URL('../src/index.ts', import.meta.url), 'utf8');
   assert.match(index, /exchangeGoogleSignIn[^;]*from '\.\/googleSignIn\.js'/);
 });

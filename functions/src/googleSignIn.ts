@@ -1,9 +1,13 @@
+import {createHmac} from 'node:crypto';
 import {getAuth, type Auth, type UserRecord} from 'firebase-admin/auth';
+import {getFirestore, type Firestore} from 'firebase-admin/firestore';
 import {logger} from 'firebase-functions/logger';
 import {defineString} from 'firebase-functions/params';
 import {HttpsError, onCall, type CallableRequest} from 'firebase-functions/v2/https';
 import {assertFreshAppCheck, enforceAppCheck} from './_appCheck.js';
 import {allowAtMost} from './_limits.js';
+import {phDay} from './_phDate.js';
+import {key as signInKey, signInCodeKey} from './signInCode.js';
 import {timed} from './_timed.js';
 
 /**
@@ -29,6 +33,15 @@ const TOKENINFO_TIMEOUT_MS = 5_000;
 const MAX_TOKEN_CHARS = 4096;
 const EXCHANGES_PER_CALLER = 10;
 const EXCHANGE_WINDOW_MS = 10 * 60_000;
+/**
+ * Abuse budget for the outbound tokeninfo call, sized for about 20 testers. Anonymous accounts are
+ * free to make, so the per-caller limit alone cannot stop one machine that rotates them. Each
+ * address gets 20 verifications per 10 minutes (kept as a keyed hash, like the email-code limit),
+ * and the whole service gets 500 a day (Philippine day). Both are checked before Google is asked.
+ */
+export const EXCHANGES_PER_IP = 20;
+export const EXCHANGES_PER_DAY = 500;
+const DAY_RETENTION_MS = 3 * 24 * 3_600_000;
 const GOOGLE_ISSUERS = new Set(['accounts.google.com', 'https://accounts.google.com']);
 // Google is the authority for these domains, the same rule Firebase uses for trusted Google emails.
 const GOOGLE_MAIL_DOMAINS = new Set(['gmail.com', 'googlemail.com']);
@@ -43,11 +56,17 @@ export type GoogleSignInDeps = {
   clientId: string;
   /** Asks Google about an ID token. Tests pass a stand-in so they never reach Google. */
   fetchTokenInfo: (idToken: string) => Promise<TokenInfoReply>;
+  /** Holds the per-IP and daily counters. */
+  db: Firestore;
+  /** The secret that keys the IP hash, so the address itself is never stored. */
+  key: string;
+  /** The most outbound verifications per Philippine day. Defaults to `EXCHANGES_PER_DAY`. */
+  dailyCap?: number;
   now?: () => number;
   allow?: (uid: string, bucket: string, max: number, windowMs: number) => Promise<boolean>;
 };
 
-type Req = Pick<CallableRequest, 'auth' | 'app' | 'data'>;
+type Req = Pick<CallableRequest, 'auth' | 'app' | 'data'> & {rawRequest?: {ip?: string}};
 
 function assertCaller(request: Req): string {
   if (!request.auth || (enforceAppCheck && !request.app)) {
@@ -55,6 +74,35 @@ function assertCaller(request: Req): string {
   }
   assertFreshAppCheck(request);
   return request.auth.uid;
+}
+
+const millis = (value: unknown): number => (typeof value === 'number' ? value : 0);
+
+/** One 10 minute window per caller IP, stored under a keyed hash. Same shape as the email-code limit. */
+async function allowIp(db: Firestore, key: string, ip: string, at: number): Promise<boolean> {
+  const ref = db.doc(`signInLimits/google-ip-${createHmac('sha256', key).update(`google-ip\0${ip}`).digest('hex')}`);
+  return db.runTransaction(async transaction => {
+    const snapshot = await transaction.get(ref);
+    const startedAt = millis(snapshot.get('windowStartedAt'));
+    const inWindow = startedAt > 0 && at - startedAt < EXCHANGE_WINDOW_MS;
+    const count = inWindow ? Number(snapshot.get('count') ?? 0) : 0;
+    if (count >= EXCHANGES_PER_IP) return false;
+    transaction.set(ref, {windowStartedAt: inWindow ? startedAt : at, count: count + 1,
+      purgeAt: new Date(at + 2 * EXCHANGE_WINDOW_MS)});
+    return true;
+  });
+}
+
+/** Takes one place from the day's budget of outbound verifications, or reports that it is spent. */
+async function takeDailyPlace(db: Firestore, cap: number, at: number): Promise<boolean> {
+  const ref = db.doc(`signInLimits/global-google-${phDay(at)}`);
+  return db.runTransaction(async transaction => {
+    const snapshot = await transaction.get(ref);
+    const used = Number(snapshot.get('count') ?? 0);
+    if (!Number.isFinite(cap) || cap < 1 || used + 1 > cap) return false;
+    transaction.set(ref, {count: used + 1, purgeAt: new Date(at + DAY_RETENTION_MS)}, {merge: true});
+    return true;
+  });
 }
 
 /** The real lookup. Failures surface as thrown errors, which the caller reports as unavailable. */
@@ -124,7 +172,18 @@ export async function checkGoogleSignIn(request: Req, deps: GoogleSignInDeps): P
   }
   if (!deps.clientId) throw new HttpsError('failed-precondition', 'Google sign-in is not configured.');
 
-  const {sub, email} = await verifiedIdentity(idToken, deps, (deps.now ?? Date.now)());
+  // Both budgets are spent before Google is asked, and only by calls that would ask.
+  const at = (deps.now ?? Date.now)();
+  const ip = request.rawRequest?.ip;
+  if (ip && !await allowIp(deps.db, deps.key, ip, at)) {
+    throw new HttpsError('resource-exhausted', 'Too many attempts. Try again later.');
+  }
+  if (!await takeDailyPlace(deps.db, deps.dailyCap ?? EXCHANGES_PER_DAY, at)) {
+    logger.warn('Google sign-in: the daily budget of verifications is spent.');
+    throw new HttpsError('resource-exhausted', 'Too many attempts. Try again later.');
+  }
+
+  const {sub, email} = await verifiedIdentity(idToken, deps, at);
 
   // A new address never needs this path: Firebase signs it in directly.
   const user = await userOrNull(() => deps.auth.getUserByEmail(email));
@@ -161,8 +220,8 @@ export async function checkGoogleSignIn(request: Req, deps: GoogleSignInDeps): P
 }
 
 export const exchangeGoogleSignIn = onCall({region: 'asia-southeast1', enforceAppCheck: enforceAppCheck,
-  consumeAppCheckToken: enforceAppCheck}, timed('exchangeGoogleSignIn', request => {
+  consumeAppCheckToken: enforceAppCheck, secrets: [signInCodeKey]}, timed('exchangeGoogleSignIn', request => {
   assertFreshAppCheck(request);
-  return checkGoogleSignIn(request, {auth: getAuth(), clientId: googleWebClientId.value(),
+  return checkGoogleSignIn(request, {auth: getAuth(), db: getFirestore(), key: signInKey(), clientId: googleWebClientId.value(),
     fetchTokenInfo: fetchGoogleTokenInfo});
 }));
