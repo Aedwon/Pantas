@@ -18,13 +18,13 @@ class StudyObservations {
   /// Several senders exist at once (the read path and the lifecycle watcher),
   /// and each used to run its own pass, so one finished quiz was sent twice.
   /// The server ignores a repeat, but the second pass still cost a request
-  /// and a full reread. They now share one pass.
-  static final Expando<Map<String, Future<void>>> _flights = Expando();
+  /// and a full reread. They now share the passes.
+  static final Expando<Map<String, _Flight>> _flights = Expando();
 
   String get _flightKey =>
       '${request.uid}\u0000${request.examId}\u0000$coreToken';
 
-  Map<String, Future<void>> get _flightsHere => _flights[db] ??= {};
+  Map<String, _Flight> get _flightsHere => _flights[db] ??= {};
 
   Future<void> flush() {
     final running = _flightsHere[_flightKey];
@@ -35,9 +35,10 @@ class StudyObservations {
     final flights = _flightsHere;
     final key = _flightKey;
     final result = _flush();
-    flights[key] = result;
+    final flight = _Flight(result);
+    flights[key] = flight;
     void clear() {
-      if (identical(flights[key], result)) flights.remove(key);
+      if (identical(flights[key], flight)) flights.remove(key);
     }
 
     result.then<void>(
@@ -47,9 +48,17 @@ class StudyObservations {
     return result;
   }
 
-  Future<void> _join(Future<void> running) async {
+  /// A running pass read its rows before this caller asked, so it may have
+  /// missed what finished since. Every caller that joins it waits for one
+  /// fresh pass after it, shared between them, and takes that pass's result.
+  /// A pass that fails for any reason but a changed owner is the result for
+  /// the joiners too: its failure is not retried at once.
+  Future<void> _join(_Flight running) =>
+      running.next ??= _afterRunning(running);
+
+  Future<void> _afterRunning(_Flight running) async {
     try {
-      return await running;
+      await running.pass;
     } on Object catch (error) {
       // The pass we joined was begun by a sender whose owner has since
       // changed. This sender may still be current, so it runs its own pass
@@ -60,7 +69,9 @@ class StudyObservations {
         rethrow;
       }
     }
-    await (_flightsHere[_flightKey] ?? _start());
+    // The finished pass has left the map. A pass another caller began since
+    // read its rows after this caller asked, so it is fresh enough.
+    await (_flightsHere[_flightKey]?.pass ?? _start());
   }
 
   String _receiptKey(String id) => 'home_sent_${request.uid}_${coreToken}_$id';
@@ -209,4 +220,12 @@ class StudyObservations {
       if (!await request.isCurrent()) throw StateError('Study owner changed');
     });
   }
+}
+
+/// One running pass, and the single pass queued behind it for the callers
+/// that arrived while it ran.
+class _Flight {
+  _Flight(this.pass);
+  final Future<void> pass;
+  Future<void>? next;
 }

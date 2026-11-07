@@ -329,4 +329,78 @@ void main() {
     await live;
     expect(sent, ['a']);
   });
+
+  test(
+      'a flush that joins a running one still sends work finished after it '
+      'took its snapshot', () async {
+    final db = AppDatabase(NativeDatabase.memory());
+    addTearDown(db.close);
+    await db.into(db.lessonProgressLocal).insert(
+          LessonProgressLocalCompanion.insert(
+            lessonId: 'old',
+            readAt: DateTime.utc(2026, 10, 24),
+          ),
+        );
+    final gate = Completer<void>();
+    final sent = <String>[];
+    final sender = StudyObservations(
+      db,
+      coreToken: 'c',
+      request: StudyRequest(
+        uid: 'u',
+        examId: 'e',
+        isCurrent: () async => true,
+        api: StudyApi((endpoint, p) async {
+          sent.add('$endpoint:${p['lessonId'] ?? p['sessionId']}');
+          if (p['lessonId'] == 'old') await gate.future;
+          return <String, Object?>{};
+        }),
+      ),
+    );
+
+    final first = sender.flush();
+    await pumpEventQueue();
+    expect(sent, ['recordLessonRead:old'], reason: 'the older send is held');
+
+    // A quiz finishes after the running pass took its snapshot.
+    await AttemptsRepository(db).save(
+      Attempt(
+        id: 'fresh',
+        examId: 'e',
+        origin: 'drill',
+        startedAt: DateTime(2026, 10, 24, 12),
+        completedAt: DateTime(2026, 10, 24, 13),
+        items: const [
+          AttemptItem(
+            questionId: 'q',
+            questionVersion: 1,
+            chosenChoiceId: 'a',
+            correctChoiceId: 'a',
+            responseMs: 1000,
+          ),
+        ],
+      ),
+    );
+    var secondDone = false;
+    var thirdDone = false;
+    final second = sender.flush().whenComplete(() => secondDone = true);
+    final third = sender.flush().whenComplete(() => thirdDone = true);
+    await pumpEventQueue();
+    expect(secondDone, isFalse);
+    expect(thirdDone, isFalse);
+
+    gate.complete();
+    await Future.wait([first, second, third]);
+
+    expect(
+      sent.where((s) => s == 'ingestSession:fresh'),
+      hasLength(1),
+      reason: 'the new attempt is sent, once',
+    );
+    expect(sent.where((s) => s == 'recordLessonRead:old'), hasLength(1));
+    // The callers resolved only after the new attempt went out.
+    expect(sent, contains('ingestSession:fresh'));
+    await sender.flush();
+    expect(sent, hasLength(2), reason: 'nothing acknowledged is sent again');
+  });
 }
