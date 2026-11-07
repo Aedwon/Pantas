@@ -54,6 +54,9 @@ const _honored = <String>{
   '/settings/pro',
   '/settings/backup',
   '/settings/about',
+  '/settings/beta-feedback',
+  '/settings/beta-feedback/survey',
+  '/settings/beta-feedback/sent/:id',
   '/legal/:doc',
 };
 

@@ -277,8 +277,16 @@ class _FeedbackComposeState extends ConsumerState<FeedbackCompose> {
     if (!wide) return body;
     return CallbackShortcuts(
       bindings: {
-        const SingleActivator(LogicalKeyboardKey.enter, meta: true): _send,
-        const SingleActivator(LogicalKeyboardKey.enter, control: true): _send,
+        const SingleActivator(
+          LogicalKeyboardKey.enter,
+          meta: true,
+          includeRepeats: false,
+        ): _send,
+        const SingleActivator(
+          LogicalKeyboardKey.enter,
+          control: true,
+          includeRepeats: false,
+        ): _send,
       },
       child: body,
     );
