@@ -73,6 +73,68 @@ class ClientError {
   String get fingerprint => '$type|${stack.isEmpty ? '' : stack.first}';
 }
 
+// The patterns that take personal details out of an error. Order matters:
+// a URL's query goes first, so a token inside it is gone before the generic
+// token pattern runs, and addresses go before the 20-character run that an
+// address could otherwise be part of.
+final _urlTail = RegExp(r'(https?://[^\s?#]*)([?#])\S*');
+final _email = RegExp(r'[A-Za-z0-9._%+\-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,}');
+final _token = RegExp(r'[A-Za-z0-9_\-]{20,}');
+final _longDigits = RegExp(r'\d{6,}');
+final _spaces = RegExp(r'\s+');
+final _packageFrame = RegExp(r'package:[A-Za-z0-9_./\-]+\.dart:\d+(?::\d+)?');
+final _scriptFrame =
+    RegExp(r'([A-Za-z0-9_.\-]+\.js)(?:\?[^\s:)]*)?:(\d+)(?::(\d+))?');
+
+/// Cleans [error] for the speed report, on the device and before anything is
+/// sent. The message loses addresses, URL queries and fragments, anything that
+/// looks like a token, and long digit runs. The stack keeps only package paths
+/// with their line numbers, or the script name and position of a minified web
+/// frame, never a host or a local path.
+ClientError sanitizeError(Object error, StackTrace stack) {
+  String text;
+  try {
+    text = error.toString();
+  } on Object {
+    text = '';
+  }
+  final msg = text
+      .replaceAllMapped(
+        _urlTail,
+        (m) => '${m.group(1)}${m.group(2)}<x>',
+      )
+      .replaceAll(_email, '<x>')
+      .replaceAll(_token, '<x>')
+      .replaceAll(_longDigits, '<x>')
+      .replaceAll(_spaces, ' ')
+      .trim();
+
+  final frames = <String>[];
+  try {
+    for (final line in stack.toString().split('\n')) {
+      final package = _packageFrame.firstMatch(line);
+      if (package != null) {
+        frames.add(package.group(0)!);
+      } else {
+        final script = _scriptFrame.firstMatch(line);
+        if (script != null) {
+          final column = script.group(3);
+          final position = column == null ? '' : ':$column';
+          frames.add('${script.group(1)}:${script.group(2)}$position');
+        }
+      }
+      if (frames.length == 8) break;
+    }
+  } on Object {
+    // No usable stack: report the type and message alone.
+  }
+  return ClientError(
+    type: error.runtimeType.toString(),
+    msg: msg.length <= 300 ? msg : msg.substring(0, 300),
+    stack: frames,
+  );
+}
+
 /// `chrome`, `safari`, `firefox`, `edge`, `samsung` or `other`.
 String browserFamily(String userAgent) {
   final agent = userAgent.toLowerCase();
@@ -207,8 +269,17 @@ class ClientReporter {
     _open();
   }
 
-  /// Keeps an error for the next report. Repeats of the same problem count up;
-  /// at most 20 different ones are kept for the session.
+  /// Cleans [error] and keeps it for the next report.
+  void recordError(Object error, StackTrace stack) {
+    try {
+      addError(sanitizeError(error, stack));
+    } on Object {
+      // See addError.
+    }
+  }
+
+  /// Keeps an already cleaned error for the next report. Repeats of the same
+  /// problem count up; at most 20 different ones are kept for the session.
   void addError(ClientError error) {
     try {
       final key = error.fingerprint;

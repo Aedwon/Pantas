@@ -4,6 +4,7 @@ import 'package:pantas/app/bootstrap.dart';
 import 'package:pantas/app/telemetry_consent_controller.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/telemetry/client_report.dart';
 import 'package:pantas/core/telemetry/firebase_telemetry.dart';
 import 'package:pantas/core/telemetry/telemetry.dart';
 import 'package:pantas/features/settings/settings.dart';
@@ -528,4 +529,64 @@ void main() {
       );
     });
   });
+
+  group('a startup error reaches the web reporter once', () {
+    late List<Map<String, Object?>> sent;
+    late ClientReporter reporter;
+
+    setUp(() {
+      sent = [];
+      reporter = ClientReporter(
+        sender: _CollectingSender(sent),
+        context: () => const ClientReportContext(
+          build: 'b',
+          visit: 'first',
+          browser: 'chrome',
+          mobile: false,
+          viewportWidth: 1200,
+        ),
+        timings: () => const [],
+      );
+      ClientReporter.active = reporter;
+    });
+
+    tearDown(() => reporter.dispose());
+
+    Future<int> reportedCount() async {
+      reporter
+        ..splashGone()
+        ..firstScreenSettled();
+      await pumpEventQueue();
+      if (sent.isEmpty) return 0;
+      final errors = sent.single['errors']! as List;
+      return (errors.single as Map)['count']! as int;
+    }
+
+    test('before the app has a container', () async {
+      handleBootstrapError(StateError('early'), StackTrace.current);
+
+      expect(await reportedCount(), 1);
+    });
+
+    test('after it has one, through the usual path and not twice', () async {
+      final container = ProviderContainer();
+      addTearDown(container.dispose);
+
+      handleBootstrapError(
+        StateError('late'),
+        StackTrace.current,
+        container: container,
+      );
+
+      expect(await reportedCount(), 1);
+    });
+  });
+}
+
+class _CollectingSender implements ClientReportSender {
+  _CollectingSender(this._sent);
+  final List<Map<String, Object?>> _sent;
+
+  @override
+  Future<void> send(Map<String, Object?> payload) async => _sent.add(payload);
 }

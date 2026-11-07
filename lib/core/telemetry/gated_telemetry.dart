@@ -1,3 +1,4 @@
+import 'package:pantas/core/telemetry/client_report.dart';
 import 'package:pantas/core/telemetry/telemetry.dart';
 
 /// Wraps a `Telemetry` and lets nothing through until the student has said
@@ -29,6 +30,11 @@ class GatedTelemetry implements Telemetry {
 
   @override
   Future<void> recordError(Object error, StackTrace stack) async {
+    // The web app's speed and error reports are not usage sharing: they are on
+    // for everyone and carry no identity (spec option A), so the web reporter
+    // hears every error, cleaned, whatever the switch says. It is null on a
+    // phone, where only the gate below applies.
+    ClientReporter.active?.recordError(error, stack);
     if (!isCollecting) return;
     await _inner.recordError(error, stack);
   }

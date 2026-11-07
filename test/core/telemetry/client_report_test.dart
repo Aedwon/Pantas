@@ -389,6 +389,130 @@ void main() {
     });
   });
 
+  group('cleaning an error before it leaves the device', () {
+    ClientError clean(Object error, [StackTrace? stack]) =>
+        sanitizeError(error, stack ?? StackTrace.empty);
+
+    test('keeps the type and a plain message', () {
+      final cleaned = clean(StateError('no plan'));
+
+      expect(cleaned.type, 'StateError');
+      expect(cleaned.msg, 'Bad state: no plan');
+    });
+
+    test('cuts the message to 300 characters', () {
+      expect(clean(Exception('word ' * 200)).msg.length, 300);
+    });
+
+    test('removes an email address', () {
+      final cleaned = clean(
+        Exception('No account for maria.santos@example.com found'),
+      );
+
+      expect(cleaned.msg, 'Exception: No account for <x> found');
+    });
+
+    test('removes a run of six or more digits, but keeps short numbers', () {
+      final cleaned = clean(
+        Exception('phone 09171234567 code 123456 line 42 id 12345'),
+      );
+
+      expect(cleaned.msg, 'Exception: phone <x> code <x> line 42 id 12345');
+    });
+
+    test('removes the query string and fragment of a URL', () {
+      final cleaned = clean(
+        Exception(
+          'Failed https://app.pantas.study/x?code=abc&state=def after, '
+          'then https://app.pantas.study/y#access_token=zzz end',
+        ),
+      );
+
+      expect(cleaned.msg, contains('https://app.pantas.study/x?<x>'));
+      expect(cleaned.msg, contains('https://app.pantas.study/y#<x>'));
+      expect(cleaned.msg, isNot(contains('abc')));
+      expect(cleaned.msg, isNot(contains('access_token')));
+    });
+
+    test('removes anything that looks like a token', () {
+      final cleaned = clean(
+        Exception(
+          'bad bearer eyJhbGciOiJIUzI1NiJ9abcdefghijklmnop and '
+          'AIzaSyA_-1234567890abcdefghij and short_token',
+        ),
+      );
+
+      expect(cleaned.msg, 'Exception: bad bearer <x> and <x> and short_token');
+    });
+
+    test('keeps only package frames with their line numbers', () {
+      final cleaned = clean(
+        StateError('x'),
+        StackTrace.fromString(
+          '#0      Foo.bar (package:pantas/features/home/x.dart:12:5)\n'
+          '#1      _rootRun (dart:async/zone.dart:1399:13)\n'
+          '#2      Baz.qux (file:///Users/maria/secret/app.dart:3:4)\n'
+          '#3      main (package:pantas/main.dart:7:3)',
+        ),
+      );
+
+      expect(cleaned.stack, [
+        'package:pantas/features/home/x.dart:12:5',
+        'package:pantas/main.dart:7:3',
+      ]);
+    });
+
+    test('keeps a minified web frame as file and position, with no host', () {
+      final cleaned = clean(
+        StateError('x'),
+        StackTrace.fromString(
+          'at Object.bar (https://app.pantas.study/main.dart.js:12345:67)\n'
+          'at https://app.pantas.study/main.dart.js?v=secret:9:8',
+        ),
+      );
+
+      expect(cleaned.stack, ['main.dart.js:12345:67', 'main.dart.js:9:8']);
+    });
+
+    test('keeps at most eight frames of at most 200 characters', () {
+      final frames = [
+        for (var i = 0; i < 20; i++) '#$i  f (package:pantas/a.dart:$i:1)',
+      ].join('\n');
+
+      final cleaned = clean(StateError('x'), StackTrace.fromString(frames));
+
+      expect(cleaned.stack, hasLength(8));
+      expect(cleaned.stack.every((f) => f.length <= 200), isTrue);
+    });
+
+    test('an error whose text cannot be read still reports its type', () {
+      final cleaned = clean(_Unprintable());
+
+      expect(cleaned.type, '_Unprintable');
+      expect(cleaned.msg, '');
+    });
+
+    test('the reporter turns a thrown error into one cleaned entry', () async {
+      timings = [];
+      reporter
+        ..recordError(
+          StateError('mail a@b.co now'),
+          StackTrace.fromString('#0 f (package:pantas/a.dart:1:2)'),
+        )
+        ..recordError(
+          StateError('mail c@d.co now'),
+          StackTrace.fromString('#0 f (package:pantas/a.dart:1:2)'),
+        );
+      await open();
+
+      final errors = sender.sent.single['errors']! as List;
+      final error = errors.single as Map;
+      expect(error['type'], 'StateError');
+      expect(error['msg'], 'Bad state: mail <x> now');
+      expect(error['count'], 2, reason: 'same type and first frame');
+    });
+  });
+
   group('the browser summary', () {
     test('names the browser family', () {
       const agents = {
@@ -435,4 +559,9 @@ class _ThrowsAtOnce implements ClientReportSender {
   @override
   Future<void> send(Map<String, Object?> payload) =>
       throw StateError('sync failure');
+}
+
+class _Unprintable {
+  @override
+  String toString() => throw StateError('no text');
 }

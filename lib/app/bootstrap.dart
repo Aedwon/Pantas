@@ -122,11 +122,16 @@ void handleBootstrapError(
   StackTrace stack, {
   ProviderContainer? container,
 }) {
+  var handed = false;
   try {
     container?.read(telemetryProvider).recordError(error, stack).ignore();
+    handed = container != null;
   } catch (e) {
     debugPrint('Telemetry recordError failed: $e');
   }
+  // Before the app has a container, or if it cannot be read, the web reporter
+  // still hears the error. With a container it already did, through the gate.
+  if (!handed) ClientReporter.active?.recordError(error, stack);
   debugPrint('Uncaught: $error\n$stack');
 }
 
