@@ -81,6 +81,53 @@ void main() {
     expect(tester.takeException(), isNull);
   });
 
+  testWidgets('a tester gets Tester Guide under Feedback, opening the guide',
+      (tester) async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final opened = <Uri>[];
+    await tester.pumpAppWithProviders(
+      const SettingsHomePage(),
+      overrides: [
+        ...phone(db, FakeBetaFeedbackApi()),
+        testerGuideOpenerProvider.overrideWithValue((uri) async {
+          opened.add(uri);
+          return true;
+        }),
+      ],
+    );
+    await tester.pumpAndSettle();
+
+    expect(find.text('Tester Guide'), findsOneWidget);
+    expect(
+      tester.widget(_card('Tester Guide')),
+      same(tester.widget(_card('Feedback'))),
+    );
+    final feedbackY = tester.getTopLeft(find.text('Feedback')).dy;
+    final guideY = tester.getTopLeft(find.text('Tester Guide')).dy;
+    final betaY = tester.getTopLeft(find.text('Beta: Pro Features')).dy;
+    expect(feedbackY, lessThan(guideY));
+    expect(guideY, lessThan(betaY));
+    // G1: an up-right arrow in place of the chevron.
+    expect(find.byKey(const ValueKey('tester-guide-arrow')), findsOneWidget);
+
+    await tester.tap(find.text('Tester Guide'));
+    await tester.pump();
+    expect(opened, [Uri.parse('https://www.pantas.study/beta/guide')]);
+  });
+
+  testWidgets('a person who is not a tester sees no Tester Guide row',
+      (tester) async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    await tester.pumpAppWithProviders(
+      const SettingsHomePage(),
+      overrides: phone(db, FakeBetaFeedbackApi(), tester: false),
+    );
+    await tester.pumpAndSettle();
+    expect(find.text('Tester Guide'), findsNothing);
+  });
+
   testWidgets('a person who is not a tester sees no Feedback row',
       (tester) async {
     final db = inMemoryDatabase();
@@ -155,6 +202,7 @@ void main() {
       AppDatabase db, {
       bool selected = true,
       bool tester_ = true,
+      TesterGuideOpener? opener,
     }) async {
       tester.view
         ..physicalSize = const Size(1440, 1000)
@@ -188,6 +236,8 @@ void main() {
               now: now,
               tester: tester_,
             ),
+            if (opener != null)
+              testerGuideOpenerProvider.overrideWithValue(opener),
           ],
           child: MaterialApp(
             theme: buildLightTheme(web: true),
@@ -236,6 +286,40 @@ void main() {
         find.descendant(of: card, matching: find.text('Pantas Pro')),
         findsNothing,
       );
+    });
+
+    testWidgets('the Feedback card has Tester Guide, opening the guide',
+        (tester) async {
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      final opened = <Uri>[];
+      await pumpWide(
+        tester,
+        db,
+        selected: false,
+        opener: (uri) async {
+          opened.add(uri);
+          return true;
+        },
+      );
+      final card = find.ancestor(
+        of: find.text('Feedback'),
+        matching: find.byType(WebCard),
+      );
+      expect(
+        find.descendant(of: card, matching: find.text('Tester Guide')),
+        findsOneWidget,
+      );
+      final guideY = tester.getTopLeft(find.text('Tester Guide')).dy;
+      expect(tester.getTopLeft(find.text('Feedback')).dy, lessThan(guideY));
+      expect(
+        guideY,
+        lessThan(tester.getTopLeft(find.text('Beta: Pro Features')).dy),
+      );
+      expect(find.byKey(const ValueKey('tester-guide-arrow')), findsOneWidget);
+      await tester.tap(find.text('Tester Guide'));
+      await tester.pump();
+      expect(opened, [Uri.parse('https://www.pantas.study/beta/guide')]);
     });
 
     testWidgets('a non-tester has no Feedback row', (tester) async {
