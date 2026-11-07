@@ -116,27 +116,32 @@ class HomeStateCard extends StatelessWidget {
         if (onPrimary != null && _action != null ||
             state == HomeState.passed && onSecondary != null) ...[
           SizedBox(height: assessment ? 20 : 18),
-          Wrap(
-            spacing: 12,
-            runSpacing: 8,
-            children: [
-              if (onPrimary != null && _action != null)
-                WebButton(
-                  label: _action!,
-                  keyHint: assessment ? 'Enter' : null,
-                  large: assessment,
-                  onPressed: onPrimary,
-                  variant: assessment
-                      ? WebButtonVariant.primary
-                      : WebButtonVariant.secondary,
-                ),
-              if (state == HomeState.passed && onSecondary != null)
-                WebButton(
-                  label: 'Switch Exams',
-                  onPressed: onSecondary,
-                  variant: WebButtonVariant.white,
-                ),
-            ],
+          // P2 (Nov 7): a card's buttons sit at its right end, the main one
+          // last, at the card size of 44 px.
+          Align(
+            alignment: Alignment.centerRight,
+            child: Wrap(
+              alignment: WrapAlignment.end,
+              spacing: 12,
+              runSpacing: 8,
+              children: [
+                if (state == HomeState.passed && onSecondary != null)
+                  WebButton(
+                    label: 'Switch Exams',
+                    onPressed: onSecondary,
+                    variant: WebButtonVariant.white,
+                  ),
+                if (onPrimary != null && _action != null)
+                  WebButton(
+                    label: _action!,
+                    keyHint: assessment ? 'Enter' : null,
+                    onPressed: onPrimary,
+                    variant: assessment
+                        ? WebButtonVariant.primary
+                        : WebButtonVariant.secondary,
+                  ),
+              ],
+            ),
           ),
         ],
       ],

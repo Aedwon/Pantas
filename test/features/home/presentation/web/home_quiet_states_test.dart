@@ -17,6 +17,7 @@ Widget _wide(Widget child) => MaterialApp(
     );
 
 void main() {
+  p2Main();
   testWidgets('the done block sits under the Today card, not inside it',
       (tester) async {
     await tester.pumpWidget(
@@ -141,4 +142,50 @@ void main() {
       );
     });
   }
+}
+
+/// P2 (Aedwon, Nov 7, Pantas Design System canvas): on wide screens a card's
+/// buttons sit at the right end, the main one last, at the card size (44 px).
+/// Before, Home put Start Assessment at the left and large while Quiz put the
+/// same card's button at the right.
+void p2Main() {
+  Future<void> card(WidgetTester tester, HomeState state) => tester.pumpWidget(
+        _wide(
+          HomeStateCard(
+            web: true,
+            state: state,
+            examName: 'Civil Service Exam',
+            examShortName: 'CSE',
+            onPrimary: () {},
+            onSecondary: () {},
+          ),
+        ),
+      );
+
+  for (final state in [
+    HomeState.assessment,
+    HomeState.nothingDue,
+    HomeState.dayOff,
+    HomeState.passed,
+  ]) {
+    testWidgets('P2: ${state.name} puts its button at the right end',
+        (tester) async {
+      await card(tester, state);
+      final box = tester.getRect(find.byType(WebCard));
+      final main = tester.widgetList<WebButton>(find.byType(WebButton)).last;
+      final rect = tester.getRect(find.byWidget(main));
+      expect(rect.right, box.right - 24, reason: 'flush with the padding');
+      expect(rect.height, 44, reason: 'card buttons are 44 px');
+    });
+  }
+
+  testWidgets('P2: with two buttons the main one is last', (tester) async {
+    await card(tester, HomeState.passed);
+    final main =
+        tester.getRect(find.widgetWithText(WebButton, 'Set a New Date'));
+    final other =
+        tester.getRect(find.widgetWithText(WebButton, 'Switch Exams'));
+    expect(other.right, lessThan(main.left));
+    expect(main.right, tester.getRect(find.byType(WebCard)).right - 24);
+  });
 }
