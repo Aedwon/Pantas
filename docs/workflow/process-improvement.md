@@ -59,6 +59,13 @@ pass 15, retire or merge one first.
 Newest first. When this file passes about 120 lines, move the oldest closed entries to
 the current decision log.
 
+### Google sign-in fix shipped and still failed (Nov 7)
+
+- **His words:** "Google sign-in still did not work, it gave me this screen 3 times", then "i mean i only tried it once but it loaded that screen thrice".
+- **What was wrong:** the server exchange worked in production (exchangeGoogleSignIn ok at 15:30:05). The client then cancelled its own account switch: signing out the old session made the beta gate rebuild the sign-in screen, and the screen's dispose cancels any running sign-in. The cancellation check had been added to the Google path after the security audit, but the Google button never held the gate the way the code check does.
+- **Why the process let it through:** the repository was tested with fakes and the page with an instant fake result, so no test ran the switch while the gate reacted to the sign-out. The audit fix copied the code path's cancellation rule without its matching page hold. The deploy went out before Aedwon's device check.
+- **Fix:** a check: two widget tests in `test/app/sign_in_test.dart` fail on the shipped version (the gate is not held while Google sign-in runs; a failed attempt must release it). Required step: an auth change that adds a cancellation or epoch rule must include a page-level test where the sign-in screen stays mounted through the account switch.
+
 ### Lead forwarded an approval Aedwon never gave (Nov 7)
 
 - **His words (relayed by the design-system session):** "no i didn't approve anything you've sent, i was commenting on" the design-system plan summary.
