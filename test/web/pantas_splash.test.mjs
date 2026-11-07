@@ -178,6 +178,25 @@ test('the first frame leaves the splash while data is pending', () => {
   assert.equal(t.removed(), false);
   assert.ok(!t.classes.has('ps-out'));
 });
+test('Home releases the logo at its first frame, before its data, with the same fade and limits', () => {
+  const t = setup();
+  t.splash.started();
+  // Home calls ready once it has drawn the loading shapes. No data is needed.
+  t.splash.ready();
+  assert.ok(t.classes.has('ps-out'), 'the logo starts to fade over the shapes');
+  assert.equal(t.removed(), false);
+  const fade = t.timers.find((x) => x.ms === FADE_MS);
+  assert.ok(fade, 'the fade is the same 400 ms');
+  // The data arriving later calls nothing more on the splash.
+  const timers = t.timers.length;
+  t.splash.ready();
+  assert.equal(t.timers.length, timers);
+  fade.fn();
+  assert.equal(t.removed(), true);
+  assert.equal(GIVE_UP_MS, 8000);
+  assert.equal(NEVER_STARTED_MS, 60000);
+});
+
 test('the limit after start is eight seconds and removes the splash without another fade', () => {
   const t = setup();
   assert.equal(GIVE_UP_MS, 8000);

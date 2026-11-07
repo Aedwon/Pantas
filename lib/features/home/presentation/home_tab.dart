@@ -15,6 +15,7 @@ import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/pantas_sheet.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
+import 'package:pantas/core/ui/components/skeleton_fade.dart';
 import 'package:pantas/core/ui/components/tab_bar_visibility.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -124,6 +125,7 @@ class _SelectedExamHomeState extends ConsumerState<_SelectedExamHome> {
     Widget todayScreen() => HomeTodayScreen(
           key: ValueKey('today-$examId-${settings?.examDate?.storageValue}'),
           examId: examId,
+          releaseSplashAtFirstFrame: true,
           onSetDate: () => _openDate(HomeNoticeKind.noDate),
           pageBuilder: (today, data) =>
               _list(context, now: now, today: today, data: data),
@@ -241,6 +243,11 @@ class _SelectedExamHomeState extends ConsumerState<_SelectedExamHome> {
             : today is HomeWebLoading
                 ? const HomeWebLoading(performance: true)
                 : null,
+        // The plan fades in over the board shapes when it arrives.
+        loadingFade: HomeWebLoadingFade(
+          loading: today is HomeWebLoading,
+          arrived: data != null,
+        ),
         onRecord: showPerformance
             ? () => unawaited(context.push<void>('/record'))
             : null,
@@ -268,59 +275,81 @@ class _SelectedExamHomeState extends ConsumerState<_SelectedExamHome> {
                   onRoute: (route) => unawaited(context.push<void>(route)),
                 ),
         ),
-        // Phone Home boards: the Today card starts 5 px higher. The cards
-        // that stand alone (assessment, no content, exam day) keep 21 px.
-        SizedBox(
-          height: view?.kind == HomeTodayKind.assessment ||
-                  view?.kind == HomeTodayKind.noContent ||
-                  view?.kind == HomeTodayKind.examDay ||
-                  view?.kind == HomeTodayKind.passed
-              ? 21
-              : 17,
-        ),
-        today,
-        if (today is HomeTodaySkeleton) ...[
-          const SizedBox(height: 22),
-          const HomePerformanceSkeleton(),
-          const SizedBox(height: 24),
-          const SkeletonPulse(child: SkeletonGroup(rows: 2)),
-        ],
-        if (showPerformance) ...[
-          const SizedBox(height: 22),
-          const HomePerformanceSection(),
-          const SizedBox(height: 24),
-          GroupedSection(
-            header: 'More about you',
+        // The plan fades in over the loading shapes when it arrives. Both
+        // lists start at the same place, so nothing moves.
+        SkeletonFade(
+          loading: today is HomeTodaySkeleton,
+          fade: data != null,
+          skeleton: const Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              ListRow(
-                title: 'Your record',
-                divider: true,
-                dividerInset: 58,
-                leading: _MoreIcon(
-                  context.colors.accent,
-                  '<path d="M12 21c3.9 0 6.5-2.6 6.5-6.3 0-3.2-2.2-5.5-3.6-7.4 '
-                  '-.4 1.8-1.4 2.8-2.7 3.2.3-3-.7-5.7-3-7.5.4 3.6-3.7 6-3.7 '
-                  '11.7 0 3.7 2.6 6.3 6.5 6.3z"/>',
-                ),
-                onTap: () => unawaited(context.push<void>('/record')),
-              ),
-              ListRow(
-                title: 'Your tendencies',
-                leading: _MoreIcon(
-                  context.colors.accent,
-                  '<path d="M11 3.5 12.6 8.4 17.5 10 12.6 11.6 11 16.5 9.4 '
-                  '11.6 4.5 10l4.9-1.6z"/><path d="M18 15.5l.7 2 2 .7-2 .7-.7 '
-                  '2-.7-2-2-.7 2-.7z"/>',
-                ),
-                onTap: () => unawaited(context.push<void>('/tendencies')),
-              ),
+              SizedBox(height: 17),
+              HomeTodaySkeleton(),
+              SizedBox(height: 22),
+              HomePerformanceSkeleton(),
+              SizedBox(height: 24),
+              SkeletonPulse(child: SkeletonGroup(rows: 2)),
             ],
           ),
-        ],
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              // Phone Home boards: the Today card starts 5 px higher. The
+              // cards that stand alone (assessment, no content, exam day)
+              // keep 21 px.
+              SizedBox(
+                height: view?.kind == HomeTodayKind.assessment ||
+                        view?.kind == HomeTodayKind.noContent ||
+                        view?.kind == HomeTodayKind.examDay ||
+                        view?.kind == HomeTodayKind.passed
+                    ? 21
+                    : 17,
+              ),
+              today,
+              if (showPerformance) ...[
+                const SizedBox(height: 22),
+                const HomePerformanceSection(),
+                const SizedBox(height: 24),
+                _moreAboutYou(context),
+              ],
+            ],
+          ),
+        ),
         const HomeInstallSlot(),
       ],
     );
   }
+
+  /// The two rows under Your performance on phone.
+  Widget _moreAboutYou(BuildContext context) => GroupedSection(
+        header: 'More about you',
+        children: [
+          ListRow(
+            title: 'Your record',
+            divider: true,
+            dividerInset: 58,
+            leading: _MoreIcon(
+              context.colors.accent,
+              '<path d="M12 21c3.9 0 6.5-2.6 6.5-6.3 0-3.2-2.2-5.5-3.6-7.4 '
+              '-.4 1.8-1.4 2.8-2.7 3.2.3-3-.7-5.7-3-7.5.4 3.6-3.7 6-3.7 '
+              '11.7 0 3.7 2.6 6.3 6.5 6.3z"/>',
+            ),
+            onTap: () => unawaited(context.push<void>('/record')),
+          ),
+          ListRow(
+            title: 'Your tendencies',
+            leading: _MoreIcon(
+              context.colors.accent,
+              '<path d="M11 3.5 12.6 8.4 17.5 10 12.6 11.6 11 16.5 9.4 '
+              '11.6 4.5 10l4.9-1.6z"/><path d="M18 15.5l.7 2 2 .7-2 .7-.7 '
+              '2-.7-2-2-.7 2-.7z"/>',
+            ),
+            onTap: () => unawaited(context.push<void>('/tendencies')),
+          ),
+        ],
+      );
 }
 
 /// Before the assessment Home shows only the week, the greeting and this card:

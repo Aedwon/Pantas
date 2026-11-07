@@ -12,6 +12,27 @@ import 'package:pantas/core/ui/web/web_tokens.dart';
 /// compare them with the loaded screen.
 const skeletonSectionKey = ValueKey<String>('skeleton-section');
 
+/// Lets the [SkeletonPulse]s below it show their shapes at the first frame
+/// instead of after the usual wait. Home sets it while the logo splash is still
+/// up, so the shapes are already drawn when the logo starts to fade.
+class SkeletonRevealScope extends InheritedWidget {
+  const SkeletonRevealScope({
+    required this.immediate,
+    required super.child,
+    super.key,
+  });
+
+  final bool immediate;
+
+  static bool immediateOf(BuildContext context) =>
+      context.getInheritedWidgetOfExactType<SkeletonRevealScope>()?.immediate ??
+      false;
+
+  @override
+  bool updateShouldNotify(SkeletonRevealScope oldWidget) =>
+      oldWidget.immediate != immediate;
+}
+
 /// Shows its skeleton after 300ms, pulses it, and holds it still under reduced
 /// motion. Wrap a whole skeleton layout in one of these so every block pulses
 /// together.
@@ -45,6 +66,11 @@ class _SkeletonPulseState extends State<SkeletonPulse>
   @override
   void initState() {
     super.initState();
+    if (SkeletonRevealScope.immediateOf(context)) {
+      // Pulsing starts in didChangeDependencies, which runs next.
+      _shown = true;
+      return;
+    }
     _delay = Timer(const Duration(milliseconds: 300), () {
       if (!mounted) return;
       setState(() => _shown = true);

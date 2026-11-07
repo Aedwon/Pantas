@@ -37,6 +37,11 @@ class FirstScreenSignal {
   FirstScreenSignal(this._send);
   final VoidCallback _send;
   bool _sent = false;
+
+  /// True once the first screen has been released, so the logo is leaving or
+  /// gone. A screen that mounts before this is the one the logo hands over to.
+  bool get released => _sent;
+
   void ready() {
     if (_sent) return;
     _sent = true;

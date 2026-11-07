@@ -16,6 +16,7 @@ import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/pantas_sheet.dart';
 import 'package:pantas/core/ui/components/paused_quiz_notice.dart';
 import 'package:pantas/core/ui/components/progress_ring.dart';
+import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/components/today_questions.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -80,9 +81,15 @@ class HomeTodayScreen extends ConsumerStatefulWidget {
     required this.pageBuilder,
     this.onSetDate,
     this.noteTopGap = 6,
+    this.releaseSplashAtFirstFrame = false,
     super.key,
   });
   final String examId;
+
+  /// Releases the logo splash at this screen's first frame, with the loading
+  /// shapes drawn, instead of when the plan arrives. Only Home sets it (spec
+  /// S8); other screens keep the rule of releasing once settled.
+  final bool releaseSplashAtFirstFrame;
 
   /// Space above the day's note on a phone. Home's boards put it 6 px under
   /// the greeting. A page whose title already sits close above it sets 0.
@@ -119,6 +126,10 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
   bool _holding = false;
   final ScreenTimer _timing = ScreenTimer('screen.home');
 
+  /// The logo is still up when this Home mounts, so its loading shapes are
+  /// drawn at the first frame under the fading logo instead of after a wait.
+  late final bool _underSplash;
+
   /// The plan last built, kept on screen while a rebuild runs so a change to
   /// the plan never flashes the skeleton again.
   HomeTodayData? _shown;
@@ -141,6 +152,8 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
   @override
   void initState() {
     super.initState();
+    _underSplash = widget.releaseSplashAtFirstFrame &&
+        !ref.read(firstScreenSignalProvider).released;
     _guard = _captureGuard();
     _reload();
     WidgetsBinding.instance.addPostFrameCallback(
@@ -513,7 +526,11 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
         // only a finished read can be a failure to show.
         final failed = done && snapshot.hasError;
         final holding = failed && _holding;
-        firstScreenReady(context, ref, ready: done && !holding);
+        firstScreenReady(
+          context,
+          ref,
+          ready: widget.releaseSplashAtFirstFrame || (done && !holding),
+        );
         // While a rebuild runs the plan from before it stays on screen. A
         // finished read, or a failed one, shows only its own result.
         final data = done ? snapshot.data : (_current() ? _shown : null);
@@ -531,9 +548,16 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
                     ? const HomeWebLoading(more: true)
                     : const HomeTodaySkeleton()
             : _checklist(data);
+        Widget page() {
+          final built = widget.pageBuilder(today, data);
+          return _underSplash
+              ? SkeletonRevealScope(immediate: true, child: built)
+              : built;
+        }
+
         if (context.wideWeb) {
           return HomeWebOverlay(
-            page: widget.pageBuilder(today, data),
+            page: page(),
             label: _sheet == 'lessons'
                 ? 'Lessons'
                 : _sheet == 'lesson'
@@ -548,7 +572,7 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
           );
         }
         return PantasSheet(
-          page: widget.pageBuilder(today, data),
+          page: page(),
           label: _sheet == 'lessons'
               ? 'Lessons'
               : _sheet == 'lesson'

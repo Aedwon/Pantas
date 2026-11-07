@@ -1,11 +1,16 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/platform/install/install_providers.dart';
 import 'package:pantas/core/storage/domain/exam.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/ui/components/notice_strip.dart';
+import 'package:pantas/core/ui/components/skeleton.dart';
+import 'package:pantas/core/ui/components/skeleton_fade.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/components/week_strip.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -26,6 +31,8 @@ import 'package:pantas/features/home/domain/study_models.dart';
 import 'package:pantas/features/home/presentation/home_providers.dart';
 import 'package:pantas/features/home/presentation/home_tab.dart';
 import 'package:pantas/features/home/presentation/widgets/home_masthead.dart';
+import 'package:pantas/features/home/presentation/widgets/home_skeletons.dart';
+import 'package:pantas/features/home/presentation/widgets/home_web_layout.dart';
 import 'package:pantas/features/paywall/application/paywall_providers.dart';
 import 'package:pantas/features/roadmap/application/roadmap_providers.dart';
 import 'package:pantas/features/roadmap/domain/day_snapshot.dart';
@@ -448,5 +455,184 @@ void main() {
     expect(find.text('Switch Exam'), findsOneWidget);
     expect(find.text('YOUR PERFORMANCE'), findsNothing);
     expect(find.byType(NoticeStrip), findsNothing);
+  });
+  group('splash hand-off (Splash Hand-off canvas, option B, Smoothest)', () {
+    HomeTodayData loaded() => HomeTodayData(
+          today: todayFor(planWithWork),
+          lessons: const [
+            HomeTodayLesson(
+              id: 'l1',
+              title: 'Ratios',
+              subject: 'Mathematics',
+              minutes: 8,
+              read: false,
+            ),
+          ],
+          questionWork: null,
+          canAdvance: false,
+          examName: exam.name,
+          examShortName: exam.shortName,
+        );
+
+    /// Nothing between the fade and the plan's own text slides, scales or
+    /// otherwise moves it. (Rows may press-scale; those are not ancestors of
+    /// the text's position in the fade.)
+    void expectNothingMovesRatios() {
+      for (final moving in [SlideTransition, SizeTransition]) {
+        expect(
+          find.descendant(
+            of: find.byType(SkeletonFade),
+            matching: find.ancestor(
+              of: find.text('Ratios'),
+              matching: find.byType(moving),
+            ),
+          ),
+          findsNothing,
+          reason: '$moving would move the plan',
+        );
+      }
+    }
+
+    Future<(Completer<HomeTodayData>, List<int>)> pumpPending(
+      WidgetTester tester, {
+      bool signalAlreadySent = false,
+    }) async {
+      final plan = Completer<HomeTodayData>();
+      final signals = <int>[];
+      final signal = FirstScreenSignal(() => signals.add(1));
+      if (signalAlreadySent) signal.ready();
+      signals.clear();
+      await tester.pumpWidget(
+        harness(
+          result: assessed(),
+          subjects: [subject('Mathematics', 8, 10)],
+          extra: [
+            firstScreenSignalProvider.overrideWithValue(signal),
+            homeTodayLoaderProvider
+                .overrideWith((ref) => (id, guard) => plan.future),
+          ],
+        ),
+      );
+      // The exam settles, Home mounts and draws its first frame.
+      await tester.pump();
+      await tester.pump();
+      return (plan, signals);
+    }
+
+    testWidgets('the logo is released at the first frame, shapes drawn',
+        (tester) async {
+      final (plan, signals) = await pumpPending(tester);
+
+      expect(find.byType(HomeTodaySkeleton), findsOneWidget);
+      expect(find.text('Ratios'), findsNothing);
+      expect(signals, hasLength(1), reason: 'no waiting for the plan');
+      // The logo is fading now, so the shapes are drawn without the usual
+      // 300 ms wait.
+      expect(find.byType(SkeletonBlock), findsWidgets);
+
+      plan.complete(loaded());
+      await tester.pumpAndSettle();
+      expect(signals, hasLength(1), reason: 'released once');
+    });
+
+    testWidgets('a Home opened after the logo is gone keeps the shape wait',
+        (tester) async {
+      final (plan, signals) =
+          await pumpPending(tester, signalAlreadySent: true);
+
+      expect(signals, isEmpty);
+      expect(find.byType(HomeTodaySkeleton), findsOneWidget);
+      expect(find.byType(SkeletonBlock), findsNothing);
+      await tester.pump(const Duration(milliseconds: 400));
+      expect(find.byType(SkeletonBlock), findsWidgets);
+      plan.complete(loaded());
+      await tester.pumpAndSettle();
+    });
+
+    testWidgets('phone: the plan fades in over the shapes with no movement',
+        (tester) async {
+      final (plan, _) = await pumpPending(tester);
+      await tester.pump(const Duration(milliseconds: 400));
+
+      plan.complete(loaded());
+      await tester.pump();
+      await tester.pump();
+
+      // Part way: both the shapes and the plan are in the tree.
+      await tester.pump(const Duration(milliseconds: 100));
+      expect(find.byType(HomeTodaySkeleton), findsOneWidget);
+      expect(find.text('Ratios'), findsOneWidget);
+      expect(find.byType(SkeletonFade), findsOneWidget);
+      expectNothingMovesRatios();
+      final placed = tester.getTopLeft(find.text('Ratios'));
+      await tester.pump(const Duration(milliseconds: 100));
+      expect(tester.getTopLeft(find.text('Ratios')), placed);
+
+      // At the end the shapes are gone and the plan stands.
+      await tester.pump(const Duration(milliseconds: 300));
+      await tester.pumpAndSettle();
+      expect(find.byType(HomeTodaySkeleton), findsNothing);
+      expect(find.text('Ratios'), findsOneWidget);
+      expect(find.text('YOUR PERFORMANCE'), findsOneWidget);
+      expect(tester.getTopLeft(find.text('Ratios')), placed);
+    });
+
+    testWidgets('wide: the board fades in over the board shapes',
+        (tester) async {
+      debugWebPlatformOverride = true;
+      tester.view.physicalSize = const Size(1440, 900);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(() => debugWebPlatformOverride = null);
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      final (plan, signals) = await pumpPending(tester);
+      await tester.pump(const Duration(milliseconds: 400));
+      expect(find.byType(HomeWebLoading), findsWidgets);
+      expect(signals, hasLength(1));
+
+      plan.complete(loaded());
+      await tester.pump();
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 100));
+
+      expect(find.byType(HomeWebLoading), findsWidgets);
+      expect(find.text('Ratios'), findsOneWidget);
+      expectNothingMovesRatios();
+
+      await tester.pumpAndSettle();
+      expect(find.byType(HomeWebLoading), findsNothing);
+      expect(find.text('Ratios'), findsOneWidget);
+    });
+
+    testWidgets('reduced motion swaps the plan in at once', (tester) async {
+      tester.platformDispatcher.accessibilityFeaturesTestValue =
+          const FakeAccessibilityFeatures(disableAnimations: true);
+      addTearDown(
+        tester.platformDispatcher.clearAccessibilityFeaturesTestValue,
+      );
+      final (plan, _) = await pumpPending(tester);
+      await tester.pump(const Duration(milliseconds: 400));
+
+      plan.complete(loaded());
+      await tester.pump();
+      await tester.pump();
+
+      expect(find.byType(HomeTodaySkeleton), findsNothing);
+      expect(find.text('Ratios'), findsOneWidget);
+    });
+
+    testWidgets('a failure after the shapes shows the error as before',
+        (tester) async {
+      final (plan, signals) = await pumpPending(tester);
+      await tester.pump(const Duration(milliseconds: 400));
+
+      plan.completeError(StateError('Planned lesson content unavailable'));
+      await tester.pump();
+      await tester.pump();
+
+      expect(find.text('Could not load your plan.'), findsOneWidget);
+      expect(find.byType(HomeTodaySkeleton), findsNothing);
+      expect(signals, hasLength(1));
+    });
   });
 }
