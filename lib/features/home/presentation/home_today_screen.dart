@@ -23,6 +23,7 @@ import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
+import 'package:pantas/features/home/application/home_boundary.dart';
 import 'package:pantas/features/home/application/home_today.dart';
 import 'package:pantas/features/home/application/performance/topic_accuracy_provider.dart';
 import 'package:pantas/features/home/application/settling_retry.dart';
@@ -131,8 +132,12 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
   late final bool _underSplash;
 
   /// The plan last built, kept on screen while a rebuild runs so a change to
-  /// the plan never flashes the skeleton again.
+  /// the plan never flashes the skeleton again. It is kept only for the
+  /// account and Sync core in [_boundary]; a move drops it at once.
   HomeTodayData? _shown;
+
+  /// The account and Sync core this screen is on.
+  late HomeBoundary _boundary;
 
   /// A build is running. Plan copies that arrive meanwhile are not built on;
   /// the build's end checks them once.
@@ -154,6 +159,7 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
     super.initState();
     _underSplash = widget.releaseSplashAtFirstFrame &&
         !ref.read(firstScreenSignalProvider).released;
+    _boundary = ref.read(homeBoundaryProvider);
     _guard = _captureGuard();
     _reload();
     WidgetsBinding.instance.addPostFrameCallback(
@@ -221,10 +227,25 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
     if (latest != null && !_builtFrom(data, latest)) _retry();
   }
 
+  /// The account or Sync core moved. The plan on screen was built for the
+  /// one before, so it goes now, before any plan is compared or drawn, and
+  /// the build starts again under the new owner.
+  void _onBoundary(HomeBoundary now) {
+    final moved = now.movedFrom(_boundary);
+    _boundary = now;
+    if (!moved || !mounted) return;
+    _shown = null;
+    _missedPlan = false;
+    _retry();
+  }
+
   /// A plan copy from the server. Only a plan unlike the one shown rebuilds.
   void _onPlanCopy(AsyncValue<StudyRoadmap> next) {
     final roadmap = next.valueOrNull;
     if (roadmap == null || !_current()) return;
+    // The owner check comes before the plan check: a plan equal to the one
+    // shown means nothing if the one shown is another owner's.
+    _onBoundary(ref.read(homeBoundaryProvider));
     if (_pending) {
       _missedPlan = true;
       return;
@@ -511,7 +532,12 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
 
   @override
   Widget build(BuildContext context) {
-    ref.watch(activeExamFocusProvider);
+    ref
+      ..watch(activeExamFocusProvider)
+      ..listen(homeBoundaryProvider, (_, next) => _onBoundary(next));
+    // The listener runs after this build when the move is first seen here, so
+    // nothing built for the owner before is drawn meanwhile.
+    final moved = ref.watch(homeBoundaryProvider).movedFrom(_boundary);
     if (ref.watch(studyUsesServerProvider)) {
       ref.listen(
         serverStudyRoadmapProvider(widget.examId),
@@ -524,7 +550,7 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
         final done = snapshot.connectionState == ConnectionState.done;
         // A waiting snapshot still carries the error of the read before it, so
         // only a finished read can be a failure to show.
-        final failed = done && snapshot.hasError;
+        final failed = !moved && done && snapshot.hasError;
         final holding = failed && _holding;
         firstScreenReady(
           context,
@@ -533,7 +559,11 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
         );
         // While a rebuild runs the plan from before it stays on screen. A
         // finished read, or a failed one, shows only its own result.
-        final data = done ? snapshot.data : (_current() ? _shown : null);
+        final data = moved
+            ? null
+            : done
+                ? snapshot.data
+                : (_current() ? _shown : null);
         if (data != null) PerfTimeline.mark('home.data');
         _timing.settled(ready: data != null);
         final today = data == null

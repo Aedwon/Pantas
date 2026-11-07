@@ -6,6 +6,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/domain/exam.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/home/application/home_boundary.dart';
 import 'package:pantas/features/home/application/home_today.dart';
 import 'package:pantas/features/home/application/server_today.dart';
 import 'package:pantas/features/home/application/study_remote_providers.dart';
@@ -80,20 +81,33 @@ HomeTodayData built(StudyRoadmap from) => HomeTodayData(
     );
 
 class _Launcher extends TodayQuestionLauncher {
-  _Launcher(Ref ref, this.ownerStillSame) : super(ref, () => true);
+  _Launcher(Ref ref, this.ownerStillSame, this.gate) : super(ref, () => true);
   final bool Function() ownerStillSame;
+  final Completer<void>? Function() gate;
   @override
   Future<Future<bool> Function()> captureGuard(
     String examId, {
     required bool Function() isAlive,
   }) async =>
-      () async => isAlive() && ownerStillSame();
+      () async {
+        await gate()?.future;
+        return isAlive() && ownerStillSame();
+      };
 }
+
+/// The account/core Home was built for, driven by the test.
+final _boundary = StateProvider<HomeBoundary>(
+  (ref) => const HomeBoundary(owner: 'u1', core: 'c1'),
+);
 
 class _Harness {
   final roadmaps = StreamController<StudyRoadmap>();
   final loads = <Completer<HomeTodayData>>[];
   bool ownerStillSame = true;
+  HomeBoundary start = const HomeBoundary(owner: 'u1', core: 'c1');
+
+  /// While set, the owner check stays pending.
+  Completer<void>? guardGate;
   StudyRoadmap latest = roadmap('r1');
 
   /// A load that stays open until the test finishes it.
@@ -117,8 +131,11 @@ class _Harness {
               return load.future;
             },
           ),
-          todayQuestionLauncherProvider
-              .overrideWith((ref) => _Launcher(ref, () => ownerStillSame)),
+          _boundary.overrideWith((ref) => start),
+          homeBoundaryProvider.overrideWith((ref) => ref.watch(_boundary)),
+          todayQuestionLauncherProvider.overrideWith(
+            (ref) => _Launcher(ref, () => ownerStillSame, () => guardGate),
+          ),
         ],
         child: MaterialApp(
           theme: buildLightTheme(),
@@ -130,6 +147,13 @@ class _Harness {
       ),
     );
     await tester.pump();
+  }
+
+  /// Moves the account or the Sync core the plan was built for.
+  void moveTo(WidgetTester tester, HomeBoundary next) {
+    ProviderScope.containerOf(tester.element(find.byType(HomeTodayScreen)))
+        .read(_boundary.notifier)
+        .state = next;
   }
 
   Future<void> emit(WidgetTester tester, StudyRoadmap value) async {
@@ -250,5 +274,99 @@ void main() {
 
     expect(find.text('Lesson l1 (r1)'), findsNothing);
     expect(find.byType(HomeTodaySkeleton), findsOneWidget);
+  });
+
+  testWidgets(
+      'the same plan after the Sync core changed shows the skeleton '
+      'and builds again', (tester) async {
+    final home = _Harness();
+    await home.pump(tester);
+    home.lastLoad.complete(built(roadmap('r1')));
+    await tester.pumpAndSettle();
+    expect(find.text('Lesson l1 (r1)'), findsOneWidget);
+
+    home.moveTo(tester, const HomeBoundary(owner: 'u1', core: 'c2'));
+    await home.emit(tester, roadmap('r1', serverNow: 900));
+    await tester.pump();
+
+    expect(find.text('Lesson l1 (r1)'), findsNothing);
+    expect(find.byType(HomeTodaySkeleton), findsOneWidget);
+    expect(home.loads, hasLength(2), reason: 'the new core builds again');
+
+    home.lastLoad.complete(built(roadmap('r1')));
+    await tester.pumpAndSettle();
+    expect(find.text('Lesson l1 (r1)'), findsOneWidget);
+    expect(home.loads, hasLength(2));
+  });
+
+  testWidgets(
+      'the same plan after the account changed shows the skeleton '
+      'and builds again', (tester) async {
+    final home = _Harness();
+    await home.pump(tester);
+    home.lastLoad.complete(built(roadmap('r1')));
+    await tester.pumpAndSettle();
+
+    home.moveTo(tester, const HomeBoundary(owner: 'u2', core: 'c1'));
+    await home.emit(tester, roadmap('r1', serverNow: 900));
+    await tester.pump();
+
+    expect(find.text('Lesson l1 (r1)'), findsNothing);
+    expect(find.byType(HomeTodaySkeleton), findsOneWidget);
+    expect(home.loads, hasLength(2), reason: 'the new account builds again');
+  });
+
+  testWidgets(
+      'a different plan after the owner changed never shows the old '
+      'plan while the owner check is pending', (tester) async {
+    final home = _Harness();
+    await home.pump(tester);
+    home.lastLoad.complete(built(roadmap('r1')));
+    await tester.pumpAndSettle();
+
+    home
+      ..guardGate = Completer<void>()
+      ..moveTo(tester, const HomeBoundary(owner: 'u2', core: 'c1'));
+    await home.emit(tester, roadmap('r2', lessons: ['l1', 'l2']));
+
+    expect(find.text('Lesson l1 (r1)'), findsNothing);
+    expect(find.byType(HomeTodaySkeleton), findsOneWidget);
+    await tester.pump();
+    expect(find.text('Lesson l1 (r1)'), findsNothing);
+    expect(find.byType(HomeTodaySkeleton), findsOneWidget);
+
+    home.guardGate!.complete();
+    await tester.pump();
+    expect(find.text('Lesson l1 (r1)'), findsNothing);
+  });
+
+  testWidgets('a first core read is not a change of core', (tester) async {
+    // The core is not known yet when Home starts.
+    final home = _Harness()
+      ..start = const HomeBoundary(owner: 'u1', core: null);
+    await home.pump(tester);
+    home.lastLoad.complete(built(roadmap('r1')));
+    await tester.pumpAndSettle();
+
+    home.moveTo(tester, const HomeBoundary(owner: 'u1', core: 'c1'));
+    await tester.pump();
+
+    expect(find.text('Lesson l1 (r1)'), findsOneWidget);
+    expect(home.loads, hasLength(1));
+  });
+
+  testWidgets('the first read of the account is not a change of account',
+      (tester) async {
+    final home = _Harness()
+      ..start = const HomeBoundary(owner: null, core: 'c1');
+    await home.pump(tester);
+    home.lastLoad.complete(built(roadmap('r1')));
+    await tester.pumpAndSettle();
+
+    home.moveTo(tester, const HomeBoundary(owner: 'u1', core: 'c1'));
+    await tester.pump();
+
+    expect(find.text('Lesson l1 (r1)'), findsOneWidget);
+    expect(home.loads, hasLength(1));
   });
 }

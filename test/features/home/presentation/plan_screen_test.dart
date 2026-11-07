@@ -8,6 +8,7 @@ import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/home/application/home_boundary.dart';
 import 'package:pantas/features/home/application/home_today.dart';
 import 'package:pantas/features/home/application/plan_provider.dart';
 import 'package:pantas/features/home/application/study_remote_providers.dart';
@@ -31,6 +32,9 @@ void main() {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
+          homeBoundaryProvider.overrideWithValue(
+            const HomeBoundary(owner: 'test', core: 'test'),
+          ),
           firstScreenSignalProvider
               .overrideWithValue(FirstScreenSignal(() => signals++)),
           activeExamFocusProvider.overrideWith(
@@ -75,6 +79,9 @@ void main() {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
+          homeBoundaryProvider.overrideWithValue(
+            const HomeBoundary(owner: 'test', core: 'test'),
+          ),
           proForActiveExamProvider.overrideWith((_) => pending.future),
           planViewProvider(5).overrideWith(
             (_) async =>
@@ -101,6 +108,9 @@ void main() {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
+          homeBoundaryProvider.overrideWithValue(
+            const HomeBoundary(owner: 'test', core: 'test'),
+          ),
           activeExamFocusProvider.overrideWith(
             (_) async => ActiveExamFocus.selected(buildExam(id: 'e')),
           ),
@@ -153,6 +163,9 @@ void main() {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
+          homeBoundaryProvider.overrideWithValue(
+            const HomeBoundary(owner: 'test', core: 'test'),
+          ),
           currentStudyCoverageProvider.overrideWith((_) => true),
           planWeekViewProvider('2026-10-18').overrideWith(
             (_) async => [
@@ -194,6 +207,9 @@ void main() {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
+          homeBoundaryProvider.overrideWithValue(
+            const HomeBoundary(owner: 'test', core: 'test'),
+          ),
           currentStudyCoverageProvider.overrideWith((_) => true),
           planWeekViewProvider('2026-11-22').overrideWith(
             (_) async => [
@@ -223,6 +239,9 @@ void main() {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
+          homeBoundaryProvider.overrideWithValue(
+            const HomeBoundary(owner: 'test', core: 'test'),
+          ),
           currentStudyCoverageProvider.overrideWith((_) => true),
           planViewProvider(15).overrideWith(
             (_) async => const PlanView(
@@ -252,6 +271,9 @@ void main() {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
+          homeBoundaryProvider.overrideWithValue(
+            const HomeBoundary(owner: 'test', core: 'test'),
+          ),
           currentStudyCoverageProvider.overrideWith((_) => true),
           planWeekViewProvider('2026-10-18').overrideWith(
             (_) async => [
@@ -292,6 +314,9 @@ void main() {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
+          homeBoundaryProvider.overrideWithValue(
+            const HomeBoundary(owner: 'test', core: 'test'),
+          ),
           planDayViewProvider('2099-01-02')
               .overrideWith((_) async => unknownDay(DateTime(2099, 1, 2))),
         ],
@@ -314,6 +339,9 @@ void main() {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
+          homeBoundaryProvider.overrideWithValue(
+            const HomeBoundary(owner: 'test', core: 'test'),
+          ),
           planDayViewProvider('2026-10-18')
               .overrideWith((_) async => unknownDay(DateTime(2026, 10, 18))),
         ],
@@ -339,6 +367,9 @@ void main() {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
+          homeBoundaryProvider.overrideWithValue(
+            const HomeBoundary(owner: 'test', core: 'test'),
+          ),
           planDayViewProvider('2026-10-18')
               .overrideWith((_) async => unknownDay(DateTime(2026, 10, 18))),
         ],
@@ -367,6 +398,9 @@ void main() {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
+          homeBoundaryProvider.overrideWithValue(
+            const HomeBoundary(owner: 'test', core: 'test'),
+          ),
           planDayViewProvider('2026-10-18').overrideWith((_) => slow.future),
         ],
         child: MaterialApp(
@@ -404,6 +438,9 @@ void main() {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
+          homeBoundaryProvider.overrideWithValue(
+            const HomeBoundary(owner: 'test', core: 'test'),
+          ),
           currentStudyCoverageProvider.overrideWith((_) => true),
           entitlementProvider
               .overrideWith((_) => Stream.value(const Entitlement.free())),
@@ -450,6 +487,9 @@ void main() {
       await tester.pumpWidget(
         ProviderScope(
           overrides: [
+            homeBoundaryProvider.overrideWithValue(
+              const HomeBoundary(owner: 'test', core: 'test'),
+            ),
             currentStudyCoverageProvider.overrideWith((_) => true),
             entitlementProvider
                 .overrideWith((_) => Stream.value(const Entitlement.free())),
@@ -496,6 +536,9 @@ void main() {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
+          homeBoundaryProvider.overrideWithValue(
+            const HomeBoundary(owner: 'test', core: 'test'),
+          ),
           entitlementProvider
               .overrideWith((_) => Stream.value(const Entitlement.free())),
           currentStudyCoverageProvider.overrideWith((_) => false),
@@ -531,6 +574,9 @@ void main() {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
+          homeBoundaryProvider.overrideWithValue(
+            const HomeBoundary(owner: 'test', core: 'test'),
+          ),
           activeExamFocusProvider.overrideWith(
             (_) async => ActiveExamFocus.selected(buildExam(id: 'e')),
           ),
@@ -644,6 +690,9 @@ void weekFallbackTests() {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
+          homeBoundaryProvider.overrideWithValue(
+            const HomeBoundary(owner: 'test', core: 'test'),
+          ),
           currentStudyCoverageProvider.overrideWithValue(true),
           planWeekViewProvider('2026-10-25').overrideWith((_) async => days),
         ],

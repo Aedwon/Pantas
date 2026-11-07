@@ -17,6 +17,7 @@ import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/assessment/application/assessment_result_providers.dart';
 import 'package:pantas/features/assessment/domain/models/assessment_result.dart';
+import 'package:pantas/features/home/application/home_boundary.dart';
 import 'package:pantas/features/home/application/home_day_extras.dart';
 import 'package:pantas/features/home/application/home_install_offer.dart';
 import 'package:pantas/features/home/application/home_notices.dart';
@@ -121,6 +122,9 @@ Widget harness({
   );
   return ProviderScope(
     overrides: [
+      homeBoundaryProvider.overrideWithValue(
+        const HomeBoundary(owner: 'test', core: 'test'),
+      ),
       studyUsesServerProvider.overrideWithValue(server),
       if (server) currentStudyCoverageProvider.overrideWithValue(false),
       if (server)

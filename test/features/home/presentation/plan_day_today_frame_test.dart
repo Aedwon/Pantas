@@ -6,6 +6,7 @@ import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/features/home/application/home_boundary.dart';
 import 'package:pantas/features/home/application/home_day_extras.dart';
 import 'package:pantas/features/home/application/home_today.dart';
 import 'package:pantas/features/home/application/plan_provider.dart';
@@ -73,6 +74,9 @@ void main() {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
+          homeBoundaryProvider.overrideWithValue(
+            const HomeBoundary(owner: 'test', core: 'test'),
+          ),
           activeExamFocusProvider.overrideWith(
             (_) async => ActiveExamFocus.selected(buildExam(id: 'e')),
           ),

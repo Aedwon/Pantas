@@ -26,6 +26,7 @@ import 'package:pantas/core/telemetry/telemetry.dart';
 import 'package:pantas/core/ui/components/content_renderer.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/home/application/home_boundary.dart';
 import 'package:pantas/features/home/presentation/home_tab.dart';
 import 'package:pantas/features/lesson/presentation/learn_tab_home.dart';
 import 'package:pantas/features/lesson/presentation/lesson_page.dart';
@@ -279,6 +280,9 @@ void main() {
         await tester.pumpWidget(
           ProviderScope(
             overrides: [
+              homeBoundaryProvider.overrideWithValue(
+                const HomeBoundary(owner: 'test', core: 'test'),
+              ),
               activeExamFocusProvider.overrideWith(
                 (_) async => const ActiveExamFocus.selected(exam),
               ),
@@ -422,6 +426,9 @@ void main() {
         _phone(tester);
         container = ProviderContainer(
           overrides: [
+            homeBoundaryProvider.overrideWithValue(
+              const HomeBoundary(owner: 'test', core: 'test'),
+            ),
             ...overrides(),
             entitlementProvider
                 .overrideWith((_) => Stream.value(const Entitlement.free())),
