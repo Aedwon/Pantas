@@ -1,4 +1,7 @@
+import 'dart:async';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/auth/auth_state.dart';
 import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/storage/domain/attempt.dart';
@@ -7,6 +10,7 @@ import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart'
     show appDatabaseProvider, contentRepositoryProvider;
 import 'package:pantas/core/sync/engine/sync_active_context_store.dart';
+import 'package:pantas/core/telemetry/telemetry.dart';
 import 'package:pantas/features/quiz/application/quiz_launch_coordinator.dart';
 import 'package:pantas/features/quiz/application/quiz_launch_guard.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
@@ -83,6 +87,49 @@ class QuizController extends StateNotifier<QuizControllerState> {
   QuizController(this._ref) : super(const QuizIdle());
 
   final Ref _ref;
+
+  String? _startedSessionId;
+  String? _finishedSessionId;
+
+  /// Every start and finish of a session passes through here, whichever way
+  /// the session was launched, so the study-loop events cannot be missed by
+  /// one entry point or doubled by another.
+  @override
+  set state(QuizControllerState value) {
+    _logStudyLoop(value);
+    super.state = value;
+  }
+
+  void _logStudyLoop(QuizControllerState next) {
+    try {
+      final QuizSession session;
+      final TelemetryEvent event;
+      if (next is QuizRunning && next.session.sessionId != _startedSessionId) {
+        session = next.session;
+        event = TelemetryEvent.studySessionStart;
+        _startedSessionId = session.sessionId;
+      } else if (next is QuizComplete &&
+          next.session.sessionId != _finishedSessionId) {
+        session = next.session;
+        event = TelemetryEvent.studySessionFinish;
+        _finishedSessionId = session.sessionId;
+      } else {
+        return;
+      }
+      unawaited(
+        _ref.read(telemetryProvider).log(
+          event,
+          properties: {
+            'exam_id': session.examId,
+            'kind': session.origin.storageValue,
+            'count': session.questions.length,
+          },
+        ),
+      );
+    } on Object {
+      // A usage count must never interrupt a student's session.
+    }
+  }
 
   String? _preparedSessionId;
   int? _preparedQuestionIndex;

@@ -11,6 +11,7 @@ import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/storage/age_gate.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/telemetry/telemetry.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pro_paused_line.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
@@ -105,6 +106,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
+    unawaited(ref.read(telemetryProvider).log(TelemetryEvent.proView));
     unawaited(ref.read(reviewPromptControllerProvider).recordPaywallSeen());
     Future<void>.microtask(_checkoutReturn);
   }
