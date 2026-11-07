@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
@@ -317,6 +318,57 @@ void main() {
       expect(
         tester.widget<Scaffold>(find.byType(Scaffold)).backgroundColor,
         PantasColors.dark.background,
+      );
+      await endPage(tester);
+    });
+
+    for (final (name, size) in [('phone', _phone), ('laptop', _laptop)]) {
+      testWidgets('the tester guide link sits under the countdown ($name)',
+          (tester) async {
+        await pumpGate(tester, size: size);
+        await tester.pump(const Duration(seconds: 3));
+        final link = find.text('Read the tester guide');
+        expect(link, findsOneWidget);
+        final style = tester.widget<Text>(link).style;
+        expect(style?.fontSize, 17);
+        expect(style?.fontWeight, FontWeight.w600);
+        expect(style?.color, PantasColors.light.accent);
+        expect(
+          tester.getTopLeft(link).dy,
+          greaterThan(tester.getBottomLeft(find.text('min')).dy),
+          reason: 'below the tiles',
+        );
+        expect(
+          tester.getBottomLeft(link).dy,
+          lessThan(tester.getTopLeft(find.text('Use a Different Email')).dy),
+          reason: 'above the buttons',
+        );
+        await endPage(tester);
+      });
+    }
+
+    testWidgets('the tester guide link opens the guide', (tester) async {
+      const channel = MethodChannel('plugins.flutter.io/url_launcher');
+      final calls = <MethodCall>[];
+      tester.binding.defaultBinaryMessenger.setMockMethodCallHandler(
+        channel,
+        (call) async {
+          calls.add(call);
+          return true;
+        },
+      );
+      addTearDown(
+        () => tester.binding.defaultBinaryMessenger
+            .setMockMethodCallHandler(channel, null),
+      );
+      await pumpGate(tester);
+      await tester.pump(const Duration(seconds: 3));
+      await tester.tap(find.text('Read the tester guide'));
+      await tester.pump();
+      final launch = calls.singleWhere((c) => c.method == 'launch');
+      expect(
+        (launch.arguments as Map<Object?, Object?>)['url'],
+        'https://www.pantas.study/beta/guide',
       );
       await endPage(tester);
     });

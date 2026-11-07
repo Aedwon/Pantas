@@ -9,6 +9,7 @@ import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/ui/components/pantas_logo.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/motion/pantas_effects.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 /// The time left before the beta starts, in whole days, hours and minutes.
 ///
@@ -260,10 +261,118 @@ class _Top extends StatelessWidget {
               child: _Tiles(style: style, countdown: countdown),
             ),
           ),
+          SizedBox(height: wide ? 28 : 24),
+          Center(
+            child: SignInRise(
+              delay: const Duration(milliseconds: 640),
+              child: GuideLink(style: style),
+            ),
+          ),
         ],
       ),
     );
   }
+}
+
+const testerGuideUrl = 'https://www.pantas.study/beta/guide';
+
+/// "Read the tester guide →" in the app's text-link style: teal, no box, and
+/// the arrow moves 4 px under the pointer. It opens the guide in a new tab so
+/// the countdown keeps running.
+class GuideLink extends StatefulWidget {
+  const GuideLink({required this.style, super.key});
+  final SignInStyle style;
+
+  @override
+  State<GuideLink> createState() => _GuideLinkState();
+}
+
+class _GuideLinkState extends State<GuideLink> {
+  bool _hover = false;
+
+  Future<void> _open() async {
+    try {
+      await launchUrl(Uri.parse(testerGuideUrl), webOnlyWindowName: '_blank');
+    } on Object {
+      // No browser to open is not something this screen can fix.
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final s = widget.style;
+    final still = MediaQuery.disableAnimationsOf(context);
+    final color = !_hover
+        ? s.accent
+        : s.dark
+            ? s.accentTintText
+            : const Color(0xFF086A5A);
+    return MouseRegion(
+      cursor: SystemMouseCursors.click,
+      onEnter: (_) => setState(() => _hover = true),
+      onExit: (_) => setState(() => _hover = false),
+      child: Semantics(
+        link: true,
+        child: GestureDetector(
+          onTap: _open,
+          behavior: HitTestBehavior.opaque,
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(minHeight: 44),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Flexible(
+                  child: Text(
+                    'Read the tester guide',
+                    style: s.button(color: color).copyWith(letterSpacing: 0),
+                  ),
+                ),
+                const SizedBox(width: 6),
+                AnimatedContainer(
+                  duration:
+                      still ? Duration.zero : const Duration(milliseconds: 200),
+                  curve: PantasCurves.shared,
+                  transform: Matrix4.translationValues(_hover ? 4 : 0, 0, 0),
+                  child: CustomPaint(
+                    size: const Size.square(17),
+                    painter: _ArrowPainter(color),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// The arrow of the board's text link: a 24 px path, 2.2 stroke, round ends.
+class _ArrowPainter extends CustomPainter {
+  const _ArrowPainter(this.color);
+  final Color color;
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final k = size.width / 24;
+    canvas.drawPath(
+      Path()
+        ..moveTo(5 * k, 12 * k)
+        ..lineTo(18.5 * k, 12 * k)
+        ..moveTo(13 * k, 6.5 * k)
+        ..lineTo(18.5 * k, 12 * k)
+        ..lineTo(13 * k, 17.5 * k),
+      Paint()
+        ..color = color
+        ..style = PaintingStyle.stroke
+        ..strokeWidth = 2.2 * k
+        ..strokeCap = StrokeCap.round
+        ..strokeJoin = StrokeJoin.round,
+    );
+  }
+
+  @override
+  bool shouldRepaint(_ArrowPainter old) => old.color != color;
 }
 
 /// The logo pops in. Its tassel then swings once and settles.
