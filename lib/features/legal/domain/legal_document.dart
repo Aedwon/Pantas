@@ -222,6 +222,14 @@ final legalDocumentFallbacks = <String, LegalDocument>{
             'collected.',
       ),
       LegalSection(
+        heading: 'Speed and error reports',
+        body: 'To find slow screens and errors, the web app sends short '
+            'technical reports: how long loading steps took, your browser '
+            'type, and error details. These reports do not include your '
+            'account ID, your answers, or lesson content. Google keeps them '
+            'for 30 days.',
+      ),
+      LegalSection(
         heading: 'Why a guardian confirms',
         body: 'When Pantas places you in the minor age group, its setup flow '
             'asks a parent or guardian to review the terms and confirm '
@@ -253,11 +261,12 @@ final legalDocumentFallbacks = <String, LegalDocument>{
             'services. Guardian emails go through Resend. Web payments go '
             'through PayMongo. Optional usage reports use Firebase '
             'Analytics, with Crashlytics error reporting on the phone '
-            'app.\n\nThese providers may process information outside the '
-            'Philippines. Pantas remains responsible for the information '
-            "it entrusts to service providers. A server's location does "
-            'not establish where every provider record or recovery copy is '
-            'kept.',
+            'app. Speed and error reports from the web app go to Google '
+            'Cloud logs.\n\nThese providers may process information '
+            'outside the Philippines. Pantas remains responsible for the '
+            "information it entrusts to service providers. A server's "
+            'location does not establish where every provider record or '
+            'recovery copy is kept.',
       ),
       LegalSection(
         heading: 'Your rights',

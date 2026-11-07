@@ -105,4 +105,55 @@ void main() {
     expect(defaultLegalContact.dpoEmail, isNot(contains('csecetreviewer')));
     expect(defaultLegalContact.supportEmail, isNot(contains('csecetreviewer')));
   });
+
+  group('speed and error reports notice', () {
+    final sections = legalDocumentFallbacks['teens']!.sections;
+    final headings = sections.map((s) => s.heading).toList();
+
+    test('sits right after Optional usage sharing, with the approved text', () {
+      final at = headings.indexOf('Optional usage sharing');
+      expect(at, isNonNegative);
+      expect(headings[at + 1], 'Speed and error reports');
+      expect(
+        sections[at + 1].body,
+        'To find slow screens and errors, the web app sends short technical '
+        'reports: how long loading steps took, your browser type, and error '
+        'details. These reports do not include your account ID, your '
+        'answers, or lesson content. Google keeps them for 30 days.',
+      );
+    });
+
+    test(
+        'Where your data goes names Google Cloud logs after the Analytics '
+        'sentence', () {
+      final body =
+          sections.singleWhere((s) => s.heading == 'Where your data goes').body;
+      const analytics = 'Optional usage reports use Firebase Analytics, with '
+          'Crashlytics error reporting on the phone app.';
+      const logs =
+          'Speed and error reports from the web app go to Google Cloud logs.';
+      expect(body, contains('$analytics $logs\n\n'));
+    });
+
+    test('the legal-basis list is untouched until Aedwon approves a line', () {
+      final basis = sections
+          .skipWhile((s) => s.heading != 'Why the law allows these uses')
+          .map((s) => '${s.heading}\n${s.body}')
+          .join('\n');
+      expect(basis, isNot(contains('Speed and error')));
+      expect(basis, isNot(contains('speed')));
+      expect(basis, isNot(contains('Cloud logs')));
+    });
+
+    test('no notice uses an em dash', () {
+      for (final document in legalDocumentFallbacks.values) {
+        for (final section in document.sections) {
+          expect(
+            '${section.heading}${section.body}',
+            isNot(contains('\u2014')),
+          );
+        }
+      }
+    });
+  });
 }
