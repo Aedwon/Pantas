@@ -462,6 +462,12 @@ final legalDocumentFallbacks = <String, LegalDocument>{
             'not remove Free or purchased study access.',
       ),
       LegalSection(
+        heading: 'Speed and error reports (web)',
+        body: 'Legitimate interests under Section 12(f), to keep the app '
+            'working and fast. The reports carry no account identity, '
+            'answers, or learning performance.',
+      ),
+      LegalSection(
         heading: 'Payments',
         body: "Contract under Section 12(b) for the adult purchaser's "
             'necessary transaction information. Legal obligation under '

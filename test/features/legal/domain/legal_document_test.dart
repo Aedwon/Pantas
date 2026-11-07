@@ -135,14 +135,23 @@ void main() {
       expect(body, contains('$analytics $logs\n\n'));
     });
 
-    test('the legal-basis list is untouched until Aedwon approves a line', () {
+    test('the legal basis for speed and error reports is the approved line',
+        () {
       final basis = sections
           .skipWhile((s) => s.heading != 'Why the law allows these uses')
-          .map((s) => '${s.heading}\n${s.body}')
-          .join('\n');
-      expect(basis, isNot(contains('Speed and error')));
-      expect(basis, isNot(contains('speed')));
-      expect(basis, isNot(contains('Cloud logs')));
+          .toList();
+      final line = basis
+          .singleWhere((s) => s.heading == 'Speed and error reports (web)');
+      expect(
+        line.body,
+        'Legitimate interests under Section 12(f), to keep the app working '
+        'and fast. The reports carry no account identity, answers, or '
+        'learning performance.',
+      );
+      final consent = basis.indexWhere(
+        (s) => s.heading == 'Optional usage and error reporting',
+      );
+      expect(basis.indexOf(line), consent + 1);
     });
 
     test('no notice uses an em dash', () {
