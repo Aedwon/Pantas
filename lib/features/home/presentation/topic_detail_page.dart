@@ -234,10 +234,14 @@ class TopicDetailPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                child: Wrap(
+                // P2 (Nov 7): the note at the left, the button at the right
+                // end, as the Today card's footer does. When both do not fit
+                // (large text), the button goes under the note, still right.
+                child: OverflowBar(
+                  alignment: MainAxisAlignment.spaceBetween,
                   spacing: 16,
-                  runSpacing: 12,
-                  crossAxisAlignment: WrapCrossAlignment.center,
+                  overflowSpacing: 12,
+                  overflowAlignment: OverflowBarAlignment.end,
                   children: [
                     SizedBox(
                       width: 200,
