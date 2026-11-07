@@ -2593,3 +2593,14 @@ Review canvas (Claude Design): https://claude.ai/artifact/EBQopPTcLczwabNWkTSake
 - **Sign-in centering:** on wide windows the sign-in column sat at the left edge. Fixed on `web/visual-check-fixes-r1` at e0145f277 with a test. Not deployed.
 - **Before Nov 9 (Aedwon):** "only the owner emails and some select emails should have the earlier access". Today a selected tester who signs in gets the full app. Proposed: a "The beta starts Nov 9" screen after sign-in for selected testers until Nov 9 00:00 Manila, then the app opens. Owner docs (`ownerTest: true`) and an early list skip it. Open: which emails besides the owners go on that list. The not-on-list screen's line "Selected testers got an email on Nov 7" is false until the results email is sent; change it.
 - **Still open from the handoff:** the results export and send (needs Aedwon's explicit approval), Home plan task 2, the load-speed batch, the Study panel note, and `WARMUP_ENABLED` off after Nov 15.
+
+## 7 November 2026: Feedback page decisions, results sent, sign-in fixes
+
+- **Results email sent (Aedwon's OK):** 20 emails delivered via Resend (19 testers plus 1 guardian). One troll application (xipino7739@goldvester.com) was deleted from `betaApplications` and the export at his request; a local backup of the original export is kept in pantas-web `.beta-results/`.
+- **Email logo:** the header logo is now a white tile image (`assets/email-logo-tile.png`) so it shows in Gmail dark mode, which ignores email dark-mode CSS.
+- **BETA mark:** only the Feedback page carries it ("Feedback" with the raised BETA from the sign-in screen), on the Settings row, the page title and the tester guide. Aedwon: "only on feedback". Other uses of "beta" stay as words.
+- **Feedback row placement:** B, its own card at the top with Beta: Pro Features (Aedwon: "go with B"). The other three board decisions (device line, survey for under 5 days, appeal after Nov 22) are still open.
+- **No icon tiles:** Aedwon rejected an icon on a tinted tile inside a card ("card in card"); the shared-components rule already says icons sit without a tile in their own color. The reward screen uses a 12-month gold strip instead.
+- **Desktop boards:** two-pane Settings with Feedback, an interactive exit survey and reward activation are on the review canvas, Feedback (Beta) page. Aedwon asked for the same motion care as the rest of the app.
+- **Pasting the sign-in code:** a tester could not paste the code. Cause: the code field turned off text selection, and the Flutter web engine drops clipboard events then. Fixed on `web/visual-check-fixes-r1` (164d91a53) with a test. Aedwon: "please consider these QoL things moving forward."
+- **Google sign-in redirect_uri_mismatch:** the OAuth client's second redirect URI had been saved garbled during the earlier fix. Corrected to `https://app.pantas.study/__/auth/handler`; Aedwon pressed Save.
