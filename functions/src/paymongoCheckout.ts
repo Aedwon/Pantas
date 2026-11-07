@@ -9,6 +9,7 @@ import type {Grant} from './grants.js';
 import {httpPaymongoClient, type PaymongoClient} from './paymongoClient.js';
 import {priceCentavos, webProduct} from './paymongoPolicy.js';
 import {examCatalog, sittingFor, type CatalogExam, type Sitting} from './revenuecatPasses.js';
+import {timed} from './_timed.js';
 
 const secretKey = defineSecret('PAYMONGO_SECRET_KEY');
 const CHECKOUTS_PER_WINDOW = 10;
@@ -94,11 +95,11 @@ export async function createCheckout(auth: Parameters<typeof assertNamedUser>[0]
 
 export const createPaymongoCheckout = onCall(
   {region: 'asia-southeast1', enforceAppCheck: enforceAppCheck, consumeAppCheckToken: enforceAppCheck, secrets: [secretKey]},
-  request => {
+  timed('createPaymongoCheckout', request => {
     assertFreshAppCheck(request);
     return createCheckout(request.auth, request.data, {
       client: httpPaymongoClient(secretKey.value()), db: getFirestore(),
       origin: process.env.PANTAS_APP_ORIGIN ?? 'https://app.pantas.study',
       methods: process.env.PAYMONGO_PAYMENT_METHODS?.split(',').map(m => m.trim()).filter(Boolean) ?? DEFAULT_METHODS,
     });
-  });
+  }));

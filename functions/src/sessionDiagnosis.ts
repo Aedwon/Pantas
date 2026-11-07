@@ -12,6 +12,7 @@ import {phDay, phStamp} from './_phDate.js';
 import {examCatalog} from './revenuecatPasses.js';
 import type {ExamSettings} from './roadmap.js';
 import {assertStudyOwner} from './studyObservations.js';
+import {timed} from './_timed.js';
 
 type Auth = {uid: string; token?: object} | undefined;
 type Deps = {db: Firestore; now?: () => number; allow?: (uid: string, key: string) => Promise<boolean>};
@@ -102,4 +103,4 @@ export async function readSessionDiagnosis(auth: Auth, data: unknown, deps: Deps
   });
 }
 export const getSessionDiagnosis = onCall({region: 'asia-southeast1', enforceAppCheck: enforceAppCheck},
-  request => readSessionDiagnosis(request.auth, request.data, {db: getFirestore()}));
+  timed('getSessionDiagnosis', request => readSessionDiagnosis(request.auth, request.data, {db: getFirestore()})));

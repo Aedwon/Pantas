@@ -2,6 +2,7 @@ import {enforceAppCheck} from './_appCheck.js';
 import { FieldValue, getFirestore } from 'firebase-admin/firestore';
 import { logger } from 'firebase-functions';
 import { HttpsError, onCall } from 'firebase-functions/v2/https';
+import {timed} from './_timed.js';
 import {
   assertNamedPro,
   decideActivation,
@@ -31,7 +32,7 @@ export const activateSyncGeneration = onCall(
     region: 'asia-southeast1',
     enforceAppCheck: enforceAppCheck,
   },
-  async (request): Promise<ActivateSyncGenerationResponse> => {
+  timed('activateSyncGeneration', async (request): Promise<ActivateSyncGenerationResponse> => {
     let uid: string;
 
     try {
@@ -191,5 +192,5 @@ export const activateSyncGeneration = onCall(
     });
 
     return result;
-  },
+  }),
 );

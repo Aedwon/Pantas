@@ -4,6 +4,7 @@ import {HttpsError, onCall} from 'firebase-functions/v2/https';
 import {allowAtMost} from './_limits.js';
 import {checkTime} from './_answers.js';
 import {computeRoadmap} from './roadmap.js';
+import {timed} from './_timed.js';
 
 export function assertStudyOwner(uid: string, body: Record<string, unknown>, required = true): void {
   if (body.expectedUid === undefined && !required) return;
@@ -43,4 +44,4 @@ export async function writeLessonRead(auth: Auth, data: unknown, deps: Deps): Pr
   return {stored};
 }
 export const recordLessonRead = onCall({region: 'asia-southeast1', enforceAppCheck: enforceAppCheck},
-  request => writeLessonRead(request.auth, request.data, {db: getFirestore()}));
+  timed('recordLessonRead', request => writeLessonRead(request.auth, request.data, {db: getFirestore()})));

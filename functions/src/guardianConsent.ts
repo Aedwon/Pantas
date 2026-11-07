@@ -6,6 +6,7 @@ import {onSchedule} from 'firebase-functions/v2/scheduler';
 import {assertFreshAppCheck, enforceAppCheck} from './_appCheck.js';
 import {allowAtMost} from './_limits.js';
 import {guardianMessage, mailerFor, type GuardianMailer} from './guardianMail.js';
+import {timed} from './_timed.js';
 
 /**
  * Guardian consent for students under 18.
@@ -388,17 +389,17 @@ function runtimeDeps(): ConsentDeps {
 const readOptions = {region: 'asia-southeast1', enforceAppCheck: enforceAppCheck, secrets: [guardianHmacKey]};
 
 export const sendGuardianLink = onCall({region: 'asia-southeast1', enforceAppCheck: enforceAppCheck, consumeAppCheckToken: enforceAppCheck,
-  secrets: [guardianHmacKey, guardianMailKey]}, (request) => {
+  secrets: [guardianHmacKey, guardianMailKey]}, timed('sendGuardianLink', (request) => {
   assertFreshAppCheck(request);
   return sendLink(request, runtimeDeps());
-});
+}));
 
 export const answerGuardianRequest = onCall({region: 'asia-southeast1', enforceAppCheck: enforceAppCheck, consumeAppCheckToken: enforceAppCheck,
-  secrets: [guardianHmacKey, guardianMailKey]}, (request) => {
+  secrets: [guardianHmacKey, guardianMailKey]}, timed('answerGuardianRequest', (request) => {
   assertFreshAppCheck(request);
   return answerRequest(request, runtimeDeps());
-});
+}));
 
-export const getGuardianStatus = onCall(readOptions, (request) => getStatus(request, runtimeDeps()));
+export const getGuardianStatus = onCall(readOptions, timed('getGuardianStatus', (request) => getStatus(request, runtimeDeps())));
 
-export const getGuardianRequest = onCall(readOptions, (request) => readRequest(request, runtimeDeps()));
+export const getGuardianRequest = onCall(readOptions, timed('getGuardianRequest', (request) => readRequest(request, runtimeDeps())));

@@ -13,6 +13,7 @@ import {dueReviewInputs} from './serverReviews.js';
 import {assertStudyOwner} from './studyObservations.js';
 import {mockCoverage} from './mockAccess.js';
 import {readStudyInsights} from './studyInsights.js';
+import {timed} from './_timed.js';
 
 /**
  * Where the exam date and study days live on the server. The app keeps them in its own settings, so
@@ -200,11 +201,11 @@ export async function saveExamSettings(auth: Auth, data: unknown, deps: RoadmapD
 
 export const setExamSettings = onCall(
   {region: 'asia-southeast1', enforceAppCheck: enforceAppCheck},
-  request => saveExamSettings(request.auth, request.data, {db: getFirestore()}));
+  timed('setExamSettings', request => saveExamSettings(request.auth, request.data, {db: getFirestore()})));
 
 export const getRoadmap = onCall(
   {region: 'asia-southeast1', enforceAppCheck: enforceAppCheck},
-  request => readStudyRoadmap(request.auth, request.data, {db: getFirestore()}));
+  timed('getRoadmap', request => readStudyRoadmap(request.auth, request.data, {db: getFirestore()})));
 
 type StudyBody = Record<string, any>;
 type StudyAuth = {uid: string; token?: object} | undefined;
@@ -515,6 +516,6 @@ export async function readStudyWeek(auth: StudyAuth, data: unknown, deps: Roadma
     return {examId:body.examId,serverNow:now,accessRecheckAt:context.access.recheckAt,proCovered:context.pro,start:body.start,days};
   });
 }
-export const advanceRoadmap=onCall({region:'asia-southeast1',enforceAppCheck: enforceAppCheck},r=>advanceStudyRoadmap(r.auth,r.data,{db:getFirestore()}));
-export const getRoadmapDay=onCall({region:'asia-southeast1',enforceAppCheck: enforceAppCheck},r=>readStudyDay(r.auth,r.data,{db:getFirestore()}));
-export const getRoadmapWeek=onCall({region:'asia-southeast1',enforceAppCheck: enforceAppCheck},r=>readStudyWeek(r.auth,r.data,{db:getFirestore()}));
+export const advanceRoadmap=onCall({region:'asia-southeast1',enforceAppCheck: enforceAppCheck},timed('advanceRoadmap', r=>advanceStudyRoadmap(r.auth,r.data,{db:getFirestore()})));
+export const getRoadmapDay=onCall({region:'asia-southeast1',enforceAppCheck: enforceAppCheck},timed('getRoadmapDay', r=>readStudyDay(r.auth,r.data,{db:getFirestore()})));
+export const getRoadmapWeek=onCall({region:'asia-southeast1',enforceAppCheck: enforceAppCheck},timed('getRoadmapWeek', r=>readStudyWeek(r.auth,r.data,{db:getFirestore()})));

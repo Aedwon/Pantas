@@ -36,6 +36,7 @@ export {getStudyInsights} from './studyInsights.js';
 export {getCarryableCount} from './carryableCount.js';
 export { listWebPlans } from './webPlans.js';
 export {getWebEntitlement} from './webEntitlement.js';
+export {reportClientTelemetry} from './clientTelemetry.js';
 export {getSessionDiagnosis} from './sessionDiagnosis.js';
 
 export {setBetaPro} from './betaPro.js';

@@ -10,6 +10,7 @@ import {allowAtMost} from './_limits.js';
 import {claimsFromInputs, entitlementWrite, readEntitlementInputs, type EntitlementInputs} from './entitlementInputs.js';
 import {DAY_MS, TRIAL_DAYS, TRIAL_PRODUCT, type Grant} from './grants.js';
 import {copyEntitlementClaims} from './revenuecatClaims.js';
+import {timed} from './_timed.js';
 
 export const trialIdentityKey = defineSecret('TRIAL_IDENTITY_HMAC_KEY');
 
@@ -116,7 +117,7 @@ export async function startTrial(auth: Parameters<typeof assertNamedUser>[0], de
 
 export const startWebTrial = onCall(
   {region: 'asia-southeast1', enforceAppCheck: enforceAppCheck, consumeAppCheckToken: enforceAppCheck, secrets: [trialIdentityKey]},
-  request => {
+  timed('startWebTrial', request => {
     assertFreshAppCheck(request);
     return startTrial(request.auth, {db: getFirestore(), auth: getAuth()});
-  });
+  }));

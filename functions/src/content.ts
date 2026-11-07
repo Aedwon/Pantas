@@ -5,6 +5,7 @@ import {sharedCeiling, type Ceiling} from './_contentCeiling.js';
 import {allowAtMost, takeAtMost} from './_limits.js';
 import {mockCoverage} from './mockAccess.js';
 import {examCatalog} from './revenuecatPasses.js';
+import {timed} from './_timed.js';
 
 /**
  * Limits on getContent. Aedwon approved this design on 2 November 2026; the numbers may be tuned.
@@ -174,4 +175,4 @@ async function build(db: Firestore, kind: 'lessons' | 'questions' | 'catalog', c
 
 export const getContent = onCall(
   {region: 'asia-southeast1', enforceAppCheck: enforceAppCheck},
-  request => serveContent(request.auth, request.data, {db: getFirestore()}));
+  timed('getContent', request => serveContent(request.auth, request.data, {db: getFirestore()})));
