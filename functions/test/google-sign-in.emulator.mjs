@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import {getAuth} from 'firebase-admin/auth';
+import {getFirestore} from 'firebase-admin/firestore';
 import '../lib/index.js';
 import {checkGoogleSignIn} from '../lib/googleSignIn.js';
 
@@ -10,10 +11,14 @@ const CLIENT = 'client.apps.googleusercontent.com';
 const NOW = Date.now();
 const info = (sub, email) => ({aud: CLIENT, iss: 'accounts.google.com', email, email_verified: 'true',
   exp: String(Math.floor(NOW / 1000) + 600), sub});
-const exchange = (sub, email) => checkGoogleSignIn(
+const db = getFirestore();
+const part = value => Buffer.from(JSON.stringify(value)).toString('base64url');
+const idToken = email => `${part({alg: 'RS256'})}.${part({aud: CLIENT, iss: 'accounts.google.com', email,
+  exp: Math.floor(NOW / 1000) + 600})}.signature`;
+const exchange = (sub, email, ip) => checkGoogleSignIn(
   {auth: {uid: 'anon-caller', token: {firebase: {sign_in_provider: 'anonymous'}}}, app: {appId: 'web'},
-    data: {idToken: 'stand-in'}},
-  {auth, clientId: CLIENT, now: () => NOW, allow: async () => true,
+    data: {idToken: idToken(email)}, rawRequest: {ip}},
+  {auth, db, key: 'emulator-key', clientId: CLIENT, now: () => NOW, allow: async () => true,
     fetchTokenInfo: async () => ({status: 200, body: info(sub, email)})});
 
 test('the real Auth service links Google to the existing account once and finds it by that identity', async () => {
@@ -38,4 +43,15 @@ test('the real Auth service refuses to give one Google identity to a second acco
 test('the real Auth service has no account to sign in for a new address, and none is created', async () => {
   await assert.rejects(exchange('sub-new', 'brand-new@gmail.com'), {code: 'permission-denied'});
   await assert.rejects(auth.getUserByEmail('brand-new@gmail.com'), {code: 'auth/user-not-found'});
+});
+
+test('the real Firestore keeps the per-IP and daily counters, and never the address itself', async () => {
+  await auth.createUser({email: 'counted@gmail.com', emailVerified: true});
+  await exchange('sub-counted', 'counted@gmail.com', '203.0.113.77');
+  const limits = await db.collection('signInLimits').get();
+  assert.ok(limits.docs.every(doc => !doc.id.includes('203.0.113.77')));
+  const ipDoc = limits.docs.find(doc => doc.id.startsWith('google-ip-'));
+  assert.equal(ipDoc.get('count'), 1);
+  const dayDoc = limits.docs.find(doc => doc.id.startsWith('global-google-'));
+  assert.ok(dayDoc.get('count') >= 1);
 });

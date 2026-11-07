@@ -136,16 +136,17 @@ class AuthRepository implements EmailCodeAuth {
   }
 
   Future<SignInResult> signInWithGoogle() {
-    _identityEpoch++;
-    return _exclusive(_signInWithGoogle);
+    final epoch = ++_identityEpoch;
+    return _exclusive(() => _signInWithGoogle(epoch));
   }
 
-  Future<SignInResult> _signInWithGoogle() async {
+  Future<SignInResult> _signInWithGoogle(int epoch) async {
     final popup = _googlePopupGateway;
     if (popup != null) {
       return _signInWithLink(
         () => popup.googlePopup(link: true),
         () => popup.googlePopup(link: false),
+        epoch,
       );
     }
     final tokens = await _googleGateway.signIn();
@@ -193,12 +194,13 @@ class AuthRepository implements EmailCodeAuth {
     if (address == null || address.isEmpty) {
       return const SignInResult.failed(reason: 'email-required');
     }
-    _identityEpoch++;
+    final epoch = ++_identityEpoch;
     try {
       return await _exclusive(
         () => _signInWithLink(
           () => gateway.link(address, link),
           () => gateway.signIn(address, link),
+          epoch,
         ),
       );
     } finally {
@@ -209,6 +211,7 @@ class AuthRepository implements EmailCodeAuth {
   Future<SignInResult> _signInWithLink(
     Future<void> Function() link,
     Future<void> Function() signIn,
+    int epoch,
   ) async {
     if (_gateway.currentSession?.isAnonymous ?? false) {
       try {
@@ -221,7 +224,7 @@ class AuthRepository implements EmailCodeAuth {
           return const SignInResult.cancelled();
         }
         if (error is GoogleAccountExistsException) {
-          return _signInToExistingGoogleAddress(error.idToken);
+          return _signInToExistingGoogleAddress(error.idToken, epoch);
         }
         if (error.code != 'credential-already-in-use' &&
             error.code != 'email-already-in-use') {
@@ -238,19 +241,73 @@ class AuthRepository implements EmailCodeAuth {
   /// the switch. If it fails nothing has changed and the anonymous session
   /// stays usable. The switch then follows the email code path and records the
   /// sign-in event. There is no second Google pop-up.
-  Future<SignInResult> _signInToExistingGoogleAddress(String idToken) async {
+  ///
+  /// [epoch] is the identity epoch this operation was asked under. The call
+  /// can take a while, so the result is used only if the flow was not
+  /// cancelled and the same user is still signed in, exactly as for the email
+  /// code. Otherwise the token is dropped before anything is touched.
+  Future<SignInResult> _signInToExistingGoogleAddress(
+    String idToken,
+    int epoch,
+  ) async {
     final exchange = _googleExchangeGateway;
     final signIn = _customTokenGateway;
     if (exchange == null || signIn == null) {
       return const SignInResult.failed(reason: 'firebase-unavailable');
     }
+    final uidBefore = _gateway.currentSession?.uid;
     final String token;
     try {
       token = await exchange.exchange(idToken);
     } on AuthGatewayException catch (error) {
       return SignInResult.failed(reason: error.code);
     }
-    return _switchAccount(() => signIn.signInWithCustomToken(token));
+
+    bool wanted({required bool signedOut}) {
+      if (epoch != _identityEpoch) return false;
+      final uid = _gateway.currentSession?.uid;
+      return uid == uidBefore || (signedOut && uid == null);
+    }
+
+    if (!wanted(signedOut: false)) return const SignInResult.cancelled();
+
+    final target = customTokenUid(token);
+    Future<bool> undoIfCancelled() => _undoIfCancelled(
+          epoch: epoch,
+          uidBefore: uidBefore,
+          target: target,
+        );
+
+    return _switchAccount(
+      () => signIn.signInWithCustomToken(token),
+      valid: wanted,
+      undoIfCancelled: undoIfCancelled,
+    );
+  }
+
+  /// Whether the flow was cancelled while a custom token was being exchanged.
+  ///
+  /// The exchange then leaves the cancelled account signed in: undo it, but
+  /// only if the signed-in user is the one this exchange installed. A user
+  /// who is not that account is left alone.
+  Future<bool> _undoIfCancelled({
+    required int epoch,
+    required String? uidBefore,
+    required String? target,
+  }) async {
+    if (epoch == _identityEpoch) return false;
+    final uid = _gateway.currentSession?.uid;
+    final installed =
+        uid != null && uid != uidBefore && (target == null || uid == target);
+    if (installed) {
+      try {
+        await _gateway.signOut();
+        await ensureAnonymous();
+      } on AuthGatewayException {
+        // Best effort: the caller still learns the flow was cancelled.
+      }
+    }
+    return true;
   }
 
   /// Leaves the current account and signs in as another one.
@@ -341,26 +398,12 @@ class AuthRepository implements EmailCodeAuth {
 
         if (!wanted(signedOut: false)) return const SignInResult.cancelled();
 
-        // The flow may be cancelled while Firebase exchanges the token. The
-        // exchange then leaves the cancelled account signed in: undo it, but
-        // only if the signed-in user is the one this exchange installed.
         final target = customTokenUid(token);
-        Future<bool> undoIfCancelled() async {
-          if (epoch == _identityEpoch) return false;
-          final uid = _gateway.currentSession?.uid;
-          final installed = uid != null &&
-              uid != uidBefore &&
-              (target == null || uid == target);
-          if (installed) {
-            try {
-              await _gateway.signOut();
-              await ensureAnonymous();
-            } on AuthGatewayException {
-              // Best effort: the caller still learns the flow was cancelled.
-            }
-          }
-          return true;
-        }
+        Future<bool> undoIfCancelled() => _undoIfCancelled(
+              epoch: epoch,
+              uidBefore: uidBefore,
+              target: target,
+            );
 
         Future<void> signInWithToken() => signIn.signInWithCustomToken(token);
         final session = _gateway.currentSession;

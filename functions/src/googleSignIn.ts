@@ -1,9 +1,14 @@
+import {createHmac} from 'node:crypto';
+import {isIP} from 'node:net';
 import {getAuth, type Auth, type UserRecord} from 'firebase-admin/auth';
+import {getFirestore, type Firestore} from 'firebase-admin/firestore';
 import {logger} from 'firebase-functions/logger';
 import {defineString} from 'firebase-functions/params';
 import {HttpsError, onCall, type CallableRequest} from 'firebase-functions/v2/https';
 import {assertFreshAppCheck, enforceAppCheck} from './_appCheck.js';
 import {allowAtMost} from './_limits.js';
+import {phDay} from './_phDate.js';
+import {key as signInKey, signInCodeKey} from './signInCode.js';
 import {timed} from './_timed.js';
 
 /**
@@ -29,6 +34,15 @@ const TOKENINFO_TIMEOUT_MS = 5_000;
 const MAX_TOKEN_CHARS = 4096;
 const EXCHANGES_PER_CALLER = 10;
 const EXCHANGE_WINDOW_MS = 10 * 60_000;
+/**
+ * Abuse budget for the outbound tokeninfo call, sized for about 20 testers. Anonymous accounts are
+ * free to make, so the per-caller limit alone cannot stop one machine that rotates them. Each
+ * address gets 20 verifications per 10 minutes (kept as a keyed hash, like the email-code limit),
+ * and the whole service gets 500 a day (Philippine day). Both are checked before Google is asked.
+ */
+export const EXCHANGES_PER_IP = 20;
+export const EXCHANGES_PER_DAY = 500;
+const DAY_RETENTION_MS = 3 * 24 * 3_600_000;
 const GOOGLE_ISSUERS = new Set(['accounts.google.com', 'https://accounts.google.com']);
 // Google is the authority for these domains, the same rule Firebase uses for trusted Google emails.
 const GOOGLE_MAIL_DOMAINS = new Set(['gmail.com', 'googlemail.com']);
@@ -43,11 +57,19 @@ export type GoogleSignInDeps = {
   clientId: string;
   /** Asks Google about an ID token. Tests pass a stand-in so they never reach Google. */
   fetchTokenInfo: (idToken: string) => Promise<TokenInfoReply>;
+  /** Holds the per-IP and daily counters. */
+  db: Firestore;
+  /** The secret that keys the IP hash, so the address itself is never stored. */
+  key: string;
+  /** The most outbound verifications per Philippine day. Defaults to `EXCHANGES_PER_DAY`. */
+  dailyCap?: number;
   now?: () => number;
   allow?: (uid: string, bucket: string, max: number, windowMs: number) => Promise<boolean>;
 };
 
-type Req = Pick<CallableRequest, 'auth' | 'app' | 'data'>;
+type Req = Pick<CallableRequest, 'auth' | 'app' | 'data'> & {
+  rawRequest?: {ip?: string; headers?: Record<string, string | string[] | undefined>};
+};
 
 function assertCaller(request: Req): string {
   if (!request.auth || (enforceAppCheck && !request.app)) {
@@ -55,6 +77,79 @@ function assertCaller(request: Req): string {
   }
   assertFreshAppCheck(request);
   return request.auth.uid;
+}
+
+const millis = (value: unknown): number => (typeof value === 'number' ? value : 0);
+
+/**
+ * The bucket one client address belongs to, or null when the text is not an address. IPv4 is kept
+ * whole. IPv6 is cut to its /64 prefix, because one subscriber usually holds a whole /64 and could
+ * otherwise rotate through billions of addresses. An IPv4-mapped IPv6 address is its IPv4 address.
+ */
+export function addressBucket(raw: string): string | null {
+  const text = raw.trim().replace(/%.*$/, '').toLowerCase();
+  const family = isIP(text);
+  if (family === 4) return `v4:${text}`;
+  if (family !== 6) return null;
+  let rest = text;
+  const tail = /(\d+)\.(\d+)\.(\d+)\.(\d+)$/.exec(rest);
+  if (tail) {
+    const [a, b, c, d] = tail.slice(1).map(Number) as [number, number, number, number];
+    rest = `${rest.slice(0, tail.index)}${((a << 8) | b).toString(16)}:${((c << 8) | d).toString(16)}`;
+  }
+  const halves = rest.split('::');
+  const left = halves[0] ? halves[0].split(':') : [];
+  const right = halves[1] ? halves[1].split(':') : [];
+  const groups = halves.length === 2 ?
+    [...left, ...new Array<string>(8 - left.length - right.length).fill('0'), ...right] : left;
+  const words = groups.map(group => parseInt(group, 16));
+  if (words.length !== 8 || words.some(word => !Number.isInteger(word))) return null;
+  if (words.slice(0, 5).every(word => word === 0) && words[5] === 0xffff) {
+    return `v4:${words[6]! >> 8}.${words[6]! & 255}.${words[7]! >> 8}.${words[7]! & 255}`;
+  }
+  return `v6:${words.slice(0, 4).map(word => word.toString(16)).join(':')}`;
+}
+
+/**
+ * The caller's address bucket. Google's front end appends the address it saw to `X-Forwarded-For`,
+ * so the right-most entry is the only one the caller cannot choose; anything to its left is
+ * client-supplied. With no usable header the connection address is used, and with neither the call
+ * falls into one shared "unknown" bucket, so a missing address never skips the limit.
+ */
+export function clientBucket(request: Req): string {
+  const header = request.rawRequest?.headers?.['x-forwarded-for'];
+  const entries = (Array.isArray(header) ? header.join(',') : header ?? '').split(',')
+    .map(entry => entry.trim()).filter(Boolean);
+  const forwarded = entries.length > 0 ? addressBucket(entries[entries.length - 1]!) : null;
+  const direct = request.rawRequest?.ip ? addressBucket(request.rawRequest.ip) : null;
+  return forwarded ?? direct ?? 'unknown';
+}
+
+/** One 10 minute window per caller address, stored under a keyed hash. Same shape as the email-code limit. */
+async function allowIp(db: Firestore, key: string, bucket: string, at: number): Promise<boolean> {
+  const ref = db.doc(`signInLimits/google-ip-${createHmac('sha256', key).update(`google-ip\0${bucket}`).digest('hex')}`);
+  return db.runTransaction(async transaction => {
+    const snapshot = await transaction.get(ref);
+    const startedAt = millis(snapshot.get('windowStartedAt'));
+    const inWindow = startedAt > 0 && at - startedAt < EXCHANGE_WINDOW_MS;
+    const count = inWindow ? Number(snapshot.get('count') ?? 0) : 0;
+    if (count >= EXCHANGES_PER_IP) return false;
+    transaction.set(ref, {windowStartedAt: inWindow ? startedAt : at, count: count + 1,
+      purgeAt: new Date(at + 2 * EXCHANGE_WINDOW_MS)});
+    return true;
+  });
+}
+
+/** Takes one place from the day's budget of outbound verifications, or reports that it is spent. */
+async function takeDailyPlace(db: Firestore, cap: number, at: number): Promise<boolean> {
+  const ref = db.doc(`signInLimits/global-google-${phDay(at)}`);
+  return db.runTransaction(async transaction => {
+    const snapshot = await transaction.get(ref);
+    const used = Number(snapshot.get('count') ?? 0);
+    if (!Number.isFinite(cap) || cap < 1 || used + 1 > cap) return false;
+    transaction.set(ref, {count: used + 1, purgeAt: new Date(at + DAY_RETENTION_MS)}, {merge: true});
+    return true;
+  });
 }
 
 /** The real lookup. Failures surface as thrown errors, which the caller reports as unavailable. */
@@ -77,6 +172,36 @@ async function userOrNull(lookup: () => Promise<UserRecord>): Promise<UserRecord
 
 const text = (value: unknown): string => (typeof value === 'string' ? value : '');
 
+/** Google vouches for an address only on its own mail domains, or on the Workspace domain it names in `hd`. */
+function googleVouchesFor(email: string, hdClaim: unknown): boolean {
+  const at = email.lastIndexOf('@');
+  const domain = at > 0 ? email.slice(at + 1) : '';
+  const hd = typeof hdClaim === 'string' ? hdClaim.toLowerCase() : '';
+  return GOOGLE_MAIL_DOMAINS.has(domain) || (hd !== '' && hd === domain);
+}
+
+/**
+ * A cheap local look at the ID token before any budget is spent: the payload is read without
+ * checking the signature (tokeninfo still does that) and must name this client, a Google issuer, a
+ * future expiry and an address Google vouches for. It only keeps junk away from the budgets.
+ */
+function plausibleIdToken(idToken: string, clientId: string, now: number): boolean {
+  const parts = idToken.split('.');
+  if (parts.length !== 3) return false;
+  let payload: unknown;
+  try {
+    payload = JSON.parse(Buffer.from(parts[1]!, 'base64url').toString('utf8'));
+  } catch {
+    return false;
+  }
+  if (typeof payload !== 'object' || payload === null || Array.isArray(payload)) return false;
+  const claims = payload as Record<string, unknown>;
+  const exp = typeof claims.exp === 'number' || typeof claims.exp === 'string' ? Number(claims.exp) * 1000 : NaN;
+  const email = text(claims.email).trim().toLowerCase();
+  return claims.aud === clientId && GOOGLE_ISSUERS.has(text(claims.iss)) && exp > now &&
+    email !== '' && googleVouchesFor(email, claims.hd);
+}
+
 /** The verified Google identity in an ID token, or a refusal. */
 async function verifiedIdentity(idToken: string, deps: GoogleSignInDeps, now: number):
   Promise<{sub: string; email: string}> {
@@ -97,13 +222,8 @@ async function verifiedIdentity(idToken: string, deps: GoogleSignInDeps, now: nu
   const expiresAt = Number(text(claims.exp)) * 1000;
   const sub = text(claims.sub);
   const email = text(claims.email).trim().toLowerCase();
-  // Google vouches for an address only on its own mail domains, or on the Workspace domain it names
-  // in `hd`. Any other verified address could belong to a mail host that someone else controls.
-  const at = email.lastIndexOf('@');
-  const domain = at > 0 ? email.slice(at + 1) : '';
-  const hd = typeof claims.hd === 'string' ? claims.hd.toLowerCase() : '';
-  const authoritative = GOOGLE_MAIL_DOMAINS.has(domain) || (hd !== '' && hd === domain);
-  if (!authoritative || claims.aud !== deps.clientId || !GOOGLE_ISSUERS.has(text(claims.iss)) ||
+  // Any other verified address could belong to a mail host that someone else controls.
+  if (!googleVouchesFor(email, claims.hd) || claims.aud !== deps.clientId || !GOOGLE_ISSUERS.has(text(claims.iss)) ||
       claims.email_verified !== 'true' || !(expiresAt > now) || !sub || !email) {
     throw new HttpsError('permission-denied', NOT_VERIFIED);
   }
@@ -124,7 +244,19 @@ export async function checkGoogleSignIn(request: Req, deps: GoogleSignInDeps): P
   }
   if (!deps.clientId) throw new HttpsError('failed-precondition', 'Google sign-in is not configured.');
 
-  const {sub, email} = await verifiedIdentity(idToken, deps, (deps.now ?? Date.now)());
+  // Both budgets are spent before Google is asked, and only by calls that would ask: a token that
+  // is plainly junk is refused first and costs nothing.
+  const at = (deps.now ?? Date.now)();
+  if (!plausibleIdToken(idToken, deps.clientId, at)) throw new HttpsError('permission-denied', NOT_VERIFIED);
+  if (!await allowIp(deps.db, deps.key, clientBucket(request), at)) {
+    throw new HttpsError('resource-exhausted', 'Too many attempts. Try again later.');
+  }
+  if (!await takeDailyPlace(deps.db, deps.dailyCap ?? EXCHANGES_PER_DAY, at)) {
+    logger.warn('Google sign-in: the daily budget of verifications is spent.');
+    throw new HttpsError('resource-exhausted', 'Too many attempts. Try again later.');
+  }
+
+  const {sub, email} = await verifiedIdentity(idToken, deps, at);
 
   // A new address never needs this path: Firebase signs it in directly.
   const user = await userOrNull(() => deps.auth.getUserByEmail(email));
@@ -161,8 +293,8 @@ export async function checkGoogleSignIn(request: Req, deps: GoogleSignInDeps): P
 }
 
 export const exchangeGoogleSignIn = onCall({region: 'asia-southeast1', enforceAppCheck: enforceAppCheck,
-  consumeAppCheckToken: enforceAppCheck}, timed('exchangeGoogleSignIn', request => {
+  consumeAppCheckToken: enforceAppCheck, secrets: [signInCodeKey]}, timed('exchangeGoogleSignIn', request => {
   assertFreshAppCheck(request);
-  return checkGoogleSignIn(request, {auth: getAuth(), clientId: googleWebClientId.value(),
+  return checkGoogleSignIn(request, {auth: getAuth(), db: getFirestore(), key: signInKey(), clientId: googleWebClientId.value(),
     fetchTokenInfo: fetchGoogleTokenInfo});
 }));

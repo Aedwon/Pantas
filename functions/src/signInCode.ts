@@ -415,7 +415,7 @@ export async function checkSignInCode(request: Req, deps: VerifyDeps): Promise<{
 
 // ------------------------------------------------------------- deployment
 
-function key(): string {
+export function key(): string {
   const emulator = process.env.FUNCTIONS_EMULATOR === 'true';
   const value = signInCodeKey.value() || (emulator ? 'sign-in-code-emulator-only-key' : '');
   if (!value) throw new HttpsError('failed-precondition', 'Sign-in codes are not configured.');

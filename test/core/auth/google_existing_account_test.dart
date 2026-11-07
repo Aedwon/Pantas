@@ -1,3 +1,6 @@
+import 'dart:async';
+import 'dart:convert';
+
 import 'package:cloud_functions/cloud_functions.dart';
 import 'package:firebase_auth/firebase_auth.dart' as firebase;
 import 'package:flutter_test/flutter_test.dart';
@@ -31,6 +34,12 @@ class _FirebaseAuth extends Mock implements firebase.FirebaseAuth {}
 class _FirebaseUser extends Mock implements firebase.User {}
 
 const _anonymous = AuthSession(uid: 'anon', isAnonymous: true);
+
+String _token(String uid) {
+  String part(Object value) =>
+      base64Url.encode(utf8.encode(json.encode(value))).replaceAll('=', '');
+  return '${part({'alg': 'RS256'})}.${part({'uid': uid})}.signature';
+}
 
 // The constructor is protected for the plugin; a test needs one.
 // ignore: invalid_use_of_protected_member
@@ -168,6 +177,146 @@ void main() {
         const SignInResult.cancelled(),
       );
       verifyNever(() => exchange.exchange(any()));
+    });
+
+    group('an exchange result that arrives late', () {
+      late Completer<String> server;
+
+      setUp(() {
+        server = Completer<String>();
+        when(() => popup.googlePopup(link: true))
+            .thenThrow(const GoogleAccountExistsException('google-id'));
+        when(() => exchange.exchange('google-id'))
+            .thenAnswer((_) => server.future);
+      });
+
+      Future<SignInResult> startAndWait() async {
+        final result = repository.signInWithGoogle();
+        await Future<void>.delayed(Duration.zero);
+        verify(() => exchange.exchange('google-id')).called(1);
+        return result;
+      }
+
+      void expectUntouched() {
+        verifyNever(() => transition.prepareForAccountSwitch());
+        verifyNever(() => auth.signOut());
+        verifyNever(() => auth.signInAnonymously());
+        verifyNever(() => token.signInWithCustomToken(any()));
+        verifyNever(() => functions.recordSignInEvent());
+      }
+
+      test('is dropped when the flow was cancelled meanwhile', () async {
+        final result = startAndWait();
+        await Future<void>.delayed(Duration.zero);
+        repository.cancelVerification();
+        server.complete(_token('maria'));
+
+        expect(await result, const SignInResult.cancelled());
+        expectUntouched();
+      });
+
+      test('is dropped when a newer sign-in was asked for meanwhile', () async {
+        final result = startAndWait();
+        await Future<void>.delayed(Duration.zero);
+        // A second request bumps the identity epoch and queues behind us.
+        unawaited(repository.signOut().catchError((Object _) {}));
+        server.complete(_token('maria'));
+
+        expect(await result, const SignInResult.cancelled());
+        verifyNever(() => token.signInWithCustomToken(any()));
+        verifyNever(() => functions.recordSignInEvent());
+      });
+
+      test('is dropped when the owner changed in another tab', () async {
+        final result = startAndWait();
+        await Future<void>.delayed(Duration.zero);
+        when(() => auth.currentSession).thenReturn(
+          const AuthSession(uid: 'tab-two', email: 'z@y.co'),
+        );
+        server.complete(_token('maria'));
+
+        expect(await result, const SignInResult.cancelled());
+        expectUntouched();
+      });
+
+      test('is dropped when the session ended in another tab', () async {
+        final result = startAndWait();
+        await Future<void>.delayed(Duration.zero);
+        when(() => auth.currentSession).thenReturn(null);
+        server.complete(_token('maria'));
+
+        expect(await result, const SignInResult.cancelled());
+        expectUntouched();
+      });
+
+      test('still signs in when nothing changed', () async {
+        final result = startAndWait();
+        await Future<void>.delayed(Duration.zero);
+        server.complete(_token('maria'));
+
+        expect(await result, const SignInResult.switchedToExisting());
+        verifyInOrder([
+          () => transition.prepareForAccountSwitch(),
+          () => auth.signOut(),
+          () => token.signInWithCustomToken(any()),
+          () => functions.recordSignInEvent(),
+        ]);
+      });
+
+      group('and the flow is cancelled during the token sign-in', () {
+        late Completer<void> tokenSignIn;
+        late AuthSession? session;
+
+        setUp(() {
+          tokenSignIn = Completer<void>();
+          session = _anonymous;
+          when(() => auth.currentSession).thenAnswer((_) => session);
+          when(() => auth.signOut()).thenAnswer((_) async => session = null);
+          when(() => auth.signInAnonymously()).thenAnswer((_) async {
+            return session = _anonymous;
+          });
+        });
+
+        test('signs the installed account out and returns to anonymous',
+            () async {
+          when(() => token.signInWithCustomToken(any())).thenAnswer((_) async {
+            await tokenSignIn.future;
+            session = const AuthSession(uid: 'maria', email: 'm@gmail.com');
+          });
+          final result = startAndWait();
+          server.complete(_token('maria'));
+          await Future<void>.delayed(Duration.zero);
+          await Future<void>.delayed(Duration.zero);
+          verify(() => token.signInWithCustomToken(any())).called(1);
+          repository.cancelVerification();
+          tokenSignIn.complete();
+
+          expect(await result, const SignInResult.cancelled());
+          expect(session?.isAnonymous, isTrue);
+          verify(() => auth.signOut()).called(2);
+          verifyNever(() => functions.recordSignInEvent());
+        });
+
+        test('leaves another user alone if it is not the account installed',
+            () async {
+          when(() => token.signInWithCustomToken(any())).thenAnswer((_) async {
+            await tokenSignIn.future;
+            session = const AuthSession(uid: 'tab-two', email: 'z@y.co');
+          });
+          final result = startAndWait();
+          server.complete(_token('maria'));
+          await Future<void>.delayed(Duration.zero);
+          await Future<void>.delayed(Duration.zero);
+          repository.cancelVerification();
+          tokenSignIn.complete();
+
+          expect(await result, const SignInResult.cancelled());
+          expect(session?.uid, 'tab-two');
+          verify(() => auth.signOut()).called(1);
+          verifyNever(() => auth.signInAnonymously());
+          verifyNever(() => functions.recordSignInEvent());
+        });
+      });
     });
   });
 

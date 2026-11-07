@@ -11,6 +11,33 @@ const caller = (provider = 'anonymous', uid = 'anon1') =>
   ({uid, token: {firebase: {sign_in_provider: provider}}});
 const req = (data, overrides = {}) => ({auth: caller(), app: {appId: 'web'}, data, ...overrides});
 
+/** A Firestore stand-in: doc and serialized transactions, as the email-code tests use. */
+function fakeDb() {
+  const rows = new Map();
+  let chain = Promise.resolve();
+  return {
+    rows,
+    doc: path => ({path}),
+    runTransaction: fn => {
+      const run = chain.then(() => fn({
+        get: async r => ({exists: rows.has(r.path), get: field => rows.get(r.path)?.[field]}),
+        set: (r, data, options) => rows.set(r.path, options?.merge ? {...rows.get(r.path), ...data} : {...data}),
+      }));
+      chain = run.catch(() => {});
+      return run;
+    },
+  };
+}
+
+/** A Google ID token as the client sends it. Only the payload matters here; tokeninfo checks the signature. */
+const part = value => Buffer.from(JSON.stringify(value)).toString('base64url');
+const jwt = (claims, signature = 'signature') => `${part({alg: 'RS256'})}.${part(claims)}.${signature}`;
+const goodClaims = (changes = {}) => ({
+  aud: CLIENT, iss: 'https://accounts.google.com', email: EMAIL, email_verified: true,
+  exp: NOW / 1000 + 10 * 86_400, sub: SUB, ...changes,
+});
+const GOOD_JWT = jwt(goodClaims());
+
 /** What Google's tokeninfo returns for a good token. All values are strings, as Google sends them. */
 const goodInfo = (changes = {}) => ({
   aud: CLIENT, iss: 'https://accounts.google.com', email: EMAIL, email_verified: 'true',
@@ -42,17 +69,19 @@ function fakeAuth(users = {maria: account()}) {
 }
 
 /** A tokeninfo stand-in. The tests never reach Google. */
-function rig({users, info = goodInfo(), status = 200, clientId = CLIENT, allow = async () => true} = {}) {
+function rig({users, info = goodInfo(), status = 200, clientId = CLIENT, allow = async () => true,
+  extra = {}} = {}) {
   const auth = fakeAuth(users);
+  const db = fakeDb();
   const fetched = [];
   const deps = {
-    auth, clientId, now: () => NOW, allow,
+    auth, db, key: 'test-key', clientId, now: () => NOW, allow, ...extra,
     fetchTokenInfo: async idToken => {
       fetched.push(idToken);
       return {status, body: info};
     },
   };
-  return {auth, fetched, deps, run: (data = {idToken: 'google-id-token'}, overrides = {}) =>
+  return {auth, db, fetched, deps, run: (data = {idToken: GOOD_JWT}, overrides = {}) =>
     checkGoogleSignIn(req(data, overrides), deps)};
 }
 
@@ -65,7 +94,7 @@ test('a verified Google address that has an account links Google once and return
   assert.deepEqual(await r.run(), {token: 'token-for-maria'});
   assert.deepEqual(r.auth.calls, [['updateUser', 'maria', {providerToLink: {
     providerId: 'google.com', uid: SUB, email: EMAIL}}]]);
-  assert.deepEqual(r.fetched, ['google-id-token']);
+  assert.deepEqual(r.fetched, [GOOD_JWT]);
   // The next time the link is there, so nothing is written again.
   assert.deepEqual(await r.run(), {token: 'token-for-maria'});
   assert.equal(r.auth.calls.length, 1);
@@ -91,7 +120,7 @@ test('both Google issuer spellings are accepted', async () => {
 
 test('a signed-in non-anonymous caller is also accepted, like the code flow', async () => {
   const r = rig();
-  assert.deepEqual(await r.run({idToken: 'x'}, {auth: caller('password', 'u9')}), {token: 'token-for-maria'});
+  assert.deepEqual(await r.run({idToken: GOOD_JWT}, {auth: caller('password', 'u9')}), {token: 'token-for-maria'});
 });
 
 // ---------------------------------------------------------- token checks
@@ -232,7 +261,7 @@ test('other Auth errors are not hidden', async () => {
 test('a failed token creation is unavailable and says nothing about the account', async () => {
   const r = rig();
   r.auth.createCustomToken = async () => { throw new Error('no permission'); };
-  await assert.rejects(r.run(), error => error.code === 'unavailable' && !/maria|google-id-token/.test(error.message));
+  await assert.rejects(r.run(), error => error.code === 'unavailable' && !/maria|signature/.test(error.message));
 });
 
 // ------------------------------------------------------ caller and input
@@ -251,7 +280,10 @@ test('the input is exactly one text id token of 4096 characters or fewer', async
     await refused(r.run(data), 'invalid-argument');
     assert.deepEqual(r.fetched, [], JSON.stringify(data)?.slice(0, 40));
   }
-  assert.deepEqual(await rig().run({idToken: 'x'.repeat(4096)}), {token: 'token-for-maria'});
+  // Exactly 4096 characters: the signature part is not read, so it carries the padding.
+  const base = jwt(goodClaims(), '');
+  assert.deepEqual(await rig().run({idToken: jwt(goodClaims(), 'x'.repeat(4096 - base.length))}),
+    {token: 'token-for-maria'});
 });
 
 test('the rate limit is ten tries in ten minutes per caller and stops the call before Google is asked', async () => {
@@ -260,6 +292,149 @@ test('the rate limit is ten tries in ten minutes per caller and stops the call b
   await refused(r.run(), 'resource-exhausted');
   assert.deepEqual(seen, [['anon1', 'googleExchange', 10, 10 * 60_000]]);
   assert.deepEqual(r.fetched, []);
+});
+
+// ----------------------------------------------- IP limit and daily cap
+
+const fromIp = (r, ip, uid) =>
+  r.run({idToken: GOOD_JWT}, {auth: caller('anonymous', uid), rawRequest: {ip}});
+
+// Tokens that outlive the clock moves below.
+const longLived = () => goodInfo({exp: String(NOW / 1000 + 3 * 86_400)});
+
+test('one IP gets 20 exchanges in ten minutes whatever accounts it uses, and only a hash of it is stored', async () => {
+  const r = rig({info: longLived()});
+  for (let i = 0; i < 20; i += 1) await fromIp(r, '203.0.113.9', `anon${i}`);
+  await refused(fromIp(r, '203.0.113.9', 'anon99'), 'resource-exhausted');
+  assert.equal(r.fetched.length, 20);
+  assert.ok(![...r.db.rows.keys()].some(path => path.includes('203.0.113.9')));
+  // Another address is not affected, and neither is a call that carries no address.
+  await fromIp(r, '203.0.113.10', 'anon1');
+  await r.run();
+  r.deps.now = () => NOW + 10 * 60_000 + 1;
+  await fromIp(r, '203.0.113.9', 'anon99');
+});
+
+test('the global cap is 500 verifications a day', async () => {
+  const r = rig();
+  const ip = i => `10.0.${Math.floor(i / 250)}.${i % 250}`;
+  for (let i = 0; i < 500; i += 1) await fromIp(r, ip(i), `anon${i}`);
+  assert.equal(r.fetched.length, 500);
+  await refused(fromIp(r, '192.0.2.1', 'fresh'), 'resource-exhausted');
+  assert.equal(r.fetched.length, 500);
+});
+
+test('a full day stops the call before Google is asked, and the next day starts fresh', async () => {
+  const r = rig({info: longLived(), extra: {dailyCap: 3}});
+  for (let i = 0; i < 3; i += 1) await fromIp(r, `192.0.2.${i}`, `anon${i}`);
+  await refused(fromIp(r, '192.0.2.50', 'anon50'), 'resource-exhausted');
+  assert.equal(r.fetched.length, 3);
+  r.deps.now = () => NOW + 24 * 3_600_000;
+  await fromIp(r, '192.0.2.50', 'anon50');
+  assert.equal(r.fetched.length, 4);
+});
+
+test('a call refused by the caller or IP limit, or by bad input, does not use up the daily cap', async () => {
+  const r = rig({extra: {dailyCap: 25}, allow: async uid => uid !== 'blocked'});
+  await refused(fromIp(r, '192.0.2.1', 'blocked'), 'resource-exhausted');
+  await refused(r.run({idToken: ''}, {rawRequest: {ip: '192.0.2.1'}}), 'invalid-argument');
+  for (let i = 0; i < 20; i += 1) await fromIp(r, '192.0.2.7', 'u');
+  for (let i = 0; i < 5; i += 1) await refused(fromIp(r, '192.0.2.7', 'u'), 'resource-exhausted');
+  for (let i = 0; i < 5; i += 1) await fromIp(r, `192.0.2.${100 + i}`, 'u');
+  assert.equal(r.fetched.length, 25);
+  await refused(fromIp(r, '192.0.2.200', 'u'), 'resource-exhausted');
+});
+
+// ------------------------------------------- local check of the token
+
+test('a token that is plainly junk spends no budget and never reaches Google', async () => {
+  const junk = {
+    'not a token': 'google-id-token',
+    'two parts': 'a.b',
+    'four parts': 'a.b.c.d',
+    'payload is not base64 json': 'a.%%%.c',
+    'payload is not json': `a.${Buffer.from('nope').toString('base64url')}.c`,
+    'payload is an array': jwt([]),
+    'payload is null': jwt(null),
+    'wrong audience': jwt(goodClaims({aud: 'someone-elses-client'})),
+    'missing audience': jwt(goodClaims({aud: undefined})),
+    'wrong issuer': jwt(goodClaims({iss: 'https://evil.example.com'})),
+    'expired': jwt(goodClaims({exp: NOW / 1000 - 1})),
+    'expires right now': jwt(goodClaims({exp: NOW / 1000})),
+    'missing exp': jwt(goodClaims({exp: undefined})),
+    'exp is not a number': jwt(goodClaims({exp: 'soon'})),
+    'missing email': jwt(goodClaims({email: undefined})),
+    'email is not text': jwt(goodClaims({email: 5})),
+    'not a Google domain': jwt(goodClaims({email: 'maria@yahoo.com'})),
+    'hd differs from the domain': jwt(goodClaims({email: 'maria@school.edu.ph', hd: 'other.edu.ph'})),
+  };
+  for (const [name, idToken] of Object.entries(junk)) {
+    const r = rig();
+    await refused(r.run({idToken}, {rawRequest: {ip: '203.0.113.9'}}), 'permission-denied');
+    assert.deepEqual(r.fetched, [], name);
+    assert.equal(r.db.rows.size, 0, name);
+  }
+});
+
+test('a Workspace token and a numeric string exp pass the local check', async () => {
+  const email = 'maria@school.edu.ph';
+  const r = rig({info: goodInfo({email, hd: 'school.edu.ph'}), users: {maria: account({email})}});
+  const idToken = jwt(goodClaims({email, hd: 'School.EDU.ph', exp: String(NOW / 1000 + 600)}));
+  assert.deepEqual(await r.run({idToken}), {token: 'token-for-maria'});
+});
+
+// -------------------------------------------------------- client address
+
+const behind = (r, forwarded, ip, uid) => r.run({idToken: GOOD_JWT},
+  {auth: caller('anonymous', uid), rawRequest: {ip, headers: {'x-forwarded-for': forwarded}}});
+
+test('the right-most X-Forwarded-For entry is the client, so a spoofed left side changes nothing', async () => {
+  const r = rig();
+  for (let i = 0; i < 20; i += 1) await behind(r, `198.51.100.${i}, 203.0.113.9`, '10.0.0.1', `anon${i}`);
+  await refused(behind(r, '192.0.2.99, 203.0.113.9', '10.0.0.2', 'anon99'), 'resource-exhausted');
+  await refused(behind(r, '203.0.113.9', '10.0.0.3', 'anon98'), 'resource-exhausted');
+  assert.equal(r.fetched.length, 20);
+  // A different right-most entry is a different client, even with the same spoofed left side.
+  await behind(r, '203.0.113.9, 203.0.113.10', '10.0.0.1', 'anon1');
+  // Repeated headers arrive as a list: the last entry still counts.
+  await refused(r.run({idToken: GOOD_JWT}, {rawRequest: {headers: {'x-forwarded-for': ['1.2.3.4', '5.6.7.8, 203.0.113.9']}}}),
+    'resource-exhausted');
+});
+
+test('without a usable X-Forwarded-For the connection address is used', async () => {
+  const r = rig();
+  for (let i = 0; i < 20; i += 1) await behind(r, i % 2 ? '' : 'not-an-address', '203.0.113.9', `anon${i}`);
+  await refused(behind(r, undefined, '203.0.113.9', 'anon99'), 'resource-exhausted');
+  await behind(r, undefined, '203.0.113.10', 'anon99');
+});
+
+test('IPv6 addresses in one /64 share a bucket and other prefixes do not', async () => {
+  const r = rig();
+  const sameNet = ['2001:db8:1:2::1', '2001:0DB8:1:2:aaaa:bbbb:cccc:dddd', '2001:db8:1:2:0:0:0:0',
+    '2001:db8:1:2::ffff:1.2.3.4', '2001:db8:1:2:ffff:ffff:ffff:ffff%eth0'];
+  for (let i = 0; i < 20; i += 1) await behind(r, sameNet[i % sameNet.length], undefined, `anon${i}`);
+  await refused(behind(r, '2001:db8:1:2:1234::9', undefined, 'anon99'), 'resource-exhausted');
+  await behind(r, '2001:db8:1:3::1', undefined, 'anon99');
+  await behind(r, '2001:db9:1:2::1', undefined, 'anon98');
+  // The address itself is never stored.
+  assert.ok(![...r.db.rows.keys()].some(path => /2001|db8/i.test(path)));
+});
+
+test('an IPv4-mapped IPv6 address is the same client as its IPv4 address', async () => {
+  const r = rig();
+  for (let i = 0; i < 20; i += 1) await behind(r, i % 2 ? '::ffff:203.0.113.9' : '203.0.113.9', undefined, `anon${i}`);
+  await refused(behind(r, '203.0.113.9', undefined, 'anon99'), 'resource-exhausted');
+});
+
+test('calls with no address at all share one unknown bucket instead of skipping the limit', async () => {
+  const r = rig();
+  for (const overrides of [{}, {rawRequest: {}}, {rawRequest: {headers: {}}}, {rawRequest: {ip: ''}}]) {
+    for (let i = 0; i < 5; i += 1) await r.run({idToken: GOOD_JWT}, overrides);
+  }
+  await refused(r.run({idToken: GOOD_JWT}), 'resource-exhausted');
+  assert.equal(r.fetched.length, 20);
+  // A real address is not in that bucket.
+  await fromIp(r, '203.0.113.9', 'anon1');
 });
 
 // ------------------------------------------------------------- deployment
@@ -272,6 +447,7 @@ test('the callable is deployed with App Check, a used-once token and the timing 
   assert.match(source, /consumeAppCheckToken: enforceAppCheck/);
   assert.match(source, /timed\('exchangeGoogleSignIn'/);
   assert.match(source, /defineString\('GOOGLE_WEB_CLIENT_ID'/);
+  assert.match(source, /secrets: \[signInCodeKey\]/);
   const index = readFileSync(new URL('../src/index.ts', import.meta.url), 'utf8');
   assert.match(index, /exchangeGoogleSignIn[^;]*from '\.\/googleSignIn\.js'/);
 });
