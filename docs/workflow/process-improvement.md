@@ -59,6 +59,13 @@ pass 15, retire or merge one first.
 Newest first. When this file passes about 120 lines, move the oldest closed entries to
 the current decision log.
 
+### A bundled item was logged as approved (Nov 7)
+
+- **His words:** "no i didn't approve anything you've sent, i was commenting on" the design-system plan summary.
+- **What was wrong:** the lead's reply laid out the design-system plan and, in the same message, said a Tester Guide row would be added to Settings before Nov 9. His "yes good, include animations, motion, movement, etc" answered the plan, but the lead logged it as approving the row too and had it sent to the Feedback session for building.
+- **Why the process let it through:** nothing says an approval covers only what his words answer, and a long reply let a side decision ride along with the main one.
+- **Fix:** required step. A change counts as approved only when his words name it, or answer a question that asked about that change alone. Never put a side decision inside a plan he is asked to accept; ask it separately. Before logging an approval or dispatching work on it, quote the exact words and the item they answer.
+
 ### Beta notice board adapted carelessly (Nov 7)
 
 - **His words:** "lol this is the type of UI that made me realize we needed a robust design system in the first place. this looks terrible"
