@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/home/application/performance/topic_detail.dart';
 import 'package:pantas/features/home/presentation/topic_detail_page.dart';
 
@@ -54,6 +56,7 @@ Widget show(
     );
 
 void main() {
+  p2Main();
   testWidgets('prints the measured figures and the lessons read',
       (tester) async {
     await tester.pumpWidget(show(detail()));
@@ -108,4 +111,44 @@ void main() {
       expect(tester.takeException(), isNull);
     });
   }
+}
+
+/// P2 (Aedwon, Nov 7): on wide screens the footer's note sits at the left and
+/// Practice This Topic at the right end, as the Today card's footer does.
+void p2Main() {
+  testWidgets('P2: the wide footer puts Practice This Topic at the right end',
+      (tester) async {
+    debugWebPlatformOverride = true;
+    addTearDown(() => debugWebPlatformOverride = null);
+    tester.view.devicePixelRatio = 1;
+    tester.view.physicalSize = const Size(1440, 900);
+    addTearDown(tester.view.reset);
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: buildLightTheme(web: true),
+        home: TopicDetailPage(
+          detail: detail(),
+          onBack: () {},
+          onLesson: (_) {},
+          onPractice: () {},
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    final button =
+        tester.getRect(find.widgetWithText(WebButton, 'Practice This Topic'));
+    final note =
+        tester.getRect(find.textContaining('Practice is outside your plan'));
+    final footer = tester.getRect(
+      find
+          .ancestor(
+            of: find.byType(WebButton),
+            matching: find.byType(Container),
+          )
+          .first,
+    );
+    expect(button.right, footer.right - 28);
+    expect(note.left, footer.left + 28);
+    expect(note.right, lessThan(button.left));
+  });
 }
