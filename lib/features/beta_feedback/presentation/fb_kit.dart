@@ -12,7 +12,8 @@ import 'package:pantas/core/ui/web/web_tokens.dart';
 /// pane page, so these pages never import another feature's presentation.
 ///
 /// [beta] adds the BETA mark to [title] (and the chat glyph on wide web).
-/// [subline] is the grey line under the title.
+/// [subline] is the grey line under the title. [heading] false leaves the
+/// title out (the survey's sent state).
 typedef FeedbackFrame = Widget Function({
   required String title,
   required List<Widget> children,
@@ -21,6 +22,7 @@ typedef FeedbackFrame = Widget Function({
   bool beta,
   String? subline,
   double headingGap,
+  bool heading,
 });
 
 /// Board colors for both layouts. The phone boards and the desktop boards use
@@ -604,6 +606,7 @@ class FbButton extends StatelessWidget {
     this.tint = false,
     this.busy = false,
     this.minWidth,
+    this.compact = false,
     super.key,
   });
 
@@ -618,13 +621,17 @@ class FbButton extends StatelessWidget {
   final bool busy;
   final double? minWidth;
 
+  /// The 44 px button at natural width on both layouts ("Back to Feedback").
+  final bool compact;
+
   @override
   Widget build(BuildContext context) {
     final t = context.fbTokens;
     final c = t.colors;
     final wide = context.fbWide;
-    final height = wide ? 44.0 : 52.0;
-    final radius = wide ? 12.0 : 14.0;
+    final small = wide || compact;
+    final height = small ? 44.0 : 52.0;
+    final radius = small ? 12.0 : 14.0;
     final enabled = onPressed != null || busy;
     final foreground = !enabled
         ? t.disabledText
@@ -646,10 +653,10 @@ class FbButton extends StatelessWidget {
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
         visualDensity: VisualDensity.standard,
         minimumSize: WidgetStatePropertyAll(
-          Size(wide ? (minWidth ?? 0) : double.infinity, height),
+          Size(small ? (minWidth ?? 0) : double.infinity, height),
         ),
         padding: WidgetStatePropertyAll(
-          EdgeInsets.symmetric(horizontal: wide ? 20 : 16),
+          EdgeInsets.symmetric(horizontal: small ? 20 : 16),
         ),
         backgroundColor: WidgetStateProperty.resolveWith(background),
         foregroundColor: WidgetStatePropertyAll(foreground),
@@ -664,9 +671,9 @@ class FbButton extends StatelessWidget {
         ),
         textStyle: WidgetStatePropertyAll(
           context.fbText(
-            wide ? 16 : 17,
+            small ? 16 : 17,
             weight: FontWeight.w600,
-            spacing: wide ? 0 : -.204,
+            spacing: small ? 0 : -.204,
           ),
         ),
       ),
@@ -676,11 +683,11 @@ class FbButton extends StatelessWidget {
       ),
     );
     final pressable = PressScale(
-      scale: wide ? .96 : .98,
+      scale: small ? .96 : .98,
       enabled: enabled && !busy,
       child: button,
     );
-    if (!wide) return pressable;
+    if (!small) return pressable;
     return Align(
       alignment: Alignment.centerLeft,
       widthFactor: 1,

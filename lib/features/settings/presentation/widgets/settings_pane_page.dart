@@ -43,6 +43,7 @@ class SettingsPanePage extends StatelessWidget {
     this.titleSuffix,
     this.headingGlyph,
     this.headingGap = 24,
+    this.hideHeading = false,
   });
   final String title;
   final List<Widget> children;
@@ -75,6 +76,9 @@ class SettingsPanePage extends StatelessWidget {
 
   /// Wide web: space between the heading and the first child.
   final double headingGap;
+
+  /// Wide web: no heading at all, only the back link above the children.
+  final bool hideHeading;
 
   @override
   Widget build(BuildContext context) {
@@ -216,44 +220,50 @@ class SettingsPanePage extends StatelessWidget {
                                   ),
                                   const SizedBox(height: 14),
                                 ],
-                                Padding(
-                                  padding:
-                                      const EdgeInsets.fromLTRB(4, 4, 4, 0),
-                                  child: Row(
-                                    children: [
-                                      if (headingGlyph != null) ...[
-                                        headingGlyph!,
-                                        const SizedBox(width: 14),
-                                      ] else if (headingIcon != null) ...[
-                                        headingIcon,
-                                        const SizedBox(width: 14),
-                                      ],
-                                      Expanded(
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            if (titleSuffix == null)
-                                              Text(title, style: t.h2)
-                                            else
-                                              Row(
-                                                mainAxisSize: MainAxisSize.min,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Text(title, style: t.h2),
-                                                  titleSuffix!,
-                                                ],
-                                              ),
-                                            if (description != null)
-                                              Text(description!, style: t.sub),
-                                          ],
+                                if (!hideHeading) ...[
+                                  Padding(
+                                    padding:
+                                        const EdgeInsets.fromLTRB(4, 4, 4, 0),
+                                    child: Row(
+                                      children: [
+                                        if (headingGlyph != null) ...[
+                                          headingGlyph!,
+                                          const SizedBox(width: 14),
+                                        ] else if (headingIcon != null) ...[
+                                          headingIcon,
+                                          const SizedBox(width: 14),
+                                        ],
+                                        Expanded(
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              if (titleSuffix == null)
+                                                Text(title, style: t.h2)
+                                              else
+                                                Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.min,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    Text(title, style: t.h2),
+                                                    titleSuffix!,
+                                                  ],
+                                                ),
+                                              if (description != null)
+                                                Text(
+                                                  description!,
+                                                  style: t.sub,
+                                                ),
+                                            ],
+                                          ),
                                         ),
-                                      ),
-                                    ],
+                                      ],
+                                    ),
                                   ),
-                                ),
-                                SizedBox(height: headingGap),
+                                  SizedBox(height: headingGap),
+                                ],
                                 ...children,
                                 if (bottom != null) ...[
                                   const SizedBox(height: 24),

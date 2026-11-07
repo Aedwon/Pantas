@@ -20,6 +20,7 @@ import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/features/beta_feedback/presentation/exit_survey_page.dart';
 import 'package:pantas/features/beta_feedback/presentation/feedback_page.dart';
 import 'package:pantas/features/home/application/study_delivery.dart';
 import 'package:pantas/features/legal/legal.dart';
@@ -143,6 +144,12 @@ List<RouteBase> settingsRoutes(Ref ref) => [
         ),
       ),
       GoRoute(
+        path: '/settings/beta-feedback/survey',
+        builder: (_, __) => const _TesterOnly(
+          child: ExitSurveyPage(frame: feedbackFrame),
+        ),
+      ),
+      GoRoute(
         path: '/settings/backup',
         builder: (_, __) => const BackupPage(),
       ),
@@ -196,6 +203,7 @@ Widget feedbackFrame({
   bool beta = false,
   String? subline,
   double headingGap = 24,
+  bool heading = true,
 }) =>
     Builder(
       builder: (context) => SettingsPanePage(
@@ -206,6 +214,8 @@ Widget feedbackFrame({
         onBack: onBack,
         compactTitle: true,
         bottomInset: 40,
+        noHeading: !heading,
+        hideHeading: !heading,
         headingGap: headingGap,
         titleSuffix: beta ? const SettingsBetaMark(top: 4) : null,
         headingGlyph: beta

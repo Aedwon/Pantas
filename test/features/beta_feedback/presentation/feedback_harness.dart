@@ -20,6 +20,7 @@ Widget testFrame({
   bool beta = false,
   String? subline,
   double headingGap = 24,
+  bool heading = true,
 }) =>
     Scaffold(
       body: SingleChildScrollView(
@@ -31,7 +32,7 @@ Widget testFrame({
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Text(title),
+                  if (heading) Text(title),
                   if (subline != null) Text(subline),
                   ...children,
                 ],
