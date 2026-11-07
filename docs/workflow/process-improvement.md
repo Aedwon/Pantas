@@ -49,11 +49,22 @@ pass 15, retire or merge one first.
 2. Do not remove motion he approved or asked for without his approval. A sweep item or a
    performance finding is not approval. No check can tell a deliberate removal from a
    mistake.
+3. Boards for UI decisions are built in Claude Design (a Design Artifact), starting from
+   the approved screens in the Pantas Web and Pantas Redesign canvases (exported copies in
+   `web-design/pantas-handoff/`). Never hand-draw a local HTML board or redraw a screen from
+   widget code. No check can judge fidelity: he does the visual check.
 
 ## Entries
 
 Newest first. When this file passes about 120 lines, move the oldest closed entries to
 the current decision log.
+
+### Splash board hand-drawn, not built in Claude Design (Nov 7)
+
+- **His words:** "what is that ew, why didn't you use claude design, and the fidelity is awful from the actual thing"
+- **What was wrong:** for the splash hand-over decision the lead had a subagent hand-draw a local HTML board, redrawing Home's skeleton and chrome from widget code. It looked nothing like the real app.
+- **Why the process let it through:** `docs/workflow/visual-companion.md` asks for fidelity but does not name Claude Design or the approved canvases as the source, and an older local HTML board (b5-splash-v1) was copied as the template.
+- **Fix:** written rule 3 above (fidelity cannot be checked by a script). Required step: before showing a board, the lead names the canvas boards it was built from in the board's notes. The rejected file was deleted.
 
 ### Home could not load the plan on first use (Nov 6)
 
