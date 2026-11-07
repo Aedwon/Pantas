@@ -406,6 +406,10 @@ class AttemptsRepository {
       (_db.select(_db.attemptsLocal)..where((t) => t.id.equals(id)))
           .getSingle();
 
+  /// Builds the attempt from a row the caller already holds, so it need not
+  /// read the same row again.
+  Attempt fromRow(AttemptLocalRow row) => _hydrate(row);
+
   Attempt _hydrate(AttemptLocalRow r) {
     final items = (jsonDecode(r.itemsJson) as List)
         .cast<Map<String, dynamic>>()

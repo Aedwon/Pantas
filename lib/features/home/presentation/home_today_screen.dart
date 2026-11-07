@@ -31,6 +31,7 @@ import 'package:pantas/features/home/data/study_writes.dart';
 import 'package:pantas/features/home/domain/home_day_note.dart';
 import 'package:pantas/features/home/domain/home_today_view.dart';
 import 'package:pantas/features/home/domain/lesson_day_context.dart';
+import 'package:pantas/features/home/domain/study_models.dart';
 import 'package:pantas/features/home/presentation/practice_launcher.dart';
 import 'package:pantas/features/home/presentation/widgets/home_exam_day.dart';
 import 'package:pantas/features/home/presentation/widgets/home_skeletons.dart';
@@ -118,6 +119,15 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
   bool _holding = false;
   final ScreenTimer _timing = ScreenTimer('screen.home');
 
+  /// The plan last built, kept on screen while a rebuild runs so a change to
+  /// the plan never flashes the skeleton again.
+  HomeTodayData? _shown;
+
+  /// A build is running. Plan copies that arrive meanwhile are not built on;
+  /// the build's end checks them once.
+  bool _pending = false;
+  bool _missedPlan = false;
+
   bool _current() =>
       mounted &&
       ref
@@ -146,15 +156,69 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
     final request =
         _request = ref.read(homeTodayLoaderProvider)(widget.examId, _guard);
     _holding = false;
+    _pending = true;
     unawaited(
       request.then<void>(
-        (_) => _settling.reset(),
+        (data) {
+          _settling.reset();
+          if (!mounted || !identical(request, _request)) return;
+          _pending = false;
+          _shown = data;
+          _rebuildIfPlanMoved(data);
+        },
         onError: (Object error, StackTrace __) {
           if (!mounted || !identical(request, _request)) return;
+          _pending = false;
+          // Errors after data keep today's handling: the error shows, not
+          // the plan from before it.
+          _shown = null;
+          if (_missedPlan && _current()) {
+            // A plan copy arrived while this build failed, so try again with
+            // it instead of showing a failure it may have cured.
+            _missedPlan = false;
+            _retry();
+            return;
+          }
           setState(() => _holding = _settling.failed(error));
         },
       ),
     );
+  }
+
+  /// True when [data] was built from the plan [roadmap] now describes: same
+  /// revision, day, planned ids and what is left of them.
+  bool _builtFrom(HomeTodayData data, StudyRoadmap roadmap) {
+    final snapshot = data.today.snapshot;
+    return snapshot.digest.contentRevision == roadmap.revision &&
+        snapshot.plan == roadmap.today &&
+        data.today.remaining == roadmap.remaining &&
+        data.today.originalDone == roadmap.originalDone &&
+        snapshot.state == roadmap.state &&
+        data.canAdvance == roadmap.canAdvance;
+  }
+
+  /// A plan copy arrived while the build ran. If the build used an older one,
+  /// build once more. Otherwise the copy is the same plan and nothing changes.
+  void _rebuildIfPlanMoved(HomeTodayData data) {
+    if (!_missedPlan) return;
+    _missedPlan = false;
+    if (!ref.read(studyUsesServerProvider) || !_current()) return;
+    final latest =
+        ref.read(serverStudyRoadmapProvider(widget.examId)).valueOrNull;
+    if (latest != null && !_builtFrom(data, latest)) _retry();
+  }
+
+  /// A plan copy from the server. Only a plan unlike the one shown rebuilds.
+  void _onPlanCopy(AsyncValue<StudyRoadmap> next) {
+    final roadmap = next.valueOrNull;
+    if (roadmap == null || !_current()) return;
+    if (_pending) {
+      _missedPlan = true;
+      return;
+    }
+    final shown = _shown;
+    if (shown != null && _builtFrom(shown, roadmap)) return;
+    _retry();
   }
 
   @override
@@ -166,10 +230,29 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
   /// A retry recaptures the current owner, so it recovers after a real
   /// context change. Loads already running keep the guard they were given
   /// and still fail, so a stale owner cannot write into the new context.
-  void _retry() => setState(() {
-        _guard = _captureGuard();
-        _reload();
-      });
+  void _retry() {
+    final previous = _guard;
+    setState(() {
+      _guard = _captureGuard();
+      _reload();
+    });
+    if (_shown != null) unawaited(_dropShownIfOwnerChanged(previous));
+  }
+
+  /// The plan on screen stays while a rebuild runs, but only for the owner it
+  /// was built for. If the guard it was built under no longer holds, or cannot
+  /// say, the skeleton takes its place.
+  Future<void> _dropShownIfOwnerChanged(
+    Future<Future<bool> Function()> previous,
+  ) async {
+    var same = false;
+    try {
+      same = await (await previous)();
+    } on Object {
+      // Not provably the same owner.
+    }
+    if (!same && mounted) setState(() => _shown = null);
+  }
 
   /// The automatic retry of a settling failure. It keeps the count, so a
   /// failure that never clears still reaches the error.
@@ -417,9 +500,10 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
   Widget build(BuildContext context) {
     ref.watch(activeExamFocusProvider);
     if (ref.watch(studyUsesServerProvider)) {
-      ref.listen(serverStudyRoadmapProvider(widget.examId), (_, next) {
-        if (next.hasValue && _current()) _retry();
-      });
+      ref.listen(
+        serverStudyRoadmapProvider(widget.examId),
+        (_, next) => _onPlanCopy(next),
+      );
     }
     return FutureBuilder<HomeTodayData>(
       future: _request,
@@ -430,7 +514,9 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
         final failed = done && snapshot.hasError;
         final holding = failed && _holding;
         firstScreenReady(context, ref, ready: done && !holding);
-        final data = done ? snapshot.data : null;
+        // While a rebuild runs the plan from before it stays on screen. A
+        // finished read, or a failed one, shows only its own result.
+        final data = done ? snapshot.data : (_current() ? _shown : null);
         if (data != null) PerfTimeline.mark('home.data');
         _timing.settled(ready: data != null);
         final today = data == null
