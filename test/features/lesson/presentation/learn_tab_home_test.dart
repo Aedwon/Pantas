@@ -217,6 +217,33 @@ void main() {
     expect(find.text('Pick the exam you are reviewing for.'), findsOneWidget);
   });
 
+  // Aedwon, Nov 6 and Nov 8: the pinned topic sat 18 px below the search bar,
+  // and rows showed through the strip above it. It must sit right under the
+  // search bar.
+  testWidgets('the pinned topic sits right under the search bar',
+      (tester) async {
+    await AppPreferencesRepository(db).setSelectedExamId('e1');
+
+    await tester.pumpAppWithRouter(
+      buildRouter(disableAnimations: true),
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
+        openTopicProvider.overrideWith(_InitiallyOpenTopic.new),
+      ],
+    );
+    await tester.pumpAndSettle();
+
+    final searchBottom = tester.getBottomLeft(find.byType(SearchFieldBar)).dy;
+    final pinnedTop = tester
+        .getTopLeft(find.byKey(const ValueKey('pinned-topic-collapse')))
+        .dy;
+    expect(pinnedTop, searchBottom);
+    await tester.pumpWidget(const SizedBox.shrink());
+    await tester.pump(Duration.zero);
+    await tester.runAsync(db.close);
+  });
+
   testWidgets('reduced motion removes the pinned topic transitions',
       (tester) async {
     await AppPreferencesRepository(db).setSelectedExamId('e1');

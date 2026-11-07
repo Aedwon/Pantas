@@ -411,9 +411,12 @@ class _StudyTabHomeState extends ConsumerState<StudyTabHome> {
                                 ),
                               ),
                             ),
+                            // The pinned topic sits right under the search
+                            // bar and covers the fade strip, so no rows show
+                            // above it (Aedwon, Nov 6 and Nov 8).
                             if (_pinnedTopic != null)
                               Positioned(
-                                top: _studyListFadeHeight,
+                                top: 0,
                                 left: 0,
                                 right: 0,
                                 child: ValueListenableBuilder<bool>(
