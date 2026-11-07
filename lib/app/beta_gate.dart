@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pantas/app/beta_waiting_page.dart';
 import 'package:pantas/app/sign_in/email_sign_in_page.dart';
 import 'package:pantas/app/sign_in/sign_in_parts.dart';
 import 'package:pantas/core/auth/auth_state.dart';
@@ -20,8 +21,10 @@ bool betaGateIsActive({
 }) =>
     enabled && web && now.isBefore(betaGateCutoff);
 
-final betaGateStatusProvider = Provider<AsyncValue<bool>>((ref) {
-  if (!ref.watch(betaGateActiveProvider)) return const AsyncData(true);
+final betaGateStatusProvider = Provider<AsyncValue<BetaAccess>>((ref) {
+  if (!ref.watch(betaGateActiveProvider)) {
+    return const AsyncData(BetaAccess.open);
+  }
   // While the sign-in screen plays its signed-in beat, the gate stays put.
   if (ref.watch(signInHoldProvider)) return const AsyncLoading();
   return ref.watch(betaAccessProvider);
@@ -41,7 +44,8 @@ final betaGateActiveProvider = Provider<bool>((ref) {
 String? betaGateRedirect({
   required String path,
   required bool active,
-  required AsyncValue<bool> access,
+  required AsyncValue<BetaAccess> access,
+  required DateTime now,
 }) {
   if (path == '/guardian' ||
       path.startsWith('/legal/') ||
@@ -49,9 +53,11 @@ String? betaGateRedirect({
     return null;
   }
   if (!active) return path == '/beta' ? '/home' : null;
-  final selected =
-      !access.isLoading && !access.hasError && (access.valueOrNull ?? false);
-  if (selected) return path == '/beta' ? '/home' : null;
+  // A selected tester who must still wait stays on the waiting screen.
+  final entered = !access.isLoading &&
+      !access.hasError &&
+      (access.valueOrNull?.canEnter(now) ?? false);
+  if (entered) return path == '/beta' ? '/home' : null;
   return path == '/beta' ? null : '/beta';
 }
 
@@ -95,11 +101,25 @@ class BetaGatePage extends ConsumerWidget {
         ),
       );
     }
-    if (access.valueOrNull ?? false) {
+    final granted = access.valueOrNull;
+    if (granted != null && granted.selected) {
+      final now = ref.read(betaClockProvider)();
+      final until = granted.waitUntil;
+      if (granted.isWaiting(now) && until != null) {
+        return BetaWaitingPage(
+          until: until,
+          email: _signedInEmail(ref),
+        );
+      }
       return const _CenteredFrame(child: SizedBox.shrink());
     }
     return EmailSignInPage(beta: true, denied: named);
   }
+}
+
+String _signedInEmail(WidgetRef ref) {
+  final state = ref.watch(authStateProvider).valueOrNull;
+  return state is SignedInAuthState ? state.user.email : '';
 }
 
 /// The page for the gate's own loading and error states.

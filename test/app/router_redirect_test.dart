@@ -94,7 +94,7 @@ void main() {
       tester,
       extraOverrides: [
         betaGateActiveProvider.overrideWithValue(true),
-        betaAccessProvider.overrideWith((ref) async => false),
+        betaAccessProvider.overrideWith((ref) async => BetaAccess.denied),
       ],
     );
     expect(find.text('Use Google Instead'), findsOneWidget);
@@ -117,7 +117,7 @@ void main() {
       tester,
       extraOverrides: [
         betaGateActiveProvider.overrideWithValue(true),
-        betaAccessProvider.overrideWith((ref) async => true),
+        betaAccessProvider.overrideWith((ref) async => BetaAccess.open),
       ],
     );
     final container =
@@ -135,7 +135,7 @@ void main() {
       tester,
       extraOverrides: [
         betaGateActiveProvider.overrideWithValue(false),
-        betaAccessProvider.overrideWith((ref) async => false),
+        betaAccessProvider.overrideWith((ref) async => BetaAccess.denied),
       ],
     );
     final container =

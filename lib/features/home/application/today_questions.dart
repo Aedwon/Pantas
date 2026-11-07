@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:collection/collection.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/auth/providers.dart';
@@ -103,6 +105,15 @@ class TodayQuestionLauncher {
     final batches = ref.read(quizReviewBatchRepositoryProvider);
     final scope = batches.capture(quizLocalUserId, examId);
     if (scope == null) throw StateError('Quiz owner unavailable');
+    // Both question sets come from the plan alone, so fetch them together
+    // while the stored batch and preferences are read.
+    final hydration = Future.wait([
+      content.hydrateSelectedQuestions(today.remaining.reviewQuestionIds),
+      content.hydrateSelectedQuestions(today.snapshot.plan.newQuestionIds),
+    ]);
+    unawaited(
+      hydration.then<void>((_) {}, onError: (Object _, StackTrace __) {}),
+    );
     final stored = await batches.readCurrent(scope);
     final progress = <int>[];
     if (stored != null) {
@@ -119,8 +130,8 @@ class TodayQuestionLauncher {
       }
     }
     final prefs = await ref.read(quizPreferencesRepositoryProvider).read();
-    final reviewQuestions = await content
-        .hydrateSelectedQuestions(today.remaining.reviewQuestionIds);
+    final hydrated = await hydration;
+    final reviewQuestions = hydrated[0];
     if (!const ListEquality<String>().equals(
       today.remaining.reviewQuestionIds,
       [for (final q in reviewQuestions) q.id],
@@ -160,8 +171,7 @@ class TodayQuestionLauncher {
       localDay: today.remaining.day,
       orderedDueReviews: [for (final id in orderedReviewIds) reviewById[id]!],
     );
-    final allNew = await content
-        .hydrateSelectedQuestions(today.snapshot.plan.newQuestionIds);
+    final allNew = hydrated[1];
     if (!const ListEquality<String>().equals(
       today.snapshot.plan.newQuestionIds,
       [for (final q in allNew) q.id],

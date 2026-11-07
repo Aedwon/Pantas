@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:collection/collection.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/content/content.dart';
@@ -46,93 +48,118 @@ final homeTodayLoaderProvider = Provider<HomeTodayLoader>((ref) {
     final server = ref.read(studyUsesServerProvider);
     final guard = await originalGuard;
     if (!await guard()) throw StateError('Home owner changed');
-    final work = await ref.read(todayQuestionLauncherProvider).load(
-          examId,
-          originalGuard: originalGuard,
-        );
-    final today = work.today;
-    final contentDb = ref.read(contentDatabaseProvider);
-    final groups = await ref
-        .read(contentRepositoryProvider)
-        .lessonMetaByTopics(today.snapshot.digest.scopeTopicIds);
-    final byId = {
-      for (final group in groups.values)
-        for (final lesson in group) lesson.id: lesson,
-    };
-    final topics = await (contentDb.select(contentDb.contentTopics)
-          ..where((t) => t.id.isIn(today.snapshot.digest.scopeTopicIds)))
-        .get();
-    final subjects = await (contentDb.select(contentDb.contentSubjects)
-          ..where((s) => s.id.isIn(topics.map((t) => t.subjectId))))
-        .get();
-    final subjectNames = {for (final s in subjects) s.id: s.name};
-    final names = {
-      for (final t in topics)
-        t.id: examSubjectName(examId, t.name, subjectNames[t.subjectId]),
-    };
-    final positions = ref.read(readerPositionRepositoryProvider);
-    final lessons = <HomeTodayLesson>[];
-    for (final id in today.snapshot.plan.lessonIds) {
-      final lesson = byId[id];
-      if (lesson == null) {
-        throw StateError('Planned lesson content unavailable');
-      }
-      if (names[lesson.topicId] == null) {
-        if (csePartsForExam(examId).isNotEmpty) continue;
-        throw StateError('Planned lesson content unavailable');
-      }
-      lessons.add(
-        HomeTodayLesson(
-          id: id,
-          title: lesson.title,
-          subject: names[lesson.topicId]!,
-          minutes: lesson.estimatedMinutes,
-          read: !today.remaining.lessonIds.contains(id),
-          fraction: await positions.readFraction(examId, id),
-          advanced: today.snapshot.plan.advancedIds.contains(id),
-        ),
-      );
-    }
-    final canAdvance = server
-        ? (await ref.read(serverStudyRoadmapProvider(examId).future)).canAdvance
-        : await ref
-            .read(roadmapControllerProvider)
-            .canAdvance(examId, originalGuard: originalGuard);
-    final exam = (await ref.read(activeExamFocusProvider.future)).exam;
-    final settings = await ref.read(userSettingsProvider.future);
-    final shortName = exam?.shortName ?? '';
-    final extras = server
-        ? serverHomeDayExtras(
-            day: today.snapshot.day,
-            isMockDay: today.snapshot.plan.isMockDay,
-            examShortName: shortName,
-            facts: (await ref.read(serverStudyRoadmapProvider(examId).future))
-                .homeExtras,
-          )
-        : await readHomeDayExtras(
-            today: today.snapshot,
-            examShortName: shortName,
-            studyDays: settings.studyDays,
-            recentChanges: () =>
-                ref.read(roadmapChangeLogRepositoryProvider).recent(examId),
-            priorSnapshot: () => ref
-                .read(roadmapDayRepositoryProvider)
-                .latestBefore(examId, today.snapshot.day),
-            mockDurationMinutes: () async {
-              final blueprints =
-                  await ref.read(mockBlueprintRepoProvider).byExam(examId);
-              return blueprints.firstOrNull?.durationMinutes;
-            },
+    // Question bodies take the longest to prepare. Start them now and build
+    // the rest of Home from the same plan meanwhile, instead of one after the
+    // other. Holding the plan keeps both readers on one server request.
+    final hold = ref.container.listen(roadmapTodayProvider(examId), (_, __) {});
+    try {
+      final pendingWork = ref.read(todayQuestionLauncherProvider).load(
+            examId,
+            originalGuard: originalGuard,
           );
-    if (!await guard()) throw StateError('Home owner changed');
-    return HomeTodayData(
-      today: today,
-      lessons: lessons,
-      questionWork: work,
-      canAdvance: canAdvance,
-      examName: exam?.name ?? '',
-      examShortName: shortName,
-      extras: extras,
-    );
+      // Awaited below; this only keeps an early failure here from also being
+      // reported as unhandled.
+      unawaited(
+        pendingWork.then<void>((_) {}, onError: (Object _, StackTrace __) {}),
+      );
+      final today = await ref.read(roadmapTodayProvider(examId).future);
+      return await _assemble(ref, examId, server, guard, today, pendingWork);
+    } finally {
+      hold.close();
+    }
   };
 });
+
+Future<HomeTodayData> _assemble(
+  Ref ref,
+  String examId,
+  bool server,
+  Future<bool> Function() guard,
+  RoadmapToday today,
+  Future<TodayQuestionWork> pendingWork,
+) async {
+  final contentDb = ref.read(contentDatabaseProvider);
+  final groups = await ref
+      .read(contentRepositoryProvider)
+      .lessonMetaByTopics(today.snapshot.digest.scopeTopicIds);
+  final byId = {
+    for (final group in groups.values)
+      for (final lesson in group) lesson.id: lesson,
+  };
+  final topics = await (contentDb.select(contentDb.contentTopics)
+        ..where((t) => t.id.isIn(today.snapshot.digest.scopeTopicIds)))
+      .get();
+  final subjects = await (contentDb.select(contentDb.contentSubjects)
+        ..where((s) => s.id.isIn(topics.map((t) => t.subjectId))))
+      .get();
+  final subjectNames = {for (final s in subjects) s.id: s.name};
+  final names = {
+    for (final t in topics)
+      t.id: examSubjectName(examId, t.name, subjectNames[t.subjectId]),
+  };
+  final positions = ref.read(readerPositionRepositoryProvider);
+  final lessons = <HomeTodayLesson>[];
+  for (final id in today.snapshot.plan.lessonIds) {
+    final lesson = byId[id];
+    if (lesson == null) {
+      throw StateError('Planned lesson content unavailable');
+    }
+    if (names[lesson.topicId] == null) {
+      if (csePartsForExam(examId).isNotEmpty) continue;
+      throw StateError('Planned lesson content unavailable');
+    }
+    lessons.add(
+      HomeTodayLesson(
+        id: id,
+        title: lesson.title,
+        subject: names[lesson.topicId]!,
+        minutes: lesson.estimatedMinutes,
+        read: !today.remaining.lessonIds.contains(id),
+        fraction: await positions.readFraction(examId, id),
+        advanced: today.snapshot.plan.advancedIds.contains(id),
+      ),
+    );
+  }
+  final canAdvance = server
+      ? (await ref.read(serverStudyRoadmapProvider(examId).future)).canAdvance
+      : await ref
+          .read(roadmapControllerProvider)
+          .canAdvance(examId, originalGuard: Future.value(guard));
+  final exam = (await ref.read(activeExamFocusProvider.future)).exam;
+  final settings = await ref.read(userSettingsProvider.future);
+  final shortName = exam?.shortName ?? '';
+  final extras = server
+      ? serverHomeDayExtras(
+          day: today.snapshot.day,
+          isMockDay: today.snapshot.plan.isMockDay,
+          examShortName: shortName,
+          facts: (await ref.read(serverStudyRoadmapProvider(examId).future))
+              .homeExtras,
+        )
+      : await readHomeDayExtras(
+          today: today.snapshot,
+          examShortName: shortName,
+          studyDays: settings.studyDays,
+          recentChanges: () =>
+              ref.read(roadmapChangeLogRepositoryProvider).recent(examId),
+          priorSnapshot: () => ref
+              .read(roadmapDayRepositoryProvider)
+              .latestBefore(examId, today.snapshot.day),
+          mockDurationMinutes: () async {
+            final blueprints =
+                await ref.read(mockBlueprintRepoProvider).byExam(examId);
+            return blueprints.firstOrNull?.durationMinutes;
+          },
+        );
+  final work = await pendingWork;
+  if (!await guard()) throw StateError('Home owner changed');
+  return HomeTodayData(
+    today: today,
+    lessons: lessons,
+    questionWork: work,
+    canAdvance: canAdvance,
+    examName: exam?.name ?? '',
+    examShortName: shortName,
+    extras: extras,
+  );
+}

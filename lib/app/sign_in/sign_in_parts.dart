@@ -131,7 +131,12 @@ class SignInScroll extends StatelessWidget {
   Widget build(BuildContext context) => LayoutBuilder(
         builder: (context, box) => SingleChildScrollView(
           child: ConstrainedBox(
-            constraints: BoxConstraints(minHeight: box.maxHeight),
+            // Full width as well, so centered content stays centered on wide
+            // windows instead of sitting at the scroll view's left edge.
+            constraints: BoxConstraints(
+              minWidth: box.maxWidth,
+              minHeight: box.maxHeight,
+            ),
             child: builder(box.maxHeight),
           ),
         ),
@@ -935,6 +940,19 @@ class CodeDigitsFormatter extends TextInputFormatter {
 
 enum CodeTone { normal, bad, fadingBad, ok }
 
+// The code field's long-press menu offers Paste only. On web the browser's
+// own menu shows instead, which includes Paste.
+Widget _pasteOnlyMenu(BuildContext context, EditableTextState field) {
+  final paste = field.contextMenuButtonItems
+      .where((item) => item.type == ContextMenuButtonType.paste)
+      .toList();
+  if (paste.isEmpty) return const SizedBox.shrink();
+  return AdaptiveTextSelectionToolbar.buttonItems(
+    anchors: field.contextMenuAnchors,
+    buttonItems: paste,
+  );
+}
+
 /// Six boxes driven by one hidden field. The field lies over the boxes with
 /// transparent text, so a tap on a box focuses it, and the keyboard, paste
 /// and one-time-code autofill all reach it.
@@ -1019,32 +1037,41 @@ class CodeBoxes extends StatelessWidget {
               Positioned.fill(
                 child: Semantics(
                   label: 'Code',
-                  child: TextField(
-                    controller: controller,
-                    focusNode: focusNode,
-                    autofocus: true,
-                    enabled: !dimmed,
-                    readOnly: locked,
-                    keyboardType: TextInputType.number,
-                    textInputAction: TextInputAction.done,
-                    autofillHints: const [AutofillHints.oneTimeCode],
-                    inputFormatters: [formatter],
-                    autocorrect: false,
-                    enableSuggestions: false,
-                    enableInteractiveSelection: false,
-                    showCursor: false,
-                    cursorWidth: 0,
-                    style: TextStyle(
-                      color: Colors.transparent,
-                      fontSize: fontSize,
+                  // Selection stays on so paste works: the web engine blocks
+                  // clipboard events when it is off. The theme hides the
+                  // highlight and handles, since the boxes draw the digits.
+                  child: TextSelectionTheme(
+                    data: const TextSelectionThemeData(
+                      selectionColor: Colors.transparent,
+                      selectionHandleColor: Colors.transparent,
                     ),
-                    decoration: const InputDecoration(
-                      border: InputBorder.none,
-                      counterText: '',
-                      isCollapsed: true,
+                    child: TextField(
+                      controller: controller,
+                      focusNode: focusNode,
+                      autofocus: true,
+                      enabled: !dimmed,
+                      readOnly: locked,
+                      keyboardType: TextInputType.number,
+                      textInputAction: TextInputAction.done,
+                      autofillHints: const [AutofillHints.oneTimeCode],
+                      inputFormatters: [formatter],
+                      autocorrect: false,
+                      enableSuggestions: false,
+                      contextMenuBuilder: _pasteOnlyMenu,
+                      showCursor: false,
+                      cursorWidth: 0,
+                      style: TextStyle(
+                        color: Colors.transparent,
+                        fontSize: fontSize,
+                      ),
+                      decoration: const InputDecoration(
+                        border: InputBorder.none,
+                        counterText: '',
+                        isCollapsed: true,
+                      ),
+                      onChanged: onChanged,
+                      onSubmitted: (_) => onSubmitted(),
                     ),
-                    onChanged: onChanged,
-                    onSubmitted: (_) => onSubmitted(),
                   ),
                 ),
               ),

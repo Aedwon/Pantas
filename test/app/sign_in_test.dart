@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
@@ -117,7 +118,7 @@ void main() {
         authRepositoryProvider.overrideWithValue(repository),
         betaAccessProvider.overrideWith((ref) async {
           accessChecks++;
-          return false;
+          return BetaAccess.denied;
         }),
       ],
     );
@@ -389,6 +390,44 @@ void main() {
         tester.widget<TextField>(find.byType(TextField)).controller!.text,
         '482139',
       );
+    });
+
+    testWidgets('a copied code can be pasted and submits', (tester) async {
+      final pending = Completer<SignInResult>();
+      codes.onVerify = (_, __) => pending.future;
+      final messenger = tester.binding.defaultBinaryMessenger
+        ..setMockMethodCallHandler(SystemChannels.platform, (call) async {
+          if (call.method == 'Clipboard.getData') {
+            return <String, Object?>{'text': 'Your code: 482-139'};
+          }
+          if (call.method == 'Clipboard.hasStrings') {
+            return <String, Object?>{'value': true};
+          }
+          return null;
+        });
+      addTearDown(
+        () => messenger.setMockMethodCallHandler(SystemChannels.platform, null),
+      );
+      await pumpPage(tester);
+      await goToCode(tester);
+      // The web engine drops clipboard events when selection is off.
+      expect(
+        tester
+            .widget<TextField>(find.byType(TextField))
+            .enableInteractiveSelection,
+        isTrue,
+      );
+      final field = tester.state<EditableTextState>(find.byType(EditableText));
+      await field.clipboardStatus.update();
+      await tester.pump();
+      expect(field.pasteEnabled, isTrue);
+      await field.pasteText(SelectionChangedCause.keyboard);
+      await tester.pump();
+      expect(codes.verifies, [
+        ['challenge-1', '482139'],
+      ]);
+      pending.complete(const SignInResult.failed(reason: 'x'));
+      await tester.pump();
     });
 
     testWidgets('a wrong code shows the message, then clears the digits',
@@ -712,6 +751,21 @@ void main() {
       }
     });
 
+    testWidgets('a wide window centers the column on both steps',
+        (tester) async {
+      for (final size in [_laptop, const Size(1600, 900)]) {
+        await pumpPage(tester, size: size);
+        for (var step = 0; step < 2; step++) {
+          final logo = tester.getCenter(find.byType(PantasLogo)).dx;
+          final help = tester.getCenter(find.textContaining('Need help?')).dx;
+          expect(logo, closeTo(size.width / 2, 1), reason: '$size $step');
+          expect(help, closeTo(size.width / 2, 1), reason: '$size $step');
+          if (step == 0) await goToCode(tester);
+        }
+        await tester.pumpWidget(const SizedBox.shrink());
+      }
+    });
+
     testWidgets('dark theme builds every step without overflow',
         (tester) async {
       for (final size in [_phone, _laptop]) {
@@ -752,7 +806,7 @@ void main() {
           overrides: [
             emailCodeAuthProvider.overrideWithValue(codes),
             authRepositoryProvider.overrideWithValue(repository),
-            betaAccessProvider.overrideWith((ref) async => false),
+            betaAccessProvider.overrideWith((ref) async => BetaAccess.denied),
             authStateProvider.overrideWith((ref) => states.stream),
           ],
           child: MaterialApp.router(
@@ -791,7 +845,7 @@ void main() {
         findsOneWidget,
       );
       expect(
-        find.textContaining('Selected testers got an email on Nov 7.'),
+        find.textContaining('Selected testers get an email from Pantas.'),
         findsOneWidget,
       );
       expect(find.textContaining('Need help?'), findsOneWidget);
@@ -846,7 +900,7 @@ Future<ProviderContainer> _pumpHeld(
     routes: [GoRoute(path: '/', builder: (_, __) => const BetaGatePage())],
   );
   addTearDown(router.dispose);
-  final pending = Completer<bool>();
+  final pending = Completer<BetaAccess>();
   await tester.pumpWidget(
     ProviderScope(
       overrides: [

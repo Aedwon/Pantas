@@ -12,7 +12,7 @@ test('Beta Pro refuses an unverified email before changing grants', async () => 
     now: () => BETA_CUTOFF - 1000, until: () => BETA_CUTOFF}), {code: 'permission-denied'});
 });
 
-const {checkBetaAccess, selectedBetaApplication} = await import('../lib/betaAccess.js');
+const {checkBetaAccess, selectedBetaApplication, BETA_START} = await import('../lib/betaAccess.js');
 function applications(rows) {
   return {collection: name => {
     assert.equal(name, 'betaApplications');
@@ -32,7 +32,8 @@ for (const [name, rows, selected] of [
   ['nonboolean selection', [{email: 'tester@example.com', selected: 'true'}], false],
   ['later selected application', [{email: 'tester@example.com', selected: false}, {email: 'tester@example.com', selected: true}], true],
 ]) test(`access checks canonical ${name} application`, async () => {
-  assert.deepEqual(await checkBetaAccess(request(verified), {db: applications(rows), allow: async () => true}), {selected});
+  assert.deepEqual(await checkBetaAccess(request(verified),
+    {db: applications(rows), allow: async () => true, now: () => BETA_START}), {selected});
 });
 for (const token of [{}, {...verified, email_verified: false}, {...verified, email: ''},
   {...verified, firebase: {sign_in_provider: 'anonymous'}}]) {
@@ -50,4 +51,39 @@ test('access rejects missing auth, missing or consumed App Check, and rate limit
 test('Beta Pro refuses a verified but unselected account in both switch states', async () => {
   for (const enabled of [true, false]) await assert.rejects(changeBetaPro({...request(verified),
     data: {enabled, examId: 'exam_cse_pro'}}, {db: applications([]), auth: {}, allow: async () => true}), {code: 'permission-denied'});
+});
+
+test('the beta starts at Nov 9 midnight in the Philippines', () => {
+  assert.equal(new Date(BETA_START).toISOString(), '2026-11-08T16:00:00.000Z');
+});
+const waits = (rows, now) => checkBetaAccess(request(verified),
+  {db: applications(rows), allow: async () => true, now: () => now});
+const tester = {email: 'tester@example.com', selected: true};
+test('a selected tester gets a wait until the start, up to the last millisecond', async () => {
+  for (const now of [0, BETA_START - 86_400_000, BETA_START - 1]) {
+    assert.deepEqual(await waits([tester], now), {selected: true, waitUntil: BETA_START});
+  }
+});
+test('the wait ends at the start and stays ended', async () => {
+  for (const now of [BETA_START, BETA_START + 1, BETA_START + 86_400_000]) {
+    assert.deepEqual(await waits([tester], now), {selected: true});
+  }
+});
+test('owner test accounts and the early-access list skip the wait', async () => {
+  for (const flag of ['ownerTest', 'earlyAccess']) {
+    assert.deepEqual(await waits([{...tester, [flag]: true}], BETA_START - 1), {selected: true});
+    assert.deepEqual(await waits([{...tester, [flag]: 'true'}], BETA_START - 1),
+      {selected: true, waitUntil: BETA_START}, 'only a real true skips');
+    assert.deepEqual(await waits([{...tester, [flag]: false}], BETA_START - 1),
+      {selected: true, waitUntil: BETA_START});
+  }
+});
+test('a flag on an application that is not selected skips nothing', async () => {
+  assert.deepEqual(await waits([{email: 'tester@example.com', selected: false, ownerTest: true}], BETA_START - 1),
+    {selected: false});
+  assert.deepEqual(await waits([{email: 'tester@example.com', selected: false, earlyAccess: true}, tester],
+    BETA_START - 1), {selected: true, waitUntil: BETA_START});
+});
+test('an unselected account never gets a wait', async () => {
+  assert.deepEqual(await waits([], 0), {selected: false});
 });

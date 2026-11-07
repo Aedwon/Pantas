@@ -38,12 +38,21 @@ void main() {
     );
   });
 
+  final now = DateTime.utc(2026, 11, 8, 12);
+  final start = DateTime.utc(2026, 11, 8, 16);
+
   String? redirect(
     String path,
-    AsyncValue<bool> access, {
+    AsyncValue<BetaAccess> access, {
     bool active = true,
+    DateTime? at,
   }) =>
-      betaGateRedirect(path: path, active: active, access: access);
+      betaGateRedirect(
+        path: path,
+        active: active,
+        access: access,
+        now: at ?? now,
+      );
 
   for (final path in [
     '/guardian',
@@ -58,20 +67,51 @@ void main() {
 
   test('unknown access waits, selected continues and disabled bypasses', () {
     expect(redirect('/study', const AsyncLoading()), '/beta');
-    expect(redirect('/study', const AsyncData(false)), '/beta');
-    expect(redirect('/study', const AsyncData(true)), isNull);
+    expect(redirect('/study', const AsyncData(BetaAccess.denied)), '/beta');
+    expect(redirect('/study', const AsyncData(BetaAccess.open)), isNull);
     expect(
-      redirect('/study', const AsyncData(false), active: false),
+      redirect('/study', const AsyncData(BetaAccess.denied), active: false),
       isNull,
     );
-    expect(redirect('/beta', const AsyncData(true)), '/home');
+    expect(redirect('/beta', const AsyncData(BetaAccess.open)), '/home');
+  });
+
+  test('a selected tester waits on the waiting screen until the start', () {
+    final waiting = AsyncData(BetaAccess(selected: true, waitUntil: start));
+    expect(redirect('/study', waiting), '/beta');
+    expect(redirect('/home', waiting), '/beta');
+    expect(redirect('/beta', waiting), isNull);
+    expect(
+      redirect(
+        '/beta',
+        waiting,
+        at: start.subtract(const Duration(seconds: 1)),
+      ),
+      isNull,
+    );
+    expect(redirect('/legal/terms', waiting), isNull);
+  });
+
+  test('at or after the start a waiting tester gets normal access', () {
+    final waiting = AsyncData(BetaAccess(selected: true, waitUntil: start));
+    expect(redirect('/beta', waiting, at: start), '/home');
+    expect(redirect('/study', waiting, at: start), isNull);
+    expect(
+      redirect('/beta', waiting, at: start.add(const Duration(days: 1))),
+      '/home',
+    );
+  });
+
+  test('a waiting date never lets an unselected account in', () {
+    final odd = AsyncData(BetaAccess(selected: false, waitUntil: start));
+    expect(redirect('/study', odd, at: start), '/beta');
   });
 
   test('the gate waits while the sign-in screen plays its signed-in beat', () {
     final container = ProviderContainer(
       overrides: [
         betaGateActiveProvider.overrideWithValue(true),
-        betaAccessProvider.overrideWith((ref) async => true),
+        betaAccessProvider.overrideWith((ref) async => BetaAccess.open),
       ],
     );
     addTearDown(container.dispose);
@@ -84,7 +124,7 @@ void main() {
 
   Future<void> pump(
     WidgetTester tester,
-    Future<bool> result,
+    Future<BetaAccess> result,
     AuthState state,
   ) async {
     final router = GoRouter(
@@ -108,11 +148,11 @@ void main() {
 
   testWidgets('reload shows skeleton while selection is unknown',
       (tester) async {
-    final pending = Completer<bool>();
+    final pending = Completer<BetaAccess>();
     await pump(tester, pending.future, const AuthState.anonymous(uid: 'anon'));
     expect(find.byType(SkeletonPulse), findsOneWidget);
     expect(find.text('Use Google Instead'), findsNothing);
-    pending.complete(true);
+    pending.complete(BetaAccess.open);
     await tester.pump();
     await tester.pumpWidget(const SizedBox.shrink());
   });
@@ -121,7 +161,7 @@ void main() {
       (tester) async {
     await pump(
       tester,
-      Future.value(false),
+      Future.value(BetaAccess.denied),
       const AuthState.anonymous(uid: 'anon'),
     );
     await tester.pump(const Duration(seconds: 2));
@@ -134,7 +174,7 @@ void main() {
       (tester) async {
     await pump(
       tester,
-      Future.value(false),
+      Future.value(BetaAccess.denied),
       const AuthState.signedIn(
         user: AuthUser(
           uid: 'named',
