@@ -712,6 +712,21 @@ void main() {
       }
     });
 
+    testWidgets('a wide window centers the column on both steps',
+        (tester) async {
+      for (final size in [_laptop, const Size(1600, 900)]) {
+        await pumpPage(tester, size: size);
+        for (var step = 0; step < 2; step++) {
+          final logo = tester.getCenter(find.byType(PantasLogo)).dx;
+          final help = tester.getCenter(find.textContaining('Need help?')).dx;
+          expect(logo, closeTo(size.width / 2, 1), reason: '$size $step');
+          expect(help, closeTo(size.width / 2, 1), reason: '$size $step');
+          if (step == 0) await goToCode(tester);
+        }
+        await tester.pumpWidget(const SizedBox.shrink());
+      }
+    });
+
     testWidgets('dark theme builds every step without overflow',
         (tester) async {
       for (final size in [_phone, _laptop]) {

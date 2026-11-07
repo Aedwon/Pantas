@@ -131,7 +131,12 @@ class SignInScroll extends StatelessWidget {
   Widget build(BuildContext context) => LayoutBuilder(
         builder: (context, box) => SingleChildScrollView(
           child: ConstrainedBox(
-            constraints: BoxConstraints(minHeight: box.maxHeight),
+            // Full width as well, so centered content stays centered on wide
+            // windows instead of sitting at the scroll view's left edge.
+            constraints: BoxConstraints(
+              minWidth: box.maxWidth,
+              minHeight: box.maxHeight,
+            ),
             child: builder(box.maxHeight),
           ),
         ),
