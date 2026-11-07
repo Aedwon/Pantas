@@ -12,9 +12,12 @@ const NOW = Date.now();
 const info = (sub, email) => ({aud: CLIENT, iss: 'accounts.google.com', email, email_verified: 'true',
   exp: String(Math.floor(NOW / 1000) + 600), sub});
 const db = getFirestore();
+const part = value => Buffer.from(JSON.stringify(value)).toString('base64url');
+const idToken = email => `${part({alg: 'RS256'})}.${part({aud: CLIENT, iss: 'accounts.google.com', email,
+  exp: Math.floor(NOW / 1000) + 600})}.signature`;
 const exchange = (sub, email, ip) => checkGoogleSignIn(
   {auth: {uid: 'anon-caller', token: {firebase: {sign_in_provider: 'anonymous'}}}, app: {appId: 'web'},
-    data: {idToken: 'stand-in'}, rawRequest: {ip}},
+    data: {idToken: idToken(email)}, rawRequest: {ip}},
   {auth, db, key: 'emulator-key', clientId: CLIENT, now: () => NOW, allow: async () => true,
     fetchTokenInfo: async () => ({status: 200, body: info(sub, email)})});
 
