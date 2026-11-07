@@ -40,6 +40,9 @@ class SettingsPanePage extends StatelessWidget {
     this.compactTitle = false,
     this.titleLineHeight = 1.12,
     this.titleGap = 22,
+    this.titleSuffix,
+    this.headingGlyph,
+    this.headingGap = 24,
   });
   final String title;
   final List<Widget> children;
@@ -64,6 +67,15 @@ class SettingsPanePage extends StatelessWidget {
   final double titleLineHeight;
   final double titleGap;
 
+  /// Drawn right after the title (the BETA mark).
+  final Widget? titleSuffix;
+
+  /// Wide web: a 22 px glyph before the title.
+  final Widget? headingGlyph;
+
+  /// Wide web: space between the heading and the first child.
+  final double headingGap;
+
   @override
   Widget build(BuildContext context) {
     if (!context.wideWeb) {
@@ -83,13 +95,21 @@ class SettingsPanePage extends StatelessWidget {
             : const EdgeInsets.fromLTRB(4, 0, 4, 20),
         hero: noHeading
             ? const SizedBox.shrink()
-            : hero
-                ? _SettingsHero(
-                    section: section,
+            : titleSuffix != null || (compactTitle && description != null)
+                ? _PhoneHeading(
                     title: title,
-                    subtitle: description ?? '',
+                    suffix: titleSuffix,
+                    subline: description,
+                    lineHeight: titleLineHeight,
+                    gap: titleGap,
                   )
-                : null,
+                : hero
+                    ? _SettingsHero(
+                        section: section,
+                        title: title,
+                        subtitle: description ?? '',
+                      )
+                    : null,
         children: children,
       );
     }
@@ -201,7 +221,10 @@ class SettingsPanePage extends StatelessWidget {
                                       const EdgeInsets.fromLTRB(4, 4, 4, 0),
                                   child: Row(
                                     children: [
-                                      if (headingIcon != null) ...[
+                                      if (headingGlyph != null) ...[
+                                        headingGlyph!,
+                                        const SizedBox(width: 14),
+                                      ] else if (headingIcon != null) ...[
                                         headingIcon,
                                         const SizedBox(width: 14),
                                       ],
@@ -210,7 +233,18 @@ class SettingsPanePage extends StatelessWidget {
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
                                           children: [
-                                            Text(title, style: t.h2),
+                                            if (titleSuffix == null)
+                                              Text(title, style: t.h2)
+                                            else
+                                              Row(
+                                                mainAxisSize: MainAxisSize.min,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Text(title, style: t.h2),
+                                                  titleSuffix!,
+                                                ],
+                                              ),
                                             if (description != null)
                                               Text(description!, style: t.sub),
                                           ],
@@ -219,7 +253,7 @@ class SettingsPanePage extends StatelessWidget {
                                     ],
                                   ),
                                 ),
-                                const SizedBox(height: 24),
+                                SizedBox(height: headingGap),
                                 ...children,
                                 if (bottom != null) ...[
                                   const SizedBox(height: 24),
@@ -489,6 +523,60 @@ class SettingsNavigation extends ConsumerWidget {
           child:
               row('About', '/settings/about', _grayGlyph(t, PantasIcons.about)),
         ),
+      ],
+    );
+  }
+}
+
+/// The phone title with a mark after it and, when given, a grey line under
+/// it (FbPage, FbSurvey): 28 px, 6 px above, then the line 22 px above the
+/// first card.
+class _PhoneHeading extends StatelessWidget {
+  const _PhoneHeading({
+    required this.title,
+    required this.suffix,
+    required this.subline,
+    required this.lineHeight,
+    required this.gap,
+  });
+  final String title;
+  final Widget? suffix;
+  final String? subline;
+  final double lineHeight;
+  final double gap;
+
+  @override
+  Widget build(BuildContext context) {
+    final style = context.type.pageTitleCompact.copyWith(height: lineHeight);
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Padding(
+          padding: EdgeInsets.fromLTRB(4, 6, 4, subline == null ? gap : 6),
+          child: Semantics(
+            header: true,
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(title, style: style),
+                if (suffix != null) suffix!,
+              ],
+            ),
+          ),
+        ),
+        if (subline != null)
+          Padding(
+            padding: const EdgeInsets.fromLTRB(4, 0, 4, 22),
+            child: Text(
+              subline!,
+              style: context.type.body.copyWith(
+                fontSize: 15,
+                height: 1.4,
+                letterSpacing: 0,
+                color: context.colors.secondaryLabel,
+              ),
+            ),
+          ),
       ],
     );
   }

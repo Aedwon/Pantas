@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -68,12 +69,23 @@ SentFeedback fakeSent(
       ],
     );
 
+/// A real 1 by 1 PNG, so a thumbnail can decode it.
+final _tinyPng = base64Decode(
+  'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDw'
+  'AEhQGAhKmMIQAAAABJRU5ErkJggg==',
+);
+
+/// A small image. A [size] pads it to that many bytes (for the size limit).
 PickedImage fakeImage({
   String type = 'image/png',
-  int size = 8,
+  int? size,
   String name = 'shot.png',
 }) =>
-    PickedImage(bytes: Uint8List(size), contentType: type, name: name);
+    PickedImage(
+      bytes: size == null ? _tinyPng : Uint8List(size),
+      contentType: type,
+      name: name,
+    );
 
 class FakeBetaFeedbackApi implements BetaFeedbackApi {
   FakeBetaFeedbackApi({

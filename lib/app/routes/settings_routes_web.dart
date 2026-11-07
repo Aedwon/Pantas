@@ -33,6 +33,7 @@ List<RouteBase> settingsRoutes(Ref ref) => [
         '/settings/account/delete',
         '/settings/pro',
         '/settings/backup',
+        '/settings/beta-feedback',
         '/settings/about',
         '/settings/_debug',
         '/legal/:doc',

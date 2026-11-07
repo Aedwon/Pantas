@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
+import 'package:pantas/core/auth/beta_access.dart';
 import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/notifications/notification_service.dart';
 import 'package:pantas/core/storage/age_gate.dart';
@@ -16,8 +17,10 @@ import 'package:pantas/core/sync/local_state_wiper.dart';
 import 'package:pantas/core/ui/components/centered_dialog.dart';
 import 'package:pantas/core/ui/leave_page.dart';
 import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
+import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/features/beta_feedback/presentation/feedback_page.dart';
 import 'package:pantas/features/home/application/study_delivery.dart';
 import 'package:pantas/features/legal/legal.dart';
 import 'package:pantas/features/legal/presentation/legal_document_page.dart';
@@ -134,6 +137,12 @@ List<RouteBase> settingsRoutes(Ref ref) => [
         builder: (_, state) => ProPage(checkoutReturnUri: state.uri),
       ),
       GoRoute(
+        path: '/settings/beta-feedback',
+        builder: (_, __) => const _TesterOnly(
+          child: FeedbackPage(frame: feedbackFrame),
+        ),
+      ),
+      GoRoute(
         path: '/settings/backup',
         builder: (_, __) => const BackupPage(),
       ),
@@ -176,6 +185,56 @@ List<RouteBase> settingsRoutes(Ref ref) => [
         },
       ),
     ];
+
+/// The Feedback pages in the Settings pane (phone page or wide two-pane).
+/// The pages take this as a function so they never import Settings.
+Widget feedbackFrame({
+  required String title,
+  required List<Widget> children,
+  required String backLabel,
+  required VoidCallback onBack,
+  bool beta = false,
+  String? subline,
+  double headingGap = 24,
+}) =>
+    Builder(
+      builder: (context) => SettingsPanePage(
+        section: 'Feedback',
+        title: title,
+        description: subline,
+        backLabel: backLabel,
+        onBack: onBack,
+        compactTitle: true,
+        bottomInset: 40,
+        headingGap: headingGap,
+        titleSuffix: beta ? const SettingsBetaMark(top: 4) : null,
+        headingGlyph: beta
+            ? SettingsFeedbackGlyph(
+                size: 22,
+                color: context.webTokens.colors.accent,
+              )
+            : null,
+        children: children,
+      ),
+    );
+
+/// A person the server says is not a tester goes back to Settings.
+class _TesterOnly extends ConsumerWidget {
+  const _TesterOnly({required this.child});
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final access = ref.watch(betaAccessProvider).valueOrNull;
+    if (access != null && !access.selected) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (context.mounted) context.go('/settings');
+      });
+      return const SizedBox.shrink();
+    }
+    return child;
+  }
+}
 
 SettingsEntitlementSnapshot _settingsEntitlement(Entitlement entitlement) {
   // Passes, grants and unknown products are not recurring subscriptions.
