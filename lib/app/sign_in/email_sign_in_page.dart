@@ -200,16 +200,27 @@ class _EmailSignInPageState extends ConsumerState<EmailSignInPage> {
       _emailInvalid = false;
       _emailMessage = null;
     });
+    // An account switch signs the old session out first. Without the hold the
+    // gate rebuilds this screen then, and its dispose cancels the switch
+    // halfway (Nov 7). The code check holds the gate the same way.
+    _hold.state = true;
     try {
       final result = await ref.read(authRepositoryProvider).signInWithGoogle();
       if (!mounted) return;
       if (result is FailedSignInResult) {
+        _hold.state = false;
         setState(() => _emailMessage = "We couldn't sign you in. Try again.");
-      } else if (result is! CancelledSignInResult) {
+      } else if (result is CancelledSignInResult) {
+        _hold.state = false;
+      } else {
+        // The access check reruns for the new account.
+        ref.invalidate(betaAccessProvider);
+        _hold.state = false;
         _leave();
       }
     } on Object {
       if (mounted) {
+        _hold.state = false;
         setState(() => _emailMessage = "We couldn't sign you in. Try again.");
       }
     } finally {

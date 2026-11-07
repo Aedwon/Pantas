@@ -64,9 +64,14 @@ class _Repository extends AuthRepository {
   int googleCalls = 0;
   int signOutCalls = 0;
 
+  /// When set, Google sign-in waits for it, like a real account switch.
+  Completer<void>? googleGate;
+
   @override
   Future<SignInResult> signInWithGoogle() async {
     googleCalls++;
+    final gate = googleGate;
+    if (gate != null) await gate.future;
     return google ?? const SignInResult.cancelled();
   }
 
@@ -332,6 +337,39 @@ void main() {
       await tester.pump();
       expect(repository.googleCalls, 1);
       expect(find.text('gate screen'), findsOneWidget);
+    });
+
+    // Nov 7: the account switch made the gate rebuild this screen, and its
+    // dispose cancelled the switch halfway. The gate must hold the screen
+    // while Google sign-in runs, as it does for a code check.
+    testWidgets('Google sign-in holds the gate until it finishes',
+        (tester) async {
+      repository = _Repository(google: const SignInResult.switchedToExisting())
+        ..googleGate = Completer<void>();
+      final container = await pumpPage(tester);
+      await tester.tap(find.text('Use Google Instead'));
+      await tester.pump();
+      expect(container.read(signInHoldProvider), isTrue);
+      expect(codes.cancels, 0);
+      repository.googleGate!.complete();
+      await tester.pump();
+      await tester.pump();
+      expect(container.read(signInHoldProvider), isFalse);
+      expect(find.text('gate screen'), findsOneWidget);
+    });
+
+    testWidgets('a failed Google sign-in releases the gate hold',
+        (tester) async {
+      repository = _Repository(google: const SignInResult.failed(reason: 'x'))
+        ..googleGate = Completer<void>();
+      final container = await pumpPage(tester);
+      await tester.tap(find.text('Use Google Instead'));
+      await tester.pump();
+      expect(container.read(signInHoldProvider), isTrue);
+      repository.googleGate!.complete();
+      await tester.pump();
+      expect(container.read(signInHoldProvider), isFalse);
+      expect(find.text("We couldn't sign you in. Try again."), findsOneWidget);
     });
 
     testWidgets('a cancelled Google sign-in stays put', (tester) async {
