@@ -231,6 +231,19 @@ test('a splash that gives up still marks its removal', () => {
   assert.deepEqual(t.marks, ['splash.removed']);
 });
 
+// Nov 8 reports showed a second splash.removed near 60 s: the safety timers
+// still fired after the logo had left and removed it again.
+test('the safety timers do nothing once the logo has left', () => {
+  const t = setup();
+  t.splash.started();
+  t.splash.ready();
+  t.timers.find((x) => x.ms === FADE_MS).fn();
+  t.timers.find((x) => x.ms === GIVE_UP_MS).fn();
+  t.timers.find((x) => x.ms === NEVER_STARTED_MS).fn();
+  assert.deepEqual(t.marks, ['splash.ready', 'splash.removed']);
+  assert.equal(t.printed(), 1);
+});
+
 test('a first-time visit marks nothing from the splash', () => {
   const t = setup({ welcomeShown: true });
   t.splash.ready();

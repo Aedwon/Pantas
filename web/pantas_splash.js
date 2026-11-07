@@ -47,6 +47,8 @@
     }
 
     function removeNow() {
+      // The safety timers can fire after the logo has already left.
+      if (state.gone) return;
       doc.documentElement.classList.remove('ps-on', 'ps-out');
       var splash = doc.getElementById('pantas-splash');
       if (splash && splash.remove) splash.remove();
