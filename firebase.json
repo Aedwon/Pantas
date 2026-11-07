@@ -56,7 +56,7 @@
           "headers": [
             {
               "key": "Cache-Control",
-              "value": "no-cache"
+              "value": "public, max-age=0, must-revalidate, s-maxage=31536000"
             }
           ]
         },
@@ -65,7 +65,7 @@
           "headers": [
             {
               "key": "Cache-Control",
-              "value": "no-cache"
+              "value": "public, max-age=0, must-revalidate, s-maxage=31536000"
             }
           ]
         },
@@ -74,7 +74,7 @@
           "headers": [
             {
               "key": "Cache-Control",
-              "value": "no-cache"
+              "value": "public, max-age=0, must-revalidate, s-maxage=31536000"
             }
           ]
         },
@@ -83,7 +83,7 @@
           "headers": [
             {
               "key": "Cache-Control",
-              "value": "no-cache"
+              "value": "public, max-age=0, must-revalidate, s-maxage=31536000"
             }
           ]
         },
@@ -92,7 +92,7 @@
           "headers": [
             {
               "key": "Cache-Control",
-              "value": "no-cache"
+              "value": "public, max-age=0, must-revalidate, s-maxage=31536000"
             }
           ]
         },
@@ -101,7 +101,7 @@
           "headers": [
             {
               "key": "Cache-Control",
-              "value": "no-cache"
+              "value": "public, max-age=0, must-revalidate, s-maxage=31536000"
             }
           ]
         }

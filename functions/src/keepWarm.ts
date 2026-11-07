@@ -6,6 +6,8 @@ const warmupEnabled = defineBoolean('WARMUP_ENABLED', { default: false });
 const targets = [
   'getBetaAccess', 'getRoadmap', 'setExamSettings', 'getWebEntitlement',
   'getMockAvailability', 'getStudyInsights', 'getContent',
+  // The study loop: Home waits on these after a quiz or a lesson. Cold they took 2.5 to 3.4 s.
+  'ingestSession', 'recordLessonRead', 'getSessionDiagnosis', 'advanceRoadmap',
 ];
 
 export async function warmCallables(

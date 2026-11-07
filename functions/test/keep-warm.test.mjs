@@ -4,7 +4,10 @@ import test from 'node:test';
 import * as warm from '../lib/keepWarm.js';
 
 const names = ['getBetaAccess', 'getRoadmap', 'setExamSettings', 'getWebEntitlement',
-  'getMockAvailability', 'getStudyInsights', 'getContent'];
+  'getMockAvailability', 'getStudyInsights', 'getContent',
+  // The study loop: saving a finished quiz or lesson read, the quiz-end diagnosis and
+  // Home's "do more today" were cold at 2.5 to 3.4 s on Nov 7.
+  'ingestSession', 'recordLessonRead', 'getSessionDiagnosis', 'advanceRoadmap'];
 const urls = names.map(name => `https://asia-southeast1-test-project.cloudfunctions.net/${name}`);
 
 test('scheduled warm-up is exported for every five minutes in Singapore', async () => {
@@ -15,7 +18,7 @@ test('scheduled warm-up is exported for every five minutes in Singapore', async 
   assert.equal(endpoints.keepCallablesWarm, warm.keepCallablesWarm);
 });
 
-test('all seven project URLs receive parallel OPTIONS preflights with ten-second timeouts', async t => {
+test('all eleven project URLs receive parallel OPTIONS preflights with ten-second timeouts', async t => {
   const calls = [];
   const releases = [];
   const timeouts = [];
