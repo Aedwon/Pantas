@@ -16,6 +16,7 @@ import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
+import 'package:pantas/features/beta_feedback/application/beta_feedback_providers.dart';
 import 'package:pantas/features/settings/presentation/settings_home_page.dart';
 import 'package:pantas/features/settings/presentation/widgets/beta_pro_row.dart';
 import 'package:pantas/features/settings/settings.dart';
@@ -336,9 +337,20 @@ class SettingsNavigation extends ConsumerWidget {
       unawaited(router.push<void>(path));
     }
 
-    Widget row(String label, String path, Widget glyph, {String? value}) =>
+    final tester = ref.watch(betaFeedbackVisibleProvider);
+    Widget row(
+      String label,
+      String path,
+      Widget glyph, {
+      String? value,
+      Widget? titleSuffix,
+      Widget? trailing,
+      bool? divider,
+    }) =>
         WebRow(
           title: label,
+          titleSuffix: titleSuffix,
+          trailing: trailing,
           // The label keeps one weight, so the text does not jump while the
           // tint fades (item 17, demo 4).
           titleStyle: t.style(16),
@@ -352,9 +364,10 @@ class SettingsNavigation extends ConsumerWidget {
           selectedValueColor: t.colors.accent,
           leading: glyph,
           onPressed: () => open(path),
-          divider: label != 'Appearance' &&
-              label != 'Pantas Pro' &&
-              label != 'About',
+          divider: divider ??
+              (label != 'Appearance' &&
+                  label != 'Pantas Pro' &&
+                  label != 'About'),
         );
     return Column(
       key: const ValueKey('settings-navigation'),
@@ -395,6 +408,32 @@ class SettingsNavigation extends ConsumerWidget {
                 ),
         ),
         const SizedBox(height: 18),
+        if (tester) ...[
+          // FbDesk: Feedback and the Beta switch share the first card.
+          WebCard(
+            radius: 16,
+            child: Column(
+              children: [
+                row(
+                  'Feedback',
+                  '/settings/beta-feedback',
+                  SettingsFeedbackGlyph(size: 22, color: t.colors.accent),
+                  titleSuffix: const SettingsBetaMark(),
+                  trailing: FeedbackRowValue(
+                    value: ref.watch(feedbackRowValueProvider),
+                    style: t.style(15, color: t.colors.secondaryLabel),
+                    selectedColor: t.colors.accent,
+                    selected: selected == 'Feedback',
+                  ),
+                  divider: false,
+                ),
+                const BetaProRow(),
+              ],
+            ),
+          ),
+          const BetaProNote(),
+          const SizedBox(height: 18),
+        ],
         WebCard(
           radius: 16,
           child: Column(
@@ -405,11 +444,11 @@ class SettingsNavigation extends ConsumerWidget {
                 Icon(PantasIcons.proSettings, size: 22, color: t.colors.accent),
                 value: ref.watch(proRowValueProvider),
               ),
-              const BetaProRow(),
+              if (!tester) const BetaProRow(),
             ],
           ),
         ),
-        const BetaProNote(),
+        if (!tester) const BetaProNote(),
         const SizedBox(height: 18),
         WebCard(
           radius: 16,
