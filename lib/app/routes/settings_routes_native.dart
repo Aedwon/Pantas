@@ -22,6 +22,7 @@ import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/beta_feedback/presentation/exit_survey_page.dart';
 import 'package:pantas/features/beta_feedback/presentation/feedback_page.dart';
+import 'package:pantas/features/beta_feedback/presentation/sent_feedback_page.dart';
 import 'package:pantas/features/home/application/study_delivery.dart';
 import 'package:pantas/features/legal/legal.dart';
 import 'package:pantas/features/legal/presentation/legal_document_page.dart';
@@ -147,6 +148,15 @@ List<RouteBase> settingsRoutes(Ref ref) => [
         path: '/settings/beta-feedback/survey',
         builder: (_, __) => const _TesterOnly(
           child: ExitSurveyPage(frame: feedbackFrame),
+        ),
+      ),
+      GoRoute(
+        path: '/settings/beta-feedback/sent/:id',
+        builder: (_, state) => _TesterOnly(
+          child: SentFeedbackPage(
+            frame: feedbackFrame,
+            id: state.pathParameters['id']!,
+          ),
         ),
       ),
       GoRoute(
