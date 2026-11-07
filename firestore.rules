@@ -164,6 +164,16 @@ service cloud.firestore {
         allow write: if false;
       }
 
+      match /betaFeedback/{feedbackId} {
+        allow read: if isOwner(uid);
+        allow write: if false;
+      }
+
+      match /betaReward/{document} {
+        allow read: if isOwner(uid);
+        allow write: if false;
+      }
+
       match /grants/{grantId} {
         allow read: if isSignedIn() && request.auth.uid == uid;
         allow write: if false;

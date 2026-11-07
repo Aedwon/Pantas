@@ -1,6 +1,17 @@
 rules_version = '2';
 service firebase.storage {
   match /b/{bucket}/o {
+    match /betaFeedback/{uid}/{feedbackId}/{index} {
+      allow read: if request.auth != null && request.auth.uid == uid;
+      allow create: if resource == null
+          && request.auth != null && request.auth.uid == uid
+          && feedbackId.matches('^[A-Za-z0-9]{20,32}$')
+          && index.matches('^[012]$')
+          && request.resource.size <= 5 * 1024 * 1024
+          && request.resource.contentType.matches('^image/(png|jpeg|webp)$');
+      allow update, delete: if false;
+    }
+
     match /exports/{uid}/{fileName} {
       allow read, write: if false;
     }

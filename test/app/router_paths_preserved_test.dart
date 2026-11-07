@@ -62,6 +62,9 @@ void main() {
       '/settings/backup',
       '/update-required',
       '/settings/about',
+      '/settings/beta-feedback',
+      '/settings/beta-feedback/survey',
+      '/settings/beta-feedback/sent/:id',
       '/settings/_debug',
       '/legal/:doc',
       // The beta gate and email link sign-in (Nov 6).

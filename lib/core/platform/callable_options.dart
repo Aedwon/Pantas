@@ -4,7 +4,8 @@ import 'package:cloud_functions/cloud_functions.dart';
 /// token that was used before: payment, trial, account deletion, export, admin
 /// and paid mock actions. Each call must carry a fresh, limited-use token or
 /// the second call from the same browser is refused. Keep in step with
-/// `REPLAY_PROTECTED` in `functions/test/app-check.test.mjs`.
+/// `REPLAY_PROTECTED` in `functions/test/app-check.test.mjs`, except the five
+/// beta feedback callables, which that list does not name yet.
 const replayProtectedCallables = <String>{
   'createPaymongoCheckout',
   'startWebTrial',
@@ -20,6 +21,11 @@ const replayProtectedCallables = <String>{
   'requestSignInCode',
   'verifySignInCode',
   'exchangeGoogleSignIn',
+  'sendBetaFeedback',
+  'recordBetaDay',
+  'submitBetaSurvey',
+  'activateBetaReward',
+  'getBetaReward',
 };
 
 /// Options for calling [name]: limited-use App Check tokens for the callables

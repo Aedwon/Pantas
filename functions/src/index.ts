@@ -49,3 +49,5 @@ export {requestSignInCode, verifySignInCode} from './signInCode.js';
 export {exchangeGoogleSignIn} from './googleSignIn.js';
 
 export {keepCallablesWarm} from './keepWarm.js';
+
+export {activateBetaReward, sendBetaFeedback, recordBetaDay, submitBetaSurvey, getBetaReward} from './betaReward.js';
