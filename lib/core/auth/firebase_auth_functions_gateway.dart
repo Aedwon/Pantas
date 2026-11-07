@@ -79,3 +79,32 @@ class FirebaseAuthFunctionsGateway implements AuthFunctionsGateway {
     }
   }
 }
+
+/// Calls `exchangeGoogleSignIn`: Google's ID token in, a custom token for the
+/// existing account out. Every refusal becomes the callable's error code.
+class FirebaseGoogleAccountExchangeGateway
+    implements GoogleAccountExchangeGateway {
+  FirebaseGoogleAccountExchangeGateway({AuthFunctionsCallableClient? client})
+      : _client = client ?? const FirebaseFunctionsCallableClient();
+
+  final AuthFunctionsCallableClient _client;
+
+  @override
+  Future<String> exchange(String idToken) async {
+    final Object? data;
+    try {
+      data = await _client.call(
+        region: FirebaseAuthFunctionsGateway.region,
+        name: 'exchangeGoogleSignIn',
+        data: {'idToken': idToken},
+      );
+    } on FirebaseFunctionsException catch (error) {
+      throw AuthGatewayException(error.code);
+    }
+    final token = data is Map ? data['token'] : null;
+    if (token is! String || token.isEmpty) {
+      throw const AuthGatewayException('malformed-exchange-response');
+    }
+    return token;
+  }
+}
