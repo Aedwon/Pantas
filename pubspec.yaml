@@ -79,6 +79,7 @@ dependencies:
   in_app_review: ^2.0.12
   cryptography: 2.9.0
   flutter_svg: ^2.3.0
+  image_picker: ^1.2.4
 dev_dependencies:
   fake_async: any
   flutter_test:
