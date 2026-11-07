@@ -10,6 +10,7 @@ import {canonicalEmail} from './_email.js';
 import {phDay} from './_phDate.js';
 import {guardianMailFrom, guardianMailKey} from './guardianConsent.js';
 import {mailerFor, type GuardianMailer, type GuardianMessage} from './guardianMail.js';
+import {timed} from './_timed.js';
 
 /**
  * Email code sign-in for the web beta. Firebase Auth has no email one-time code,
@@ -422,7 +423,7 @@ function key(): string {
 }
 
 export const requestSignInCode = onCall({region: 'asia-southeast1', enforceAppCheck: enforceAppCheck,
-  consumeAppCheckToken: enforceAppCheck, secrets: [signInCodeKey, guardianMailKey]}, request => {
+  consumeAppCheckToken: enforceAppCheck, secrets: [signInCodeKey, guardianMailKey]}, timed('requestSignInCode', request => {
   assertFreshAppCheck(request);
   return sendSignInCode(request, {db: getFirestore(), key: key(),
     openCap: signInOpenCap.value(), reservedCap: signInReservedCap.value(),
@@ -430,10 +431,10 @@ export const requestSignInCode = onCall({region: 'asia-southeast1', enforceAppCh
     pad: () => new Promise(resolve => setTimeout(resolve, 250 + randomInt(0, 450))),
     mailer: {send: message => mailerFor(process.env,
       {apiKey: () => guardianMailKey.value(), from: () => guardianMailFrom.value()}).send(message)}});
-});
+}));
 
 export const verifySignInCode = onCall({region: 'asia-southeast1', enforceAppCheck: enforceAppCheck,
-  consumeAppCheckToken: enforceAppCheck, secrets: [signInCodeKey]}, request => {
+  consumeAppCheckToken: enforceAppCheck, secrets: [signInCodeKey]}, timed('verifySignInCode', request => {
   assertFreshAppCheck(request);
   return checkSignInCode(request, {db: getFirestore(), auth: getAuth(), key: key()});
-});
+}));

@@ -6,6 +6,7 @@ import {loadStudyContent} from './_examContent.js';
 import {allowAtMost} from './_limits.js';
 import {examCatalog} from './revenuecatPasses.js';
 import {assertStudyOwner} from './studyObservations.js';
+import {timed} from './_timed.js';
 
 type Auth = {uid: string; token?: object} | undefined;
 type Deps = {db: Firestore; allow?: (uid: string, key: string) => Promise<boolean>};
@@ -35,4 +36,4 @@ export async function readCarryableCount(auth: Auth, data: unknown, deps: Deps):
 }
 
 export const getCarryableCount = onCall({region: 'asia-southeast1', enforceAppCheck: enforceAppCheck},
-  request => readCarryableCount(request.auth, request.data, {db: getFirestore()}));
+  timed('getCarryableCount', request => readCarryableCount(request.auth, request.data, {db: getFirestore()})));

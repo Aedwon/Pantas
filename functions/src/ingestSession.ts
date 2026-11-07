@@ -10,6 +10,7 @@ import {prepareReviewAnswers} from './serverReviews.js';
 import {assertStudyOwner} from './studyObservations.js';
 import {loadExamContent} from './_examContent.js';
 import {examCatalog} from './revenuecatPasses.js';
+import {timed} from './_timed.js';
 
 export {MAX_ANSWERS} from './_answers.js';
 
@@ -95,4 +96,4 @@ export async function recordSession(auth: Auth, data: unknown, deps: IngestDeps)
 
 export const ingestSession = onCall(
   {region: 'asia-southeast1', enforceAppCheck: enforceAppCheck},
-  request => recordSession(request.auth, request.data, {db: getFirestore()}));
+  timed('ingestSession', request => recordSession(request.auth, request.data, {db: getFirestore()})));

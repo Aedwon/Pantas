@@ -8,6 +8,7 @@ import {examCatalog} from './revenuecatPasses.js';
 import {assemblePaper, endIfTimedOut, FREE_MOCK_WINDOW_MS} from './mock.js';
 import type {Answer} from './_answers.js';
 import {recordMockAnswers} from './mockAnswers.js';
+import {timed} from './_timed.js';
 
 type Auth = Parameters<typeof assertNamedUser>[0];
 type Deps = {db: Firestore; now?: () => number; allow?: (uid: string, key: string) => Promise<boolean>};
@@ -151,10 +152,10 @@ export async function writeMockReview(auth: Auth, data: unknown, deps: Deps) {
 }
 
 const options = {region: 'asia-southeast1', enforceAppCheck: enforceAppCheck};
-export const getMockAvailability = onCall(options, request => serveMockAvailability(request.auth, request.data, {db: getFirestore()}));
-export const getMockResults = onCall(options, request => serveMockResults(request.auth, request.data, {db: getFirestore()}));
-export const getMockHistory = onCall(options, request => serveMockHistory(request.auth, request.data, {db: getFirestore()}));
-export const updateMockReview = onCall({...options, consumeAppCheckToken: enforceAppCheck}, request => {
+export const getMockAvailability = onCall(options, timed('getMockAvailability', request => serveMockAvailability(request.auth, request.data, {db: getFirestore()})));
+export const getMockResults = onCall(options, timed('getMockResults', request => serveMockResults(request.auth, request.data, {db: getFirestore()})));
+export const getMockHistory = onCall(options, timed('getMockHistory', request => serveMockHistory(request.auth, request.data, {db: getFirestore()})));
+export const updateMockReview = onCall({...options, consumeAppCheckToken: enforceAppCheck}, timed('updateMockReview', request => {
   assertFreshAppCheck(request);
   return writeMockReview(request.auth, request.data, {db: getFirestore()});
-});
+}));

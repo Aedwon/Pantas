@@ -10,6 +10,7 @@ import {loadExamContent} from './_examContent.js';
 import {mockCoverage} from './mockAccess.js';
 import {checkPaperAnswers, recordMockAnswers} from './mockAnswers.js';
 import {examCatalog} from './revenuecatPasses.js';
+import {timed} from './_timed.js';
 
 export {MAX_ANSWERS} from './_answers.js';
 
@@ -263,19 +264,19 @@ export async function recordMock(auth: Auth, data: unknown, deps: MockDeps): Pro
 
 export const startMock = onCall(
   {region: 'asia-southeast1', enforceAppCheck: enforceAppCheck, consumeAppCheckToken: enforceAppCheck},
-  request => {
+  timed('startMock', request => {
     assertFreshAppCheck(request);
     return beginMock(request.auth as Auth, request.data, {db: getFirestore()});
-  });
+  }));
 
 export const getMockPaper = onCall(
   {region: 'asia-southeast1', enforceAppCheck: enforceAppCheck},
-  request => readMock(request.auth as Auth, request.data, {db: getFirestore()}));
+  timed('getMockPaper', request => readMock(request.auth as Auth, request.data, {db: getFirestore()})));
 
 export const controlMock = onCall(
   {region: 'asia-southeast1', enforceAppCheck: enforceAppCheck},
-  request => changeMock(request.auth as Auth, request.data, {db: getFirestore()}));
+  timed('controlMock', request => changeMock(request.auth as Auth, request.data, {db: getFirestore()})));
 
 export const submitMock = onCall(
   {region: 'asia-southeast1', enforceAppCheck: enforceAppCheck},
-  request => recordMock(request.auth as Auth, request.data, {db: getFirestore()}));
+  timed('submitMock', request => recordMock(request.auth as Auth, request.data, {db: getFirestore()})));

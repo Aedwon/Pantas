@@ -9,6 +9,7 @@ import { clearPassOwnership } from './revenuecatPasses.js';
 import { deleteGuardianRecords } from './guardianConsent.js';
 import { identityMarkers, trialIdentityKey } from './webTrial.js';
 import { ACCOUNT_DELETION_MAX_INSTANCES } from './_options.js';
+import {timed} from './_timed.js';
 
 export const deleteAccount = onCall(
   {
@@ -18,7 +19,7 @@ export const deleteAccount = onCall(
     consumeAppCheckToken: enforceAppCheck,
     secrets: [trialIdentityKey],
   },
-  async (request) => {
+  timed('deleteAccount', async (request) => {
     assertFreshAppCheck(request);
     const uid = assertNamedUser(request.auth);
     const db = getFirestore();
@@ -68,5 +69,5 @@ export const deleteAccount = onCall(
     await getAuth().deleteUser(uid);
 
     return { deletedAt: new Date().toISOString() };
-  },
+  }),
 );

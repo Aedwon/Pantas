@@ -1,6 +1,7 @@
 import { HttpsError, onCall } from 'firebase-functions/v2/https';
 import {assertFreshAppCheck, enforceAppCheck} from './_appCheck.js';
 import { assertNamedUser } from './_audit.js';
+import {timed} from './_timed.js';
 
 export const exportData = onCall(
   {
@@ -8,12 +9,12 @@ export const exportData = onCall(
     enforceAppCheck: enforceAppCheck,
     consumeAppCheckToken: enforceAppCheck,
   },
-  async (request) => {
+  timed('exportData', async (request) => {
     assertFreshAppCheck(request);
     assertNamedUser(request.auth);
     throw new HttpsError(
       'failed-precondition',
       "Data export isn't available in the app yet. Email our Data Protection Officer for a copy.",
     );
-  },
+  }),
 );

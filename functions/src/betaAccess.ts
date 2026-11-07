@@ -2,6 +2,7 @@ import {getFirestore, type Firestore} from 'firebase-admin/firestore';
 import {HttpsError, onCall, type CallableRequest} from 'firebase-functions/v2/https';
 import {assertFreshAppCheck, enforceAppCheck} from './_appCheck.js';
 import {allowAtMost} from './_limits.js';
+import {timed} from './_timed.js';
 
 /** The beta opens at Nov 9, 2026, 12:00 a.m. in the Philippines (UTC+8, no daylight saving). */
 export const BETA_START = Date.parse('2026-11-09T00:00:00+08:00');
@@ -37,7 +38,7 @@ export async function checkBetaAccess(request: Pick<CallableRequest, 'auth' | 'a
 }
 
 export const getBetaAccess = onCall({region:'asia-southeast1', enforceAppCheck: enforceAppCheck, consumeAppCheckToken: enforceAppCheck},
-  request => {
+  timed('getBetaAccess', request => {
     assertFreshAppCheck(request);
     return checkBetaAccess(request, {db:getFirestore()});
-  });
+  }));

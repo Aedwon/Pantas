@@ -7,6 +7,7 @@ import {HttpsError, onCall} from 'firebase-functions/v2/https';
 import {allowAtMost} from './_limits.js';
 import {priceCentavos, webProduct, webProductIds, type Prepaid} from './paymongoPolicy.js';
 import {examCatalog, sittingFor, type CatalogExam} from './revenuecatPasses.js';
+import {timed} from './_timed.js';
 
 /** One web plan. The price is the one checkout charges, from products.json. */
 export type WebPlan = {product: string; priceCentavos: number; priceString: string;
@@ -71,4 +72,4 @@ async function googlePlayRenews(db: Firestore, uid: string, at: number): Promise
 }
 
 export const listWebPlans = onCall({region: 'asia-southeast1', enforceAppCheck: enforceAppCheck, secrets: [trialIdentityKey]},
-  request => listPlans(request.auth));
+  timed('listWebPlans', request => listPlans(request.auth)));

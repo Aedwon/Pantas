@@ -2,6 +2,7 @@ import {createHash} from 'node:crypto';
 import {logger} from 'firebase-functions';
 import {HttpsError, onCall, type CallableRequest} from 'firebase-functions/v2/https';
 import {enforceAppCheck} from './_appCheck.js';
+import {timed} from './_timed.js';
 
 /**
  * Speed and error reports from the web app. A report is validated against a fixed contract and
@@ -163,4 +164,4 @@ export function processClientReport(
 }
 
 export const reportClientTelemetry = onCall({region: 'asia-southeast1', enforceAppCheck: enforceAppCheck},
-  (request: CallableRequest) => processClientReport(request.auth, request.data));
+  timed('reportClientTelemetry', (request: CallableRequest) => processClientReport(request.auth, request.data)));

@@ -4,6 +4,7 @@ import {getFirestore, type Firestore} from 'firebase-admin/firestore';
 import {HttpsError, onCall} from 'firebase-functions/v2/https';
 import {assertNamedUser} from './_audit.js';
 import {nativeCoverageRows, readEntitlementInputs} from './entitlementInputs.js';
+import {timed} from './_timed.js';
 
 /** Owner-bound combined coverage. Never exposes RevenueCat facts or provider identifiers. */
 export async function webEntitlement(auth: Parameters<typeof assertNamedUser>[0], db: Firestore, at = Date.now()) {
@@ -17,10 +18,10 @@ export async function webEntitlement(auth: Parameters<typeof assertNamedUser>[0]
   });
 }
 export const getWebEntitlement = onCall({region: 'asia-southeast1', enforceAppCheck: enforceAppCheck},
-  request => {
+  timed('getWebEntitlement', request => {
     if (!request.auth) throw new HttpsError('unauthenticated', 'Authentication is required.');
     if (request.data?.uid !== request.auth.uid) {
       throw new HttpsError('permission-denied', 'The account changed. Try again.');
     }
     return webEntitlement(request.auth, getFirestore());
-  });
+  }));

@@ -15,6 +15,7 @@ import {ledgerGrants} from './grants.js';
 import {coverageAt, type PriceTier} from './revenuecatCoverage.js';
 import {examCatalog, livePasses} from './revenuecatPasses.js';
 import {coverageForRevenueCatAnswer, type RevenueCatAccessSource} from './revenuecatPolicy.js';
+import {timed} from './_timed.js';
 
 type Auth={uid:string;token?:object}|undefined;
 type Deps={db:Firestore;now?:()=>number;allow?:(uid:string,key:string)=>Promise<boolean>};
@@ -140,4 +141,4 @@ export async function readStudyInsights(auth:Auth,data:unknown,deps:Deps){
   return response(derived,performance,revision);
  });
 }
-export const getStudyInsights=onCall({region:'asia-southeast1',enforceAppCheck: enforceAppCheck},r=>readStudyInsights(r.auth,r.data,{db:getFirestore()}));
+export const getStudyInsights=onCall({region:'asia-southeast1',enforceAppCheck: enforceAppCheck},timed('getStudyInsights', r=>readStudyInsights(r.auth,r.data,{db:getFirestore()})));
