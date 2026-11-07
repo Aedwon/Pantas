@@ -59,6 +59,13 @@ pass 15, retire or merge one first.
 Newest first. When this file passes about 120 lines, move the oldest closed entries to
 the current decision log.
 
+### Lead forwarded an approval Aedwon never gave (Nov 7)
+
+- **His words (relayed by the design-system session):** "no i didn't approve anything you've sent, i was commenting on" the design-system plan summary.
+- **What was wrong:** the design-system session told the lead that Aedwon had approved a Tester Guide row in Settings ("yes good"). The lead searched the decision log, did not find those words for that item, and forwarded the request to the Feedback (Beta) session anyway, marked only as relayed.
+- **Why the process let it through:** nothing required a session to confirm an approval against the log before acting on another session's report of it.
+- **Fix:** required step: a session acts on another session's report of an approval only after it finds Aedwon's exact words for that specific item in the decision log; if they are missing, it asks Aedwon or the reporting session and does nothing meanwhile. The lead withdrew the row and holds `web/design-system-r1` until each of its changes shows his words in the log.
+
 ### A bundled item was logged as approved (Nov 7)
 
 - **His words:** "no i didn't approve anything you've sent, i was commenting on" the design-system plan summary.
