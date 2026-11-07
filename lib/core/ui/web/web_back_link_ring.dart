@@ -3,14 +3,19 @@ import 'package:flutter/scheduler.dart';
 import 'package:pantas/core/ui/web/web_keyboard_focus.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 
-/// The keyboard focus ring of a back link, drawn above the page.
+/// The hover fill and keyboard focus ring of a back link, drawn above the page.
 ///
-/// The link sits 6 px left of the page edge so its arrow lines up with the
-/// page (the board's `.back`). The page's navigator and scroll view both clip
-/// at that edge, so a ring drawn on the link was cut square on the left
-/// (5Q-11). This draws the same 2 px pill in the root overlay, which nothing
-/// clips, following the link. Only keyboard focus shows it, by the rule every
-/// web ring uses.
+/// The link reaches 14 px past the page edge so its arrow lines up with the
+/// page (the board's `.back`, back link A of the design system canvas). The
+/// page's navigator and scroll view both clip at that edge, so a fill or ring
+/// drawn on the link was cut square on the left (5Q-11). This draws them in
+/// the root overlay, which nothing clips, following the link: the rounded
+/// rectangle every ghost button uses (radius 11), the hover tint of Sign Out,
+/// and the 2 px ring only for keyboard focus, by the rule every web ring uses.
+///
+/// The overlay sits above the label, so the 8 percent tint falls on the text
+/// too. At that strength the label's color barely moves; drawing it under the
+/// label would need the page's clip to move, which every page shares.
 ///
 /// Where there is no overlay (a bare widget test), [supported] is false and
 /// the link keeps the ring its button theme draws.
@@ -32,6 +37,7 @@ class _WebBackLinkRingState extends State<WebBackLinkRing> {
   final _overlay = OverlayPortalController();
   final _box = GlobalKey();
   bool _focused = false;
+  bool _hovered = false;
 
   @override
   void initState() {
@@ -45,20 +51,22 @@ class _WebBackLinkRingState extends State<WebBackLinkRing> {
     super.dispose();
   }
 
+  bool get _ringShown =>
+      webFocusRing(
+        {if (_focused) WidgetState.focused},
+        context.webTokens.colors.accent,
+      ) !=
+      null;
+
   void _sync() {
     if (!mounted) return;
-    final accent = context.webTokens.colors.accent;
-    final want = webFocusRing({if (_focused) WidgetState.focused}, accent);
-    if ((want != null) == _overlay.isShowing) return;
     void apply() {
       if (!mounted) return;
-      final show = webFocusRing(
-            {if (_focused) WidgetState.focused},
-            accent,
-          ) !=
-          null;
+      final show = _hovered || _ringShown;
       if (show && !_overlay.isShowing) _overlay.show();
       if (!show && _overlay.isShowing) _overlay.hide();
+      // The overlay may already show for the other reason; redraw it.
+      if (show) setState(() {});
     }
 
     // A focus change can arrive while the tree is building.
@@ -83,11 +91,17 @@ class _WebBackLinkRingState extends State<WebBackLinkRing> {
             size: size,
             child: DecoratedBox(
               decoration: ShapeDecoration(
-                shape: StadiumBorder(
-                  side: BorderSide(
-                    color: context.webTokens.colors.accent,
-                    width: 2,
-                  ),
+                color: _hovered
+                    ? context.webTokens.colors.label.withValues(alpha: .08)
+                    : null,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(11),
+                  side: _ringShown
+                      ? BorderSide(
+                          color: context.webTokens.colors.accent,
+                          width: 2,
+                        )
+                      : BorderSide.none,
                 ),
               ),
             ),
@@ -109,9 +123,19 @@ class _WebBackLinkRingState extends State<WebBackLinkRing> {
           controller: _overlay,
           overlayLocation: OverlayChildLocation.rootOverlay,
           overlayChildBuilder: _ring,
-          child: CompositedTransformTarget(
-            link: _link,
-            child: KeyedSubtree(key: _box, child: widget.child),
+          child: MouseRegion(
+            onEnter: (_) {
+              _hovered = true;
+              _sync();
+            },
+            onExit: (_) {
+              _hovered = false;
+              _sync();
+            },
+            child: CompositedTransformTarget(
+              link: _link,
+              child: KeyedSubtree(key: _box, child: widget.child),
+            ),
           ),
         ),
       );

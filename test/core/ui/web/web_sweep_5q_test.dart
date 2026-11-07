@@ -192,17 +192,23 @@ void main() {
           ),
         ),
       );
+      // Back link A (Nov 7): the ring is the ghost buttons' rounded
+      // rectangle, no longer a pill.
       final stadium = find.byWidgetPredicate(
         (w) =>
             w is DecoratedBox &&
             w.decoration is ShapeDecoration &&
-            (w.decoration as ShapeDecoration).shape is StadiumBorder,
+            (w.decoration as ShapeDecoration).shape is RoundedRectangleBorder &&
+            ((w.decoration as ShapeDecoration).shape as RoundedRectangleBorder)
+                    .side
+                    .width ==
+                2,
       );
       expect(stadium, findsNothing);
       await tester.sendKeyEvent(LogicalKeyboardKey.tab);
       await tester.pumpAndSettle();
       expect(stadium, findsOneWidget);
-      // The ring covers the whole link, 6 px left of where the page clips.
+      // The ring covers the whole link, 14 px left of where the page clips.
       final link = tester.getRect(find.byType(TextButton));
       final ring = tester.getRect(stadium);
       expect(ring, link);

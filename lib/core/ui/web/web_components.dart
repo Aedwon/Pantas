@@ -1640,8 +1640,13 @@ class WebBarArrow extends StatelessWidget {
 /// the link, where a 10 px gap used to be.
 const double webBackLinkPadRight = 10;
 
-/// The board's `.back` link: 17 px accent text, 40 px tall, nudged 6 px left so
-/// the arrow lines up with the page edge.
+/// Room inside the back link's highlight before its arrow (back link A).
+const double webBackLinkPadLeft = 8;
+
+/// The board's `.back` link: 17 px accent text, 40 px tall. It highlights as a
+/// rounded rectangle (radius 11) like the other ghost buttons, never a pill.
+/// The highlight reaches 14 px into the page margin with 8 px inside it, so
+/// the arrow still sits 6 px left of the page edge (back link A).
 class WebBackLink extends StatelessWidget {
   const WebBackLink({
     required this.label,
@@ -1654,9 +1659,9 @@ class WebBackLink extends StatelessWidget {
   final String label;
   final VoidCallback onPressed;
 
-  /// Moves the arrow 6 px left of the link's own box, as the board's `.back`
-  /// does. A link in a top bar that already sits on the bar's padding turns
-  /// this off.
+  /// Moves the link into the page margin so the arrow sits 6 px left of the
+  /// page edge, as the board's `.back` does. A link in a top bar that already
+  /// sits on the bar's padding turns this off.
   final bool nudge;
 
   /// Settings pages set this link at 15 px (board `.back` with an override).
@@ -1672,13 +1677,20 @@ class WebBackLink extends StatelessWidget {
     final overlayRing = nudge && WebBackLinkRing.supported(context);
     final style = TextButton.styleFrom(
       foregroundColor: t.colors.accent,
-      padding: const EdgeInsets.only(right: webBackLinkPadRight),
+      padding: EdgeInsets.only(
+        left: nudge ? webBackLinkPadLeft : 0,
+        right: webBackLinkPadRight,
+      ),
       minimumSize: const Size(0, 40),
       tapTargetSize: MaterialTapTargetSize.shrinkWrap,
       visualDensity: VisualDensity.standard,
       textStyle: t.style(fontSize),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(11)),
     ).copyWith(
+      // The overlay draws the hover fill and the ring whole (5Q-11).
       side: overlayRing ? const WidgetStatePropertyAll(BorderSide.none) : null,
+      overlayColor:
+          overlayRing ? const WidgetStatePropertyAll(Colors.transparent) : null,
     );
     final link = tightIcon
         ? TextButton(
@@ -1702,7 +1714,7 @@ class WebBackLink extends StatelessWidget {
     return Align(
       alignment: Alignment.centerLeft,
       child: Transform.translate(
-        offset: Offset(nudge ? -6 : 0, 0),
+        offset: Offset(nudge ? -6 - webBackLinkPadLeft : 0, 0),
         child: overlayRing ? WebBackLinkRing(child: link) : link,
       ),
     );
