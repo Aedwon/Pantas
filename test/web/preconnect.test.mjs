@@ -7,13 +7,15 @@ const html = readFileSync(new URL('../../web/index.html', import.meta.url), 'utf
 const head = html.slice(html.indexOf('<head>'), html.indexOf('</head>'));
 const links = [...head.matchAll(/<link\b[^>]*>/g)].map((match) => match[0]);
 
-test('the page preconnects to the six startup origins with CORS where needed', () => {
+test('the page preconnects to the eight startup origins with CORS where needed', () => {
   const origins = [
     ['https://www.gstatic.com', false],
     ['https://asia-southeast1-pantas-prod.cloudfunctions.net', true],
     ['https://content-firebaseappcheck.googleapis.com', true],
     ['https://securetoken.googleapis.com', true],
     ['https://identitytoolkit.googleapis.com', true],
+    ['https://firebaseremoteconfig.googleapis.com', true],
+    ['https://firebaseinstallations.googleapis.com', true],
     ['https://www.google.com', false],
   ];
   const hints = links.filter((link) => /\brel="preconnect"/.test(link));

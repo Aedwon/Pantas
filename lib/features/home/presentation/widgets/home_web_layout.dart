@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart' show RenderAbstractViewport;
 import 'package:pantas/core/ui/components/skeleton.dart';
+import 'package:pantas/core/ui/components/skeleton_fade.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
@@ -10,6 +11,16 @@ import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 
 export 'package:pantas/core/ui/web/web_side_overlay.dart';
+
+/// Where Home's plan is on its way in. While [loading] the board shapes
+/// stand in; when the plan has [arrived] it fades in over them (the approved
+/// splash hand-off). A failure ends loading without arriving, and swaps.
+@immutable
+class HomeWebLoadingFade {
+  const HomeWebLoadingFade({required this.loading, required this.arrived});
+  final bool loading;
+  final bool arrived;
+}
 
 /// Home's two canvas columns. The shell already owns the sidebar.
 class HomeWebLayout extends StatelessWidget {
@@ -22,6 +33,7 @@ class HomeWebLayout extends StatelessWidget {
     this.onRecord,
     this.onTendencies,
     this.footer,
+    this.loadingFade,
     super.key,
   });
   final Widget header;
@@ -37,6 +49,32 @@ class HomeWebLayout extends StatelessWidget {
   /// Sits at the very bottom, under both columns.
   final Widget? footer;
 
+  /// Set by Home so the columns cross-fade from the board shapes to the plan.
+  /// Null keeps the columns exactly as given.
+  final HomeWebLoadingFade? loadingFade;
+
+  Widget _body() {
+    final body = HomeWebBody(
+      today: today,
+      notice: notice,
+      performance: performance,
+      onRecord: onRecord,
+      onTendencies: onTendencies,
+    );
+    final fade = loadingFade;
+    if (fade == null) return body;
+    return SkeletonFade(
+      loading: fade.loading,
+      fade: fade.arrived,
+      skeleton: HomeWebBody(
+        today: const HomeWebLoading(more: true),
+        notice: notice,
+        performance: const HomeWebLoading(performance: true),
+      ),
+      content: body,
+    );
+  }
+
   @override
   Widget build(BuildContext context) => SingleChildScrollView(
         // The shell ends at the window bottom, so rows scroll to the edge and
@@ -51,80 +89,100 @@ class HomeWebLayout extends StatelessWidget {
                 header,
                 const SizedBox(height: 26),
                 if (intro != null) ...[intro!, const SizedBox(height: 26)],
-                LayoutBuilder(
-                  builder: (context, constraints) {
-                    final left = Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        today,
-                        if (onRecord != null && onTendencies != null) ...[
-                          const SizedBox(height: 28),
-                          const WebText(
-                            'More about you',
-                            kind: WebTextKind.eyebrow,
-                          ),
-                          Row(
-                            children: [
-                              Expanded(
-                                child: _MoreRow(
-                                  title: 'Your record',
-                                  icon: Icons.show_chart,
-                                  onPressed: onRecord!,
-                                ),
-                              ),
-                              const SizedBox(width: 14),
-                              Expanded(
-                                child: _MoreRow(
-                                  title: 'Your tendencies',
-                                  icon: Icons.auto_awesome_outlined,
-                                  onPressed: onTendencies!,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                        // The board puts every notice after "More about you".
-                        if (notice != null) ...[
-                          const SizedBox(height: 28),
-                          notice!,
-                        ],
-                      ],
-                    );
-                    if (performance == null) {
-                      return Align(
-                        alignment: Alignment.topLeft,
-                        child: SizedBox(width: 640, child: left),
-                      );
-                    }
-                    if (constraints.maxWidth < 848) {
-                      return Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          left,
-                          const SizedBox(height: 28),
-                          performance!,
-                        ],
-                      );
-                    }
-                    return Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        SizedBox(
-                          width:
-                              480 + (constraints.maxWidth - 848) * 1.45 / 2.45,
-                          child: left,
-                        ),
-                        const SizedBox(width: 28),
-                        Expanded(child: performance!),
-                      ],
-                    );
-                  },
-                ),
+                _body(),
                 if (footer != null) footer!,
               ],
             ),
           ),
         ),
+      );
+}
+
+/// The two columns under the header: Today (and "More about you" and the
+/// notice) on the left, Your performance on the right.
+class HomeWebBody extends StatelessWidget {
+  const HomeWebBody({
+    required this.today,
+    this.notice,
+    this.performance,
+    this.onRecord,
+    this.onTendencies,
+    super.key,
+  });
+  final Widget today;
+  final Widget? notice;
+  final Widget? performance;
+  final VoidCallback? onRecord;
+  final VoidCallback? onTendencies;
+
+  @override
+  Widget build(BuildContext context) => LayoutBuilder(
+        builder: (context, constraints) {
+          final left = Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              today,
+              if (onRecord != null && onTendencies != null) ...[
+                const SizedBox(height: 28),
+                const WebText(
+                  'More about you',
+                  kind: WebTextKind.eyebrow,
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: _MoreRow(
+                        title: 'Your record',
+                        icon: Icons.show_chart,
+                        onPressed: onRecord!,
+                      ),
+                    ),
+                    const SizedBox(width: 14),
+                    Expanded(
+                      child: _MoreRow(
+                        title: 'Your tendencies',
+                        icon: Icons.auto_awesome_outlined,
+                        onPressed: onTendencies!,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+              // The board puts every notice after "More about you".
+              if (notice != null) ...[
+                const SizedBox(height: 28),
+                notice!,
+              ],
+            ],
+          );
+          if (performance == null) {
+            return Align(
+              alignment: Alignment.topLeft,
+              child: SizedBox(width: 640, child: left),
+            );
+          }
+          if (constraints.maxWidth < 848) {
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                left,
+                const SizedBox(height: 28),
+                performance!,
+              ],
+            );
+          }
+          return Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                width: 480 + (constraints.maxWidth - 848) * 1.45 / 2.45,
+                child: left,
+              ),
+              const SizedBox(width: 28),
+              Expanded(child: performance!),
+            ],
+          );
+        },
       );
 }
 

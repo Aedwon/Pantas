@@ -13,6 +13,7 @@ import 'package:pantas/core/telemetry/perf_timeline.dart';
 import 'package:pantas/core/ui/components/today_questions.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/features/home/application/home_boundary.dart';
 import 'package:pantas/features/home/application/home_day_extras.dart';
 import 'package:pantas/features/home/application/home_today.dart';
 import 'package:pantas/features/home/application/study_remote_providers.dart';
@@ -79,6 +80,9 @@ void main() {
         data,
         pending: pending.future,
         overrides: [
+          homeBoundaryProvider.overrideWithValue(
+            const HomeBoundary(owner: 'test', core: 'test'),
+          ),
           firstScreenSignalProvider
               .overrideWithValue(FirstScreenSignal(() => signals++)),
         ],
@@ -149,6 +153,9 @@ void main() {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
+          homeBoundaryProvider.overrideWithValue(
+            const HomeBoundary(owner: 'test', core: 'test'),
+          ),
           activeExamFocusProvider.overrideWith(
             (ref) async => const ActiveExamFocus.selected(
               Exam(
@@ -392,6 +399,9 @@ void main() {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
+          homeBoundaryProvider.overrideWithValue(
+            const HomeBoundary(owner: 'test', core: 'test'),
+          ),
           activeExamFocusProvider.overrideWith(
             (ref) async => const ActiveExamFocus.selected(
               Exam(
@@ -531,6 +541,9 @@ Future<void> pumpData(
     ProviderScope(
       key: UniqueKey(),
       overrides: [
+        homeBoundaryProvider.overrideWithValue(
+          const HomeBoundary(owner: 'test', core: 'test'),
+        ),
         activeExamFocusProvider.overrideWith(
           (ref) async => const ActiveExamFocus.selected(
             Exam(
@@ -825,6 +838,9 @@ void auditTests() {
           canAdvance: true,
         ),
         overrides: [
+          homeBoundaryProvider.overrideWithValue(
+            const HomeBoundary(owner: 'test', core: 'test'),
+          ),
           studyUsesServerProvider.overrideWithValue(true),
           serverStudyRoadmapProvider('e1')
               .overrideWith((_) => Stream.value(auditRoadmap())),
@@ -862,6 +878,9 @@ void auditTests() {
         canAdvance: false,
       ),
       overrides: [
+        homeBoundaryProvider.overrideWithValue(
+          const HomeBoundary(owner: 'test', core: 'test'),
+        ),
         studyUsesServerProvider.overrideWithValue(true),
         todayQuizPreparerProvider.overrideWithValue(preparer),
         serverStudyRoadmapProvider('e1')
@@ -920,6 +939,9 @@ void settlingTests() {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
+          homeBoundaryProvider.overrideWithValue(
+            const HomeBoundary(owner: 'test', core: 'test'),
+          ),
           activeExamFocusProvider.overrideWith(
             (ref) async => const ActiveExamFocus.selected(
               Exam(
@@ -977,6 +999,9 @@ void settlingTests() {
         tester,
         failure: (attempt) => attempt <= 2 ? error : null,
         overrides: [
+          homeBoundaryProvider.overrideWithValue(
+            const HomeBoundary(owner: 'test', core: 'test'),
+          ),
           firstScreenSignalProvider
               .overrideWithValue(FirstScreenSignal(() => signals++)),
         ],
@@ -1002,6 +1027,9 @@ void settlingTests() {
       tester,
       failure: (_) => StateError('Planned lesson content unavailable'),
       overrides: [
+        homeBoundaryProvider.overrideWithValue(
+          const HomeBoundary(owner: 'test', core: 'test'),
+        ),
         firstScreenSignalProvider
             .overrideWithValue(FirstScreenSignal(() => signals++)),
       ],
@@ -1021,6 +1049,9 @@ void settlingTests() {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
+          homeBoundaryProvider.overrideWithValue(
+            const HomeBoundary(owner: 'test', core: 'test'),
+          ),
           activeExamFocusProvider.overrideWith(
             (ref) async => const ActiveExamFocus.selected(
               Exam(

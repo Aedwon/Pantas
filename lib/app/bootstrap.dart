@@ -7,6 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/app/app.dart';
 import 'package:pantas/app/auth_bootstrap.dart';
+import 'package:pantas/app/beta_gate.dart';
 import 'package:pantas/app/content_access_bridge.dart';
 import 'package:pantas/app/firebase_bootstrap.dart';
 import 'package:pantas/app/flavor.dart';
@@ -256,6 +257,10 @@ Future<void> _bootstrap(
   try {
     final firebaseResult = await bootstrapFirebaseForStartup(flavor);
     PerfTimeline.mark('boot.firebase');
+    // The flags fetch only needs Firebase, so it runs beside the steps below
+    // and is awaited where the flags are used. It never throws: a failure or
+    // a timeout yields the fallback flags.
+    final remoteFlags = bootstrapRemoteFlagsOverrides();
     // Web only, always on, sends no identity. Never blocks startup.
     ClientReporter.startForWeb();
     await activateAppCheck(flavor);
@@ -294,7 +299,7 @@ Future<void> _bootstrap(
             },
           );
     PerfTimeline.mark('boot.contentdb');
-    final remoteFlagsOverrides = await bootstrapRemoteFlagsOverrides();
+    final remoteFlagsOverrides = await remoteFlags;
     PerfTimeline.mark('boot.flags');
     final authOverrides = authRepositoryOverrides(firebaseResult);
 
@@ -338,6 +343,18 @@ Future<void> _bootstrap(
 
     await bootstrapAuthSession(container, firebaseResult);
     PerfTimeline.mark('boot.auth');
+    // The beta check is a server call. Start it now so it runs beside the
+    // content restore, consent and sync steps. The router reuses its result.
+    startBetaAccessCheck(container);
+    // Payment setup waits on the network too and needs only storage and auth,
+    // so it runs beside the content restore. It is awaited below, before sync
+    // and the first screen, as it was before.
+    final payments = bootstrapRevenueCat(container);
+    // Awaited below; this only keeps an early failure in a step in between
+    // from also being reported as unhandled.
+    unawaited(
+      payments.then<void>((_) {}, onError: (Object _, StackTrace __) {}),
+    );
     if (kIsWeb) {
       // Listen for the browser's install events from the first frame and ask
       // it to keep storage once Pantas runs installed.
@@ -349,7 +366,7 @@ Future<void> _bootstrap(
     PerfTimeline.mark('boot.consent');
     await registerDevProSwitch(container);
     await registerDevDemoSwitch(container);
-    await bootstrapRevenueCat(container);
+    await payments;
     PerfTimeline.mark('boot.payments');
     await bootstrapSyncRuntime(container, firebaseResult);
     PerfTimeline.mark('boot.sync');
