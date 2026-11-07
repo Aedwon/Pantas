@@ -30,8 +30,7 @@ void main() {
     final inline = RegExp(
       r'export const (\w+)\s*=\s*onCall\(\s*(\{[^;]*?consumeAppCheckToken|\{\.\.\.options, consumeAppCheckToken)',
     );
-    final shared =
-        RegExp(r'export const (\w+)\s*=\s*onCall\(\s*options\s*,');
+    final shared = RegExp(r'export const (\w+)\s*=\s*onCall\(\s*options\s*,');
     final sharedConsumes =
         RegExp(r'const options = \{[^;]*?consumeAppCheckToken');
     final consuming = <String>{};
