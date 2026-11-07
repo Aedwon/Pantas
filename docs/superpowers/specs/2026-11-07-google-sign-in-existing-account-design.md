@@ -36,6 +36,10 @@ wrapped in `timed`. Input `{idToken: string}` (max 4096 chars, no other keys).
    Firebase Google provider's client id); `iss` is `accounts.google.com` or
    `https://accounts.google.com`; `email_verified` is `"true"`; `exp` in the future; `sub`
    and `email` present. If the param is empty, refuse (`failed-precondition`).
+   Google must be authoritative for the address (accepted security review finding, Nov 7):
+   the email ends in `@gmail.com` or `@googlemail.com`, or the token's `hd` claim equals the
+   email's domain. Any other address is refused (`permission-denied`); that student uses the
+   email code.
 3. Normalize the email (trim, lower case). `getUserByEmail`; not found means refuse
    (`permission-denied`): a new address never needs this path because Firebase signs it in
    directly. Refuse a disabled user or one whose email is not verified. Refuse when the
