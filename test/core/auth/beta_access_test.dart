@@ -8,6 +8,7 @@ import 'package:pantas/core/auth/auth_state.dart';
 import 'package:pantas/core/auth/auth_user.dart';
 import 'package:pantas/core/auth/beta_access.dart';
 import 'package:pantas/core/auth/providers.dart';
+import 'package:pantas/core/telemetry/perf_timeline.dart';
 
 import 'firebase_auth_functions_gateway_test.dart'
     show RecordingFunctionsClient;
@@ -96,6 +97,35 @@ void main() {
     expect(client.calls, isEmpty);
   });
 
+  test('the timeline marks the beta answer when it arrives', () async {
+    PerfTimeline.reset();
+    addTearDown(PerfTimeline.reset);
+    final pending = Completer<BetaAccess>();
+    final container = ProviderContainer(
+      overrides: [
+        authStateProvider.overrideWith(
+          (ref) => Stream.value(
+            const AuthState.signedIn(
+              user: AuthUser(uid: 'u', email: 'u@example.com', displayName: ''),
+            ),
+          ),
+        ),
+        betaAccessGatewayProvider.overrideWithValue(
+          _CompleterAccess(pending),
+        ),
+      ],
+    );
+    addTearDown(container.dispose);
+    final answer = container.read(betaAccessProvider.future);
+    await Future<void>.delayed(Duration.zero);
+    expect(PerfTimeline.entries(), isEmpty, reason: 'still waiting');
+
+    pending.complete(BetaAccess.open);
+    await answer;
+
+    expect(PerfTimeline.entries().map((e) => e.name), ['beta.resolved']);
+  });
+
   test('anonymous users never call selection', () async {
     final client = RecordingFunctionsClient();
     final container = ProviderContainer(
@@ -168,4 +198,12 @@ class _PendingAccess extends BetaAccessGateway {
     requests.add(result);
     return result.future;
   }
+}
+
+class _CompleterAccess implements BetaAccessGateway {
+  _CompleterAccess(this._result);
+  final Completer<BetaAccess> _result;
+
+  @override
+  Future<BetaAccess> check() => _result.future;
 }

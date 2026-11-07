@@ -15,6 +15,7 @@ import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/telemetry/perf_timeline.dart';
 import 'package:pantas/core/time/pantas_dates.dart';
 import 'package:pantas/core/ui/components/content_renderer.dart';
 import 'package:pantas/core/ui/components/pantas_sheet.dart';
@@ -79,6 +80,7 @@ class LessonPage extends ConsumerStatefulWidget {
 
 class _LessonPageState extends ConsumerState<LessonPage> {
   late LessonId _lessonId = widget.lessonId;
+  final ScreenTimer _timing = ScreenTimer('screen.lesson');
 
   /// The last lesson that actually loaded.
   ///
@@ -448,6 +450,7 @@ class _LessonPageState extends ConsumerState<LessonPage> {
     final asyncReader = ref.watch(readerContextProvider(lessonId));
     firstScreenReady(context, ref, ready: !asyncReader.isLoading);
     final loaded = asyncReader.valueOrNull;
+    _timing.settled(ready: loaded != null);
     if (loaded != null) {
       if (loaded.boundary?.token != _boundary!.token ||
           loaded.examId != _boundary!.examId) {

@@ -5,6 +5,35 @@
 
   var state = { event: null, installed: false, listeners: [] };
 
+  // The worker that controlled this page when it loaded, if any. A worker that
+  // takes over later does not change what kind of visit this was.
+  var controllerAtLoad = null;
+  var buildVersion = null;
+  try {
+    if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
+      controllerAtLoad = navigator.serviceWorker.controller.scriptURL;
+    }
+  } catch (_) {}
+
+  // Timeline marks for the speed report. They only record times.
+  function mark(name) {
+    try {
+      window.performance.mark(name);
+    } catch (_) {}
+  }
+
+  // 'first' when no worker controlled the page, 'after_deploy' when the one
+  // that did came from a different build, otherwise 'return'.
+  function visitKind() {
+    if (!controllerAtLoad) return 'first';
+    if (buildVersion === null) return 'return';
+    var at = controllerAtLoad.indexOf('?v=');
+    if (at === -1) return 'after_deploy';
+    var end = controllerAtLoad.indexOf('&', at);
+    var found = controllerAtLoad.slice(at + 3, end === -1 ? undefined : end);
+    return found === encodeURIComponent(buildVersion) ? 'return' : 'after_deploy';
+  }
+
   function emit() {
     state.listeners.slice().forEach(function (listener) {
       try {
@@ -31,6 +60,14 @@
   // rejects and never waits long: without a worker the app loads from the
   // network as before.
   function registerWorker(version) {
+    buildVersion = version;
+    return registerForBuild(version).then(function (result) {
+      mark('page.worker');
+      return result;
+    });
+  }
+
+  function registerForBuild(version) {
     if (!('serviceWorker' in navigator)) return Promise.resolve(false);
     var script = 'pantas_sw.js?v=' + encodeURIComponent(version);
     // First visit: no worker controls the page, so nothing stale can be
@@ -107,6 +144,7 @@
       );
     },
     registerWorker: registerWorker,
+    visitKind: visitKind,
     // Forced update: removes this browser's worker and cached app files, then
     // reloads so the next load comes from the network. Always reloads.
     updateNow: function () {

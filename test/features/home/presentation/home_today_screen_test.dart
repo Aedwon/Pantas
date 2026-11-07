@@ -9,6 +9,7 @@ import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/storage/domain/exam.dart';
 import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
+import 'package:pantas/core/telemetry/perf_timeline.dart';
 import 'package:pantas/core/ui/components/today_questions.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -94,6 +95,33 @@ void main() {
       expect(signals, 1);
     });
   }
+  testWidgets('Home marks its first frame, then its data, then the screen time',
+      (tester) async {
+    PerfTimeline.reset();
+    addTearDown(PerfTimeline.reset);
+    final pending = Completer<HomeTodayData>();
+    final data = HomeTodayData(
+      today: today,
+      lessons: const [],
+      questionWork: null,
+      canAdvance: false,
+    );
+    await pumpData(tester, data, pending: pending.future);
+    await tester.pump();
+    expect(
+      PerfTimeline.entries().map((e) => e.name),
+      ['home.firstframe'],
+      reason: 'the skeleton is drawn, the plan is not in yet',
+    );
+
+    pending.complete(data);
+    await tester.pumpAndSettle();
+
+    expect(
+      PerfTimeline.entries().map((e) => e.name),
+      ['home.firstframe', 'home.data', 'screen.home'],
+    );
+  });
   quietDayTests();
   auditTests();
   testWidgets('a lesson row starts the real lesson with its day context',

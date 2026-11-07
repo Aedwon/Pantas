@@ -16,6 +16,14 @@
     var state = { shown: false, done: false, gone: false };
     var waiting = [];
 
+    // Timeline marks for the speed report. They only record times and can
+    // never change what the splash does.
+    function mark(name) {
+      try {
+        if (env.mark) env.mark(name);
+      } catch (_) {}
+    }
+
     // Runs each waiting callback once the splash is out of the page. A page
     // that never had the splash counts as already gone.
     function afterGone(fn) {
@@ -43,6 +51,10 @@
       var splash = doc.getElementById('pantas-splash');
       if (splash && splash.remove) splash.remove();
       state.gone = true;
+      mark('splash.removed');
+      try {
+        if (env.printTiming) env.printTiming();
+      } catch (_) {}
       var callbacks = waiting;
       waiting = [];
       callbacks.forEach(function (fn) {
@@ -80,6 +92,10 @@
     // Called by the app once the first route has settled.
     function ready() {
       if (!state.shown || state.done) return;
+      if (!state.readyMarked) {
+        state.readyMarked = true;
+        mark('splash.ready');
+      }
       env.afterPaint(finish);
     }
 
@@ -119,6 +135,17 @@
   root.pantasSplash = create({
     document: root.document,
     welcome: root.pantasWelcome,
+    mark: function (name) {
+      root.performance.mark(name);
+    },
+    // With ?timing=1 in the address, prints every mark once the splash is gone.
+    printTiming: function () {
+      if (!/[?&]timing=1(?:&|$)/.test(root.location.search)) return;
+      var rows = root.performance.getEntriesByType('mark').map(function (entry) {
+        return { name: entry.name, ms: Math.round(entry.startTime) };
+      });
+      root.console.table(rows);
+    },
     setTimeout: function (fn, ms) {
       return root.setTimeout(fn, ms);
     },

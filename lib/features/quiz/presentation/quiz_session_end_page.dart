@@ -10,6 +10,7 @@ import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/telemetry/perf_timeline.dart';
 import 'package:pantas/core/ui/components/content_renderer.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
@@ -66,6 +67,7 @@ class _QuizSessionEndPageState extends ConsumerState<QuizSessionEndPage> {
   ProviderSubscription<AsyncValue<CompletedQuizData>>? _subscription;
   bool _rated = false;
   bool _diagnosisDismissed = false;
+  final ScreenTimer _timing = ScreenTimer('screen.quizend');
   CompletedQuizRequest get _request => (
         boundary: _boundary,
         attemptId: widget.attemptId,
@@ -432,6 +434,10 @@ class _QuizSessionEndPageState extends ConsumerState<QuizSessionEndPage> {
             context,
             ref,
             ready: snapshot.connectionState == ConnectionState.done,
+          );
+          _timing.settled(
+            ready: snapshot.connectionState == ConnectionState.done &&
+                snapshot.hasData,
           );
           if (snapshot.hasError || !_current()) {
             return QuestionsUnavailable(
