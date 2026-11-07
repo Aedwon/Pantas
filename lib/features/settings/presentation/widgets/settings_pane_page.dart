@@ -469,26 +469,6 @@ class SettingsNavigation extends ConsumerWidget {
                     selectedColor: t.colors.accent,
                     selected: selected == 'Feedback',
                   ),
-                  divider: true,
-                ),
-                // G1: the guide opens in a new tab, so it never selects.
-                WebRow(
-                  title: 'Tester Guide',
-                  titleStyle: t.style(16),
-                  horizontalPadding: 16,
-                  compact: true,
-                  leadingGap: 12,
-                  leading: SettingsStrokeGlyph.guide(
-                    size: 22,
-                    color: t.colors.accent,
-                  ),
-                  trailing: SettingsStrokeGlyph.external(
-                    key: const ValueKey('tester-guide-arrow'),
-                    color: t.colors.chevron,
-                  ),
-                  onPressed: () => unawaited(
-                    ref.read(testerGuideOpenerProvider)(testerGuideUrl),
-                  ),
                   divider: false,
                 ),
                 const BetaProRow(),
