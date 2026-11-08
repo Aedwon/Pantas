@@ -452,11 +452,12 @@ test('the callable is deployed with App Check, a used-once token and the timing 
   assert.match(index, /exchangeGoogleSignIn[^;]*from '\.\/googleSignIn\.js'/);
 });
 
-test('production names the Google web client id and staging and dev leave it empty', () => {
+test('production and staging each name their own Google web client id', () => {
   const env = name => readFileSync(new URL(`../${name}`, import.meta.url), 'utf8');
   assert.match(env('.env.pantas-prod'),
     /^GOOGLE_WEB_CLIENT_ID=416041343210-48rd2t4jivmdt7s1jbkoleobuadq9olj\.apps\.googleusercontent\.com$/m);
-  assert.doesNotMatch(env('.env.pantas-staging'), /GOOGLE_WEB_CLIENT_ID/);
+  assert.match(env('.env.pantas-staging'),
+    /^GOOGLE_WEB_CLIENT_ID=797279948229-vsel4tsbcpslsc9cj3sn6i2d0vkkolgs\.apps\.googleusercontent\.com$/m);
 });
 
 test('the id token is never written to a log', () => {
