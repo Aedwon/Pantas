@@ -20,7 +20,7 @@ void main() {
       expect(
         decoration.border,
         brightness == Brightness.dark
-            ? Border.all(color: const Color(0xFF2C2C2C))
+            ? Border.all(color: const Color(0xFF2A2A2A))
             : null,
       );
       expect(decoration.borderRadius, BorderRadius.circular(14));

@@ -1,12 +1,30 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
 
+/// Width tiers of the web app. Breakpoints come from `PantasLayout`.
+///
+/// - `phone`: under `bpTabletPortrait` (600).
+/// - `tabletPortrait`: 600 up to `bpTabletLandscape` (1024).
+/// - `tabletLandscape`: 1024 up to the sidebar start (see below).
+/// - `desktop`: from the sidebar start.
+///
+/// Design system D136 starts the sidebar at `bpTabletLandscape` (1024), with
+/// a compact layout up to `bpWide` - 1 (1439) and the full layout from
+/// `bpWide` (1440). The shell still starts it at 1280, so family C (shell and
+/// navigation) moves [_sidebarFromWidth] to 1024, adds the compact and full
+/// split and retires `tabletLandscape`.
 enum WebLayoutTier { phone, tabletPortrait, tabletLandscape, desktop }
 
+// LEGACY: remove in family C. The width where the sidebar starts today.
+const double _sidebarFromWidth = 1280;
+
 WebLayoutTier webLayoutTier({required double width, bool web = kIsWeb}) {
-  if (!web || width < 600) return WebLayoutTier.phone;
-  if (width < 1024) return WebLayoutTier.tabletPortrait;
-  if (width < 1280) return WebLayoutTier.tabletLandscape;
+  if (!web || width < PantasLayout.bpTabletPortrait) return WebLayoutTier.phone;
+  if (width < PantasLayout.bpTabletLandscape) {
+    return WebLayoutTier.tabletPortrait;
+  }
+  if (width < _sidebarFromWidth) return WebLayoutTier.tabletLandscape;
   return WebLayoutTier.desktop;
 }
 

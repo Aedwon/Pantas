@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 
 // QV_Flag's toast uses the same inverted pair in both themes.
@@ -32,7 +32,7 @@ class Toast extends StatelessWidget {
         duration: MediaQuery.disableAnimationsOf(context)
             ? Duration.zero
             : Duration(milliseconds: visible ? 250 : 300),
-        curve: PantasCurves.houseOut,
+        curve: PantasCurves.house,
         builder: (context, value, child) => ExcludeFocus(
           excluding: !visible,
           child: IgnorePointer(

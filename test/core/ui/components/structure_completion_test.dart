@@ -120,8 +120,8 @@ void main() {
       expect(
         tester.widget<Text>(find.text('Save')).style!.color,
         brightness == Brightness.light
-            ? const Color(0xFFAEAEB2)
-            : const Color(0xFF949494),
+            ? const Color(0xFF6E6E73)
+            : const Color(0xFFA3A3A3),
       );
       for (final stacked in [true, false]) {
         await pumpAccessibilitySurface(

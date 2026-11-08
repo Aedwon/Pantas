@@ -4,7 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/features/assessment/application/assessment_leave_guard.dart';
 import 'package:pantas/features/assessment/assessment.dart';
 import 'package:pantas/features/onboarding/onboarding.dart';
@@ -49,7 +49,7 @@ List<RouteBase> onboardingRoutes(Ref ref, {bool web = kIsWeb}) => [
                       ? child
                       : FadeTransition(
                           opacity: animation
-                              .drive(CurveTween(curve: PantasCurves.ease)),
+                              .drive(CurveTween(curve: PantasCurves.fade)),
                           child: child,
                         ),
               child: AssessmentResultsPage(

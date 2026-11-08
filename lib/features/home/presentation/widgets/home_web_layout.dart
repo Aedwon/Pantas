@@ -5,7 +5,7 @@ import 'package:flutter/rendering.dart' show RenderAbstractViewport;
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/components/skeleton_fade.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
@@ -265,7 +265,7 @@ void _revealWithMargin(BuildContext context, Duration duration) {
     position.animateTo(
       target,
       duration: duration,
-      curve: PantasCurves.houseOut,
+      curve: PantasCurves.house,
     ),
   );
 }
@@ -373,7 +373,7 @@ class HomeWebNotice extends StatelessWidget {
                             AnimatedRotation(
                               turns: expanded ? .5 : 0,
                               duration: duration,
-                              curve: PantasCurves.houseOut,
+                              curve: PantasCurves.house,
                               child: Icon(
                                 Icons.expand_more,
                                 size: 16,
@@ -410,7 +410,7 @@ class HomeWebNotice extends StatelessWidget {
           TweenAnimationBuilder<double>(
             tween: Tween(begin: expanded ? 1 : 0, end: expanded ? 1 : 0),
             duration: duration,
-            curve: PantasCurves.houseOut,
+            curve: PantasCurves.house,
             // The notice sits at the foot of Home. Once it has opened, scroll
             // so its buttons are not left below the window, with the page's
             // own bottom margin under the card (3K-2).

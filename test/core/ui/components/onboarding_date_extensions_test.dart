@@ -52,7 +52,7 @@ void main() {
               find.descendant(of: day, matching: find.byType(Text)),
             )
             .first;
-        expect(weekday.style!.fontSize, 11);
+        expect(weekday.style!.fontSize, 12);
         expectContrast(weekday.style!.color!, colors.accentFill);
         await tester.tap(find.byKey(const ValueKey('date-month-12')));
         await tester.pumpAndSettle();

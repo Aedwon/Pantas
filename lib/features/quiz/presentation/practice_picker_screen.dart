@@ -19,9 +19,9 @@ import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/components/value_wheel.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/motion/view_swap.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_key_focus.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -409,7 +409,7 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
         : AnimatedSize(
             key: ValueKey('web-lessons-${topic.id}'),
             duration: const Duration(milliseconds: 600),
-            curve: PantasCurves.houseOut,
+            curve: PantasCurves.house,
             child: lessons,
           );
     final tree = Column(
@@ -478,7 +478,7 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                                   turns: _webOpenTopics.contains(topic.id)
                                       ? .5
                                       : 0,
-                                  curve: PantasCurves.houseOut,
+                                  curve: PantasCurves.house,
                                   duration: still
                                       ? Duration.zero
                                       : const Duration(milliseconds: 300),

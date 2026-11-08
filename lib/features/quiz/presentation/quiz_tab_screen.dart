@@ -17,8 +17,8 @@ import 'package:pantas/core/ui/components/paused_quiz_notice.dart';
 import 'package:pantas/core/ui/components/progress_ring.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/components/today_questions.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_key_focus.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -952,7 +952,7 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
       key: key,
       tween: Tween(begin: 0, end: 1),
       duration: Duration(milliseconds: delay + 450),
-      curve: Interval(delay / (delay + 450), 1, curve: PantasCurves.houseOut),
+      curve: Interval(delay / (delay + 450), 1, curve: PantasCurves.house),
       child: child,
       builder: (_, value, child) => Transform.translate(
         offset: Offset(0, 12 * (1 - value)),

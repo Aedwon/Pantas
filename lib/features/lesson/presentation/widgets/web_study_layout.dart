@@ -12,9 +12,9 @@ import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/motion/pane_transition.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
-import 'package:pantas/core/ui/motion/pantas_durations.dart';
 import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
@@ -265,7 +265,7 @@ class _PageRecede extends StatelessWidget {
       tween: Tween(end: receded ? 1.0 : 0.0),
       duration:
           still ? Duration.zero : Duration(milliseconds: receded ? 450 : 400),
-      curve: PantasCurves.slideA,
+      curve: PantasCurves.scroll,
       child: child,
       builder: (context, progress, child) => Transform.translate(
         key: const ValueKey('web-study-page-shift'),
@@ -347,12 +347,13 @@ class _WebStudyMapState extends State<WebStudyMap>
   ({StudyTopic topic, String subject})? _card;
 
   static const double _swapOutMs = 100;
-  static final double _swapMs = PantasDurations.base.inMilliseconds.toDouble();
+  static final double _swapMs =
+      PantasDurations.medium1.inMilliseconds.toDouble();
 
   @override
   void initState() {
     super.initState();
-    _swap = AnimationController(vsync: this, duration: PantasDurations.base)
+    _swap = AnimationController(vsync: this, duration: PantasDurations.medium1)
       ..addListener(_swapTick)
       ..addStatusListener((status) {
         if (status == AnimationStatus.completed && mounted) {
@@ -393,9 +394,9 @@ class _WebStudyMapState extends State<WebStudyMap>
     if (!_swapping) return 1;
     final ms = _swap.value * _swapMs;
     if (!_swapped) {
-      return 1 - PantasCurves.ease.transform((ms / _swapOutMs).clamp(0.0, 1.0));
+      return 1 - PantasCurves.fade.transform((ms / _swapOutMs).clamp(0.0, 1.0));
     }
-    return PantasCurves.shared.transform(
+    return PantasCurves.move.transform(
       ((ms - _swapOutMs) / (_swapMs - _swapOutMs)).clamp(0.0, 1.0),
     );
   }
@@ -876,9 +877,9 @@ class _WebStudyMapState extends State<WebStudyMap>
           AnimatedSwitcher(
             duration: MediaQuery.disableAnimationsOf(context)
                 ? Duration.zero
-                : PantasDurations.quick,
-            switchInCurve: PantasCurves.ease,
-            switchOutCurve: PantasCurves.ease,
+                : PantasDurations.short2,
+            switchInCurve: PantasCurves.fade,
+            switchOutCurve: PantasCurves.fade,
             child: selected
                 ? Icon(
                     PantasIcons.next,
@@ -917,7 +918,7 @@ class _TopicSwapState extends State<_TopicSwap>
     _out = AnimationController(
       vsync: this,
       duration: Duration(milliseconds: PaneMotion.outEndMs.round()),
-      upperBound: PaneMotion.outEndMs / PantasDurations.base.inMilliseconds,
+      upperBound: PaneMotion.outEndMs / PantasDurations.medium1.inMilliseconds,
     );
   }
 
@@ -986,7 +987,7 @@ class _TopicEntrance extends StatelessWidget {
         tween: Tween(begin: 0, end: 1),
         duration: MediaQuery.disableAnimationsOf(context)
             ? Duration.zero
-            : PantasDurations.base,
+            : PantasDurations.medium1,
         builder: (_, progress, child) => Opacity(
           key: const ValueKey('web-study-topic-opacity'),
           opacity: PaneMotion.incomingOpacity(progress),

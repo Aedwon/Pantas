@@ -12,7 +12,7 @@ import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/telemetry/telemetry.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
-import 'package:pantas/core/ui/theme/pantas_colors.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 import 'package:pantas/features/home/presentation/home_tab.dart';
 import 'package:pantas/features/lesson/presentation/learn_tab_home.dart';
 import 'package:pantas/features/paywall/paywall.dart';

@@ -693,7 +693,7 @@ void main() {
         tester
             .widget<Material>(find.byKey(const ValueKey('web-figure-scrim')))
             .color,
-        const Color.fromRGBO(10, 10, 12, .88),
+        const Color(0xE00A0A0C),
       );
       await tester.tap(find.byTooltip('Close figure'));
       await tester.pumpAndSettle();
@@ -776,7 +776,7 @@ void main() {
       expect(
         (surface.shape! as RoundedRectangleBorder).side.color,
         brightness == Brightness.dark
-            ? const Color(0xFF2C2C2C)
+            ? const Color(0xFF2A2A2A)
             : Colors.transparent,
       );
       await tester.enterText(find.byType(TextField), 'plate');

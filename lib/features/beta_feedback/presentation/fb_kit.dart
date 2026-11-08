@@ -1,9 +1,9 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/motion/press_scale.dart';
-import 'package:pantas/core/ui/theme/pantas_colors.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
@@ -348,7 +348,7 @@ class FbRise extends StatelessWidget {
     this.dy = 10,
     this.duration = const Duration(milliseconds: 300),
     this.delay = Duration.zero,
-    this.curve = PantasCurves.riseIn,
+    this.curve = PantasCurves.enter,
     super.key,
   });
   final Widget child;
@@ -399,11 +399,11 @@ class FbPop extends StatelessWidget {
           final double scale;
           final double opacity;
           if (t < .6) {
-            final e = PantasCurves.popC.transform(t / .6);
+            final e = PantasCurves.spring.transform(t / .6);
             scale = .4 + (peak - .4) * e;
             opacity = e.clamp(0.0, 1.0);
           } else {
-            final e = PantasCurves.popC.transform((t - .6) / .4);
+            final e = PantasCurves.spring.transform((t - .6) / .4);
             scale = peak + (1 - peak) * e;
             opacity = 1;
           }
@@ -442,7 +442,7 @@ class FbDrawnGlyph extends StatelessWidget {
           size: size,
           color: color,
           stroke: stroke,
-          progress: PantasCurves.checkDraw.transform(t),
+          progress: PantasCurves.draw.transform(t),
         ),
       );
 }

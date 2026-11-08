@@ -1,5 +1,6 @@
 import 'package:flutter/painting.dart';
-import 'package:pantas/core/ui/theme/pantas_colors.dart';
+import 'package:pantas/core/ui/theme/legacy_theme_shim.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 
 /// Rust below 50, amber below 70, plain ink above.
 ///

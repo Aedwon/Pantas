@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/ui/theme/app_text_scale.dart';
 
 final lessonTextScaleProvider =
     StateNotifierProvider<LessonTextScaleController, double>((ref) {
@@ -50,8 +51,9 @@ class LessonTextScaleController extends StateNotifier<double> {
   }
 }
 
-/// Applies the lesson preference inside this subtree.
-/// Other controls keep the phone scaling.
+/// Applies the lesson preference inside this subtree. It multiplies the OS
+/// scaler captured at the app root ([OsTextScaler]), which is not clamped.
+/// Other controls keep the clamped UI scaling.
 class LessonTextScale extends ConsumerWidget {
   const LessonTextScale({required this.child, super.key});
 
@@ -62,7 +64,9 @@ class LessonTextScale extends ConsumerWidget {
     final factor = ref.watch(lessonTextScaleProvider);
     final media = MediaQuery.of(context);
     return MediaQuery(
-      data: media.copyWith(textScaler: _LessonScaler(media.textScaler, factor)),
+      data: media.copyWith(
+        textScaler: _LessonScaler(OsTextScaler.of(context), factor),
+      ),
       child: child,
     );
   }

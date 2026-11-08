@@ -6,9 +6,9 @@ import 'package:go_router/go_router.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
@@ -544,12 +544,12 @@ class _TransferScreenState extends ConsumerState<CarryOverScreen>
           builder: (context, _) {
             final drain =
                 const Cubic(.45, 0, .25, 1).transform(phase(750, 2350));
-            final finish = PantasCurves.ease.transform(phase(2950, 3300));
-            final lift = PantasCurves.houseOut.transform(phase(50, 500));
-            final hide = PantasCurves.ease.transform(phase(0, 300));
+            final finish = PantasCurves.fade.transform(phase(2950, 3300));
+            final lift = PantasCurves.house.transform(phase(50, 500));
+            final hide = PantasCurves.fade.transform(phase(0, 300));
             final checkProgress = phase(2650, 2950);
             final labelProgress =
-                PantasCurves.ease.transform(phase(2600, 2900));
+                PantasCurves.fade.transform(phase(2600, 2900));
             Widget vessel(
               String name, {
               required bool check,

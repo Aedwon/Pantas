@@ -4,11 +4,11 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:pantas/core/ui/components/tab_bar_visibility.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
-import 'package:pantas/core/ui/theme/pantas_colors.dart';
 import 'package:pantas/core/ui/theme/pantas_shape.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 
 /// Owns the sheet surface and the page behind it. The caller supplies contents.
@@ -134,10 +134,10 @@ class _PantasSheetState extends State<PantasSheet>
                     : 320,
           );
     final endpoint = widget.open ? 1.0 : 0.0;
-    final curve = slideSheet ? PantasCurves.slideC : PantasCurves.houseOut;
+    final curve = slideSheet ? PantasCurves.slide : PantasCurves.house;
     final washDuration =
         still ? Duration.zero : Duration(milliseconds: slideSheet ? 350 : 300);
-    final washCurve = slideSheet ? PantasCurves.ease : PantasCurves.linear;
+    final washCurve = slideSheet ? PantasCurves.fade : PantasCurves.linear;
     // On wide web the sheet sits in the page's column, but its scrim covers the
     // window, the sidebar included, as every dialog does. A scrim drawn inside
     // the column was a gray box with hard edges (5S-4).
@@ -148,7 +148,7 @@ class _PantasSheetState extends State<PantasSheet>
     final page = TweenAnimationBuilder<double>(
       tween: Tween(begin: still ? endpoint : 0, end: endpoint),
       duration: duration,
-      curve: PantasCurves.slideA,
+      curve: PantasCurves.scroll,
       builder: (context, pageProgress, child) => Transform.translate(
         key: const ValueKey('pantas-sheet-page-shift'),
         offset: Offset(0, bookmarks ? 10 * pageProgress : 0),

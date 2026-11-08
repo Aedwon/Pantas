@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 
 class PantasSwitch extends StatelessWidget {
   const PantasSwitch({
@@ -33,7 +33,7 @@ class PantasSwitch extends StatelessWidget {
                 tween: Tween<double>(begin: value ? 1 : 0, end: value ? 1 : 0),
                 duration:
                     motion ? const Duration(milliseconds: 350) : Duration.zero,
-                curve: PantasCurves.popC,
+                curve: PantasCurves.spring,
                 builder: (context, position, child) =>
                     TweenAnimationBuilder<Color?>(
                   tween: ColorTween(
@@ -47,7 +47,7 @@ class PantasSwitch extends StatelessWidget {
                   duration: motion
                       ? const Duration(milliseconds: 250)
                       : Duration.zero,
-                  curve: PantasCurves.ease,
+                  curve: PantasCurves.fade,
                   builder: (context, trackColor, child) => DecoratedBox(
                     key: const ValueKey('pantas-switch-track'),
                     decoration: BoxDecoration(

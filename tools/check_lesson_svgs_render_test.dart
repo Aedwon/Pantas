@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/lesson_svg.dart';
-import 'package:pantas/core/ui/theme/pantas_colors.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();

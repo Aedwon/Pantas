@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/exam_name_line.dart';
-import 'package:pantas/core/ui/theme/pantas_type.dart';
+import 'package:pantas/core/ui/theme/legacy_theme_shim.dart';
 
 import '../../../helpers/pump_app.dart';
 
@@ -11,6 +11,6 @@ void main() {
     await tester.pumpAndSettle();
 
     final text = tester.widget<Text>(find.text('UPCAT'));
-    expect(text.style?.fontSize, PantasType.create().sectionHero.fontSize);
+    expect(text.style?.fontSize, LegacyType.create().sectionHero.fontSize);
   });
 }

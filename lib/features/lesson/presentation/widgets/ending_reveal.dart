@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 
 /// One part of a lesson ending arriving: a staggered 8 px rise and fade that
 /// starts after [delay] and takes [duration] on the house ease. The phone and
@@ -36,8 +36,7 @@ class EndingReveal extends StatelessWidget {
     return TweenAnimationBuilder<double>(
       tween: Tween(begin: 0, end: 1),
       duration: Duration(milliseconds: delay + duration),
-      curve:
-          Interval(delay / (delay + duration), 1, curve: PantasCurves.houseOut),
+      curve: Interval(delay / (delay + duration), 1, curve: PantasCurves.house),
       // The fade changes only the layer's opacity, so the card behind it is
       // painted once.
       child: RepaintBoundary(child: child),

@@ -1,9 +1,12 @@
 import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/scope_picker.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
-import 'package:pantas/core/ui/theme/pantas_colors.dart';
+import 'package:pantas/core/ui/theme/legacy_theme_shim.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+
 import '../../../helpers/accessibility.dart';
 import 'w2_test_support.dart';
 
@@ -112,7 +115,7 @@ void main() {
       final caret = find.byKey(const ValueKey('scope-caret-t'));
       final rotation = tester.widget<AnimatedRotation>(caret);
       expect(rotation.turns, .5);
-      expect(rotation.curve, PantasCurves.houseOut);
+      expect(rotation.curve, PantasCurves.house);
       await tester.pump(const Duration(milliseconds: 150));
       final transform = tester.widget<RotationTransition>(
         find.descendant(

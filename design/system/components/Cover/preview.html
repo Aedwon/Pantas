@@ -1,0 +1,45 @@
+<!-- @dsCard height=288 -->
+<!doctype html>
+<html lang="en" data-theme="light"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@700&display=swap">
+<style>
+html,body{margin:0}
+body{background:var(--bg-page)}
+.cover{position:relative;width:960px;height:288px;overflow:hidden;background:var(--bg-page);font-family:var(--font-sans);-webkit-font-smoothing:antialiased}
+.cover svg.art{position:absolute;left:0;top:0}
+.brand{fill:var(--accent-fill)}.ink{fill:var(--text-primary)}.mid{fill:var(--chart-3)}.deep{fill:var(--chart-5)}.relief{fill:var(--chart-1)}.gold{fill:var(--pro)}
+.tas{fill:var(--accent);stroke:var(--accent)}
+.name{position:absolute;left:48px;bottom:68px;margin:0;font-size:120px;font-weight:700;line-height:.95;letter-spacing:-.03em;color:var(--text-primary)}
+.tagline{position:absolute;left:48px;bottom:32px;margin:0;width:420px;font-size:14px;line-height:1.4;color:var(--text-secondary)}
+</style></head><body>
+<div class="cover">
+  <!-- Derivation.
+  Blocks: accent-fill (brand slab 2x2 at radius-modal, 1x2 at right edge), chart-3 (2x2 slab, 1x2), chart-5 (1x1 tiles and a bar at radius-bar), chart-1 (relief, 2x1 and 1x1), text-primary (ink 2x1 and 1x2), pro (one disc).
+  Arrangement: flush modular grid of 7 columns by 4 rows, pitch 72 (tile 64 + space-8), from x=504, some tiles merged two-wide or two-high, bleeding off the right edge; nothing crosses the name zone left of x=480.
+  Pattern row: geometric, modular, dense UI. Tiles are cut by the radius tokens and merged like the cards and rows of the app (radius-card 18, radius-modal 22, radius-bar 32, one disc at half the short side).
+  Steps and radii: space-8 gap, 64px tile, radius-card, radius-modal, radius-bar, radius-pill. Mark: Pantas logo paths from pantas_logo.dart, viewBox 307 309 640 640. -->
+  <svg class="art" width="960" height="288" viewBox="0 0 960 288" aria-hidden="true">
+    <rect class="brand" x="504" y="80" width="136" height="136" style="rx:var(--radius-2xl)"/>
+    <rect class="ink" x="648" y="8" width="136" height="64" style="rx:var(--radius-xl)"/>
+    <rect class="relief" x="792" y="8" width="64" height="64" style="rx:var(--radius-xl)"/>
+    <rect class="mid" x="648" y="80" width="64" height="136" style="rx:var(--radius-xl)"/>
+    <rect class="deep" x="720" y="80" width="64" height="64" style="rx:var(--radius-xl)"/>
+    <rect class="gold" x="720" y="152" width="64" height="64" style="rx:32px"/>
+    <rect class="relief" x="792" y="80" width="136" height="64" style="rx:var(--radius-xl)"/>
+    <rect class="mid" x="792" y="152" width="136" height="136" style="rx:var(--radius-2xl)"/>
+    <rect class="deep" x="504" y="224" width="136" height="64" style="rx:var(--radius-bar)"/>
+    <rect class="relief" x="648" y="224" width="136" height="64" style="rx:var(--radius-xl)"/>
+    <rect class="brand" x="936" y="8" width="64" height="136" style="rx:var(--radius-xl)"/>
+    <rect class="ink" x="936" y="152" width="64" height="136" style="rx:var(--radius-xl)"/>
+    <rect class="deep" x="864" y="8" width="64" height="64" style="rx:var(--radius-xl)"/>
+    <svg x="48" y="40" width="72" height="72" viewBox="307 309 640 640">
+      <g class="tas"><line x1="887" y1="515.69" x2="887" y2="664" style="stroke-width:11;stroke-linecap:round"/><circle cx="887" cy="682" r="20"/><path d="M877 699L897 699L912 774Q915 790 899 791L875 791Q859 790 862 774Z"/></g>
+      <g class="ink"><path d="M363.97 493.76L614.06 374.19A30 30 0 0 1 639.94 374.19L890.03 493.76A18 18 0 0 1 890.03 526.24L639.94 645.81A30 30 0 0 1 614.06 645.81L363.97 526.24A18 18 0 0 1 363.97 493.76Z"/>
+      <path d="M443.45 593.06L519.45 629.40A8 8 0 0 1 524 636.62L524 878A12 12 0 0 1 512 890L478 890A46 46 0 0 1 432 844L432 600.28A8 8 0 0 1 443.45 593.06Z"/>
+      <path d="M728 638.53Q728 632.53 734 629.63L814 591.44Q820 588.54 820 594.54L820 696A150 150 0 0 1 670 846L584 846A12 12 0 0 1 572 834L572 766A12 12 0 0 1 584 754L670 754A58 58 0 0 0 728 696Z"/></g>
+    </svg>
+  </svg>
+  <h1 class="name">Pantas</h1>
+  <p class="tagline">Study for Philippine entrance and civil service exams.</p>
+</div>
+</body></html>

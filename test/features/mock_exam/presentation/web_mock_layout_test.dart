@@ -567,7 +567,7 @@ void main() {
       expect((badge.decoration! as BoxDecoration).shape, BoxShape.circle);
       expect(
         (badge.decoration! as BoxDecoration).color,
-        dark ? const Color(0xFF33201F) : const Color(0xFFFDE8EA),
+        dark ? const Color(0xFF33201F) : const Color(0xFFFDECEE),
       );
       await tester.tap(find.text('A blank question'));
       await tester.pumpAndSettle();

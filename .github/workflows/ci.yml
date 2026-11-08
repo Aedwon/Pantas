@@ -49,6 +49,17 @@ jobs:
         # Each one came from a real failure. docs/workflow/process-improvement.md.
         run: dart run tool/checks/run_checks.dart
 
+      - name: Design system checks
+        # The vendored system's own checks (design/system/tools), then the Dart
+        # token classes against tokens.json. Spec:
+        # docs/superpowers/specs/2026-11-08-design-system-4-in-app-design.md
+        run: |
+          python3 design/system/tools/build_css.py --check
+          python3 design/system/tools/validate.py
+          python3 design/system/tools/contrast.py
+          python3 design/system/tools/flutter_names.py
+          dart run tool/design_system/generate_tokens.dart --check
+
       - name: gitleaks
         uses: gitleaks/gitleaks-action@v2
         env:

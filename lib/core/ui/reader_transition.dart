@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
-import 'package:pantas/core/ui/motion/pantas_durations.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
 
 /// The reader advances upward, because that is the direction it is pulled.
 ///
@@ -22,14 +22,14 @@ const Duration readerAdvanceDuration = Duration(milliseconds: 380);
 /// How long a lesson takes to rise into place, and to drop away again.
 ///
 /// The page-level time on the approved motion board (item 5).
-const Duration readerRiseDuration = PantasDurations.page;
+const Duration readerRiseDuration = PantasDurations.medium2;
 
 /// How far a lesson rises while it fades in, in logical pixels.
 const double readerRiseTravel = 24;
 
 /// The board's "shared ease". The back motion runs the same curve with the
 /// animation value falling, so leaving is the exact reverse of arriving.
-const Curve readerRiseCurve = PantasCurves.edgeGrow;
+const Curve readerRiseCurve = PantasCurves.move;
 
 /// How a lesson arrived, which is what decides how it moves.
 ///

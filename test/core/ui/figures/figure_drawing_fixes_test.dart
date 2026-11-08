@@ -13,8 +13,8 @@ import 'package:pantas/core/ui/figures/paper_fold_figure.dart';
 import 'package:pantas/core/ui/figures/pulley_system_figure.dart';
 import 'package:pantas/core/ui/figures/shape_row_figure.dart';
 import 'package:pantas/core/ui/figures/stability_shape_figure.dart';
-import 'package:pantas/core/ui/theme/pantas_colors.dart';
-import 'package:pantas/core/ui/theme/pantas_type.dart';
+import 'package:pantas/core/ui/theme/legacy_theme_shim.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 
 Future<void> _pump(
   WidgetTester tester,
@@ -24,7 +24,7 @@ Future<void> _pump(
   await tester.pumpWidget(
     MaterialApp(
       themeAnimationDuration: Duration.zero,
-      theme: ThemeData(extensions: [colors, PantasType.create()]),
+      theme: ThemeData(extensions: [colors, LegacyType.create()]),
       home: Scaffold(body: Align(alignment: Alignment.topLeft, child: child)),
     ),
   );

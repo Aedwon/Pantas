@@ -7,8 +7,8 @@ import 'package:flutter/services.dart';
 import 'package:pantas/core/ui/components/centered_dialog.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_key_focus.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -188,7 +188,7 @@ class _PausePageState extends State<PausePage> with TickerProviderStateMixin {
       a + (b - a) * ((t - from) / (to - from)).clamp(0.0, 1.0);
 
   static double _ease(double t, double from, double to) =>
-      PantasCurves.edgeGrow.transform(((t - from) / (to - from)).clamp(0, 1));
+      PantasCurves.move.transform(((t - from) / (to - from)).clamp(0, 1));
 
   /// How far the hourglass is from rest: 1 is large and low, 0 is in place.
   double _bigness(double entry, double exit) =>
@@ -280,7 +280,7 @@ class _PausePageState extends State<PausePage> with TickerProviderStateMixin {
         _blink.value < .5 ? _blink.value * 2 : 2 - _blink.value * 2;
     final blink = (_still ?? false) || _leaving
         ? 1.0
-        : 1 - .7 * PantasCurves.easeInOut.transform(blinkPhase);
+        : 1 - .7 * LegacyCurves.easeInOut.transform(blinkPhase);
     final paperOpacity = _leaving
         ? Curves.ease.transform(((exit - 1650) / 500).clamp(0, 1))
         : 1 - Curves.ease.transform((entry / 550).clamp(0, 1));

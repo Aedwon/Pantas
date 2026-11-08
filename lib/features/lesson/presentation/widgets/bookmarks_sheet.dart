@@ -18,8 +18,8 @@ import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/components/toast.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/lesson/application/bookmark_providers.dart';
@@ -537,7 +537,7 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
             duration: MediaQuery.disableAnimationsOf(context)
                 ? Duration.zero
                 : const Duration(milliseconds: 250),
-            curve: PantasCurves.houseOut,
+            curve: PantasCurves.house,
             builder: (context, value, _) => _editing && widget.wide
                 ? _wideEditRow(row, index, checked, activate, divider)
                 : _editing
@@ -1216,13 +1216,13 @@ class _BookmarkDragProxyState extends State<_BookmarkDragProxy>
         _decoration.animateTo(
           1,
           duration: const Duration(milliseconds: 150),
-          curve: PantasCurves.houseOut,
+          curve: PantasCurves.house,
         );
       case AnimationStatus.reverse:
         _decoration.animateTo(
           0,
           duration: const Duration(milliseconds: 200),
-          curve: PantasCurves.houseOut,
+          curve: PantasCurves.house,
         );
       case AnimationStatus.completed:
         _decoration.value = 1;
@@ -1286,7 +1286,7 @@ class _EditReveal extends StatelessWidget {
         duration: MediaQuery.disableAnimationsOf(context)
             ? Duration.zero
             : const Duration(milliseconds: 250),
-        curve: PantasCurves.houseOut,
+        curve: PantasCurves.house,
         child: child,
         builder: (_, value, child) => Offstage(
           offstage: value == 0,
@@ -1328,7 +1328,7 @@ class _FoldRow extends StatelessWidget {
         duration: MediaQuery.disableAnimationsOf(context)
             ? Duration.zero
             : const Duration(milliseconds: 350),
-        curve: PantasCurves.houseOut,
+        curve: PantasCurves.house,
         child: child,
         builder: (_, value, child) => ExcludeFocus(
           excluding: !visible || value < 1,

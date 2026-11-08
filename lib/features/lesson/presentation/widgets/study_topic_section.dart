@@ -1,4 +1,5 @@
 import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -8,8 +9,8 @@ import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/progress_ring.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
 import 'package:pantas/features/lesson/domain/use_cases/build_study_map.dart';
@@ -62,7 +63,7 @@ class StudySubjectSection extends ConsumerWidget {
                   duration: MediaQuery.disableAnimationsOf(context)
                       ? Duration.zero
                       : const Duration(milliseconds: 300),
-                  curve: PantasCurves.houseOut,
+                  curve: PantasCurves.house,
                   child: Icon(
                     PantasIcons.next,
                     size: 14,
@@ -136,7 +137,7 @@ class _TopicLessonsState extends State<_TopicLessons> {
       duration: MediaQuery.disableAnimationsOf(context)
           ? Duration.zero
           : const Duration(milliseconds: 700),
-      curve: PantasCurves.houseOut,
+      curve: PantasCurves.house,
       builder: (context, value, child) => Offstage(
         offstage: value == 0,
         child: ClipRect(

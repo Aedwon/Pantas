@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 
 const _popDuration = Duration(milliseconds: 420);
 
@@ -76,12 +76,12 @@ class CheckMark extends StatelessWidget {
               tween: Tween(begin: still ? 1 : 0, end: 1),
               duration: still ? Duration.zero : delay + _popDuration,
               curve: delay == Duration.zero
-                  ? PantasCurves.popC
+                  ? PantasCurves.spring
                   : Interval(
                       delay.inMilliseconds /
                           (delay + _popDuration).inMilliseconds,
                       1,
-                      curve: PantasCurves.popC,
+                      curve: PantasCurves.spring,
                     ),
               builder: (context, value, child) => scale(value, child),
               child: circle,

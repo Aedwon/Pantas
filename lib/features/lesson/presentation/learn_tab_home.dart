@@ -12,8 +12,8 @@ import 'package:pantas/core/ui/components/pantas_sheet.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/components/tab_bar_visibility.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
 import 'package:pantas/features/lesson/domain/use_cases/build_study_map.dart';
@@ -315,7 +315,7 @@ class _StudyTabHomeState extends ConsumerState<StudyTabHome> {
                         duration: disableAnimations
                             ? Duration.zero
                             : const Duration(milliseconds: 200),
-                        curve: PantasCurves.houseOut,
+                        curve: PantasCurves.house,
                         builder: (context, value, child) => IgnorePointer(
                           ignoring: _searching,
                           child: ExcludeFocus(
@@ -438,7 +438,7 @@ class _StudyTabHomeState extends ConsumerState<StudyTabHome> {
                                                     : const Duration(
                                                         milliseconds: 200,
                                                       ),
-                                            curve: PantasCurves.houseOut,
+                                            curve: PantasCurves.house,
                                             child: child,
                                           ),
                                         ),

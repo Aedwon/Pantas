@@ -9,6 +9,7 @@ import 'dart:io';
 
 import 'bold_stem.dart';
 import 'check.dart';
+import 'design_token_literals.dart';
 import 'lesson_list_exam_scope.dart';
 import 'mock_blueprint_topics.dart';
 import 'shell_route_push.dart';
@@ -20,6 +21,7 @@ const allChecks = <Check>[
   MockBlueprintTopicsCheck(),
   BoldStemCheck(),
   LessonListExamScopeCheck(),
+  DesignTokenLiteralsCheck(),
 ];
 
 void main() {

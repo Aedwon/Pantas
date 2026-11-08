@@ -5,8 +5,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
-import 'package:pantas/core/ui/motion/pantas_durations.dart';
+import 'package:pantas/core/ui/theme/legacy_theme_shim.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
 import 'package:pantas/core/ui/web/web_keyboard_hints.dart';
 import 'package:pantas/features/beta_feedback/application/beta_feedback_providers.dart';
 import 'package:pantas/features/beta_feedback/domain/beta_feedback_models.dart';
@@ -447,8 +448,8 @@ class _Thumb extends StatelessWidget {
     // Leaving fades and shrinks (160 ms, ease); arriving rises in.
     return TweenAnimationBuilder<double>(
       tween: Tween(end: draft.leaving ? 0 : 1),
-      duration: still ? Duration.zero : PantasDurations.quick,
-      curve: PantasCurves.ease,
+      duration: still ? Duration.zero : PantasDurations.short2,
+      curve: PantasCurves.fade,
       onEnd: () {
         if (draft.leaving) onGone();
       },

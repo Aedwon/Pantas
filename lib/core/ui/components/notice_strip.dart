@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/button_pair.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 
 class NoticeStrip extends StatelessWidget {
   const NoticeStrip({
@@ -89,7 +89,7 @@ class NoticeStrip extends StatelessWidget {
                         AnimatedRotation(
                           turns: expanded ? .25 : 0,
                           duration: duration,
-                          curve: PantasCurves.houseOut,
+                          curve: PantasCurves.house,
                           child: Icon(
                             PantasIcons.next,
                             size: 15,
@@ -120,7 +120,7 @@ class NoticeStrip extends StatelessWidget {
           TweenAnimationBuilder<double>(
             tween: Tween(begin: expanded ? 1 : 0, end: expanded ? 1 : 0),
             duration: duration,
-            curve: PantasCurves.houseOut,
+            curve: PantasCurves.house,
             builder: (context, value, child) => ClipRect(
               child: Align(
                 heightFactor: value,
@@ -182,7 +182,7 @@ class NoticeStrip extends StatelessWidget {
     return TweenAnimationBuilder<double>(
       tween: Tween(begin: visible ? 1 : 0, end: visible ? 1 : 0),
       duration: duration,
-      curve: PantasCurves.houseOut,
+      curve: PantasCurves.house,
       builder: (context, value, child) => ClipRect(
         child: Align(
           heightFactor: value,

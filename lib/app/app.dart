@@ -9,6 +9,7 @@ import 'package:pantas/app/web_address.dart';
 import 'package:pantas/core/error/app_error_recovery.dart';
 import 'package:pantas/core/platform/welcome/welcome_handover_providers.dart';
 import 'package:pantas/core/storage/age_gate.dart';
+import 'package:pantas/core/ui/theme/app_text_scale.dart';
 import 'package:pantas/core/ui/web/web_layout_theme.dart';
 import 'package:pantas/features/beta_feedback/application/beta_day_reporter.dart';
 import 'package:pantas/features/home/application/study_delivery.dart';
@@ -67,14 +68,16 @@ class App extends ConsumerWidget {
       themeAnimationDuration: kIsWeb ? Duration.zero : kThemeAnimationDuration,
       scrollBehavior: const NoScrollBarsBehavior(),
       routerConfig: kIsWeb ? ref.watch(_webRouterConfigProvider) : router,
-      builder: (context, child) => WebLayoutTheme(
-        child: AppErrorRecovery(
-          child: SyncReconciliationGate(
-            child: NotificationTapRouter(
-              gateway: gateway,
-              router: router,
-              now: DateTime.now,
-              child: child ?? const SizedBox.shrink(),
+      builder: (context, child) => AppTextScale(
+        child: WebLayoutTheme(
+          child: AppErrorRecovery(
+            child: SyncReconciliationGate(
+              child: NotificationTapRouter(
+                gateway: gateway,
+                router: router,
+                now: DateTime.now,
+                child: child ?? const SizedBox.shrink(),
+              ),
             ),
           ),
         ),

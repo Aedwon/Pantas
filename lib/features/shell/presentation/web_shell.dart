@@ -4,8 +4,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
-import 'package:pantas/core/ui/motion/pantas_durations.dart';
 import 'package:pantas/core/ui/motion/selection_motion.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_keyboard_hints.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -417,7 +417,7 @@ class WebSidebar extends StatelessWidget {
                               animationDuration:
                                   MediaQuery.disableAnimationsOf(context)
                                       ? Duration.zero
-                                      : PantasDurations.quick,
+                                      : PantasDurations.short2,
                               visualDensity: VisualDensity.standard,
                               minimumSize: const WidgetStatePropertyAll(
                                 Size(0, _rowHeight),

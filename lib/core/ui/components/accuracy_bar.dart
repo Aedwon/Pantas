@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 
 class AccuracyBar extends StatelessWidget {
   const AccuracyBar({required this.accuracy, super.key}) : height = 5;
@@ -24,7 +24,7 @@ class AccuracyBar extends StatelessWidget {
               duration: MediaQuery.disableAnimationsOf(context)
                   ? Duration.zero
                   : const Duration(milliseconds: 600),
-              curve: PantasCurves.houseOut,
+              curve: PantasCurves.house,
               builder: (context, value, _) => FractionallySizedBox(
                 widthFactor: value,
                 child: ColoredBox(

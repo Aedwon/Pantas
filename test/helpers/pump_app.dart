@@ -4,8 +4,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/storage/domain/exam.dart';
 import 'package:pantas/core/storage/domain/subject.dart';
-import 'package:pantas/core/ui/theme/pantas_colors.dart';
-import 'package:pantas/core/ui/theme/pantas_type.dart';
+import 'package:pantas/core/ui/theme/legacy_theme_shim.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 
 extension PumpApp on WidgetTester {
   Future<void> pumpApp(Widget widget) async {
@@ -15,7 +15,7 @@ extension PumpApp on WidgetTester {
           useMaterial3: true,
           extensions: [
             PantasColors.light,
-            PantasType.create(),
+            LegacyType.create(),
           ],
         ),
         home: Scaffold(body: widget),
@@ -38,7 +38,7 @@ extension PumpAppRiverpod on WidgetTester {
             useMaterial3: true,
             extensions: [
               PantasColors.light,
-              PantasType.create(),
+              LegacyType.create(),
             ],
           ),
           home: child,
@@ -60,7 +60,7 @@ extension PumpAppRiverpod on WidgetTester {
             useMaterial3: true,
             extensions: [
               PantasColors.light,
-              PantasType.create(),
+              LegacyType.create(),
             ],
           ),
           routerConfig: router,

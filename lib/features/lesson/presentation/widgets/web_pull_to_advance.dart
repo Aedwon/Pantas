@@ -3,7 +3,8 @@ import 'dart:math' as math;
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/legacy_theme_shim.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 
 // Pull up for the next lesson with a mouse wheel or trackpad, on wide web.
 //
@@ -93,7 +94,7 @@ class WebPullController extends ChangeNotifier {
   double _lift = 0;
   double _from = 0;
   double _to = 0;
-  Curve _curve = PantasCurves.slideA;
+  Curve _curve = PantasCurves.scroll;
   Object? _target;
   bool _settling = false;
   bool _committing = false;
@@ -119,7 +120,7 @@ class WebPullController extends ChangeNotifier {
   double get open => _done
       ? 1
       : _committing
-          ? PantasCurves.slideA.transform(_motion.value)
+          ? PantasCurves.scroll.transform(_motion.value)
           : 0;
 
   /// The pop of the arrow, from 0 to 1 over [webPullPop].
@@ -257,7 +258,7 @@ class WebPullController extends ChangeNotifier {
       ..stop()
       ..value = 0;
     _settling = true;
-    _run(0, webPullSpringBack, PantasCurves.ease);
+    _run(0, webPullSpringBack, PantasCurves.fade);
   }
 
   /// Opens the next lesson now: the same rise as a pull that was let go. The
@@ -270,7 +271,7 @@ class WebPullController extends ChangeNotifier {
     _target = destination;
     _committing = true;
     onCommit?.call();
-    _run(height + _lift, webPullRise, PantasCurves.slideA);
+    _run(height + _lift, webPullRise, PantasCurves.scroll);
     notifyListeners();
   }
 
@@ -545,8 +546,8 @@ class WebPullCircle extends StatelessWidget {
       builder: (context, circle) {
         final t = pull.pop * webPullPop.inMilliseconds;
         final scale = t <= 90
-            ? 1 + .2 * PantasCurves.easeOut.transform(t / 90)
-            : 1.2 - .2 * PantasCurves.easeOut.transform((t - 90) / 170);
+            ? 1 + .2 * LegacyCurves.easeOut.transform(t / 90)
+            : 1.2 - .2 * LegacyCurves.easeOut.transform((t - 90) / 170);
         return Transform.scale(
           scale: scale,
           child: SizedBox.square(

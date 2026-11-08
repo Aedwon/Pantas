@@ -277,11 +277,19 @@ import { readFileSync } from 'node:fs';
 
 test('Welcome, splash and the first app frame share one background in both themes', () => {
   const html = readFileSync(new URL('../../web/index.html', import.meta.url), 'utf8');
-  const colors = readFileSync(new URL('../../lib/core/ui/theme/pantas_colors.dart', import.meta.url), 'utf8');
-  const token = (name) => {
-    const at = colors.indexOf(`static const ${name} = PantasColors(`);
-    const m = /background: Color\(0xFF([0-9A-F]{6})\)/.exec(colors.slice(at));
-    return `#${m[1]}`;
+  // The app background is the design system role `bg-page`, resolved from
+  // the source the Dart token classes are generated from.
+  const tokens = JSON.parse(
+    readFileSync(new URL('../../design/system/tokens.json', import.meta.url), 'utf8'),
+  );
+  const byName = new Map(tokens.color.tokens.map((t) => [t.name, t.value]));
+  const token = (theme) => {
+    let v = byName.get('bg-page');
+    for (;;) {
+      if (typeof v === 'object') v = v[theme];
+      if (!v.startsWith('{')) return v.toUpperCase();
+      v = byName.get(v.slice(1, -1));
+    }
   };
   const light = token('light');
   const dark = token('dark');

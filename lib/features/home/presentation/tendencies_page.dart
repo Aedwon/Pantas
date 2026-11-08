@@ -7,8 +7,8 @@ import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/components/pro_paused_line.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/home/application/how_you_work_provider.dart';
 import 'package:pantas/features/home/presentation/widgets/web_tendencies_layout.dart';
@@ -159,7 +159,7 @@ class _Profile extends StatelessWidget {
     Widget slide(Widget child) => TweenAnimationBuilder<double>(
           tween: Tween(begin: reduce ? 1 : 0, end: 1),
           duration: const Duration(milliseconds: 800),
-          curve: PantasCurves.houseOut,
+          curve: PantasCurves.house,
           builder: (_, value, child) => Transform.translate(
             offset: Offset(20 * (1 - value), 0),
             child: child,
@@ -596,7 +596,7 @@ class _Finding extends StatelessWidget {
                           end: 1,
                         ),
                         duration: const Duration(milliseconds: 900),
-                        curve: PantasCurves.houseOut,
+                        curve: PantasCurves.house,
                         builder: (_, value, __) => CustomPaint(
                           painter: _FindingPainter(
                             t,

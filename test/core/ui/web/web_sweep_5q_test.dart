@@ -321,7 +321,7 @@ void main() {
         ),
       );
       final edge = box.foregroundDecoration! as BoxDecoration;
-      expect((edge.border! as Border).top.color, const Color(0xFF2C2C2C));
+      expect((edge.border! as Border).top.color, const Color(0xFF2A2A2A));
     });
   });
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
-import 'package:pantas/core/ui/motion/pantas_durations.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
 
 /// Swaps one block for another when a switch picks a different view (item 17,
 /// demo 9): Day and Week, the practice modes, a list level.
@@ -39,7 +39,7 @@ class _ViewSwapState extends State<ViewSwap>
     with SingleTickerProviderStateMixin {
   late final AnimationController _controller = AnimationController(
     vsync: this,
-    duration: PantasDurations.base,
+    duration: PantasDurations.medium1,
     value: 1,
   )..addStatusListener((status) {
       if (status == AnimationStatus.completed && mounted) {
@@ -74,7 +74,8 @@ class _ViewSwapState extends State<ViewSwap>
   }
 
   // The preview's phases, in ms of the 240 ms (`base`) clock.
-  static final double _totalMs = PantasDurations.base.inMilliseconds.toDouble();
+  static final double _totalMs =
+      PantasDurations.medium1.inMilliseconds.toDouble();
   static const double _outEndMs = 100;
   static const double _inStartMs = 60;
 
@@ -95,7 +96,7 @@ class _ViewSwapState extends State<ViewSwap>
             child: RepaintBoundary(child: outgoing),
             builder: (context, child) {
               final out = fade
-                  ? PantasCurves.ease.transform(
+                  ? PantasCurves.fade.transform(
                       _phase(_controller.value * _totalMs, 0, _outEndMs),
                     )
                   : 1.0;
@@ -125,7 +126,7 @@ class _ViewSwapState extends State<ViewSwap>
             animation: _controller,
             child: RepaintBoundary(child: widget.child),
             builder: (context, child) {
-              final entered = PantasCurves.shared.transform(
+              final entered = PantasCurves.move.transform(
                 _phase(
                   _controller.value * _totalMs,
                   fade ? _inStartMs : 0,

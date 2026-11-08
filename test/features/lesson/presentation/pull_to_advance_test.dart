@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/features/lesson/presentation/widgets/pull_to_advance.dart';
 
 import '../../../helpers/pump_app.dart';
@@ -65,7 +65,7 @@ void main() {
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 240));
     final height = tester.getSize(find.byType(PullToAdvance)).height;
-    final fraction = PantasCurves.slideA.transform(.5);
+    final fraction = PantasCurves.scroll.transform(.5);
     final outgoing =
         tester.widget<Transform>(find.byKey(const ValueKey('pull-outgoing')));
     final incoming =

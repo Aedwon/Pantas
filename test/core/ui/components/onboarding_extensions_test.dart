@@ -7,8 +7,8 @@ import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/components/value_wheel.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 
 import '../../../helpers/accessibility.dart';
 import 'w2_test_support.dart';
@@ -167,10 +167,10 @@ void main() {
           disableAnimations: true,
         );
         final title = tester.widget<Text>(find.text('When were you born?'));
-        expect(title.style!.fontSize, 30);
+        expect(title.style!.fontSize, 28);
         expect(title.style!.fontWeight, FontWeight.w700);
-        expect(title.style!.height, 1.12);
-        expect(title.style!.letterSpacing, -.66);
+        expect(title.style!.height, 1.2);
+        expect(title.style!.letterSpacing, closeTo(-.616, .000001));
         expect(tester.getTopLeft(find.text('When were you born?')).dx, 20);
         expect(tester.getTopLeft(find.text('When were you born?')).dy, 64);
         final segments = find.byKey(

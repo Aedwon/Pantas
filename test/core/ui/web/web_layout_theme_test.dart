@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
-import 'package:pantas/core/ui/theme/pantas_colors.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 import 'package:pantas/core/ui/web/web_layout_theme.dart';
 
 void main() {
@@ -44,7 +44,7 @@ void main() {
           width >= 1024
               ? dark
                   ? const Color(0xFF33201F)
-                  : const Color(0xFFFDE8EA)
+                  : const Color(0xFFFDECEE)
               : dark
                   ? PantasColors.dark.wrongTint
                   : PantasColors.light.wrongTint,

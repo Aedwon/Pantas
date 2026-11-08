@@ -68,10 +68,10 @@ void main() {
       await press.up();
     });
 
-    testWidgets('colors fade over the shared 160 ms', (tester) async {
+    testWidgets('colors fade over the shared 150 ms', (tester) async {
       await _mount(tester, WebButton(label: 'Save', onPressed: () {}));
       final style = tester.widget<TextButton>(find.byType(TextButton)).style!;
-      expect(style.animationDuration, const Duration(milliseconds: 160));
+      expect(style.animationDuration, const Duration(milliseconds: 150));
     });
 
     testWidgets('reduced motion neither shrinks nor fades', (tester) async {
@@ -369,13 +369,13 @@ void main() {
           : (decoration.border! as Border).top.color.a;
     }
 
-    testWidgets('the tint and outline fade in over 160 ms', (tester) async {
+    testWidgets('the tint and outline fade in over 150 ms', (tester) async {
       await tester.pumpWidget(card(selected: false));
       final start = fill(tester);
       expect(outline(tester), 0);
       await tester.pumpWidget(card(selected: true));
       await tester.pump();
-      await tester.pump(const Duration(milliseconds: 80));
+      await tester.pump(const Duration(milliseconds: 75));
       final p = previewEase(.5);
       expect(outline(tester), closeTo(p, .02));
       expect(fill(tester), isNot(start));
@@ -443,12 +443,12 @@ void main() {
       return mouse;
     }
 
-    testWidgets('fades in over 160 ms on hover and out on leaving',
+    testWidgets('fades in over 150 ms on hover and out on leaving',
         (tester) async {
       await tester.pumpWidget(row());
       expect(shown(tester), 0);
       final mouse = await hover(tester);
-      await tester.pump(const Duration(milliseconds: 80));
+      await tester.pump(const Duration(milliseconds: 75));
       expect(shown(tester), closeTo(previewEase(.5), .02));
       await tester.pump(const Duration(milliseconds: 90));
       expect(shown(tester), 1);
@@ -502,7 +502,7 @@ void main() {
       // v11 was one row below the middle and v10 is leaving it upward.
       expect(top(tester, 'v10'), inExclusiveRange(settled - 40, settled));
       expect(top(tester, 'v11'), greaterThan(settled));
-      await tester.pump(const Duration(milliseconds: 160));
+      await tester.pump(const Duration(milliseconds: 150));
       expect(top(tester, 'v11'), settled);
       expect(top(tester, 'v10'), settled - 40);
       expect(find.text('v8'), findsNothing);

@@ -1,7 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
-import 'package:pantas/core/ui/motion/pantas_durations.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
 
 /// Shrinks its child while a finger or the mouse is down on it, then lets it
 /// spring back (item 17, demos 5 and 8): 120 ms down, 180 ms up, shared ease.
@@ -82,8 +82,8 @@ class _PressScaleState extends State<PressScale> {
       onPointerCancel: (e) => _let(e.pointer),
       child: TweenAnimationBuilder<double>(
         tween: Tween(end: _down ? widget.scale : 1),
-        duration: _down ? PantasDurations.tap : PantasDurations.release,
-        curve: PantasCurves.shared,
+        duration: _down ? PantasDurations.short1 : PantasDurations.short3,
+        curve: PantasCurves.move,
         child: widget.child,
         builder: (context, scale, child) =>
             Transform.scale(scale: scale, child: child),

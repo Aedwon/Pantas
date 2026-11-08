@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/pantas_sheet.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 
 import '../../../helpers/accessibility.dart';
 
@@ -49,7 +49,7 @@ void main() {
       await tester.pump(const Duration(milliseconds: 175));
       expect(
         tester.widget<ModalBarrier>(inSheet(ModalBarrier)).color!.a,
-        closeTo(.32 * PantasCurves.ease.transform(.5), .00001),
+        closeTo(.32 * PantasCurves.fade.transform(.5), .00001),
       );
       await tester.pump(const Duration(milliseconds: 50));
       expect(
@@ -59,7 +59,7 @@ void main() {
             )
             .translation
             .dy,
-        closeTo(1.05 * (1 - PantasCurves.slideC.transform(.5)), .00001),
+        closeTo(1.05 * (1 - PantasCurves.slide.transform(.5)), .00001),
       );
       await tester.pump(const Duration(milliseconds: 225));
       expect(tester.widget<ModalBarrier>(inSheet(ModalBarrier)).color!.a, .32);
@@ -85,7 +85,7 @@ void main() {
       await tester.pump(const Duration(milliseconds: 175));
       expect(
         tester.widget<ModalBarrier>(inSheet(ModalBarrier)).color!.a,
-        closeTo(.32 * (1 - PantasCurves.ease.transform(.5)), .00001),
+        closeTo(.32 * (1 - PantasCurves.fade.transform(.5)), .00001),
       );
       await tester.pump(const Duration(milliseconds: 25));
       expect(
@@ -95,7 +95,7 @@ void main() {
             )
             .translation
             .dy,
-        closeTo(1.05 * PantasCurves.slideC.transform(.5), .00001),
+        closeTo(1.05 * PantasCurves.slide.transform(.5), .00001),
       );
       await tester.pump(const Duration(milliseconds: 200));
       expect(inSheet(ModalBarrier), findsNothing);

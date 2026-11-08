@@ -3,8 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_logo.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_key_focus.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -190,7 +190,7 @@ class _AfterSplashState extends State<_AfterSplash> {
           opacity: _covered ? 0 : 1,
           duration:
               _covered ? Duration.zero : const Duration(milliseconds: 300),
-          curve: PantasCurves.ease,
+          curve: PantasCurves.fade,
           child: widget.child,
         ),
       );
@@ -245,12 +245,12 @@ class _WelcomePopState extends State<_WelcomePop>
           final rising = ((milliseconds - 150) / 360).clamp(0.0, 1.0);
           final settling = ((milliseconds - 510) / 240).clamp(0.0, 1.0);
           final scale = milliseconds <= 510
-              ? .4 + .72 * PantasCurves.popC.transform(rising)
-              : 1.12 - .12 * PantasCurves.popC.transform(settling);
+              ? .4 + .72 * PantasCurves.spring.transform(rising)
+              : 1.12 - .12 * PantasCurves.spring.transform(settling);
           return Transform.scale(
             scale: scale,
             child: Opacity(
-              opacity: PantasCurves.popC.transform(rising).clamp(0.0, 1.0),
+              opacity: PantasCurves.spring.transform(rising).clamp(0.0, 1.0),
               child: child,
             ),
           );
@@ -319,13 +319,13 @@ class _OnboardingLaunchStepState extends State<OnboardingLaunchStep>
                 final rising = ((milliseconds - 150) / 360).clamp(0.0, 1.0);
                 final settling = ((milliseconds - 510) / 240).clamp(0.0, 1.0);
                 final scale = milliseconds <= 510
-                    ? .4 + .72 * PantasCurves.popC.transform(rising)
-                    : 1.12 - .12 * PantasCurves.popC.transform(settling);
+                    ? .4 + .72 * PantasCurves.spring.transform(rising)
+                    : 1.12 - .12 * PantasCurves.spring.transform(settling);
                 final opacity =
-                    PantasCurves.popC.transform(rising).clamp(0.0, 1.0);
+                    PantasCurves.spring.transform(rising).clamp(0.0, 1.0);
                 return Opacity(
                   key: const ValueKey('launch-page-fade'),
-                  opacity: PantasCurves.ease
+                  opacity: PantasCurves.fade
                       .transform((milliseconds / 300).clamp(0.0, 1.0)),
                   child: Transform.scale(
                     key: const ValueKey('launch-logo-scale'),

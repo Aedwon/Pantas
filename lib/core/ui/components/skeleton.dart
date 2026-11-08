@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/pantas_shape.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -123,9 +122,9 @@ class _SkeletonPulseState extends State<SkeletonPulse>
                 builder: (context, child) {
                   final t = _pulse.value;
                   final opacity = t <= .5
-                      ? 1 - .55 * PantasCurves.easeInOut.transform(t * 2)
+                      ? 1 - .55 * LegacyCurves.easeInOut.transform(t * 2)
                       : .45 +
-                          .55 * PantasCurves.easeInOut.transform((t - .5) * 2);
+                          .55 * LegacyCurves.easeInOut.transform((t - .5) * 2);
                   return Opacity(
                     key: const ValueKey('loading-shapes-opacity'),
                     opacity: opacity,

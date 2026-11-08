@@ -9,8 +9,8 @@ import 'package:pantas/core/ui/components/pantas_logo.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/components/pro_paused_line.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/home/presentation/plan_web.dart';
 
@@ -97,7 +97,7 @@ class PlanEntry extends StatelessWidget {
             ? PantasCurves.linear
             : pop
                 ? PantasCurves.popB
-                : PantasCurves.houseOut,
+                : PantasCurves.house,
       ),
       child: child,
       builder: (_, value, child) => Opacity(

@@ -15,7 +15,7 @@ import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/sync/engine/sync_active_context_store.dart';
 import 'package:pantas/core/sync/local_state_wiper.dart';
 import 'package:pantas/core/ui/components/contents_glyph.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/features/lesson/application/reader_providers.dart';
 import 'package:pantas/features/lesson/data/repos/reader_position_repository.dart';
 import 'package:pantas/features/lesson/presentation/lesson_page.dart';
@@ -654,7 +654,7 @@ void main() {
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 75));
     expect(scroll.offset, outgoingOffset);
-    final fraction = PantasCurves.slideA.transform(75 / 480);
+    final fraction = PantasCurves.scroll.transform(75 / 480);
     expect(
       tester.getSize(strip).height,
       closeTo(initialHeight * (1 - fraction), .01),

@@ -3,7 +3,8 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/legacy_theme_shim.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/features/beta_feedback/application/beta_feedback_providers.dart';
 import 'package:pantas/features/beta_feedback/domain/beta_feedback_models.dart';
 import 'package:pantas/features/beta_feedback/presentation/fb_kit.dart';
@@ -90,7 +91,7 @@ class _RewardCardState extends ConsumerState<RewardCard>
     final t = ((_clock.value * _clockMs - 550) / 1300).clamp(0.0, 1.0);
     for (var i = 0; i < stops.length - 1; i++) {
       if (t <= stops[i + 1]) {
-        final u = PantasCurves.shake
+        final u = LegacyCurves.shake
             .transform((t - stops[i]) / (stops[i + 1] - stops[i]));
         return (degrees[i] + (degrees[i + 1] - degrees[i]) * u) * math.pi / 180;
       }
@@ -145,9 +146,9 @@ class _RewardCardState extends ConsumerState<RewardCard>
             color: _crown,
           ),
         );
-        final pOld = on ? _seg(0, 360, PantasCurves.checkDraw) : 0.0;
-        final pNew = on ? _seg(80, 360, PantasCurves.riseIn) : 0.0;
-        final pNewFade = on ? _seg(80, 360, PantasCurves.ease) : 0.0;
+        final pOld = on ? _seg(0, 360, PantasCurves.draw) : 0.0;
+        final pNew = on ? _seg(80, 360, PantasCurves.enter) : 0.0;
+        final pNewFade = on ? _seg(80, 360, PantasCurves.fade) : 0.0;
         final title = SizedBox(
           height: 28,
           child: ClipRect(
@@ -156,7 +157,7 @@ class _RewardCardState extends ConsumerState<RewardCard>
                 Positioned.fill(
                   child: Opacity(
                     key: const ValueKey('title-earned'),
-                    opacity: 1 - (on ? _seg(0, 360, PantasCurves.ease) : 0.0),
+                    opacity: 1 - (on ? _seg(0, 360, PantasCurves.fade) : 0.0),
                     child: Transform.translate(
                       offset: Offset(0, -28 * pOld),
                       child: Text(
@@ -207,8 +208,8 @@ class _RewardCardState extends ConsumerState<RewardCard>
                   '${monthAbbr(phTime(endsAt).month)} ${phTime(endsAt).year}'
               : '12 months of Pro, not turned on yet',
         );
-        final collapse = on ? _seg(0, 320, PantasCurves.shared) : 0.0;
-        final fadeOut = on ? _seg(0, 200, PantasCurves.ease) : 0.0;
+        final collapse = on ? _seg(0, 320, PantasCurves.move) : 0.0;
+        final fadeOut = on ? _seg(0, 200, PantasCurves.fade) : 0.0;
         final button = collapse >= 1
             ? const SizedBox.shrink()
             : ClipRect(
@@ -229,7 +230,7 @@ class _RewardCardState extends ConsumerState<RewardCard>
                   ),
                 ),
               );
-        final lineRise = on ? _seg(500, 400, PantasCurves.riseIn) : 0.0;
+        final lineRise = on ? _seg(500, 400, PantasCurves.enter) : 0.0;
         final line = !on
             ? const SizedBox.shrink()
             : Opacity(
@@ -243,7 +244,7 @@ class _RewardCardState extends ConsumerState<RewardCard>
                         size: 18,
                         color: c.accent,
                         stroke: 2.6,
-                        progress: _seg(600, 350, PantasCurves.checkDraw),
+                        progress: _seg(600, 350, PantasCurves.draw),
                       ),
                       const SizedBox(width: 8),
                       Expanded(
@@ -343,8 +344,8 @@ class _MonthStrip extends StatelessWidget {
     final cells = <Widget>[];
     for (var j = 0; j < 12; j++) {
       final start = 120.0 + 45 * j;
-      final fill = on ? seg(start, 420, PantasCurves.shared) : 0.0;
-      final tone = on ? seg(start, 200, PantasCurves.ease) : 0.0;
+      final fill = on ? seg(start, 420, PantasCurves.move) : 0.0;
+      final tone = on ? seg(start, 200, PantasCurves.fade) : 0.0;
       final name = monthAbbr(firstMonth + j);
       cells.add(
         Column(

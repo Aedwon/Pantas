@@ -9,10 +9,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/ui/components/content_renderer.dart';
 import 'package:pantas/core/ui/components/toast.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
 import 'package:pantas/core/ui/theme/lesson_text_scale.dart';
 import 'package:pantas/core/ui/theme/reader_full_width.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/lesson/application/reader_providers.dart';
@@ -69,9 +69,9 @@ abstract final class WebReaderMetrics {
 const _contentsMotion = WebOverlayMotion(
   open: Duration(milliseconds: 450),
   close: Duration(milliseconds: 400),
-  curve: PantasCurves.slideC,
+  curve: PantasCurves.slide,
   scrim: Duration(milliseconds: 350),
-  scrimCurve: PantasCurves.ease,
+  scrimCurve: PantasCurves.fade,
   rise: -24,
   fade: true,
 );
@@ -1188,7 +1188,7 @@ class _NoticeTransition extends StatelessWidget {
       ),
       duration:
           still ? Duration.zero : Duration(milliseconds: visible ? 250 : 300),
-      curve: PantasCurves.houseOut,
+      curve: PantasCurves.house,
       builder: (context, value, child) => ExcludeFocus(
         excluding: !visible,
         child: IgnorePointer(

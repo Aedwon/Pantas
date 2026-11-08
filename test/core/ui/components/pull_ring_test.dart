@@ -4,8 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/check_mark.dart';
 import 'package:pantas/core/ui/components/progress_ring.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
-import 'package:pantas/core/ui/theme/pantas_colors.dart';
+import 'package:pantas/core/ui/theme/legacy_theme_shim.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 
 import '../../../helpers/accessibility.dart';
 
@@ -68,7 +69,7 @@ void main() {
           ..arc(
             strokeWidth: (Paint()..strokeWidth = 2.4).strokeWidth,
             strokeCap: StrokeCap.round,
-            sweepAngle: math.pi * PantasCurves.houseOut.transform(.5),
+            sweepAngle: math.pi * PantasCurves.house.transform(.5),
           ),
       );
       await tester.pumpAndSettle();

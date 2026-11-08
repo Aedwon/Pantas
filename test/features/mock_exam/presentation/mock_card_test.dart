@@ -3,8 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/time/pantas_dates.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/mock_exam/presentation/widgets/mock_card.dart';
 
@@ -338,7 +338,7 @@ void main() {
     await tester.pump(const Duration(milliseconds: 190));
     expect(opacity(), 0);
     await tester.pump(const Duration(milliseconds: 225));
-    final progress = PantasCurves.houseOut.transform(.5);
+    final progress = PantasCurves.house.transform(.5);
     expect(opacity(), closeTo(progress, .001));
     final transform =
         tester.widget<Transform>(find.byKey(const ValueKey('mock-card-rise')));

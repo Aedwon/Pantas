@@ -7,8 +7,8 @@ import 'package:pantas/app/sign_in/sign_in_parts.dart';
 import 'package:pantas/core/auth/beta_access.dart';
 import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/ui/components/pantas_logo.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/motion/pantas_effects.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 /// The time left before the beta starts, in whole days, hours and minutes.
@@ -331,7 +331,7 @@ class _GuideLinkState extends State<GuideLink> {
                 AnimatedContainer(
                   duration:
                       still ? Duration.zero : const Duration(milliseconds: 200),
-                  curve: PantasCurves.shared,
+                  curve: PantasCurves.move,
                   transform: Matrix4.translationValues(_hover ? 4 : 0, 0, 0),
                   child: CustomPaint(
                     size: const Size.square(17),
@@ -586,8 +586,8 @@ class _RollingNumberState extends State<_RollingNumber>
           builder: (context, _) {
             final t = _roll.value;
             const shift = _height * 1.1;
-            final out = PantasCurves.checkDraw.transform(t);
-            final inn = PantasCurves.riseIn.transform(t);
+            final out = PantasCurves.draw.transform(t);
+            final inn = PantasCurves.enter.transform(t);
             return Stack(
               children: [
                 if (t < 1)

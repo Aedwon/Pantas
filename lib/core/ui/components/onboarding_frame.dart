@@ -5,8 +5,8 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:pantas/core/ui/components/pantas_logo.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
@@ -163,7 +163,7 @@ class _OnboardingFrameState extends State<OnboardingFrame>
     duration: const Duration(milliseconds: 300),
   );
   late final Animation<double> _fade =
-      CurvedAnimation(parent: _presence, curve: PantasCurves.ease);
+      CurvedAnimation(parent: _presence, curve: PantasCurves.fade);
   bool _reduced = false;
   bool _started = false;
 
@@ -503,7 +503,7 @@ class OnboardingProgressBar extends StatelessWidget {
                         : context.colors.fill,
                   ),
                   duration: duration,
-                  curve: PantasCurves.riseIn,
+                  curve: PantasCurves.enter,
                   builder: (context, color, _) => DecoratedBox(
                     key: const ValueKey('onboarding-segment'),
                     decoration: BoxDecoration(

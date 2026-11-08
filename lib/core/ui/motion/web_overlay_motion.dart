@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
-import 'package:pantas/core/ui/motion/pantas_durations.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
 
 /// How a wide web drawer, dialog or popover arrives and leaves. These carry the
 /// phone sheet's numbers (`PantasSheet`), so an overlay moves the same on both.
@@ -35,9 +35,9 @@ class WebOverlayMotion {
   static const drawer = WebOverlayMotion(
     open: Duration(milliseconds: 450),
     close: Duration(milliseconds: 400),
-    curve: PantasCurves.slideC,
+    curve: PantasCurves.slide,
     scrim: Duration(milliseconds: 350),
-    scrimCurve: PantasCurves.ease,
+    scrimCurve: PantasCurves.fade,
     slide: Offset(1.05, 0),
   );
 
@@ -45,7 +45,7 @@ class WebOverlayMotion {
   static const dialog = WebOverlayMotion(
     open: Duration(milliseconds: 420),
     close: Duration(milliseconds: 320),
-    curve: PantasCurves.houseOut,
+    curve: PantasCurves.house,
     scrim: Duration(milliseconds: 300),
     scrimCurve: PantasCurves.linear,
     rise: 24,
@@ -54,23 +54,23 @@ class WebOverlayMotion {
 
   /// A small popover or pane: the approved detail pane motion.
   static const popover = WebOverlayMotion(
-    open: PantasDurations.base,
-    close: PantasDurations.base,
-    curve: PantasCurves.shared,
-    scrim: PantasDurations.base,
-    scrimCurve: PantasCurves.ease,
+    open: PantasDurations.medium1,
+    close: PantasDurations.medium1,
+    curve: PantasCurves.move,
+    scrim: PantasDurations.medium1,
+    scrimCurve: PantasCurves.fade,
     rise: 8,
     fade: true,
   );
 
   /// A lesson reader over the page: the phone's reader rise (24 px and a fade,
-  /// `PantasDurations.page` on edgeGrow), with the drawer's scrim.
+  /// `PantasDurations.medium2` on edgeGrow), with the drawer's scrim.
   static const lesson = WebOverlayMotion(
-    open: PantasDurations.page,
-    close: PantasDurations.page,
-    curve: PantasCurves.edgeGrow,
+    open: PantasDurations.medium2,
+    close: PantasDurations.medium2,
+    curve: PantasCurves.move,
     scrim: Duration(milliseconds: 350),
-    scrimCurve: PantasCurves.ease,
+    scrimCurve: PantasCurves.fade,
     rise: 24,
     fade: true,
   );

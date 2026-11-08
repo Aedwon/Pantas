@@ -110,7 +110,7 @@ void main() {
     final mid = fill(tester, 'Civil service');
     expect(mid, isNot(off));
     expect(mid, isNot(on));
-    final t = previewEase(80 / 160);
+    final t = previewEase(80 / 150);
     expect(mid.r, closeTo(off.r + (on.r - off.r) * t, .02));
     final midInk = ink(tester, 'Civil service');
     await tester.pump(const Duration(milliseconds: 100));

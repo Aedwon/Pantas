@@ -13,8 +13,8 @@ import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/segmented_switch.dart';
 import 'package:pantas/core/ui/components/value_wheel.dart';
 import 'package:pantas/core/ui/leave_page.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
@@ -149,7 +149,7 @@ class _ExamPageState extends ConsumerState<ExamPage>
       return AnimatedBuilder(
         animation: _confirmation,
         builder: (context, _) {
-          final rise = PantasCurves.riseIn
+          final rise = PantasCurves.enter
               .transform((_confirmation.value * 700 / 450).clamp(0, 1));
           final pop = ((_confirmation.value * 700 - 200) / 500).clamp(0.0, 1.0);
           return Transform.translate(
@@ -168,7 +168,7 @@ class _ExamPageState extends ConsumerState<ExamPage>
                     child: Opacity(
                       opacity: pop,
                       child: Transform.scale(
-                        scale: .4 + .6 * PantasCurves.popC.transform(pop),
+                        scale: .4 + .6 * PantasCurves.spring.transform(pop),
                         child: Container(
                           width: 64,
                           height: 64,
@@ -263,7 +263,7 @@ class _ExamPageState extends ConsumerState<ExamPage>
                           end: p.$2,
                         ).chain(
                           CurveTween(
-                            curve: PantasCurves.easeOut,
+                            curve: LegacyCurves.easeOut,
                           ),
                         ),
                         weight: 1,

@@ -6,8 +6,8 @@ import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/data/report_queue.dart';
 import 'package:pantas/core/ui/components/button_pair.dart';
 import 'package:pantas/core/ui/components/floating_bar.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_keyboard_hints.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -78,7 +78,7 @@ Widget _reportTransition(
       opacity: animation,
       child: SlideTransition(
         position: Tween(begin: const Offset(0, .15), end: Offset.zero).animate(
-          CurvedAnimation(parent: animation, curve: PantasCurves.edgeGrow),
+          CurvedAnimation(parent: animation, curve: PantasCurves.move),
         ),
         child: child,
       ),

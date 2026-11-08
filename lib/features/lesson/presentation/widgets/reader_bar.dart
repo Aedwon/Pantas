@@ -2,9 +2,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/ui/components/contents_glyph.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
-import 'package:pantas/core/ui/theme/pantas_type.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/features/home/domain/lesson_day_context.dart';
 
 enum ReaderOrigin {
@@ -239,7 +238,7 @@ class ReaderBar extends StatelessWidget {
               builder: (context, _) {
                 final offset = scrollOffset.value;
                 final raw = advanceProgress.value.clamp(0.0, 1.0);
-                final motion = PantasCurves.slideA.transform(raw);
+                final motion = PantasCurves.scroll.transform(raw);
                 final fraction = (offset / 90.0).clamp(0.0, 1.0);
                 final lineHeight = MediaQuery.textScalerOf(context).scale(
                       context.type.footnote.fontSize!,
@@ -449,7 +448,7 @@ class _ReaderBookmarkControlState extends State<_ReaderBookmarkControl>
     _press.animateTo(
       target,
       duration: const Duration(milliseconds: 100),
-      curve: PantasCurves.easeOut,
+      curve: LegacyCurves.easeOut,
     );
   }
 

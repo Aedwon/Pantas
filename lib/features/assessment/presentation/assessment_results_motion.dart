@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/half_ring_gauge.dart';
 import 'package:pantas/core/ui/components/score_breakdown_row.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 
 /// One timeline for the results screen, held by the page so a rebuild or a
 /// resize never plays it again. The title and score card come in first, the
@@ -9,19 +9,19 @@ import 'package:pantas/core/ui/motion/pantas_curves.dart';
 /// the weakest, then the plan card appears.
 class AssessmentResultsSequence {
   AssessmentResultsSequence(this.controller, {required int subjectCount})
-      : title = _window(controller, 0, 300, PantasCurves.riseIn),
-        subtitle = _window(controller, 60, 300, PantasCurves.riseIn),
-        score = _window(controller, 120, 300, PantasCurves.riseIn),
-        ring = _window(controller, 250, 750, PantasCurves.houseOut),
-        subjects = _window(controller, 500, 300, PantasCurves.riseIn),
-        plan = _window(controller, 1000, 400, PantasCurves.riseIn),
+      : title = _window(controller, 0, 300, PantasCurves.enter),
+        subtitle = _window(controller, 60, 300, PantasCurves.enter),
+        score = _window(controller, 120, 300, PantasCurves.enter),
+        ring = _window(controller, 250, 750, PantasCurves.house),
+        subjects = _window(controller, 500, 300, PantasCurves.enter),
+        plan = _window(controller, 1000, 400, PantasCurves.enter),
         bars = [
           for (var i = 0; i < subjectCount; i++)
             _window(
               controller,
               600 + i * _barStep(subjectCount),
               450,
-              PantasCurves.houseOut,
+              PantasCurves.house,
             ),
         ];
 

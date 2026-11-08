@@ -1,8 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/progress_ring.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 
 class PullToAdvance extends StatefulWidget {
   const PullToAdvance({
@@ -150,7 +150,7 @@ class _PullToAdvanceState extends State<PullToAdvance>
 
   void _tick() {
     if (!mounted) return;
-    final fraction = PantasCurves.slideA.transform(_motion.value);
+    final fraction = PantasCurves.scroll.transform(_motion.value);
     setState(() => _lift = _from + (_to - _from) * fraction);
     if (_committing) widget.onTransition?.call(_motion.value);
     if (_committing && _motion.value == 1) _status(AnimationStatus.completed);
@@ -296,10 +296,10 @@ class _PullToAdvanceState extends State<PullToAdvance>
                         builder: (_, __) {
                           final t = _arrow.value * 260;
                           final scale = t <= 90
-                              ? 1 + .2 * PantasCurves.easeOut.transform(t / 90)
+                              ? 1 + .2 * LegacyCurves.easeOut.transform(t / 90)
                               : 1.2 -
                                   .2 *
-                                      PantasCurves.easeOut
+                                      LegacyCurves.easeOut
                                           .transform((t - 90) / 170);
                           return Transform.scale(
                             scale: scale,
@@ -310,7 +310,7 @@ class _PullToAdvanceState extends State<PullToAdvance>
                                   arrowColor,
                                   colors.accent,
                                   _armed
-                                      ? PantasCurves.easeOut
+                                      ? LegacyCurves.easeOut
                                           .transform((t / 90).clamp(0.0, 1.0))
                                       : 0,
                                 )!,
@@ -365,7 +365,7 @@ class _PullToAdvanceState extends State<PullToAdvance>
     final fraction = _holding
         ? 1.0
         : _committing
-            ? PantasCurves.slideA.transform(_motion.value)
+            ? PantasCurves.scroll.transform(_motion.value)
             : 0.0;
     return Listener(
       onPointerDown: (_) => _pointerCanceled = false,

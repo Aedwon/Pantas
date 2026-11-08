@@ -7,7 +7,7 @@ import 'package:pantas/core/ui/theme/app_theme.dart';
 import '../motion/preview_curves.dart';
 
 // Item 17, demo 5: a chip shrinks to 96% under a press (120 ms down, 180 ms up,
-// shared ease) and its fill fades over 160 ms on the ease. The web build had no
+// shared ease) and its fill fades over 150 ms on the ease. The web build had no
 // press shrink at all.
 final _theme = buildLightTheme();
 final _webTheme = buildLightTheme(web: true);
@@ -97,7 +97,7 @@ void main() {
     });
   }
 
-  testWidgets('the fill and the label color fade over 160 ms on the ease',
+  testWidgets('the fill and the label color fade over 150 ms on the ease',
       (tester) async {
     await tester.pumpWidget(_chips(selected: 0));
     final off = _fill(tester, 'Math');
@@ -110,7 +110,7 @@ void main() {
     for (final ms in [40, 40, 40]) {
       await tester.pump(Duration(milliseconds: ms));
       elapsed += ms;
-      final p = previewEase(elapsed / 160);
+      final p = previewEase(elapsed / 150);
       final fill = Color.lerp(off, on, p)!;
       expect(_fill(tester, 'Math').r, closeTo(fill.r, .02), reason: '$elapsed');
       final text = Color.lerp(textOff, textOn, p)!;

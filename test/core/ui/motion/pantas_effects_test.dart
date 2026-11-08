@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/motion/pantas_effects.dart';
+import 'package:pantas/core/ui/theme/legacy_theme_shim.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 
 void main() {
   testWidgets('pop eases each elapsed-time keyframe interval', (tester) async {
@@ -19,14 +20,14 @@ void main() {
     await tester.pump(const Duration(milliseconds: 150));
     expect(
       scale(),
-      closeTo(0.4 + 0.72 * PantasCurves.popC.transform(0.5), 0.000001),
+      closeTo(0.4 + 0.72 * PantasCurves.spring.transform(0.5), 0.000001),
     );
     await tester.pump(const Duration(milliseconds: 150));
     expect(scale(), closeTo(1.12, 0.000001));
     await tester.pump(const Duration(milliseconds: 100));
     expect(
       scale(),
-      closeTo(1.12 - 0.12 * PantasCurves.popC.transform(0.5), 0.000001),
+      closeTo(1.12 - 0.12 * PantasCurves.spring.transform(0.5), 0.000001),
     );
     await tester.pump(const Duration(milliseconds: 100));
     expect(scale(), closeTo(1, 0.000001));
@@ -44,7 +45,7 @@ void main() {
     double offset() =>
         tester.widget<Transform>(find.byType(Transform)).transform.entry(0, 3);
     await tester.pump(const Duration(milliseconds: 90));
-    expect(offset(), closeTo(-9 * PantasCurves.shake.transform(0.5), 0.000001));
+    expect(offset(), closeTo(-9 * LegacyCurves.shake.transform(0.5), 0.000001));
     await tester.pump(const Duration(milliseconds: 90));
     expect(offset(), closeTo(-9, 0.000001));
     for (final value in [8.0, -5.0, 3.0]) {

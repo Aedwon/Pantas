@@ -15,9 +15,9 @@ import 'package:pantas/core/ui/components/math_text.dart';
 import 'package:pantas/core/ui/components/reader_blocks.dart';
 import 'package:pantas/core/ui/figures/figure_registry.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
-import 'package:pantas/core/ui/theme/pantas_colors.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 
@@ -1464,7 +1464,7 @@ class _FigureFrame extends StatelessWidget {
             final value = opening
                 ? (animation.value * 380 / 280).clamp(0.0, 1.0)
                 : animation.value;
-            final opacity = PantasCurves.ease.transform(value);
+            final opacity = PantasCurves.fade.transform(value);
             return ExcludeFocus(
               excluding: opacity == 0,
               child: ExcludeSemantics(

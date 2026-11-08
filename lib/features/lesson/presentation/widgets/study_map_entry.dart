@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 
 class StudyMapEntry extends StatelessWidget {
   const StudyMapEntry({
@@ -22,7 +22,7 @@ class StudyMapEntry extends StatelessWidget {
         curve: Interval(
           delay.inMilliseconds / (delay.inMilliseconds + 450),
           1,
-          curve: PantasCurves.houseOut,
+          curve: PantasCurves.house,
         ),
         onEnd: onEnd,
         builder: (context, value, child) => ExcludeFocus(

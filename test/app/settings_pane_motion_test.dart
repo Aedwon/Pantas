@@ -320,7 +320,7 @@ void main() {
     await tester.pumpAndSettle();
   });
 
-  // Item 17, demo 4 (and item 15's "row tint fades 160 ms, the label stops
+  // Item 17, demo 4 (and item 15's "row tint fades 150 ms, the label stops
   // turning bold"): the page that opens rebuilds the list, so it starts with
   // the old row tinted and fades to the new one.
   group('item 17: the selected row fades', () {
@@ -349,7 +349,7 @@ void main() {
         .style
         ?.color;
 
-    testWidgets('the old tint fades out as the new one fades in, 160 ms',
+    testWidgets('the old tint fades out as the new one fades in, 150 ms',
         (tester) async {
       await pumpSettings(tester, initial: '/settings/pro');
       await tapRow(tester, 'Practice');
@@ -361,7 +361,7 @@ void main() {
       for (final ms in [40, 40, 40]) {
         await tester.pump(Duration(milliseconds: ms));
         elapsed += ms;
-        final p = previewEase(elapsed / 160);
+        final p = previewEase(elapsed / 150);
         expect(tint(tester, 'Practice'), closeTo(p, .01), reason: '$elapsed');
         expect(
           tint(tester, 'Pantas Pro'),

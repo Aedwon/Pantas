@@ -178,7 +178,7 @@ void main() {
     // The edge is drawn over the card and takes up no room (6T-11).
     expect(decoration.border, isNull);
     final edge = card.foregroundDecoration! as BoxDecoration;
-    expect((edge.border! as Border).top.color, const Color(0xFF2C2C2C));
+    expect((edge.border! as Border).top.color, const Color(0xFF2A2A2A));
     final buttons =
         tester.widgetList<TextButton>(find.byType(TextButton)).toList();
     // The selected segment's fill is the sliding thumb since item 17.
@@ -274,7 +274,7 @@ void main() {
         (bar.decoration! as BoxDecoration).color,
         switch (state) {
           WebBarState.neutral => Colors.white,
-          WebBarState.right => const Color(0xFFEEF8F5),
+          WebBarState.right => const Color(0xFFEFF7F5),
           WebBarState.wrong => const Color(0xFFFFF3F4),
         },
       );

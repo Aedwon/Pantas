@@ -1,0 +1,49 @@
+<!-- @dsCard group="Feedback" height=1020 subtitle="Brief confirmation with an optional Undo" -->
+<!doctype html>
+<html lang="en" data-theme="light"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;600&display=swap">
+<style>html,body{margin:0}
+body{font-family:var(--font-sans);background:var(--bg-page);color:var(--text-primary);-webkit-font-smoothing:antialiased}
+.pv{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr))}
+.pv-p{background:var(--bg-page);color:var(--text-primary);padding:18px 20px 24px;display:flex;flex-direction:column;gap:20px;min-width:0;overflow-x:auto}
+.pv-h{margin:0;font:600 11px/1 var(--font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--text-secondary)}
+.pv-row{display:flex;flex-wrap:wrap;gap:14px 16px;align-items:flex-start}
+.pv-cell{display:flex;flex-direction:column;gap:7px;align-items:flex-start;min-width:0}
+.pv-cap{font:600 11px/1.2 var(--font-sans);letter-spacing:.02em;text-transform:uppercase;color:var(--text-secondary)}
+.pv-stage{position:relative;overflow:hidden;border-radius:14px;background:var(--bg-page);box-shadow:inset 0 0 0 1px var(--divider);width:100%}
+.pv-col{display:flex;flex-direction:column;gap:12px;width:100%}
+.pv-phone{width:358px;max-width:100%}
+.pv-cell:has(> .pv-phone),.pv-cell:has(> .pv-stage),.pv-cell:has(> .pv-col){width:100%}
+.pv-note{margin:0;font:400 13px/1.45 var(--font-sans);color:var(--text-secondary)}
+</style></head><body>
+<div class="pv"><section class="pv-p" data-theme="light"><h6 class="pv-h">Light</h6><div class="pv-cell"><span class="pv-cap">Desktop with an action: stays 8 seconds</span><div class="toast"><span class="toast__msg">Question flagged</span><button type="button" class="toast__action">Undo</button></div></div><div class="pv-row"><div class="pv-cell"><span class="pv-cap">Action hover</span><div class="toast"><span class="toast__msg">Question flagged</span><button type="button" class="toast__action is-hover">Undo</button></div></div><div class="pv-cell"><span class="pv-cap">Action pressed</span><div class="toast"><span class="toast__msg">Question flagged</span><button type="button" class="toast__action is-active">Undo</button></div></div><div class="pv-cell"><span class="pv-cap">Action keyboard focus</span><div class="toast"><span class="toast__msg">Question flagged</span><button type="button" class="toast__action is-focus">Undo</button></div></div></div><div class="pv-cell"><span class="pv-cap">Message only: stays 4 seconds</span><div class="toast"><span class="toast__msg">Saved</span></div></div><div class="pv-cell"><span class="pv-cap">Leaving (frozen mid-exit): out in 300ms</span><div class="toast is-leaving" style="animation:none;opacity:.55"><span class="toast__msg">Question flagged</span><button type="button" class="toast__action">Undo</button></div></div><div class="pv-cell"><span class="pv-cap">Phone: full width less 16px each side</span><div class="pv-phone"><div class="toast toast--phone" style="width:100%"><span class="toast__msg" style="flex:1">Question flagged</span><button type="button" class="toast__action">Undo</button></div></div></div><div class="pv-cell"><span class="pv-cap">Try it: one at a time, hover or focus pauses the timer</span><div class="pv-stage demo-toasts" style="height:170px"><div class="toast-region" role="status" aria-live="polite" style="position:absolute;bottom:16px"></div></div></div><div class="btn-row" style="justify-content:flex-start"><button type="button" class="btn btn--secondary btn--sm" data-toast="flag">Flag a Question</button><button type="button" class="btn btn--tertiary btn--accent btn--sm" data-toast="save">Save Settings</button><button type="button" class="btn btn--tertiary btn--accent btn--sm" data-toast="queue">Queue Three</button></div><p class="pv-note">In the app every toast sits in one toast region. A new toast waits until the current one has been up for its minimum time (2 seconds here), then replaces it. The rest queue.</p></section><section class="pv-p" data-theme="dark"><h6 class="pv-h">Dark</h6><div class="pv-cell"><span class="pv-cap">Desktop with an action: stays 8 seconds</span><div class="toast"><span class="toast__msg">Question flagged</span><button type="button" class="toast__action">Undo</button></div></div><div class="pv-row"><div class="pv-cell"><span class="pv-cap">Action hover</span><div class="toast"><span class="toast__msg">Question flagged</span><button type="button" class="toast__action is-hover">Undo</button></div></div><div class="pv-cell"><span class="pv-cap">Action pressed</span><div class="toast"><span class="toast__msg">Question flagged</span><button type="button" class="toast__action is-active">Undo</button></div></div><div class="pv-cell"><span class="pv-cap">Action keyboard focus</span><div class="toast"><span class="toast__msg">Question flagged</span><button type="button" class="toast__action is-focus">Undo</button></div></div></div><div class="pv-cell"><span class="pv-cap">Message only: stays 4 seconds</span><div class="toast"><span class="toast__msg">Saved</span></div></div><div class="pv-cell"><span class="pv-cap">Leaving (frozen mid-exit): out in 300ms</span><div class="toast is-leaving" style="animation:none;opacity:.55"><span class="toast__msg">Question flagged</span><button type="button" class="toast__action">Undo</button></div></div><div class="pv-cell"><span class="pv-cap">Phone: full width less 16px each side</span><div class="pv-phone"><div class="toast toast--phone" style="width:100%"><span class="toast__msg" style="flex:1">Question flagged</span><button type="button" class="toast__action">Undo</button></div></div></div><div class="pv-cell"><span class="pv-cap">Try it: one at a time, hover or focus pauses the timer</span><div class="pv-stage demo-toasts" style="height:170px"><div class="toast-region" role="status" aria-live="polite" style="position:absolute;bottom:16px"></div></div></div><div class="btn-row" style="justify-content:flex-start"><button type="button" class="btn btn--secondary btn--sm" data-toast="flag">Flag a Question</button><button type="button" class="btn btn--tertiary btn--accent btn--sm" data-toast="save">Save Settings</button><button type="button" class="btn btn--tertiary btn--accent btn--sm" data-toast="queue">Queue Three</button></div><p class="pv-note">In the app every toast sits in one toast region. A new toast waits until the current one has been up for its minimum time (2 seconds here), then replaces it. The rest queue.</p></section></div>
+<script>(function(){
+var RM=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+function Q(region){
+  var cur=null,q=[],MIN=2000;
+  function left(c){return c.paused?c.left:c.left-(Date.now()-c.start)}
+  function run(c){c.start=Date.now();c.t=setTimeout(function(){close(c)},c.left)}
+  function close(c){clearTimeout(c.t);c.el.classList.add('is-exiting');setTimeout(function(){c.el.remove();if(cur===c){cur=null;if(q.length)show(q.shift())}},RM?150:300)}
+  function show(it){
+    var el=document.createElement('div');el.className='toast';
+    var m=document.createElement('span');m.className='toast__msg';m.textContent=it.msg;el.appendChild(m);
+    var c={el:el,left:it.undo?8000:4000,paused:false,shown:Date.now(),start:0,t:0};
+    if(it.undo){var b=document.createElement('button');b.type='button';b.className='toast__action';b.textContent='Undo';b.onclick=function(){close(c)};el.appendChild(b)}
+    function pause(){if(c.paused)return;c.left=left(c);c.paused=true;clearTimeout(c.t)}
+    function resume(){if(!c.paused)return;c.paused=false;run(c)}
+    el.addEventListener('mouseenter',pause);el.addEventListener('mouseleave',resume);
+    el.addEventListener('focusin',pause);el.addEventListener('focusout',function(){if(!el.contains(document.activeElement))resume()});
+    if(q.length)c.left=Math.min(c.left,MIN);region.appendChild(el);cur=c;run(c)}
+  return function(it){
+    if(!cur){show(it);return}
+    q.push(it);
+    var minLeft=Math.max(0,MIN-(Date.now()-cur.shown));
+    if(!cur.paused&&left(cur)>minLeft){clearTimeout(cur.t);cur.left=minLeft;run(cur)}}}
+document.querySelectorAll('.demo-toasts').forEach(function(st){st._q=Q(st.querySelector('.toast-region'))});
+document.addEventListener('click',function(e){
+  var b=e.target.closest('[data-toast]');if(!b)return;
+  var st=b.closest('.pv-p').querySelector('.demo-toasts'),k=b.getAttribute('data-toast');
+  if(k==='flag')st._q({msg:'Question flagged',undo:true});
+  else if(k==='save')st._q({msg:'Saved'});
+  else{st._q({msg:'Saved'});st._q({msg:'Question flagged',undo:true});st._q({msg:'Exam date updated'})}});
+})();</script></body></html>

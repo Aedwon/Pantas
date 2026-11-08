@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 
 @immutable
@@ -38,7 +38,7 @@ class MonthRiseSwitcher extends StatelessWidget {
           animation: animation,
           child: child,
           builder: (context, child) {
-            final p = PantasCurves.riseIn.transform(animation.value);
+            final p = PantasCurves.enter.transform(animation.value);
             return Opacity(
               opacity: p,
               child: Transform.translate(
@@ -440,7 +440,7 @@ class _CalendarExpansion extends StatelessWidget {
       ? child
       : AnimatedSize(
           duration: const Duration(milliseconds: 400),
-          curve: PantasCurves.houseOut,
+          curve: PantasCurves.house,
           child: child,
         );
 }

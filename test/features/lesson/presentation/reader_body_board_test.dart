@@ -95,7 +95,7 @@ void main() {
         final title = tester.widget<Text>(
           find.text('Layers of the Earth and Composition').first,
         );
-        expect(title.style!.fontSize, 30);
+        expect(title.style!.fontSize, 28);
         expect(title.style!.fontWeight, FontWeight.w700);
         expect(title.style!.height, 1.08);
         expect(title.style!.letterSpacing, -.5);

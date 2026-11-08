@@ -7,13 +7,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/platform/welcome/welcome_handover_providers.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
-import 'package:pantas/core/ui/motion/pantas_durations.dart';
 import 'package:pantas/core/ui/motion/pantas_effects.dart';
 import 'package:pantas/core/ui/motion/press_scale.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
-import 'package:pantas/core/ui/theme/pantas_colors.dart';
-import 'package:pantas/core/ui/theme/pantas_type.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -37,7 +36,7 @@ class SignInStyle {
   final bool wide;
   final bool dark;
   final PantasColors c;
-  final PantasType _type;
+  final LegacyType _type;
 
   Color get page => dark ? c.background : c.surface;
   Color get field => c.surface;
@@ -150,7 +149,7 @@ class SignInRise extends StatefulWidget {
     this.duration = const Duration(milliseconds: 450),
     this.delay = Duration.zero,
     this.distance = 12,
-    this.curve = PantasCurves.riseIn,
+    this.curve = PantasCurves.enter,
     super.key,
   });
 
@@ -314,8 +313,8 @@ class SmoothSize extends StatelessWidget {
   Widget build(BuildContext context) {
     if (MediaQuery.disableAnimationsOf(context)) return child;
     return AnimatedSize(
-      duration: PantasDurations.base,
-      curve: PantasCurves.shared,
+      duration: PantasDurations.medium1,
+      curve: PantasCurves.move,
       alignment: Alignment.topCenter,
       clipBehavior: Clip.none,
       child: child,
@@ -350,13 +349,13 @@ class StepSwitcher extends StatelessWidget {
         reverseDuration:
             still ? Duration.zero : const Duration(milliseconds: 120),
         switchInCurve: delay == Duration.zero
-            ? PantasCurves.riseIn
+            ? PantasCurves.enter
             : Interval(
                 delay.inMilliseconds / total.inMilliseconds,
                 1,
-                curve: PantasCurves.riseIn,
+                curve: PantasCurves.enter,
               ),
-        switchOutCurve: PantasCurves.ease,
+        switchOutCurve: PantasCurves.fade,
         transitionBuilder: (child, animation) => AnimatedBuilder(
           animation: animation,
           child: child,
@@ -432,7 +431,7 @@ class SignInMessage extends StatelessWidget {
                   distance: 6,
                   duration: duration,
                   delay: delay,
-                  curve: PantasCurves.ease,
+                  curve: PantasCurves.fade,
                   child: Semantics(
                     liveRegion: true,
                     child: Padding(
@@ -656,7 +655,7 @@ class SignInButton extends StatelessWidget {
             ),
             animationDuration: MediaQuery.disableAnimationsOf(context)
                 ? Duration.zero
-                : PantasDurations.quick,
+                : PantasDurations.short2,
             backgroundColor: WidgetStateProperty.resolveWith(
               (states) => style.wide && states.contains(WidgetState.hovered)
                   ? hover
@@ -704,7 +703,7 @@ class SignInTextButton extends StatelessWidget {
           padding: const WidgetStatePropertyAll(EdgeInsets.zero),
           animationDuration: MediaQuery.disableAnimationsOf(context)
               ? Duration.zero
-              : PantasDurations.quick,
+              : PantasDurations.short2,
           backgroundColor: WidgetStateProperty.resolveWith(
             (states) => style.wide && states.contains(WidgetState.hovered)
                 ? style.accentTint.withValues(alpha: .5)
@@ -876,8 +875,8 @@ class SignInField extends StatelessWidget {
           child: AnimatedContainer(
             duration: MediaQuery.disableAnimationsOf(context)
                 ? Duration.zero
-                : PantasDurations.quick,
-            curve: PantasCurves.ease,
+                : PantasDurations.short2,
+            curve: PantasCurves.fade,
             height: 52,
             padding: const EdgeInsets.symmetric(horizontal: 15),
             alignment: Alignment.centerLeft,
@@ -997,7 +996,7 @@ class CodeBoxes extends StatelessWidget {
         duration: MediaQuery.disableAnimationsOf(context)
             ? Duration.zero
             : const Duration(milliseconds: 300),
-        curve: PantasCurves.ease,
+        curve: PantasCurves.fade,
         child: SizedBox(
           height: height,
           child: Stack(
@@ -1126,8 +1125,8 @@ class _CodeBox extends StatelessWidget {
           ),
         AnimatedOpacity(
           opacity: bad ? 1 : 0,
-          duration: bad || still ? Duration.zero : PantasDurations.base,
-          curve: PantasCurves.ease,
+          duration: bad || still ? Duration.zero : PantasDurations.medium1,
+          curve: PantasCurves.fade,
           child: DecoratedBox(
             decoration: BoxDecoration(
               color: style.redTint,
@@ -1161,8 +1160,8 @@ class _CodeBox extends StatelessWidget {
           Center(
             child: AnimatedOpacity(
               opacity: tone == CodeTone.fadingBad ? 0 : 1,
-              duration: still ? Duration.zero : PantasDurations.base,
-              curve: PantasCurves.ease,
+              duration: still ? Duration.zero : PantasDurations.medium1,
+              curve: PantasCurves.fade,
               child: KeyedSubtree(
                 key: ValueKey<String>('$index$digit'),
                 child: PantasEffects.pop(

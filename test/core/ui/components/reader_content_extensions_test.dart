@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/content_renderer.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import '../../../helpers/accessibility.dart';
 import 'w2_test_support.dart';
 
@@ -242,7 +242,7 @@ void main() {
       tester
           .widget<Opacity>(find.byKey(const ValueKey('reader-viewer-fade')))
           .opacity,
-      closeTo(PantasCurves.ease.transform(.5), .001),
+      closeTo(PantasCurves.fade.transform(.5), .001),
     );
     final expected =
         .92 + .08 * const Cubic(.25, .9, .3, 1).transform(140 / 380);

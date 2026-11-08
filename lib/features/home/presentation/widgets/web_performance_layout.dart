@@ -8,9 +8,9 @@ import 'package:pantas/core/ui/components/half_ring_gauge.dart';
 import 'package:pantas/core/ui/components/pro_paused_line.dart';
 import 'package:pantas/core/ui/components/pro_tag.dart';
 import 'package:pantas/core/ui/components/sort_cycle_button.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
-import 'package:pantas/core/ui/motion/pantas_durations.dart';
 import 'package:pantas/core/ui/motion/view_swap.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_hover.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -460,8 +460,8 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
       child: MediaQuery.disableAnimationsOf(context)
           ? topics
           : AnimatedSize(
-              duration: PantasDurations.base,
-              curve: PantasCurves.shared,
+              duration: PantasDurations.medium1,
+              curve: PantasCurves.move,
               alignment: Alignment.topCenter,
               child: topics,
             ),
@@ -536,8 +536,8 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
                   turns: expanded ? .5 : 0,
                   duration: MediaQuery.disableAnimationsOf(context)
                       ? Duration.zero
-                      : PantasDurations.base,
-                  curve: PantasCurves.shared,
+                      : PantasDurations.medium1,
+                  curve: PantasCurves.move,
                   child: Icon(
                     Icons.keyboard_arrow_down,
                     size: 16,

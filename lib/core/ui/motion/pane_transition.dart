@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
-import 'package:pantas/core/ui/motion/pantas_durations.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
 
 /// The numbers of the approved Nov 3 motion preview, Option A for item 1 and
-/// item 15. Both run on one 240 ms clock (`PantasDurations.base`).
+/// item 15. Both run on one 240 ms clock (`PantasDurations.medium1`).
 abstract final class PaneMotion {
   static const double _totalMs = 240;
 
@@ -26,12 +26,12 @@ abstract final class PaneMotion {
   /// pane that covers it.
   static double outgoingOpacity(double progress) {
     final t = _phase(progress, 0, outEndMs);
-    return 1 - PantasCurves.ease.transform(t);
+    return 1 - PantasCurves.fade.transform(t);
   }
 
   /// Opacity of the detail arriving. [progress] is its own route's 0 to 1 run.
   static double incomingOpacity(double progress) =>
-      PantasCurves.shared.transform(_phase(progress, inStartMs, _totalMs));
+      PantasCurves.move.transform(_phase(progress, inStartMs, _totalMs));
 
   /// How far below its place the arriving detail still sits, in px.
   static double incomingLift(double progress) =>
@@ -39,7 +39,7 @@ abstract final class PaneMotion {
 
   /// Item 1, a whole page fading in: `ease` over the full 240 ms.
   static double fadeOpacity(double progress) =>
-      PantasCurves.ease.transform(progress.clamp(0.0, 1.0));
+      PantasCurves.fade.transform(progress.clamp(0.0, 1.0));
 }
 
 /// What a page does when it opens.
@@ -116,14 +116,14 @@ class PaneTransitionRoute<T> extends PageRoute<T>
   Duration get transitionDuration => switch (_kind) {
         PaneTransition.platform => super.transitionDuration,
         PaneTransition.instant => Duration.zero,
-        _ => PantasDurations.base,
+        _ => PantasDurations.medium1,
       };
 
   @override
   Duration get reverseTransitionDuration => switch (_kind) {
         PaneTransition.platform => super.reverseTransitionDuration,
         PaneTransition.instant => Duration.zero,
-        _ => PantasDurations.base,
+        _ => PantasDurations.medium1,
       };
 
   @override
@@ -172,7 +172,7 @@ class PaneTransitionRoute<T> extends PageRoute<T>
       case PaneTransition.fade:
         if (MediaQuery.disableAnimationsOf(context)) return child;
         return FadeTransition(
-          opacity: animation.drive(CurveTween(curve: PantasCurves.ease)),
+          opacity: animation.drive(CurveTween(curve: PantasCurves.fade)),
           child: child,
         );
     }

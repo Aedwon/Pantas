@@ -1,65 +1,39 @@
 import 'package:flutter/material.dart';
-import 'package:pantas/core/ui/theme/pantas_colors.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 
-/// Desktop canvas roles. The charcoal dark palette also applies on native.
+// LEGACY: remove in family M. Lets callers of `webTokens.colors` see the old
+// field names.
+export 'package:pantas/core/ui/theme/legacy_theme_shim.dart';
+
+/// Desktop canvas roles. One palette serves every width: the getters below
+/// forward to the design system roles and styles (D50, D51, D112, D123, D124
+/// dark values come from `tokens.json`).
 @immutable
 class WebTokens {
   const WebTokens(this.brightness);
   final Brightness brightness;
   bool get dark => brightness == Brightness.dark;
 
-  PantasColors get colors => dark
-      ? PantasColors.dark.copyWith(
-          background: const Color(0xFF151515),
-          surface: const Color(0xFF1F1F1F),
-          label: const Color(0xFFF5F5F5),
-          secondaryLabel: const Color(0xFFA3A3A3),
-          tertiaryLabel: const Color(0xFF949494),
-          separator: const Color(0xFF303030),
-          fill: const Color(0xFF2A2A2A),
-          onFillLabel: const Color(0xFFA3A3A3),
-          skeleton: const Color(0xFF2A2A2A),
-          chevron: const Color(0xFF949494),
-          accent: const Color(0xFF4CC3AC),
-          accentFill: const Color(0xFF0F8571),
-          accentTint: const Color(0xFF18332D),
-          destructive: const Color(0xFFC44A46),
-          wrongText: const Color(0xFFE0706B),
-          wrongTint: const Color(0xFF33201F),
-          floatingRight: const Color(0xFF18332D),
-          floatingWrong: const Color(0xFF2E1E1D),
-          choiceOutline: const Color(0xFF3D3D3D),
-          controlOutline: const Color(0xFF3D3D3D),
-          onAccent: Colors.white,
-        )
-      : PantasColors.light.copyWith(
-          tertiaryLabel: const Color(0xFF8A8A8E),
-          wrongTint: const Color(0xFFFDE8EA),
-          floatingRight: const Color(0xFFEEF8F5),
-        );
+  PantasColors get colors => dark ? PantasColors.dark : PantasColors.light;
 
-  /// A primary button under the pointer. Light darkens by the board's step.
-  /// Dark has no board value, so it takes the step the danger button's dark
-  /// hover makes (9 percent darker), which a dark button needs to show at all
-  /// (5Q-7).
-  Color get accentHover =>
-      dark ? const Color(0xFF0E7967) : const Color(0xFF086A5A);
+  /// A primary button under the pointer (`accent-fill-hover`).
+  Color get accentHover => colors.accentFillHover;
+
+  /// Teal text on `accent-tint` (`accent-tint-text`).
   Color get tintText => colors.accentTintText;
-  Color get figureScrim => const Color.fromRGBO(10, 10, 12, .88);
-  Color get figureCaption => const Color(0xFFD1D1D6);
-  Color get cardEdge => colors.cardEdge;
-  Color get strongDivider =>
-      dark ? const Color(0xFF3D3D3D) : const Color(0xFFD1D1D6);
-  Color get segmentOn => colors.segmentOn;
-  Color get rowHover => dark ? colors.fill : const Color(0xFFF7F7F9);
-  Color get secondaryHover =>
-      dark ? colors.accentTint : const Color(0xFFD6EBE6);
-  Color get dangerFill => dark ? const Color(0xFFB2423E) : colors.destructive;
-  Color get dangerHover =>
-      dark ? const Color(0xFFA33C38) : const Color(0xFFB80012);
-  Color get disabledBackground => dark ? colors.fill : const Color(0xFFEDEDF0);
-  Color get disabledText =>
-      dark ? colors.tertiaryLabel : const Color(0xFFAEAEB2);
+  Color get figureScrim => colors.figureScrim;
+  Color get figureCaption => colors.figureCaption;
+  Color get cardEdge => colors.edgeCard;
+  Color get strongDivider => colors.dividerStrong;
+  Color get segmentOn => colors.surfaceSegmentOn;
+  Color get rowHover => colors.surfaceHover;
+  Color get secondaryHover => colors.accentTintHover;
+  Color get dangerFill => colors.dangerFill;
+  Color get dangerHover => colors.dangerFillHover;
+  // No role for a disabled well: the neutral fill is the nearest by meaning.
+  Color get disabledBackground => colors.fill;
+  Color get disabledText => colors.textDisabled;
 
   TextStyle style(
     double size, {
@@ -74,27 +48,19 @@ class WebTokens {
         fontWeight: weight,
         height: height,
         letterSpacing: spacing,
-        color: color ?? colors.label,
+        color: color ?? colors.textPrimary,
       );
-  TextStyle get h1 =>
-      style(38, weight: FontWeight.w700, height: 1.1, spacing: -.912);
-  TextStyle get h2 =>
-      style(26, weight: FontWeight.w700, height: 1.2, spacing: -.468);
-  TextStyle get h3 =>
-      style(20, weight: FontWeight.w700, height: 1.3, spacing: -.24);
+  TextStyle get h1 => PantasType.webH1.copyWith(color: colors.textPrimary);
+  TextStyle get h2 => PantasType.webH2.copyWith(color: colors.textPrimary);
+  TextStyle get h3 => PantasType.webH3.copyWith(color: colors.textPrimary);
   TextStyle get qtext =>
-      style(27, weight: FontWeight.w600, height: 1.38, spacing: -.432);
+      PantasType.webQuestion.copyWith(color: colors.textPrimary);
   TextStyle get big =>
-      style(40, weight: FontWeight.w700, height: 1.05, spacing: -1.2)
-          .copyWith(fontFeatures: [const FontFeature.tabularFigures()]);
-  TextStyle get sub => style(15, height: 1.45, color: colors.secondaryLabel);
-  TextStyle get sm => style(13, height: 1.45, color: colors.secondaryLabel);
-  TextStyle get eb => style(
-        13,
-        weight: FontWeight.w600,
-        spacing: .26,
-        color: colors.secondaryLabel,
-      );
+      PantasType.webBigNumeral.copyWith(color: colors.textPrimary);
+  TextStyle get sub => PantasType.webSub.copyWith(color: colors.textSecondary);
+  TextStyle get sm => PantasType.webSmall.copyWith(color: colors.textSecondary);
+  TextStyle get eb =>
+      PantasType.webEyebrow.copyWith(color: colors.textSecondary);
 }
 
 extension WebTokensContext on BuildContext {

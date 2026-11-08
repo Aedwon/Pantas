@@ -6,7 +6,8 @@ import 'package:pantas/core/ui/components/half_ring_gauge.dart';
 import 'package:pantas/core/ui/components/progress_ring.dart';
 import 'package:pantas/core/ui/components/today_questions.dart';
 import 'package:pantas/core/ui/components/week_strip.dart';
-import 'package:pantas/core/ui/theme/pantas_colors.dart';
+import 'package:pantas/core/ui/theme/legacy_theme_shim.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 
 import '../../../helpers/accessibility.dart';
 import 'w2_test_support.dart';
@@ -53,7 +54,7 @@ void main() {
         paints
           ..circle(
             color: brightness == Brightness.light
-                ? const Color(0xFFC7C7CC)
+                ? const Color(0xFF8E8E93)
                 : const Color(0xFF949494),
             strokeWidth: 1.5,
           ),
@@ -168,12 +169,11 @@ void main() {
         tester.getCenter(find.byKey(const ValueKey('week-day-3'))).dx,
         closeTo(195, 1),
       );
-      // 6U-6: a past or future off-day is dimmed in both themes. The pale
-      // board gray does it in light; dark needs the dimmed gray, because
-      // #C7C7CC is nearly as bright as a study day on the dark page.
+      // A past or future off-day is `text-secondary` in both themes (the old
+      // pale gray folded into it in design system 4.0).
       final off = brightness == Brightness.light
-          ? const Color(0xFFC7C7CC)
-          : PantasColors.dark.tertiaryLabel;
+          ? const Color(0xFF6E6E73)
+          : PantasColors.dark.textSecondary;
       expect(tester.widget<Text>(find.text('Thu')).style!.color, off);
       expect(tester.widget<Text>(find.text('8')).style!.color, off);
       expect(

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
-import 'package:pantas/core/ui/theme/pantas_colors.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 import 'package:pantas/features/shell/presentation/app_shell.dart';
 import 'package:pantas/features/shell/presentation/web_shell.dart';
 
@@ -117,7 +117,7 @@ void main() {
       }
     });
 
-    testWidgets('the icon and label colors fade 160 ms on the ease',
+    testWidgets('the icon and label colors fade 150 ms on the ease',
         (tester) async {
       await tester.pumpWidget(_bar(0));
       expect(_icon(tester, PantasIcons.quizTab), light.secondaryLabel);
@@ -127,7 +127,7 @@ void main() {
       for (final ms in [40, 40, 40, 40]) {
         await tester.pump(Duration(milliseconds: ms));
         elapsed += ms;
-        final p = previewEase(elapsed / 160);
+        final p = previewEase(elapsed / 150);
         expect(
           _icon(tester, PantasIcons.quizTab),
           _closeTo(Color.lerp(light.secondaryLabel, light.accent, p)),
@@ -210,7 +210,7 @@ void main() {
       expect(tester.hasRunningAnimations, isFalse);
     });
 
-    testWidgets('the icon color fades 160 ms on the ease', (tester) async {
+    testWidgets('the icon color fades 150 ms on the ease', (tester) async {
       tester.view.devicePixelRatio = 1;
       tester.view.physicalSize = const Size(1440, 900);
       addTearDown(tester.view.resetPhysicalSize);
@@ -221,7 +221,7 @@ void main() {
       await tester.pumpWidget(_side(2));
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 80));
-      final p = previewEase(80 / 160);
+      final p = previewEase(80 / 150);
       expect(
         _icon(tester, PantasIcons.quizTab),
         _closeTo(Color.lerp(off, on, p)),

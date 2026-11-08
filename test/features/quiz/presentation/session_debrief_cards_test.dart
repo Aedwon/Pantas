@@ -107,7 +107,7 @@ void main() {
             tester.widgetList<Icon>(find.byIcon(Icons.chevron_right));
         expect(chevrons, isNotEmpty);
         for (final icon in chevrons) {
-          expect(icon.color, Color(dark ? 0xFF5C5C5C : 0xFFC7C7CC));
+          expect(icon.color, Color(dark ? 0xFF5C5C5C : 0xFF8E8E93));
         }
         if (wide) {
           final row = find.ancestor(
@@ -128,7 +128,7 @@ void main() {
           expect(tester.getSize(circle), const Size(26, 26));
           final decoration =
               tester.widget<Container>(circle).decoration! as BoxDecoration;
-          expect(decoration.color, Color(dark ? 0xFF33201F : 0xFFFDE8EA));
+          expect(decoration.color, Color(dark ? 0xFF33201F : 0xFFFDECEE));
         }
       });
     }

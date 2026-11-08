@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/features/mock_exam/presentation/mock_hourglass.dart';
 import 'package:pantas/features/mock_exam/presentation/pause_page.dart';
 
@@ -167,7 +167,7 @@ void main() {
 
     await tester.pump(const Duration(milliseconds: 300));
     // 200ms into the 600ms shrink.
-    final third = PantasCurves.edgeGrow.transform(1 / 3);
+    final third = PantasCurves.move.transform(1 / 3);
     expect(
       _hourglassTranslation(tester).dy,
       closeTo(290 * (1 - third), 1),

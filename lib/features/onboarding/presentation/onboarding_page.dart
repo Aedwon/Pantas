@@ -13,7 +13,7 @@ import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/storage/track_scope.dart';
 import 'package:pantas/core/telemetry/telemetry.dart';
 import 'package:pantas/core/ui/components/onboarding_frame.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/home/application/study_delivery.dart';
 import 'package:pantas/features/home/application/study_remote_providers.dart';
@@ -281,7 +281,7 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
                 child: child,
                 builder: (context, child) {
                   final progress =
-                      (fade ? PantasCurves.ease : PantasCurves.riseIn)
+                      (fade ? PantasCurves.fade : PantasCurves.enter)
                           .transform(animation.value);
                   return ExcludeFocus(
                     excluding: progress == 0,

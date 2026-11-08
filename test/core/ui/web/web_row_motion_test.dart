@@ -6,7 +6,7 @@ import 'package:pantas/core/ui/web/web_components.dart';
 
 import '../motion/preview_curves.dart';
 
-// Item 17, demo 4: a row's tint and value color fade together over 160 ms on
+// Item 17, demo 4: a row's tint and value color fade together over 150 ms on
 // the ease. Nothing moves and the label keeps its weight.
 final _theme = buildLightTheme(web: true);
 
@@ -52,7 +52,7 @@ Color? _value(WidgetTester tester) =>
     tester.widget<Text>(find.text('10 questions')).style?.color;
 
 void main() {
-  testWidgets('choosing the row fades the tint in over 160 ms', (tester) async {
+  testWidgets('choosing the row fades the tint in over 150 ms', (tester) async {
     await tester.pumpWidget(_row(selected: false));
     final base = _value(tester)!;
     await tester.pumpWidget(_row(selected: true));
@@ -61,7 +61,7 @@ void main() {
     for (final ms in [40, 40, 40]) {
       await tester.pump(Duration(milliseconds: ms));
       elapsed += ms;
-      final p = previewEase(elapsed / 160);
+      final p = previewEase(elapsed / 150);
       expect(_tint(tester), closeTo(p, .01), reason: '$elapsed ms');
       final want = Color.lerp(base, const Color(0xFF0B7A68), p)!;
       expect(_value(tester)!.g, closeTo(want.g, .01), reason: '$elapsed ms');
@@ -78,7 +78,7 @@ void main() {
     expect(_tint(tester), 1);
     await tester.pumpWidget(_row(selected: false));
     await tester.pump();
-    await tester.pump(const Duration(milliseconds: 80));
+    await tester.pump(const Duration(milliseconds: 75));
     expect(_tint(tester), closeTo(1 - previewEase(.5), .01));
     await tester.pumpAndSettle();
     expect(_tint(tester), 0);
@@ -88,7 +88,7 @@ void main() {
       (tester) async {
     await tester.pumpWidget(_row(selected: false, enterFrom: true));
     expect(_tint(tester), 1);
-    await tester.pump(const Duration(milliseconds: 80));
+    await tester.pump(const Duration(milliseconds: 75));
     expect(_tint(tester), closeTo(1 - previewEase(.5), .01));
     await tester.pumpAndSettle();
     expect(_tint(tester), 0);

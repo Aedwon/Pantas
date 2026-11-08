@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/progress_ring.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
-import 'package:pantas/core/ui/theme/pantas_colors.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/features/lesson/domain/use_cases/build_study_map.dart';
 import 'package:pantas/features/lesson/presentation/widgets/study_map_entry.dart';
 import 'package:pantas/features/lesson/presentation/widgets/study_topic_section.dart';
@@ -110,7 +110,7 @@ void main() {
     await tester.pump(const Duration(milliseconds: 100));
     expect(tester.widget<Opacity>(find.byType(Opacity)).opacity, 0);
     await tester.pump(const Duration(milliseconds: 225));
-    final value = PantasCurves.houseOut.transform(.5);
+    final value = PantasCurves.house.transform(.5);
     expect(
       tester.widget<Opacity>(find.byType(Opacity)).opacity,
       closeTo(value, .001),
@@ -152,7 +152,7 @@ void main() {
           expect(
             args[2] as double,
             closeTo(
-              3.141592653589793 * PantasCurves.houseOut.transform(.5),
+              3.141592653589793 * PantasCurves.house.transform(.5),
               .001,
             ),
           );

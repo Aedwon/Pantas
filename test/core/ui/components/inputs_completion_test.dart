@@ -229,7 +229,9 @@ void main() {
             .decoration!
             .hintStyle!
             .color,
-        const Color(0xFF8E8E93),
+        brightness == Brightness.light
+            ? const Color(0xFF6E6E73)
+            : const Color(0xFFA3A3A3),
       );
       expect(
         tester.getSize(find.byKey(const ValueKey('search-fill'))).height,

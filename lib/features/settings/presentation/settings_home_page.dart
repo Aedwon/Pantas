@@ -12,9 +12,9 @@ import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/icons/own/own_icons.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
-import 'package:pantas/core/ui/motion/pantas_durations.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/beta_feedback/application/beta_feedback_providers.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
@@ -144,14 +144,14 @@ class FeedbackRowValue extends StatelessWidget {
         : style.color ?? context.colors.secondaryLabel;
     return TweenAnimationBuilder<double>(
       tween: Tween(begin: still ? 1 : 0, end: 1),
-      duration: still ? Duration.zero : PantasDurations.quick,
-      curve: PantasCurves.ease,
+      duration: still ? Duration.zero : PantasDurations.short2,
+      curve: PantasCurves.fade,
       builder: (context, opacity, child) =>
           Opacity(opacity: opacity, child: child),
       child: TweenAnimationBuilder<Color?>(
         tween: ColorTween(end: color),
-        duration: still ? Duration.zero : PantasDurations.quick,
-        curve: PantasCurves.ease,
+        duration: still ? Duration.zero : PantasDurations.short2,
+        curve: PantasCurves.fade,
         builder: (context, color, _) =>
             Text(value, style: style.copyWith(color: color)),
       ),

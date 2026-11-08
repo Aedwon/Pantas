@@ -1,7 +1,8 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/legacy_theme_shim.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 
 /// Each builder receives progress for a board-specific ring, path or particles.
 /// Timings are explicit; board effects do not loop.
@@ -11,43 +12,43 @@ abstract final class PantasEffects {
     required ValueWidgetBuilder<double> builder,
     Widget? child,
   }) =>
-      _effect('pop', duration, PantasCurves.popC, builder, child);
+      _effect('pop', duration, PantasCurves.spring, builder, child);
   static Widget rise({
     required Duration duration,
     required ValueWidgetBuilder<double> builder,
     Widget? child,
   }) =>
-      _effect('rise', duration, PantasCurves.riseIn, builder, child);
+      _effect('rise', duration, PantasCurves.enter, builder, child);
   static Widget gauge({
     required Duration duration,
     required ValueWidgetBuilder<double> builder,
     Widget? child,
   }) =>
-      _effect('gauge', duration, PantasCurves.houseOut, builder, child);
+      _effect('gauge', duration, PantasCurves.house, builder, child);
   static Widget checkDraw({
     required Duration duration,
     required ValueWidgetBuilder<double> builder,
     Widget? child,
   }) =>
-      _effect('checkDraw', duration, PantasCurves.checkDraw, builder, child);
+      _effect('checkDraw', duration, PantasCurves.draw, builder, child);
   static Widget shake({
     required Duration duration,
     required ValueWidgetBuilder<double> builder,
     Widget? child,
   }) =>
-      _effect('shake', duration, PantasCurves.shake, builder, child);
+      _effect('shake', duration, LegacyCurves.shake, builder, child);
   static Widget press({
     required Duration duration,
     required ValueWidgetBuilder<double> builder,
     Widget? child,
   }) =>
-      _effect('press', duration, PantasCurves.ease, builder, child);
+      _effect('press', duration, PantasCurves.fade, builder, child);
   static Widget ring({
     required Duration duration,
     required ValueWidgetBuilder<double> builder,
     Widget? child,
   }) =>
-      _effect('ring', duration, PantasCurves.easeOut, builder, child);
+      _effect('ring', duration, LegacyCurves.easeOut, builder, child);
   static Widget burst({
     required Duration duration,
     required ValueWidgetBuilder<double> builder,
@@ -59,19 +60,19 @@ abstract final class PantasEffects {
     required ValueWidgetBuilder<double> builder,
     Widget? child,
   }) =>
-      _effect('push', duration, PantasCurves.riseIn, builder, child);
+      _effect('push', duration, PantasCurves.enter, builder, child);
   static Widget collapse({
     required Duration duration,
     required ValueWidgetBuilder<double> builder,
     Widget? child,
   }) =>
-      _effect('collapse', duration, PantasCurves.ease, builder, child);
+      _effect('collapse', duration, PantasCurves.fade, builder, child);
   static Widget fade({
     required Duration duration,
     required ValueWidgetBuilder<double> builder,
     Widget? child,
   }) =>
-      _effect('fade', duration, PantasCurves.ease, builder, child);
+      _effect('fade', duration, PantasCurves.fade, builder, child);
 
   static Widget _effect(
     String effect,
@@ -105,14 +106,14 @@ abstract final class PantasEffects {
             value,
             const [0, 0.6, 1],
             const [0.4, 1.12, 1],
-            PantasCurves.popC,
+            PantasCurves.spring,
           ),
           child: Opacity(
             opacity: _keyframes(
               value,
               const [0, 0.6, 1],
               const [0, 1, 1],
-              PantasCurves.popC,
+              PantasCurves.spring,
             ).clamp(0.0, 1.0),
             child: child,
           ),
@@ -154,14 +155,14 @@ abstract final class PantasEffects {
         t,
         const [0, 0.18, 0.38, 0.56, 0.74, 1],
         const [0, 11, -8, 5, -2.5, 0],
-        PantasCurves.shake,
+        LegacyCurves.shake,
       );
 
   static double _shake(double t) => _keyframes(
         t,
         const [0, 0.18, 0.36, 0.54, 0.72, 1],
         const [0, -9, 8, -5, 3, 0],
-        PantasCurves.shake,
+        LegacyCurves.shake,
       );
 
   static double _keyframes(

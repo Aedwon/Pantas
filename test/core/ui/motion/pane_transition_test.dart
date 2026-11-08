@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/motion/pane_transition.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 
 /// The Nov 3 motion preview's own curve solver, ported, so the app's numbers
 /// are checked against the page that was approved and not against themselves.
@@ -60,8 +60,8 @@ void main() {
   group('the approved numbers', () {
     test('the curves are the preview curves', () {
       for (final t in [.1, .25, .5, .75, .9]) {
-        expect(PantasCurves.ease.transform(t), closeTo(_ease(t), .005));
-        expect(PantasCurves.shared.transform(t), closeTo(_shared(t), .005));
+        expect(PantasCurves.fade.transform(t), closeTo(_ease(t), .005));
+        expect(PantasCurves.move.transform(t), closeTo(_shared(t), .005));
       }
     });
 

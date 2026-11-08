@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 
 // Aedwon accepted ST_Search's inactive placeholder pair, October 10.
 
@@ -123,7 +123,7 @@ class _SearchFieldState extends State<SearchField> {
             curve: Interval(
               delay / (delay + 450),
               1,
-              curve: PantasCurves.houseOut,
+              curve: PantasCurves.house,
             ),
             builder: (context, value, child) => ExcludeFocus(
               excluding: value == 0,
@@ -143,7 +143,7 @@ class _SearchFieldState extends State<SearchField> {
     final cancel = TweenAnimationBuilder<double>(
       tween: Tween(begin: 0, end: _editing ? 1 : 0),
       duration: duration,
-      curve: PantasCurves.houseOut,
+      curve: PantasCurves.house,
       builder: (context, value, child) => ClipRect(
         child: Align(
           widthFactor: value,
@@ -186,7 +186,7 @@ class _SearchFieldState extends State<SearchField> {
           TweenAnimationBuilder<double>(
             tween: Tween(begin: 1, end: _editing ? 0 : 1),
             duration: duration,
-            curve: PantasCurves.houseOut,
+            curve: PantasCurves.house,
             builder: (context, value, child) => ClipRect(
               child: Align(
                 alignment: Alignment.centerLeft,

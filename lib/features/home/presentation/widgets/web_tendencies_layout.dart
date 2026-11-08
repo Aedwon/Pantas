@@ -3,7 +3,7 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/pro_paused_line.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/home/application/how_you_work_provider.dart';
@@ -239,7 +239,7 @@ class WebTendencyProfile extends StatelessWidget {
                 end: 1,
               ),
               duration: const Duration(milliseconds: 800),
-              curve: PantasCurves.houseOut,
+              curve: PantasCurves.house,
               builder: (_, value, child) => Transform.translate(
                 offset: Offset(20 * (1 - value), 0),
                 child: child,
@@ -381,7 +381,7 @@ class WebTendencyFinding extends StatelessWidget {
                           end: 1,
                         ),
                         duration: const Duration(milliseconds: 900),
-                        curve: PantasCurves.houseOut,
+                        curve: PantasCurves.house,
                         builder: (_, grow, child) => FractionallySizedBox(
                           widthFactor: fraction.clamp(0, 1) * grow,
                           child: child,
@@ -492,7 +492,7 @@ class WebTendencyFinding extends StatelessWidget {
                   end: 1,
                 ),
                 duration: const Duration(milliseconds: 900),
-                curve: PantasCurves.houseOut,
+                curve: PantasCurves.house,
                 builder: (_, grow, child) => Align(
                   alignment: Alignment.centerLeft,
                   child: FractionallySizedBox(widthFactor: grow, child: child),

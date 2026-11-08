@@ -5,17 +5,18 @@ import 'package:pantas/core/ui/components/loading_shapes.dart';
 import 'package:pantas/core/ui/components/pro_tag.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/components/steps_screen.dart';
-import 'package:pantas/core/ui/theme/pantas_colors.dart';
+import 'package:pantas/core/ui/theme/legacy_theme_shim.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 
 import '../../../helpers/accessibility.dart';
 import 'w2_test_support.dart';
 
 void main() {
   test('skeleton token copies and interpolates', () {
-    expect(PantasColors.light.skeleton, const Color(0xFFE6E6EA));
-    expect(PantasColors.dark.skeleton, const Color(0xFF2A2A2A));
+    expect(PantasColors.light.skeleton, const Color(0xFFE3E3E8));
+    expect(PantasColors.dark.skeleton, const Color(0xFF3D3D3D));
     expect(
-      PantasColors.light.copyWith(skeleton: Colors.red).skeleton,
+      PantasColors.light.copyWith(fillSkeleton: Colors.red).skeleton,
       Colors.red,
     );
     expect(

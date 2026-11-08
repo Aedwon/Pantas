@@ -5,11 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:pantas/core/ui/components/content_renderer.dart';
 import 'package:pantas/core/ui/components/math_text.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
-import 'package:pantas/core/ui/motion/pantas_durations.dart';
 import 'package:pantas/core/ui/motion/press_scale.dart';
 import 'package:pantas/core/ui/motion/selection_motion.dart';
 import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
 import 'package:pantas/core/ui/web/web_back_link_ring.dart';
 import 'package:pantas/core/ui/web/web_keyboard_focus.dart';
 import 'package:pantas/core/ui/web/web_keyboard_hints.dart';
@@ -129,7 +129,7 @@ class WebButton extends StatelessWidget {
       style: ButtonStyle(
         animationDuration: MediaQuery.disableAnimationsOf(context)
             ? Duration.zero
-            : PantasDurations.quick,
+            : PantasDurations.short2,
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
         visualDensity: VisualDensity.standard,
         minimumSize: WidgetStatePropertyAll(
@@ -658,8 +658,8 @@ class _WebRowState extends State<WebRow> {
       tween: Tween(begin: _from ? 1 : 0, end: widget.selected ? 1 : 0),
       duration: MediaQuery.disableAnimationsOf(context)
           ? Duration.zero
-          : PantasDurations.quick,
-      curve: PantasCurves.ease,
+          : PantasDurations.short2,
+      curve: PantasCurves.fade,
       builder: (context, selection, _) => _row(context, selection),
     );
   }
@@ -798,8 +798,8 @@ class _WebRowState extends State<WebRow> {
                               : 0,
                           duration: MediaQuery.disableAnimationsOf(context)
                               ? Duration.zero
-                              : PantasDurations.quick,
-                          curve: PantasCurves.ease,
+                              : PantasDurations.short2,
+                          curve: PantasCurves.fade,
                           child: child,
                         ),
                         child: const WebChevron(),
@@ -1788,7 +1788,7 @@ class _WebPickerColumnState extends State<WebPickerColumn>
 
   late final AnimationController _controller = AnimationController(
     vsync: this,
-    duration: PantasDurations.base,
+    duration: PantasDurations.medium1,
     value: 1,
   );
   late double _from = widget.selectedIndex.toDouble();
@@ -1797,7 +1797,7 @@ class _WebPickerColumnState extends State<WebPickerColumn>
   double get _position {
     final to = widget.selectedIndex.toDouble();
     return _from +
-        (to - _from) * PantasCurves.shared.transform(_controller.value);
+        (to - _from) * PantasCurves.move.transform(_controller.value);
   }
 
   @override
@@ -1807,7 +1807,7 @@ class _WebPickerColumnState extends State<WebPickerColumn>
     final to = widget.selectedIndex.toDouble();
     final here = _from +
         (oldWidget.selectedIndex - _from) *
-            PantasCurves.shared.transform(_controller.value);
+            PantasCurves.move.transform(_controller.value);
     if (MediaQuery.disableAnimationsOf(context)) {
       _from = to;
       _controller.value = 1;

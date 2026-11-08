@@ -108,6 +108,7 @@ flutter:
   generate: true   # enables ARB-driven l10n in Plan 2+
   assets:
     - assets/fonts/OFL-Geist.txt
+    - assets/fonts/OFL-SourceSerif4.txt
     - assets/fonts/phosphor/LICENSE
     - content/exams/catalog.json
     # Web fetches content from the server and never installs the native package.
@@ -130,6 +131,12 @@ flutter:
           weight: 600
         - asset: assets/fonts/Geist-Bold.ttf
           weight: 700
+    # Math and figures only (design system, Type). The file is the variable
+    # font from Google Fonts; weight 400 is its default instance.
+    - family: Source Serif 4
+      fonts:
+        - asset: assets/fonts/SourceSerif4-Variable.ttf
+          weight: 400
     - family: Phosphor
       fonts:
         - asset: assets/fonts/phosphor/Phosphor.ttf

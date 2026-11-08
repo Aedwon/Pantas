@@ -1,7 +1,8 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/legacy_theme_shim.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/features/beta_feedback/presentation/fb_kit.dart';
 
 /// The ring and the check of the sent state, each drawn to its own progress.
@@ -89,9 +90,9 @@ class SurveySent extends StatelessWidget {
                         final ms = t * 770;
                         return CustomPaint(
                           painter: SentMarkPainter(
-                            ring: PantasCurves.checkDraw
+                            ring: PantasCurves.draw
                                 .transform((ms / 500).clamp(0.0, 1.0)),
-                            check: PantasCurves.checkDraw
+                            check: PantasCurves.draw
                                 .transform(((ms - 420) / 350).clamp(0.0, 1.0)),
                             color: c.accent,
                           ),
@@ -176,7 +177,7 @@ class _Ripple extends StatelessWidget {
         delay: Duration(milliseconds: delay),
         builder: (context, t, _) {
           // Reduced motion lands on t = 1: the ripple is already gone.
-          final e = PantasCurves.easeOut.transform(t);
+          final e = LegacyCurves.easeOut.transform(t);
           return DecoratedBox(
             decoration: BoxDecoration(
               shape: BoxShape.circle,

@@ -189,7 +189,7 @@ void main() {
       expect(decoration.color, dark ? const Color(0xFF1F1F1F) : Colors.white);
       expect(
         (card.foregroundDecoration as BoxDecoration?)?.border,
-        dark ? Border.all(color: const Color(0xFF2C2C2C)) : isNull,
+        dark ? Border.all(color: const Color(0xFF2A2A2A)) : isNull,
       );
     });
   }

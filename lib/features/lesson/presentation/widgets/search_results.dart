@@ -6,8 +6,8 @@ import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/features/lesson/application/lesson_search_providers.dart';
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
 import 'package:pantas/features/lesson/domain/models/lesson_search_hit.dart';
@@ -194,7 +194,7 @@ class SearchGroupFade extends StatelessWidget {
         curve: Interval(
           delay.inMilliseconds / (300 + delay.inMilliseconds),
           1,
-          curve: PantasCurves.houseOut,
+          curve: PantasCurves.house,
         ),
         builder: (context, value, child) => Opacity(
           key: const ValueKey('search-results-opacity'),

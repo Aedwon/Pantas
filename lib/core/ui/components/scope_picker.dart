@@ -3,8 +3,8 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 
@@ -89,7 +89,7 @@ class _ScopePickerState extends State<ScopePicker>
     ])
       TweenSequenceItem(
         tween: Tween(begin: pair.$1, end: pair.$2)
-            .chain(CurveTween(curve: PantasCurves.easeOut)),
+            .chain(CurveTween(curve: LegacyCurves.easeOut)),
         weight: 1,
       ),
   ]).animate(_shake);
@@ -240,7 +240,7 @@ class _ScopePickerState extends State<ScopePicker>
                     icon: AnimatedRotation(
                       key: ValueKey('scope-caret-$id'),
                       turns: expanded ? .5 : 0,
-                      curve: PantasCurves.houseOut,
+                      curve: PantasCurves.house,
                       duration: MediaQuery.disableAnimationsOf(context)
                           ? Duration.zero
                           : const Duration(milliseconds: 300),
@@ -343,7 +343,7 @@ class _ScopePickerState extends State<ScopePicker>
                       AnimatedSize(
                         key: ValueKey('scope-lessons-${topic.id}'),
                         duration: const Duration(milliseconds: 600),
-                        curve: PantasCurves.houseOut,
+                        curve: PantasCurves.house,
                         child: lessons(topic),
                       ),
                     if (index < subject.topics.length - 1)

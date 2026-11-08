@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 
 /// Hands loading shapes over to the loaded content with a cross-fade, as
 /// approved on the Splash Hand-off canvas (Web_B_Still, Phone_B_Fade).
@@ -64,7 +64,7 @@ class _SkeletonFadeState extends State<SkeletonFade>
         curve: const Interval(
           0,
           SkeletonFade._shapesEnd,
-          curve: PantasCurves.ease,
+          curve: PantasCurves.fade,
         ),
       ),
     );
@@ -73,7 +73,7 @@ class _SkeletonFadeState extends State<SkeletonFade>
       curve: const Interval(
         SkeletonFade._contentStart,
         1,
-        curve: PantasCurves.ease,
+        curve: PantasCurves.fade,
       ),
     );
   }

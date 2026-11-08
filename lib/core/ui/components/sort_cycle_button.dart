@@ -1,8 +1,8 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 
 enum SortCycleOrder { weakest, strongest, alphabetical }
 
@@ -86,7 +86,7 @@ class _SortCycleButtonState extends State<SortCycleButton>
                 duration: still
                     ? Duration.zero
                     : Duration(milliseconds: _pressed ? 120 : 220),
-                curve: PantasCurves.easeOut,
+                curve: LegacyCurves.easeOut,
                 child: DecoratedBox(
                   key: const ValueKey('sort-square'),
                   decoration: BoxDecoration(
@@ -103,7 +103,7 @@ class _SortCycleButtonState extends State<SortCycleButton>
                             widget.value == SortCycleOrder.alphabetical;
                         final fromLetters =
                             _from == SortCycleOrder.alphabetical;
-                        final fade = PantasCurves.houseOut.transform(
+                        final fade = PantasCurves.house.transform(
                           (ms / (toLetters ? 220 : 300)).clamp(0.0, 1.0),
                         );
                         final barsOpacity = toLetters
@@ -134,7 +134,7 @@ class _SortCycleButtonState extends State<SortCycleButton>
                         final lettersScale = toLetters
                             ? .6 + .4 * letterProgress
                             : 1 - .4 * letterProgress;
-                        final morph = PantasCurves.houseOut
+                        final morph = PantasCurves.house
                             .transform((ms / 520).clamp(0.0, 1.0));
                         final fromStrong = _from != SortCycleOrder.weakest;
                         final toStrong = widget.value != SortCycleOrder.weakest;

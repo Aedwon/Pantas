@@ -24,10 +24,10 @@ import 'package:pantas/core/ui/components/pantas_sheet.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/icons/own/own_icons.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/lesson_text_scale.dart';
 import 'package:pantas/core/ui/theme/reader_full_width.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
@@ -1446,7 +1446,7 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody>
               builder: (_, __) {
                 final reset =
                     widget.dayContext == null && ending == null && next != null
-                        ? PantasCurves.slideA.transform(_transition.value)
+                        ? PantasCurves.scroll.transform(_transition.value)
                         : 0.0;
                 return ReaderRail(
                   progress: ending != null ? 1 : _progress.value * (1 - reset),

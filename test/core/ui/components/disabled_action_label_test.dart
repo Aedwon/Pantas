@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
-import 'package:pantas/core/ui/theme/pantas_colors.dart';
+import 'package:pantas/core/ui/theme/legacy_theme_shim.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 
 import '../../../helpers/accessibility.dart';
 
@@ -9,15 +10,15 @@ void main() {
   test('disabled action role survives copies and theme interpolation', () {
     const light = PantasColors.light;
     const dark = PantasColors.dark;
-    expect(light.disabledActionLabel, const Color(0xFFB8B8BD));
-    expect(dark.disabledActionLabel, const Color(0xFF949494));
+    expect(light.disabledActionLabel, const Color(0xFFAEAEB2));
+    expect(dark.disabledActionLabel, const Color(0xFF6B6B6B));
     expect(light.copyWith().disabledActionLabel, light.disabledActionLabel);
-    final changed = light.copyWith(disabledActionLabel: Colors.orange);
+    final changed = light.copyWith(textDisabled: Colors.orange);
     expect(changed.disabledActionLabel, Colors.orange);
     expect(changed.tertiaryLabel, light.tertiaryLabel);
     expect(
       light.lerp(dark, .5).disabledActionLabel,
-      Color.lerp(const Color(0xFFB8B8BD), const Color(0xFF949494), .5),
+      Color.lerp(const Color(0xFFAEAEB2), const Color(0xFF6B6B6B), .5),
     );
     expect(light.lerp(null, .5).disabledActionLabel, light.disabledActionLabel);
   });

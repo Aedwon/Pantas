@@ -3,8 +3,8 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_key_focus.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -186,9 +186,9 @@ class _PartTransitionPageState extends State<PartTransitionPage>
                         child: AnimatedBuilder(
                           animation: _motion,
                           builder: (context, _) {
-                            final pop = segment(1400, 220, PantasCurves.popA);
+                            final pop = segment(1400, 220, LegacyCurves.popA);
                             final settle =
-                                segment(1620, 160, PantasCurves.popA);
+                                segment(1620, 160, LegacyCurves.popA);
                             final scale = _motion.value * _duration < 1620
                                 ? .5 + .65 * pop
                                 : 1.15 - .15 * settle;
@@ -314,7 +314,7 @@ class _PartTransitionPageState extends State<PartTransitionPage>
                                                   segment(
                                                     1600,
                                                     450,
-                                                    PantasCurves.slideA,
+                                                    PantasCurves.scroll,
                                                   )),
                                     ),
                                     child: CustomPaint(
@@ -504,7 +504,7 @@ class _PartTransitionPageState extends State<PartTransitionPage>
   }
 
   Widget _wideDot(WebTokens t, int index) {
-    final progress = segment(200 + 12 * index, 200, PantasCurves.houseOut);
+    final progress = segment(200 + 12 * index, 200, PantasCurves.house);
     final answered = widget.answeredQuestions[index];
     return SizedBox.square(
       dimension: 18,
@@ -533,8 +533,8 @@ class _PartTransitionPageState extends State<PartTransitionPage>
   Widget _wideClosedCheck(WebTokens t) => AnimatedBuilder(
         animation: _motion,
         builder: (context, _) {
-          final pop = segment(1400, 220, PantasCurves.popA);
-          final settle = segment(1620, 160, PantasCurves.popA);
+          final pop = segment(1400, 220, LegacyCurves.popA);
+          final settle = segment(1620, 160, LegacyCurves.popA);
           final scale = _motion.value * _duration < 1620
               ? .5 + .65 * pop
               : 1.15 - .15 * settle;
@@ -558,7 +558,7 @@ class _PartTransitionPageState extends State<PartTransitionPage>
       );
 
   Widget _dot(BuildContext context, int index) {
-    final progress = segment(200 + 12 * index, 200, PantasCurves.houseOut);
+    final progress = segment(200 + 12 * index, 200, PantasCurves.house);
     final answered = widget.answeredQuestions[index];
     final c = context.colors;
     return SizedBox(

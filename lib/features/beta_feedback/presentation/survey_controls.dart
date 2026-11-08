@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
-import 'package:pantas/core/ui/motion/pantas_durations.dart';
 import 'package:pantas/core/ui/motion/selection_motion.dart';
+import 'package:pantas/core/ui/theme/legacy_theme_shim.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
 import 'package:pantas/features/beta_feedback/domain/beta_feedback_models.dart';
 import 'package:pantas/features/beta_feedback/presentation/fb_kit.dart';
 
@@ -137,7 +138,7 @@ class LetterOptions extends StatelessWidget {
             cursor: SystemMouseCursors.click,
             child: AnimatedContainer(
               duration: _dur(context, const Duration(milliseconds: 180)),
-              curve: PantasCurves.ease,
+              curve: PantasCurves.fade,
               padding: EdgeInsets.symmetric(
                 vertical: wide ? 9.5 : 11.5,
                 horizontal: wide ? 10.5 : 12.5,
@@ -294,9 +295,10 @@ class _SurveySegmentedState extends State<SurveySegmented> {
                 ),
               ),
               AnimatedPositioned(
-                duration:
-                    _jump ? Duration.zero : _dur(context, PantasDurations.base),
-                curve: PantasCurves.shared,
+                duration: _jump
+                    ? Duration.zero
+                    : _dur(context, PantasDurations.medium1),
+                curve: PantasCurves.move,
                 left: left(picked ?? 0),
                 top: 6,
                 bottom: 6,
@@ -304,8 +306,8 @@ class _SurveySegmentedState extends State<SurveySegmented> {
                 child: AnimatedOpacity(
                   key: ValueKey('${widget.id}-thumb'),
                   opacity: picked == null ? 0 : 1,
-                  duration: _dur(context, PantasDurations.quick),
-                  curve: PantasCurves.ease,
+                  duration: _dur(context, PantasDurations.short2),
+                  curve: PantasCurves.fade,
                   child: DecoratedBox(
                     decoration: BoxDecoration(
                       color: c.segmentOn,
@@ -478,8 +480,8 @@ class SurveyTextBox extends StatelessWidget {
             : context.fbText(17, height: 1.35, spacing: -.204);
         return AnimatedContainer(
           key: ValueKey('$id-box'),
-          duration: _dur(context, PantasDurations.quick),
-          curve: PantasCurves.ease,
+          duration: _dur(context, PantasDurations.short2),
+          curve: PantasCurves.fade,
           // The border takes room when it appears, so the text keeps its
           // place by giving that room back while it is absent.
           padding: EdgeInsets.symmetric(
@@ -549,8 +551,8 @@ class SurveyProgress extends StatelessWidget {
                           child: SizedBox(
                             height: 4,
                             child: AnimatedFractionallySizedBox(
-                              duration: _dur(context, PantasDurations.base),
-                              curve: PantasCurves.shared,
+                              duration: _dur(context, PantasDurations.medium1),
+                              curve: PantasCurves.move,
                               alignment: Alignment.centerLeft,
                               widthFactor: i < answered ? 1 : 0,
                               heightFactor: 1,
@@ -638,8 +640,8 @@ class SentFeedbackExpander extends StatelessWidget {
                         AnimatedRotation(
                           key: const ValueKey('sent-chevron'),
                           turns: open ? .25 : 0,
-                          duration: _dur(context, PantasDurations.base),
-                          curve: PantasCurves.shared,
+                          duration: _dur(context, PantasDurations.medium1),
+                          curve: PantasCurves.move,
                           child: Icon(
                             PantasIcons.next,
                             size: 16,
@@ -656,7 +658,7 @@ class SentFeedbackExpander extends StatelessWidget {
           TweenAnimationBuilder<double>(
             tween: Tween(end: open ? 1 : 0),
             duration: _dur(context, const Duration(milliseconds: 300)),
-            curve: PantasCurves.shared,
+            curve: PantasCurves.move,
             builder: (context, v, _) {
               if (v == 0) return const SizedBox.shrink();
               return ClipRect(
@@ -718,7 +720,7 @@ class _SentItem extends StatelessWidget {
       curve: Interval(
         delay.inMilliseconds / total.inMilliseconds,
         1,
-        curve: PantasCurves.riseIn,
+        curve: PantasCurves.enter,
       ),
       builder: (context, t, child) => Opacity(
         opacity: (t * (300 / fade.inMilliseconds)).clamp(0.0, 1.0),

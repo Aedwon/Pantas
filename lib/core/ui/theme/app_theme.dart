@@ -1,20 +1,23 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/motion/web_page_transitions.dart';
-import 'package:pantas/core/ui/theme/pantas_colors.dart';
+import 'package:pantas/core/ui/theme/legacy_theme_shim.dart';
 import 'package:pantas/core/ui/theme/pantas_shape.dart';
-import 'package:pantas/core/ui/theme/pantas_type.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 import 'package:pantas/core/ui/web/web_keyboard_focus.dart';
-import 'package:pantas/core/ui/web/web_tokens.dart';
+
+// LEGACY: remove in family M. Lets every `context.colors` caller see the
+// old field names.
+export 'package:pantas/core/ui/theme/legacy_theme_shim.dart';
 
 ThemeData buildLightTheme({bool web = kIsWeb}) => _buildTheme(
-      web ? const WebTokens(Brightness.light).colors : PantasColors.light,
+      PantasColors.light,
       Brightness.light,
       web: web || kIsWeb,
     );
 
 ThemeData buildDarkTheme({bool web = kIsWeb}) => _buildTheme(
-      web ? const WebTokens(Brightness.dark).colors : PantasColors.dark,
+      PantasColors.dark,
       Brightness.dark,
       web: web || kIsWeb,
     );
@@ -40,13 +43,11 @@ ThemeData _buildTheme(
     outlineVariant: colors.fill,
     surfaceTint: Colors.transparent,
   );
-  final type = PantasType.create(colors: colors);
+  final type = LegacyType.create(colors: colors);
   final overlay = WidgetStateProperty.resolveWith<Color?>((states) {
     if (states.contains(WidgetState.pressed)) return Colors.transparent;
     if (states.contains(WidgetState.hovered)) {
-      return brightness == Brightness.dark
-          ? const Color(0xFF2A2A2A)
-          : const Color(0xFFF7F7F9);
+      return colors.surfaceHover;
     }
     return null;
   });
@@ -74,11 +75,7 @@ ThemeData _buildTheme(
     splashFactory: web ? NoSplash.splashFactory : null,
     splashColor: web ? Colors.transparent : null,
     highlightColor: web ? Colors.transparent : null,
-    hoverColor: web
-        ? brightness == Brightness.dark
-            ? const Color(0xFF2A2A2A)
-            : const Color(0xFFF7F7F9)
-        : null,
+    hoverColor: web ? colors.surfaceHover : null,
     textButtonTheme: web ? TextButtonThemeData(style: buttonStyle) : null,
     filledButtonTheme: web ? FilledButtonThemeData(style: buttonStyle) : null,
     elevatedButtonTheme:
@@ -136,7 +133,7 @@ extension AppThemeContext on BuildContext {
     return theme.extension<PantasColors>()!;
   }
 
-  PantasType get type =>
-      Theme.of(this).extension<PantasType>() ??
-      PantasType.create(colors: colors);
+  LegacyType get type =>
+      Theme.of(this).extension<LegacyType>() ??
+      LegacyType.create(colors: colors);
 }

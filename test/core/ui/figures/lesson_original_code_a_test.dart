@@ -7,8 +7,8 @@ import 'package:pantas/core/ui/figures/chemistry_diagram_figure.dart';
 import 'package:pantas/core/ui/figures/figure_registry.dart';
 import 'package:pantas/core/ui/figures/physics_mechanics_diagram_figure.dart';
 import 'package:pantas/core/ui/figures/reading_diagram_figure.dart';
-import 'package:pantas/core/ui/theme/pantas_colors.dart';
-import 'package:pantas/core/ui/theme/pantas_type.dart';
+import 'package:pantas/core/ui/theme/legacy_theme_shim.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 
 void main() {
   setUpAll(() async {
@@ -757,7 +757,7 @@ Future<void> _pumpFigure(
     MaterialApp(
       themeAnimationDuration: Duration.zero,
       theme: ThemeData(
-        extensions: [palette, PantasType.create()],
+        extensions: [palette, LegacyType.create()],
       ),
       home: Scaffold(
         body: SizedBox(
@@ -780,7 +780,7 @@ Future<_RenderedFigure> _renderFigure(
     MaterialApp(
       themeAnimationDuration: Duration.zero,
       theme: ThemeData(
-        extensions: [palette, PantasType.create()],
+        extensions: [palette, LegacyType.create()],
       ),
       home: Align(
         alignment: Alignment.topCenter,

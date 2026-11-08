@@ -182,10 +182,10 @@ void main() {
         find.text('Pantas needs an update to keep working.'),
       );
       expect(title.textAlign, TextAlign.center);
-      expect(title.style!.fontSize, 24);
+      expect(title.style!.fontSize, 22);
       expect(title.style!.fontWeight, FontWeight.w700);
       expect(title.style!.height, 1.25);
-      expect(title.style!.letterSpacing, -.288);
+      expect(title.style!.letterSpacing, closeTo(-.264, .000001));
       expect(find.bySemanticsLabel('Pantas'), findsOneWidget);
       expect(
         tester.getSize(find.bySemanticsLabel('Pantas')),

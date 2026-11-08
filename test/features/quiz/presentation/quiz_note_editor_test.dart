@@ -6,8 +6,8 @@ import 'package:pantas/core/storage/domain/attempt.dart';
 import 'package:pantas/core/ui/components/floating_bar.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/selection_row.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/features/quiz/presentation/quiz_note_editor.dart';
 
 import '../../../helpers/pump_app.dart';

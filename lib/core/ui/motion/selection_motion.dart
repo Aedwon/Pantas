@@ -1,8 +1,8 @@
 import 'dart:ui' show lerpDouble;
 
 import 'package:flutter/material.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
-import 'package:pantas/core/ui/motion/pantas_durations.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
 
 /// A color that fades to a new value (item 17, `quick` and `ease`).
 ///
@@ -13,8 +13,8 @@ class FadingColor extends StatefulWidget {
   const FadingColor({
     required this.color,
     required this.builder,
-    this.duration = PantasDurations.quick,
-    this.curve = PantasCurves.ease,
+    this.duration = PantasDurations.short2,
+    this.curve = PantasCurves.fade,
     this.child,
     super.key,
   });
@@ -72,8 +72,8 @@ class SlidingMarker extends StatelessWidget {
     required this.index,
     required this.child,
     this.axis = Axis.horizontal,
-    this.duration = PantasDurations.base,
-    this.curve = PantasCurves.shared,
+    this.duration = PantasDurations.medium1,
+    this.curve = PantasCurves.move,
     super.key,
   }) : assert(offsets.length == lengths.length, 'One length for each offset.');
 

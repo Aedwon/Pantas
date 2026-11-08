@@ -1,9 +1,8 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
-import 'package:pantas/core/ui/theme/pantas_type.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 
 /// [overlayBuilder] lets the mock finale add its two balls to this same arc.
 class HalfRingGauge extends StatefulWidget {
@@ -141,7 +140,7 @@ class _HalfRingGaugeState extends State<HalfRingGauge>
             1,
             curve: const Cubic(.2, .8, .25, 1),
           )
-        : const Interval(3 / 14, 1, curve: PantasCurves.houseOut);
+        : const Interval(3 / 14, 1, curve: PantasCurves.house);
     _count = _controller.drive(
       Tween(begin: beginCount, end: (widget.correct ?? 0).toDouble())
           .chain(CurveTween(curve: curve)),
@@ -162,7 +161,7 @@ class _HalfRingGaugeState extends State<HalfRingGauge>
     }
   }
 
-  Widget _mockOdometer(BuildContext context, PantasType type) {
+  Widget _mockOdometer(BuildContext context, LegacyType type) {
     final style = type.largeTitle
         .copyWith(fontSize: 64, height: 1, letterSpacing: -1.68)
         .tabular;
@@ -433,7 +432,7 @@ class _HalfRingGaugeState extends State<HalfRingGauge>
     );
   }
 
-  Widget _rollingCount(BuildContext context, PantasType type) {
+  Widget _rollingCount(BuildContext context, LegacyType type) {
     final style = type.largeTitle
         .copyWith(
           fontSize: widget.web && !widget.assessment ? 76 : 60,

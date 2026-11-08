@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/math_support.dart';
 import 'package:pantas/core/ui/components/math_text.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
@@ -120,7 +120,7 @@ class ChoiceRow extends StatelessWidget {
                 duration: MediaQuery.disableAnimationsOf(context)
                     ? Duration.zero
                     : const Duration(milliseconds: 180),
-                curve: PantasCurves.ease,
+                curve: PantasCurves.fade,
                 decoration: BoxDecoration(
                   color: background,
                   borderRadius: BorderRadius.circular(14),

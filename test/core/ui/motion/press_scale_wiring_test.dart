@@ -32,7 +32,7 @@ void main() {
         .where((f) => f.path.endsWith('.dart'))) {
       if (file.path.endsWith('press_scale.dart')) continue;
       final source = file.readAsStringSync();
-      if (source.contains('PantasDurations.tap') &&
+      if (source.contains('PantasDurations.short1') &&
           source.contains('Transform.scale')) {
         offenders.add(file.path);
       }

@@ -1,8 +1,9 @@
 import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/check_mark.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 
 class ProgressRing extends StatefulWidget {
   const ProgressRing({
@@ -141,7 +142,7 @@ class _ProgressRingState extends State<ProgressRing>
             (delayMs + (!widget.studyStyle && widget.size == 34 ? 300 : 0)) /
                 endMs,
             (delayMs + fillMs) / endMs,
-            curve: PantasCurves.houseOut,
+            curve: PantasCurves.house,
           ),
         ),
       ),
@@ -152,7 +153,7 @@ class _ProgressRingState extends State<ProgressRing>
         curve: Interval(
           (delayMs + fillMs - 100) / endMs,
           1,
-          curve: PantasCurves.popC,
+          curve: PantasCurves.spring,
         ),
       ),
     );

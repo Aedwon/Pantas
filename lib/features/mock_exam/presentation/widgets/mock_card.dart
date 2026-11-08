@@ -3,10 +3,9 @@ import 'package:pantas/core/time/pantas_dates.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pro_paused_line.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/motion/press_scale.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
-import 'package:pantas/core/ui/theme/pantas_type.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
@@ -347,7 +346,7 @@ Widget _rise(BuildContext context, Widget content) =>
       builder: (context, value, child) {
         final progress = MediaQuery.disableAnimationsOf(context)
             ? 1.0
-            : PantasCurves.houseOut
+            : PantasCurves.house
                 .transform(((value * 640 - 190) / 450).clamp(0.0, 1.0));
         return ExcludeFocus(
           excluding: progress == 0,

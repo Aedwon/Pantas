@@ -5,7 +5,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/content_renderer.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/scope_picker.dart';
-import 'package:pantas/core/ui/theme/pantas_colors.dart';
+import 'package:pantas/core/ui/theme/legacy_theme_shim.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 
 import '../../../helpers/accessibility.dart';
 import 'w2_test_support.dart';
@@ -25,31 +26,31 @@ void main() {
         light.pickerBackground,
         dark.pickerBackground,
         0xFFFBFBFC,
-        0xFF2A2A2A,
+        0xFF1F1F1F,
       ),
       'warningText': (
         light.warningText,
         dark.warningText,
         0xFFB25000,
-        0xFFD9A400,
+        0xFFF0A35A,
       ),
       'choiceOutline': (
         light.choiceOutline,
         dark.choiceOutline,
-        0xFFD1D1D6,
-        0xFF949494,
+        0xFF8A8A8E,
+        0xFF8E8E93,
       ),
       'toastBackground': (
         light.toastBackground,
         dark.toastBackground,
         0xFF1D1D1F,
-        0xFF1D1D1F,
+        0xFF3A3A3C,
       ),
       'toastAction': (
         light.toastAction,
         dark.toastAction,
-        0xFF7FD4C4,
-        0xFF7FD4C4,
+        0xFF7FD8C6,
+        0xFF7FD8C6,
       ),
       'onToast': (
         light.onToast,
@@ -114,20 +115,20 @@ void main() {
       'inactiveDateLabel': (
         light.inactiveDateLabel,
         dark.inactiveDateLabel,
-        0xFFC7C7CC,
-        0xFFC7C7CC,
+        0xFF6E6E73,
+        0xFFA3A3A3,
       ),
       'searchPlaceholder': (
         light.searchPlaceholder,
         dark.searchPlaceholder,
-        0xFF8E8E93,
-        0xFF8E8E93,
+        0xFF6E6E73,
+        0xFFA3A3A3,
       ),
       'pendingMark': (
         light.pendingMark,
         dark.pendingMark,
         0xFFD1D1D6,
-        0xFF949494,
+        0xFF3D3D3D,
       ),
       'switchThumb': (
         light.switchThumb,
@@ -139,13 +140,13 @@ void main() {
         light.switchThumbShadow,
         dark.switchThumbShadow,
         0x33000000,
-        0x33000000,
+        0x80000000,
       ),
       'segmentedShadow': (
         light.segmentedShadow,
         dark.segmentedShadow,
         0x1A000000,
-        0x1A000000,
+        0x80000000,
       ),
     };
     for (final entry in pairs.entries) {
@@ -161,7 +162,7 @@ void main() {
       );
     }
     expect(
-      PantasColors.light.copyWith(controlOutline: Colors.red).controlOutline,
+      PantasColors.light.copyWith(borderControl: Colors.red).controlOutline,
       Colors.red,
     );
     expect(
