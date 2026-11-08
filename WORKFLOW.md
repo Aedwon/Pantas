@@ -287,9 +287,19 @@ test data and no secrets. The minute-rationing rules in
 from when the repository was private; its other rules still apply.
 
 Aedwon performs visual checking. Do not initiate app screenshot capture or an
-autonomous visual-review workflow. He supplies screenshots when he wants
-corroboration; inspect those images when asked. His visual judgment is separate
-from automated results. Record relevant findings in `docs/ui-audit.md`.
+autonomous visual-review workflow, except as below. He supplies screenshots when
+he wants corroboration; inspect those images when asked. His visual judgment is
+separate from automated results. Record relevant findings in `docs/ui-audit.md`.
+
+Exception for UI confirmation (Aedwon, November 9, 2026): "you can be exempt from
+the no screenshot rule for agents only if that part of their work is necessary to
+confirm (in this case, it's UI so of course screenshots are paramount for double
+checking). but ensure this process is efficient/not wasteful. be smart about this."
+Agents may render images offscreen or in headless browsers (golden tests, system
+reference captures) when a look must be confirmed. Capture one sheet per component
+or screen, not one image per state; compare images only at a planned audit or when
+a visual test fails; close every browser when its capture ends. This does not
+permit computer control. His visual pass still gates release.
 
 Use the visual design companion during brainstorming when a spec affects UI.
 Show the existing and proposed presentation for changes, or distinct options for

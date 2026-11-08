@@ -59,6 +59,13 @@ pass 15, retire or merge one first.
 Newest first. When this file passes about 120 lines, move the oldest closed entries to
 the current decision log.
 
+### Raw framework controls bypassed the design system (Nov 9)
+
+- His words: "tsk, this may be the only thing that i've personally encountered but there might be other things that haven't been followed. are you joking? we built this system exactly for the purpose of making sure things like this don't happen. shouldn't the lint checks catch this? where did we go wrong? fix this" (with a screenshot of the reader's "< Study" back control showing a gray pill hover on staging). Then: "you haven't yet proposed what to do to avoid something like this in the future", "is this list the best solution? i mentioned linters but you never seem to acknowledge the idea", "how do we best ensure these mistakes and regressions and deviations from the design system doesn't happen again?"
+- Wrong: about 180 raw Material controls (TextButton, IconButton, InkWell, TextField, SnackBar, Tooltip and others) in about 60 screen files drew Flutter defaults (stadium highlights, gray overlays) instead of the system components. The reader back control was one. The lead also answered his linter question twice with text-search checks.
+- Why it got through: the design-system 4.0 drift check (`tool/checks/design_token_literals.dart`) banned typed values only, so a control with no literal passed; the theme set no Material component themes, so leftovers fell back to Flutter defaults; tests asserted no overflow, not appearance; reviews compared code to README text and never rendered output; batches deployed faster than he looked.
+- Fix (checks, planned in `docs/superpowers/plans/design-system-4/guardrails.md`): (1) screens import a design-system barrel that hides raw Material controls, and `tool/check_layering.dart` bans `material.dart` imports in `lib/features/` and `lib/app/`, so a raw control in a screen does not compile; (2) a type-aware analyzer lint for design literals replaces the text-search checks; (3) component and key-screen golden images, audited once against the system's own previews and approved by him, fail CI on any visual change; (4) Material component themes fall back to the system look. Open until those land; the immediate sweep of the 180 controls was running when this entry was written.
+
 ### Backup page jumped while backing up (Nov 8)
 
 - His words: "i was trying to show you the jumpy behavior that's not good UI/UX. do you get what i mean? while it was "backing up" it did that multiple times which was jarring/unpleasant" (with a screen recording; earlier "look at this frame by frame").
