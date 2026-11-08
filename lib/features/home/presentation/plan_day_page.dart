@@ -444,9 +444,10 @@ class PlanWeekPage extends StatelessWidget {
                 children: [
                   Text(studyDaysLabel, style: context.type.footnote),
                   if (onChange != null)
-                    TextButton(
+                    WebTextLink(
+                      label: 'Change',
                       onPressed: onChange,
-                      child: const Text('Change'),
+                      arrow: false,
                     ),
                 ],
               ),

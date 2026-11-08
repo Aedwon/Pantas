@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:pantas/core/storage/domain/attempt.dart';
 import 'package:pantas/core/ui/components/half_ring_gauge.dart';
+import 'package:pantas/core/ui/components/pantas_button_spec.dart';
+import 'package:pantas/core/ui/components/pantas_icon_button.dart';
 import 'package:pantas/core/ui/components/pro_paused_line.dart';
+import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
@@ -12,6 +15,7 @@ import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_key_focus.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/quiz/domain/quiz_session.dart';
+import 'package:pantas/features/quiz/presentation/quiz_tap_area.dart';
 import 'package:pantas/features/quiz/presentation/session_entry_motion.dart';
 
 export 'package:pantas/core/ui/web/web_debrief_loading.dart';
@@ -83,20 +87,14 @@ class WebSessionResults extends StatelessWidget {
     final mistakesLinkTitle =
         PantasType.webButton.copyWith(color: t.colors.accent);
     // A 36 px circle inside a 44 px target.
-    Widget circle(int i) => SizedBox.square(
-          dimension: PantasSize.targetTouch,
-          child: TextButton(
-            onPressed: () => onQuestion(i),
-            style: TextButton.styleFrom(
-              padding: EdgeInsets.zero,
-              minimumSize: Size.zero,
-              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-              foregroundColor: attempt.items[i].isCorrect
-                  ? t.colors.accentTintText
-                  : t.colors.dangerText,
-              shape: const CircleBorder(),
-              textStyle: PantasType.webFieldLabel,
-            ),
+    Widget circle(int i) {
+      final radius = BorderRadius.circular(PantasRadius.full);
+      return SizedBox.square(
+        dimension: PantasSize.targetTouch,
+        child: Center(
+          child: QuizTapArea(
+            onTap: () => onQuestion(i),
+            borderRadius: radius,
             child: Container(
               width: PantasSize.qnav,
               height: PantasSize.qnav,
@@ -107,10 +105,20 @@ class WebSessionResults extends StatelessWidget {
                     ? t.colors.accentTint
                     : t.colors.dangerTint,
               ),
-              child: Text('${i + 1}'),
+              child: Text(
+                '${i + 1}',
+                style: PantasType.webFieldLabel.copyWith(
+                  color: attempt.items[i].isCorrect
+                      ? t.colors.accentTintText
+                      : t.colors.dangerText,
+                ),
+              ),
             ),
           ),
-        );
+        ),
+      );
+    }
+
     return CallbackShortcuts(
       bindings: {const SingleActivator(LogicalKeyboardKey.escape): onDone},
       child: KeyFocusKeeper(
@@ -397,32 +405,12 @@ class _CloseButton extends StatelessWidget {
   const _CloseButton({required this.onPressed});
   final VoidCallback onPressed;
   @override
-  Widget build(BuildContext context) {
-    final t = context.webTokens;
-    return Semantics(
-      button: true,
-      label: 'Close',
-      excludeSemantics: true,
-      child: SizedBox.square(
+  Widget build(BuildContext context) => PantasIconButton(
         key: const ValueKey('results-close'),
-        dimension: 44,
-        child: TextButton(
-          onPressed: onPressed,
-          style: TextButton.styleFrom(
-            padding: EdgeInsets.zero,
-            minimumSize: Size.zero,
-            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-            foregroundColor: t.colors.textSecondary,
-            overlayColor: Colors.transparent,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(PantasRadius.md),
-            ),
-          ),
-          child: const Icon(Icons.close, size: 22),
-        ),
-      ),
-    );
-  }
+        tooltip: 'Close',
+        onPressed: onPressed,
+        glyph: PantasIcons.close,
+      );
 }
 
 class _MissMark extends StatelessWidget {
@@ -447,26 +435,12 @@ class _NotesButton extends StatelessWidget {
   final String label;
   final VoidCallback onPressed;
   @override
-  Widget build(BuildContext context) {
-    final t = context.webTokens;
-    return TextButton(
-      onPressed: onPressed,
-      style: TextButton.styleFrom(
-        minimumSize: const Size(0, 40),
-        padding: const EdgeInsets.symmetric(horizontal: PantasSpace.s18),
-        visualDensity: VisualDensity.standard,
-        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-        backgroundColor: t.colors.accentTint,
-        foregroundColor: t.tintText,
-        overlayColor: Colors.transparent,
-        textStyle: PantasType.webLink.copyWith(color: t.colors.textPrimary),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(PantasRadius.back),
-        ),
-      ),
-      child: Text(label),
-    );
-  }
+  Widget build(BuildContext context) => WebButton(
+        label: label,
+        onPressed: onPressed,
+        kind: PantasButtonKind.secondary,
+        size: PantasButtonSize.sm,
+      );
 }
 
 class WebQuizQuestionList extends StatelessWidget {

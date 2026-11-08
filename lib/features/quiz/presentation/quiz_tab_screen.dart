@@ -11,6 +11,7 @@ import 'package:pantas/core/ui/components/check_mark.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/pantas_button_spec.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/components/pantas_sheet.dart';
 import 'package:pantas/core/ui/components/paused_quiz_notice.dart';
@@ -1160,18 +1161,13 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
                   ),
                   // Board (QZ_Resume): the link sits 6 px lower.
                   const SizedBox(height: PantasSpace.s6),
-                  TextButton(
+                  PantasButton(
+                    label: 'Discard this session',
+                    kind: PantasButtonKind.tertiary,
+                    tone: PantasButtonTone.accent,
+                    fullWidth: false,
                     onPressed:
                         _discarding ? null : () => unawaited(_discard(examId)),
-                    child: Text(
-                      'Discard this session',
-                      style: PantasType.phoneExplanation
-                          .copyWith(
-                            fontWeight: FontWeight.w600,
-                            color: context.colors.textPrimary,
-                          )
-                          .copyWith(color: context.colors.accent),
-                    ),
                   ),
                   if (_saveFailed)
                     saveFailureLine(() => unawaited(_discard(examId))),
@@ -1307,37 +1303,11 @@ class _WebDiscardButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final t = context.webTokens;
-    return TextButton(
+    return WebButton(
+      label: 'Discard this session',
       onPressed: onPressed,
-      style: ButtonStyle(
-        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-        visualDensity: VisualDensity.standard,
-        minimumSize: const WidgetStatePropertyAll(Size(0, 42)),
-        padding: const WidgetStatePropertyAll(
-          EdgeInsets.symmetric(horizontal: PantasSpace.s14),
-        ),
-        overlayColor: const WidgetStatePropertyAll(Colors.transparent),
-        backgroundColor: WidgetStateProperty.resolveWith(
-          (s) => s.contains(WidgetState.hovered)
-              ? t.disabledBackground
-              : Colors.transparent,
-        ),
-        foregroundColor: WidgetStateProperty.resolveWith(
-          (s) => s.contains(WidgetState.hovered)
-              ? t.colors.textPrimary
-              : t.colors.textSecondary,
-        ),
-        shape: WidgetStatePropertyAll(
-          RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(PantasRadius.back),
-          ),
-        ),
-        textStyle: WidgetStatePropertyAll(
-          PantasType.webButton.copyWith(color: t.colors.textPrimary),
-        ),
-      ),
-      child: const Text('Discard this session'),
+      kind: PantasButtonKind.tertiary,
+      size: PantasButtonSize.sm,
     );
   }
 }

@@ -9,12 +9,11 @@ import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/domain/exam_date.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/time/pantas_dates.dart';
-import 'package:pantas/core/ui/components/pantas_shadows.dart';
+import 'package:pantas/core/ui/components/pantas_tooltip.dart';
 import 'package:pantas/core/ui/components/progress_ring.dart';
 import 'package:pantas/core/ui/components/week_strip.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_border.dart';
-import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
@@ -26,6 +25,7 @@ import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/home/presentation/home_providers.dart';
 import 'package:pantas/features/home/presentation/plan_screen.dart';
 import 'package:pantas/features/home/presentation/widgets/home_skeletons.dart';
+import 'package:pantas/features/home/presentation/widgets/home_tap_area.dart';
 import 'package:pantas/features/home/presentation/widgets/home_web_layout.dart';
 import 'package:pantas/features/roadmap/domain/day_snapshot.dart';
 import 'package:pantas/l10n/app_localizations.dart';
@@ -600,7 +600,6 @@ class _WebWeekDay extends StatefulWidget {
 
 class _WebWeekDayState extends State<_WebWeekDay> {
   bool _hover = false;
-  final GlobalKey<TooltipState> _tip = GlobalKey<TooltipState>();
 
   /// The status the day's tooltip states, or null for a day with none
   /// (WeekStrip, D186). Today always reads "Today".
@@ -651,19 +650,11 @@ class _WebWeekDayState extends State<_WebWeekDay> {
       onExit: (_) => setState(() => _hover = false),
       child: WebKeyboardRing(
         borderRadius: radius,
-        child: InkWell(
+        child: HomeTapArea(
           onTap: widget.onPressed,
-          onFocusChange: (focused) {
-            if (focused &&
-                webKeyboardFocus({WidgetState.focused}) &&
-                status != null) {
-              _tip.currentState?.ensureTooltipVisible();
-            }
-          },
           borderRadius: radius,
-          hoverColor: Colors.transparent,
-          splashColor: Colors.transparent,
-          highlightColor: Colors.transparent,
+          wash: false,
+          focusRing: false,
           child: Container(
             width: PantasSize.weekDay,
             padding: const EdgeInsets.symmetric(vertical: PantasSpace.s4),
@@ -755,25 +746,9 @@ class _WebWeekDayState extends State<_WebWeekDay> {
       selected: widget.selected,
       excludeSemantics: true,
       onTap: widget.onPressed,
-      child: Tooltip(
-        key: _tip,
+      child: PantasTooltip(
         message: status,
-        excludeFromSemantics: true,
-        waitDuration: PantasDurations.tooltip,
-        triggerMode: TooltipTriggerMode.manual,
-        preferBelow: false,
-        verticalOffset: PantasSize.weekDay / 2 + PantasSpace.s16,
-        constraints: const BoxConstraints(maxWidth: PantasSize.tooltipMax),
-        padding: const EdgeInsets.symmetric(
-          horizontal: PantasSpace.s8,
-          vertical: PantasSpace.s4,
-        ),
-        decoration: BoxDecoration(
-          color: c.toastBg,
-          borderRadius: BorderRadius.circular(PantasRadius.sm),
-          boxShadow: context.shadows.toast,
-        ),
-        textStyle: PantasType.webCaption.copyWith(color: c.toastText),
+        describesAnchor: false,
         child: cell,
       ),
     );

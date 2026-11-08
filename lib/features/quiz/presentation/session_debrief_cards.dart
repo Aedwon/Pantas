@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
+import 'package:pantas/core/ui/components/pantas_icon_button.dart';
 import 'package:pantas/core/ui/components/pro_tag.dart';
+import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/quiz/application/session_debrief_provider.dart';
 import 'package:pantas/features/quiz/data/session_diagnosis_api.dart';
+import 'package:pantas/features/quiz/presentation/quiz_tap_area.dart';
 
 class SessionDebriefCards extends StatelessWidget {
   const SessionDebriefCards({
@@ -222,18 +225,10 @@ class SessionDebriefCards extends StatelessWidget {
         ),
       );
 
-  Widget _dismiss(BuildContext context) => SizedBox.square(
-        dimension: 44,
-        child: IconButton(
-          tooltip: 'Dismiss this note',
-          onPressed: onDismiss,
-          padding: EdgeInsets.zero,
-          icon: Icon(
-            Icons.close,
-            size: 16,
-            color: context.webTokens.colors.textSecondary,
-          ),
-        ),
+  Widget _dismiss(BuildContext context) => PantasIconButton(
+        tooltip: 'Dismiss this note',
+        onPressed: onDismiss,
+        glyph: PantasIcons.close,
       );
 
   Widget _row(
@@ -243,7 +238,7 @@ class SessionDebriefCards extends StatelessWidget {
     Widget? leading,
     bool alignTop = false,
   }) =>
-      InkWell(
+      QuizTapArea(
         onTap: onTap,
         child: Padding(
           padding: EdgeInsets.symmetric(
@@ -288,7 +283,7 @@ class SessionDebriefCards extends StatelessWidget {
                   'PRO. $text See which. Opens the paywall at the diagnosis.',
               excludeSemantics: true,
               onTap: onPaywall,
-              child: InkWell(
+              child: QuizTapArea(
                 onTap: onPaywall,
                 child: ConstrainedBox(
                   constraints: const BoxConstraints(minHeight: 44),

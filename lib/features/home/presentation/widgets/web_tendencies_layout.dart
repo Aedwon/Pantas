@@ -182,18 +182,10 @@ class WebTendencyProfile extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   if (data.name == null)
-                    TextButton(
+                    WebTextLink(
+                      label: 'Add your name',
                       onPressed: onName,
-                      style: TextButton.styleFrom(
-                        padding: EdgeInsets.zero,
-                        minimumSize: const Size(0, 24),
-                        foregroundColor: t.colors.accent,
-                      ),
-                      child: Text(
-                        'Add your name',
-                        style:
-                            PantasType.webLink.copyWith(color: t.colors.accent),
-                      ),
+                      arrow: false,
                     )
                   else
                     Text(data.name!, style: t.sub),
@@ -273,9 +265,10 @@ class WebTendencyProfile extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   if (data.name == null)
-                    TextButton(
+                    WebTextLink(
+                      label: 'Add your name',
                       onPressed: onName,
-                      child: const Text('Add your name'),
+                      arrow: false,
                     )
                   else
                     Text(

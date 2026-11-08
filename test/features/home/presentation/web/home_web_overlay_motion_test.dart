@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/features/home/presentation/widgets/home_tap_area.dart';
 import 'package:pantas/features/home/presentation/widgets/home_web_layout.dart';
 
 const _drawer = ValueKey('home-web-drawer');
@@ -218,17 +219,12 @@ void main() {
         (tester) async {
       await mountNotice(tester, expanded: true);
       await tester.pumpAndSettle();
-      final header = find.byType(TextButton);
-      // The tint is the button's own shape: it follows the card's top-left
+      final header = find.byType(HomeTapArea);
+      // The tint is the area's own shape: it follows the card's top-left
       // corner (16 px, less the 1 px rule it sits inside) and is rounded like
       // a row on the side of the dismiss button (4N-7).
-      final shape = tester
-          .widget<Material>(
-            find.descendant(of: header, matching: find.byType(Material)).first,
-          )
-          .shape! as RoundedRectangleBorder;
       expect(
-        shape.borderRadius,
+        tester.widget<HomeTapArea>(header).borderRadius,
         const BorderRadius.only(
           topLeft: Radius.circular(13),
           topRight: Radius.circular(8),
@@ -329,7 +325,7 @@ void main() {
         ),
       );
       await tester.pumpAndSettle();
-      final header = find.byType(TextButton);
+      final header = find.byType(HomeTapArea);
       // 52 px of header: the button's 50 between the card's 1 px rules.
       expect(tester.getSize(header).height, 50);
       expect(

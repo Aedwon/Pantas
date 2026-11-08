@@ -8,6 +8,7 @@ import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/home/application/home_notices.dart';
 import 'package:pantas/features/home/presentation/widgets/home_notice_strip.dart';
+import 'package:pantas/features/home/presentation/widgets/home_tap_area.dart';
 import 'package:pantas/features/home/presentation/widgets/home_web_layout.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
 
@@ -106,7 +107,7 @@ void main() {
       final card = tester.getRect(find.byType(HomeWebNotice));
       final header = find.ancestor(
         of: find.text('Add your exam date'),
-        matching: find.byType(TextButton),
+        matching: find.byType(HomeTapArea),
       );
       // The header sits one pixel inside the card's own rule, so the 2 px ring
       // is not half under it, and the card keeps its 52 px header.
@@ -116,13 +117,13 @@ void main() {
       expect(tester.getSize(find.byType(HomeWebNotice)).height, 52);
       await tester.sendKeyEvent(LogicalKeyboardKey.tab);
       await tester.pump();
-      final material = tester.widget<Material>(
-        find.descendant(of: header, matching: find.byType(Material)).first,
+      final ring = tester.widget<DecoratedBox>(
+        find.ancestor(of: header, matching: find.byType(DecoratedBox)).first,
       );
-      final shape = material.shape! as RoundedRectangleBorder;
-      expect(shape.side.width, 2);
+      final decoration = ring.decoration as BoxDecoration;
+      expect((decoration.border! as Border).top.width, 2);
       // Rounded on the right too, where the dismiss button begins.
-      final radius = shape.borderRadius as BorderRadius;
+      final radius = decoration.borderRadius! as BorderRadius;
       expect(radius.topRight, const Radius.circular(8));
       expect(radius.bottomRight, const Radius.circular(8));
     });

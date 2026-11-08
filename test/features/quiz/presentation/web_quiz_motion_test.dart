@@ -15,6 +15,7 @@ import 'package:pantas/features/quiz/presentation/practice_picker_screen.dart';
 import 'package:pantas/features/quiz/presentation/quiz_note_editor.dart';
 import 'package:pantas/features/quiz/presentation/quiz_question_viewer.dart';
 import 'package:pantas/features/quiz/presentation/quiz_tab_screen.dart';
+import 'package:pantas/features/quiz/presentation/quiz_tap_area.dart';
 import 'package:pantas/features/quiz/presentation/session_end_screen.dart';
 import 'package:pantas/features/quiz/presentation/today_providers.dart';
 
@@ -395,8 +396,8 @@ void main() {
       );
       await tester.pump();
       final title = find.text('Session finished.');
-      final first = find.widgetWithText(TextButton, '1');
-      final last = find.widgetWithText(TextButton, '10');
+      final first = find.widgetWithText(QuizTapArea, '1');
+      final last = find.widgetWithText(QuizTapArea, '10');
       final minutes = find.text('in 9 minutes');
       final notes = find.text('Finish the Notes');
       if (still) {

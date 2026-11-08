@@ -13,6 +13,7 @@ import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
+import 'package:pantas/features/home/presentation/widgets/home_tap_area.dart';
 
 /// The exam date picker Home opens in a sheet (D-69): the same month-first
 /// picker as onboarding. Save stays grey until a month is picked, or, when
@@ -366,29 +367,30 @@ class HomeWebDatePicker extends StatelessWidget {
     final selected = year == value.year && month == value.month;
     return SizedBox(
       height: PantasSpace.s32 + PantasSpace.s6,
-      child: TextButton(
-        key: ValueKey(
-          year == value.year ? 'date-month-$month' : 'date-month-$year-$month',
-        ),
-        onPressed: () => onChanged(MonthFirstDate(year: year, month: month)),
-        style: TextButton.styleFrom(
-          padding: EdgeInsets.zero,
-          minimumSize: const Size(0, 38),
-          backgroundColor:
-              selected ? t.colors.accentFill : t.colors.surfaceCard,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(PantasRadius.md),
-            side: selected
-                ? BorderSide.none
-                : BorderSide(
-                    color: t.cardEdge,
-                  ),
+      child: Semantics(
+        selected: selected,
+        child: HomeTapArea(
+          key: ValueKey(
+            year == value.year
+                ? 'date-month-$month'
+                : 'date-month-$year-$month',
           ),
-        ),
-        child: Text(
-          DateFormat('MMM', 'en_US').format(DateTime(year, month)),
-          style: PantasType.webTitleSm.copyWith(
-            color: selected ? t.colors.onAccent : t.colors.textPrimary,
+          onTap: () => onChanged(MonthFirstDate(year: year, month: month)),
+          borderRadius: BorderRadius.circular(PantasRadius.md),
+          child: DecoratedBox(
+            decoration: BoxDecoration(
+              color: selected ? t.colors.accentFill : t.colors.surfaceCard,
+              borderRadius: BorderRadius.circular(PantasRadius.md),
+              border: selected ? null : Border.all(color: t.cardEdge),
+            ),
+            child: Center(
+              child: Text(
+                DateFormat('MMM', 'en_US').format(DateTime(year, month)),
+                style: PantasType.webTitleSm.copyWith(
+                  color: selected ? t.colors.onAccent : t.colors.textPrimary,
+                ),
+              ),
+            ),
           ),
         ),
       ),
@@ -406,30 +408,34 @@ class HomeWebDatePicker extends StatelessWidget {
     final t = context.webTokens;
     return SizedBox(
       height: PantasSpace.s32,
-      child: TextButton(
-        key: ValueKey('date-day-$day'),
-        onPressed: past
-            ? null
-            : () => onChanged(
-                  MonthFirstDate(year: value.year, month: month, day: day),
+      child: Semantics(
+        selected: selected,
+        child: HomeTapArea(
+          key: ValueKey('date-day-$day'),
+          onTap: past
+              ? null
+              : () => onChanged(
+                    MonthFirstDate(year: value.year, month: month, day: day),
+                  ),
+          borderRadius: BorderRadius.circular(selected ? 99 : 8),
+          child: DecoratedBox(
+            decoration: BoxDecoration(
+              color: selected ? t.colors.accentFill : Colors.transparent,
+              borderRadius: BorderRadius.circular(selected ? 99 : 8),
+            ),
+            child: Center(
+              child: Text(
+                '$day',
+                style: PantasType.webRowSub.copyWith(
+                  fontWeight: selected ? FontWeight.w700 : FontWeight.w400,
+                  color: past
+                      ? t.colors.textSecondary
+                      : selected
+                          ? t.colors.onAccent
+                          : t.colors.textPrimary,
                 ),
-        style: TextButton.styleFrom(
-          padding: EdgeInsets.zero,
-          minimumSize: const Size(0, 32),
-          backgroundColor: selected ? t.colors.accentFill : Colors.transparent,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(selected ? 99 : 8),
-          ),
-        ),
-        child: Text(
-          '$day',
-          style: PantasType.webRowSub.copyWith(
-            fontWeight: selected ? FontWeight.w700 : FontWeight.w400,
-            color: past
-                ? t.colors.textSecondary
-                : selected
-                    ? t.colors.onAccent
-                    : t.colors.textPrimary,
+              ),
+            ),
           ),
         ),
       ),

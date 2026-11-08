@@ -7,10 +7,11 @@ import 'package:pantas/core/storage/domain/attempt.dart';
 import 'package:pantas/core/ui/components/button_pair.dart';
 import 'package:pantas/core/ui/components/floating_bar.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/pantas_button_spec.dart';
+import 'package:pantas/core/ui/components/pantas_field.dart';
 import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
-import 'package:pantas/core/ui/theme/tokens/pantas_border.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
@@ -19,6 +20,7 @@ import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
+import 'package:pantas/features/quiz/presentation/quiz_tap_area.dart';
 
 class QuizNoteEditor extends StatefulWidget {
   const QuizNoteEditor({
@@ -183,51 +185,26 @@ class _QuizNoteEditorState extends State<QuizNoteEditor> {
               ],
               if (_tag == MistakeTag.other) ...[
                 const SizedBox(height: PantasSpace.s14),
-                Text(
-                  'In your own words',
-                  style: PantasType.webFieldLabel.copyWith(
-                    height: 1.45,
-                    color: t.colors.textSecondary,
+                ConstrainedBox(
+                  // Four lines of the field text, its padding and its label.
+                  constraints: BoxConstraints(
+                    maxHeight: 4 *
+                            PantasType.webBody.fontSize! *
+                            (PantasType.webBody.height ?? 1) +
+                        2 * PantasSpace.s12 +
+                        PantasSpace.s32,
                   ),
-                ),
-                const SizedBox(height: PantasSpace.s8),
-                TextField(
-                  controller: _text,
-                  focusNode: _focus,
-                  enabled: !_busy,
-                  minLines: 2,
-                  maxLines: 4,
-                  style: PantasType.webBody.copyWith(
-                    height: 1.6,
-                    color: t.colors.textPrimary,
-                  ),
-                  decoration: InputDecoration(
-                    hintText: 'In your own words',
-                    hintStyle: PantasType.webBody.copyWith(
-                      height: 1.6,
-                      color: t.disabledText,
-                    ),
-                    filled: true,
-                    fillColor: t.colors.bgPage,
-                    isDense: true,
-                    contentPadding: const EdgeInsets.symmetric(
-                      horizontal: PantasSpace.s14,
-                      vertical: PantasSpace.s12,
-                    ),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(PantasRadius.md),
-                      borderSide: BorderSide.none,
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(PantasRadius.md),
-                      borderSide: BorderSide.none,
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(PantasRadius.md),
-                      borderSide: BorderSide(color: t.colors.accent, width: 2),
+                  child: SingleChildScrollView(
+                    child: PantasField(
+                      label: 'In your own words',
+                      hint: 'In your own words',
+                      controller: _text,
+                      focusNode: _focus,
+                      enabled: !_busy,
+                      multiline: true,
+                      onChanged: (_) => setState(() {}),
                     ),
                   ),
-                  onChanged: (_) => setState(() {}),
                 ),
               ],
               if (_failed)
@@ -250,7 +227,7 @@ class _QuizNoteEditorState extends State<QuizNoteEditor> {
                     label: _existing ? 'Cancel' : 'Not Now',
                     onPressed: _busy ? null : widget.onCancel,
                   ),
-                  const SizedBox(width: PantasSpace.s8),
+                  const SizedBox(width: PantasSpace.s4),
                   _NoteButton(
                     label: _existing ? 'Update' : 'Add Note',
                     solid: true,
@@ -278,68 +255,72 @@ class _QuizNoteEditorState extends State<QuizNoteEditor> {
   Widget _reason(WebTokens t, int i, (MistakeTag, String) reason) {
     final selected = _tag == reason.$1;
     final saved = widget.tag == reason.$1;
-    return TextButton(
-      onPressed: _busy ? null : () => _choose(reason.$1),
-      style: TextButton.styleFrom(
-        minimumSize: const Size(0, 48),
-        padding: const EdgeInsets.symmetric(
-          horizontal: PantasSpace.s12,
-          vertical: PantasSpace.s8,
+    final radius = BorderRadius.circular(PantasRadius.md);
+    return QuizTapArea(
+      onTap: _busy ? null : () => _choose(reason.$1),
+      borderRadius: radius,
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          color: selected ? t.colors.accentTint : t.colors.bgPage,
+          borderRadius: radius,
         ),
-        alignment: Alignment.centerLeft,
-        visualDensity: VisualDensity.standard,
-        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-        overlayColor: Colors.transparent,
-        backgroundColor: selected ? t.colors.accentTint : t.colors.bgPage,
-        foregroundColor: t.colors.textPrimary,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(PantasRadius.md),
-        ),
-      ),
-      child: Row(
-        children: [
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: PantasSpace.s6),
-            decoration: BoxDecoration(
-              color: selected ? t.colors.accentFill : null,
-              borderRadius: BorderRadius.circular(PantasRadius.xs),
-              border: selected ? null : Border.all(color: t.strongDivider),
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(minHeight: 48),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: PantasSpace.s12,
+              vertical: PantasSpace.s8,
             ),
-            child: Text(
-              '${i + 1}',
-              style: PantasType.webKeyHintSm.copyWith(
-                color: selected ? t.colors.onAccent : t.colors.textSecondary,
-                fontWeight: selected ? FontWeight.w700 : FontWeight.w600,
-              ),
+            child: Row(
+              children: [
+                Container(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: PantasSpace.s6),
+                  decoration: BoxDecoration(
+                    color: selected ? t.colors.accentFill : null,
+                    borderRadius: BorderRadius.circular(PantasRadius.xs),
+                    border:
+                        selected ? null : Border.all(color: t.strongDivider),
+                  ),
+                  child: Text(
+                    '${i + 1}',
+                    style: PantasType.webKeyHintSm.copyWith(
+                      color:
+                          selected ? t.colors.onAccent : t.colors.textSecondary,
+                      fontWeight: selected ? FontWeight.w700 : FontWeight.w600,
+                    ),
+                  ),
+                ),
+                const SizedBox(width: PantasSpace.s10),
+                Expanded(
+                  child: Text(
+                    reason.$2,
+                    style: PantasType.webRowValue.copyWith(
+                      color: t.colors.textPrimary,
+                      fontWeight: selected ? FontWeight.w600 : FontWeight.w400,
+                    ),
+                  ),
+                ),
+                if (saved)
+                  Container(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: PantasSpace.s8,
+                      vertical: PantasSpace.s2,
+                    ),
+                    decoration: BoxDecoration(
+                      color: t.disabledBackground,
+                      borderRadius: BorderRadius.circular(PantasRadius.full),
+                    ),
+                    child: Text(
+                      'Your note',
+                      style: PantasType.webTag
+                          .copyWith(color: t.colors.textSecondary),
+                    ),
+                  ),
+              ],
             ),
           ),
-          const SizedBox(width: PantasSpace.s10),
-          Expanded(
-            child: Text(
-              reason.$2,
-              style: PantasType.webRowValue.copyWith(
-                color: t.colors.textPrimary,
-                fontWeight: selected ? FontWeight.w600 : FontWeight.w400,
-              ),
-            ),
-          ),
-          if (saved)
-            Container(
-              padding: const EdgeInsets.symmetric(
-                horizontal: PantasSpace.s8,
-                vertical: PantasSpace.s2,
-              ),
-              decoration: BoxDecoration(
-                color: t.disabledBackground,
-                borderRadius: BorderRadius.circular(PantasRadius.full),
-              ),
-              child: Text(
-                'Your note',
-                style:
-                    PantasType.webTag.copyWith(color: t.colors.textSecondary),
-              ),
-            ),
-        ],
+        ),
       ),
     );
   }
@@ -348,7 +329,6 @@ class _QuizNoteEditorState extends State<QuizNoteEditor> {
   Widget build(BuildContext context) {
     if (context.wideWeb) return _web(context);
     final colors = context.colors;
-    final type = context.type;
     final reduced = MediaQuery.disableAnimationsOf(context);
     final removeWidth = MediaQuery.textScalerOf(context).scale(70);
     final available = MediaQuery.sizeOf(context).height -
@@ -406,7 +386,7 @@ class _QuizNoteEditorState extends State<QuizNoteEditor> {
             if (_tag == MistakeTag.other) ...[
               const SizedBox(height: PantasSpace.s8),
               TextField(
-                controller: _text,
+                controller: _text, // ds-raw: board draws no field label
                 focusNode: _focus,
                 enabled: !_busy,
                 minLines: 1,
@@ -514,16 +494,12 @@ class _QuizNoteEditorState extends State<QuizNoteEditor> {
             right: 18,
             width: removeWidth,
             height: PantasSize.btn,
-            child: TextButton(
+            child: PantasButton(
+              label: 'Remove',
+              kind: PantasButtonKind.tertiary,
+              tone: PantasButtonTone.critical,
+              height: PantasSize.btn,
               onPressed: _busy ? null : () => unawaited(_write(null, null)),
-              style: TextButton.styleFrom(
-                padding: EdgeInsets.zero,
-                alignment: Alignment.centerRight,
-              ),
-              child: Text(
-                'Remove',
-                style: type.subheadStrong.copyWith(color: colors.dangerText),
-              ),
             ),
           ),
       ],
@@ -551,7 +527,8 @@ class _QuizNoteEditorState extends State<QuizNoteEditor> {
   }
 }
 
-/// Board `.btn` and `.btn3`: 40 px buttons, 15 px label.
+/// Board `.btn` and `.btn3`: a primary Button for the solid one, a tertiary
+/// one for the rest, critical for Remove.
 class _NoteButton extends StatelessWidget {
   const _NoteButton({
     required this.label,
@@ -566,57 +543,12 @@ class _NoteButton extends StatelessWidget {
   final bool danger;
   final bool busy;
   @override
-  Widget build(BuildContext context) {
-    final t = context.webTokens;
-    final off = solid && onPressed == null && !busy;
-    return TextButton(
-      onPressed: busy ? null : onPressed,
-      style: TextButton.styleFrom(
-        minimumSize: const Size(0, PantasSize.iconBtnMd),
-        padding: EdgeInsets.symmetric(
-          horizontal: solid ? PantasSpace.s20 : PantasSpace.s14,
-        ),
-        visualDensity: VisualDensity.standard,
-        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-        overlayColor: Colors.transparent,
-        backgroundColor: !solid
-            ? Colors.transparent
-            : off
-                ? t.disabledBackground
-                : t.colors.accentFill,
-        foregroundColor: danger
-            ? t.colors.dangerText
-            : !solid
-                ? t.colors.textSecondary
-                : off
-                    ? t.disabledText
-                    : t.colors.onAccent,
-        disabledBackgroundColor:
-            solid && !busy ? t.disabledBackground : t.colors.accentFill,
-        disabledForegroundColor: solid
-            ? (busy ? t.colors.onAccent : t.disabledText)
-            : t.colors.textSecondary,
-        textStyle: PantasType.webLink.copyWith(color: t.colors.textPrimary),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(solid ? 10 : 11),
-        ),
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          if (busy) ...[
-            SizedBox.square(
-              dimension: PantasSpace.s16,
-              child: CircularProgressIndicator(
-                strokeWidth: PantasBorder.ringSelected,
-                color: t.colors.onAccent,
-              ),
-            ),
-            const SizedBox(width: PantasSpace.s8),
-          ],
-          Text(label),
-        ],
-      ),
-    );
-  }
+  Widget build(BuildContext context) => WebButton(
+        label: label,
+        onPressed: busy ? null : onPressed,
+        busy: busy,
+        kind: solid ? PantasButtonKind.primary : PantasButtonKind.tertiary,
+        tone: danger ? PantasButtonTone.critical : null,
+        size: PantasButtonSize.sm,
+      );
 }

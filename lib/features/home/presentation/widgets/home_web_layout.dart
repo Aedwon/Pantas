@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart' show RenderAbstractViewport;
+import 'package:pantas/core/ui/components/pantas_icon_button.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/components/skeleton_fade.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
@@ -17,6 +18,7 @@ import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/home/presentation/widgets/home_columns.dart';
+import 'package:pantas/features/home/presentation/widgets/home_tap_area.dart';
 
 export 'package:pantas/core/ui/web/web_side_overlay.dart';
 
@@ -217,56 +219,15 @@ class _MoreRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = context.webTokens;
-    return DecoratedBox(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(PantasRadius.xl),
-        border: t.dark ? Border.all(color: t.cardEdge) : null,
-      ),
-      child: TextButton(
+    return WebCard(
+      child: WebRow(
+        title: title,
+        titleStyle: PantasType.webLead.copyWith(color: t.colors.textPrimary),
+        leading: Icon(icon, color: t.colors.accent, size: 24),
+        leadingGap: PantasSpace.s14,
+        chevron: WebRowChevron.always,
+        divider: false,
         onPressed: onPressed,
-        style: ButtonStyle(
-          animationDuration: MediaQuery.disableAnimationsOf(context)
-              ? Duration.zero
-              : PantasDurations.short2,
-          visualDensity: VisualDensity.standard,
-          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-          minimumSize: const WidgetStatePropertyAll(Size(double.infinity, 60)),
-          padding: const WidgetStatePropertyAll(
-            EdgeInsets.fromLTRB(
-              PantasSpace.s20,
-              PantasSpace.s18,
-              PantasSpace.s18,
-              PantasSpace.s18,
-            ),
-          ),
-          backgroundColor: WidgetStateProperty.resolveWith(
-            (s) => s.contains(WidgetState.hovered) || webKeyboardFocus(s)
-                ? t.rowHover
-                : t.colors.surfaceCard,
-          ),
-          overlayColor: const WidgetStatePropertyAll(Colors.transparent),
-          side: WidgetStateProperty.resolveWith(
-            (s) => webFocusRing(s, t.colors.accent),
-          ),
-          shape: WidgetStatePropertyAll(
-            RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(PantasRadius.xl),
-            ),
-          ),
-        ),
-        child: Row(
-          children: [
-            Icon(icon, color: t.colors.accent, size: 24),
-            const SizedBox(width: PantasSpace.s14),
-            Expanded(
-              child: Text(
-                title,
-                style: PantasType.webLead.copyWith(color: t.colors.textPrimary),
-              ),
-            ),
-            const WebChevron(),
-          ],
-        ),
       ),
     );
   }
@@ -332,6 +293,14 @@ class HomeWebNotice extends StatelessWidget {
     final duration = MediaQuery.disableAnimationsOf(context)
         ? Duration.zero
         : PantasDurations.switchDuration;
+    final toggleRadius = BorderRadius.only(
+      topLeft: const Radius.circular(_noticeInnerRadius),
+      bottomLeft: Radius.circular(
+        expanded ? PantasSpace.s0 : _noticeInnerRadius,
+      ),
+      topRight: const Radius.circular(PantasRadius.sm),
+      bottomRight: const Radius.circular(PantasRadius.sm),
+    );
     return Container(
       decoration: BoxDecoration(
         color: t.colors.surfaceCard,
@@ -360,83 +329,67 @@ class HomeWebNotice extends StatelessWidget {
                       PantasSpace.s0,
                       PantasBorder.ring,
                     ),
-                    child: TextButton(
-                      onPressed: onToggle,
-                      style: TextButton.styleFrom(
-                        alignment: Alignment.centerLeft,
-                        // The web theme's compact density (desktop browsers)
-                        // would shave the 52 px minimum and leave a band of
-                        // card above the hover tint (3K-3).
-                        visualDensity: VisualDensity.standard,
-                        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                        minimumSize: const Size(0, 50),
-                        // 18 from the card's edge, less the 1 px rule inset.
-                        padding: const EdgeInsets.only(
-                          left: PantasSpace.s18 - PantasBorder.ring,
-                          right: PantasSpace.s12,
-                        ),
-                        // The left corners follow the card's own, and the
-                        // right ones are rounded like a row's, so the ring is
-                        // a closed shape beside the dismiss button.
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.only(
-                            topLeft: const Radius.circular(_noticeInnerRadius),
-                            bottomLeft: Radius.circular(
-                              expanded ? PantasSpace.s0 : _noticeInnerRadius,
+                    child: WebKeyboardRing(
+                      // The left corners follow the card's own, and the
+                      // right ones are rounded like a row's, so the ring is
+                      // a closed shape beside the dismiss button.
+                      borderRadius: toggleRadius,
+                      child: HomeTapArea(
+                        onTap: onToggle,
+                        borderRadius: toggleRadius,
+                        focusRing: false,
+                        child: ConstrainedBox(
+                          constraints: const BoxConstraints(minHeight: 50),
+                          child: Padding(
+                            // 18 from the card's edge, less the 1 px rule
+                            // inset.
+                            padding: const EdgeInsets.only(
+                              left: PantasSpace.s18 - PantasBorder.ring,
+                              right: PantasSpace.s12,
                             ),
-                            topRight: const Radius.circular(PantasRadius.sm),
-                            bottomRight: const Radius.circular(PantasRadius.sm),
+                            child: Row(
+                              children: [
+                                Icon(
+                                  icon ?? PantasIcons.addDate,
+                                  size: _noticeIconSize,
+                                  color: iconColor ?? t.colors.textSecondary,
+                                ),
+                                const SizedBox(width: PantasSpace.s12),
+                                Expanded(
+                                  child: Text(
+                                    title,
+                                    style: PantasType.webTitleSm
+                                        .copyWith(color: t.colors.textPrimary),
+                                  ),
+                                ),
+                                if (detail != null) ...[
+                                  const SizedBox(width: PantasSpace.s12),
+                                  // One chevron turns, as the phone's does.
+                                  AnimatedRotation(
+                                    turns: expanded ? .5 : 0,
+                                    duration: duration,
+                                    curve: PantasCurves.house,
+                                    child: Icon(
+                                      Icons.expand_more,
+                                      size: 16,
+                                      color: t.colors.textSecondary,
+                                    ),
+                                  ),
+                                ],
+                              ],
+                            ),
                           ),
                         ),
-                      ),
-                      child: Row(
-                        children: [
-                          Icon(
-                            icon ?? PantasIcons.addDate,
-                            size: _noticeIconSize,
-                            color: iconColor ?? t.colors.textSecondary,
-                          ),
-                          const SizedBox(width: PantasSpace.s12),
-                          Expanded(
-                            child: Text(
-                              title,
-                              style: PantasType.webTitleSm
-                                  .copyWith(color: t.colors.textPrimary),
-                            ),
-                          ),
-                          if (detail != null) ...[
-                            const SizedBox(width: PantasSpace.s12),
-                            // One chevron turns, as the phone's does.
-                            AnimatedRotation(
-                              turns: expanded ? .5 : 0,
-                              duration: duration,
-                              curve: PantasCurves.house,
-                              child: Icon(
-                                Icons.expand_more,
-                                size: 16,
-                                color: t.colors.textSecondary,
-                              ),
-                            ),
-                          ],
-                        ],
                       ),
                     ),
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(right: PantasSpace.s6),
-                  child: SizedBox.square(
-                    dimension: 44,
-                    child: IconButton(
-                      tooltip: 'Dismiss',
-                      onPressed: onClose,
-                      padding: EdgeInsets.zero,
-                      icon: Icon(
-                        Icons.close,
-                        size: 16,
-                        color: t.colors.textSecondary,
-                      ),
-                    ),
+                  child: PantasIconButton(
+                    tooltip: 'Dismiss',
+                    onPressed: onClose,
+                    glyph: PantasIcons.close,
                   ),
                 ),
               ],
