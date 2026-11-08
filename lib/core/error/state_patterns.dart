@@ -6,6 +6,8 @@ import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 
 /// Mount only while loading, so each new load starts its own 300ms delay.
@@ -51,8 +53,8 @@ Widget saveFailureLine(
               label: 'Try Again',
               variant: PantasButtonVariant.tertiary,
               onPressed: onRetry,
-              height: 44,
-              fontSize: 15,
+              height: PantasSize.btn,
+              fontSize: PantasType.phoneSubhead.fontSize,
               fullWidth: false,
             ),
           ],

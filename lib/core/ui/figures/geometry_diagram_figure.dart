@@ -4,6 +4,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 
+/// Height of the drawing. The design system sets no height for diagrams.
+const double _figureHeight = 190;
+
 /// A labeled geometry construction whose authored labels stay in the spec.
 class GeometryDiagramFigure extends StatelessWidget {
   const GeometryDiagramFigure({
@@ -86,7 +89,7 @@ class GeometryDiagramFigure extends StatelessWidget {
     return Semantics(
       label: 'A $type diagram labeled ${labels.join(', ')}.',
       child: SizedBox(
-        height: 190,
+        height: _figureHeight,
         child: CustomPaint(
           size: Size.infinite,
           painter: _GeometryDiagramPainter(

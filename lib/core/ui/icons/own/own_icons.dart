@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
 
 enum OwnIconKind {
   questionsSheet,
@@ -23,8 +24,8 @@ class OwnIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = IconTheme.of(context);
-    final color =
-        (theme.color ?? Colors.black).withValues(alpha: theme.opacity ?? 1);
+    final color = (theme.color ?? context.colors.textPrimary)
+        .withValues(alpha: theme.opacity ?? 1);
     final size = theme.size ?? 24;
     final painter = switch (kind) {
       OwnIconKind.questionsSheet => QuestionsSheetPainter(color),

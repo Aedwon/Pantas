@@ -3,6 +3,8 @@ import 'package:pantas/core/ui/components/onboarding_frame.dart';
 import 'package:pantas/core/ui/components/tab_bar_visibility.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 
 /// Below this window height an onboarding page puts its actions at the end of
 /// the content instead of pinning them (see [PantasPage.pinBottom]).
@@ -21,9 +23,19 @@ class PantasPage extends StatelessWidget {
     this.fixedTitle = false,
     this.backIconSize = 24,
     this.backIconGap = 2,
-    this.headerPadding = const EdgeInsets.only(top: 6),
-    this.backPadding = const EdgeInsets.fromLTRB(8, 0, 16, 0),
-    this.titlePadding = const EdgeInsets.fromLTRB(4, 0, 4, 20),
+    this.headerPadding = const EdgeInsets.only(top: PantasSpace.s6),
+    this.backPadding = const EdgeInsets.fromLTRB(
+      PantasSpace.s8,
+      PantasSpace.s0,
+      PantasSpace.s16,
+      PantasSpace.s0,
+    ),
+    this.titlePadding = const EdgeInsets.fromLTRB(
+      PantasSpace.s4,
+      PantasSpace.s0,
+      PantasSpace.s4,
+      PantasSpace.s20,
+    ),
     this.hero,
     super.key,
   })  : contentBody = null,
@@ -62,8 +74,13 @@ class PantasPage extends StatelessWidget {
         backIconSize = 20,
         backIconGap = 0,
         headerPadding = EdgeInsets.zero,
-        backPadding = const EdgeInsets.symmetric(horizontal: 16),
-        titlePadding = const EdgeInsets.fromLTRB(4, 0, 4, 20),
+        backPadding = const EdgeInsets.symmetric(horizontal: PantasSpace.s16),
+        titlePadding = const EdgeInsets.fromLTRB(
+          PantasSpace.s4,
+          PantasSpace.s0,
+          PantasSpace.s4,
+          PantasSpace.s20,
+        ),
         settingsPicker = false,
         onboarding = true,
         backLabel = 'Back';
@@ -81,8 +98,13 @@ class PantasPage extends StatelessWidget {
         backIconSize = 20,
         backIconGap = 0,
         headerPadding = EdgeInsets.zero,
-        backPadding = const EdgeInsets.symmetric(horizontal: 16),
-        titlePadding = const EdgeInsets.fromLTRB(4, 0, 4, 20),
+        backPadding = const EdgeInsets.symmetric(horizontal: PantasSpace.s16),
+        titlePadding = const EdgeInsets.fromLTRB(
+          PantasSpace.s4,
+          PantasSpace.s0,
+          PantasSpace.s4,
+          PantasSpace.s20,
+        ),
         settingsPicker = true,
         pinBottom = false,
         topPadding = 4,
@@ -100,7 +122,8 @@ class PantasPage extends StatelessWidget {
   /// Keeps a screen-owned scrolling body, such as the Study search and map.
   const PantasPage.content({
     required Widget body,
-    EdgeInsets padding = const EdgeInsets.symmetric(horizontal: 16),
+    EdgeInsets padding =
+        const EdgeInsets.symmetric(horizontal: PantasSpace.s16),
     this.bottom,
     super.key,
   })  : contentBody = body,
@@ -117,8 +140,13 @@ class PantasPage extends StatelessWidget {
         backIconSize = 20,
         backIconGap = 0,
         headerPadding = EdgeInsets.zero,
-        backPadding = const EdgeInsets.symmetric(horizontal: 16),
-        titlePadding = const EdgeInsets.fromLTRB(4, 0, 4, 20),
+        backPadding = const EdgeInsets.symmetric(horizontal: PantasSpace.s16),
+        titlePadding = const EdgeInsets.fromLTRB(
+          PantasSpace.s4,
+          PantasSpace.s0,
+          PantasSpace.s4,
+          PantasSpace.s20,
+        ),
         settingsPicker = false,
         pinBottom = false,
         topPadding = 4,
@@ -187,10 +215,10 @@ class PantasPage extends StatelessWidget {
         child: LayoutBuilder(
           builder: (context, constraints) => SingleChildScrollView(
             padding: EdgeInsets.fromLTRB(
-              16,
-              settingsPicker ? 8 : topPadding,
-              16,
-              32,
+              PantasSpace.s16,
+              settingsPicker ? PantasSpace.s8 : topPadding,
+              PantasSpace.s16,
+              PantasSpace.s32,
             ),
             child: ConstrainedBox(
               constraints: BoxConstraints(
@@ -207,7 +235,9 @@ class PantasPage extends StatelessWidget {
                 children: [
                   if (title.isNotEmpty)
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 4),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: PantasSpace.s4,
+                      ),
                       child: Semantics(
                         header: true,
                         liveRegion: true,
@@ -223,9 +253,11 @@ class PantasPage extends StatelessWidget {
                   if (detail != null) ...[
                     // Boards: subtitle 3 px lower than the old
                     // layout, with the title 4 px lower.
-                    const SizedBox(height: 7),
+                    const SizedBox(height: PantasSpace.s6),
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 4),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: PantasSpace.s4,
+                      ),
                       child: Text(
                         detail!,
                         style: context.type.body.copyWith(
@@ -240,7 +272,12 @@ class PantasPage extends StatelessWidget {
                   ...children,
                   if (inlineBottom)
                     Padding(
-                      padding: const EdgeInsets.fromLTRB(4, 24, 4, 2),
+                      padding: const EdgeInsets.fromLTRB(
+                        PantasSpace.s4,
+                        PantasSpace.s24,
+                        PantasSpace.s4,
+                        PantasSpace.s2,
+                      ),
                       child: bottom,
                     ),
                 ],
@@ -251,7 +288,12 @@ class PantasPage extends StatelessWidget {
       ),
       if (bottom != null && !inlineBottom)
         Padding(
-          padding: const EdgeInsets.fromLTRB(20, 12, 20, 34),
+          padding: const EdgeInsets.fromLTRB(
+            PantasSpace.s20,
+            PantasSpace.s12,
+            PantasSpace.s20,
+            PantasSpace.s32,
+          ),
           child: bottom,
         ),
     ];
@@ -308,7 +350,7 @@ class PantasPage extends StatelessWidget {
                         // Boards: a 44 px back row under 6 px of padding,
                         // whatever the platform's button density.
                         child: SizedBox(
-                          height: 44,
+                          height: PantasSize.targetTouch,
                           child: Row(
                             children: [
                               Expanded(
@@ -358,15 +400,17 @@ class PantasPage extends StatelessWidget {
                       ),
                     if (fixedTitle)
                       Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 16),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: PantasSpace.s16,
+                        ),
                         child: heading(context),
                       ),
                     Expanded(
                       child: SingleChildScrollView(
                         padding: EdgeInsets.fromLTRB(
-                          16,
-                          fixedTitle ? 0 : 2,
-                          16,
+                          PantasSpace.s16,
+                          fixedTitle ? PantasSpace.s0 : PantasSpace.s2,
+                          PantasSpace.s16,
                           FloatingTabBarScope.clearance(
                             context,
                             minimum: bottomInset,

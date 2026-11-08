@@ -5,6 +5,7 @@ import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/loading_shapes.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/features/wrapped/application/wrapped_providers.dart';
 import 'package:pantas/features/wrapped/application/wrapped_share_flow.dart';
 import 'package:pantas/features/wrapped/data/user_metrics_artifact_repository.dart';
@@ -51,12 +52,17 @@ class _WrappedRevealPageState extends ConsumerState<WrappedRevealPage> {
       ),
       body: asyncEntry.when(
         loading: () => ListView(
-          padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
+          padding: const EdgeInsets.fromLTRB(
+            PantasSpace.s20,
+            PantasSpace.s24,
+            PantasSpace.s20,
+            PantasSpace.s24,
+          ),
           children: const [LoadingShapes()],
         ),
         error: (_, __) => Center(
           child: Padding(
-            padding: const EdgeInsets.all(24),
+            padding: const EdgeInsets.all(PantasSpace.s24),
             child: Text(
               "Your Wrapped needs a connection. It'll be here when you're "
               'back.',
@@ -69,7 +75,7 @@ class _WrappedRevealPageState extends ConsumerState<WrappedRevealPage> {
           if (entry == null) {
             return Center(
               child: Padding(
-                padding: const EdgeInsets.all(24),
+                padding: const EdgeInsets.all(PantasSpace.s24),
                 child: Text(
                   "Your Wrapped needs a connection. It'll be here when you're "
                   'back.',
@@ -80,10 +86,15 @@ class _WrappedRevealPageState extends ConsumerState<WrappedRevealPage> {
             );
           }
           return ListView(
-            padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
+            padding: const EdgeInsets.fromLTRB(
+              PantasSpace.s20,
+              PantasSpace.s24,
+              PantasSpace.s20,
+              PantasSpace.s24,
+            ),
             children: [
               Text(entry.payload.title, style: styles.sectionHero),
-              const SizedBox(height: 12),
+              const SizedBox(height: PantasSpace.s12),
               for (final slide in entry.payload.slides)
                 ListRow(
                   title: slide.title,
@@ -91,25 +102,25 @@ class _WrappedRevealPageState extends ConsumerState<WrappedRevealPage> {
                   variant: ListRowVariant.value,
                   divider: true,
                 ),
-              const SizedBox(height: 18),
+              const SizedBox(height: PantasSpace.s18),
               SharePrivacySheet(
                 selection: _selection,
                 onChanged: (selection) =>
                     setState(() => _selection = selection),
               ),
-              const SizedBox(height: 12),
+              const SizedBox(height: PantasSpace.s12),
               if (_errorMessage != null) ...[
                 Text(
                   _errorMessage!,
                   style: styles.subhead.copyWith(color: colors.destructive),
                 ),
-                const SizedBox(height: 8),
+                const SizedBox(height: PantasSpace.s8),
               ],
               PantasButton(
                 label: _sharing ? 'Rendering...' : 'Share PNG',
                 onPressed: _sharing ? null : () => _share(entry),
               ),
-              const SizedBox(height: 8),
+              const SizedBox(height: PantasSpace.s8),
               Text(
                 'pantas.study/wrapped',
                 style: styles.footnote.copyWith(color: colors.secondaryLabel),

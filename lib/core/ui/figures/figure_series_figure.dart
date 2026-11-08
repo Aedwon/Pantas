@@ -3,6 +3,10 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+
+/// Height of the drawing. The design system sets no height for diagrams.
+const double _figureHeight = 110;
 
 /// A sequence of figures that change by a rule, with a blank at the end.
 ///
@@ -172,7 +176,7 @@ class FigureSeriesFigure extends StatelessWidget {
       label: 'A sequence of ${items.length} figures'
           '${blank ? ', then an empty frame for the next one' : ''}.',
       child: SizedBox(
-        height: 110,
+        height: _figureHeight,
         child: CustomPaint(
           painter: _SeriesPainter(
             items: items,
@@ -265,16 +269,12 @@ class SeriesPalette {
   /// True when the figure sits on its own fixed panel.
   final bool panel;
 
-  static const panelInk = Color(0xFF1D1D1F);
-  static const panelPaper = Color(0xFFFFFFFF);
-  static const panelFrame = Color(0xFF8A8A8E);
-
   /// The fixed panel colors.
   static final fixed = SeriesPalette(
-    ink: panelInk,
-    paper: panelPaper,
+    ink: PantasColors.light.textPrimary,
+    paper: PantasColors.light.figureBg,
     frame: PantasColors.light.fill,
-    mark: panelFrame,
+    mark: PantasColors.light.iconMuted,
     panel: true,
   );
 
@@ -282,7 +282,10 @@ class SeriesPalette {
   void paintPanel(Canvas canvas, Size size) {
     if (!panel) return;
     canvas.drawRRect(
-      RRect.fromRectAndRadius(Offset.zero & size, const Radius.circular(14)),
+      RRect.fromRectAndRadius(
+        Offset.zero & size,
+        const Radius.circular(PantasRadius.lg),
+      ),
       Paint()..color = paper,
     );
   }

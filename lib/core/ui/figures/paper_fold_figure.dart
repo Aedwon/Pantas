@@ -4,6 +4,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 
+/// Height of the drawing. The design system sets no height for diagrams.
+const double _figureHeight = 140;
+
 /// A sheet of paper, folded, with a cut in it.
 ///
 /// ```yaml
@@ -86,7 +89,7 @@ class PaperFoldFigure extends StatelessWidget {
           '${folds.length == 1 ? 'time' : 'times'}, with a $cut cut $at'
           '${showUnfolded ? ', then opened flat' : ''}.',
       child: SizedBox(
-        height: 140,
+        height: _figureHeight,
         child: CustomPaint(
           painter: _PaperPainter(
             folds: folds,
