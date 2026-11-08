@@ -59,6 +59,20 @@ pass 15, retire or merge one first.
 Newest first. When this file passes about 120 lines, move the oldest closed entries to
 the current decision log.
 
+### Backup page jumped while backing up (Nov 8)
+
+- His words: "i was trying to show you the jumpy behavior that's not good UI/UX. do you get what i mean? while it was "backing up" it did that multiple times which was jarring/unpleasant" (with a screen recording; earlier "look at this frame by frame").
+- Wrong: the Backup page added and removed rows and swapped its footer per sync status, and the button grew when its spinner appeared, so the layout moved three times in about 1.5 s. The lead shipped it to web without looking at the transitions and, given the recording, first described its content instead of the movement.
+- Why it got through: tests checked text per state, never layout across states; nobody watched a status change before deploy.
+- Fix (check): `test/features/settings/presentation/w4f_backup_test.dart` "nothing moves while the backup status changes" steps the page through every status and fails if the status card or the button changes size or position. Shown failing on the old page ("Syncing resized the status card"), passing on the new one.
+
+### Local HTML board instead of Claude Design, again (Nov 8)
+
+- His words: none about this; the lead found it. He approved the board ("lgtm, proceed").
+- Wrong: the lead rendered hand-written HTML previews for the Backup page options, which written rule 3 forbids.
+- Why it got through: rule 3 is read at startup but nothing stops a preview at the moment it is drawn. This is a repeat, so it moves up from a written rule.
+- Fix (required step): before showing any UI preview or board, the lead names the Claude Design artifact it comes from in the same message. No link, no preview: build it in Claude Design first.
+
 ### Google sign-in fix shipped and still failed (Nov 7)
 
 - **His words:** "Google sign-in still did not work, it gave me this screen 3 times", then "i mean i only tried it once but it loaded that screen thrice".
