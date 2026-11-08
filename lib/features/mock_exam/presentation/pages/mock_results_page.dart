@@ -5,6 +5,7 @@ import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/half_ring_gauge.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/pantas_icon_button.dart';
 import 'package:pantas/core/ui/components/pro_paused_line.dart';
 import 'package:pantas/core/ui/components/score_breakdown_row.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
@@ -108,13 +109,12 @@ class MockResultsPage extends StatelessWidget {
               Align(
                 alignment: Alignment.centerLeft,
                 child: fromRecord
-                    ? TextButton.icon(
-                        onPressed: onDone,
-                        icon: Icon(PantasIcons.back, size: 24),
-                        label: Text(
-                          'Your record',
-                          style: context.type.body
-                              .copyWith(color: context.colors.accent),
+                    ? Padding(
+                        padding: const EdgeInsets.only(left: PantasSpace.s8),
+                        child: WebBackLink(
+                          label: 'Your record',
+                          onPressed: onDone ?? () {},
+                          nudge: false,
                         ),
                       )
                     // Board (MK_Results): the X sits at x 19, y 17, in #8E8E93.
@@ -123,14 +123,10 @@ class MockResultsPage extends StatelessWidget {
                           left: PantasSpace.s6,
                           top: PantasSpace.s4,
                         ),
-                        child: IconButton(
+                        child: PantasIconButton(
                           tooltip: 'Close',
+                          glyph: PantasIcons.close,
                           onPressed: onDone,
-                          icon: Icon(
-                            PantasIcons.close,
-                            color: context.colors.controlOutline,
-                            size: 22,
-                          ),
                         ),
                       ),
               ),
@@ -320,10 +316,10 @@ class MockResultsPage extends StatelessWidget {
                 )
               else
                 WebTopBar(
-                  leading: IconButton(
+                  leading: PantasIconButton(
                     tooltip: 'Close',
+                    glyph: PantasIcons.close,
                     onPressed: onDone,
-                    icon: const Icon(Icons.close, size: 22),
                   ),
                 ),
               Expanded(

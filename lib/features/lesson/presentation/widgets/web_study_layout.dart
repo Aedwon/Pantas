@@ -7,6 +7,7 @@ import 'package:go_router/go_router.dart';
 import 'package:pantas/core/content/remote/content_limit.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/ui/components/check_mark.dart';
+import 'package:pantas/core/ui/components/pantas_icon_button.dart';
 import 'package:pantas/core/ui/components/progress_ring.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
@@ -30,6 +31,7 @@ import 'package:pantas/features/lesson/application/study_map_providers.dart';
 import 'package:pantas/features/lesson/domain/models/study_map.dart';
 import 'package:pantas/features/lesson/presentation/widgets/bookmarks_sheet.dart';
 import 'package:pantas/features/lesson/presentation/widgets/reader_bar.dart';
+import 'package:pantas/features/lesson/presentation/widgets/reader_tap.dart';
 import 'package:pantas/features/lesson/presentation/widgets/study_map_entry.dart';
 import 'package:pantas/features/lesson/presentation/widgets/web_lesson_search.dart';
 import 'package:pantas/features/quiz/application/quiz_starts.dart';
@@ -733,17 +735,10 @@ class _WebStudyMapState extends State<WebStudyMap>
                   style: t.eb,
                 ),
               ),
-              TextButton(
+              WebTextLink(
+                label: 'See all',
+                arrow: false,
                 onPressed: widget.onBookmarks,
-                style: TextButton.styleFrom(
-                  padding: EdgeInsets.zero,
-                  minimumSize: const Size(0, 30),
-                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                ),
-                child: Text(
-                  'See all',
-                  style: PantasType.webLabel.copyWith(color: t.colors.accent),
-                ),
               ),
             ],
           ),
@@ -770,12 +765,10 @@ class _WebStudyMapState extends State<WebStudyMap>
       Row(
         children: [
           Expanded(child: _label(context, 'BOOKMARKS')),
-          TextButton(
+          WebTextLink(
+            label: 'See all',
+            arrow: false,
             onPressed: widget.onBookmarks,
-            child: Text(
-              'See all',
-              style: PantasType.webLabel.copyWith(color: t.colors.accent),
-            ),
           ),
         ],
       ),
@@ -864,53 +857,51 @@ class _WebStudyMapState extends State<WebStudyMap>
     bool selected = false,
   }) {
     final t = context.webTokens;
-    return TextButton(
-      onPressed: onPressed,
-      style: TextButton.styleFrom(
-        padding: const EdgeInsets.symmetric(
-          horizontal: PantasSpace.s12,
-          vertical: PantasSpace.s6,
-        ),
-        minimumSize: const Size(0, 36),
-        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-        visualDensity: VisualDensity.standard,
-        backgroundColor: selected ? t.colors.surface : null,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(PantasRadius.sm),
-        ),
-      ),
-      child: Row(
-        children: [
-          leading,
-          const SizedBox(width: PantasSpace.s10),
-          Expanded(
-            // A long topic name wraps to a second line instead of ending in
-            // dots (3K-24, Aedwon's Nov 3 complaint about cut titles).
-            child: Text(
-              title,
-              style: PantasType.webSub.copyWith(
-                fontWeight: selected ? FontWeight.w600 : FontWeight.w500,
-                color: t.colors.textPrimary,
+    return ReaderTap(
+      onTap: onPressed,
+      radius: PantasRadius.sm,
+      selectedFill: selected ? t.colors.surface : null,
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(minHeight: PantasSize.btnXs),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: PantasSpace.s12,
+            vertical: PantasSpace.s6,
+          ),
+          child: Row(
+            children: [
+              leading,
+              const SizedBox(width: PantasSpace.s10),
+              Expanded(
+                // A long topic name wraps to a second line instead of ending in
+                // dots (3K-24, Aedwon's Nov 3 complaint about cut titles).
+                child: Text(
+                  title,
+                  style: PantasType.webSub.copyWith(
+                    fontWeight: selected ? FontWeight.w600 : FontWeight.w500,
+                    color: t.colors.textPrimary,
+                  ),
+                ),
               ),
-            ),
+              // The chevron fades in on the quick ease and out again.
+              AnimatedSwitcher(
+                duration: MediaQuery.disableAnimationsOf(context)
+                    ? Duration.zero
+                    : PantasDurations.short2,
+                switchInCurve: PantasCurves.fade,
+                switchOutCurve: PantasCurves.fade,
+                child: selected
+                    ? Icon(
+                        PantasIcons.next,
+                        key: const ValueKey('web-study-selected-chevron'),
+                        size: 14,
+                        color: t.colors.tertiaryLabel,
+                      )
+                    : const SizedBox.shrink(),
+              ),
+            ],
           ),
-          // The chevron fades in on the quick ease and out again.
-          AnimatedSwitcher(
-            duration: MediaQuery.disableAnimationsOf(context)
-                ? Duration.zero
-                : PantasDurations.short2,
-            switchInCurve: PantasCurves.fade,
-            switchOutCurve: PantasCurves.fade,
-            child: selected
-                ? Icon(
-                    PantasIcons.next,
-                    key: const ValueKey('web-study-selected-chevron'),
-                    size: 14,
-                    color: t.colors.tertiaryLabel,
-                  )
-                : const SizedBox.shrink(),
-          ),
-        ],
+        ),
       ),
     );
   }
@@ -1213,28 +1204,23 @@ class _WideStudyLessonRowState extends State<_WideStudyLessonRow> {
                   padding: EdgeInsets.only(right: bookmarkRight),
                   child: Opacity(
                     opacity: _hover || _focus || lesson.isBookmarked ? 1 : 0,
-                    child: Tooltip(
-                      message: lesson.isBookmarked
+                    child: PantasIconButton(
+                      tooltip: lesson.isBookmarked
                           ? 'Remove bookmark'
                           : 'Bookmark ${lesson.title}',
-                      child: InkResponse(
-                        onTap: widget.onBookmark,
-                        radius: 16,
-                        child: SizedBox.square(
-                          dimension: 32,
-                          child: ReaderBookmarkPop(
-                            bookmarked: lesson.isBookmarked,
-                            child: Icon(
-                              lesson.isBookmarked
-                                  ? Icons.bookmark
-                                  : Icons.bookmark_border,
-                              size: 18,
-                              color: lesson.isBookmarked
-                                  ? t.colors.accent
-                                  // The muted icon role in both themes.
-                                  : t.colors.iconMuted,
-                            ),
-                          ),
+                      size: PantasIconButtonSize.sm,
+                      onPressed: widget.onBookmark,
+                      icon: ReaderBookmarkPop(
+                        bookmarked: lesson.isBookmarked,
+                        child: Icon(
+                          lesson.isBookmarked
+                              ? Icons.bookmark
+                              : Icons.bookmark_border,
+                          size: 18,
+                          color: lesson.isBookmarked
+                              ? t.colors.accent
+                              // The muted icon role in both themes.
+                              : t.colors.iconMuted,
                         ),
                       ),
                     ),

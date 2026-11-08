@@ -12,7 +12,10 @@ import 'package:pantas/core/ui/components/new_design/answer_reveal.dart';
 import 'package:pantas/core/ui/components/new_design/passage_card.dart';
 import 'package:pantas/core/ui/components/new_design/question_card.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/pantas_icon_button.dart';
+import 'package:pantas/core/ui/components/pantas_tooltip.dart';
 import 'package:pantas/core/ui/components/review_list.dart';
+import 'package:pantas/core/ui/components/segmented_switch.dart';
 import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/figures/question_figure.dart';
@@ -35,6 +38,7 @@ import 'package:pantas/features/mock_exam/application/server_mock_providers.dart
 import 'package:pantas/features/mock_exam/application/server_mock_results_providers.dart';
 import 'package:pantas/features/mock_exam/data/server_mock_api.dart';
 import 'package:pantas/features/mock_exam/domain/mock_results.dart';
+import 'package:pantas/features/mock_exam/presentation/widgets/mock_tap.dart';
 
 /// The width of the question filter (board width; the system sets no token).
 const _filterWidth = 464.0;
@@ -175,41 +179,20 @@ class _MockReviewPageState extends ConsumerState<MockReviewPage> {
                 padding: const EdgeInsets.only(top: PantasSpace.s8),
                 child: Align(
                   alignment: Alignment.centerLeft,
-                  child: GestureDetector(
-                    behavior: HitTestBehavior.opaque,
-                    onTap: back,
-                    child: Tooltip(
-                      message: _viewerIndex == null ? '' : 'Back to questions',
-                      child: Semantics(
-                        button: true,
-                        label:
-                            _viewerIndex == null ? 'Results' : 'All questions',
-                        excludeSemantics: true,
-                        child: ConstrainedBox(
-                          constraints: const BoxConstraints(minHeight: 44),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Icon(
-                                PantasIcons.back,
-                                size: 24,
-                                color: context.colors.accent,
-                              ),
-                              const SizedBox(width: PantasSpace.s2),
-                              Text(
-                                _viewerIndex == null
-                                    ? 'Results'
-                                    : 'All questions',
-                                style: context.type.body.copyWith(
-                                  color: context.colors.accent,
-                                ),
-                              ),
-                            ],
+                  child: _viewerIndex == null
+                      ? WebBackLink(
+                          label: 'Results',
+                          onPressed: back,
+                          nudge: false,
+                        )
+                      : PantasTooltip(
+                          message: 'Back to questions',
+                          child: WebBackLink(
+                            label: 'All questions',
+                            onPressed: back,
+                            nudge: false,
                           ),
                         ),
-                      ),
-                    ),
-                  ),
                 ),
               ),
               actions: [
@@ -217,25 +200,14 @@ class _MockReviewPageState extends ConsumerState<MockReviewPage> {
                   Padding(
                     // MK_ReviewQ: the icon sits level with the link.
                     padding: const EdgeInsets.only(top: PantasSpace.s10),
-                    child: IconButton(
-                      constraints:
-                          const BoxConstraints.tightFor(width: 44, height: 44),
-                      padding: EdgeInsets.zero,
-                      style: IconButton.styleFrom(
-                        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                      ),
+                    child: PantasIconButton(
                       tooltip:
                           savedFlags.requireValue.contains(viewed.question.id)
                               ? 'Unflag question'
                               : 'Flag question',
-                      icon: Icon(
-                        PantasIcons.flag,
-                        size: 21,
-                        color:
-                            savedFlags.requireValue.contains(viewed.question.id)
-                                ? context.colors.accent
-                                : context.colors.secondaryLabel,
-                      ),
+                      glyph: PantasIcons.flag,
+                      toggled:
+                          savedFlags.requireValue.contains(viewed.question.id),
                       onPressed: () => _toggleFlag(viewed.question.id),
                     ),
                   ),
@@ -771,38 +743,11 @@ class _MockFilterRow extends StatelessWidget {
           ReviewFilter.wrong => 'Wrong ${counts.wrong}',
           ReviewFilter.flagged => 'Flagged ${counts.flagged}',
         };
-    return Container(
-      padding: const EdgeInsets.all(PantasSpace.s2),
-      decoration: BoxDecoration(
-        color: context.colors.fill,
-        borderRadius: BorderRadius.circular(PantasRadius.back),
-      ),
-      child: Row(
-        children: [
-          for (final filter in ReviewFilter.values)
-            Expanded(
-              child: InkWell(
-                onTap: () => onChanged(filter),
-                borderRadius: BorderRadius.circular(PantasRadius.sm),
-                child: Container(
-                  height: 32,
-                  alignment: Alignment.center,
-                  decoration: active == filter
-                      ? BoxDecoration(
-                          color: context.colors.surface,
-                          borderRadius: BorderRadius.circular(PantasRadius.sm),
-                        )
-                      : null,
-                  child: Text(
-                    label(filter),
-                    style: context.type.subhead
-                        .copyWith(fontWeight: FontWeight.w600),
-                  ),
-                ),
-              ),
-            ),
-        ],
-      ),
+    const filters = ReviewFilter.values;
+    return SegmentedSwitch(
+      labels: [for (final filter in filters) label(filter)],
+      selected: filters.indexOf(active),
+      onChanged: (index) => onChanged(filters[index]),
     );
   }
 }
@@ -953,8 +898,9 @@ class _MockReviewRow extends StatelessWidget {
   Widget build(BuildContext context) {
     final outcomeColor =
         entry.isCorrect ? context.colors.accent : context.colors.wrongText;
-    return InkWell(
+    return MockTap(
       onTap: onTap,
+      radius: PantasRadius.sm,
       child: Padding(
         padding: const EdgeInsets.only(left: PantasSpace.s16),
         child: Row(
@@ -1095,9 +1041,9 @@ class _QuestionViewer extends StatelessWidget {
                       : proIsActive && !entry.isCorrect
                           ? Align(
                               alignment: Alignment.centerLeft,
-                              child: IconButton(
+                              child: PantasIconButton(
                                 onPressed: onNote,
-                                icon: Icon(PantasIcons.addNote),
+                                glyph: PantasIcons.addNote,
                                 tooltip: 'Add note',
                               ),
                             )
@@ -1151,16 +1097,10 @@ class _QuestionViewer extends StatelessWidget {
     }
     // MK_ReviewQ: the same page as the quiz viewer (QN_*): 16 px sides and
     // a floating bar with the arrows, counter and note icon.
-    final colors = context.colors;
     Widget arrow(String tooltip, IconData icon, VoidCallback? onPressed) =>
-        IconButton(
+        PantasIconButton(
           tooltip: tooltip,
-          style: IconButton.styleFrom(
-            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-          ),
-          constraints: const BoxConstraints.tightFor(width: 44, height: 44),
-          padding: EdgeInsets.zero,
-          icon: Icon(icon, size: 20),
+          glyph: icon,
           onPressed: onPressed,
         );
     return Stack(
@@ -1256,19 +1196,9 @@ class _QuestionViewer extends StatelessWidget {
                   ),
                   const Spacer(),
                   if (proIsActive)
-                    IconButton(
+                    PantasIconButton(
                       tooltip: 'Add note',
-                      style: IconButton.styleFrom(
-                        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                      ),
-                      constraints:
-                          const BoxConstraints.tightFor(width: 44, height: 44),
-                      padding: EdgeInsets.zero,
-                      icon: Icon(
-                        PantasIcons.addNote,
-                        size: 20,
-                        color: colors.label,
-                      ),
+                      glyph: PantasIcons.addNote,
                       onPressed: onNote,
                     ),
                   arrow('Next question', PantasIcons.next, onNext),
@@ -1440,7 +1370,11 @@ class _ReasonPanelState extends State<_ReasonPanel> {
           if (_retry != null) saveFailureLine(() => _save(_retry!)),
           if (_typing) ...[
             const SizedBox(height: PantasSpace.s8),
-            TextField(controller: _controller, maxLines: 3),
+            TextField(
+              // ds-raw: PantasField needs a visible label, a copy change
+              controller: _controller,
+              maxLines: 3,
+            ),
             const SizedBox(height: PantasSpace.s8),
             PantasButton(
               label: 'Save Note',
@@ -1569,41 +1503,36 @@ class _ReasonPanelState extends State<_ReasonPanel> {
                       for (final (i, label) in labels.indexed)
                         SizedBox(
                           width: width,
-                          child: TextButton(
-                            onPressed: _saving ? null : () => choose(i),
-                            style: TextButton.styleFrom(
-                              minimumSize: const Size.fromHeight(48),
-                              alignment: Alignment.centerLeft,
-                              visualDensity: VisualDensity.standard,
-                              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                              backgroundColor: _selected == i
-                                  ? t.colors.accentTint
-                                  : t.colors.background,
-                              foregroundColor:
-                                  _selected == i ? t.tintText : t.colors.label,
-                              overlayColor: Colors.transparent,
-                              shape: RoundedRectangleBorder(
-                                borderRadius:
-                                    BorderRadius.circular(PantasRadius.md),
+                          child: MockTap(
+                            onTap: _saving ? null : () => choose(i),
+                            selectedFill:
+                                _selected == i ? t.colors.accentTint : null,
+                            restFill: t.colors.background,
+                            child: ConstrainedBox(
+                              constraints: const BoxConstraints(
+                                minHeight: PantasSize.field,
                               ),
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: PantasSpace.s12,
-                                vertical: PantasSpace.s8,
-                              ),
-                            ),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                WebKeyHint('${i + 1}'),
-                                const SizedBox(width: PantasSpace.s10),
-                                Flexible(
-                                  child: Text(
-                                    label,
-                                    style: PantasType.webSub
-                                        .copyWith(color: t.colors.textPrimary),
-                                  ),
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: PantasSpace.s12,
+                                  vertical: PantasSpace.s8,
                                 ),
-                              ],
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    WebKeyHint('${i + 1}'),
+                                    const SizedBox(width: PantasSpace.s10),
+                                    Flexible(
+                                      child: Text(
+                                        label,
+                                        style: PantasType.webSub.copyWith(
+                                          color: t.colors.textPrimary,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
                             ),
                           ),
                         ),
@@ -1614,6 +1543,7 @@ class _ReasonPanelState extends State<_ReasonPanel> {
               if (_typing) ...[
                 const SizedBox(height: PantasSpace.s14),
                 TextField(
+                  // ds-raw: PantasField needs a visible label, a copy change
                   controller: _controller,
                   maxLines: 3,
                   onChanged: (_) => setState(() {}),

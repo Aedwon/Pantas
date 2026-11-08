@@ -43,6 +43,8 @@ import 'package:pantas/features/mock_exam/domain/part_clock.dart';
 import 'package:pantas/features/mock_exam/presentation/mock_clock.dart';
 import 'package:pantas/features/mock_exam/presentation/proctor_toast.dart';
 import 'package:pantas/features/mock_exam/presentation/widgets/mock_proctor_sound.dart';
+import 'package:pantas/features/mock_exam/presentation/widgets/mock_toast.dart';
+import 'package:pantas/features/mock_exam/presentation/widgets/question_navigator_chip.dart';
 import 'package:pantas/features/mock_exam/presentation/widgets/web_mock_dialog.dart';
 import 'package:pantas/features/mock_exam/presentation/widgets/web_mock_panel_tab.dart';
 
@@ -236,18 +238,10 @@ class _MockSessionPageState extends State<MockSessionPage> {
   void _onSystemBack() {
     if (_gridOpen) return;
     if (widget.state.strictMode) {
-      ScaffoldMessenger.of(context)
-        ..hideCurrentSnackBar()
-        ..showSnackBar(
-          SnackBar(
-            backgroundColor: context.colors.toastBg,
-            content: Text(
-              'Strict mode is on. Back is off until you submit.',
-              style: PantasType.phoneCaption
-                  .copyWith(color: context.colors.toastText),
-            ),
-          ),
-        );
+      showMockToast(
+        context,
+        'Strict mode is on. Back is off until you submit.',
+      );
       return;
     }
     _onPausePressed();
@@ -643,90 +637,14 @@ class _MockSessionPageState extends State<MockSessionPage> {
                           '${current ? ', current' : ''}'
                           ', ${answered ? 'answered' : 'blank'}'
                           '${flagged ? ', flagged' : ''}';
-                  return Semantics(
-                    selected: current,
-                    child: SizedBox.square(
-                      dimension: PantasSize.qnav,
-                      child: Stack(
-                        clipBehavior: Clip.none,
-                        children: [
-                          Positioned.fill(
-                            child: TextButton(
-                              onPressed: enabled
-                                  ? () => _goToPartQuestion(i + 1)
-                                  : null,
-                              style: TextButton.styleFrom(
-                                padding: EdgeInsets.zero,
-                                minimumSize: Size.zero,
-                                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                                foregroundColor: !enabled
-                                    ? c.textDisabled
-                                    : answered || current
-                                        ? c.textPrimary
-                                        : c.textSecondary,
-                                disabledForegroundColor: c.textDisabled,
-                                backgroundColor: answered
-                                    ? c.divider
-                                    : enabled
-                                        ? c.surfaceCard
-                                        : Colors.transparent,
-                                shape: CircleBorder(
-                                  side: current
-                                      ? BorderSide(
-                                          color: c.textPrimary,
-                                          width: PantasBorder.ringCurrent,
-                                        )
-                                      : !enabled
-                                          ? BorderSide(color: c.fill)
-                                          : answered
-                                              ? BorderSide.none
-                                              : BorderSide(
-                                                  color: c.borderControl,
-                                                  width:
-                                                      PantasBorder.ringStrong,
-                                                ),
-                                ),
-                                textStyle: current
-                                    ? PantasType.webFieldLabel.copyWith(
-                                        fontWeight: FontWeight.w700,
-                                      )
-                                    : PantasType.webFieldLabel,
-                              ),
-                              child: Semantics(
-                                label: name,
-                                excludeSemantics: true,
-                                child: Text(
-                                  '${i + 1}',
-                                  style: const TextStyle(
-                                    fontFeatures: [
-                                      FontFeature.tabularFigures(),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                          if (flagged)
-                            Positioned(
-                              top: -PantasSpace.s2,
-                              right: -PantasSpace.s2,
-                              child: DecoratedBox(
-                                decoration: BoxDecoration(
-                                  color: c.accent,
-                                  shape: BoxShape.circle,
-                                  border: Border.all(
-                                    color: c.surfaceCard,
-                                    width: PantasBorder.ringSelected,
-                                  ),
-                                ),
-                                child: const SizedBox.square(
-                                  dimension: PantasSpace.s10,
-                                ),
-                              ),
-                            ),
-                        ],
-                      ),
-                    ),
+                  return QuestionNavigatorChip(
+                    number: i + 1,
+                    name: name,
+                    enabled: enabled,
+                    answered: answered,
+                    current: current,
+                    flagged: flagged,
+                    onTap: () => _goToPartQuestion(i + 1),
                   );
                 },
               ),

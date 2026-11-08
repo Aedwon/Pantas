@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/ui/components/content_renderer.dart';
+import 'package:pantas/core/ui/components/pantas_icon_button.dart';
 import 'package:pantas/core/ui/components/pantas_shadows.dart';
 import 'package:pantas/core/ui/components/toast.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
@@ -26,6 +27,7 @@ import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/lesson/application/reader_providers.dart';
 import 'package:pantas/features/lesson/domain/models/study_map.dart';
 import 'package:pantas/features/lesson/presentation/widgets/reader_bar.dart';
+import 'package:pantas/features/lesson/presentation/widgets/reader_tap.dart';
 import 'package:pantas/features/lesson/presentation/widgets/web_pull_to_advance.dart';
 
 /// Where the outline and the lesson column sit on wide web.
@@ -398,24 +400,20 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
                   children: [
                     for (var i = 0; i < headings.length; i++)
                       if (headings[i] != null)
-                        TextButton(
-                          onPressed: () => unawaited(_jumpTo(i)),
-                          style: TextButton.styleFrom(
-                            minimumSize: Size.zero,
-                            visualDensity: VisualDensity.standard,
+                        ReaderTap(
+                          onTap: () => unawaited(_jumpTo(i)),
+                          child: Padding(
                             padding: const EdgeInsets.symmetric(
                               horizontal: PantasSpace.s10,
                               vertical: PantasSpace.s6,
                             ),
-                            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                            alignment: Alignment.centerLeft,
-                          ),
-                          child: Padding(
-                            padding:
-                                const EdgeInsets.only(left: PantasSpace.s16),
-                            child: Text(
-                              headings[i]!,
-                              style: rowStyle(current: _active == i),
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.only(left: PantasSpace.s16),
+                              child: Text(
+                                headings[i]!,
+                                style: rowStyle(current: _active == i),
+                              ),
                             ),
                           ),
                         ),
@@ -570,74 +568,69 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
     required bool current,
   }) {
     final t = context.webTokens;
-    return Material(
-      color: current ? t.colors.accentTint : Colors.transparent,
-      borderRadius: BorderRadius.circular(PantasRadius.md),
-      clipBehavior: Clip.antiAlias,
-      child: InkWell(
-        onTap: () {
-          Navigator.pop(context);
-          if (!current) widget.onLesson(lesson.id);
-        },
-        child: Semantics(
-          selected: current,
-          // A title that is too long for one line wraps, and the row grows
-          // with it, so the whole name can be read. A short one keeps the
-          // board's 41 px.
-          child: ConstrainedBox(
-            constraints: const BoxConstraints(minHeight: PantasSize.navItem),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: PantasSpace.s12,
-                vertical: PantasSpace.s8,
-              ),
-              child: Row(
-                children: [
-                  Container(
-                    width: PantasSpace.s24,
-                    height: PantasSpace.s24,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: current ? t.colors.accentFill : null,
-                      border: current
-                          ? null
-                          : Border.all(
-                              color: t.strongDivider,
-                              width: PantasBorder.ringStrong,
-                            ),
-                    ),
-                    child: Text(
-                      '$number',
-                      style: PantasType.webTag.copyWith(
-                        fontWeight: FontWeight.w700,
-                        color: current
-                            ? t.colors.onAccent
-                            : t.colors.textSecondary,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(width: PantasSpace.s12),
-                  Expanded(
-                    child: Text(
-                      lesson.title,
-                      style: PantasType.webSub.copyWith(
-                        fontWeight: current ? FontWeight.w600 : FontWeight.w400,
-                        color: t.colors.textPrimary,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(width: PantasSpace.s12),
-                  Text(
-                    current ? 'Reading' : '${lesson.estimatedMinutes} min',
-                    style: current
-                        ? PantasType.webTag.copyWith(color: t.tintText)
-                        : PantasType.webSmall.copyWith(
-                            color: t.colors.textSecondary,
+    return ReaderTap(
+      selectedFill: current ? t.colors.accentTint : null,
+      onTap: () {
+        Navigator.pop(context);
+        if (!current) widget.onLesson(lesson.id);
+      },
+      child: Semantics(
+        selected: current,
+        // A title that is too long for one line wraps, and the row grows
+        // with it, so the whole name can be read. A short one keeps the
+        // board's 41 px.
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(minHeight: PantasSize.navItem),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: PantasSpace.s12,
+              vertical: PantasSpace.s8,
+            ),
+            child: Row(
+              children: [
+                Container(
+                  width: PantasSpace.s24,
+                  height: PantasSpace.s24,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: current ? t.colors.accentFill : null,
+                    border: current
+                        ? null
+                        : Border.all(
+                            color: t.strongDivider,
+                            width: PantasBorder.ringStrong,
                           ),
                   ),
-                ],
-              ),
+                  child: Text(
+                    '$number',
+                    style: PantasType.webTag.copyWith(
+                      fontWeight: FontWeight.w700,
+                      color:
+                          current ? t.colors.onAccent : t.colors.textSecondary,
+                    ),
+                  ),
+                ),
+                const SizedBox(width: PantasSpace.s12),
+                Expanded(
+                  child: Text(
+                    lesson.title,
+                    style: PantasType.webSub.copyWith(
+                      fontWeight: current ? FontWeight.w600 : FontWeight.w400,
+                      color: t.colors.textPrimary,
+                    ),
+                  ),
+                ),
+                const SizedBox(width: PantasSpace.s12),
+                Text(
+                  current ? 'Reading' : '${lesson.estimatedMinutes} min',
+                  style: current
+                      ? PantasType.webTag.copyWith(color: t.tintText)
+                      : PantasType.webSmall.copyWith(
+                          color: t.colors.textSecondary,
+                        ),
+                ),
+              ],
             ),
           ),
         ),
@@ -653,94 +646,97 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
     return Semantics(
       expanded: _menuOpen,
       label: 'Lesson $position of $total. Show all lessons',
-      child: TextButton(
-        onPressed: _menu,
-        style: TextButton.styleFrom(
-          minimumSize: const Size(0, PantasSize.targetTouch),
-          padding: const EdgeInsets.fromLTRB(
-            PantasSpace.s14,
-            PantasSpace.s0,
-            PantasSpace.s10,
-            PantasSpace.s0,
-          ),
-          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-          visualDensity: VisualDensity.standard,
-          backgroundColor: _menuOpen ? t.disabledBackground : null,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(PantasRadius.md),
-          ),
-        ),
-        child: ValueListenableBuilder<double>(
-          valueListenable: widget.scrollOffset,
-          builder: (_, offset, __) {
-            final shown = (offset / 90).clamp(0.0, 1.0);
-            return Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                ClipRect(
-                  child: Align(
-                    key: const ValueKey('web-reader-title-width'),
-                    widthFactor: shown,
-                    alignment: Alignment.centerRight,
-                    child: Opacity(
-                      opacity: shown,
-                      child: Transform.translate(
-                        offset: Offset(0, 6 * (1 - shown)),
-                        child: Padding(
-                          padding:
-                              const EdgeInsets.only(right: PantasSpace.s12),
-                          child: ConstrainedBox(
-                            constraints:
-                                const BoxConstraints(maxWidth: _titleMaxWidth),
-                            child: Text(
-                              reader.lesson.title,
-                              style: PantasType.webLabel
-                                  .copyWith(color: t.colors.textPrimary),
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
+      child: ReaderTap(
+        onTap: _menu,
+        selectedFill: _menuOpen ? t.disabledBackground : null,
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(minHeight: PantasSize.targetTouch),
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(
+              PantasSpace.s14,
+              PantasSpace.s0,
+              PantasSpace.s10,
+              PantasSpace.s0,
+            ),
+            child: Center(
+              widthFactor: 1,
+              child: ValueListenableBuilder<double>(
+                valueListenable: widget.scrollOffset,
+                builder: (_, offset, __) {
+                  final shown = (offset / 90).clamp(0.0, 1.0);
+                  return Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      ClipRect(
+                        child: Align(
+                          key: const ValueKey('web-reader-title-width'),
+                          widthFactor: shown,
+                          alignment: Alignment.centerRight,
+                          child: Opacity(
+                            opacity: shown,
+                            child: Transform.translate(
+                              offset: Offset(0, 6 * (1 - shown)),
+                              child: Padding(
+                                padding: const EdgeInsets.only(
+                                  right: PantasSpace.s12,
+                                ),
+                                child: ConstrainedBox(
+                                  constraints: const BoxConstraints(
+                                    maxWidth: _titleMaxWidth,
+                                  ),
+                                  child: Text(
+                                    reader.lesson.title,
+                                    style: PantasType.webLabel
+                                        .copyWith(color: t.colors.textPrimary),
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                ),
+                              ),
                             ),
                           ),
                         ),
                       ),
-                    ),
-                  ),
-                ),
-                Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    for (var i = 0; i < total; i++) ...[
-                      Container(
-                        width: PantasSpace.s18,
-                        height: PantasSpace.s4,
-                        decoration: BoxDecoration(
-                          color: i + 1 == position
-                              ? t.colors.accent
-                              : t.strongDivider,
-                          borderRadius:
-                              BorderRadius.circular(PantasRadius.full),
-                        ),
+                      Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          for (var i = 0; i < total; i++) ...[
+                            Container(
+                              width: PantasSpace.s18,
+                              height: PantasSpace.s4,
+                              decoration: BoxDecoration(
+                                color: i + 1 == position
+                                    ? t.colors.accent
+                                    : t.strongDivider,
+                                borderRadius:
+                                    BorderRadius.circular(PantasRadius.full),
+                              ),
+                            ),
+                            if (i + 1 < total)
+                              const SizedBox(width: PantasSpace.s2),
+                          ],
+                        ],
                       ),
-                      if (i + 1 < total) const SizedBox(width: PantasSpace.s2),
+                      const SizedBox(width: PantasSpace.s12),
+                      Text(
+                        '$position of $total',
+                        style: PantasType.webSmall
+                            .copyWith(color: t.colors.textSecondary),
+                      ),
+                      const SizedBox(width: PantasSpace.s12),
+                      Icon(
+                        _menuOpen
+                            ? Icons.keyboard_arrow_up
+                            : Icons.keyboard_arrow_down,
+                        size: 16,
+                        color: t.colors.tertiaryLabel,
+                      ),
                     ],
-                  ],
-                ),
-                const SizedBox(width: PantasSpace.s12),
-                Text(
-                  '$position of $total',
-                  style: PantasType.webSmall
-                      .copyWith(color: t.colors.textSecondary),
-                ),
-                const SizedBox(width: PantasSpace.s12),
-                Icon(
-                  _menuOpen
-                      ? Icons.keyboard_arrow_up
-                      : Icons.keyboard_arrow_down,
-                  size: 16,
-                  color: t.colors.tertiaryLabel,
-                ),
-              ],
-            );
-          },
+                  );
+                },
+              ),
+            ),
+          ),
         ),
       ),
     );
@@ -787,26 +783,14 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
       label: tip,
       excludeSemantics: true,
       onTap: () => _setFullWidth(!fullWidth),
-      child: Tooltip(
-        message: tip,
-        excludeFromSemantics: true,
-        child: IconButton(
-          key: const ValueKey('web-reader-width-control'),
-          onPressed: () => _setFullWidth(!fullWidth),
-          style: IconButton.styleFrom(
-            fixedSize: const Size.square(PantasSize.iconBtn),
-            padding: EdgeInsets.zero,
-            visualDensity: VisualDensity.standard,
-            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-            backgroundColor: fullWidth ? t.colors.accentTint : null,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(PantasRadius.md),
-            ),
-          ),
-          icon: CustomPaint(
-            size: const Size.square(22),
-            painter: _WidthIconPainter(fullWidth: fullWidth, color: color),
-          ),
+      child: PantasIconButton(
+        key: const ValueKey('web-reader-width-control'),
+        tooltip: tip,
+        onPressed: () => _setFullWidth(!fullWidth),
+        accent: fullWidth,
+        icon: CustomPaint(
+          size: const Size.square(22),
+          painter: _WidthIconPainter(fullWidth: fullWidth, color: color),
         ),
       ),
     );
@@ -825,7 +809,6 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
   @override
   Widget build(BuildContext context) {
     final t = context.webTokens;
-    const compactTap = MaterialTapTargetSize.shrinkWrap;
     final fullWidth = ref.watch(readerFullWidthProvider);
     final reader = widget.reader;
     final meta = '${reader.topicName} · '
@@ -1033,37 +1016,27 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
                                     const SizedBox(width: PantasSpace.s12),
                                     _widthControl(t, fullWidth: fullWidth),
                                     const SizedBox(width: PantasSpace.s12),
-                                    Tooltip(
-                                      message: reader.isBookmarked
+                                    PantasIconButton(
+                                      tooltip: reader.isBookmarked
                                           ? 'Remove bookmark (B)'
                                           : 'Bookmark this lesson (B)',
-                                      child: IconButton(
-                                        onPressed: _bookmark,
-                                        style: IconButton.styleFrom(
-                                          fixedSize: const Size.square(
-                                            PantasSize.iconBtn,
+                                      onPressed: _bookmark,
+                                      icon: ReaderBookmarkPop(
+                                        key: ValueKey(
+                                          (
+                                            'web-reader-bookmark',
+                                            reader.lesson.id
                                           ),
-                                          padding: EdgeInsets.zero,
-                                          visualDensity: VisualDensity.standard,
-                                          tapTargetSize: compactTap,
                                         ),
-                                        icon: ReaderBookmarkPop(
-                                          key: ValueKey(
-                                            (
-                                              'web-reader-bookmark',
-                                              reader.lesson.id
-                                            ),
-                                          ),
-                                          bookmarked: reader.isBookmarked,
-                                          child: Icon(
-                                            reader.isBookmarked
-                                                ? Icons.bookmark
-                                                : Icons.bookmark_border,
-                                            size: 22,
-                                            color: reader.isBookmarked
-                                                ? t.colors.accent
-                                                : t.colors.tertiaryLabel,
-                                          ),
+                                        bookmarked: reader.isBookmarked,
+                                        child: Icon(
+                                          reader.isBookmarked
+                                              ? Icons.bookmark
+                                              : Icons.bookmark_border,
+                                          size: 22,
+                                          color: reader.isBookmarked
+                                              ? t.colors.accent
+                                              : t.colors.tertiaryLabel,
                                         ),
                                       ),
                                     ),
@@ -1091,11 +1064,27 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
                     right: 0,
                     child: ValueListenableBuilder<double>(
                       valueListenable: widget.progress,
-                      builder: (_, value, __) => LinearProgressIndicator(
-                        value: value,
-                        minHeight: PantasSize.thread,
-                        backgroundColor: t.colors.fill,
-                        color: t.colors.accent,
+                      builder: (_, value, __) => Semantics(
+                        label: 'Lesson progress',
+                        value: '${(value.clamp(0.0, 1.0) * 100).round()}%',
+                        child: ExcludeSemantics(
+                          child: SizedBox(
+                            height: PantasSize.thread,
+                            child: ColoredBox(
+                              color: t.colors.fill,
+                              child: Align(
+                                alignment: Alignment.centerLeft,
+                                child: FractionallySizedBox(
+                                  widthFactor: value.clamp(0.0, 1.0),
+                                  child: ColoredBox(
+                                    color: t.colors.accent,
+                                    child: const SizedBox.expand(),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
                       ),
                     ),
                   ),
@@ -1144,30 +1133,23 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
                                       .copyWith(color: t.colors.toastText),
                                 ),
                                 const SizedBox(width: PantasSpace.s14),
-                                TextButton(
-                                  onPressed: () {
+                                ReaderTap(
+                                  onTap: () {
                                     widget.controller.jumpTo(0);
                                     setState(_hideResume);
                                   },
-                                  style: TextButton.styleFrom(
-                                    minimumSize: Size.zero,
+                                  radius: PantasRadius.sm,
+                                  hoverFill: t.colors.toastActionHover,
+                                  child: Padding(
                                     padding: const EdgeInsets.symmetric(
                                       horizontal: PantasSpace.s10,
                                       vertical: PantasSpace.s6,
                                     ),
-                                    tapTargetSize:
-                                        MaterialTapTargetSize.shrinkWrap,
-                                    visualDensity: VisualDensity.standard,
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(
-                                        PantasRadius.sm,
+                                    child: Text(
+                                      'Start Over',
+                                      style: PantasType.webLink.copyWith(
+                                        color: t.colors.toastAction,
                                       ),
-                                    ),
-                                  ),
-                                  child: Text(
-                                    'Start Over',
-                                    style: PantasType.webLink.copyWith(
-                                      color: t.colors.toastAction,
                                     ),
                                   ),
                                 ),
@@ -1187,8 +1169,10 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
   }
 }
 
-/// The reader bar's back button and its Esc hint. The loading and error bars
-/// use it too, so the bar does not move when the lesson arrives.
+/// The reader bar's back button (ReaderTopBar): an icon button with a chevron,
+/// named "Back to" and the back label. Esc still goes back, from the key
+/// handler of the page that owns the bar. The loading and error bars use it
+/// too, so the bar does not move when the lesson arrives.
 class WebReaderBackControl extends StatelessWidget {
   const WebReaderBackControl({
     required this.label,
@@ -1198,36 +1182,11 @@ class WebReaderBackControl extends StatelessWidget {
   final String label;
   final VoidCallback onPressed;
   @override
-  Widget build(BuildContext context) {
-    final t = context.webTokens;
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        TextButton(
-          onPressed: onPressed,
-          style: TextButton.styleFrom(
-            minimumSize: const Size(0, PantasSize.back),
-            padding: EdgeInsets.zero,
-            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-            visualDensity: VisualDensity.standard,
-          ),
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Icon(PantasIcons.back, size: 20, color: t.colors.accent),
-              const SizedBox(width: PantasSpace.s2),
-              Text(
-                label,
-                style: PantasType.webRowTitle.copyWith(color: t.colors.accent),
-              ),
-            ],
-          ),
-        ),
-        const SizedBox(width: PantasSpace.s12),
-        const WebKeyHint('Esc'),
-      ],
-    );
-  }
+  Widget build(BuildContext context) => PantasIconButton(
+        tooltip: 'Back to $label',
+        glyph: PantasIcons.back,
+        onPressed: onPressed,
+      );
 }
 
 /// A notice that fades in and rises 12 px, and fades out as it leaves, on the
@@ -1366,22 +1325,16 @@ class WebReaderNext extends StatelessWidget {
         autofocus: true,
         child: Padding(
           padding: EdgeInsets.only(top: topGap),
-          child: WebCard(
-            child: TextButton(
-              onPressed: onPressed,
-              style: TextButton.styleFrom(
-                minimumSize: Size.zero,
-                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                visualDensity: VisualDensity.standard,
-                padding: const EdgeInsets.fromLTRB(
-                  PantasSpace.s24,
-                  PantasSpace.s20,
-                  PantasSpace.s20,
-                  PantasSpace.s20,
-                ),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(PantasRadius.xl),
-                ),
+          child: ReaderTap(
+            onTap: onPressed,
+            radius: PantasRadius.xl,
+            washOnTop: true,
+            child: WebCard(
+              padding: const EdgeInsets.fromLTRB(
+                PantasSpace.s24,
+                PantasSpace.s20,
+                PantasSpace.s20,
+                PantasSpace.s20,
               ),
               child: Row(
                 children: [

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pantas/core/ui/components/pantas_icon_button.dart';
 import 'package:pantas/core/ui/components/pantas_shadows.dart';
 import 'package:pantas/core/ui/icons/own/mock_panel_glyph.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -109,19 +110,16 @@ class _WebMockPanelTabState extends State<WebMockPanelTab>
                         right: Radius.circular(PantasRadius.md),
                       ),
                     ),
-                    child: Material(
-                      type: MaterialType.transparency,
-                      child: IconButton(
-                        tooltip: 'Show the question list',
-                        onPressed: widget.onPressed,
-                        icon: AnimatedSlide(
-                          offset: Offset(_hover ? .1 : 0, 0),
-                          duration: MediaQuery.disableAnimationsOf(context)
-                              ? Duration.zero
-                              : PantasDurations.nudge,
-                          curve: PantasCurves.move,
-                          child: const MockPanelGlyph(tab: true),
-                        ),
+                    child: PantasIconButton(
+                      tooltip: 'Show the question list',
+                      onPressed: widget.onPressed,
+                      icon: AnimatedSlide(
+                        offset: Offset(_hover ? .1 : 0, 0),
+                        duration: MediaQuery.disableAnimationsOf(context)
+                            ? Duration.zero
+                            : PantasDurations.nudge,
+                        curve: PantasCurves.move,
+                        child: const MockPanelGlyph(tab: true),
                       ),
                     ),
                   ),

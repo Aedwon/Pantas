@@ -12,6 +12,10 @@ import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
+import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/pantas_button_spec.dart';
+import 'package:pantas/core/ui/components/pantas_icon_button.dart';
+import 'package:pantas/core/ui/components/pantas_tooltip.dart';
 import 'package:pantas/core/ui/components/segmented_switch.dart';
 import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
@@ -23,6 +27,7 @@ import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
@@ -355,32 +360,23 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
         enabled: onPressed != null,
         onTap: onPressed,
         excludeSemantics: true,
-        child: TextButton(
-          onPressed: onPressed,
-          style: TextButton.styleFrom(
-            // Board BM_Custom: Reset order is a 32 px button, 14 px text and
-            // 8 px each side, beside the control.
-            minimumSize: compact
-                ? const Size(0, 32)
-                : wide
-                    ? const Size(0, 36)
-                    : const Size(44, 44),
-            padding: compact
-                ? const EdgeInsets.symmetric(horizontal: PantasSpace.s8)
-                : wide
-                    ? const EdgeInsets.symmetric(horizontal: PantasSpace.s14)
-                    : EdgeInsets.zero,
-            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-          ),
-          child: Text(
-            text,
-            style: context.type.body.copyWith(
-              fontSize: size,
-              fontWeight: strong ? FontWeight.w600 : FontWeight.w400,
-              color: context.colors.accent,
-            ),
-          ),
-        ),
+        child: compact || wide
+            // Board BM_Custom: a small button beside the control.
+            ? WebButton(
+                label: text,
+                onPressed: onPressed,
+                kind: PantasButtonKind.tertiary,
+                tone: PantasButtonTone.accent,
+                size: PantasButtonSize.xs,
+              )
+            : PantasButton(
+                label: text,
+                onPressed: onPressed,
+                kind: PantasButtonKind.tertiary,
+                tone: PantasButtonTone.accent,
+                fullWidth: false,
+                height: PantasSize.btn,
+              ),
       );
 
   /// Puts the bookmarks back in the order they were added.
@@ -623,7 +619,8 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
                                     // A click on the grip focuses the row for
                                     // Alt and arrow keys. It does not open it.
                                     child: _GripFocus(
-                                      child: Tooltip(
+                                      child: PantasTooltip(
+                                        anchorHeight: PantasSize.iconBtnSm,
                                         message:
                                             'Move bookmark: Alt ↑ or Alt ↓',
                                         // Board BM_Custom: the six-dot grip,
@@ -758,7 +755,8 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
           trailing: _shown.length > 1
               ? ReorderableDragStartListener(
                   index: index,
-                  child: Tooltip(
+                  child: PantasTooltip(
+                    anchorHeight: PantasSpace.s16,
                     message: 'Move bookmark: Alt ↑ or Alt ↓',
                     child: SizedBox.square(
                       dimension: 16,
@@ -801,33 +799,14 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
       button: true,
       excludeSemantics: true,
       onTap: !_busy && _selected.isNotEmpty ? _remove : null,
-      child: TextButton(
+      child: PantasButton(
+        key: const ValueKey('bookmark-remove-outline'),
+        label: 'Remove',
+        kind: PantasButtonKind.secondary,
+        tone: PantasButtonTone.critical,
+        fullWidth: false,
+        height: PantasSize.btn,
         onPressed: !_busy && _selected.isNotEmpty ? _remove : null,
-        style: TextButton.styleFrom(
-          minimumSize: const Size(44, 44),
-          padding: EdgeInsets.zero,
-          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-        ),
-        child: Opacity(
-          opacity: _selected.isEmpty ? .35 : 1,
-          child: Container(
-            key: const ValueKey('bookmark-remove-outline'),
-            constraints: const BoxConstraints(minHeight: 34),
-            padding: const EdgeInsets.symmetric(
-              horizontal: PantasSpace.s14,
-              vertical: PantasSpace.s6,
-            ),
-            decoration: BoxDecoration(
-              border: Border.all(color: context.colors.wrongText),
-              borderRadius: BorderRadius.circular(PantasRadius.full),
-            ),
-            child: Text(
-              'Remove',
-              style: context.type.subheadStrong
-                  .copyWith(color: context.colors.wrongText),
-            ),
-          ),
-        ),
       ),
     );
     final actions = Wrap(
@@ -1019,19 +998,10 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
             Row(
               children: [
                 Expanded(child: _header(!value.hasError && rows != null)),
-                IconButton(
+                PantasIconButton(
                   tooltip: 'Close bookmarks',
+                  glyph: PantasIcons.close,
                   onPressed: widget.onClose,
-                  padding: EdgeInsets.zero,
-                  constraints: const BoxConstraints.tightFor(
-                    width: 44,
-                    height: 44,
-                  ),
-                  icon: Icon(
-                    Icons.close,
-                    size: 18,
-                    color: context.colors.accent,
-                  ),
                 ),
                 const SizedBox(width: PantasSpace.s12),
               ],

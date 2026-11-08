@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/pantas_button_spec.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
-import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -107,23 +107,12 @@ class ReaderGap extends ConsumerWidget {
               ),
             const Spacer(),
             if (canQuiz)
-              TextButton(
-                style: TextButton.styleFrom(
-                  minimumSize: const Size(0, 40),
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: PantasSpace.s14),
-                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                  visualDensity: VisualDensity.standard,
-                  backgroundColor: t.disabledBackground,
-                  foregroundColor: t.colors.label,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(PantasRadius.back),
-                  ),
-                  textStyle: t.style(15, weight: FontWeight.w600),
-                ),
+              PantasButton(
+                label: 'Quiz yourself, 5 questions',
+                kind: PantasButtonKind.tertiary,
+                fullWidth: false,
                 onPressed: () =>
                     startLessonQuiz(context, lessonId, examId: examId!),
-                child: const Text('Quiz yourself, 5 questions'),
               ),
           ],
         ),

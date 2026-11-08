@@ -19,6 +19,7 @@ import 'package:pantas/features/lesson/application/lesson_search_providers.dart'
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
 import 'package:pantas/features/lesson/domain/models/lesson_search_hit.dart';
 import 'package:pantas/features/lesson/domain/use_cases/build_search_snippet.dart';
+import 'package:pantas/features/lesson/presentation/widgets/reader_tap.dart';
 import 'package:pantas/features/lesson/presentation/widgets/search_results.dart';
 
 Future<void> showWebLessonSearch(BuildContext context) => showWebOverlay<void>(
@@ -168,6 +169,7 @@ class _WebLessonSearchState extends ConsumerState<WebLessonSearch> {
                           const SizedBox(width: PantasSpace.s12),
                           Expanded(
                             child: TextField(
+                              // ds-raw: bare overlay input, no box
                               controller: _controller,
                               autofocus: true,
                               style: PantasType.webSearchInput.copyWith(
@@ -320,26 +322,15 @@ class _WebLessonSearchState extends ConsumerState<WebLessonSearch> {
                     'web-search-result-${results[i].lessonId}',
                   ),
                   selected: i == selected,
-                  child: DecoratedBox(
-                    decoration: BoxDecoration(
-                      color: i == selected
-                          ? t.colors.surfaceModalHover
-                          : Colors.transparent,
-                      borderRadius: BorderRadius.circular(PantasRadius.md),
-                    ),
-                    child: TextButton(
-                      onPressed: () => _open(
-                        results[i].lessonId,
-                      ),
-                      style: TextButton.styleFrom(
-                        minimumSize: Size.zero,
-                        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                        visualDensity: VisualDensity.standard,
-                        alignment: Alignment.centerLeft,
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: PantasSpace.s12,
-                          vertical: PantasSpace.s10,
-                        ),
+                  child: ReaderTap(
+                    onTap: () => _open(results[i].lessonId),
+                    selectedFill:
+                        i == selected ? t.colors.surfaceModalHover : null,
+                    hoverFill: t.colors.surfaceModalHover,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: PantasSpace.s12,
+                        vertical: PantasSpace.s10,
                       ),
                       child: Row(
                         children: [

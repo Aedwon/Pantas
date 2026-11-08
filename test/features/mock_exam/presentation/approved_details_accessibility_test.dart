@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/selection_row.dart';
+import 'package:pantas/core/ui/components/toast.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/features/mock_exam/application/mock_start_providers.dart';
 import 'package:pantas/features/mock_exam/domain/mock_session_state.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/mock_session_page.dart';
@@ -96,13 +98,22 @@ void main() {
       final text = tester.widget<Text>(
         find.text('Strict mode is on. Back is off until you submit.'),
       );
-      final bg =
-          tester.widget<SnackBar>(find.byType(SnackBar)).backgroundColor!;
+      final bg = (tester
+              .widget<Container>(
+                find
+                    .descendant(
+                      of: find.byType(Toast),
+                      matching: find.byType(Container),
+                    )
+                    .first,
+              )
+              .decoration! as BoxDecoration)
+          .color!;
       final a = text.style!.color!.computeLuminance();
       final b = bg.computeLuminance();
       final ratio = ((a > b ? a : b) + .05) / ((a > b ? b : a) + .05);
       expect(ratio, greaterThanOrEqualTo(4.5));
-      expect(text.style!.fontSize, 12);
+      expect(text.style!.fontSize, PantasType.phoneSubhead.fontSize);
       expect(tester.takeException(), isNull);
     });
   }

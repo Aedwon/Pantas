@@ -4,6 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/lesson/domain/models/study_map.dart';
+import 'package:pantas/features/lesson/presentation/widgets/reader_tap.dart';
 import 'package:pantas/features/lesson/presentation/widgets/web_study_layout.dart';
 
 // B-15 and B-26 of the Nov 4 browser check: the wide Study page's Bookmarks
@@ -165,7 +166,7 @@ void main() {
         await tester.sendKeyEvent(LogicalKeyboardKey.tab);
         await tester.pump();
         final context = FocusManager.instance.primaryFocus?.context;
-        final button = context?.findAncestorWidgetOfExactType<TextButton>();
+        final button = context?.findAncestorWidgetOfExactType<ReaderTap>();
         final label = context == null || button == null
             ? null
             : find

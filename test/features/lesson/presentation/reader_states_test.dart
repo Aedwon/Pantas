@@ -9,6 +9,7 @@ import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/features/lesson/application/reader_providers.dart';
 import 'package:pantas/features/lesson/presentation/lesson_page.dart';
 
@@ -52,7 +53,7 @@ void main() {
           .getSize(
             find.ancestor(
               of: find.text('Study'),
-              matching: find.byType(TextButton),
+              matching: find.byType(WebBackLink),
             ),
           )
           .height,
