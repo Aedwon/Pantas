@@ -1,6 +1,6 @@
 # Design system 4.0 in the web app, on staging (Nov 8, 2026)
 
-Status: waiting for Aedwon's approval of Part 1. Workstream: new branch `web/design-system-4` from
+Status: approved by Aedwon on Nov 8, 2026 ("Approve, keep balanced"). Workstream: new branch `web/design-system-4` from
 `web/speed-r1` at b6eb981ba (the build live at https://app.pantas.study). Policy: main at 88c48a821.
 
 Sources: design system 4.0.0 (https://claude.ai/artifact/N4y4tGXPS2mecemzAMd5dJ, version 12, durable copy
