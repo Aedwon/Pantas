@@ -6,6 +6,10 @@ import 'package:pantas/core/ui/components/steps_screen.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
@@ -71,7 +75,8 @@ class _DeleteAccountPageState extends ConsumerState<DeleteAccountPage> {
   Widget _consequence(WebTokens t, String text, {bool divider = false}) =>
       WebRow(
         title: text,
-        titleStyle: t.style(16),
+        titleStyle: PantasType.webRowTitleSettings
+            .copyWith(color: t.colors.textPrimary),
         compact: true,
         leading: CustomPaint(
           size: const Size.square(20),
@@ -122,14 +127,14 @@ class _DeleteAccountPageState extends ConsumerState<DeleteAccountPage> {
         onBack: Navigator.of(context).canPop() ? _leave : null,
         child: const AccountPage(),
         modal: (context) => Dialog(
-          insetPadding: const EdgeInsets.all(24),
+          insetPadding: const EdgeInsets.all(PantasSpace.s24),
           backgroundColor: Colors.transparent,
           elevation: 0,
           child: SizedBox(
-            width: 560,
+            width: PantasLayout.modalWide,
             child: WebCard(
-              radius: 22,
-              padding: const EdgeInsets.all(26),
+              radius: PantasRadius.r2xl,
+              padding: const EdgeInsets.all(PantasSpace.s24),
               child: SingleChildScrollView(
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
@@ -141,13 +146,13 @@ class _DeleteAccountPageState extends ConsumerState<DeleteAccountPage> {
                           : 'Delete your account?',
                       style: t.h3,
                     ),
-                    const SizedBox(height: 4),
+                    const SizedBox(height: PantasSpace.s4),
                     Text("This can't be undone.", style: t.sub),
-                    const SizedBox(height: 18),
+                    const SizedBox(height: PantasSpace.s18),
                     DecoratedBox(
                       decoration: BoxDecoration(
                         color: t.colors.background,
-                        borderRadius: BorderRadius.circular(18),
+                        borderRadius: BorderRadius.circular(PantasRadius.xl),
                       ),
                       child: Column(
                         children: [
@@ -171,11 +176,11 @@ class _DeleteAccountPageState extends ConsumerState<DeleteAccountPage> {
                       ),
                     ),
                     if (billing != null) ...[
-                      const SizedBox(height: 18),
+                      const SizedBox(height: PantasSpace.s18),
                       Text(billing, style: t.sub),
                     ],
                     if (_failed) ...[
-                      const SizedBox(height: 18),
+                      const SizedBox(height: PantasSpace.s18),
                       Text(
                         'We could not complete deletion. '
                         'Try again or contact '
@@ -183,11 +188,11 @@ class _DeleteAccountPageState extends ConsumerState<DeleteAccountPage> {
                         style: t.sub,
                       ),
                     ],
-                    const SizedBox(height: 18),
+                    const SizedBox(height: PantasSpace.s18),
                     Wrap(
                       alignment: WrapAlignment.end,
-                      spacing: 8,
-                      runSpacing: 8,
+                      spacing: PantasSpace.s8,
+                      runSpacing: PantasSpace.s8,
                       children: [
                         WebButton(
                           label:
@@ -211,19 +216,16 @@ class _DeleteAccountPageState extends ConsumerState<DeleteAccountPage> {
       );
     }
     // ST_DeleteAccount: 16 px inside the card, 13 px between the rows.
-    Widget consequence(Widget icon, String text, {double fontSize = 16}) => Row(
+    Widget consequence(Widget icon, String text, {TextStyle? style}) => Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             icon,
-            const SizedBox(width: 12),
+            const SizedBox(width: PantasSpace.s12),
             Expanded(
               child: Text(
                 text,
-                style: context.type.body.copyWith(
-                  fontSize: fontSize,
-                  height: 1.4,
-                  letterSpacing: 0,
-                ),
+                style: (style ?? PantasType.phoneCallout)
+                    .copyWith(color: context.colors.textPrimary),
               ),
             ),
           ],
@@ -231,12 +233,12 @@ class _DeleteAccountPageState extends ConsumerState<DeleteAccountPage> {
     Widget card(List<Widget> rows) => SettingsSection(
           children: [
             Padding(
-              padding: const EdgeInsets.all(16),
+              padding: const EdgeInsets.all(PantasSpace.s16),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   for (final (index, row) in rows.indexed) ...[
-                    if (index > 0) const SizedBox(height: 13),
+                    if (index > 0) const SizedBox(height: PantasSpace.s12),
                     row,
                   ],
                 ],
@@ -253,7 +255,12 @@ class _DeleteAccountPageState extends ConsumerState<DeleteAccountPage> {
       bottom: SafeArea(
         top: false,
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(16, 14, 16, 30),
+          padding: const EdgeInsets.fromLTRB(
+            PantasSpace.s16,
+            PantasSpace.s14,
+            PantasSpace.s16,
+            PantasSpace.s28,
+          ),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -265,7 +272,7 @@ class _DeleteAccountPageState extends ConsumerState<DeleteAccountPage> {
                   busy: _isDeleting,
                   onPressed: _isDeleting ? null : _delete,
                 ),
-                const SizedBox(height: 8),
+                const SizedBox(height: PantasSpace.s8),
                 PantasButton(
                   label: widget.isAnonymous ? 'Cancel' : 'Keep My Account',
                   variant: PantasButtonVariant.tertiary,
@@ -284,25 +291,30 @@ class _DeleteAccountPageState extends ConsumerState<DeleteAccountPage> {
       ),
       children: [
         Padding(
-          padding: const EdgeInsets.fromLTRB(4, 6, 4, 0),
+          padding: const EdgeInsets.fromLTRB(
+            PantasSpace.s4,
+            PantasSpace.s6,
+            PantasSpace.s4,
+            PantasSpace.s0,
+          ),
           child: Text(
             widget.isAnonymous ? 'Delete your data?' : 'Delete your account?',
             style: context.type.pageTitleCompact.copyWith(height: 1.2),
           ),
         ),
-        const SizedBox(height: 6),
+        const SizedBox(height: PantasSpace.s6),
         Padding(
-          padding: const EdgeInsets.only(left: 4),
+          padding: const EdgeInsets.only(left: PantasSpace.s4),
           child: Text(
             widget.isAnonymous
                 ? 'Your progress on this device will be permanently deleted. '
                     'Sign in first if you want to keep it.'
                 : "This can't be undone.",
-            style: context.type.body
-                .copyWith(color: context.colors.secondaryLabel, fontSize: 16),
+            style: PantasType.phoneCallout
+                .copyWith(color: context.colors.textSecondary),
           ),
         ),
-        const SizedBox(height: 22),
+        const SizedBox(height: PantasSpace.s20),
         card([
           if (!widget.isAnonymous) ...[
             consequence(
@@ -343,7 +355,7 @@ class _DeleteAccountPageState extends ConsumerState<DeleteAccountPage> {
           ),
         ]),
         if (billing != null) ...[
-          const SizedBox(height: 22),
+          const SizedBox(height: PantasSpace.s20),
           card([
             consequence(
               Icon(
@@ -352,19 +364,19 @@ class _DeleteAccountPageState extends ConsumerState<DeleteAccountPage> {
                 color: context.colors.destructive,
               ),
               billing,
-              fontSize: 15,
+              style: PantasType.phoneExplanation,
             ),
           ]),
         ],
         if (_isDeleting) ...[
-          const SizedBox(height: 22),
+          const SizedBox(height: PantasSpace.s20),
           Semantics(
             liveRegion: true,
             child: Text('Deleting...', style: context.type.body),
           ),
         ],
         if (_isDeleted) ...[
-          const SizedBox(height: 22),
+          const SizedBox(height: PantasSpace.s20),
           Semantics(
             liveRegion: true,
             child:
@@ -372,7 +384,7 @@ class _DeleteAccountPageState extends ConsumerState<DeleteAccountPage> {
           ),
         ],
         if (_failed) ...[
-          const SizedBox(height: 22),
+          const SizedBox(height: PantasSpace.s20),
           Semantics(
             liveRegion: true,
             child: Text(

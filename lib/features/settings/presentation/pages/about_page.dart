@@ -7,6 +7,9 @@ import 'package:go_router/go_router.dart';
 import 'package:pantas/app/build_info.dart';
 import 'package:pantas/core/ui/leave_page.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
@@ -66,47 +69,37 @@ class AboutPage extends ConsumerWidget {
                 color: context.wideWeb
                     ? context.webTokens.colors.accentFill
                     : context.colors.accentFill,
-                borderRadius: BorderRadius.circular(14),
+                borderRadius: BorderRadius.circular(PantasRadius.lg),
               ),
               child: Text(
                 'P',
-                style: context.wideWeb
-                    ? context.webTokens.style(
-                        26,
-                        weight: FontWeight.w700,
-                        color: Colors.white,
-                      )
-                    : context.type.emphasized.copyWith(
-                        fontSize: 26,
-                        fontWeight: FontWeight.w700,
-                        color: Colors.white,
-                      ),
+                style: PantasType.webH2.copyWith(
+                  color: context.wideWeb
+                      ? context.webTokens.colors.onAccent
+                      : context.colors.onAccent,
+                ),
               ),
             ),
           ),
-          const SizedBox(width: 14),
+          const SizedBox(width: PantasSpace.s14),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   'Pantas',
-                  style: context.wideWeb
-                      ? context.webTokens.style(18, weight: FontWeight.w700)
-                      : context.type.emphasized.copyWith(
-                          fontSize: 22,
-                          fontWeight: FontWeight.w700,
-                        ),
+                  style: (context.wideWeb
+                          ? PantasType.webH3
+                          : PantasType.phoneTitle2)
+                      .copyWith(color: context.colors.textPrimary),
                 ),
                 Text(
                   // One format on every width, as the boards draw it.
                   'Version $version (${buildNumber ?? kBuildNumber})',
                   style: context.wideWeb
                       ? context.webTokens.sm
-                      : context.type.subhead.copyWith(
-                          fontSize: 15,
-                          color: context.colors.secondaryLabel,
-                        ),
+                      : PantasType.phoneExplanation
+                          .copyWith(color: context.colors.textSecondary),
                 ),
               ],
             ),
@@ -133,19 +126,18 @@ class AboutPage extends ConsumerWidget {
       children: [
         if (context.wideWeb)
           WebCard(
-            radius: 16,
-            padding: const EdgeInsets.all(18),
+            padding: const EdgeInsets.all(PantasSpace.s18),
             child: _identity(context),
           )
         else
           // ST_About: a white 18 px card with the 48 px "P" tile.
           Padding(
-            padding: const EdgeInsets.only(top: 6),
+            padding: const EdgeInsets.only(top: PantasSpace.s6),
             child: Container(
-              padding: const EdgeInsets.all(18),
+              padding: const EdgeInsets.all(PantasSpace.s18),
               decoration: BoxDecoration(
                 color: context.colors.surface,
-                borderRadius: BorderRadius.circular(18),
+                borderRadius: BorderRadius.circular(PantasRadius.xl),
               ),
               child: _identity(context),
             ),
@@ -165,7 +157,7 @@ class AboutPage extends ConsumerWidget {
             ),
           ],
         ),
-        const SizedBox(height: 24),
+        const SizedBox(height: PantasSpace.s24),
         SettingsSection(
           header: 'Your data',
           children: [
@@ -204,7 +196,12 @@ class AboutPage extends ConsumerWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(16, 0, 16, 12),
+              padding: const EdgeInsets.fromLTRB(
+                PantasSpace.s16,
+                PantasSpace.s0,
+                PantasSpace.s16,
+                PantasSpace.s12,
+              ),
               child: SelectableText(
                 contact.dpoEmail,
                 style: context.type.footnote,
@@ -212,7 +209,7 @@ class AboutPage extends ConsumerWidget {
             ),
           ],
         ),
-        const SizedBox(height: 24),
+        const SizedBox(height: PantasSpace.s24),
         SettingsSection(
           header: 'Get in touch',
           children: [
@@ -231,7 +228,7 @@ class AboutPage extends ConsumerWidget {
           ],
         ),
         if (debugEnabled) ...[
-          const SizedBox(height: 24),
+          const SizedBox(height: PantasSpace.s24),
           SettingsSection(
             header: 'Debug',
             children: [

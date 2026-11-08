@@ -6,6 +6,7 @@ import 'package:pantas/core/sync/providers.dart';
 import 'package:pantas/core/sync/runtime/sync_runtime_controller.dart';
 import 'package:pantas/core/sync/sync_status.dart';
 import 'package:pantas/core/ui/components/centered_dialog.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/l10n/app_localizations.dart';
 
 class SyncReconciliationGate extends ConsumerWidget {
@@ -26,7 +27,7 @@ class SyncReconciliationGate extends ConsumerWidget {
       fit: StackFit.expand,
       children: [
         child,
-        const ModalBarrier(dismissible: false, color: Colors.black54),
+        ModalBarrier(dismissible: false, color: context.colors.scrim),
         Center(
           child: CenteredDialog(
             title: strings.syncReconciliationTitle,

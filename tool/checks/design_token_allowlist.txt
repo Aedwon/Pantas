@@ -3,12 +3,9 @@
 # Each family of the design system 4.0 build removes what it migrates.
 # This file is empty after family M. lib/core/ui/theme/ and lib/core/ui/motion/
 # are the token definitions and are never listed.
-lib/app/routes/deferred_route.dart
-lib/app/routes/settings_routes_native.dart
 lib/features/assessment/
 lib/features/beta_feedback/
 lib/features/guardian/
-lib/features/legal/
 lib/features/metrics/
 lib/features/mock_exam/
 lib/features/notifications/
@@ -16,7 +13,8 @@ lib/features/onboarding/
 lib/features/paywall/
 lib/features/review_prompt/
 lib/features/roadmap/
-lib/features/settings/
+lib/features/settings/presentation/pages/pro_page.dart
+lib/features/settings/presentation/widgets/web_pro_hero.dart
 lib/features/wrapped/
 lib/core/ui/components/onboarding_frame.dart
 lib/core/ui/components/pantas_logo.dart

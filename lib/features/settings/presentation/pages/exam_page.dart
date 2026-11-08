@@ -14,7 +14,12 @@ import 'package:pantas/core/ui/components/segmented_switch.dart';
 import 'package:pantas/core/ui/components/value_wheel.dart';
 import 'package:pantas/core/ui/leave_page.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_border.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
@@ -24,6 +29,10 @@ import 'package:pantas/features/settings/presentation/widgets/settings_pane_page
 import 'package:pantas/features/settings/presentation/widgets/settings_row.dart';
 import 'package:pantas/features/settings/presentation/widgets/settings_section.dart';
 import 'package:pantas/features/settings/settings.dart';
+
+// The wide date-mode control's width on the approved board; the system's
+// SegmentedControl sets no width of its own.
+const double _dateModesWidth = 424;
 
 class ExamPage extends ConsumerStatefulWidget {
   const ExamPage({super.key});
@@ -163,7 +172,7 @@ class _ExamPageState extends ConsumerState<ExamPage>
                 // page.
                 title: context.wideWeb ? 'Your exam' : '',
                 children: [
-                  const SizedBox(height: 80),
+                  const SizedBox(height: PantasSpace.s56),
                   Center(
                     child: Opacity(
                       opacity: pop,
@@ -185,14 +194,14 @@ class _ExamPageState extends ConsumerState<ExamPage>
                       ),
                     ),
                   ),
-                  const SizedBox(height: 28),
+                  const SizedBox(height: PantasSpace.s28),
                   Text(
                     "You're now studying for "
                     '$_changedExam',
                     textAlign: TextAlign.center,
                     style: context.type.pageTitle,
                   ),
-                  const SizedBox(height: 12),
+                  const SizedBox(height: PantasSpace.s12),
                   Text(
                     _carried
                         ? "Everything you've done came with you, and your "
@@ -201,7 +210,7 @@ class _ExamPageState extends ConsumerState<ExamPage>
                     textAlign: TextAlign.center,
                     style: context.type.body,
                   ),
-                  const SizedBox(height: 24),
+                  const SizedBox(height: PantasSpace.s24),
                   SettingsSection(
                     footer: date == null
                         ? null
@@ -220,7 +229,7 @@ class _ExamPageState extends ConsumerState<ExamPage>
                       ),
                     ],
                   ),
-                  const SizedBox(height: 24),
+                  const SizedBox(height: PantasSpace.s24),
                   Center(
                     child: PantasButton(
                       label: 'Change Exam Date',
@@ -284,16 +293,10 @@ class _ExamPageState extends ConsumerState<ExamPage>
               key: ValueKey('study-day-$day'),
               style: TextButton.styleFrom(
                 shape: const CircleBorder(),
-                // ST_Exam: 38 px circles on the phone.
-                minimumSize:
-                    context.wideWeb ? const Size(44, 44) : const Size(38, 38),
-                fixedSize:
-                    context.wideWeb ? const Size(44, 44) : const Size(38, 38),
+                minimumSize: const Size.square(PantasSize.targetTouch),
+                fixedSize: const Size.square(PantasSize.targetTouch),
                 tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                textStyle: context.wideWeb
-                    ? context.webTokens.style(15, weight: FontWeight.w600)
-                    : context.type.body
-                        .copyWith(fontSize: 15, fontWeight: FontWeight.w600),
+                textStyle: PantasType.webLink,
                 padding: EdgeInsets.zero,
                 backgroundColor: settings.studyDays.weekdays.contains(day)
                     ? context.colors.accentFill
@@ -449,7 +452,7 @@ class _ExamPageState extends ConsumerState<ExamPage>
               ),
             ),
             if (mode == 0) ...[
-              const SizedBox(width: 12),
+              const SizedBox(width: PantasSpace.s12),
               WebPickerColumn(
                 label: 'Day',
                 values: [
@@ -467,7 +470,7 @@ class _ExamPageState extends ConsumerState<ExamPage>
                 onSelected: (i) => saveDate(current.year, current.month, i + 1),
               ),
             ],
-            const SizedBox(width: 12),
+            const SizedBox(width: PantasSpace.s12),
             WebPickerColumn(
               label: 'Year',
               values: [
@@ -531,10 +534,12 @@ class _ExamPageState extends ConsumerState<ExamPage>
                   ? null
                   : Container(
                       height: 34,
-                      padding: const EdgeInsets.symmetric(horizontal: 12),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: PantasSpace.s12,
+                      ),
                       decoration: BoxDecoration(
                         color: context.colors.fill,
-                        borderRadius: BorderRadius.circular(8),
+                        borderRadius: BorderRadius.circular(PantasRadius.sm),
                       ),
                       child: Center(
                         widthFactor: 1,
@@ -555,8 +560,7 @@ class _ExamPageState extends ConsumerState<ExamPage>
                       ),
                     ),
               valueStyle: context.wideWeb
-                  ? context.webTokens.style(
-                      16,
+                  ? PantasType.webRowTitleSettings.copyWith(
                       color: past
                           ? context.webTokens.colors.wrongText
                           : _dateOpen
@@ -581,11 +585,11 @@ class _ExamPageState extends ConsumerState<ExamPage>
                     : CrossAxisAlignment.center,
                 children: [
                   if (context.wideWeb)
-                    SizedBox(width: 424, child: dateModes())
+                    SizedBox(width: _dateModesWidth, child: dateModes())
                   else
                     dateModes(),
                   if (mode != 2 && context.wideWeb) ...[
-                    const SizedBox(height: 14),
+                    const SizedBox(height: PantasSpace.s14),
                     webPickers(),
                   ] else if (mode != 2)
                     phoneWheels(),
@@ -594,24 +598,30 @@ class _ExamPageState extends ConsumerState<ExamPage>
             ),
             if (context.wideWeb && _dateOpen)
               Divider(
-                height: .5,
-                thickness: .5,
+                height: PantasBorder.hairline,
+                thickness: PantasBorder.hairline,
                 color: context.webTokens.colors.separator,
               ),
             if (context.wideWeb)
               Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: PantasSpace.s16,
+                  vertical: PantasSpace.s14,
+                ),
                 child: Wrap(
                   alignment: WrapAlignment.spaceBetween,
                   crossAxisAlignment: WrapCrossAlignment.center,
-                  spacing: 16,
-                  runSpacing: 16,
+                  spacing: PantasSpace.s16,
+                  runSpacing: PantasSpace.s16,
                   children: [
-                    Text('Study days', style: context.webTokens.style(16)),
+                    Text(
+                      'Study days',
+                      style: PantasType.webRowTitleSettings
+                          .copyWith(color: context.colors.textPrimary),
+                    ),
                     Wrap(
-                      spacing: 8,
-                      runSpacing: 8,
+                      spacing: PantasSpace.s8,
+                      runSpacing: PantasSpace.s8,
                       children: [
                         for (final day in [7, 1, 2, 3, 4, 5, 6]) studyDay(day),
                       ],
@@ -621,12 +631,22 @@ class _ExamPageState extends ConsumerState<ExamPage>
               )
             else ...[
               Padding(
-                padding: const EdgeInsets.fromLTRB(16, 11, 16, 8),
+                padding: const EdgeInsets.fromLTRB(
+                  PantasSpace.s16,
+                  PantasSpace.s10,
+                  PantasSpace.s16,
+                  PantasSpace.s8,
+                ),
                 child: Text('Study days', style: context.type.body),
               ),
               // ST_Exam: seven 38 px circles, 10 px apart.
               Padding(
-                padding: const EdgeInsets.fromLTRB(16, 0, 16, 14),
+                padding: const EdgeInsets.fromLTRB(
+                  PantasSpace.s16,
+                  PantasSpace.s0,
+                  PantasSpace.s16,
+                  PantasSpace.s14,
+                ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -637,7 +657,7 @@ class _ExamPageState extends ConsumerState<ExamPage>
             ],
             if (_lastDay != null && !context.wideWeb)
               Padding(
-                padding: const EdgeInsets.all(16),
+                padding: const EdgeInsets.all(PantasSpace.s16),
                 child: Text(
                   'At least one day stays on.',
                   style: context.type.footnote,
@@ -645,7 +665,7 @@ class _ExamPageState extends ConsumerState<ExamPage>
               ),
           ],
         ),
-        const SizedBox(height: 24),
+        const SizedBox(height: PantasSpace.s24),
         SettingsSection(
           footer: context.wideWeb
               ? null
@@ -673,7 +693,7 @@ class _ExamPageState extends ConsumerState<ExamPage>
             ),
           ],
         ),
-        const SizedBox(height: 24),
+        const SizedBox(height: PantasSpace.s24),
         SettingsSection(
           footer: 'Topics you leave out drop out of your plan.',
           children: [
