@@ -101,12 +101,12 @@ void main() {
         greaterThan(tester.getTopLeft(find.text('MATHEMATICS')).dx),
       );
       // Board CZ_Many: the eyebrow is small caps, and the time ends on the
-      // card's inner edge (page right 44, card padding 22).
+      // card's inner edge (page right 44, card padding 20).
       expect(find.text('HOW LONG?'), findsOneWidget);
       expect(find.text('How long?'), findsNothing);
       expect(
         tester.getTopRight(find.textContaining('~')).dx,
-        closeTo(1440 - 44 - 22, 1.5),
+        closeTo(1440 - 44 - 20, 1.5),
       );
       await tester.ensureVisible(find.text('Total time'));
       await tester.pumpAndSettle();

@@ -6,8 +6,18 @@ import 'package:pantas/core/ui/components/math_text.dart';
 import 'package:pantas/core/ui/components/pro_paused_line.dart';
 import 'package:pantas/core/ui/figures/question_figure.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
+
+// The scrolling passage pane's height on the approved board. The system
+// sets the passage column's width but not this pane's height.
+const double _passageHeight = 560;
 
 /// The question, passage and checked answer share one desktop stage.
 class WebQuizQuestion extends StatefulWidget {
@@ -75,7 +85,7 @@ class _WebQuizQuestionState extends State<WebQuizQuestion>
     super.dispose();
   }
 
-  double _phase(double start, double end) => const Cubic(.32, .72, 0, 1)
+  double _phase(double start, double end) => PantasCurves.move
       .transform(((_reveal.value * 1840 - start) / (end - start)).clamp(0, 1));
 
   // RV_Reveal: badge opacity ends at 35% (37% for the fix), then
@@ -98,6 +108,9 @@ class _WebQuizQuestionState extends State<WebQuizQuestion>
 
   Widget _build(BuildContext context) {
     final t = context.webTokens;
+    final passageStyle = PantasType.webReaderBody.copyWith(
+      color: t.colors.readerBody,
+    );
     final correct = widget.question.correctChoice;
     final picked = widget.question.choices
         .where((c) => c.id == widget.chosenId)
@@ -108,19 +121,21 @@ class _WebQuizQuestionState extends State<WebQuizQuestion>
     // stem and the choices do not re-wrap while it slides. The checked width
     // is taken at once and the column starts where the open one stood.
     final slide = widget.checked && widget.passage == null;
+    final passaged = widget.passage != null;
     final Widget column = SizedBox(
       key: const ValueKey('web-question-column'),
-      width: widget.checked
-          ? widget.passage == null
-              ? 600
-              : 720 - 120 * move
-          : widget.passage != null
-              ? 520
-              : 720,
+      // The column is 720 wide, 600 while the explanation shows beside it
+      // (`layout-qcol`, `layout-qcol-narrow`). Next to a passage it takes the
+      // passage column's measure (`layout-passage`).
+      width: passaged
+          ? PantasLayout.passage.basis
+          : widget.checked
+              ? PantasLayout.qcolNarrow
+              : PantasLayout.qcol,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          if (widget.passage != null) const SizedBox(height: 22),
+          if (passaged) const SizedBox(height: PantasSpace.s24),
           Text(
             widget.passagePosition == null
                 ? widget.subject.toUpperCase()
@@ -129,35 +144,28 @@ class _WebQuizQuestionState extends State<WebQuizQuestion>
                     'OF ${widget.passagePosition!.total} ON THIS PASSAGE',
             style: t.eb,
           ),
-          const SizedBox(height: 10),
+          const SizedBox(height: PantasSpace.s10),
           DefaultTextStyle(
-            style: widget.passage != null
-                ? t.qtext.copyWith(fontSize: 25, height: 1.38)
-                : t.qtext,
-            child: ContentRenderer(
-              text: widget.question.stem,
-              style: widget.passage != null
-                  ? t.qtext.copyWith(fontSize: 25, height: 1.38)
-                  : t.qtext,
-            ),
+            style: t.qtext,
+            child: ContentRenderer(text: widget.question.stem, style: t.qtext),
           ),
-          const SizedBox(height: 28),
+          const SizedBox(height: PantasSpace.s28),
           if (widget.question.figureSpecJson != null) ...[
             WebCard(
-              padding: const EdgeInsets.all(20),
+              padding: const EdgeInsets.all(PantasSpace.s20),
               child: Theme(
                 data: buildLightTheme(web: true),
                 child: ColoredBox(
-                  color: Colors.white,
+                  color: PantasColors.light.figureBg,
                   child:
                       QuestionFigure(specJson: widget.question.figureSpecJson),
                 ),
               ),
             ),
-            const SizedBox(height: 28),
+            const SizedBox(height: PantasSpace.s28),
           ],
           for (final (index, choice) in widget.question.choices.indexed) ...[
-            if (index > 0) const SizedBox(height: 12),
+            if (index > 0) const SizedBox(height: PantasSpace.s12),
             WebAnswerOption(
               letter: choice.label,
               revealFromSelected: choice.id == widget.chosenId,
@@ -191,15 +199,22 @@ class _WebQuizQuestionState extends State<WebQuizQuestion>
               onPressed: widget.onPick == null
                   ? null
                   : () => widget.onPick!(choice.id),
-              child: MathText(
-                choice.text,
-                style: t.style(
-                  18,
-                  height: 1.4,
-                  weight: widget.checked && choice.id == correct.id
-                      ? FontWeight.w600
-                      : FontWeight.w400,
-                ),
+              child: Builder(
+                builder: (context) {
+                  final optionState = widget.checked
+                      ? choice.id == correct.id
+                          ? WebOptionState.right
+                          : choice.id == widget.chosenId
+                              ? WebOptionState.wrong
+                              : WebOptionState.dimmed
+                      : choice.id == widget.chosenId
+                          ? WebOptionState.selected
+                          : WebOptionState.normal;
+                  return MathText(
+                    choice.text,
+                    style: WebAnswerOption.textStyle(context, optionState),
+                  );
+                },
               ),
             ),
           ],
@@ -219,13 +234,12 @@ class _WebQuizQuestionState extends State<WebQuizQuestion>
         offset: Offset(24 * (1 - _phase(880, 1840)), 0),
         child: SizedBox(
           key: const ValueKey('web-answer-column'),
-          width: 440,
+          width: PantasLayout.xpl,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               WebCard(
-                radius: 20,
-                padding: const EdgeInsets.all(24),
+                padding: const EdgeInsets.all(PantasSpace.s24),
                 child: Column(
                   children: [
                     _answer(
@@ -236,9 +250,9 @@ class _WebQuizQuestionState extends State<WebQuizQuestion>
                       false,
                     ),
                     if (wrong && widget.pro && picked?.rationale != null) ...[
-                      const SizedBox(height: 18),
-                      Divider(height: 1, color: t.colors.separator),
-                      const SizedBox(height: 18),
+                      const SizedBox(height: PantasSpace.s18),
+                      Divider(height: 1, color: t.colors.divider),
+                      const SizedBox(height: PantasSpace.s18),
                       _answer(
                         context,
                         picked!.label,
@@ -251,11 +265,11 @@ class _WebQuizQuestionState extends State<WebQuizQuestion>
                 ),
               ),
               if (wrong && widget.proPaused) ...[
-                const SizedBox(height: 14),
+                const SizedBox(height: PantasSpace.s14),
                 const ProPausedLine(),
               ],
               if (widget.notes != null) ...[
-                const SizedBox(height: 14),
+                const SizedBox(height: PantasSpace.s14),
                 widget.notes!,
               ],
             ],
@@ -268,26 +282,30 @@ class _WebQuizQuestionState extends State<WebQuizQuestion>
         final splitPassage = widget.passage != null;
         final left = splitPassage
             ? SizedBox(
-                width: 600,
+                width: PantasLayout.qcolNarrow,
                 child: WebCard(
-                  radius: 20,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.fromLTRB(28, 22, 28, 14),
+                        padding: const EdgeInsets.fromLTRB(
+                          PantasSpace.s28,
+                          PantasSpace.s24,
+                          PantasSpace.s28,
+                          PantasSpace.s14,
+                        ),
                         child: Text('PASSAGE', style: t.eb),
                       ),
-                      Divider(height: 1, color: t.colors.separator),
+                      Divider(height: 1, color: t.colors.divider),
                       SizedBox(
-                        height: 560,
+                        height: _passageHeight,
                         child: SingleChildScrollView(
-                          padding: const EdgeInsets.fromLTRB(28, 22, 28, 28),
+                          padding: const EdgeInsets.all(PantasSpace.s28),
                           child: DefaultTextStyle(
-                            style: t.style(17, height: 1.7),
+                            style: passageStyle,
                             child: MathText(
                               widget.passage!.body,
-                              style: t.style(17, height: 1.7),
+                              style: passageStyle,
                             ),
                           ),
                         ),
@@ -299,12 +317,12 @@ class _WebQuizQuestionState extends State<WebQuizQuestion>
             : stage;
         final right = splitPassage
             ? SizedBox(
-                width: 520,
+                width: PantasLayout.passage.basis,
                 child: Column(
                   children: [
                     column,
                     if (widget.checked) ...[
-                      const SizedBox(height: 28),
+                      const SizedBox(height: PantasSpace.s28),
                       explanation,
                     ],
                   ],
@@ -312,18 +330,26 @@ class _WebQuizQuestionState extends State<WebQuizQuestion>
               )
             : explanation;
         if (!widget.checked && !splitPassage) return Center(child: column);
-        const leftWidth = 600.0;
-        final rightWidth = splitPassage ? 520.0 : 440.0;
-        if (constraints.maxWidth < leftWidth + rightWidth + 40) {
+        const leftWidth = PantasLayout.qcolNarrow;
+        final rightWidth =
+            splitPassage ? PantasLayout.passage.basis : PantasLayout.xpl;
+        final gap = splitPassage ? PantasSpace.s40 : PantasSpace.s14;
+        if (constraints.maxWidth < leftWidth + rightWidth + gap) {
           // The canvas wraps at smaller desktop widths.
-          return Column(children: [left, const SizedBox(height: 40), right]);
+          return Column(
+            children: [
+              left,
+              const SizedBox(height: PantasSpace.s40),
+              right,
+            ],
+          );
         }
         return Row(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             left,
-            SizedBox(width: splitPassage ? 40 : 40 * _phase(240, 1200)),
+            SizedBox(width: splitPassage ? gap : gap * _phase(240, 1200)),
             ClipRect(
               child: Align(
                 alignment: Alignment.topLeft,
@@ -345,38 +371,44 @@ class _WebQuizQuestionState extends State<WebQuizQuestion>
     bool wrong,
   ) {
     final t = context.webTokens;
+    final c = t.colors;
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(
-          width: 32,
+        // The key: a filled circle holding the letter (Explanation).
+        Container(
+          width: PantasSize.optBadge,
+          height: PantasSize.optBadge,
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: wrong ? c.dangerFill : c.accentFill,
+          ),
           child: Text(
             letter,
-            textAlign: TextAlign.center,
-            style: t.style(
-              15,
-              weight: FontWeight.w700,
-              color: wrong ? t.colors.wrongText : t.colors.accent,
+            style: PantasType.webLink.copyWith(
+              height: 1,
+              fontWeight: FontWeight.w700,
+              color: wrong ? c.onDanger : c.onAccent,
             ),
           ),
         ),
-        const SizedBox(width: 14),
+        const SizedBox(width: PantasSpace.s12),
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                label,
-                style: t.style(
-                  13,
-                  weight: FontWeight.w600,
-                  color: t.colors.secondaryLabel,
+                label.toUpperCase(),
+                style: PantasType.webFieldLabel.copyWith(
+                  letterSpacing: PantasType.webFieldLabel.fontSize! * .02,
+                  color: c.textSecondary,
                 ),
               ),
-              const SizedBox(height: 4),
+              const SizedBox(height: PantasSpace.s4),
               DefaultTextStyle(
-                style: t.style(16, height: 1.55),
-                child: MathText(text, style: t.style(16, height: 1.55)),
+                style: _bodyStyle(c),
+                child: MathText(text, style: _bodyStyle(c)),
               ),
             ],
           ),
@@ -384,4 +416,7 @@ class _WebQuizQuestionState extends State<WebQuizQuestion>
       ],
     );
   }
+
+  TextStyle _bodyStyle(PantasColors c) =>
+      PantasType.webExplanation.copyWith(color: c.readerBody);
 }

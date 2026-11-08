@@ -450,7 +450,11 @@ void main() {
     await tester.tap(find.byTooltip('Add note'));
     await tester.pumpAndSettle();
     expect(find.text('Why did you leave it blank?'), findsOneWidget);
-    await tester.tap(find.text("I didn't know"));
+    // The floating bar is 64 high (design system 4.0) and covers the middle
+    // of this choice, so press its top edge.
+    await tester.tapAt(
+      tester.getTopLeft(find.text("I didn't know")) + const Offset(8, 2),
+    );
     await tester.pumpAndSettle();
 
     verify(

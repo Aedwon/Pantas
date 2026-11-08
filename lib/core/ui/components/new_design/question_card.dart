@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/content_renderer.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 
 class QuestionCard extends StatelessWidget {
   const QuestionCard({
@@ -9,6 +12,7 @@ class QuestionCard extends StatelessWidget {
     this.figure,
     this.passage,
     this.choices = const [],
+    this.headerTrailing,
     super.key,
   });
   final String subject;
@@ -16,44 +20,66 @@ class QuestionCard extends StatelessWidget {
   final Widget? figure;
   final Widget? passage;
   final List<Widget> choices;
+
+  /// The question header's trailing slot (`page-head__trail`). On a phone
+  /// narrower than 400 the quiz puts the flag here (D71).
+  final Widget? headerTrailing;
   @override
   Widget build(BuildContext context) => Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          if (passage != null) ...[passage!, const SizedBox(height: 20)],
-          Text(subject.toUpperCase(), style: context.type.sectionHeader),
-          const SizedBox(height: 8),
+          if (passage != null) ...[
+            passage!,
+            const SizedBox(height: PantasSpace.s20),
+          ],
+          Row(
+            children: [
+              Expanded(
+                child: Text(
+                  subject.toUpperCase(),
+                  style: PantasType.phoneSectionHeader.copyWith(
+                    color: context.colors.textSecondary,
+                  ),
+                ),
+              ),
+              if (headerTrailing != null) headerTrailing!,
+            ],
+          ),
+          const SizedBox(height: PantasSpace.s8),
           ContentRenderer(
             text: stem,
             questionStem: true,
-            style: context.type.emphasized.copyWith(
-              fontSize: figure == null ? 21 : 19,
-              height: 1.35,
-              letterSpacing: figure == null ? -.252 : -.228,
+            style: PantasType.phoneQuestion.copyWith(
+              color: context.colors.textPrimary,
             ),
           ),
           if (figure != null) ...[
-            const SizedBox(height: 20),
+            const SizedBox(height: PantasSpace.s20),
             ClipRRect(
-              borderRadius: BorderRadius.circular(14),
+              borderRadius: BorderRadius.circular(PantasRadius.lg),
               child: Container(
                 key: const ValueKey('question-figure-frame'),
-                color: context.colors.figureBackground,
-                padding: const EdgeInsets.fromLTRB(14, 14, 14, 10),
+                color: context.colors.figureBg,
+                padding: const EdgeInsets.fromLTRB(
+                  PantasSpace.s14,
+                  PantasSpace.s14,
+                  PantasSpace.s14,
+                  PantasSpace.s10,
+                ),
                 child: Theme(
                   data: buildLightTheme(),
                   child: Material(
-                    color: context.colors.figureBackground,
+                    color: context.colors.figureBg,
                     child: figure,
                   ),
                 ),
               ),
             ),
           ],
-          if (choices.isNotEmpty) const SizedBox(height: 20),
+          if (choices.isNotEmpty) const SizedBox(height: PantasSpace.s20),
           for (var i = 0; i < choices.length; i++) ...[
-            if (i > 0) const SizedBox(height: 10),
+            if (i > 0) const SizedBox(height: PantasSpace.s10),
             choices[i],
           ],
         ],

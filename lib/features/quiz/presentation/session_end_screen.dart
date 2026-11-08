@@ -13,6 +13,11 @@ import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pro_paused_line.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/quiz/domain/quiz_session.dart';
 import 'package:pantas/features/quiz/presentation/session_entry_motion.dart';
@@ -122,14 +127,13 @@ class _SessionEndBodyState extends State<SessionEndBody>
           alignment: Alignment.center,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            color: item.isCorrect ? colors.accentTint : colors.wrongTint,
+            color: item.isCorrect ? colors.accentTint : colors.dangerTint,
           ),
           child: Text(
             '${index + 1}',
-            style: context.type.caption.copyWith(
-              fontSize: 12,
+            style: PantasType.phoneCaption.copyWith(
+              color: item.isCorrect ? colors.accent : colors.dangerText,
               fontWeight: FontWeight.w600,
-              color: item.isCorrect ? colors.accent : colors.wrongText,
             ),
           ),
         ),
@@ -190,12 +194,17 @@ class _SessionEndBodyState extends State<SessionEndBody>
       child: Stack(
         children: [
           ListView(
-            padding: const EdgeInsets.fromLTRB(16, 0, 16, 180),
+            padding: const EdgeInsets.fromLTRB(
+              PantasSpace.s16,
+              PantasSpace.s0,
+              PantasSpace.s16,
+              PantasLayout.reserveBar,
+            ),
             children: [
               // QV_EndPro: an X at x 19, y 17 closes the page like Done; the
               // title then starts at y 58.
               SizedBox(
-                height: 47,
+                height: PantasSize.btnBar,
                 child: Align(
                   alignment: Alignment.centerLeft,
                   child: Transform.translate(
@@ -209,27 +218,29 @@ class _SessionEndBodyState extends State<SessionEndBody>
                       icon: Icon(
                         PantasIcons.close,
                         size: 22,
-                        color: colors.controlOutline,
+                        color: colors.borderControl,
                       ),
                     ),
                   ),
                 ),
               ),
-              const SizedBox(height: 11),
+              const SizedBox(height: PantasSpace.s10),
               _appear(
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       'Session finished.',
-                      style: type.pageTitle.copyWith(fontSize: 30),
+                      style: PantasType.phoneTitle1.copyWith(
+                        color: context.colors.textPrimary,
+                      ),
                     ),
                     if (source != null) ...[
-                      const SizedBox(height: 2),
+                      const SizedBox(height: PantasSpace.s2),
                       Text(
                         source,
                         style:
-                            type.subhead.copyWith(color: colors.secondaryLabel),
+                            type.subhead.copyWith(color: colors.textSecondary),
                       ),
                     ],
                   ],
@@ -238,13 +249,16 @@ class _SessionEndBodyState extends State<SessionEndBody>
                 380,
                 rise: 6,
               ),
-              const SizedBox(height: 22),
+              const SizedBox(height: PantasSpace.s20),
               Padding(
-                padding: const EdgeInsets.only(top: 6, bottom: 2),
+                padding: const EdgeInsets.only(
+                  top: PantasSpace.s6,
+                  bottom: PantasSpace.s2,
+                ),
                 child: Column(
                   children: [
                     HalfRingGauge.quizCount(correct: correct, total: total),
-                    const SizedBox(height: 18),
+                    const SizedBox(height: PantasSpace.s18),
                     Wrap(
                       alignment: WrapAlignment.center,
                       spacing: 6,
@@ -252,7 +266,7 @@ class _SessionEndBodyState extends State<SessionEndBody>
                       children: [for (var i = 0; i < total; i++) _circle(i)],
                     ),
                     if (durationLine != null) ...[
-                      const SizedBox(height: 11),
+                      const SizedBox(height: PantasSpace.s10),
                       _appear(
                         Text(durationLine, style: type.footnote),
                         1600,
@@ -263,16 +277,21 @@ class _SessionEndBodyState extends State<SessionEndBody>
                 ),
               ),
               if (widget.debriefCards != null) ...[
-                const SizedBox(height: 22),
+                const SizedBox(height: PantasSpace.s20),
                 widget.debriefCards!,
               ],
               if (misses.isNotEmpty) ...[
-                const SizedBox(height: 22),
+                const SizedBox(height: PantasSpace.s20),
                 _appear(
                   Column(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.fromLTRB(16, 0, 16, 7),
+                        padding: const EdgeInsets.fromLTRB(
+                          PantasSpace.s16,
+                          PantasSpace.s0,
+                          PantasSpace.s16,
+                          PantasSpace.s6,
+                        ),
                         child: Row(
                           children: [
                             Expanded(
@@ -319,7 +338,7 @@ class _SessionEndBodyState extends State<SessionEndBody>
                                 leading: Icon(
                                   PantasIcons.close,
                                   size: 22,
-                                  color: colors.wrongText,
+                                  color: colors.dangerText,
                                 ),
                                 divider: position < misses.take(3).length - 1 ||
                                     misses.length > 3,
@@ -347,7 +366,7 @@ class _SessionEndBodyState extends State<SessionEndBody>
                   rise: 8,
                 ),
               ],
-              const SizedBox(height: 22),
+              const SizedBox(height: PantasSpace.s20),
               _appear(
                 GroupedSection(
                   children: [
@@ -360,13 +379,13 @@ class _SessionEndBodyState extends State<SessionEndBody>
               ),
               if (misses.isNotEmpty &&
                   (widget.proIsActive || widget.proPaused)) ...[
-                const SizedBox(height: 22),
+                const SizedBox(height: PantasSpace.s20),
                 _appear(
                   Container(
-                    padding: const EdgeInsets.all(16),
+                    padding: const EdgeInsets.all(PantasSpace.s16),
                     decoration: BoxDecoration(
-                      color: colors.surface,
-                      borderRadius: BorderRadius.circular(14),
+                      color: colors.surfaceCard,
+                      borderRadius: BorderRadius.circular(PantasRadius.lg),
                     ),
                     child: widget.proPaused
                         ? const ProPausedLine()
@@ -378,17 +397,17 @@ class _SessionEndBodyState extends State<SessionEndBody>
                                 'The better your notes, the more every '
                                 'review helps.',
                                 style: type.subhead.copyWith(
-                                  color: colors.label,
+                                  color: colors.textPrimary,
                                   height: 1.45,
                                 ),
                               ),
-                              const SizedBox(height: 12),
+                              const SizedBox(height: PantasSpace.s12),
                               PantasButton(
                                 label: 'Finish the Notes',
                                 variant: PantasButtonVariant.secondary,
-                                height: 44,
-                                radius: 99,
-                                fontSize: 15,
+                                height: PantasSize.btn,
+                                radius: PantasRadius.full,
+                                fontSize: PantasType.webLink.fontSize,
                                 onPressed: widget.onNotes,
                               ),
                             ],
@@ -405,7 +424,12 @@ class _SessionEndBodyState extends State<SessionEndBody>
             right: 0,
             bottom: 0,
             child: Container(
-              padding: const EdgeInsets.fromLTRB(16, 14, 16, 22),
+              padding: const EdgeInsets.fromLTRB(
+                PantasSpace.s16,
+                PantasSpace.s14,
+                PantasSpace.s16,
+                PantasSpace.s20,
+              ),
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                   begin: Alignment.topCenter,
@@ -415,8 +439,8 @@ class _SessionEndBodyState extends State<SessionEndBody>
                     .26,
                   ],
                   colors: [
-                    colors.background.withValues(alpha: 0),
-                    colors.background,
+                    colors.bgPage.withValues(alpha: 0),
+                    colors.bgPage,
                   ],
                 ),
               ),
@@ -431,7 +455,7 @@ class _SessionEndBodyState extends State<SessionEndBody>
                         busy: _nextBusy,
                         onPressed: () => unawaited(_next()),
                       ),
-                      const SizedBox(height: 4),
+                      const SizedBox(height: PantasSpace.s4),
                     ],
                     PantasButton(
                       label: 'Done',

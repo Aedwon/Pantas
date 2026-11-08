@@ -1,12 +1,19 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/math_support.dart';
 import 'package:pantas/core/ui/components/math_text.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_border.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
-import 'package:pantas/core/ui/web/web_tokens.dart';
 
 enum ChoiceRowState { plain, picked, right, wrong, dimmed }
 
@@ -25,54 +32,55 @@ class ChoiceRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (context.wideWeb) {
+      final optionState = switch (state) {
+        ChoiceRowState.plain => WebOptionState.normal,
+        ChoiceRowState.picked => WebOptionState.selected,
+        ChoiceRowState.right => WebOptionState.right,
+        ChoiceRowState.wrong => WebOptionState.wrong,
+        ChoiceRowState.dimmed => WebOptionState.dimmed,
+      };
       return WebAnswerOption(
         letter: letter,
         onPressed: onTap,
-        state: switch (state) {
-          ChoiceRowState.plain => WebOptionState.normal,
-          ChoiceRowState.picked => WebOptionState.selected,
-          ChoiceRowState.right => WebOptionState.right,
-          ChoiceRowState.wrong => WebOptionState.wrong,
-          ChoiceRowState.dimmed => WebOptionState.dimmed,
-        },
+        state: optionState,
         child: MathText(
           text,
-          style: context.webTokens.style(
-            18,
-            height: 1.4,
-            weight: state == ChoiceRowState.right
-                ? FontWeight.w600
-                : FontWeight.w400,
-          ),
+          style: WebAnswerOption.textStyle(context, optionState),
         ),
       );
     }
     final c = context.colors;
     final right = state == ChoiceRowState.right;
     final wrong = state == ChoiceRowState.wrong;
+    final dimmed = state == ChoiceRowState.dimmed;
     final filled = right || wrong || state == ChoiceRowState.picked;
-    final circle = wrong ? c.destructive : c.accentFill;
+    final circle = wrong ? c.dangerFill : c.accentFill;
     final background = right
         ? c.accentTint
         : wrong
-            ? c.wrongTint
-            : c.surface;
-    final size = (MediaQuery.textScalerOf(context).scale(15) * 1.35 + 4)
-        .clamp(30.0, double.infinity);
+            ? c.dangerTint
+            : c.surfaceCard;
+    // The badge grows with the letter: at least 2em of the 15 px letter.
+    final size = math.max(
+      PantasSize.optBadgePhone,
+      MediaQuery.textScalerOf(context).scale(PantasType.webLink.fontSize!) * 2,
+    );
     final action =
         state == ChoiceRowState.plain || state == ChoiceRowState.picked
             ? onTap
             : null;
     final foreground =
-        filled ? (wrong ? c.onDestructive : c.onAccent) : c.secondaryLabel;
+        filled ? (wrong ? c.onDanger : c.onAccent) : c.textSecondary;
     final result = right
-        ? 'correct'
+        ? ', correct answer'
         : wrong
-            ? 'wrong'
+            ? ', your answer, wrong'
             : state == ChoiceRowState.picked
-                ? 'selected'
-                : null;
+                ? ', selected'
+                : '';
     final spoken = inlineMathSemantics(text)?.label ?? text;
+    // The result shows as the mark in the badge and as words, never as color
+    // alone. The badge holds the check, so no mark sits at the right end.
     final mark = Container(
       key: const ValueKey('choice-mark'),
       width: size,
@@ -83,76 +91,75 @@ class ChoiceRow extends StatelessWidget {
         border: filled
             ? null
             : Border.all(
-                color: Theme.of(context).brightness == Brightness.light
-                    ? c.choiceOutline
-                    : c.chevron,
-                width: 1.5,
+                color: dimmed ? c.divider : c.borderControl,
+                width: PantasBorder.ringStrong,
               ),
       ),
       alignment: Alignment.center,
       child: right || wrong
           ? Icon(
               right ? PantasIcons.check : PantasIcons.close,
-              size: 14,
+              size: PantasSize.icon,
               color: foreground,
             )
           : Text(
               letter,
-              style: context.type.subheadStrong.copyWith(color: foreground),
+              style: PantasType.webLink.copyWith(
+                height: 1,
+                color: foreground,
+              ),
             ),
     );
     return Semantics(
-      label: '$letter${result == null ? '' : ', $result'}, $spoken',
+      label: '$letter, $spoken$result',
       selected: state == ChoiceRowState.picked,
+      inMutuallyExclusiveGroup: true,
+      checked: state == ChoiceRowState.picked || wrong,
       button: action != null,
       onTap: action,
       child: ExcludeSemantics(
-        child: Opacity(
-          key: const ValueKey('choice-opacity'),
-          opacity: state == ChoiceRowState.dimmed ? .45 : 1,
-          child: Material(
-            color: context.colors.transparent,
-            child: InkWell(
-              onTap: action,
-              borderRadius: BorderRadius.circular(14),
-              child: AnimatedContainer(
-                key: const ValueKey('choice-surface'),
-                duration: MediaQuery.disableAnimationsOf(context)
-                    ? Duration.zero
-                    : const Duration(milliseconds: 180),
-                curve: PantasCurves.fade,
-                decoration: BoxDecoration(
-                  color: background,
-                  borderRadius: BorderRadius.circular(14),
+        child: Material(
+          color: Colors.transparent,
+          child: InkWell(
+            onTap: action,
+            borderRadius: BorderRadius.circular(PantasRadius.lg),
+            child: AnimatedContainer(
+              key: const ValueKey('choice-surface'),
+              duration: MediaQuery.disableAnimationsOf(context)
+                  ? Duration.zero
+                  : PantasDurations.short3,
+              curve: PantasCurves.fade,
+              decoration: BoxDecoration(
+                color: background,
+                borderRadius: BorderRadius.circular(PantasRadius.lg),
+              ),
+              foregroundDecoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(PantasRadius.lg),
+                border: Border.all(
+                  color: filled
+                      ? (wrong ? c.danger : c.accent)
+                      : Colors.transparent,
+                  width: PantasBorder.ringSelected,
                 ),
-                foregroundDecoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(14),
-                  border: Border.all(
-                    color: filled
-                        ? (wrong ? c.destructive : c.accent)
-                        : context.colors.transparent,
-                    width: 1.5,
-                  ),
-                ),
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 14, vertical: 13),
-                child: Row(
-                  children: [
-                    mark,
-                    const SizedBox(width: 12),
-                    Expanded(
-                      child: MathText(
-                        text,
-                        style: context.type.body.copyWith(
-                          fontWeight: right || wrong
-                              ? FontWeight.w600
-                              : FontWeight.w400,
-                          color: wrong ? c.wrongText : c.label,
-                        ),
+              ),
+              padding: const EdgeInsets.symmetric(
+                horizontal: PantasSpace.s14,
+                vertical: PantasSpace.s14,
+              ),
+              child: Row(
+                children: [
+                  mark,
+                  const SizedBox(width: PantasSpace.s12),
+                  Expanded(
+                    child: MathText(
+                      text,
+                      style: PantasType.phoneOption.copyWith(
+                        fontWeight: right ? FontWeight.w600 : FontWeight.w400,
+                        color: dimmed ? c.textSecondary : c.textPrimary,
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           ),

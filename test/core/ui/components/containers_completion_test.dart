@@ -159,7 +159,7 @@ void main() {
           right: TextButton(onPressed: () {}, child: const Text('Next')),
         );
         await pumpAccessibilitySurface(tester, bar, brightness: brightness);
-        expect(tester.getSize(find.byType(FloatingBar)).height, 60);
+        expect(tester.getSize(find.byType(FloatingBar)).height, 64);
         expect(tester.widget<Text>(find.text('4 of 10')).style!.fontSize, 15);
         await expectSurvivesTextScale(
           tester,

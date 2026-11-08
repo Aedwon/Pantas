@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 
 /// Rows inside the Today group (Reviews, New questions) while the counts load.
@@ -14,18 +17,24 @@ class QuizTodayRowsSkeleton extends StatelessWidget {
               SizedBox(
                 height: wide ? 66 : 63.5,
                 child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: wide ? 20 : 16),
+                  padding: EdgeInsets.symmetric(
+                    horizontal: wide ? PantasSpace.s20 : PantasSpace.s16,
+                  ),
                   child: Row(
                     children: [
-                      const SkeletonBlock(width: 30, height: 30, radius: 15),
-                      const SizedBox(width: 14),
+                      const SkeletonBlock(
+                        width: 30,
+                        height: 30,
+                        radius: PantasRadius.full,
+                      ),
+                      const SizedBox(width: PantasSpace.s14),
                       Expanded(
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             const SkeletonBlock(width: 120, height: 15),
-                            const SizedBox(height: 7),
+                            const SizedBox(height: PantasSpace.s6),
                             SkeletonBlock(
                               width: i == 0 ? 160 : 140,
                               height: 12,
@@ -91,13 +100,13 @@ class QuizPageSkeleton extends StatelessWidget {
                 children: [
                   WebSkeletonEyebrow(width: 60),
                   SkeletonCard(height: 235),
-                  SizedBox(height: 28),
+                  SizedBox(height: PantasSpace.s28),
                   WebSkeletonEyebrow(width: 170),
                   SkeletonCard(height: 216),
                 ],
               ),
             ),
-            SizedBox(width: 28),
+            SizedBox(width: PantasSpace.s28),
             Expanded(child: SkeletonCard(height: 300)),
           ],
         ),
@@ -108,9 +117,9 @@ class QuizPageSkeleton extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           SkeletonSection(height: 209, headerWidth: 60),
-          SizedBox(height: 24),
+          SizedBox(height: PantasSpace.s24),
           SkeletonCard(height: 190),
-          SizedBox(height: 24),
+          SizedBox(height: PantasSpace.s24),
           SkeletonGroup(rowHeight: 56, headerWidth: 170),
         ],
       ),
@@ -125,34 +134,50 @@ class QuizSheetSkeleton extends StatelessWidget {
   @override
   Widget build(BuildContext context) => SkeletonPulse(
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(16, 22, 16, 18),
+          padding: const EdgeInsets.fromLTRB(
+            PantasSpace.s16,
+            PantasSpace.s20,
+            PantasSpace.s16,
+            PantasSpace.s18,
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               const Padding(
-                padding: EdgeInsets.only(left: 8, bottom: 14),
+                padding: EdgeInsets.only(
+                  left: PantasSpace.s8,
+                  bottom: PantasSpace.s14,
+                ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SkeletonBlock(width: 140, height: 24, radius: 8),
-                    SizedBox(height: 8),
+                    SkeletonBlock(
+                      width: 140,
+                      height: 24,
+                      radius: PantasRadius.sm,
+                    ),
+                    SizedBox(height: PantasSpace.s8),
                     SkeletonBlock(width: 80, height: 14),
                   ],
                 ),
               ),
               for (var i = 0; i < 3; i++)
                 const SizedBox(
-                  height: 52,
+                  height: PantasSize.tabbarItem,
                   child: Row(
                     children: [
-                      SkeletonBlock(width: 30, height: 30, radius: 15),
-                      SizedBox(width: 14),
+                      SkeletonBlock(
+                        width: 30,
+                        height: 30,
+                        radius: PantasRadius.full,
+                      ),
+                      SizedBox(width: PantasSpace.s14),
                       SkeletonBlock(width: 150, height: 15),
                     ],
                   ),
                 ),
-              const SizedBox(height: 14),
-              const SkeletonBlock(height: 52, radius: 14),
+              const SizedBox(height: PantasSpace.s14),
+              const SkeletonBlock(height: 52, radius: PantasRadius.lg),
             ],
           ),
         ),

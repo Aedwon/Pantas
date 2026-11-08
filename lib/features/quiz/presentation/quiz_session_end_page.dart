@@ -18,6 +18,9 @@ import 'package:pantas/core/ui/components/math_text.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/paywall/application/paywall_providers.dart';
 import 'package:pantas/features/paywall/domain/entitlement.dart';
@@ -228,9 +231,9 @@ class _QuizSessionEndPageState extends ConsumerState<QuizSessionEndPage> {
           // Boards QV_All and QV_Mistakes: a 44 px back row under 6 px, with
           // a teal body-size label, whatever the platform's button density.
           Padding(
-            padding: const EdgeInsets.only(top: 6),
+            padding: const EdgeInsets.only(top: PantasSpace.s6),
             child: SizedBox(
-              height: 44,
+              height: PantasSize.btn,
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: TextButton(
@@ -245,7 +248,12 @@ class _QuizSessionEndPageState extends ConsumerState<QuizSessionEndPage> {
                   },
                   style: TextButton.styleFrom(
                     minimumSize: const Size(44, 44),
-                    padding: const EdgeInsets.fromLTRB(8, 0, 16, 0),
+                    padding: const EdgeInsets.fromLTRB(
+                      PantasSpace.s8,
+                      PantasSpace.s0,
+                      PantasSpace.s16,
+                      PantasSpace.s0,
+                    ),
                     visualDensity: VisualDensity.standard,
                     tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                   ),
@@ -257,11 +265,12 @@ class _QuizSessionEndPageState extends ConsumerState<QuizSessionEndPage> {
                         size: 24,
                         color: context.colors.accent,
                       ),
-                      const SizedBox(width: 2),
+                      const SizedBox(width: PantasSpace.s2),
                       Flexible(
                         child: Text(
                           'Session',
-                          style: context.type.body
+                          style: PantasType.phoneBody
+                              .copyWith(color: context.colors.textPrimary)
                               .copyWith(color: context.colors.accent),
                         ),
                       ),
@@ -273,25 +282,33 @@ class _QuizSessionEndPageState extends ConsumerState<QuizSessionEndPage> {
           ),
           Expanded(
             child: ListView(
-              padding: const EdgeInsets.fromLTRB(16, 4, 16, 24),
+              padding: const EdgeInsets.fromLTRB(
+                PantasSpace.s16,
+                PantasSpace.s4,
+                PantasSpace.s16,
+                PantasSpace.s24,
+              ),
               children: [
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 4),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: PantasSpace.s4),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         widget.mistakesOnly ? 'Your mistakes' : 'All questions',
-                        style: context.type.pageTitle.copyWith(fontSize: 28),
+                        style: PantasType.phoneTitle1
+                            .copyWith(color: context.colors.textPrimary),
                       ),
                       Text(
                         '$correct of $total correct',
-                        style: context.type.subhead,
+                        style: PantasType.phoneExplanation
+                            .copyWith(color: context.colors.textPrimary),
                       ),
                     ],
                   ),
                 ),
-                const SizedBox(height: 18),
+                const SizedBox(height: PantasSpace.s18),
                 GroupedSection(
                   children: [
                     for (final (position, index) in indices.indexed)
@@ -305,7 +322,9 @@ class _QuizSessionEndPageState extends ConsumerState<QuizSessionEndPage> {
                             title: title,
                             titleWidget: question.shortLabel == null
                                 ? DefaultTextStyle(
-                                    style: context.type.body,
+                                    style: PantasType.phoneBody.copyWith(
+                                      color: context.colors.textPrimary,
+                                    ),
                                     maxLines: 1,
                                     overflow: TextOverflow.ellipsis,
                                     softWrap: false,
@@ -325,16 +344,15 @@ class _QuizSessionEndPageState extends ConsumerState<QuizSessionEndPage> {
                                 shape: BoxShape.circle,
                                 color: item.isCorrect
                                     ? colors.accentTint
-                                    : colors.wrongTint,
+                                    : colors.dangerTint,
                               ),
                               child: Text(
                                 '${index + 1}',
-                                style: context.type.caption.copyWith(
-                                  fontSize: 13,
-                                  fontWeight: FontWeight.w600,
+                                style: PantasType.phoneFootnote.copyWith(
                                   color: item.isCorrect
                                       ? colors.accent
-                                      : colors.wrongText,
+                                      : colors.dangerText,
+                                  fontWeight: FontWeight.w600,
                                 ),
                               ),
                             ),
@@ -426,7 +444,7 @@ class _QuizSessionEndPageState extends ConsumerState<QuizSessionEndPage> {
         ref.watch(entitlementProvider).valueOrNull?.state ==
             EntitlementState.paused;
     return Scaffold(
-      backgroundColor: context.colors.background,
+      backgroundColor: context.colors.bgPage,
       body: FutureBuilder<CompletedQuizData>(
         future: _future,
         builder: (context, snapshot) {

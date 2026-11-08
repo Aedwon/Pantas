@@ -6,6 +6,7 @@ import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 
@@ -60,7 +61,7 @@ class QuizUnavailableFrame extends StatelessWidget {
         child: Focus(
           autofocus: true,
           child: Scaffold(
-            backgroundColor: context.colors.background,
+            backgroundColor: context.colors.bgPage,
             body: Column(
               children: [
                 WebCenteredTopBar(
@@ -73,7 +74,7 @@ class QuizUnavailableFrame extends StatelessWidget {
                         onPressed: onClose,
                         icon: Icon(PantasIcons.close, size: 22),
                       ),
-                      const SizedBox(width: 10),
+                      const SizedBox(width: PantasSpace.s10),
                       const WebKeyHint('Esc'),
                     ],
                   ),

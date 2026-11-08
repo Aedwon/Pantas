@@ -28,6 +28,9 @@ const double _wideQuizHeight = 150;
 const double _largeStroke = 16;
 const double _wideMockStroke = 18;
 
+/// The wide quiz result dial, for a page that crops around it.
+const wideQuizDial = Size(_wideQuizWidth, _wideQuizHeight);
+
 /// Number and unit sizes of those boards.
 const double _largeNumber = 56;
 const double _wideMockNumber = 64;

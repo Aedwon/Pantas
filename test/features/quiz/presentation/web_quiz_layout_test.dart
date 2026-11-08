@@ -41,7 +41,7 @@ void main() {
           ),
         );
         await tester.pumpAndSettle();
-        expect(find.text('your pick'), pro ? findsOneWidget : findsNothing);
+        expect(find.text('YOUR PICK'), pro ? findsOneWidget : findsNothing);
         expect(
           find.text('Why did you miss it?'),
           pro ? findsOneWidget : findsNothing,

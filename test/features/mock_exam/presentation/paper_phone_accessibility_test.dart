@@ -187,7 +187,7 @@ void main() {
           final counter = tester.getRect(find.text('125 of 250'));
           expect(counter.center.dx, closeTo(width / 2, .1));
           if (scale == 1) {
-            expect(tester.getSize(find.byType(FloatingBar)).height, 60);
+            expect(tester.getSize(find.byType(FloatingBar)).height, 64);
           }
           final controls = ['mock-prev', 'mock-grid', 'mock-flag', 'mock-next'];
           final rectangles = [

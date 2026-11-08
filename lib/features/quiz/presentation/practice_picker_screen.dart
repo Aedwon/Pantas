@@ -22,6 +22,10 @@ import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/motion/view_swap.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_key_focus.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -331,11 +335,21 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
       children: [
         PantasPage(
           title: 'Customize your own',
-          titleStyle: context.type.pageTitleCompact.copyWith(height: 1.15),
+          titleStyle: PantasType.phoneTitle1
+              .copyWith(color: context.colors.textPrimary)
+              .copyWith(height: 1.15),
           fixedTitle: true,
           backLabel: 'Quiz',
-          backPadding: const EdgeInsets.only(left: 4, right: 12),
-          titlePadding: const EdgeInsets.fromLTRB(4, 4, 4, 18),
+          backPadding: const EdgeInsets.only(
+            left: PantasSpace.s4,
+            right: PantasSpace.s12,
+          ),
+          titlePadding: const EdgeInsets.fromLTRB(
+            PantasSpace.s4,
+            PantasSpace.s4,
+            PantasSpace.s4,
+            PantasSpace.s18,
+          ),
           onBack: () => unawaited(_back()),
           bottomInset: 260,
           headerTrailing: barSummary.isEmpty ? null : _clearButton(),
@@ -400,8 +414,9 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
           _value = _snap(_value, next.units(index).length, pace);
         });
     final hairline = Padding(
-      padding: const EdgeInsets.only(left: 60, right: 20),
-      child: Divider(height: 1, thickness: 1, color: t.colors.separator),
+      padding:
+          const EdgeInsets.only(left: PantasSpace.s56, right: PantasSpace.s20),
+      child: Divider(height: 1, thickness: 1, color: t.colors.divider),
     );
     final still = MediaQuery.disableAnimationsOf(context);
     Widget unfold(PracticeTopicEntry topic, Widget lessons) => still
@@ -434,8 +449,18 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                     // Board CZ_None: a topic with a second line is 71 px, not
                     // the one-line row's padding around two lines.
                     padding: topic.hasQuestions
-                        ? const EdgeInsets.fromLTRB(20, 19, 8, 19)
-                        : const EdgeInsets.fromLTRB(20, 15.5, 8, 15.5),
+                        ? const EdgeInsets.fromLTRB(
+                            PantasSpace.s20,
+                            PantasSpace.s18,
+                            PantasSpace.s8,
+                            PantasSpace.s18,
+                          )
+                        : const EdgeInsets.fromLTRB(
+                            PantasSpace.s20,
+                            PantasSpace.s16,
+                            PantasSpace.s8,
+                            PantasSpace.s16,
+                          ),
                     gap: 16,
                     minHeight: 62,
                     standardDensity: true,
@@ -444,22 +469,21 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                       children: [
                         Text(
                           topic.name,
-                          style: t.style(17, height: 22 / 17),
+                          style: PantasType.webRowTitle
+                              .copyWith(color: t.colors.textPrimary),
                         ),
                         if (!topic.hasQuestions)
                           Text(
                             'No questions yet',
-                            style: t.style(
-                              14,
-                              height: 18 / 14,
-                              color: t.colors.secondaryLabel,
-                            ),
+                            style: PantasType.webRowSub
+                                .copyWith(color: t.colors.textSecondary),
                           ),
                       ],
                     ),
                     trailing: topic.canUnfold
                         ? Padding(
-                            padding: const EdgeInsets.only(right: 20),
+                            padding:
+                                const EdgeInsets.only(right: PantasSpace.s20),
                             child: SizedBox.square(
                               dimension: 32,
                               child: IconButton(
@@ -485,7 +509,7 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                                   child: Icon(
                                     Icons.keyboard_arrow_down,
                                     size: 14,
-                                    color: t.colors.chevron,
+                                    color: t.colors.iconChevron,
                                   ),
                                 ),
                               ),
@@ -500,8 +524,8 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                     _webOpenTopics.contains(topic.id)
                         ? ColoredBox(
                             color: t.dark
-                                ? t.colors.background
-                                : const Color(0xFFFBFBFC),
+                                ? t.colors.bgPage
+                                : t.colors.surfaceInset,
                             child: Column(
                               children: [
                                 for (final lesson in topic.lessons)
@@ -519,10 +543,10 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                                               ),
                                             ),
                                     padding: const EdgeInsets.fromLTRB(
-                                      56,
-                                      12,
-                                      20,
-                                      12,
+                                      PantasSpace.s56,
+                                      PantasSpace.s12,
+                                      PantasSpace.s20,
+                                      PantasSpace.s12,
                                     ),
                                     gap: 16,
                                     minHeight: 45,
@@ -533,26 +557,30 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                                         Expanded(
                                           child: Text(
                                             lesson.title,
-                                            style: t.style(16, height: 21 / 16),
+                                            style: PantasType
+                                                .webRowTitleSettings
+                                                .copyWith(
+                                              color: t.colors.textPrimary,
+                                            ),
                                           ),
                                         ),
                                         if (!lesson.isRead)
                                           Container(
                                             padding: const EdgeInsets.symmetric(
-                                              horizontal: 8,
-                                              vertical: 2,
+                                              horizontal: PantasSpace.s8,
+                                              vertical: PantasSpace.s2,
                                             ),
                                             decoration: BoxDecoration(
                                               color: t.disabledBackground,
                                               borderRadius:
-                                                  BorderRadius.circular(99),
+                                                  BorderRadius.circular(
+                                                PantasRadius.full,
+                                              ),
                                             ),
                                             child: Text(
                                               'Unread',
-                                              style: t.style(
-                                                12,
-                                                weight: FontWeight.w600,
-                                                color: t.colors.secondaryLabel,
+                                              style: PantasType.webTag.copyWith(
+                                                color: t.colors.textSecondary,
                                               ),
                                             ),
                                           ),
@@ -569,7 +597,7 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
               ],
             ),
           ),
-          const SizedBox(height: 24),
+          const SizedBox(height: PantasSpace.s24),
         ],
       ],
     );
@@ -625,7 +653,12 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Padding(
-          padding: const EdgeInsets.fromLTRB(4, 0, 4, 9),
+          padding: const EdgeInsets.fromLTRB(
+            PantasSpace.s4,
+            PantasSpace.s0,
+            PantasSpace.s4,
+            PantasSpace.s8,
+          ),
           child: Row(
             children: [
               Expanded(child: Text('YOUR QUIZ', style: t.eb)),
@@ -640,11 +673,8 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                     ),
                     child: Text(
                       'Clear',
-                      style: t.style(
-                        14,
-                        weight: FontWeight.w600,
-                        color: t.colors.secondaryLabel,
-                      ),
+                      style: PantasType.webLabel
+                          .copyWith(color: t.colors.textSecondary),
                     ),
                   ),
                 ),
@@ -653,8 +683,13 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
         ),
         WebCard(
           padding: summary.isEmpty
-              ? const EdgeInsets.all(24)
-              : const EdgeInsets.fromLTRB(22, 22, 22, 20),
+              ? const EdgeInsets.all(PantasSpace.s24)
+              : const EdgeInsets.fromLTRB(
+                  PantasSpace.s20,
+                  PantasSpace.s20,
+                  PantasSpace.s20,
+                  PantasSpace.s20,
+                ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
@@ -663,7 +698,7 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                 children: summary.isEmpty
                     ? [
                         Text('Nothing picked yet', style: t.h3),
-                        const SizedBox(height: 14),
+                        const SizedBox(height: PantasSpace.s14),
                         Text('Pick a topic or a lesson', style: t.sub),
                       ]
                     : [
@@ -671,7 +706,7 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                           pickedLabel,
                           style: t.sm.copyWith(fontWeight: FontWeight.w600),
                         ),
-                        const SizedBox(height: 16),
+                        const SizedBox(height: PantasSpace.s16),
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.baseline,
                           textBaseline: TextBaseline.alphabetic,
@@ -681,7 +716,7 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                               '${summary.totalQuestions}',
                               style: t.big,
                             ),
-                            const SizedBox(width: 8),
+                            const SizedBox(width: PantasSpace.s8),
                             // Expanded, not a Flexible beside a Spacer: they
                             // would share the room and leave the time short
                             // of the card's edge.
@@ -689,11 +724,8 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                               child: Text(
                                 'questions',
                                 overflow: TextOverflow.ellipsis,
-                                style: t.style(
-                                  17,
-                                  height: 1.45,
-                                  color: t.colors.secondaryLabel,
-                                ),
+                                style: PantasType.webLead
+                                    .copyWith(color: t.colors.textSecondary),
                               ),
                             ),
                             Text(
@@ -704,15 +736,15 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                             ),
                           ],
                         ),
-                        const SizedBox(height: 16),
+                        const SizedBox(height: PantasSpace.s16),
                         Divider(
                           height: .5,
                           thickness: .5,
-                          color: t.colors.separator,
+                          color: t.colors.divider,
                         ),
-                        const SizedBox(height: 16),
+                        const SizedBox(height: PantasSpace.s16),
                         Text('HOW LONG?', style: t.eb),
-                        const SizedBox(height: 16),
+                        const SizedBox(height: PantasSpace.s16),
                         WebSegmentedControl(
                           labels: const ['Questions per lesson', 'Total time'],
                           selected: _mode.index,
@@ -737,7 +769,7 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                             );
                           },
                         ),
-                        const SizedBox(height: 16),
+                        const SizedBox(height: PantasSpace.s16),
                         ViewSwap(
                           index: _mode.index,
                           child: Column(
@@ -749,14 +781,15 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                                     : 'You set the time. Questions follow.',
                                 style: t.sm,
                               ),
-                              const SizedBox(height: 16),
+                              const SizedBox(height: PantasSpace.s16),
                               DecoratedBox(
                                 decoration: BoxDecoration(
-                                  color: t.colors.background,
-                                  borderRadius: BorderRadius.circular(11),
+                                  color: t.colors.bgPage,
+                                  borderRadius:
+                                      BorderRadius.circular(PantasRadius.back),
                                 ),
                                 child: Padding(
-                                  padding: const EdgeInsets.all(3),
+                                  padding: const EdgeInsets.all(PantasSpace.s2),
                                   child: Row(
                                     children: [
                                       for (final value in (<int>{
@@ -788,7 +821,7 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                                         ..sort()))
                                         Expanded(
                                           child: SizedBox(
-                                            height: 34,
+                                            height: PantasSize.btnXs,
                                             child: TextButton(
                                               onPressed: _invalid(
                                                 summary.unitCount,
@@ -810,7 +843,9 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                                                     : Colors.transparent,
                                                 shape: RoundedRectangleBorder(
                                                   borderRadius:
-                                                      BorderRadius.circular(9),
+                                                      BorderRadius.circular(
+                                                    PantasRadius.sm,
+                                                  ),
                                                 ),
                                               ),
                                               child: Text(
@@ -820,7 +855,7 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                                                       15,
                                                       weight: FontWeight.w600,
                                                       color: _value == value
-                                                          ? Colors.white
+                                                          ? t.colors.onAccent
                                                           : t.colors
                                                               .secondaryLabel,
                                                     )
@@ -846,12 +881,13 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                             ],
                           ),
                         ),
-                        const SizedBox(height: 16),
+                        const SizedBox(height: PantasSpace.s16),
                         Row(
                           children: [
                             Expanded(
                               child: Padding(
-                                padding: const EdgeInsets.only(left: 4),
+                                padding:
+                                    const EdgeInsets.only(left: PantasSpace.s4),
                                 child: Text(
                                   'Split by lesson',
                                   style: t.sm
@@ -862,10 +898,12 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                             TextButton(
                               style: TextButton.styleFrom(
                                 minimumSize: const Size(0, 30),
-                                padding:
-                                    const EdgeInsets.symmetric(horizontal: 8),
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: PantasSpace.s8,
+                                ),
                                 tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                                textStyle: t.style(14, weight: FontWeight.w600),
+                                textStyle: PantasType.webLabel
+                                    .copyWith(color: t.colors.textPrimary),
                               ),
                               onPressed: () {
                                 if (_adjusting) {
@@ -888,13 +926,17 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                               children: [
                                 for (final (ri, row) in rows.indexed)
                                   Container(
-                                    padding:
-                                        const EdgeInsets.fromLTRB(4, 12, 4, 12),
+                                    padding: const EdgeInsets.fromLTRB(
+                                      PantasSpace.s4,
+                                      PantasSpace.s12,
+                                      PantasSpace.s4,
+                                      PantasSpace.s12,
+                                    ),
                                     decoration: BoxDecoration(
                                       border: ri + 1 < rows.length
                                           ? Border(
                                               bottom: BorderSide(
-                                                color: t.colors.separator,
+                                                color: t.colors.divider,
                                               ),
                                             )
                                           : null,
@@ -908,25 +950,25 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                                             children: [
                                               Text(
                                                 row.title,
-                                                style: t.style(
-                                                  16,
-                                                  height: 21 / 16,
+                                                style: PantasType
+                                                    .webRowTitleSettings
+                                                    .copyWith(
+                                                  color: t.colors.textPrimary,
                                                 ),
                                               ),
                                               if (row.meta != null)
                                                 Text(
                                                   row.meta!,
-                                                  style: t.style(
-                                                    14,
-                                                    height: 18 / 14,
+                                                  style: PantasType.webRowSub
+                                                      .copyWith(
                                                     color:
-                                                        t.colors.secondaryLabel,
+                                                        t.colors.textSecondary,
                                                   ),
                                                 ),
                                             ],
                                           ),
                                         ),
-                                        const SizedBox(width: 12),
+                                        const SizedBox(width: PantasSpace.s12),
                                         if (_adjusting) ...[
                                           _webStep(
                                             summary,
@@ -934,30 +976,34 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                                             -1,
                                             row.title,
                                           ),
-                                          const SizedBox(width: 12),
+                                          const SizedBox(
+                                            width: PantasSpace.s12,
+                                          ),
                                         ],
                                         if (_adjusting)
                                           SizedBox(
-                                            width: 28,
+                                            width: PantasSpace.s28,
                                             child: Text(
                                               '${_count(summary, row.keys)}',
                                               textAlign: TextAlign.center,
-                                              style: t.style(
-                                                16,
-                                                weight: FontWeight.w600,
+                                              style:
+                                                  PantasType.webButton.copyWith(
+                                                color: t.colors.textPrimary,
                                               ),
                                             ),
                                           )
                                         else
                                           Text(
                                             '${_count(summary, row.keys)}',
-                                            style: t.style(
-                                              16,
-                                              weight: FontWeight.w600,
+                                            style:
+                                                PantasType.webButton.copyWith(
+                                              color: t.colors.textPrimary,
                                             ),
                                           ),
                                         if (_adjusting) ...[
-                                          const SizedBox(width: 12),
+                                          const SizedBox(
+                                            width: PantasSpace.s12,
+                                          ),
                                           _webStep(
                                             summary,
                                             row.keys,
@@ -975,7 +1021,7 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                       ],
               ),
               if (_failure != null) ...[
-                const SizedBox(height: 14),
+                const SizedBox(height: PantasSpace.s14),
                 if (_launchFailed)
                   StateView(message: _failure!, onRetry: start)
                 else
@@ -1016,7 +1062,7 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(top: 4),
+                      padding: const EdgeInsets.only(top: PantasSpace.s4),
                       child: Align(
                         alignment: Alignment.centerLeft,
                         child: TextButton.icon(
@@ -1026,9 +1072,9 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                         ),
                       ),
                     ),
-                    const SizedBox(height: 10),
+                    const SizedBox(height: PantasSpace.s10),
                     const WebText('Customize your own', kind: WebTextKind.h1),
-                    const SizedBox(height: 24),
+                    const SizedBox(height: PantasSpace.s24),
                   ],
                 ),
               ),
@@ -1106,7 +1152,10 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
       style: TextButton.styleFrom(
         minimumSize: const Size(44, 44),
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-        padding: const EdgeInsets.only(left: 12, right: 16),
+        padding: const EdgeInsets.only(
+          left: PantasSpace.s12,
+          right: PantasSpace.s16,
+        ),
       ),
       onPressed: () => _change(() {
         _selection = const PracticeSelection.empty();
@@ -1114,7 +1163,9 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
       }),
       child: Text(
         'Clear',
-        style: context.type.body.copyWith(color: context.colors.accent),
+        style: PantasType.phoneBody
+            .copyWith(color: context.colors.textPrimary)
+            .copyWith(color: context.colors.accent),
       ),
     );
     if (MediaQuery.disableAnimationsOf(context)) {
@@ -1165,18 +1216,20 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
           children: [
             Text(
               barSummary.isEmpty ? 'Nothing picked yet' : pickedLabel,
-              style: context.type.subheadStrong.copyWith(
-                fontSize: 15,
+              style: PantasType.phoneExplanation.copyWith(
                 fontWeight: FontWeight.w700,
+                color: context.colors.textPrimary,
               ),
             ),
-            const SizedBox(height: 2),
+            const SizedBox(height: PantasSpace.s2),
             if (barSummary.isEmpty)
               Text(
                 'Pick a topic or a lesson',
-                style: context.type.footnote.copyWith(
-                  fontWeight: FontWeight.w500,
-                ),
+                style: PantasType.phoneFootnote
+                    .copyWith(color: context.colors.textSecondary)
+                    .copyWith(
+                      fontWeight: FontWeight.w500,
+                    ),
               )
             else
               Row(
@@ -1185,13 +1238,15 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                   Flexible(
                     child: Text(
                       caption,
-                      style: context.type.footnote.copyWith(
-                        fontWeight: FontWeight.w500,
-                        color: context.colors.accent,
-                      ),
+                      style: PantasType.phoneFootnote
+                          .copyWith(color: context.colors.textSecondary)
+                          .copyWith(
+                            fontWeight: FontWeight.w500,
+                            color: context.colors.accent,
+                          ),
                     ),
                   ),
-                  const SizedBox(width: 2),
+                  const SizedBox(width: PantasSpace.s2),
                   RotatedBox(
                     quarterTurns: 1,
                     child: Icon(
@@ -1209,10 +1264,10 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
     final start = PantasButton(
       label: 'Start',
       disabledOpacity: .35,
-      height: 44,
-      radius: 99,
+      height: PantasSize.btn,
+      radius: PantasRadius.full,
       fullWidth: false,
-      horizontalPadding: 26,
+      horizontalPadding: PantasSpace.s24,
       busy: _starting,
       onPressed: barSummary.isEmpty ||
               summary.totalQuestions < summary.unitCount ||
@@ -1222,24 +1277,29 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
     );
     final large = MediaQuery.textScalerOf(context).scale(15) > 20;
     return FloatingBar.content(
-      radius: 99,
+      radius: PantasRadius.full,
       inset: 0,
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(20, 8, 8, 8),
+        padding: const EdgeInsets.fromLTRB(
+          PantasSpace.s20,
+          PantasSpace.s8,
+          PantasSpace.s8,
+          PantasSpace.s8,
+        ),
         child: large
             ? Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   size,
-                  const SizedBox(height: 8),
+                  const SizedBox(height: PantasSpace.s8),
                   Align(alignment: Alignment.centerRight, child: start),
                 ],
               )
             : Row(
                 children: [
                   Expanded(child: size),
-                  const SizedBox(width: 8),
+                  const SizedBox(width: PantasSpace.s8),
                   start,
                 ],
               ),
@@ -1303,37 +1363,40 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                   if (derived)
                     Text(
                       '~',
-                      style: context.type.body.copyWith(
-                        fontSize: 22,
+                      style: PantasType.phoneTitle2.copyWith(
+                        color: context.colors.textSecondary,
                         fontWeight: FontWeight.w600,
-                        letterSpacing: -.264,
-                        color: context.colors.secondaryLabel,
                       ),
                     ),
-                  if (derived) const SizedBox(width: 3),
+                  if (derived) const SizedBox(width: PantasSpace.s2),
                   Flexible(
                     child: Text(
                       number,
-                      style: context.type.largeTitle.copyWith(
-                        fontSize: 34,
+                      style: PantasType.phoneLargeTitle.copyWith(
+                        color: context.colors.textPrimary,
                         fontWeight: FontWeight.w700,
-                        letterSpacing: -.68,
                       ),
                     ),
                   ),
                 ],
               ),
-              const SizedBox(height: 2),
+              const SizedBox(height: PantasSpace.s2),
               Text(
                 label,
-                style:
-                    context.type.footnote.copyWith(fontWeight: FontWeight.w500),
+                style: PantasType.phoneFootnote
+                    .copyWith(color: context.colors.textSecondary)
+                    .copyWith(fontWeight: FontWeight.w500),
               ),
             ],
           ),
         );
     return Padding(
-      padding: const EdgeInsets.fromLTRB(20, 8, 20, 34),
+      padding: const EdgeInsets.fromLTRB(
+        PantasSpace.s20,
+        PantasSpace.s8,
+        PantasSpace.s20,
+        PantasSpace.s32,
+      ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -1345,22 +1408,21 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
               decoration: BoxDecoration(
                 // Board (QZS_1b): the handle is #D1D1D6 in light mode.
                 color: Theme.of(context).brightness == Brightness.dark
-                    ? context.colors.controlOutline
-                    : const Color(0xFFD1D1D6),
-                borderRadius: BorderRadius.circular(9),
+                    ? context.colors.borderControl
+                    : context.colors.dividerStrong,
+                borderRadius: BorderRadius.circular(PantasRadius.sm),
               ),
             ),
           ),
-          const SizedBox(height: 12),
+          const SizedBox(height: PantasSpace.s12),
           Row(
             children: [
               Expanded(
                 child: Text(
                   'How long?',
-                  style: context.type.body.copyWith(
-                    fontSize: 20,
+                  style: PantasType.phoneTitle3.copyWith(
+                    color: context.colors.textPrimary,
                     fontWeight: FontWeight.w700,
-                    letterSpacing: -.24,
                   ),
                 ),
               ),
@@ -1369,15 +1431,18 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                 style: TextButton.styleFrom(
                   visualDensity: VisualDensity.standard,
                   minimumSize: const Size(0, 30),
-                  padding: const EdgeInsets.symmetric(horizontal: 12),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: PantasSpace.s12),
                   tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                 ),
                 child: Text(
                   'Done',
-                  style: context.type.body.copyWith(
-                    fontWeight: FontWeight.w600,
-                    color: context.colors.accent,
-                  ),
+                  style: PantasType.phoneBody
+                      .copyWith(color: context.colors.textPrimary)
+                      .copyWith(
+                        fontWeight: FontWeight.w600,
+                        color: context.colors.accent,
+                      ),
                 ),
               ),
             ],
@@ -1409,7 +1474,7 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
               );
             },
           ),
-          const SizedBox(height: 8),
+          const SizedBox(height: PantasSpace.s8),
           ViewSwap(
             index: _mode.index,
             child: Column(
@@ -1427,20 +1492,21 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                     _adjustments = {};
                   }),
                 ),
-                const SizedBox(height: 5),
+                const SizedBox(height: PantasSpace.s4),
                 Text(
                   _mode == PracticeUnitMode.questions
                       ? 'You set the questions. Time follows.'
                       : 'You set the time. Questions follow.',
                   textAlign: TextAlign.center,
-                  style: context.type.footnote,
+                  style: PantasType.phoneFootnote
+                      .copyWith(color: context.colors.textSecondary),
                 ),
               ],
             ),
           ),
-          const SizedBox(height: 14),
-          Divider(height: .5, thickness: .5, color: context.colors.separator),
-          const SizedBox(height: 14),
+          const SizedBox(height: PantasSpace.s14),
+          Divider(height: .5, thickness: .5, color: context.colors.divider),
+          const SizedBox(height: PantasSpace.s14),
           IntrinsicHeight(
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -1453,7 +1519,7 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                 Container(
                   key: const ValueKey('practice-summary-divider'),
                   width: .5,
-                  color: context.colors.separator,
+                  color: context.colors.divider,
                 ),
                 figure(
                   _underMinute(summary)
@@ -1471,7 +1537,7 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
               ],
             ),
           ),
-          const SizedBox(height: 6),
+          const SizedBox(height: PantasSpace.s6),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
@@ -1493,10 +1559,12 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                 ),
                 child: Text(
                   _adjusting ? 'Reset' : 'Adjust',
-                  style: context.type.subhead.copyWith(
-                    fontWeight: FontWeight.w600,
-                    color: context.colors.accent,
-                  ),
+                  style: PantasType.phoneExplanation
+                      .copyWith(color: context.colors.textPrimary)
+                      .copyWith(
+                        fontWeight: FontWeight.w600,
+                        color: context.colors.accent,
+                      ),
                 ),
               ),
             ],
@@ -1505,12 +1573,13 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
             constraints: BoxConstraints(maxHeight: 156 * scale),
             child: DecoratedBox(
               decoration: BoxDecoration(
-                color: context.colors.background,
-                borderRadius: BorderRadius.circular(12),
+                color: context.colors.bgPage,
+                borderRadius: BorderRadius.circular(PantasRadius.md),
               ),
               child: SingleChildScrollView(
                 key: const ValueKey('practice-pick-list'),
-                padding: const EdgeInsets.symmetric(horizontal: 14),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: PantasSpace.s14),
                 child: Column(
                   children: [
                     for (final (i, row) in rows.indexed) ...[
@@ -1518,11 +1587,13 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                         Divider(
                           height: .5,
                           thickness: .5,
-                          color: context.colors.separator,
+                          color: context.colors.divider,
                         ),
                       Padding(
-                        padding:
-                            EdgeInsets.symmetric(vertical: _adjusting ? 6 : 9),
+                        padding: EdgeInsets.symmetric(
+                          vertical:
+                              _adjusting ? PantasSpace.s6 : PantasSpace.s8,
+                        ),
                         child: Row(
                           children: [
                             Expanded(
@@ -1535,41 +1606,42 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                                       row.title,
                                       maxLines: 1,
                                       overflow: TextOverflow.ellipsis,
-                                      style: context.type.body.copyWith(
-                                        fontSize: 15,
-                                        letterSpacing: 0,
+                                      style:
+                                          PantasType.phoneExplanation.copyWith(
+                                        color: context.colors.textPrimary,
                                       ),
                                     ),
                                   ),
                                   if (row.meta != null) ...[
-                                    const SizedBox(width: 6),
+                                    const SizedBox(width: PantasSpace.s6),
                                     Flexible(
                                       child: Text(
                                         row.meta!,
                                         maxLines: 1,
                                         overflow: TextOverflow.ellipsis,
-                                        style: context.type.footnote,
+                                        style:
+                                            PantasType.phoneFootnote.copyWith(
+                                          color: context.colors.textSecondary,
+                                        ),
                                       ),
                                     ),
                                   ],
                                 ],
                               ),
                             ),
-                            const SizedBox(width: 12),
+                            const SizedBox(width: PantasSpace.s12),
                             if (_adjusting)
                               _step(summary, row.keys, -1, row.title),
                             Text(
                               '${_count(summary, row.keys)}',
                               key: ValueKey('practice-count-${row.title}'),
-                              style: context.type.body.copyWith(
-                                fontSize: 15,
+                              style: PantasType.phoneExplanation.copyWith(
+                                color: _adjusting
+                                    ? context.colors.textPrimary
+                                    : context.colors.textSecondary,
                                 fontWeight: _adjusting
                                     ? FontWeight.w700
                                     : FontWeight.w400,
-                                letterSpacing: 0,
-                                color: _adjusting
-                                    ? context.colors.label
-                                    : context.colors.secondaryLabel,
                               ),
                             ),
                             if (_adjusting)
@@ -1609,19 +1681,19 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
         tooltip: '${delta > 0 ? 'Increase' : 'Decrease'} $title',
         onPressed:
             next == null ? null : () => _change(() => _adjustments = next),
-        padding: const EdgeInsets.all(7),
+        padding: const EdgeInsets.all(PantasSpace.s6),
         icon: Container(
           width: 30,
           height: 30,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            color: context.colors.surface,
+            color: context.colors.surfaceCard,
           ),
           child: Icon(
             delta > 0 ? Icons.add : Icons.remove,
             size: 16,
             color: next == null
-                ? context.colors.tertiaryLabel
+                ? context.colors.textSecondary
                 : context.colors.accent,
           ),
         ),
@@ -1655,13 +1727,13 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
           width: 28,
           height: 28,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(8),
-            color: t.colors.background,
+            borderRadius: BorderRadius.circular(PantasRadius.sm),
+            color: t.colors.bgPage,
           ),
           child: Icon(
             delta > 0 ? Icons.add : Icons.remove,
             size: 16,
-            color: next == null ? t.colors.tertiaryLabel : t.colors.label,
+            color: next == null ? t.colors.textSecondary : t.colors.textPrimary,
           ),
         ),
       ),

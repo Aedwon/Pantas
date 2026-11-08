@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/pantas_sheet.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_border.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_opacity.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 
 enum GridQuestionState { right, wrong, answered, unreached }
 
@@ -64,14 +69,16 @@ class QuestionGridSheet extends StatelessWidget {
     final c = context.colors;
     Color numberColor(GridQuestion question) {
       if (question.current && question.state == GridQuestionState.unreached) {
-        return c.label;
+        return c.textPrimary;
       }
       return switch (question.state) {
         GridQuestionState.right =>
-          Theme.of(context).brightness == Brightness.dark ? c.label : c.accent,
-        GridQuestionState.wrong => c.wrongText,
-        GridQuestionState.unreached => c.secondaryLabel,
-        GridQuestionState.answered => c.label,
+          Theme.of(context).brightness == Brightness.dark
+              ? c.textPrimary
+              : c.accentTintText,
+        GridQuestionState.wrong => c.dangerText,
+        GridQuestionState.unreached => c.textSecondary,
+        GridQuestionState.answered => c.textPrimary,
       };
     }
 
@@ -108,26 +115,14 @@ class QuestionGridSheet extends StatelessWidget {
 
     final pinned = mock && footer != null;
     final header = <Widget>[
-      Center(
-        child: Container(
-          width: 36,
-          height: 5,
-          decoration: BoxDecoration(
-            // Boards QV_Grid and MK_Sheet: the handle is #D1D1D6 in light mode.
-            color: Theme.of(context).brightness == Brightness.dark
-                ? c.controlOutline
-                : c.choiceOutline,
-            borderRadius: BorderRadius.circular(9),
-          ),
-        ),
-      ),
-      const SizedBox(height: 16),
       LayoutBuilder(
         builder: (context, constraints) {
-          final titleStyle = context.type.emphasized
-              .copyWith(fontSize: 20, fontWeight: FontWeight.w700);
-          final summaryStyle =
-              context.type.subhead.copyWith(color: c.secondaryLabel);
+          final titleStyle = PantasType.phoneTitle3.copyWith(
+            color: c.textPrimary,
+          );
+          final summaryStyle = PantasType.phoneExplanation.copyWith(
+            color: c.textSecondary,
+          );
           double width(String text, TextStyle style) {
             final measure = TextPainter(
               text: TextSpan(text: text, style: style),
@@ -149,7 +144,7 @@ class QuestionGridSheet extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 heading,
-                const SizedBox(height: 6),
+                const SizedBox(height: PantasSpace.s6),
                 detail,
               ],
             );
@@ -162,29 +157,30 @@ class QuestionGridSheet extends StatelessWidget {
           );
         },
       ),
-      const SizedBox(height: 16),
+      const SizedBox(height: PantasSpace.s16),
     ];
     final body = <Widget>[
       for (var p = 0; p < parts.length; p++) ...[
         if (mock && parts[p].title.isNotEmpty)
           Padding(
-            padding: const EdgeInsets.only(bottom: 12),
+            padding: const EdgeInsets.only(bottom: PantasSpace.s12),
             child: Opacity(
-              opacity: parts[p].enabled ? 1 : .32,
+              opacity: parts[p].enabled ? 1 : PantasOpacity.disabled,
               child: Row(
                 children: [
                   Expanded(
                     child: Text(
                       parts[p].title,
-                      style: context.type.sectionHeader,
+                      style: PantasType.phoneSectionHeader.copyWith(
+                        color: c.textSecondary,
+                      ),
                     ),
                   ),
                   if (parts[p].count != null)
                     Text(
                       parts[p].count!,
-                      style: context.type.footnote.copyWith(
-                        color: c.secondaryLabel,
-                        fontWeight: FontWeight.w600,
+                      style: PantasType.phoneFootnoteStrong.copyWith(
+                        color: c.textSecondary,
                       ),
                     ),
                 ],
@@ -193,19 +189,20 @@ class QuestionGridSheet extends StatelessWidget {
           ),
         if (!parts[p].enabled && parts[p].lockedNote != null)
           Padding(
-            padding: const EdgeInsets.only(bottom: 12),
+            padding: const EdgeInsets.only(bottom: PantasSpace.s12),
             child: Text(
               parts[p].lockedNote!,
-              style: context.type.footnote.copyWith(color: c.secondaryLabel),
+              style: PantasType.phoneFootnote.copyWith(color: c.textSecondary),
             ),
           ),
         LayoutBuilder(
           builder: (context, constraints) {
             final columns = mock ? 6 : 5;
-            final diameter =
-                MediaQuery.textScalerOf(context).scale(17) > 25.5 ? 56.0 : 46.0;
+            final diameter = MediaQuery.textScalerOf(context).scale(17) > 25.5
+                ? PantasSize.select
+                : PantasSize.btnBar;
             return Wrap(
-              runSpacing: 12,
+              runSpacing: PantasSpace.s12,
               children: [
                 for (final question in parts[p].questions)
                   _CurrentQuestion(
@@ -214,7 +211,8 @@ class QuestionGridSheet extends StatelessWidget {
                       width: constraints.maxWidth / columns,
                       child: Center(
                         child: Opacity(
-                          opacity: parts[p].enabled ? 1 : .32,
+                          opacity:
+                              parts[p].enabled ? 1 : PantasOpacity.disabled,
                           child: SizedBox.square(
                             dimension: diameter,
                             child: Semantics(
@@ -232,7 +230,7 @@ class QuestionGridSheet extends StatelessWidget {
                               ),
                               child: ExcludeSemantics(
                                 child: Material(
-                                  color: context.colors.transparent,
+                                  color: Colors.transparent,
                                   child: InkWell(
                                     key: ValueKey(
                                       'grid-question-$p-'
@@ -251,27 +249,25 @@ class QuestionGridSheet extends StatelessWidget {
                                             ? c.accentTint
                                             : question.state ==
                                                     GridQuestionState.wrong
-                                                ? c.wrongTint
+                                                ? c.dangerTint
                                                 : question.state ==
                                                         GridQuestionState
                                                             .answered
                                                     // The light gray is too
                                                     // close to the dark page.
-                                                    ? Theme.of(context)
-                                                                .brightness ==
-                                                            Brightness.dark
-                                                        ? c.segmentOn
-                                                        : c.fill
+                                                    ? c.divider
                                                     : null,
                                         border: Border.all(
                                           color: question.current
-                                              ? c.label
+                                              ? c.textPrimary
                                               : question.state ==
                                                       GridQuestionState
                                                           .unreached
-                                                  ? c.separator
-                                                  : context.colors.transparent,
-                                          width: question.current ? 2 : 1.5,
+                                                  ? c.borderControl
+                                                  : Colors.transparent,
+                                          width: question.current
+                                              ? PantasBorder.ringCurrent
+                                              : PantasBorder.ringStrong,
                                         ),
                                       ),
                                       child: Stack(
@@ -283,7 +279,8 @@ class QuestionGridSheet extends StatelessWidget {
                                             child: Text(
                                               '${question.number}',
                                               maxLines: 1,
-                                              style: context.type.body.copyWith(
+                                              style:
+                                                  PantasType.phoneBody.copyWith(
                                                 fontWeight: numberWeight(
                                                   question,
                                                 ),
@@ -293,19 +290,19 @@ class QuestionGridSheet extends StatelessWidget {
                                           ),
                                           if (question.flagged)
                                             Positioned(
-                                              top: -4,
-                                              right: -4,
+                                              top: -PantasSpace.s4,
+                                              right: -PantasSpace.s4,
                                               child: Container(
-                                                width: 18,
-                                                height: 18,
+                                                width: PantasSpace.s18,
+                                                height: PantasSpace.s18,
                                                 decoration: BoxDecoration(
-                                                  color: c.surface,
+                                                  color: c.surfaceCard,
                                                   shape: BoxShape.circle,
                                                 ),
                                                 child: Icon(
                                                   PantasIcons.flag,
-                                                  size: 12,
-                                                  color: c.label,
+                                                  size: PantasSpace.s12,
+                                                  color: c.textPrimary,
                                                 ),
                                               ),
                                             ),
@@ -325,7 +322,7 @@ class QuestionGridSheet extends StatelessWidget {
             );
           },
         ),
-        const SizedBox(height: 14),
+        const SizedBox(height: PantasSpace.s14),
       ],
       Text(
         helpText ??
@@ -333,7 +330,7 @@ class QuestionGridSheet extends StatelessWidget {
                 ? 'You can go back to any question in this part.'
                 : 'Tap an answered question to look back.'),
         textAlign: TextAlign.center,
-        style: context.type.footnote.copyWith(color: c.secondaryLabel),
+        style: PantasType.phoneFootnote.copyWith(color: c.textSecondary),
       ),
     ];
     return PantasSheet(
@@ -345,7 +342,12 @@ class QuestionGridSheet extends StatelessWidget {
       topInset: pinned ? 272 : (mock ? 180 : 0),
       scrollable: !pinned,
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(20, 8, 20, 34),
+        padding: const EdgeInsets.fromLTRB(
+          PantasSpace.s20,
+          PantasSpace.s8,
+          PantasSpace.s20,
+          PantasSpace.s32,
+        ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -360,12 +362,12 @@ class QuestionGridSheet extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(height: 16),
+              const SizedBox(height: PantasSpace.s16),
               footer!,
             ] else ...[
               ...body,
               if (footer != null) ...[
-                const SizedBox(height: 16),
+                const SizedBox(height: PantasSpace.s16),
                 footer!,
               ],
             ],

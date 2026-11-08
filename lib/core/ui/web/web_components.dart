@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math' as math;
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -1254,6 +1255,18 @@ class WebAnswerOption extends StatelessWidget {
   final Widget child;
   final WebOptionState state;
   final VoidCallback? onPressed;
+
+  /// The words of an option: `web-option`, 600 on the right answer and
+  /// `text-secondary` once the option is dimmed (no opacity, D49).
+  static TextStyle textStyle(BuildContext context, WebOptionState state) {
+    final c = context.webTokens.colors;
+    return PantasType.webOption.copyWith(
+      fontWeight:
+          state == WebOptionState.right ? FontWeight.w600 : FontWeight.w400,
+      color: state == WebOptionState.dimmed ? c.textSecondary : c.textPrimary,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final t = context.webTokens;
@@ -1261,121 +1274,155 @@ class WebAnswerOption extends StatelessWidget {
     final wrong = state == WebOptionState.wrong;
     final right = state == WebOptionState.right;
     final selected = state == WebOptionState.selected;
+    final dimmed = state == WebOptionState.dimmed;
     final filled = selected || right || wrong;
     final active = state == WebOptionState.normal || selected;
-    final border = right || wrong
+    final ringColor = right || wrong
         ? Color.lerp(
             revealFromSelected ? c.accent : Colors.transparent,
-            wrong ? c.destructive : c.accent,
+            wrong ? c.danger : c.accent,
             revealProgress,
           )!
         : c.accent;
-    return Opacity(
-      opacity: state == WebOptionState.dimmed ? .42 : 1,
-      child: Semantics(
-        selected: selected,
-        label: right
-            ? 'Correct'
-            : wrong
-                ? 'Wrong'
-                : null,
-        child: TextButton(
-          onPressed: active ? onPressed : null,
-          style: ButtonStyle(
-            animationDuration: MediaQuery.disableAnimationsOf(context)
-                ? Duration.zero
-                : const Duration(milliseconds: 180),
-            minimumSize:
-                const WidgetStatePropertyAll(Size(double.infinity, 64)),
-            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-            visualDensity: VisualDensity.standard,
-            padding: const WidgetStatePropertyAll(
-              EdgeInsets.fromLTRB(16, 14, 18, 14),
-            ),
-            backgroundColor: WidgetStatePropertyAll(
-              right
-                  ? Color.lerp(c.surface, c.accentTint, revealProgress)
-                  : wrong
-                      ? Color.lerp(c.surface, c.wrongTint, revealProgress)
-                      : c.surface,
-            ),
-            foregroundColor: WidgetStatePropertyAll(c.label),
-            textStyle: WidgetStatePropertyAll(
-              t.style(
-                18,
-                height: 1.4,
-                weight: right ? FontWeight.w600 : FontWeight.w400,
-              ),
-            ),
-            overlayColor: const WidgetStatePropertyAll(Colors.transparent),
-            shape: WidgetStatePropertyAll(
-              RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(16),
-              ),
-            ),
-            side: WidgetStateProperty.resolveWith(
-              (s) => webKeyboardFocus(s) && !filled
-                  ? BorderSide(color: t.colors.accent, width: 2)
-                  : BorderSide(
-                      color: filled
-                          ? border
-                          : active && s.contains(WidgetState.hovered)
-                              ? t.strongDivider
-                              : Colors.transparent,
-                      width: filled ? 2 : 1.5,
-                    ),
+    // The badge grows with the letter, so at 200% text it still holds it.
+    final badge = math.max(
+      PantasSize.optBadge,
+      MediaQuery.textScalerOf(context).scale(PantasType.webLink.fontSize!) *
+          2.15,
+    );
+    final badgeFill = right || wrong
+        ? Color.lerp(
+            revealFromSelected ? c.accentFill : c.surfaceCard,
+            wrong ? c.dangerFill : c.accentFill,
+            badgeProgress,
+          )
+        : selected
+            ? c.accentFill
+            : null;
+    final letterColor = right || wrong
+        ? Color.lerp(
+            revealFromSelected ? c.onAccent : c.textSecondary,
+            wrong ? c.onDanger : c.onAccent,
+            badgeProgress,
+          )!
+        : selected
+            ? c.onAccent
+            : c.textSecondary;
+    final markScale = badgeScale ??
+        (badgeProgress < .6
+            ? .4 + .75 * badgeProgress / .6
+            : 1.15 - .15 * (badgeProgress - .6) / .4);
+    return Semantics(
+      selected: selected,
+      inMutuallyExclusiveGroup: true,
+      checked: selected || wrong || (right && revealFromSelected),
+      value: right
+          ? 'correct answer'
+          : wrong
+              ? 'your answer, wrong'
+              : null,
+      child: TextButton(
+        onPressed: active ? onPressed : null,
+        style: ButtonStyle(
+          animationDuration: MediaQuery.disableAnimationsOf(context)
+              ? Duration.zero
+              : PantasDurations.short3,
+          minimumSize: const WidgetStatePropertyAll(
+            Size(double.infinity, PantasSize.optMin),
+          ),
+          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+          visualDensity: VisualDensity.standard,
+          padding: const WidgetStatePropertyAll(
+            EdgeInsets.fromLTRB(
+              PantasSpace.s16,
+              PantasSpace.s14,
+              PantasSpace.s18,
+              PantasSpace.s14,
             ),
           ),
-          child: Row(
-            children: [
-              Container(
-                width: 32,
-                height: 32,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: right || wrong
-                      ? Color.lerp(
-                          revealFromSelected ? c.accentFill : c.surface,
-                          wrong ? c.destructive : c.accentFill,
-                          badgeProgress,
-                        )
-                      : filled
-                          ? c.accentFill
-                          : null,
-                  border: filled
-                      ? null
-                      : Border.all(color: t.strongDivider, width: 1.5),
-                ),
-                alignment: Alignment.center,
-                child: right || wrong
-                    ? Opacity(
-                        opacity: badgeProgress,
-                        child: Transform.scale(
-                          scale: badgeScale ??
-                              (badgeProgress < .6
-                                  ? .4 + .75 * badgeProgress / .6
-                                  : 1.15 - .15 * (badgeProgress - .6) / .4),
-                          child: Icon(
-                            right ? Icons.check : Icons.close,
-                            size: 18,
-                            color: Colors.white,
-                          ),
-                        ),
-                      )
-                    : Text(
-                        letter,
-                        style: t.style(
-                          15,
-                          height: 1.2,
-                          weight: filled ? FontWeight.w700 : FontWeight.w600,
-                          color: filled ? Colors.white : c.secondaryLabel,
-                        ),
+          backgroundColor: WidgetStatePropertyAll(
+            right
+                ? Color.lerp(c.surfaceCard, c.accentTint, revealProgress)
+                : wrong
+                    ? Color.lerp(c.surfaceCard, c.dangerTint, revealProgress)
+                    : c.surfaceCard,
+          ),
+          foregroundColor: WidgetStatePropertyAll(
+            dimmed ? c.textSecondary : c.textPrimary,
+          ),
+          textStyle: WidgetStatePropertyAll(textStyle(context, state)),
+          overlayColor: const WidgetStatePropertyAll(Colors.transparent),
+          shape: const WidgetStatePropertyAll(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(PantasRadius.lg)),
+            ),
+          ),
+          side: WidgetStateProperty.resolveWith((s) {
+            if (webKeyboardFocus(s)) {
+              // A selected option rings in text-primary, so focus never
+              // looks like selection.
+              return BorderSide(
+                color: filled ? c.textPrimary : c.accent,
+                width: PantasBorder.focus,
+              );
+            }
+            return BorderSide(
+              color: filled
+                  ? ringColor
+                  : active && s.contains(WidgetState.hovered)
+                      ? c.dividerStrong
+                      : Colors.transparent,
+              width:
+                  filled ? PantasBorder.ringSelected : PantasBorder.ringStrong,
+            );
+          }),
+        ),
+        child: Row(
+          children: [
+            Container(
+              width: badge,
+              height: badge,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: badgeFill,
+                border: filled
+                    ? null
+                    : Border.all(
+                        color: dimmed ? c.divider : c.borderControl,
+                        width: PantasBorder.ringStrong,
                       ),
               ),
-              const SizedBox(width: 16),
-              Expanded(child: child),
+              alignment: Alignment.center,
+              child: Text(
+                letter,
+                style: PantasType.webLink.copyWith(
+                  height: 1,
+                  fontWeight: filled ? FontWeight.w700 : FontWeight.w600,
+                  color: letterColor,
+                ),
+              ),
+            ),
+            const SizedBox(width: PantasSpace.s16),
+            Expanded(child: child),
+            if (right || wrong) ...[
+              const SizedBox(width: PantasSpace.s12),
+              // The result shows at the right end, and the semantics carry
+              // it as words, so the mark is decoration.
+              ExcludeSemantics(
+                child: Opacity(
+                  opacity: badgeProgress,
+                  child: Transform.scale(
+                    scale: markScale,
+                    child: Icon(
+                      right ? PantasIcons.check : PantasIcons.close,
+                      size: PantasSize.icon,
+                      color: right ? c.accentTintText : c.dangerText,
+                    ),
+                  ),
+                ),
+              ),
             ],
-          ),
+          ],
         ),
       ),
     );
@@ -1408,7 +1455,15 @@ class WebText extends StatelessWidget {
       style: style,
     );
     return kind == WebTextKind.eyebrow
-        ? Padding(padding: const EdgeInsets.fromLTRB(4, 0, 4, 9), child: result)
+        ? Padding(
+            padding: const EdgeInsets.fromLTRB(
+              PantasSpace.s4,
+              PantasSpace.s0,
+              PantasSpace.s4,
+              PantasSpace.s8,
+            ),
+            child: result,
+          )
         : result;
   }
 }
@@ -1416,6 +1471,9 @@ class WebText extends StatelessWidget {
 enum WebBarState { neutral, right, wrong }
 
 /// Place in a bottom-aligned Stack with a 28px bottom and 24px side inset.
+///
+/// From 1.5x text the hint takes its own line above the actions and the bar
+/// becomes a rounded rectangle (FloatingBar, stacked).
 class WebBottomBar extends StatelessWidget {
   const WebBottomBar({
     required this.counter,
@@ -1452,105 +1510,160 @@ class WebBottomBar extends StatelessWidget {
   final bool compact;
 
   /// Question-session bar (board `.cnt`): the counter button ends in a small
-  /// chevron-down and the bar's right padding is 9 px.
+  /// chevron-down and the bar's right padding is 10 px.
   final bool counterChevron;
+
+  /// Above 1.5x text the system stacks the bar (FloatingBar, ruling 5).
+  static const double stackAboveScale = 1.5;
+
   @override
   Widget build(BuildContext context) {
     final t = context.webTokens;
     final c = t.colors;
+    final stacked = !compact &&
+        hint != null &&
+        MediaQuery.textScalerOf(context).scale(1) > stackAboveScale;
+    final counterStyle = PantasType.webLink.copyWith(
+      fontFeatures: const [FontFeature.tabularFigures()],
+    );
+    final counterWidget = onCounterPressed == null
+        ? Padding(
+            padding: counterPadding ??
+                const EdgeInsets.fromLTRB(
+                  PantasSpace.s16,
+                  PantasSpace.s0,
+                  PantasSpace.s12,
+                  PantasSpace.s0,
+                ),
+            child: Text(counter, style: counterStyle),
+          )
+        : Semantics(
+            button: counterLabel != null ? true : null,
+            label: counterLabel,
+            excludeSemantics: counterLabel != null,
+            onTap: counterLabel != null ? onCounterPressed : null,
+            child: TextButton(
+              onPressed: onCounterPressed,
+              style: TextButton.styleFrom(
+                foregroundColor: c.textPrimary,
+                minimumSize: const Size(PantasSize.btnBar, PantasSize.btnBar),
+                shape: PantasRadius.fullShape,
+                padding: counterChevron
+                    ? const EdgeInsets.fromLTRB(
+                        PantasSpace.s18,
+                        PantasSpace.s0,
+                        PantasSpace.s6,
+                        PantasSpace.s0,
+                      )
+                    : const EdgeInsets.fromLTRB(
+                        PantasSpace.s16,
+                        PantasSpace.s0,
+                        PantasSpace.s12,
+                        PantasSpace.s0,
+                      ),
+                textStyle: counterStyle,
+              ),
+              child: counterChevron
+                  ? Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(counter),
+                        const SizedBox(width: PantasSpace.s8),
+                        CustomPaint(
+                          size: const Size.square(PantasSpace.s14),
+                          painter: _DownChevronPainter(c.iconChevron),
+                        ),
+                      ],
+                    )
+                  : Text(counter),
+            ),
+          );
+    // "Correct" and "Not this one" are read once, as a status (FloatingBar).
+    final hintWidget = Semantics(
+      liveRegion: true,
+      child: Text(
+        hint ?? '',
+        textAlign: TextAlign.center,
+        style: PantasType.webSmall.copyWith(
+          color: state == WebBarState.neutral ? c.textSecondary : c.textPrimary,
+        ),
+      ),
+    );
     return ConstrainedBox(
-      constraints: BoxConstraints(maxWidth: wide ? 1080 : 720),
+      constraints: BoxConstraints(
+        maxWidth: wide ? PantasLayout.barMaxWide : PantasLayout.barMax,
+      ),
       child: AnimatedContainer(
-        // The phone bar's fade: 250 ms back to neutral, 300 ms to a result.
+        // The bar's fade: 250 ms back to neutral, 300 ms to a result.
         duration: MediaQuery.disableAnimationsOf(context)
             ? Duration.zero
-            : Duration(
-                milliseconds: state == WebBarState.neutral ? 250 : 300,
-              ),
-        constraints: const BoxConstraints(minHeight: 64),
-        padding: EdgeInsets.fromLTRB(8, 0, counterChevron ? 9 : 10, 0),
+            : state == WebBarState.neutral
+                ? PantasDurations.fade
+                : PantasDurations.flip,
+        constraints: const BoxConstraints(minHeight: PantasSize.bar),
+        padding: EdgeInsets.fromLTRB(
+          PantasSpace.s8,
+          stacked ? PantasSpace.s8 : PantasSpace.s0,
+          PantasSpace.s10,
+          stacked ? PantasSpace.s8 : PantasSpace.s0,
+        ),
         decoration: BoxDecoration(
           color: switch (state) {
-            WebBarState.neutral => c.surface,
-            WebBarState.right => c.floatingRight,
-            WebBarState.wrong => c.floatingWrong
+            WebBarState.neutral => c.surfaceCard,
+            WebBarState.right => c.accentBar,
+            WebBarState.wrong => c.dangerBar
           },
-          borderRadius: BorderRadius.circular(32),
+          borderRadius: BorderRadius.circular(
+            stacked ? PantasRadius.xl : PantasRadius.bar,
+          ),
           border: Border.all(
             color: switch (state) {
               WebBarState.neutral => webFloatingEdge(t),
-              WebBarState.right => c.accent.withValues(alpha: .26),
-              WebBarState.wrong => c.destructive.withValues(alpha: .26)
+              WebBarState.right => c.accent.withValues(
+                  alpha: PantasOpacity.barRing,
+                ),
+              WebBarState.wrong => c.danger.withValues(
+                  alpha: PantasOpacity.barRing,
+                )
             },
           ),
           boxShadow: webFloatingShadow(t),
         ),
-        child: Row(
-          mainAxisSize: compact ? MainAxisSize.min : MainAxisSize.max,
-          children: [
-            if (leading != null) ...[leading!, SizedBox(width: gap)],
-            if (onCounterPressed == null)
-              Padding(
-                padding:
-                    counterPadding ?? const EdgeInsets.fromLTRB(16, 0, 12, 0),
-                child: Text(
-                  counter,
-                  style: t.style(15, weight: FontWeight.w600).copyWith(
-                    fontFeatures: [const FontFeature.tabularFigures()],
-                  ),
-                ),
-              )
-            else
-              Semantics(
-                button: counterLabel != null ? true : null,
-                label: counterLabel,
-                excludeSemantics: counterLabel != null,
-                onTap: counterLabel != null ? onCounterPressed : null,
-                child: TextButton(
-                  onPressed: onCounterPressed,
-                  style: TextButton.styleFrom(
-                    foregroundColor: c.label,
-                    minimumSize: const Size(0, 46),
-                    padding: counterChevron
-                        ? const EdgeInsets.fromLTRB(18, 0, 6, 0)
-                        : const EdgeInsets.fromLTRB(16, 0, 12, 0),
-                    textStyle: t.style(15, weight: FontWeight.w600).copyWith(
-                      fontFeatures: [const FontFeature.tabularFigures()],
+        child: stacked
+            ? Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: PantasSpace.s8,
                     ),
+                    child: hintWidget,
                   ),
-                  child: counterChevron
-                      ? Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Text(counter),
-                            const SizedBox(width: 8),
-                            CustomPaint(
-                              size: const Size.square(14),
-                              painter: _DownChevronPainter(
-                                t.dark
-                                    ? c.secondaryLabel
-                                    : const Color(0xFF8E8E93),
-                              ),
-                            ),
-                          ],
-                        )
-                      : Text(counter),
-                ),
-              ),
-            if (!compact || hint != null)
-              Expanded(
-                child: Text(
-                  hint ?? '',
-                  textAlign: TextAlign.center,
-                  style: t.sm.copyWith(
-                    color: t.dark ? c.secondaryLabel : c.tertiaryLabel,
+                  const SizedBox(height: PantasSpace.s4),
+                  Row(
+                    children: [
+                      if (leading != null) ...[
+                        leading!,
+                        SizedBox(width: gap),
+                      ],
+                      counterWidget,
+                      const Spacer(),
+                      action,
+                    ],
                   ),
-                ),
+                ],
+              )
+            : Row(
+                mainAxisSize: compact ? MainAxisSize.min : MainAxisSize.max,
+                children: [
+                  if (leading != null) ...[leading!, SizedBox(width: gap)],
+                  counterWidget,
+                  if (!compact || hint != null) Expanded(child: hintWidget),
+                  if (gap > 0) SizedBox(width: gap),
+                  action,
+                ],
               ),
-            if (gap > 0) SizedBox(width: gap),
-            action,
-          ],
-        ),
       ),
     );
   }
@@ -1580,7 +1693,7 @@ class _DownChevronPainter extends CustomPainter {
   bool shouldRepaint(_DownChevronPainter old) => old.color != color;
 }
 
-/// The board's 21 px flag: outlined, or filled when flagged.
+/// The board's flag on a pole, 20 px: outlined, or filled when flagged.
 class WebFlagIcon extends StatelessWidget {
   const WebFlagIcon({required this.flagged, super.key});
   final bool flagged;
@@ -1589,14 +1702,10 @@ class WebFlagIcon extends StatelessWidget {
     final t = context.webTokens;
     return ExcludeSemantics(
       child: CustomPaint(
-        size: const Size.square(21),
+        size: const Size.square(PantasSize.icon),
         painter: _FlagPainter(
           flagged: flagged,
-          color: flagged
-              ? t.colors.accent
-              : t.dark
-                  ? t.colors.secondaryLabel
-                  : const Color(0xFF8E8E93),
+          color: flagged ? t.colors.accent : t.colors.textSecondary,
         ),
       ),
     );
@@ -1652,13 +1761,13 @@ class WebTopBar extends StatelessWidget {
   final Widget? trailing;
   @override
   Widget build(BuildContext context) => ConstrainedBox(
-        constraints: const BoxConstraints(minHeight: 64),
+        constraints: const BoxConstraints(minHeight: PantasLayout.focusHead),
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
+          padding: const EdgeInsets.symmetric(horizontal: PantasSpace.s20),
           child: Row(
             children: [
               leading,
-              const SizedBox(width: 10),
+              const SizedBox(width: PantasSpace.s10),
               Expanded(child: title ?? const SizedBox.shrink()),
               if (trailing != null) trailing!,
             ],
@@ -1727,23 +1836,28 @@ class WebCenteredTopBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final t = context.webTokens;
     return SizedBox(
-      height: 64,
+      height: PantasLayout.focusHead,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
+        padding: const EdgeInsets.symmetric(horizontal: PantasSpace.s20),
         child: Stack(
           alignment: Alignment.center,
           children: [
             Padding(
               key: titleKey,
               // Room for the widest end on both sides, so the title never
-              // runs under a button.
-              padding: const EdgeInsets.symmetric(horizontal: 200),
+              // runs under a button. 192 is the nearest layout size to the
+              // 200 the ends needed.
+              padding: const EdgeInsets.symmetric(
+                horizontal: PantasLayout.titleNarrow,
+              ),
               child: Text(
                 title,
                 textAlign: TextAlign.center,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
-                style: t.style(14, color: t.colors.tertiaryLabel),
+                style: PantasType.webRowSub.copyWith(
+                  color: t.colors.textSecondary,
+                ),
               ),
             ),
             Align(alignment: Alignment.centerLeft, child: leading),
@@ -1756,7 +1870,8 @@ class WebCenteredTopBar extends StatelessWidget {
   }
 }
 
-/// A 46 px round chevron button for a floating question bar (board `.ib`).
+/// A 46 px (`size-btn-bar`) round chevron button for a floating question bar
+/// (board `.ib`).
 class WebBarArrow extends StatelessWidget {
   const WebBarArrow({
     required this.tooltip,
@@ -1770,12 +1885,12 @@ class WebBarArrow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => SizedBox.square(
-        dimension: 46,
+        dimension: PantasSize.btnBar,
         child: IconButton(
           tooltip: tooltip,
           padding: EdgeInsets.zero,
           onPressed: onPressed,
-          icon: Icon(icon, size: 24),
+          icon: Icon(icon, size: PantasSpace.s24),
         ),
       );
 }

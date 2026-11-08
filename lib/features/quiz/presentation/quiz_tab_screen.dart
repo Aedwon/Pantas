@@ -19,6 +19,10 @@ import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/components/today_questions.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_key_focus.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -149,10 +153,15 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
         ? _web(focus)
         : PantasPage(
             title: 'Quiz',
-            bottomInset: 104,
+            bottomInset: PantasLayout.reserveTabbar,
             // Board QZ_Tab: the title box starts at y 50 and the Today label
             // 14 px below it.
-            titlePadding: const EdgeInsets.fromLTRB(4, 48, 4, 14),
+            titlePadding: const EdgeInsets.fromLTRB(
+              PantasSpace.s4,
+              PantasSpace.s44,
+              PantasSpace.s4,
+              PantasSpace.s14,
+            ),
             children: [
               focus.when(
                 loading: () => const QuizPageSkeleton(),
@@ -183,10 +192,10 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
                         ),
                       ),
                       if (widget.mockPanel != null) ...[
-                        const SizedBox(height: 24),
+                        const SizedBox(height: PantasSpace.s24),
                         _entry(190, widget.mockPanel!),
                       ],
-                      const SizedBox(height: 24),
+                      const SizedBox(height: PantasSpace.s24),
                       _entry(
                         280,
                         counts.when(
@@ -220,7 +229,7 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
                                   leading: _phoneGlyph(
                                     _WebGlyphKind.customize,
                                     paused
-                                        ? context.colors.secondaryLabel
+                                        ? context.colors.textSecondary
                                         : context.colors.accent,
                                   ),
                                   leadingGap: 14,
@@ -293,7 +302,7 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           const WebText('Quiz', kind: WebTextKind.h1),
-          const SizedBox(height: 26),
+          const SizedBox(height: PantasSpace.s24),
           focus.when(
             loading: () => const QuizPageSkeleton(),
             error: (error, _) => errorFor(
@@ -332,7 +341,7 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
                       ],
                     ),
                   ),
-                  const SizedBox(height: 28),
+                  const SizedBox(height: PantasSpace.s28),
                   _entry(
                     280,
                     Column(
@@ -423,7 +432,7 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
                         left,
-                        const SizedBox(height: 28),
+                        const SizedBox(height: PantasSpace.s28),
                         if (mock != null) mock,
                       ],
                     );
@@ -439,7 +448,7 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SizedBox(width: leftWidth, child: left),
-                      const SizedBox(width: 28),
+                      const SizedBox(width: PantasSpace.s28),
                       SizedBox(
                         width: rightWidth,
                         child: mock ?? const SizedBox.shrink(),
@@ -465,32 +474,34 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
         autofocus: true,
         child: WebCard(
           child: Container(
-            padding: const EdgeInsets.fromLTRB(24, 26, 24, 22),
+            padding: const EdgeInsets.fromLTRB(
+              PantasSpace.s24,
+              PantasSpace.s24,
+              PantasSpace.s24,
+              PantasSpace.s20,
+            ),
             decoration: t.dark
                 ? null
-                : const BoxDecoration(
+                : BoxDecoration(
                     gradient: LinearGradient(
-                      begin: Alignment(-1, -.55),
-                      end: Alignment(1, .55),
-                      stops: [.6, 1],
-                      colors: [Color(0xFFFFFFFF), Color(0xFFE4F1EE)],
+                      begin: const Alignment(-1, -.55),
+                      end: const Alignment(1, .55),
+                      stops: const [.6, 1],
+                      colors: [t.colors.surfaceCard, t.colors.accentTint],
                     ),
                   ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Text('First, a short assessment', style: t.h3),
-                const SizedBox(height: 10),
+                const SizedBox(height: PantasSpace.s10),
                 Text(
                   'We check your strengths and weak spots first, '
                   'so your plan is built around you.',
-                  style: t.style(
-                    16,
-                    height: 1.45,
-                    color: t.colors.secondaryLabel,
-                  ),
+                  style: PantasType.webBody
+                      .copyWith(color: t.colors.textSecondary),
                 ),
-                const SizedBox(height: 18),
+                const SizedBox(height: PantasSpace.s18),
                 Align(
                   alignment: Alignment.centerRight,
                   child: WebButton(
@@ -557,7 +568,7 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
                   : ProgressRing(
                       fraction: 0,
                       emptyStrokeWidth: 2,
-                      emptyTrackColor: t.dark ? null : const Color(0xFFD1D1D6),
+                      emptyTrackColor: t.dark ? null : t.colors.dividerStrong,
                       fillDuration: const Duration(milliseconds: 700),
                       fillDelay: fillDelay,
                     ),
@@ -609,7 +620,7 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
                       boardMetrics: true,
                       chevron: WebRowChevron.always,
                       title: 'Reviews',
-                      titleColor: reviewsDone ? t.colors.secondaryLabel : null,
+                      titleColor: reviewsDone ? t.colors.textSecondary : null,
                       subtitle: progress == null
                           ? 'Questions due today'
                           : 'Session ${progress.ordinal} '
@@ -631,7 +642,7 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
                       boardMetrics: true,
                       chevron: WebRowChevron.always,
                       title: 'New questions',
-                      titleColor: newDone ? t.colors.secondaryLabel : null,
+                      titleColor: newDone ? t.colors.textSecondary : null,
                       subtitle: "From today's lessons",
                       value: '${n.newDone} of ${n.newTotal}',
                       divider: showFoot,
@@ -647,14 +658,17 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
                     ),
                     if (showFoot)
                       Container(
-                        padding: const EdgeInsets.fromLTRB(20, 16, 20, 18),
+                        padding: const EdgeInsets.fromLTRB(
+                          PantasSpace.s20,
+                          PantasSpace.s16,
+                          PantasSpace.s20,
+                          PantasSpace.s18,
+                        ),
                         decoration: BoxDecoration(
-                          color: t.dark
-                              ? t.colors.surface
-                              : const Color(0xFFFBFBFC),
+                          color: t.colors.surfaceInset,
                           border: Border(
                             top: BorderSide(
-                              color: t.colors.separator,
+                              color: t.colors.divider,
                               width: webHairline(context),
                             ),
                           ),
@@ -671,7 +685,7 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
                                       style: t.sub,
                                     ),
                                   ),
-                                  const SizedBox(width: 16),
+                                  const SizedBox(width: PantasSpace.s16),
                                   _WebDiscardButton(
                                     onPressed: _discarding
                                         ? null
@@ -679,7 +693,7 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
                                   ),
                                 ],
                               ),
-                              const SizedBox(height: 16),
+                              const SizedBox(height: PantasSpace.s16),
                               primary,
                             ] else if (canStart)
                               Row(
@@ -688,7 +702,7 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
                                     child: sessionLabel() ??
                                         const SizedBox.shrink(),
                                   ),
-                                  const SizedBox(width: 16),
+                                  const SizedBox(width: PantasSpace.s16),
                                   primary,
                                 ],
                               ),
@@ -709,10 +723,18 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
               ),
               if (dayDone)
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(4, 18, 4, 0),
+                  padding: const EdgeInsets.fromLTRB(
+                    PantasSpace.s4,
+                    PantasSpace.s18,
+                    PantasSpace.s4,
+                    PantasSpace.s0,
+                  ),
                   child: Text(
                     "That's all for today.",
-                    style: t.style(19, weight: FontWeight.w700, height: 1.3),
+                    style: PantasType.webSearchInput.copyWith(
+                      color: t.colors.textPrimary,
+                      fontWeight: FontWeight.w700,
+                    ),
                   ),
                 ),
             ],
@@ -866,15 +888,13 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
         title: title,
         titleWidget: Text(
           title,
-          style: context.type.body.copyWith(fontSize: 16, height: 1.35),
+          style: PantasType.phoneCallout
+              .copyWith(color: context.colors.textPrimary),
         ),
         value: '$total',
-        valueStyle: context.type.subhead.copyWith(
-          fontSize: 14,
-          color: context.colors.secondaryLabel,
-          fontFeatures: const [FontFeature.tabularFigures()],
-        ),
-        contentPadding: const EdgeInsets.symmetric(vertical: 9),
+        valueStyle: PantasType.phoneFootnote
+            .copyWith(color: context.colors.textSecondary),
+        contentPadding: const EdgeInsets.symmetric(vertical: PantasSpace.s8),
         minimumHeight: 0,
         verticalPadding: 9,
         leading: total > 0 && done == total
@@ -965,7 +985,7 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
   /// starts at x 74.
   Widget _phoneGlyph(_WebGlyphKind kind, Color color) => ExcludeSemantics(
         child: SizedBox(
-          width: 28,
+          width: PantasSpace.s28,
           child: Center(
             child: CustomPaint(
               size: const Size.square(21),
@@ -988,7 +1008,7 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
           title: title,
           leading: _phoneGlyph(
             glyph,
-            count == 0 ? context.colors.secondaryLabel : context.colors.accent,
+            count == 0 ? context.colors.textSecondary : context.colors.accent,
           ),
           leadingGap: 14,
           variant:
@@ -1008,33 +1028,39 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
       if (state.questionCount == 0) return assessmentNotReady();
       return DecoratedBox(
         decoration: BoxDecoration(
-          color: context.colors.surface,
-          borderRadius: BorderRadius.circular(18),
+          color: context.colors.surfaceCard,
+          borderRadius: BorderRadius.circular(PantasRadius.xl),
         ),
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(18, 20, 18, 18),
+          padding: const EdgeInsets.fromLTRB(
+            PantasSpace.s18,
+            PantasSpace.s20,
+            PantasSpace.s18,
+            PantasSpace.s18,
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Text(
                 'First, a short assessment',
-                style: context.type.emphasized.copyWith(
-                  fontSize: 22,
+                style: PantasType.phoneTitle2.copyWith(
+                  color: context.colors.textPrimary,
                   fontWeight: FontWeight.w700,
-                  letterSpacing: -.264,
                 ),
               ),
-              const SizedBox(height: 8),
+              const SizedBox(height: PantasSpace.s8),
               Text(
                 'We check your strengths and weak spots first, '
                 'so your plan is built around you.',
-                style: context.type.subhead.copyWith(
-                  color: context.colors.secondaryLabel,
-                  height: 1.4,
-                ),
+                style: PantasType.phoneExplanation
+                    .copyWith(color: context.colors.textPrimary)
+                    .copyWith(
+                      color: context.colors.textSecondary,
+                      height: 1.4,
+                    ),
               ),
               // Board (QZ_First): 20 px from the line to the button.
-              const SizedBox(height: 16),
+              const SizedBox(height: PantasSpace.s16),
               PantasButton(
                 label: 'Start Assessment',
                 onPressed: () => unawaited(_open('/assessment/$examId')),
@@ -1107,10 +1133,12 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
         if (hasTail)
           Padding(
             padding: EdgeInsets.fromLTRB(
-              16,
-              14,
-              16,
-              state is SessionPanelInProgress ? 11 : 16,
+              PantasSpace.s16,
+              PantasSpace.s14,
+              PantasSpace.s16,
+              state is SessionPanelInProgress
+                  ? PantasSpace.s10
+                  : PantasSpace.s16,
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -1120,23 +1148,28 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
                     liveRegion: true,
                     child: Text(
                       'You paused. Every answer was saved.',
-                      style: context.type.subhead
-                          .copyWith(color: context.colors.secondaryLabel),
+                      style: PantasType.phoneExplanation
+                          .copyWith(color: context.colors.textPrimary)
+                          .copyWith(color: context.colors.textSecondary),
                     ),
                   ),
-                  const SizedBox(height: 14),
+                  const SizedBox(height: PantasSpace.s14),
                   PantasButton(
                     label: 'Resume',
                     onPressed: () => unawaited(_open('/quiz/resume/$examId')),
                   ),
                   // Board (QZ_Resume): the link sits 6 px lower.
-                  const SizedBox(height: 6),
+                  const SizedBox(height: PantasSpace.s6),
                   TextButton(
                     onPressed:
                         _discarding ? null : () => unawaited(_discard(examId)),
                     child: Text(
                       'Discard this session',
-                      style: context.type.subheadStrong
+                      style: PantasType.phoneExplanation
+                          .copyWith(
+                            fontWeight: FontWeight.w600,
+                            color: context.colors.textPrimary,
+                          )
                           .copyWith(color: context.colors.accent),
                     ),
                   ),
@@ -1147,8 +1180,9 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
                     liveRegion: true,
                     child: Text(
                       "That's all for today.",
-                      style: context.type.subhead
-                          .copyWith(color: context.colors.secondaryLabel),
+                      style: PantasType.phoneExplanation
+                          .copyWith(color: context.colors.textPrimary)
+                          .copyWith(color: context.colors.textSecondary),
                     ),
                   ),
                 if (state is SessionPanelAvailable && reviewsLeft)
@@ -1281,7 +1315,7 @@ class _WebDiscardButton extends StatelessWidget {
         visualDensity: VisualDensity.standard,
         minimumSize: const WidgetStatePropertyAll(Size(0, 42)),
         padding: const WidgetStatePropertyAll(
-          EdgeInsets.symmetric(horizontal: 14),
+          EdgeInsets.symmetric(horizontal: PantasSpace.s14),
         ),
         overlayColor: const WidgetStatePropertyAll(Colors.transparent),
         backgroundColor: WidgetStateProperty.resolveWith(
@@ -1291,14 +1325,16 @@ class _WebDiscardButton extends StatelessWidget {
         ),
         foregroundColor: WidgetStateProperty.resolveWith(
           (s) => s.contains(WidgetState.hovered)
-              ? t.colors.label
-              : t.colors.secondaryLabel,
+              ? t.colors.textPrimary
+              : t.colors.textSecondary,
         ),
         shape: WidgetStatePropertyAll(
-          RoundedRectangleBorder(borderRadius: BorderRadius.circular(11)),
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(PantasRadius.back),
+          ),
         ),
         textStyle: WidgetStatePropertyAll(
-          t.style(16, weight: FontWeight.w600, height: 1.2),
+          PantasType.webButton.copyWith(color: t.colors.textPrimary),
         ),
       ),
       child: const Text('Discard this session'),

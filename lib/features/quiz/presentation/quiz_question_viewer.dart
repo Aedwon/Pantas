@@ -12,11 +12,19 @@ import 'package:pantas/core/ui/components/new_design/answer_reveal.dart';
 import 'package:pantas/core/ui/components/new_design/passage_card.dart'
     as passage_ui;
 import 'package:pantas/core/ui/components/new_design/question_card.dart';
+import 'package:pantas/core/ui/components/pantas_shadows.dart';
 import 'package:pantas/core/ui/components/pro_paused_line.dart';
 import 'package:pantas/core/ui/figures/question_figure.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/lesson_text_scale.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_opacity.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_key_focus.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -199,13 +207,14 @@ class _QuizQuestionViewerState extends State<QuizQuestionViewer> {
           focusNode: _webFocus,
           skipTraversal: true,
           child: Scaffold(
-            backgroundColor: t.colors.background,
+            backgroundColor: t.colors.bgPage,
             body: Column(
               children: [
                 SizedBox(
-                  height: 64,
+                  height: PantasLayout.focusHead,
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: PantasSpace.s20),
                     child: Row(
                       children: [
                         TextButton.icon(
@@ -217,24 +226,23 @@ class _QuizQuestionViewerState extends State<QuizQuestionViewer> {
                             overlayColor: Colors.transparent,
                             visualDensity: VisualDensity.standard,
                             tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                            textStyle: t.style(17),
+                            textStyle: PantasType.webLead
+                                .copyWith(color: t.colors.textPrimary),
                           ),
                           icon: Icon(PantasIcons.back, size: 20),
                           label: Text(widget.backLabel),
                         ),
-                        const SizedBox(width: 10),
+                        const SizedBox(width: PantasSpace.s10),
                         const WebKeyHint('Esc'),
                         const Spacer(),
                         if (_reportStatus == question.id)
                           Padding(
-                            padding: const EdgeInsets.only(right: 8),
+                            padding:
+                                const EdgeInsets.only(right: PantasSpace.s8),
                             child: Text(
                               'Saved on this device.',
-                              style: t.style(
-                                14,
-                                height: 1.3,
-                                color: t.colors.secondaryLabel,
-                              ),
+                              style: PantasType.webRowSub
+                                  .copyWith(color: t.colors.textSecondary),
                             ),
                           ),
                         SizedBox.square(
@@ -249,7 +257,8 @@ class _QuizQuestionViewerState extends State<QuizQuestionViewer> {
                                   ? t.disabledBackground
                                   : Colors.transparent,
                               shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(12),
+                                borderRadius:
+                                    BorderRadius.circular(PantasRadius.md),
                               ),
                             ),
                             onPressed: () => unawaited(_report(question.id)),
@@ -257,7 +266,7 @@ class _QuizQuestionViewerState extends State<QuizQuestionViewer> {
                               data: IconThemeData(
                                 color: _reported.contains(question.id)
                                     ? t.colors.accent
-                                    : t.colors.secondaryLabel,
+                                    : t.colors.textSecondary,
                               ),
                               child: PantasIcons.report,
                             ),
@@ -272,7 +281,12 @@ class _QuizQuestionViewerState extends State<QuizQuestionViewer> {
                     children: [
                       Positioned.fill(
                         child: SingleChildScrollView(
-                          padding: const EdgeInsets.fromLTRB(40, 56, 40, 140),
+                          padding: const EdgeInsets.fromLTRB(
+                            PantasSpace.s40,
+                            PantasSpace.s56,
+                            PantasSpace.s40,
+                            PantasLayout.reserveBar,
+                          ),
                           child: question.passageId != null && passage == null
                               ? errorFor(
                                   'question',
@@ -364,12 +378,17 @@ class _QuizQuestionViewerState extends State<QuizQuestionViewer> {
             ? FloatingBarState.wrong
             : FloatingBarState.right;
     return Scaffold(
-      backgroundColor: colors.background,
+      backgroundColor: colors.bgPage,
       body: SafeArea(
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.fromLTRB(0, 6, 8, 0),
+              padding: const EdgeInsets.fromLTRB(
+                PantasSpace.s0,
+                PantasSpace.s6,
+                PantasSpace.s8,
+                PantasSpace.s0,
+              ),
               child: Row(
                 children: [
                   Expanded(
@@ -380,7 +399,12 @@ class _QuizQuestionViewerState extends State<QuizQuestionViewer> {
                         onPressed: widget.onBack,
                         style: TextButton.styleFrom(
                           minimumSize: const Size(44, 44),
-                          padding: const EdgeInsets.fromLTRB(8, 0, 16, 0),
+                          padding: const EdgeInsets.fromLTRB(
+                            PantasSpace.s8,
+                            PantasSpace.s0,
+                            PantasSpace.s16,
+                            PantasSpace.s0,
+                          ),
                           visualDensity: VisualDensity.standard,
                           tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                         ),
@@ -392,11 +416,12 @@ class _QuizQuestionViewerState extends State<QuizQuestionViewer> {
                               size: 24,
                               color: colors.accent,
                             ),
-                            const SizedBox(width: 2),
+                            const SizedBox(width: PantasSpace.s2),
                             Flexible(
                               child: Text(
                                 widget.backLabel,
-                                style: context.type.body
+                                style: PantasType.phoneBody
+                                    .copyWith(color: context.colors.textPrimary)
                                     .copyWith(color: colors.accent),
                               ),
                             ),
@@ -418,7 +443,7 @@ class _QuizQuestionViewerState extends State<QuizQuestionViewer> {
                       data: IconThemeData(
                         color: _reported.contains(question.id)
                             ? colors.accent
-                            : colors.secondaryLabel,
+                            : colors.textSecondary,
                         size: 21,
                       ),
                       child: PantasIcons.report,
@@ -436,14 +461,14 @@ class _QuizQuestionViewerState extends State<QuizQuestionViewer> {
                     ListView(
                       key: ValueKey('viewer-question-${question.id}'),
                       padding: EdgeInsets.fromLTRB(
-                        16,
-                        12,
-                        16,
+                        PantasSpace.s16,
+                        PantasSpace.s12,
+                        PantasSpace.s16,
                         notes
                             ? MediaQuery.sizeOf(context).height * .72
                             : large
-                                ? 162
-                                : 118,
+                                ? PantasLayout.reserveBar
+                                : PantasLayout.reserveBarPhone,
                       ),
                       children: [
                         LessonTextScale(
@@ -477,7 +502,7 @@ class _QuizQuestionViewerState extends State<QuizQuestionViewer> {
                                     ),
                                 ],
                               ),
-                              const SizedBox(height: 20),
+                              const SizedBox(height: PantasSpace.s20),
                               AnswerReveal(
                                 key: ValueKey('viewer-reveal-${question.id}'),
                                 correctLetter: correct.label,
@@ -488,7 +513,7 @@ class _QuizQuestionViewerState extends State<QuizQuestionViewer> {
                                     : null,
                               ),
                               if (wrong && widget.proPaused) ...[
-                                const SizedBox(height: 12),
+                                const SizedBox(height: PantasSpace.s12),
                                 const ProPausedLine(),
                               ],
                             ],
@@ -515,7 +540,7 @@ class _QuizQuestionViewerState extends State<QuizQuestionViewer> {
                               ),
                               constraints: const BoxConstraints.tightFor(
                                 width: 44,
-                                height: 44,
+                                height: PantasSize.btn,
                               ),
                               padding: EdgeInsets.zero,
                               icon: Icon(icon, size: 20, color: color),
@@ -539,7 +564,7 @@ class _QuizQuestionViewerState extends State<QuizQuestionViewer> {
                                         : const Duration(milliseconds: 720),
                                 builder: (context, progress, child) {
                                   final elapsed = progress * 720 - 300;
-                                  const curve = Cubic(.3, 1.4, .5, 1);
+                                  const curve = PantasCurves.popB;
                                   final first = (elapsed / 260).clamp(0.0, 1.0);
                                   final last =
                                       ((elapsed - 260) / 160).clamp(0.0, 1.0);
@@ -570,7 +595,7 @@ class _QuizQuestionViewerState extends State<QuizQuestionViewer> {
                                   color: item?.mistakeTag != null ||
                                           item?.mistakeNote != null
                                       ? colors.accent
-                                      : colors.label,
+                                      : colors.textPrimary,
                                 ),
                               ),
                             action(
@@ -584,9 +609,9 @@ class _QuizQuestionViewerState extends State<QuizQuestionViewer> {
                         );
                         final counter = Text(
                           '${_index + 1} of ${widget.questions.length}',
-                          style: context.type.subheadStrong.copyWith(
-                            fontSize: 15,
+                          style: PantasType.phoneExplanation.copyWith(
                             fontWeight: FontWeight.w600,
+                            color: context.colors.textPrimary,
                           ),
                         );
                         final counterRow = KeyedSubtree(
@@ -615,7 +640,7 @@ class _QuizQuestionViewerState extends State<QuizQuestionViewer> {
                                   ? Row(
                                       children: [
                                         previous,
-                                        const SizedBox(width: 14),
+                                        const SizedBox(width: PantasSpace.s14),
                                         counter,
                                         const Spacer(),
                                         trailing,
@@ -640,7 +665,12 @@ class _QuizQuestionViewerState extends State<QuizQuestionViewer> {
                                     ),
                         );
                         final row = Padding(
-                          padding: const EdgeInsets.fromLTRB(4, 8, 8, 8),
+                          padding: const EdgeInsets.fromLTRB(
+                            PantasSpace.s4,
+                            PantasSpace.s8,
+                            PantasSpace.s8,
+                            PantasSpace.s8,
+                          ),
                           child: counterRow,
                         );
                         final editor = KeyedSubtree(
@@ -659,14 +689,13 @@ class _QuizQuestionViewerState extends State<QuizQuestionViewer> {
                         return FloatingBar.content(
                           key: const ValueKey('quiz-viewer-surface'),
                           state: notes ? FloatingBarState.neutral : barState,
-                          radius: notes ? 24 : 30,
+                          radius: notes ? PantasRadius.r2xl : PantasRadius.bar,
                           inset: 0,
                           transitionDuration: canNote
                               ? const Duration(milliseconds: 420)
                               : null,
-                          transitionCurve: canNote
-                              ? const Cubic(.32, .72, 0, 1)
-                              : Curves.linear,
+                          transitionCurve:
+                              canNote ? PantasCurves.move : Curves.linear,
                           child: !canNote
                               ? row
                               : still
@@ -679,7 +708,7 @@ class _QuizQuestionViewerState extends State<QuizQuestionViewer> {
                                       reverseDuration:
                                           const Duration(milliseconds: 720),
                                       alignment: Alignment.bottomCenter,
-                                      sizeCurve: const Cubic(.32, .72, 0, 1),
+                                      sizeCurve: PantasCurves.move,
                                       firstCurve: notes
                                           ? const Interval(0, 120 / 420)
                                           : const Interval(
@@ -734,7 +763,7 @@ class _WebNoteRevealState extends State<_WebNoteReveal>
   );
   late final Animation<double> _size = CurvedAnimation(
     parent: _controller,
-    curve: const Cubic(.32, .72, 0, 1),
+    curve: PantasCurves.move,
   );
   late final Animation<double> _fade = CurvedAnimation(
     parent: _controller,
@@ -826,7 +855,7 @@ class _ViewerBar extends StatelessWidget {
     final c = t.colors;
     Widget arrow(String tooltip, IconData icon, VoidCallback? onPressed) =>
         SizedBox.square(
-          dimension: 46,
+          dimension: PantasSize.btnBar,
           child: IconButton(
             tooltip: tooltip,
             onPressed: onPressed,
@@ -841,50 +870,52 @@ class _ViewerBar extends StatelessWidget {
           ),
         );
     return Container(
-      constraints: const BoxConstraints(minHeight: 64),
-      padding: const EdgeInsets.fromLTRB(8, 0, 9, 0),
+      constraints: const BoxConstraints(minHeight: PantasSize.bar),
+      padding: const EdgeInsets.fromLTRB(
+        PantasSpace.s8,
+        PantasSpace.s0,
+        PantasSpace.s8,
+        PantasSpace.s0,
+      ),
       decoration: BoxDecoration(
         color: switch (state) {
-          WebBarState.neutral => c.surface,
-          WebBarState.right => c.floatingRight,
-          WebBarState.wrong => c.floatingWrong,
+          WebBarState.neutral => c.surfaceCard,
+          WebBarState.right => c.accentBar,
+          WebBarState.wrong => c.dangerBar,
         },
-        borderRadius: BorderRadius.circular(32),
+        borderRadius: BorderRadius.circular(PantasRadius.bar),
         border: Border.all(
           color: switch (state) {
-            WebBarState.neutral =>
-              t.dark ? c.separator : Colors.black.withValues(alpha: .06),
-            WebBarState.right => c.accent.withValues(alpha: .26),
-            WebBarState.wrong => c.destructive.withValues(alpha: .26),
+            WebBarState.neutral => c.edgeBar,
+            WebBarState.right =>
+              c.accent.withValues(alpha: PantasOpacity.barRing),
+            WebBarState.wrong =>
+              c.danger.withValues(alpha: PantasOpacity.barRing),
           },
         ),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withValues(alpha: t.dark ? .4 : .10),
-            blurRadius: 30,
-            offset: const Offset(0, 10),
-          ),
-        ],
+        boxShadow: context.shadows.bar,
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
           arrow('Previous question', PantasIcons.back, onPrevious),
-          const SizedBox(width: 6),
+          const SizedBox(width: PantasSpace.s6),
           const WebKeyHint('←'),
-          const SizedBox(width: 6),
+          const SizedBox(width: PantasSpace.s6),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 14),
+            padding: const EdgeInsets.symmetric(horizontal: PantasSpace.s14),
             child: Text(
               counter,
-              style: t.style(15, weight: FontWeight.w600).copyWith(
+              style: PantasType.webLink
+                  .copyWith(color: t.colors.textPrimary)
+                  .copyWith(
                 fontFeatures: [const FontFeature.tabularFigures()],
               ),
             ),
           ),
-          const SizedBox(width: 6),
+          const SizedBox(width: PantasSpace.s6),
           const WebKeyHint('→'),
-          const SizedBox(width: 6),
+          const SizedBox(width: PantasSpace.s6),
           if (onEditNote != null)
             SizedBox.square(
               dimension: 46,

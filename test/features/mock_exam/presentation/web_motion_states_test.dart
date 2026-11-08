@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/domain/lesson.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -88,7 +89,7 @@ void main() {
         await tester.pump(const Duration(milliseconds: 320));
         final miss = find
             .ancestor(
-              of: find.byIcon(Icons.close),
+              of: find.byIcon(PantasIcons.close),
               matching: find.byType(Transform),
             )
             .first;
@@ -99,7 +100,7 @@ void main() {
         await tester.pump(const Duration(milliseconds: 160));
         final fix = find
             .ancestor(
-              of: find.byIcon(Icons.check),
+              of: find.byIcon(PantasIcons.check),
               matching: find.byType(Transform),
             )
             .first;

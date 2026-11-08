@@ -9,20 +9,21 @@ import 'package:pantas/core/ui/components/math_text.dart';
 import 'package:pantas/core/ui/components/new_design/answer_reveal.dart';
 import 'package:pantas/core/ui/components/new_design/passage_card.dart';
 import 'package:pantas/core/ui/components/new_design/question_card.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 
 import '../../../helpers/accessibility.dart';
 import 'w2_test_support.dart';
 
 void main() {
   for (final brightness in Brightness.values) {
-    testWidgets('answer reveal uses the 70ms fade midpoint $brightness',
+    testWidgets('answer reveal uses the 75ms fade midpoint $brightness',
         (tester) async {
       await pumpAccessibilitySurface(
         tester,
         const AnswerReveal(correctLetter: 'B', explanation: 'A note.'),
         brightness: brightness,
       );
-      await tester.pump(const Duration(milliseconds: 70));
+      await tester.pump(const Duration(milliseconds: 75));
       expect(
         tester
             .widget<Opacity>(
@@ -120,10 +121,10 @@ void main() {
           brightness: brightness,
         );
         final text = tester.widget<Text>(find.text('Which answer is correct?'));
-        expect(text.style!.fontSize, figure ? 19 : 21);
+        expect(text.style!.fontSize, 21);
         expect(text.style!.fontWeight, FontWeight.w600);
         expect(text.style!.height, 1.35);
-        expect(text.style!.letterSpacing, figure ? -.228 : -.252);
+        expect(text.style!.letterSpacing, -.252);
         if (figure) {
           expect(
             Theme.of(tester.element(find.text('Diagram'))).brightness,
@@ -184,11 +185,13 @@ void main() {
           expectContrast(body.style!.color!, bg);
         }
         if (state == ChoiceRowState.dimmed) {
+          // D49: dimmed by color, not by opacity.
+          expect(find.byKey(const ValueKey('choice-opacity')), findsNothing);
           expect(
-            tester
-                .widget<Opacity>(find.byKey(const ValueKey('choice-opacity')))
-                .opacity,
-            .45,
+            body.style!.color,
+            Theme.of(tester.element(find.text('The answer')))
+                .extension<PantasColors>()!
+                .textSecondary,
           );
         }
         await tester.sendKeyEvent(LogicalKeyboardKey.tab);

@@ -196,7 +196,7 @@ void main() {
         await tester.pump();
         await tester.tap(find.text('A wrong question'));
         await tester.pumpAndSettle();
-        expect(find.text('correct answer'), findsOneWidget);
+        expect(find.text('CORRECT ANSWER'), findsOneWidget);
         expect(
           tester.widget<WebBottomBar>(find.byType(WebBottomBar)).state,
           WebBarState.wrong,

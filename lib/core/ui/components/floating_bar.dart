@@ -1,5 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:pantas/core/ui/components/pantas_shadows.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_opacity.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 
@@ -17,8 +25,8 @@ class FloatingBar extends StatelessWidget {
     this.afterCounter,
     super.key,
   })  : content = null,
-        radius = 30,
-        inset = 8,
+        radius = PantasRadius.bar,
+        inset = PantasSpace.s8,
         transitionDuration = null,
         transitionCurve = Curves.linear;
 
@@ -26,8 +34,8 @@ class FloatingBar extends StatelessWidget {
   const FloatingBar.content({
     required Widget child,
     this.state = FloatingBarState.neutral,
-    this.radius = 30,
-    this.inset = 8,
+    this.radius = PantasRadius.bar,
+    this.inset = PantasSpace.s8,
     this.transitionDuration,
     this.transitionCurve = Curves.linear,
     super.key,
@@ -51,7 +59,7 @@ class FloatingBar extends StatelessWidget {
   final String counter;
   final Widget right;
   final FloatingBarState state;
-  static const contentBottomInset = 102.0;
+  static const contentBottomInset = PantasLayout.reserveBarPhone;
   @override
   Widget build(BuildContext context) {
     if (context.wideWeb && content == null) {
@@ -68,46 +76,43 @@ class FloatingBar extends StatelessWidget {
     }
     final c = context.colors;
     final color = switch (state) {
-      FloatingBarState.neutral => c.surface,
-      FloatingBarState.right => c.floatingRight,
-      FloatingBarState.wrong => c.floatingWrong
+      FloatingBarState.neutral => c.surfaceCard,
+      FloatingBarState.right => c.accentBar,
+      FloatingBarState.wrong => c.dangerBar
     };
     return AnimatedContainer(
       duration: MediaQuery.disableAnimationsOf(context)
           ? Duration.zero
           : transitionDuration ??
-              Duration(
-                milliseconds: state == FloatingBarState.neutral ? 250 : 300,
-              ),
+              (state == FloatingBarState.neutral
+                  ? PantasDurations.fade
+                  : PantasDurations.flip),
       curve: transitionCurve,
-      constraints: const BoxConstraints(minHeight: 60),
+      constraints: const BoxConstraints(minHeight: PantasSize.bar),
       padding: EdgeInsets.all(inset),
       decoration: BoxDecoration(
         color: color,
         borderRadius: BorderRadius.circular(radius),
-        boxShadow: [
-          BoxShadow(
-            color: context.colors.shadow.withValues(alpha: .12),
-            blurRadius: 30,
-            offset: const Offset(0, 10),
-          ),
-        ],
+        boxShadow: context.shadows.bar,
       ),
       foregroundDecoration: BoxDecoration(
         borderRadius: BorderRadius.circular(radius),
         border: Border.all(
           color: state == FloatingBarState.neutral
-              ? context.colors.shadow.withValues(alpha: .06)
-              : state == FloatingBarState.right
-                  ? c.accent.withValues(alpha: .28)
-                  : c.destructive.withValues(alpha: .26),
+              ? c.edgeBar
+              : (state == FloatingBarState.right ? c.accent : c.danger)
+                  .withValues(alpha: PantasOpacity.barRing),
         ),
       ),
       child: TextButtonTheme(
         data: TextButtonThemeData(
           style: TextButton.styleFrom(
-            minimumSize: const Size(44, 44),
-            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+            minimumSize:
+                const Size(PantasSize.targetTouch, PantasSize.targetTouch),
+            padding: const EdgeInsets.symmetric(
+              horizontal: PantasSpace.s12,
+              vertical: PantasSpace.s10,
+            ),
             tapTargetSize: MaterialTapTargetSize.shrinkWrap,
           ),
         ),
@@ -122,7 +127,13 @@ class FloatingBar extends StatelessWidget {
                   ),
                 ),
                 if (beforeCounter != null) beforeCounter!,
-                Text(counter, style: context.type.subheadStrong),
+                Text(
+                  counter,
+                  style: PantasType.webLink.copyWith(
+                    color: c.textPrimary,
+                    fontFeatures: const [FontFeature.tabularFigures()],
+                  ),
+                ),
                 if (afterCounter != null) afterCounter!,
                 Expanded(
                   child: Align(

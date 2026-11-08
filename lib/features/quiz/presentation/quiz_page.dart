@@ -22,6 +22,7 @@ import 'package:pantas/core/ui/components/new_design/passage_card.dart'
 import 'package:pantas/core/ui/components/new_design/question_card.dart';
 import 'package:pantas/core/ui/components/new_design/question_grid_sheet.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/pantas_icon_button.dart';
 import 'package:pantas/core/ui/components/pro_paused_line.dart';
 import 'package:pantas/core/ui/components/report_form.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
@@ -32,6 +33,13 @@ import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/lesson_text_scale.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_border.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_key_focus.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -218,7 +226,7 @@ class _PreparedQuestionStageState
                 child: Opacity(
                   key: const ValueKey<String>('quiz-question-prepaint-cover'),
                   opacity: preparedIsCurrent ? 0 : 1,
-                  child: ColoredBox(color: context.colors.background),
+                  child: ColoredBox(color: context.colors.bgPage),
                 ),
               ),
             ),
@@ -394,6 +402,29 @@ final _questionTopicProvider = FutureProvider.family<String, String>(
       (await ref.watch(contentRepositoryProvider).topicById(id))?.name ?? '',
 );
 
+/// What the phone question header carries at its trailing end (D71): the
+/// flag, on a phone narrower than 400. The question it belongs to is named, so
+/// the next question, built under a cover, does not show a second flag.
+class _QuestionHeaderTrailing extends InheritedWidget {
+  const _QuestionHeaderTrailing({
+    required this.questionId,
+    required this.trailing,
+    required super.child,
+  });
+  final QuestionId questionId;
+  final Widget? trailing;
+
+  static Widget? of(BuildContext context, QuestionId questionId) {
+    final scope =
+        context.dependOnInheritedWidgetOfExactType<_QuestionHeaderTrailing>();
+    return scope?.questionId == questionId ? scope?.trailing : null;
+  }
+
+  @override
+  bool updateShouldNotify(_QuestionHeaderTrailing oldWidget) =>
+      oldWidget.questionId != questionId || oldWidget.trailing != trailing;
+}
+
 class _QuestionContent extends ConsumerWidget {
   const _QuestionContent({
     required this.question,
@@ -452,6 +483,7 @@ class _QuestionContent extends ConsumerWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           QuestionCard(
+            headerTrailing: _QuestionHeaderTrailing.of(context, question.id),
             subject: ref
                     .watch(_questionTopicProvider(question.topicId))
                     .valueOrNull ??
@@ -491,7 +523,7 @@ class _QuestionContent extends ConsumerWidget {
             ],
           ),
           if (outcome != null) ...[
-            const SizedBox(height: 20),
+            const SizedBox(height: PantasSpace.s20),
             AnswerReveal(
               key: ValueKey('reveal-${question.id}'),
               correctLetter: correct.label,
@@ -501,7 +533,7 @@ class _QuestionContent extends ConsumerWidget {
                   proIsActive && !outcome!.isCorrect ? picked?.rationale : null,
             ),
             if (proPaused && !outcome!.isCorrect) ...[
-              const SizedBox(height: 12),
+              const SizedBox(height: PantasSpace.s12),
               const ProPausedLine(),
             ],
           ],
@@ -631,7 +663,7 @@ class _QuizPageState extends ConsumerState<QuizPage> {
       return Scaffold(
         body: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.all(16),
+            padding: const EdgeInsets.all(PantasSpace.s16),
             child: child,
           ),
         ),
@@ -649,38 +681,29 @@ class _QuizPageState extends ConsumerState<QuizPage> {
       return _webPage(state, index, flagged, pro: pro, paused: paused);
     }
     final page = Scaffold(
-      backgroundColor: context.colors.background,
+      backgroundColor: context.colors.bgPage,
       body: SafeArea(
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.fromLTRB(8, 6, 8, 0),
+              padding: const EdgeInsets.fromLTRB(
+                PantasSpace.s8,
+                PantasSpace.s6,
+                PantasSpace.s8,
+                PantasSpace.s0,
+              ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  IconButton(
+                  PantasIconButton(
                     tooltip: 'Leave session',
-                    constraints:
-                        const BoxConstraints.tightFor(width: 44, height: 44),
-                    style: IconButton.styleFrom(
-                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                    ),
-                    padding: EdgeInsets.zero,
+                    glyph: PantasIcons.close,
                     onPressed: () => unawaited(_confirmLeave()),
-                    icon: Icon(
-                      PantasIcons.close,
-                      size: 22,
-                      color: context.colors.controlOutline,
-                    ),
                   ),
-                  IconButton(
+                  PantasIconButton(
                     tooltip: 'Report a question',
-                    constraints:
-                        const BoxConstraints.tightFor(width: 44, height: 44),
-                    style: IconButton.styleFrom(
-                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                    ),
-                    padding: EdgeInsets.zero,
+                    icon: PantasIcons.report,
+                    accent: _reported.contains(question.id),
                     onPressed: () async {
                       final saved = await openQuestionReport(
                         context,
@@ -691,15 +714,6 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                         setState(() => _reported.add(question.id));
                       }
                     },
-                    icon: IconTheme(
-                      data: IconThemeData(
-                        size: 21,
-                        color: _reported.contains(question.id)
-                            ? context.colors.accent
-                            : context.colors.controlOutline,
-                      ),
-                      child: PantasIcons.report,
-                    ),
                   ),
                 ],
               ),
@@ -708,6 +722,10 @@ class _QuizPageState extends ConsumerState<QuizPage> {
               child: LayoutBuilder(
                 builder: (context, constraints) {
                   final large = MediaQuery.textScalerOf(context).scale(16) > 24;
+                  // Under 400 the flag moves from the bar into the question
+                  // header, so the bar's hint fits on one line (D71).
+                  final narrow = MediaQuery.sizeOf(context).width <
+                      PantasLayout.bpPhoneNarrow;
                   final counter = _counter(
                     index,
                     session.questions.length,
@@ -725,8 +743,10 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                         : () => unawaited(_toggleFlag(question.id)),
                     child: ExcludeSemantics(
                       child: IconButton(
-                        constraints:
-                            const BoxConstraints(minWidth: 44, minHeight: 44),
+                        constraints: const BoxConstraints(
+                          minWidth: PantasSize.iconBtn,
+                          minHeight: PantasSize.iconBtn,
+                        ),
                         style: IconButton.styleFrom(
                           tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                         ),
@@ -748,19 +768,18 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                             : session.isComplete
                                 ? 'Finish'
                                 : 'Next',
-                    disabledForeground: outcome == null
-                        ? context.colors.disabledActionLabel
-                        : null,
+                    disabledForeground:
+                        outcome == null ? context.colors.textDisabled : null,
                     // QV_MissPro: Next carries a chevron.
                     trailing:
                         !lookingBack && outcome != null && !session.isComplete
                             ? Icon(PantasIcons.next, size: 16)
                             : null,
                     fullWidth: large,
-                    height: 44,
-                    radius: 99,
-                    fontSize: 16,
-                    horizontalPadding: 18,
+                    height: PantasSize.btn,
+                    radius: PantasRadius.full,
+                    fontSize: PantasType.webButton.fontSize,
+                    horizontalPadding: PantasSpace.s18,
                     busy: state.checking,
                     onPressed: lookingBack
                         ? () => _lookAt(null)
@@ -780,34 +799,46 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                         ? Column(
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                              Row(children: [Expanded(child: counter), flag]),
+                              Row(
+                                children: [
+                                  Expanded(child: counter),
+                                  if (!narrow) flag,
+                                ],
+                              ),
                               action,
                             ],
                           )
                         : Row(
-                            children: [Expanded(child: counter), flag, action],
+                            children: [
+                              Expanded(child: counter),
+                              if (!narrow) flag,
+                              action,
+                            ],
                           ),
                   );
                   final scroll = SingleChildScrollView(
                     key: const ValueKey('quiz-scroll'),
                     controller: _questionScroll,
                     padding: EdgeInsets.fromLTRB(
-                      16,
-                      20,
-                      16,
+                      PantasLayout.gutterPhone,
+                      PantasSpace.s20,
+                      PantasLayout.gutterPhone,
                       large
-                          ? 24
+                          ? PantasSpace.s24
                           : FloatingBar.contentBottomInset +
-                              24 +
                               MediaQuery.paddingOf(context).bottom,
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        _PreparedQuestionStage(
-                          proIsActive: pro,
-                          proPaused: paused,
-                          viewIndex: _viewIndex,
+                        _QuestionHeaderTrailing(
+                          questionId: question.id,
+                          trailing: narrow ? flag : null,
+                          child: _PreparedQuestionStage(
+                            proIsActive: pro,
+                            proPaused: paused,
+                            viewIndex: _viewIndex,
+                          ),
                         ),
                         if (_retryWrite != null)
                           saveFailureLine(() => unawaited(_retryWrite!())),
@@ -832,16 +863,21 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                               Positioned.fill(child: scroll),
                               if (toast != null)
                                 Positioned(
-                                  left: 16,
-                                  right: 16,
-                                  bottom: 8,
+                                  left: PantasLayout.gutterPhone,
+                                  right: PantasLayout.gutterPhone,
+                                  bottom: PantasSpace.s8,
                                   child: toast,
                                 ),
                             ],
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.fromLTRB(16, 0, 16, 26),
+                          padding: const EdgeInsets.fromLTRB(
+                            PantasSpace.s16,
+                            PantasSpace.s0,
+                            PantasSpace.s16,
+                            PantasSpace.s24,
+                          ),
                           child: bar,
                         ),
                       ],
@@ -850,12 +886,21 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                   return Stack(
                     children: [
                       Positioned.fill(child: scroll),
-                      Positioned(left: 16, right: 16, bottom: 26, child: bar),
+                      Positioned(
+                        left: PantasLayout.gutterPhone,
+                        right: PantasLayout.gutterPhone,
+                        bottom: PantasLayout.barBottomPhone,
+                        child: bar,
+                      ),
                       if (toast != null)
                         Positioned(
-                          left: 16,
-                          right: 16,
-                          bottom: 92,
+                          left: PantasLayout.gutterPhone,
+                          right: PantasLayout.gutterPhone,
+                          // Anchored to the bar: its bottom, its height and
+                          // a gap.
+                          bottom: PantasLayout.barBottomPhone +
+                              PantasSize.bar +
+                              PantasSpace.s12,
                           child: toast,
                         ),
                     ],
@@ -1007,7 +1052,7 @@ class _QuizPageState extends ConsumerState<QuizPage> {
             if (!didPop) unawaited(_confirmLeave());
           },
           child: Scaffold(
-            backgroundColor: t.colors.background,
+            backgroundColor: t.colors.bgPage,
             body: Column(
               children: [
                 WebCenteredTopBar(
@@ -1021,7 +1066,7 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                         onPressed: () => unawaited(_confirmLeave()),
                         icon: Icon(PantasIcons.close, size: 22),
                       ),
-                      const SizedBox(width: 10),
+                      const SizedBox(width: PantasSpace.s10),
                       const WebKeyHint('Esc'),
                     ],
                   ),
@@ -1063,7 +1108,7 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                           data: IconThemeData(
                             color: _reported.contains(question.id)
                                 ? t.colors.accent
-                                : t.colors.secondaryLabel,
+                                : t.colors.textSecondary,
                           ),
                           child: PantasIcons.report,
                         ),
@@ -1078,10 +1123,12 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                         child: SingleChildScrollView(
                           controller: _questionScroll,
                           padding: EdgeInsets.fromLTRB(
-                            40,
-                            question.passageId == null ? 56 : 24,
-                            40,
-                            140,
+                            PantasSpace.s40,
+                            question.passageId == null
+                                ? PantasSpace.s56
+                                : PantasSpace.s24,
+                            PantasSpace.s40,
+                            PantasLayout.reserveBar,
                           ),
                           child: Column(
                             children: [
@@ -1108,100 +1155,99 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                         ),
                       ),
                       Positioned(
-                        bottom: 28,
-                        left: 24,
-                        right: 24,
+                        bottom: PantasLayout.barBottom,
+                        left: PantasSpace.s24,
+                        right: PantasSpace.s24,
                         child: Center(
                           child: CompositedTransformTarget(
                             link: _barLink,
-                            child: IntrinsicWidth(
-                              child: WebBottomBar(
-                                compact: true,
-                                counterChevron: true,
-                                counter: '${index + 1} of $total',
-                                counterLabel:
-                                    'Question ${index + 1} of $total. '
-                                    'Open question navigator',
-                                onCounterPressed: state.checking
-                                    ? null
-                                    : () => setState(
-                                          () => _gridOpen = !_gridOpen,
+                            child: WebBottomBar(
+                              hint: _barHint(
+                                outcome: outcome,
+                                picked: state.selectedChoiceId != null,
+                              ),
+                              counterChevron: true,
+                              counter: '${index + 1} of $total',
+                              counterLabel: 'Question ${index + 1} of $total. '
+                                  'Open question navigator',
+                              onCounterPressed: state.checking
+                                  ? null
+                                  : () => setState(
+                                        () => _gridOpen = !_gridOpen,
+                                      ),
+                              state: outcome == null
+                                  ? WebBarState.neutral
+                                  : outcome.isCorrect
+                                      ? WebBarState.right
+                                      : WebBarState.wrong,
+                              action: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  // The same name and switch the phone
+                                  // gives its flag.
+                                  Semantics(
+                                    button: true,
+                                    enabled: !_flagBusy,
+                                    toggled: flagged.contains(question.id),
+                                    label: flagged.contains(question.id)
+                                        ? 'Remove flag from question '
+                                            '${index + 1}'
+                                        : 'Flag question ${index + 1}',
+                                    onTap: _flagBusy
+                                        ? null
+                                        : () => unawaited(
+                                              _toggleFlag(question.id),
+                                            ),
+                                    child: ExcludeSemantics(
+                                      child: IconButton(
+                                        tooltip: flagged.contains(question.id)
+                                            ? 'Remove flag'
+                                            : 'Flag question',
+                                        constraints:
+                                            const BoxConstraints.tightFor(
+                                          width: PantasSize.iconBtn,
+                                          height: PantasSize.iconBtn,
                                         ),
-                                state: outcome == null
-                                    ? WebBarState.neutral
-                                    : outcome.isCorrect
-                                        ? WebBarState.right
-                                        : WebBarState.wrong,
-                                action: Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    // The same name and switch the phone
-                                    // gives its flag.
-                                    Semantics(
-                                      button: true,
-                                      enabled: !_flagBusy,
-                                      toggled: flagged.contains(question.id),
-                                      label: flagged.contains(question.id)
-                                          ? 'Remove flag from question '
-                                              '${index + 1}'
-                                          : 'Flag question ${index + 1}',
-                                      onTap: _flagBusy
-                                          ? null
-                                          : () => unawaited(
-                                                _toggleFlag(question.id),
-                                              ),
-                                      child: ExcludeSemantics(
-                                        child: IconButton(
-                                          tooltip: flagged.contains(question.id)
-                                              ? 'Remove flag'
-                                              : 'Flag question',
-                                          constraints:
-                                              const BoxConstraints.tightFor(
-                                            width: 46,
-                                            height: 46,
-                                          ),
-                                          padding: EdgeInsets.zero,
-                                          visualDensity: VisualDensity.standard,
-                                          style: IconButton.styleFrom(
-                                            tapTargetSize: MaterialTapTargetSize
-                                                .shrinkWrap,
-                                            shape: const CircleBorder(),
-                                          ),
-                                          // Stays enabled while the write
-                                          // runs: a disabled button gives
-                                          // up its focus, and the ring
-                                          // jumped to the counter.
-                                          onPressed: () {
-                                            if (!_flagBusy) {
-                                              unawaited(
-                                                _toggleFlag(question.id),
-                                              );
-                                            }
-                                          },
-                                          icon: _flag(
-                                            question.id,
-                                            flagged.contains(question.id),
-                                            web: true,
-                                          ),
+                                        padding: EdgeInsets.zero,
+                                        visualDensity: VisualDensity.standard,
+                                        style: IconButton.styleFrom(
+                                          tapTargetSize:
+                                              MaterialTapTargetSize.shrinkWrap,
+                                          shape: const CircleBorder(),
+                                        ),
+                                        // Stays enabled while the write
+                                        // runs: a disabled button gives
+                                        // up its focus, and the ring
+                                        // jumped to the counter.
+                                        onPressed: () {
+                                          if (!_flagBusy) {
+                                            unawaited(
+                                              _toggleFlag(question.id),
+                                            );
+                                          }
+                                        },
+                                        icon: _flag(
+                                          question.id,
+                                          flagged.contains(question.id),
+                                          web: true,
                                         ),
                                       ),
                                     ),
-                                    const SizedBox(width: 6),
-                                    WebButton(
-                                      label: label,
-                                      pill: true,
-                                      keyHint: 'Enter',
-                                      busy: state.checking,
-                                      onPressed: state.checking ||
-                                              (!lookingBack &&
-                                                  outcome == null &&
-                                                  state.selectedChoiceId ==
-                                                      null)
-                                          ? null
-                                          : action,
-                                    ),
-                                  ],
-                                ),
+                                  ),
+                                  const SizedBox(width: PantasSpace.s6),
+                                  WebButton(
+                                    label: label,
+                                    pill: true,
+                                    keyHint: 'Enter',
+                                    busy: state.checking,
+                                    onPressed: state.checking ||
+                                            (!lookingBack &&
+                                                outcome == null &&
+                                                state.selectedChoiceId == null)
+                                        ? null
+                                        : action,
+                                  ),
+                                ],
                               ),
                             ),
                           ),
@@ -1220,11 +1266,11 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                           child: _Popover(
                             open: _gridOpen,
                             builder: (_) => SizedBox(
-                              width: 376,
+                              width: PantasLayout.qpanel,
                               child: WebCard(
-                                radius: 14,
+                                radius: PantasRadius.lg,
                                 floating: true,
-                                padding: const EdgeInsets.all(18),
+                                padding: const EdgeInsets.all(PantasSpace.s18),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.min,
                                   children: [
@@ -1232,12 +1278,11 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                                       children: [
                                         Text(
                                           'Questions',
-                                          style: t.style(
-                                            17,
-                                            weight: FontWeight.w700,
+                                          style: PantasType.webTimer.copyWith(
+                                            color: t.colors.textPrimary,
                                           ),
                                         ),
-                                        const SizedBox(width: 12),
+                                        const SizedBox(width: PantasSpace.s12),
                                         Expanded(
                                           child: Text(
                                             '${session.outcomes.length} of '
@@ -1248,7 +1293,7 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                                         ),
                                       ],
                                     ),
-                                    const SizedBox(height: 14),
+                                    const SizedBox(height: PantasSpace.s14),
                                     ConstrainedBox(
                                       constraints: const BoxConstraints(
                                         maxHeight: 360,
@@ -1258,9 +1303,8 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                                       // marks the question on screen.
                                       child: GridView.count(
                                         crossAxisCount: 5,
-                                        mainAxisSpacing: 8,
-                                        crossAxisSpacing: 8,
-                                        childAspectRatio: 61.6 / 44,
+                                        mainAxisSpacing: PantasSpace.s8,
+                                        crossAxisSpacing: PantasSpace.s8,
                                         shrinkWrap: true,
                                         padding: EdgeInsets.zero,
                                         children: [
@@ -1290,7 +1334,7 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                                         ],
                                       ),
                                     ),
-                                    const SizedBox(height: 14),
+                                    const SizedBox(height: PantasSpace.s14),
                                     Text(
                                       'Click any answered question '
                                       'to go back to it.',
@@ -1330,6 +1374,17 @@ class _QuizPageState extends ConsumerState<QuizPage> {
     );
   }
 
+  /// The bar's status line: read once as a status, so the result is a word
+  /// as well as a tint and a ring.
+  String _barHint({required AnswerOutcome? outcome, required bool picked}) =>
+      outcome != null
+          ? outcome.isCorrect
+              ? 'Correct'
+              : 'Not this one'
+          : picked
+              ? 'Check when you are ready'
+              : 'Pick one answer';
+
   Widget _counter(int index, int total, {required bool enabled}) {
     void open() => setState(() => _gridOpen = true);
     return Semantics(
@@ -1342,7 +1397,10 @@ class _QuizPageState extends ConsumerState<QuizPage> {
           key: const ValueKey('quiz-counter'),
           onTap: enabled ? open : null,
           child: Padding(
-            padding: const EdgeInsets.only(left: 10, right: 4),
+            padding: const EdgeInsets.only(
+              left: PantasSpace.s10,
+              right: PantasSpace.s4,
+            ),
             child: ConstrainedBox(
               constraints: const BoxConstraints(minHeight: 44),
               child: Row(
@@ -1351,16 +1409,19 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                   Flexible(
                     child: Text(
                       '${index + 1} of $total',
-                      style: context.type.subheadStrong,
+                      style: PantasType.phoneExplanation.copyWith(
+                        fontWeight: FontWeight.w600,
+                        color: context.colors.textPrimary,
+                      ),
                     ),
                   ),
-                  const SizedBox(width: 4),
+                  const SizedBox(width: PantasSpace.s4),
                   RotatedBox(
                     quarterTurns: 1,
                     child: Icon(
                       PantasIcons.next,
                       size: 14,
-                      color: context.colors.controlOutline,
+                      color: context.colors.borderControl,
                     ),
                   ),
                 ],
@@ -1505,10 +1566,10 @@ class _QuizPageState extends ConsumerState<QuizPage> {
               child: Dialog(
                 backgroundColor: Colors.transparent,
                 child: SizedBox(
-                  width: 440,
+                  width: PantasLayout.modal,
                   child: WebCard(
-                    radius: 22,
-                    padding: const EdgeInsets.all(26),
+                    radius: PantasRadius.r2xl,
+                    padding: const EdgeInsets.all(PantasSpace.s24),
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -1517,12 +1578,12 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                           'Leave this session?',
                           kind: WebTextKind.h3,
                         ),
-                        const SizedBox(height: 18),
+                        const SizedBox(height: PantasSpace.s18),
                         const WebText(
                             "Every answer you've given is already saved. "
                             'You can pick this up from the Quiz tab '
                             'whenever you like.'),
-                        const SizedBox(height: 18),
+                        const SizedBox(height: PantasSpace.s18),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
@@ -1532,7 +1593,7 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                               onPressed: () =>
                                   Navigator.of(dialogContext).pop(true),
                             ),
-                            const SizedBox(width: 8),
+                            const SizedBox(width: PantasSpace.s8),
                             WebButton(
                               label: 'Keep Going',
                               onPressed: () =>
@@ -1643,7 +1704,7 @@ class _QuizPageState extends ConsumerState<QuizPage> {
       duration: const Duration(milliseconds: 520),
       child: icon,
       builder: (context, value, child) {
-        const curve = Cubic(.3, 1.5, .5, 1);
+        const curve = PantasCurves.popB;
         final scale = value <= .5
             ? .6 + .62 * curve.transform(value * 2)
             : 1.22 - .22 * curve.transform((value - .5) * 2);
@@ -1697,29 +1758,32 @@ class _WebGridCell extends StatelessWidget {
         padding: EdgeInsets.zero,
         visualDensity: VisualDensity.standard,
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-        textStyle: t.style(
-          15,
-          weight: onScreen ? FontWeight.w700 : FontWeight.w600,
+        textStyle: PantasType.webSub.copyWith(
+          color: t.colors.textPrimary,
+          fontWeight: onScreen ? FontWeight.w700 : FontWeight.w600,
         ),
         backgroundColor: !answered
-            ? t.colors.surface
+            ? t.colors.surfaceCard
             : right
                 ? t.colors.accentTint
-                : t.colors.wrongTint,
-        disabledBackgroundColor: t.colors.surface,
+                : t.colors.dangerTint,
+        disabledBackgroundColor: t.colors.surfaceCard,
         foregroundColor: !answered
-            ? t.colors.tertiaryLabel
+            ? t.colors.textSecondary
             : right
                 ? t.colors.accent
-                : t.colors.wrongText,
-        disabledForegroundColor: t.colors.tertiaryLabel,
+                : t.colors.dangerText,
+        disabledForegroundColor: t.colors.textSecondary,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(PantasRadius.md),
           side: onScreen
-              ? BorderSide(color: t.colors.label, width: 2)
+              ? BorderSide(
+                  color: t.colors.textPrimary,
+                  width: PantasBorder.ringSelected,
+                )
               : answered
                   ? BorderSide.none
-                  : BorderSide(color: t.colors.separator),
+                  : BorderSide(color: t.colors.divider),
         ),
       ),
       child: Text(
@@ -1735,15 +1799,15 @@ class _WebGridCell extends StatelessWidget {
       children: [
         Positioned.fill(child: cell),
         Positioned(
-          top: 5,
-          right: 7,
+          top: PantasSpace.s4,
+          right: PantasSpace.s6,
           child: IgnorePointer(
             child: ExcludeSemantics(
               child: Icon(
                 PantasIcons.flag,
                 key: const ValueKey('web-grid-flag'),
-                size: 12,
-                color: t.colors.label,
+                size: PantasSpace.s12,
+                color: t.colors.textPrimary,
               ),
             ),
           ),

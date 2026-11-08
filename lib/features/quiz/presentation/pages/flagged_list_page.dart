@@ -19,6 +19,10 @@ import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
@@ -167,7 +171,8 @@ class _FlaggedListPageState extends ConsumerState<FlaggedListPage> {
             : entry.label,
         titleWidget: entry.labelIsStem
             ? DefaultTextStyle(
-                style: context.type.body,
+                style: PantasType.phoneBody
+                    .copyWith(color: context.colors.textPrimary),
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
                 softWrap: false,
@@ -188,10 +193,8 @@ class _FlaggedListPageState extends ConsumerState<FlaggedListPage> {
           ),
           child: Text(
             '${entry.number}',
-            style: context.type.subheadStrong.copyWith(
-              color: context.colors.accent,
-              fontSize: 13,
-              fontWeight: FontWeight.w600,
+            style: PantasType.phoneFootnoteStrong.copyWith(
+              color: context.colors.accentTintText,
             ),
           ),
         ),
@@ -210,7 +213,7 @@ class _FlaggedListPageState extends ConsumerState<FlaggedListPage> {
                 color: context.colors.accent,
               ),
             ),
-            Icon(PantasIcons.next, size: 16, color: context.colors.chevron),
+            Icon(PantasIcons.next, size: 16, color: context.colors.iconChevron),
           ],
         ),
         onTap: () => unawaited(_open(entry)),
@@ -227,16 +230,17 @@ class _FlaggedListPageState extends ConsumerState<FlaggedListPage> {
           chevron: WebRowChevron.always,
           mathTitle: entry.labelIsStem,
           title: entry.label,
-          leading: CircleAvatar(
-            radius: 15,
-            backgroundColor: t.colors.accentTint,
+          leading: Container(
+            width: PantasSize.avatar,
+            height: PantasSize.avatar,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: t.colors.accentTint,
+            ),
             child: Text(
               '${entry.number}',
-              style: t.style(
-                13,
-                weight: FontWeight.w600,
-                color: t.colors.accent,
-              ),
+              style: PantasType.webFieldLabel.copyWith(color: t.colors.accent),
             ),
           ),
           trailing: IconButton(
@@ -252,7 +256,7 @@ class _FlaggedListPageState extends ConsumerState<FlaggedListPage> {
           onPressed: () => unawaited(_open(entry)),
         );
     return Scaffold(
-      backgroundColor: t.colors.background,
+      backgroundColor: t.colors.bgPage,
       body: CallbackShortcuts(
         bindings: {const SingleActivator(LogicalKeyboardKey.escape): _back},
         child: Focus(
@@ -270,10 +274,15 @@ class _FlaggedListPageState extends ConsumerState<FlaggedListPage> {
               ),
               Expanded(
                 child: SingleChildScrollView(
-                  padding: const EdgeInsets.fromLTRB(40, 24, 40, 64),
+                  padding: const EdgeInsets.fromLTRB(
+                    PantasSpace.s40,
+                    PantasSpace.s24,
+                    PantasSpace.s40,
+                    PantasSpace.s56,
+                  ),
                   child: Center(
                     child: SizedBox(
-                      width: 720,
+                      width: PantasLayout.qcol,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
@@ -289,7 +298,7 @@ class _FlaggedListPageState extends ConsumerState<FlaggedListPage> {
                                       kind: WebTextKind.h1,
                                     ),
                                     if (entries.isNotEmpty) ...[
-                                      const SizedBox(height: 4),
+                                      const SizedBox(height: PantasSpace.s4),
                                       WebText(
                                         entries.length == 1
                                             ? '1 question'
@@ -301,7 +310,7 @@ class _FlaggedListPageState extends ConsumerState<FlaggedListPage> {
                                 ),
                               ),
                               if (entries.isNotEmpty) ...[
-                                const SizedBox(width: 24),
+                                const SizedBox(width: PantasSpace.s24),
                                 WebButton(
                                   label: _practiceLabel(entries.length),
                                   busy: _starting,
@@ -312,7 +321,7 @@ class _FlaggedListPageState extends ConsumerState<FlaggedListPage> {
                               ],
                             ],
                           ),
-                          const SizedBox(height: 20),
+                          const SizedBox(height: PantasSpace.s20),
                           value.when(
                             skipLoadingOnRefresh: false,
                             skipLoadingOnReload: false,
@@ -349,8 +358,9 @@ class _FlaggedListPageState extends ConsumerState<FlaggedListPage> {
                                     ),
                                   for (final group in groups.entries) ...[
                                     Padding(
-                                      padding:
-                                          const EdgeInsets.only(bottom: 10),
+                                      padding: const EdgeInsets.only(
+                                        bottom: PantasSpace.s10,
+                                      ),
                                       child: WebText(
                                         group.key.toUpperCase(),
                                         kind: WebTextKind.eyebrow,
@@ -368,7 +378,7 @@ class _FlaggedListPageState extends ConsumerState<FlaggedListPage> {
                                         ],
                                       ),
                                     ),
-                                    const SizedBox(height: 28),
+                                    const SizedBox(height: PantasSpace.s28),
                                   ],
                                 ],
                               );
@@ -402,7 +412,12 @@ class _FlaggedListPageState extends ConsumerState<FlaggedListPage> {
           : SafeArea(
               top: false,
               child: Padding(
-                padding: const EdgeInsets.fromLTRB(16, 12, 16, 16),
+                padding: const EdgeInsets.fromLTRB(
+                  PantasSpace.s16,
+                  PantasSpace.s12,
+                  PantasSpace.s16,
+                  PantasSpace.s16,
+                ),
                 child: PantasButton(
                   label: _practiceLabel(entries.length),
                   busy: _starting,
@@ -447,17 +462,18 @@ class _FlaggedListPageState extends ConsumerState<FlaggedListPage> {
                         _row(group.value[i]),
                         if (i < group.value.length - 1)
                           Padding(
-                            padding: const EdgeInsets.only(left: 58),
+                            padding:
+                                const EdgeInsets.only(left: PantasSpace.s56),
                             child: Divider(
                               height: .5,
                               thickness: .5,
-                              color: context.colors.separator,
+                              color: context.colors.divider,
                             ),
                           ),
                       ],
                     ],
                   ),
-                  const SizedBox(height: 24),
+                  const SizedBox(height: PantasSpace.s24),
                 ],
               ],
             );

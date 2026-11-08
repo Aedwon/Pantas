@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
+import 'package:pantas/core/ui/components/pro_tag.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/quiz/application/session_debrief_provider.dart';
@@ -61,15 +64,15 @@ class SessionDebriefCards extends StatelessWidget {
                       next.title,
                       maxLines: wide ? 1 : null,
                       overflow: wide ? TextOverflow.ellipsis : null,
-                      style:
-                          t.style(17, height: 1.35, spacing: wide ? 0 : -.204),
+                      style: PantasType.webLead
+                          .copyWith(color: t.colors.textPrimary),
                     ),
                     Text(
                       next.because,
                       style: t.style(
                         wide ? 14 : 13,
                         height: wide ? 1.4 : 1.35,
-                        color: t.colors.secondaryLabel,
+                        color: t.colors.textSecondary,
                       ),
                     ),
                   ],
@@ -165,7 +168,7 @@ class SessionDebriefCards extends StatelessWidget {
               thickness: .5,
               indent: wide ? 62 : 0,
               endIndent: wide ? 20 : 0,
-              color: context.webTokens.colors.separator,
+              color: context.webTokens.colors.divider,
             ),
           ),
         child,
@@ -183,14 +186,23 @@ class SessionDebriefCards extends StatelessWidget {
 
   Widget _heading(BuildContext context, String title, {bool dismiss = false}) =>
       Padding(
-        padding: EdgeInsets.fromLTRB(wide ? 4 : 16, 0, wide ? 4 : 16, 0),
+        padding: EdgeInsets.fromLTRB(
+          wide ? PantasSpace.s4 : PantasSpace.s16,
+          PantasSpace.s0,
+          wide ? PantasSpace.s4 : PantasSpace.s16,
+          PantasSpace.s0,
+        ),
         child: Stack(
           clipBehavior: Clip.none,
           children: [
             ConstrainedBox(
-              constraints: BoxConstraints(minHeight: wide ? 34 : 30),
+              constraints: BoxConstraints(
+                minHeight: wide ? PantasSpace.s32 : PantasSpace.s28,
+              ),
               child: Padding(
-                padding: EdgeInsets.only(bottom: wide ? 9 : 7),
+                padding: EdgeInsets.only(
+                  bottom: wide ? PantasSpace.s8 : PantasSpace.s6,
+                ),
                 child: Semantics(
                   header: true,
                   child: Text(
@@ -219,7 +231,7 @@ class SessionDebriefCards extends StatelessWidget {
           icon: Icon(
             Icons.close,
             size: 16,
-            color: context.webTokens.colors.tertiaryLabel,
+            color: context.webTokens.colors.textSecondary,
           ),
         ),
       );
@@ -235,8 +247,8 @@ class SessionDebriefCards extends StatelessWidget {
         onTap: onTap,
         child: Padding(
           padding: EdgeInsets.symmetric(
-            horizontal: wide ? 20 : 16,
-            vertical: wide ? 15 : 11,
+            horizontal: wide ? PantasSpace.s20 : PantasSpace.s16,
+            vertical: wide ? PantasSpace.s14 : PantasSpace.s10,
           ),
           child: Row(
             crossAxisAlignment: alignTop && !wide
@@ -248,13 +260,11 @@ class SessionDebriefCards extends StatelessWidget {
                 SizedBox(width: wide ? 16 : 12),
               ],
               Expanded(child: child),
-              const SizedBox(width: 12),
+              const SizedBox(width: PantasSpace.s12),
               Icon(
                 Icons.chevron_right,
                 size: 16,
-                color: context.webTokens.dark
-                    ? const Color(0xFF5C5C5C)
-                    : context.webTokens.colors.chevron,
+                color: context.webTokens.colors.iconChevron,
               ),
             ],
           ),
@@ -267,7 +277,7 @@ class SessionDebriefCards extends StatelessWidget {
         'to an earlier lesson.';
     return DecoratedBox(
       decoration: BoxDecoration(
-        border: Border(top: BorderSide(color: t.colors.separator, width: .5)),
+        border: Border(top: BorderSide(color: t.colors.divider, width: .5)),
       ),
       child: Row(
         children: [
@@ -283,33 +293,16 @@ class SessionDebriefCards extends StatelessWidget {
                 child: ConstrainedBox(
                   constraints: const BoxConstraints(minHeight: 44),
                   child: Padding(
-                    padding: EdgeInsets.fromLTRB(wide ? 20 : 16, 12, 0, 12),
+                    padding: EdgeInsets.fromLTRB(
+                      wide ? PantasSpace.s20 : PantasSpace.s16,
+                      PantasSpace.s12,
+                      PantasSpace.s0,
+                      PantasSpace.s12,
+                    ),
                     child: Row(
                       children: [
-                        Container(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 7,
-                            vertical: 2,
-                          ),
-                          decoration: BoxDecoration(
-                            color: t.dark
-                                ? const Color(0xFF3A2E0A)
-                                : const Color(0xFFFBF0C8),
-                            borderRadius: BorderRadius.circular(6),
-                          ),
-                          child: Text(
-                            'PRO',
-                            style: t.style(
-                              11,
-                              weight: FontWeight.w700,
-                              spacing: .55,
-                              color: t.dark
-                                  ? const Color(0xFFF2C94C)
-                                  : const Color(0xFF7A5B00),
-                            ),
-                          ),
-                        ),
-                        const SizedBox(width: 12),
+                        const ProMark(),
+                        const SizedBox(width: PantasSpace.s12),
                         Expanded(
                           child: Text.rich(
                             TextSpan(
@@ -324,7 +317,8 @@ class SessionDebriefCards extends StatelessWidget {
                                 ),
                               ],
                             ),
-                            style: t.style(15, height: wide ? 1.5 : 1.35),
+                            style: PantasType.webSub
+                                .copyWith(color: t.colors.textPrimary),
                           ),
                         ),
                       ],
@@ -335,7 +329,7 @@ class SessionDebriefCards extends StatelessWidget {
             ),
           ),
           _dismiss(context),
-          const SizedBox(width: 4),
+          const SizedBox(width: PantasSpace.s4),
         ],
       ),
     );
@@ -366,25 +360,22 @@ class SessionDebriefCards extends StatelessWidget {
           Text(
             '${questions.length} '
             '${questions.length == 1 ? 'traces' : 'trace'} to $title',
-            style: t.style(17, height: 1.35),
+            style: PantasType.webLead.copyWith(color: t.colors.textPrimary),
           ),
           for (final question in questions.take(3))
             Padding(
-              padding: const EdgeInsets.only(top: 8),
+              padding: const EdgeInsets.only(top: PantasSpace.s8),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   _number(context, question['position']! as int),
-                  const SizedBox(width: 10),
+                  const SizedBox(width: PantasSpace.s10),
                   if (question['mistake'] case final String note)
                     Expanded(
                       child: Text(
                         firstMistakeSentence(note),
-                        style: t.style(
-                          14,
-                          height: wide ? 1.45 : 1.4,
-                          color: t.colors.secondaryLabel,
-                        ),
+                        style: PantasType.webRowSub
+                            .copyWith(color: t.colors.textSecondary),
                       ),
                     ),
                 ],
@@ -392,11 +383,12 @@ class SessionDebriefCards extends StatelessWidget {
             ),
           if (questions.length > 3)
             Padding(
-              padding: const EdgeInsets.only(top: 8),
+              padding: const EdgeInsets.only(top: PantasSpace.s8),
               child: Text(
                 'and ${questions.length - 3} more: '
                 '${_questionLabel(questions.skip(3).toList())}',
-                style: t.style(13, color: t.colors.tertiaryLabel),
+                style:
+                    PantasType.webSmall.copyWith(color: t.colors.textSecondary),
               ),
             ),
         ],
@@ -410,15 +402,12 @@ class SessionDebriefCards extends StatelessWidget {
         alignment: Alignment.center,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          color: context.webTokens.colors.wrongTint,
+          color: context.webTokens.colors.dangerTint,
         ),
         child: Text(
           '$number',
-          style: context.webTokens.style(
-            12,
-            weight: FontWeight.w600,
-            color: context.webTokens.colors.wrongText,
-          ),
+          style: PantasType.webTag
+              .copyWith(color: context.webTokens.colors.dangerText),
         ),
       );
 
@@ -440,10 +429,10 @@ class SessionDebriefCards extends StatelessWidget {
         decoration: wide
             ? BoxDecoration(
                 shape: BoxShape.circle,
-                color: t.colors.wrongTint,
+                color: t.colors.dangerTint,
               )
             : null,
-        child: Icon(Icons.close, size: 16, color: t.colors.wrongText),
+        child: Icon(Icons.close, size: 16, color: t.colors.dangerText),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -451,14 +440,14 @@ class SessionDebriefCards extends StatelessWidget {
           Text(
             '${questions.length} ${questions.length == 1 ? 'is' : 'are'} '
             'in $title itself',
-            style: t.style(17, height: 1.35),
+            style: PantasType.webLead.copyWith(color: t.colors.textPrimary),
           ),
           Text(
             _questionLabel(questions),
             style: t.style(
               wide ? 14 : 13,
               height: 1.4,
-              color: t.colors.secondaryLabel,
+              color: t.colors.textSecondary,
             ),
           ),
         ],

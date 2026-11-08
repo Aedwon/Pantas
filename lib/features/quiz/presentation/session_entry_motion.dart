@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 
 /// The staggered entrance of the session results. The phone page and the wide
 /// page share it, so both play one timeline off one controller.
@@ -17,7 +18,7 @@ class SessionEntryMotion {
                       start) /
                   duration)
               .clamp(0.0, 1.0);
-          final value = const Cubic(.3, .9, .3, 1).transform(t);
+          final value = PantasCurves.house.transform(t);
           return IgnorePointer(
             ignoring: t == 0,
             child: Transform.translate(
@@ -40,7 +41,7 @@ class SessionEntryMotion {
           final before = elapsed < 0;
           final first = (elapsed / 260).clamp(0.0, 1.0);
           final last = ((elapsed - 260) / 160).clamp(0.0, 1.0);
-          const curve = Cubic(.3, 1.4, .5, 1);
+          const curve = PantasCurves.popB;
           final scale = elapsed <= 260
               ? .4 + .72 * curve.transform(first)
               : 1.12 - .12 * curve.transform(last);

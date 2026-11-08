@@ -10,7 +10,12 @@ import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_border.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
@@ -138,8 +143,12 @@ class _QuizNoteEditorState extends State<QuizNoteEditor> {
         focusNode: _shortcutFocus,
         autofocus: true,
         child: WebCard(
-          radius: 20,
-          padding: const EdgeInsets.fromLTRB(20, 20, 20, 18),
+          padding: const EdgeInsets.fromLTRB(
+            PantasSpace.s20,
+            PantasSpace.s20,
+            PantasSpace.s20,
+            PantasSpace.s18,
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisSize: MainAxisSize.min,
@@ -147,24 +156,25 @@ class _QuizNoteEditorState extends State<QuizNoteEditor> {
               Row(
                 children: [
                   Icon(PantasIcons.addNote, size: 22, color: t.colors.accent),
-                  const SizedBox(width: 8),
+                  const SizedBox(width: PantasSpace.s8),
                   Expanded(
                     child: Text(
                       'Why did you miss it?',
-                      style: t.style(17, weight: FontWeight.w600),
+                      style: PantasType.webButtonLg
+                          .copyWith(color: t.colors.textPrimary),
                     ),
                   ),
                 ],
               ),
-              const SizedBox(height: 14),
+              const SizedBox(height: PantasSpace.s14),
               for (var row = 0; row < reasons.length; row += 2) ...[
-                if (row > 0) const SizedBox(height: 8),
+                if (row > 0) const SizedBox(height: PantasSpace.s8),
                 IntrinsicHeight(
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       for (var i = row; i < row + 2; i++) ...[
-                        if (i > row) const SizedBox(width: 8),
+                        if (i > row) const SizedBox(width: PantasSpace.s8),
                         Expanded(child: _reason(t, i, reasons[i])),
                       ],
                     ],
@@ -172,44 +182,48 @@ class _QuizNoteEditorState extends State<QuizNoteEditor> {
                 ),
               ],
               if (_tag == MistakeTag.other) ...[
-                const SizedBox(height: 14),
+                const SizedBox(height: PantasSpace.s14),
                 Text(
                   'In your own words',
-                  style: t.style(
-                    13,
-                    weight: FontWeight.w600,
+                  style: PantasType.webFieldLabel.copyWith(
                     height: 1.45,
-                    color: t.colors.secondaryLabel,
+                    color: t.colors.textSecondary,
                   ),
                 ),
-                const SizedBox(height: 8),
+                const SizedBox(height: PantasSpace.s8),
                 TextField(
                   controller: _text,
                   focusNode: _focus,
                   enabled: !_busy,
                   minLines: 2,
                   maxLines: 4,
-                  style: t.style(16, height: 1.6),
+                  style: PantasType.webBody.copyWith(
+                    height: 1.6,
+                    color: t.colors.textPrimary,
+                  ),
                   decoration: InputDecoration(
                     hintText: 'In your own words',
-                    hintStyle: t.style(16, height: 1.6, color: t.disabledText),
+                    hintStyle: PantasType.webBody.copyWith(
+                      height: 1.6,
+                      color: t.disabledText,
+                    ),
                     filled: true,
-                    fillColor: t.colors.background,
+                    fillColor: t.colors.bgPage,
                     isDense: true,
                     contentPadding: const EdgeInsets.symmetric(
-                      horizontal: 14,
-                      vertical: 12,
+                      horizontal: PantasSpace.s14,
+                      vertical: PantasSpace.s12,
                     ),
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12),
+                      borderRadius: BorderRadius.circular(PantasRadius.md),
                       borderSide: BorderSide.none,
                     ),
                     enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12),
+                      borderRadius: BorderRadius.circular(PantasRadius.md),
                       borderSide: BorderSide.none,
                     ),
                     focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12),
+                      borderRadius: BorderRadius.circular(PantasRadius.md),
                       borderSide: BorderSide(color: t.colors.accent, width: 2),
                     ),
                   ),
@@ -221,7 +235,7 @@ class _QuizNoteEditorState extends State<QuizNoteEditor> {
                   final retry = _retry;
                   if (retry != null) unawaited(_write(retry.$1, retry.$2));
                 }),
-              const SizedBox(height: 14),
+              const SizedBox(height: PantasSpace.s14),
               Row(
                 children: [
                   if (_existing)
@@ -236,7 +250,7 @@ class _QuizNoteEditorState extends State<QuizNoteEditor> {
                     label: _existing ? 'Cancel' : 'Not Now',
                     onPressed: _busy ? null : widget.onCancel,
                   ),
-                  const SizedBox(width: 8),
+                  const SizedBox(width: PantasSpace.s8),
                   _NoteButton(
                     label: _existing ? 'Update' : 'Add Note',
                     solid: true,
@@ -268,58 +282,61 @@ class _QuizNoteEditorState extends State<QuizNoteEditor> {
       onPressed: _busy ? null : () => _choose(reason.$1),
       style: TextButton.styleFrom(
         minimumSize: const Size(0, 48),
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+        padding: const EdgeInsets.symmetric(
+          horizontal: PantasSpace.s12,
+          vertical: PantasSpace.s8,
+        ),
         alignment: Alignment.centerLeft,
         visualDensity: VisualDensity.standard,
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
         overlayColor: Colors.transparent,
-        backgroundColor: selected ? t.colors.accentTint : t.colors.background,
-        foregroundColor: t.colors.label,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        backgroundColor: selected ? t.colors.accentTint : t.colors.bgPage,
+        foregroundColor: t.colors.textPrimary,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(PantasRadius.md),
+        ),
       ),
       child: Row(
         children: [
           Container(
-            padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 1),
+            padding: const EdgeInsets.symmetric(horizontal: PantasSpace.s6),
             decoration: BoxDecoration(
               color: selected ? t.colors.accentFill : null,
-              borderRadius: BorderRadius.circular(5),
+              borderRadius: BorderRadius.circular(PantasRadius.xs),
               border: selected ? null : Border.all(color: t.strongDivider),
             ),
             child: Text(
               '${i + 1}',
-              style: t.style(
-                11,
-                height: 1.2,
-                weight: selected ? FontWeight.w700 : FontWeight.w600,
-                color: selected ? Colors.white : t.colors.tertiaryLabel,
+              style: PantasType.webKeyHintSm.copyWith(
+                color: selected ? t.colors.onAccent : t.colors.textSecondary,
+                fontWeight: selected ? FontWeight.w700 : FontWeight.w600,
               ),
             ),
           ),
-          const SizedBox(width: 10),
+          const SizedBox(width: PantasSpace.s10),
           Expanded(
             child: Text(
               reason.$2,
-              style: t.style(
-                15,
-                weight: selected ? FontWeight.w600 : FontWeight.w400,
+              style: PantasType.webRowValue.copyWith(
+                color: t.colors.textPrimary,
+                fontWeight: selected ? FontWeight.w600 : FontWeight.w400,
               ),
             ),
           ),
           if (saved)
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+              padding: const EdgeInsets.symmetric(
+                horizontal: PantasSpace.s8,
+                vertical: PantasSpace.s2,
+              ),
               decoration: BoxDecoration(
                 color: t.disabledBackground,
-                borderRadius: BorderRadius.circular(99),
+                borderRadius: BorderRadius.circular(PantasRadius.full),
               ),
               child: Text(
                 'Your note',
-                style: t.style(
-                  12,
-                  weight: FontWeight.w600,
-                  color: t.colors.secondaryLabel,
-                ),
+                style:
+                    PantasType.webTag.copyWith(color: t.colors.textSecondary),
               ),
             ),
         ],
@@ -341,7 +358,12 @@ class _QuizNoteEditorState extends State<QuizNoteEditor> {
     final body = ConstrainedBox(
       constraints: BoxConstraints(minHeight: available >= 318 ? 318 : 0),
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(18, 18, 18, 16),
+        padding: const EdgeInsets.fromLTRB(
+          PantasSpace.s18,
+          PantasSpace.s18,
+          PantasSpace.s18,
+          PantasSpace.s16,
+        ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -351,8 +373,8 @@ class _QuizNoteEditorState extends State<QuizNoteEditor> {
                 Expanded(
                   child: Text(
                     'Why did you miss it?',
-                    style: type.emphasized.copyWith(
-                      fontSize: 17,
+                    style: PantasType.phoneHeadline.copyWith(
+                      color: colors.textPrimary,
                       fontWeight: FontWeight.w700,
                     ),
                   ),
@@ -361,7 +383,7 @@ class _QuizNoteEditorState extends State<QuizNoteEditor> {
               ],
             ),
             // QN_WrongOpen: 47 px rows with a hairline between them.
-            const SizedBox(height: 9.5),
+            const SizedBox(height: PantasSpace.s10),
             for (final (index, (tag, label)) in const [
               (MistakeTag.misread, 'I misread'),
               (MistakeTag.slipped, 'I forgot'),
@@ -372,32 +394,36 @@ class _QuizNoteEditorState extends State<QuizNoteEditor> {
                 Divider(
                   height: .5,
                   thickness: .5,
-                  color: colors.separator,
+                  color: colors.divider,
                 ),
               RadioRow(
                 title: label,
                 selected: _tag == tag,
                 onTap: _busy ? null : () => _choose(tag),
-                padding: const EdgeInsets.symmetric(vertical: 11.25),
+                padding: const EdgeInsets.symmetric(vertical: PantasSpace.s10),
               ),
             ],
             if (_tag == MistakeTag.other) ...[
-              const SizedBox(height: 8),
+              const SizedBox(height: PantasSpace.s8),
               TextField(
                 controller: _text,
                 focusNode: _focus,
                 enabled: !_busy,
                 minLines: 1,
                 maxLines: 4,
-                style: type.body.copyWith(fontSize: 16),
+                style: PantasType.phoneCallout.copyWith(
+                  color: colors.textPrimary,
+                ),
                 decoration: InputDecoration(
                   hintText: 'In your own words',
                   filled: true,
                   fillColor: colors.fill,
-                  contentPadding:
-                      const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
+                  contentPadding: const EdgeInsets.symmetric(
+                    horizontal: PantasSpace.s14,
+                    vertical: PantasSpace.s14,
+                  ),
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: BorderRadius.circular(PantasRadius.md),
                     borderSide: BorderSide.none,
                   ),
                 ),
@@ -408,7 +434,7 @@ class _QuizNoteEditorState extends State<QuizNoteEditor> {
                 }),
               ),
             ],
-            const SizedBox(height: 20),
+            const SizedBox(height: PantasSpace.s20),
             if (_failed)
               saveFailureLine(() {
                 final retry = _retry;
@@ -418,9 +444,9 @@ class _QuizNoteEditorState extends State<QuizNoteEditor> {
               secondary: PantasButton(
                 label: 'Cancel',
                 variant: PantasButtonVariant.neutral,
-                height: 44,
-                radius: 99,
-                fontSize: 16,
+                height: PantasSize.btn,
+                radius: PantasRadius.full,
+                fontSize: PantasType.webButton.fontSize,
                 onPressed: _busy ? null : widget.onCancel,
               ),
               primary: TweenAnimationBuilder<double>(
@@ -443,7 +469,7 @@ class _QuizNoteEditorState extends State<QuizNoteEditor> {
                                 blend,
                               ),
                               onAccent: Color.lerp(
-                                colors.disabledActionLabel,
+                                colors.textDisabled,
                                 colors.onAccent,
                                 blend,
                               ),
@@ -457,11 +483,11 @@ class _QuizNoteEditorState extends State<QuizNoteEditor> {
                 },
                 child: PantasButton(
                   label: _existing ? 'Update' : 'Add Note',
-                  height: 44,
-                  radius: 99,
-                  fontSize: 16,
+                  height: PantasSize.btn,
+                  radius: PantasRadius.full,
+                  fontSize: PantasType.webButton.fontSize,
                   busy: _busy,
-                  disabledForeground: colors.disabledActionLabel,
+                  disabledForeground: colors.textDisabled,
                   onPressed: _valid && !_busy
                       ? () => unawaited(
                             _write(
@@ -487,7 +513,7 @@ class _QuizNoteEditorState extends State<QuizNoteEditor> {
             top: 8,
             right: 18,
             width: removeWidth,
-            height: 44,
+            height: PantasSize.btn,
             child: TextButton(
               onPressed: _busy ? null : () => unawaited(_write(null, null)),
               style: TextButton.styleFrom(
@@ -496,7 +522,7 @@ class _QuizNoteEditorState extends State<QuizNoteEditor> {
               ),
               child: Text(
                 'Remove',
-                style: type.subheadStrong.copyWith(color: colors.wrongText),
+                style: type.subheadStrong.copyWith(color: colors.dangerText),
               ),
             ),
           ),
@@ -509,12 +535,12 @@ class _QuizNoteEditorState extends State<QuizNoteEditor> {
         child: widget.framed
             ? FloatingBar.content(
                 state: FloatingBarState.wrong,
-                radius: 24,
+                radius: PantasRadius.r2xl,
                 inset: 0,
                 child: DecoratedBox(
                   decoration: BoxDecoration(
-                    color: colors.surface,
-                    borderRadius: BorderRadius.circular(24),
+                    color: colors.surfaceCard,
+                    borderRadius: BorderRadius.circular(PantasRadius.r2xl),
                   ),
                   child: form,
                 ),
@@ -546,8 +572,10 @@ class _NoteButton extends StatelessWidget {
     return TextButton(
       onPressed: busy ? null : onPressed,
       style: TextButton.styleFrom(
-        minimumSize: const Size(0, 40),
-        padding: EdgeInsets.symmetric(horizontal: solid ? 20 : 14),
+        minimumSize: const Size(0, PantasSize.iconBtnMd),
+        padding: EdgeInsets.symmetric(
+          horizontal: solid ? PantasSpace.s20 : PantasSpace.s14,
+        ),
         visualDensity: VisualDensity.standard,
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
         overlayColor: Colors.transparent,
@@ -557,18 +585,18 @@ class _NoteButton extends StatelessWidget {
                 ? t.disabledBackground
                 : t.colors.accentFill,
         foregroundColor: danger
-            ? t.colors.wrongText
+            ? t.colors.dangerText
             : !solid
-                ? t.colors.secondaryLabel
+                ? t.colors.textSecondary
                 : off
                     ? t.disabledText
-                    : Colors.white,
+                    : t.colors.onAccent,
         disabledBackgroundColor:
             solid && !busy ? t.disabledBackground : t.colors.accentFill,
         disabledForegroundColor: solid
-            ? (busy ? Colors.white : t.disabledText)
-            : t.colors.tertiaryLabel,
-        textStyle: t.style(15, weight: FontWeight.w600),
+            ? (busy ? t.colors.onAccent : t.disabledText)
+            : t.colors.textSecondary,
+        textStyle: PantasType.webLink.copyWith(color: t.colors.textPrimary),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(solid ? 10 : 11),
         ),
@@ -577,14 +605,14 @@ class _NoteButton extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           if (busy) ...[
-            const SizedBox.square(
-              dimension: 16,
+            SizedBox.square(
+              dimension: PantasSpace.s16,
               child: CircularProgressIndicator(
-                strokeWidth: 2,
-                color: Colors.white,
+                strokeWidth: PantasBorder.ringSelected,
+                color: t.colors.onAccent,
               ),
             ),
-            const SizedBox(width: 8),
+            const SizedBox(width: PantasSpace.s8),
           ],
           Text(label),
         ],

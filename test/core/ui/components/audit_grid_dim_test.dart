@@ -36,7 +36,7 @@ void main() {
         final opacity = tester.widget<Opacity>(
           find.ancestor(of: finder, matching: find.byType(Opacity)).first,
         );
-        expect(opacity.opacity, .32);
+        expect(opacity.opacity, .4);
       }
     });
   }

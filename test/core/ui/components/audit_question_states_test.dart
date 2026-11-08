@@ -33,7 +33,7 @@ void main() {
                   ? 'correct'
                   : 'wrong';
           expect(
-            find.bySemanticsLabel(RegExp('B.*$word.*The answer')),
+            find.bySemanticsLabel(RegExp('B.*The answer.*$word')),
             findsOneWidget,
           );
           if (state != ChoiceRowState.picked) {

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/quiz/application/session_debrief_provider.dart';
 import 'package:pantas/features/quiz/data/session_diagnosis_api.dart';
@@ -107,7 +108,10 @@ void main() {
             tester.widgetList<Icon>(find.byIcon(Icons.chevron_right));
         expect(chevrons, isNotEmpty);
         for (final icon in chevrons) {
-          expect(icon.color, Color(dark ? 0xFF5C5C5C : 0xFF8E8E93));
+          expect(
+            icon.color,
+            (dark ? PantasColors.dark : PantasColors.light).iconChevron,
+          );
         }
         if (wide) {
           final row = find.ancestor(
