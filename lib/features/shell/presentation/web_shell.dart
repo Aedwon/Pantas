@@ -3,14 +3,22 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:pantas/core/ui/components/offset_focus_ring.dart';
+import 'package:pantas/core/ui/components/pantas_shadows.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/motion/selection_motion.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_opacity.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_keyboard_hints.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
-import 'package:pantas/core/ui/web/web_tokens.dart';
-import 'package:pantas/features/shell/presentation/app_shell.dart';
 
 /// Sidebar families from the board map. Sessions use focus mode.
 bool webSidebarRoute(String path) =>
@@ -31,28 +39,6 @@ bool webSidebarRoute(String path) =>
     path.startsWith('/plan/') ||
     path.startsWith('/performance/') ||
     RegExp(r'^/quiz/practice/[^/]+$').hasMatch(path);
-
-/// Pages that run in focus mode and place their own bar 28 px above the
-/// window bottom: the lesson reader, a quiz being answered or looked back
-/// over, and a mock being sat or reviewed. From 1024 to 1279 px they take the
-/// whole window, with no phone navigation over them and no padding that moved
-/// their bars up (7W-18, 3K-9a). Tab pages and result pages keep the
-/// navigation (Oct 30 decision).
-bool webFocusRoute(String path) =>
-    const [
-      '/lesson/',
-      '/mock/review/',
-      '/quiz/today/',
-      '/quiz/resume/',
-      '/quiz/quick/',
-      '/quiz/retake/',
-      '/quiz/inline/',
-      '/quiz/viewer/',
-      '/quiz/mock/start',
-      '/quiz/mock/resume/',
-    ].any(path.startsWith) ||
-    path.startsWith('/quiz/practice/') && path.endsWith('/run') ||
-    path.startsWith('/quiz/flagged/') && path.contains('/view/');
 
 class WebShellFrame extends StatelessWidget {
   const WebShellFrame({
@@ -76,25 +62,12 @@ class WebShellFrame extends StatelessWidget {
   final bool web;
   @override
   Widget build(BuildContext context) {
-    if (!isWideWebLayout(width: MediaQuery.sizeOf(context).width, web: web)) {
-      return child;
-    }
     final tier = webLayoutTier(
       width: MediaQuery.sizeOf(context).width,
       web: web,
     );
-    if (tier == WebLayoutTier.tabletLandscape) {
-      return WebTabletNavigation(
-        activeIndex: activeIndex,
-        onNavigate: onNavigate,
-        child: Padding(
-          // No bottom padding, as on desktop: the page scrolls under the
-          // floating navigation and carries `webPageBottomInset` itself.
-          padding: const EdgeInsets.fromLTRB(44, 28, 44, 0),
-          child: child,
-        ),
-      );
-    }
+    // Below 1024 the TabBar (AppShell) is the navigation, never the sidebar.
+    if (tier.index < WebLayoutTier.compact.index) return child;
     return _DesktopShell(
       activeIndex: activeIndex,
       person: person,
@@ -102,6 +75,7 @@ class WebShellFrame extends StatelessWidget {
       plan: plan,
       onNavigate: onNavigate,
       onSearch: onSearch,
+      wide: tier == WebLayoutTier.wide,
       child: child,
     );
   }
@@ -126,6 +100,7 @@ class _DesktopShell extends StatefulWidget {
     required this.plan,
     required this.onNavigate,
     required this.onSearch,
+    required this.wide,
   });
   final Widget child;
   final int activeIndex;
@@ -134,6 +109,9 @@ class _DesktopShell extends StatefulWidget {
   final String plan;
   final ValueChanged<int> onNavigate;
   final VoidCallback onSearch;
+
+  /// From 1440: main sides of 44. Compact (1024 to 1439) keeps 32.
+  final bool wide;
 
   @override
   State<_DesktopShell> createState() => _DesktopShellState();
@@ -226,11 +204,18 @@ class _DesktopShellState extends State<_DesktopShell> {
                 child: Padding(
                   // No bottom padding: the page's scrolling content reaches
                   // the window bottom and carries `webPageBottomInset` itself.
-                  padding: const EdgeInsets.fromLTRB(44, 28, 44, 0),
+                  padding: EdgeInsets.fromLTRB(
+                    widget.wide ? PantasLayout.mainPadX : PantasSpace.s32,
+                    PantasLayout.mainPadTop,
+                    widget.wide ? PantasLayout.mainPadX : PantasSpace.s32,
+                    PantasSpace.s0,
+                  ),
                   child: Align(
                     alignment: Alignment.topCenter,
                     child: ConstrainedBox(
-                      constraints: const BoxConstraints(maxWidth: 1080),
+                      constraints: const BoxConstraints(
+                        maxWidth: PantasLayout.contentMax,
+                      ),
                       // The page's Navigator puts a modal barrier under its
                       // page, and a barrier hides every earlier sibling from
                       // the accessibility tree. The sidebar is such a
@@ -252,7 +237,9 @@ class _DesktopShellState extends State<_DesktopShell> {
   }
 }
 
-class WebSidebar extends StatelessWidget {
+/// SidebarNav (design system): the wordmark, search, four destinations and the
+/// account block. It shows from 1024; the width is `layout-sidebar-min`.
+class WebSidebar extends StatefulWidget {
   const WebSidebar({
     required this.activeIndex,
     required this.person,
@@ -272,105 +259,144 @@ class WebSidebar extends StatelessWidget {
 
   /// The search field's focus node, so the shell can send the first Tab here.
   final FocusNode? entryFocus;
+
+  @override
+  State<WebSidebar> createState() => _WebSidebarState();
+}
+
+class _WebSidebarState extends State<WebSidebar> {
   static final _tabs = [
     (label: 'Home', glyph: PantasIcons.homeTab),
     (label: 'Study', glyph: PantasIcons.studyTab),
     (label: 'Quiz', glyph: PantasIcons.quizTab),
     (label: 'Settings', glyph: PantasIcons.settingsTab),
   ];
-  static const _rowHeight = 40.0;
-  static const _rowGap = 4.0;
+  static const _iconSize = 21.0;
+  static const _searchIconSize = 18.0;
+  static const _searchLabel = 'Search lessons';
+  // The system styles carry no letter spacing, and the Material default text
+  // style would add its own 0.25 to each letter.
+  static final _searchLabelStyle = PantasType.webSub.copyWith(letterSpacing: 0);
+
+  final _navKey = GlobalKey(debugLabel: 'sidebar nav');
+  final _itemKeys = List.generate(_tabs.length, (_) => GlobalKey());
+
+  /// Where each item sits in the nav, measured after layout (R3-A14). Until
+  /// the first measurement the marker uses the item height, so it is there
+  /// on the first frame.
+  List<double>? _offsets;
+  List<double>? _lengths;
+  bool _measureQueued = false;
+
+  List<double> get _fallbackOffsets => [
+        for (var i = 0; i < _tabs.length; i++)
+          i * (PantasSize.navItem + PantasSpace.s4),
+      ];
+
+  void _queueMeasure() {
+    if (_measureQueued) return;
+    _measureQueued = true;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _measureQueued = false;
+      if (!mounted) return;
+      final nav = _navKey.currentContext?.findRenderObject();
+      if (nav is! RenderBox || !nav.attached) return;
+      final offsets = <double>[];
+      final lengths = <double>[];
+      for (final key in _itemKeys) {
+        final box = key.currentContext?.findRenderObject();
+        if (box is! RenderBox || !box.attached) return;
+        offsets.add(box.localToGlobal(Offset.zero, ancestor: nav).dy);
+        lengths.add(box.size.height);
+      }
+      if (_sameSpans(offsets, lengths)) return;
+      setState(() {
+        _offsets = offsets;
+        _lengths = lengths;
+      });
+    });
+  }
+
+  bool _sameSpans(List<double> offsets, List<double> lengths) {
+    final currentOffsets = _offsets ?? _fallbackOffsets;
+    final currentLengths =
+        _lengths ?? List.filled(_tabs.length, PantasSize.navItem);
+    for (var i = 0; i < offsets.length; i++) {
+      if ((offsets[i] - currentOffsets[i]).abs() > .01 ||
+          (lengths[i] - currentLengths[i]).abs() > .01) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  /// `layout-sidebar-min` (220), grown to the search row's own width and no
+  /// further than `layout-sidebar-max` (244), as the flex basis and maximum of
+  /// the system do. The search row is the widest: its label is the app's
+  /// "Search lessons", which does not fit beside the key hint in 220.
+  double _width(BuildContext context) {
+    final label = TextPainter(
+      text: TextSpan(text: _searchLabel, style: _searchLabelStyle),
+      textDirection: Directionality.of(context),
+      textScaler: MediaQuery.textScalerOf(context),
+      maxLines: 1,
+    )..layout();
+    final row = _SearchButton.chromeWidth + label.width;
+    label.dispose();
+    // The sidebar's own side padding goes around the row.
+    return (row + 2 * PantasSpace.s14).clamp(
+      PantasLayout.sidebarMin,
+      PantasLayout.sidebarMax,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    final t = context.webTokens;
-    final c = t.colors;
+    final c = context.colors;
+    // A measurement from another text size is stale: measure again after
+    // every build, which costs nothing when nothing moved.
+    _queueMeasure();
+    final measured = _offsets != null;
     return Semantics(
       container: true,
       label: 'Main navigation',
-      // Board `.side` at 1440: 230.4 px (its content's own width).
       child: SizedBox(
-        width: 230.4,
+        width: _width(context),
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(14, 22, 14, 20),
+          padding: const EdgeInsets.fromLTRB(
+            PantasSpace.s14,
+            PantasSpace.s20,
+            PantasSpace.s14,
+            PantasSpace.s20,
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Padding(
-                padding: const EdgeInsets.fromLTRB(12, 4, 12, 18),
+                padding: const EdgeInsets.fromLTRB(
+                  PantasSpace.s12,
+                  PantasSpace.s4,
+                  PantasSpace.s12,
+                  PantasSpace.s18,
+                ),
                 child: Text(
                   'Pantas',
-                  style: t.style(
-                    22,
-                    weight: FontWeight.w700,
-                    height: 1.27,
-                    spacing: -.44,
-                  ),
+                  style: PantasType.webH3Lg.copyWith(color: c.textPrimary),
                 ),
               ),
-              const SizedBox(height: 4),
-              TextButton(
-                focusNode: entryFocus,
-                onPressed: onSearch,
-                style: ButtonStyle(
-                  animationDuration: MediaQuery.disableAnimationsOf(context)
-                      ? Duration.zero
-                      : const Duration(milliseconds: 150),
-                  visualDensity: VisualDensity.standard,
-                  minimumSize: const WidgetStatePropertyAll(Size(0, 38)),
-                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                  padding: const WidgetStatePropertyAll(
-                    EdgeInsets.fromLTRB(12, 0, 10, 0),
-                  ),
-                  backgroundColor: WidgetStatePropertyAll(c.surface),
-                  // The field's own rule, with the keyboard ring over it while
-                  // the field has keyboard focus (4N-6).
-                  side: WidgetStateProperty.resolveWith(
-                    (s) =>
-                        webFocusRing(s, c.accent) ??
-                        BorderSide(color: c.separator),
-                  ),
-                  shape: WidgetStatePropertyAll(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
-                ),
-                child: Row(
-                  children: [
-                    Icon(
-                      PantasIcons.search,
-                      size: 18,
-                      color: c.tertiaryLabel,
-                    ),
-                    const SizedBox(width: 8),
-                    Expanded(
-                      child: Text(
-                        'Search lessons',
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: t.style(
-                          15,
-                          height: 1.2,
-                          color: c.tertiaryLabel,
-                        ),
-                      ),
-                    ),
-                    // Board `.srch`: 8 px between the text and the key hint.
-                    const SizedBox(width: 8),
-                    WebKeyHint(
-                      '$commandKeyLabel K',
-                      // The board's "Ctrl K" is 42 px wide. "Cmd K" is wider,
-                      // so the width is fixed and the label centered: the gap
-                      // to the text stays the board's on every platform.
-                      width: 42,
-                    ),
-                  ],
-                ),
+              const SizedBox(height: PantasSpace.s4),
+              _SearchButton(
+                focusNode: widget.entryFocus,
+                onPressed: widget.onSearch,
+                iconSize: _searchIconSize,
               ),
-              const SizedBox(height: 18),
+              // 4 of the sidebar gap and 10 under the search: the first
+              // destination sits 14 below it.
+              const SizedBox(height: PantasSpace.s14),
               // The selected row's fill is one marker that glides from row to
-              // row. Each row is 40 px tall with 4 px between.
+              // row, measured from the rows themselves.
               Stack(
+                key: _navKey,
                 children: [
                   Positioned.fill(
                     child: ExcludeSemantics(
@@ -378,26 +404,16 @@ class WebSidebar extends StatelessWidget {
                         child: SlidingMarker(
                           key: const ValueKey('sidebar-marker'),
                           axis: Axis.vertical,
-                          offsets: [
-                            for (var i = 0; i < _tabs.length; i++)
-                              i * (_rowHeight + _rowGap),
-                          ],
-                          lengths: List.filled(_tabs.length, _rowHeight),
-                          index: activeIndex,
+                          offsets: _offsets ?? _fallbackOffsets,
+                          lengths: _lengths ??
+                              List.filled(_tabs.length, PantasSize.navItem),
+                          index: widget.activeIndex,
                           child: DecoratedBox(
                             decoration: BoxDecoration(
-                              color: c.surface,
-                              borderRadius: BorderRadius.circular(10),
-                              boxShadow: t.dark
-                                  ? null
-                                  : [
-                                      BoxShadow(
-                                        color:
-                                            Colors.black.withValues(alpha: .06),
-                                        blurRadius: 2,
-                                        offset: const Offset(0, 1),
-                                      ),
-                                    ],
+                              color: c.surfaceCard,
+                              borderRadius:
+                                  BorderRadius.circular(PantasRadius.md),
+                              boxShadow: context.shadows.navActive,
                             ),
                           ),
                         ),
@@ -408,78 +424,18 @@ class WebSidebar extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       for (var i = 0; i < _tabs.length; i++) ...[
-                        if (i > 0) const SizedBox(height: _rowGap),
-                        Semantics(
-                          selected: activeIndex == i,
-                          child: TextButton(
-                            onPressed: () => onNavigate(i),
-                            style: ButtonStyle(
-                              animationDuration:
-                                  MediaQuery.disableAnimationsOf(context)
-                                      ? Duration.zero
-                                      : PantasDurations.short2,
-                              visualDensity: VisualDensity.standard,
-                              minimumSize: const WidgetStatePropertyAll(
-                                Size(0, _rowHeight),
-                              ),
-                              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                              padding: const WidgetStatePropertyAll(
-                                EdgeInsets.symmetric(
-                                  horizontal: 12,
-                                ),
-                              ),
-                              // The selected fill is the marker behind.
-                              backgroundColor: WidgetStateProperty.resolveWith(
-                                (s) => activeIndex != i &&
-                                        (s.contains(WidgetState.hovered) ||
-                                            webKeyboardFocus(s))
-                                    ? t.dark
-                                        ? c.fill
-                                        : Colors.black.withValues(
-                                            alpha: .045,
-                                          )
-                                    : Colors.transparent,
-                              ),
-                              side: WidgetStateProperty.resolveWith(
-                                (s) => webFocusRing(s, c.accent),
-                              ),
-                              shape: WidgetStatePropertyAll(
-                                RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                              ),
-                              overlayColor: const WidgetStatePropertyAll(
-                                Colors.transparent,
-                              ),
-                            ),
-                            child: Row(
-                              children: [
-                                FadingColor(
-                                  color: activeIndex == i
-                                      ? c.accent
-                                      : c.tertiaryLabel,
-                                  builder: (context, color, _) => Icon(
-                                    _tabs[i].glyph,
-                                    size: 21,
-                                    color: color,
-                                  ),
-                                ),
-                                const SizedBox(width: 12),
-                                Expanded(
-                                  child: Text(
-                                    _tabs[i].label,
-                                    style: t.style(
-                                      15,
-                                      height: 1.2,
-                                      weight: activeIndex == i
-                                          ? FontWeight.w600
-                                          : FontWeight.w500,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
+                        if (i > 0) const SizedBox(height: PantasSpace.s4),
+                        _SidebarItem(
+                          key: _itemKeys[i],
+                          label: _tabs[i].label,
+                          glyph: _tabs[i].glyph,
+                          iconSize: _iconSize,
+                          selected: widget.activeIndex == i,
+                          // Without a measurement the item draws its own
+                          // highlight, so large text never leaves the
+                          // marker on the wrong item.
+                          drawsOwnFill: !measured && widget.activeIndex == i,
+                          onPressed: () => widget.onNavigate(i),
                         ),
                       ],
                     ],
@@ -489,29 +445,35 @@ class WebSidebar extends StatelessWidget {
               const Spacer(),
               Padding(
                 padding: const EdgeInsets.symmetric(
-                  horizontal: 12,
-                  vertical: 10,
+                  horizontal: PantasSpace.s12,
+                  vertical: PantasSpace.s10,
                 ),
                 child: Row(
                   children: [
-                    _SidebarAvatar(person: person),
-                    const SizedBox(width: 10),
+                    _SidebarAvatar(person: widget.person),
+                    const SizedBox(width: PantasSpace.s10),
                     Expanded(
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            person,
+                            widget.person,
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
-                            style: t.style(14, weight: FontWeight.w600),
+                            style: PantasType.webLabel.copyWith(
+                              color: c.textPrimary,
+                              letterSpacing: 0,
+                            ),
                           ),
                           Text(
-                            '$exam · $plan',
+                            '${widget.exam} · ${widget.plan}',
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
-                            style: t.sm,
+                            style: PantasType.webCaption.copyWith(
+                              color: c.textSecondary,
+                              letterSpacing: 0,
+                            ),
                           ),
                         ],
                       ),
@@ -527,41 +489,214 @@ class WebSidebar extends StatelessWidget {
   }
 }
 
-/// Phone navigation at its approved width on landscape tablets.
-class WebTabletNavigation extends StatelessWidget {
-  const WebTabletNavigation({
-    required this.child,
-    required this.activeIndex,
-    required this.onNavigate,
-    super.key,
+/// The search entry: 38 high, `radius-sm`, with the Ctrl K hint. It opens the
+/// lesson search; it is a button, not a field.
+class _SearchButton extends StatelessWidget {
+  const _SearchButton({
+    required this.onPressed,
+    required this.iconSize,
+    this.focusNode,
   });
-  final Widget child;
-  final int activeIndex;
-  final ValueChanged<int> onNavigate;
+  final VoidCallback onPressed;
+  final FocusNode? focusNode;
+  final double iconSize;
 
   @override
-  Widget build(BuildContext context) => Scaffold(
-        body: Stack(
-          fit: StackFit.expand,
-          children: [
-            child,
-            Positioned(
-              left: 0,
-              right: 0,
-              bottom: 24,
-              child: Center(
-                child: SizedBox(
-                  width: 358,
-                  child: AppNavBar(
-                    currentIndex: activeIndex,
-                    onTap: onNavigate,
-                  ),
-                ),
+  Widget build(BuildContext context) {
+    final c = context.colors;
+    return TextButton(
+      focusNode: focusNode,
+      onPressed: onPressed,
+      style: ButtonStyle(
+        animationDuration: MediaQuery.disableAnimationsOf(context)
+            ? Duration.zero
+            : PantasDurations.short2,
+        visualDensity: VisualDensity.standard,
+        minimumSize: const WidgetStatePropertyAll(Size(0, PantasSize.search)),
+        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+        padding: const WidgetStatePropertyAll(
+          EdgeInsets.fromLTRB(
+            PantasSpace.s12,
+            PantasSpace.s0,
+            PantasSpace.s10,
+            PantasSpace.s0,
+          ),
+        ),
+        backgroundColor: WidgetStatePropertyAll(c.surfaceCard),
+        // The field's own rule, with the keyboard ring over it while the
+        // field has keyboard focus (4N-6).
+        side: WidgetStateProperty.resolveWith(
+          (s) =>
+              webFocusRing(s, c.accent) ?? BorderSide(color: c.borderControl),
+        ),
+        shape: WidgetStatePropertyAll(
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(PantasRadius.sm),
+          ),
+        ),
+      ),
+      child: Row(
+        children: [
+          Icon(PantasIcons.search, size: iconSize, color: c.iconMuted),
+          const SizedBox(width: PantasSpace.s8),
+          Expanded(
+            child: Text(
+              _WebSidebarState._searchLabel,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: _WebSidebarState._searchLabelStyle.copyWith(
+                color: c.textSecondary,
               ),
             ),
-          ],
+          ),
+          const SizedBox(width: PantasSpace.s8),
+          WebKeyHint(
+            '$commandKeyLabel K',
+            // "Cmd K" is wider than "Ctrl K", so the width is fixed and the
+            // label centered: the gap to the text stays the same on every
+            // platform.
+            width: _keyHintWidth,
+          ),
+        ],
+      ),
+    );
+  }
+
+  /// The board's "Ctrl K" hint.
+  static const double _keyHintWidth = 42;
+
+  /// Everything in the row but the label: side padding (12 and 10), the icon
+  /// (18) and its gap (8), and the gap (8) and the hint.
+  static const double chromeWidth = PantasSpace.s12 +
+      PantasSpace.s10 +
+      _WebSidebarState._searchIconSize +
+      PantasSpace.s8 +
+      PantasSpace.s8 +
+      _keyHintWidth;
+}
+
+/// One destination: 40 high, `radius-md`, hover 8% of `text-primary`, pressed
+/// scale 0.98, a keyboard ring offset 2 outside it.
+class _SidebarItem extends StatefulWidget {
+  const _SidebarItem({
+    required this.label,
+    required this.glyph,
+    required this.iconSize,
+    required this.selected,
+    required this.drawsOwnFill,
+    required this.onPressed,
+    super.key,
+  });
+  final String label;
+  final IconData glyph;
+  final double iconSize;
+  final bool selected;
+  final bool drawsOwnFill;
+  final VoidCallback onPressed;
+
+  @override
+  State<_SidebarItem> createState() => _SidebarItemState();
+}
+
+class _SidebarItemState extends State<_SidebarItem> {
+  static const double _pressedScale = .98;
+  final _states = WidgetStatesController();
+
+  @override
+  void initState() {
+    super.initState();
+    _states.addListener(_onStates);
+  }
+
+  @override
+  void dispose() {
+    _states
+      ..removeListener(_onStates)
+      ..dispose();
+    super.dispose();
+  }
+
+  void _onStates() {
+    if (mounted) setState(() {});
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final c = context.colors;
+    final still = MediaQuery.disableAnimationsOf(context);
+    final radius = BorderRadius.circular(PantasRadius.md);
+    final pressed = _states.value.contains(WidgetState.pressed);
+    return Semantics(
+      selected: widget.selected,
+      child: OffsetFocusRing(
+        borderRadius: radius,
+        child: AnimatedScale(
+          scale: pressed && !still ? _pressedScale : 1,
+          duration: PantasDurations.short1,
+          curve: PantasCurves.fade,
+          child: DecoratedBox(
+            decoration: BoxDecoration(
+              color: widget.drawsOwnFill ? c.surfaceCard : null,
+              borderRadius: radius,
+              boxShadow: widget.drawsOwnFill ? context.shadows.navActive : null,
+            ),
+            child: TextButton(
+              statesController: _states,
+              onPressed: widget.onPressed,
+              style: ButtonStyle(
+                animationDuration:
+                    still ? Duration.zero : PantasDurations.short2,
+                visualDensity: VisualDensity.standard,
+                minimumSize:
+                    const WidgetStatePropertyAll(Size(0, PantasSize.navItem)),
+                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                padding: const WidgetStatePropertyAll(
+                  EdgeInsets.symmetric(
+                    horizontal: PantasSpace.s12,
+                    vertical: PantasSpace.s8,
+                  ),
+                ),
+                // The selected fill is the marker behind.
+                backgroundColor: WidgetStateProperty.resolveWith(
+                  (s) => !widget.selected && s.contains(WidgetState.hovered)
+                      ? c.textPrimary.withValues(alpha: PantasOpacity.hover)
+                      : Colors.transparent,
+                ),
+                shape: WidgetStatePropertyAll(
+                  RoundedRectangleBorder(borderRadius: radius),
+                ),
+                overlayColor: const WidgetStatePropertyAll(Colors.transparent),
+              ),
+              child: Row(
+                children: [
+                  FadingColor(
+                    color: widget.selected ? c.accent : c.iconMuted,
+                    builder: (context, color, _) => Icon(
+                      widget.glyph,
+                      size: widget.iconSize,
+                      color: color,
+                    ),
+                  ),
+                  const SizedBox(width: PantasSpace.s12),
+                  Expanded(
+                    child: Text(
+                      widget.label,
+                      style: PantasType.webNav.copyWith(
+                        letterSpacing: 0,
+                        color: c.textPrimary,
+                        fontWeight:
+                            widget.selected ? FontWeight.w600 : FontWeight.w500,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
         ),
-      );
+      ),
+    );
+  }
 }
 
 /// The sidebar picture (X_Side, ST_Avatars): the first letter capitalized,
@@ -570,11 +705,11 @@ class _SidebarAvatar extends StatelessWidget {
   const _SidebarAvatar({required this.person});
   final String person;
   static final _letter = RegExp(r'^\p{L}', unicode: true);
+  static const double _plainIcon = 16;
 
   @override
   Widget build(BuildContext context) {
-    final t = context.webTokens;
-    final c = t.colors;
+    final c = context.colors;
     final initial = person.trim().isEmpty ? '' : person.trim().characters.first;
     final first = initial.isEmpty ? 0 : initial.runes.first;
     final emoji = initial.isNotEmpty &&
@@ -584,18 +719,18 @@ class _SidebarAvatar extends StatelessWidget {
             initial.runes.contains(0x20E3));
     final plain = !emoji && !_letter.hasMatch(initial);
     return Container(
-      width: 30,
-      height: 30,
+      width: PantasSize.avatar,
+      height: PantasSize.avatar,
       decoration: BoxDecoration(
         color: plain ? c.fill : c.accentTint,
         shape: BoxShape.circle,
       ),
       alignment: Alignment.center,
       child: plain
-          ? Icon(PantasIcons.profile, size: 16, color: c.chevron)
+          ? Icon(PantasIcons.profile, size: _plainIcon, color: c.iconChevron)
           : Text(
               emoji ? initial : initial.toUpperCase(),
-              style: t.style(14, weight: FontWeight.w700, color: t.tintText),
+              style: PantasType.webGlyph.copyWith(color: c.accentTintText),
             ),
     );
   }

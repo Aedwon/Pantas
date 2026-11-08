@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/telemetry/telemetry.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/legal/legal.dart';
 import 'package:pantas/features/lesson/presentation/widgets/web_lesson_search.dart';
@@ -36,13 +37,13 @@ class _WebRouteShellState extends ConsumerState<WebRouteShell> {
       return ColoredBox(
         color: Theme.of(context).scaffoldBackgroundColor,
         child: Center(
-          child: SizedBox(width: 640, child: child),
+          child: SizedBox(width: PantasLayout.tabletColumn, child: child),
         ),
       );
     }
     if (!context.wideWeb) return child;
     // The guardian screens and onboarding are full screen: no sidebar and no
-    // tabs, at every wide size (3M-10: the tabs showed at 1024 to 1279).
+    // tabs, at every wide size.
     if (path.startsWith('/guardian') ||
         path.startsWith('/onboarding') ||
         path == '/beta' ||
@@ -53,7 +54,9 @@ class _WebRouteShellState extends ConsumerState<WebRouteShell> {
     if (path.startsWith('/legal/') && ref.watch(legalInOnboardingProvider)) {
       return child;
     }
-    if (!webSidebarRoute(path) && context.webTier == WebLayoutTier.desktop) {
+    // Pages outside the sidebar families (sessions, results, assessment) take
+    // the whole window: the sidebar and the TabBar are both off (D136).
+    if (!webSidebarRoute(path)) {
       return CallbackShortcuts(
         bindings: {
           const SingleActivator(LogicalKeyboardKey.keyK, control: true): () =>
@@ -64,7 +67,6 @@ class _WebRouteShellState extends ConsumerState<WebRouteShell> {
         child: child,
       );
     }
-    if (webFocusRoute(path)) return child;
     const tabs = ['/home', '/study', '/quiz', '/settings'];
     // Plan, Performance, Record and Tendencies belong to Home on the boards.
     const homeGroup = ['/record', '/tendencies', '/plan', '/performance'];
@@ -85,22 +87,11 @@ class _WebRouteShellState extends ConsumerState<WebRouteShell> {
       context.go(tabs[index]);
     }
 
-    if (!webSidebarRoute(path)) {
-      // Existing focus bars sit 28px above this shortened viewport. This puts
-      // them 12px above the 64px navigation, with content insets kept intact.
-      return WebTabletNavigation(
-        activeIndex: activeIndex,
-        onNavigate: navigate,
-        child: Padding(
-          padding: const EdgeInsets.only(bottom: 72),
-          child: child,
-        ),
-      );
-    }
     final person = ref.watch(userSettingsProvider).valueOrNull?.name ?? '';
     final exam = ref.watch(activeExamShortNameProvider);
     final pro = ref.watch(proForActiveExamProvider).valueOrNull ?? false;
     return WebShellFrame(
+      web: context.webPlatform,
       activeIndex: activeIndex,
       person: person,
       exam: exam,

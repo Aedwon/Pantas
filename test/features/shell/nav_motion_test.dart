@@ -120,7 +120,7 @@ void main() {
     testWidgets('the icon and label colors fade 150 ms on the ease',
         (tester) async {
       await tester.pumpWidget(_bar(0));
-      expect(_icon(tester, PantasIcons.quizTab), light.secondaryLabel);
+      expect(_icon(tester, PantasIcons.quizTab), light.iconMuted);
       await tester.pumpWidget(_bar(2));
       await tester.pump();
       var elapsed = 0;
@@ -130,33 +130,32 @@ void main() {
         final p = previewEase(elapsed / 150);
         expect(
           _icon(tester, PantasIcons.quizTab),
-          _closeTo(Color.lerp(light.secondaryLabel, light.accent, p)),
+          _closeTo(Color.lerp(light.iconMuted, light.accentTintText, p)),
           reason: 'icon in at $elapsed ms',
         );
         expect(
           _icon(tester, PantasIcons.homeTab),
-          _closeTo(Color.lerp(light.accent, light.secondaryLabel, p)),
+          _closeTo(Color.lerp(light.accentTintText, light.iconMuted, p)),
           reason: 'icon out at $elapsed ms',
         );
         expect(
           tester.widget<Text>(find.text('Quiz')).style!.color,
-          _icon(tester, PantasIcons.quizTab),
+          _closeTo(Color.lerp(light.textSecondary, light.accentTintText, p)),
+          reason: 'label in at $elapsed ms',
         );
       }
     });
 
-    testWidgets('the label never changes weight, so the text cannot jump',
-        (tester) async {
+    testWidgets('only the current tab label is 600', (tester) async {
       await tester.pumpWidget(_bar(0));
       await tester.pumpWidget(_bar(2));
-      for (var i = 0; i < 4; i++) {
-        await tester.pump(const Duration(milliseconds: 60));
-        for (final label in ['Home', 'Study', 'Quiz', 'Settings']) {
-          expect(
-            tester.widget<Text>(find.text(label)).style!.fontWeight,
-            FontWeight.w600,
-          );
-        }
+      await tester.pumpAndSettle();
+      for (final label in ['Home', 'Study', 'Quiz', 'Settings']) {
+        expect(
+          tester.widget<Text>(find.text(label)).style!.fontWeight,
+          label == 'Quiz' ? FontWeight.w600 : FontWeight.w500,
+          reason: label,
+        );
       }
     });
 
@@ -167,8 +166,8 @@ void main() {
       await tester.pumpWidget(_bar(2, reduced: true));
       await tester.pump();
       expect(_pill(tester).left, greaterThan(from.left + 100));
-      expect(_icon(tester, PantasIcons.quizTab), light.accent);
-      expect(_icon(tester, PantasIcons.homeTab), light.secondaryLabel);
+      expect(_icon(tester, PantasIcons.quizTab), light.accentTintText);
+      expect(_icon(tester, PantasIcons.homeTab), light.iconMuted);
     });
 
     testWidgets('the motion ends: no endless ticker', (tester) async {
@@ -204,7 +203,7 @@ void main() {
         final want = from.top + 132 * previewShared(elapsed / 240);
         expect(_marker(tester).top, closeTo(want, 1), reason: '$elapsed ms');
         expect(_marker(tester).left, from.left, reason: 'only moves down');
-        expect(_marker(tester).height, 40);
+        expect(_marker(tester).height, closeTo(40, .01));
       }
       await tester.pumpAndSettle();
       expect(tester.hasRunningAnimations, isFalse);

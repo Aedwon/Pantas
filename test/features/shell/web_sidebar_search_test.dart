@@ -61,6 +61,11 @@ void main() {
           of: find.byType(WebKeyHint),
           matching: find.byType(Container),
         );
+        // The sidebar is as wide as its search row: 220 up to 244.
+        expect(
+          tester.getSize(find.byType(WebSidebar)).width,
+          closeTo(230.4, .5),
+        );
         final chip = tester.getRect(hint);
         // Board `.kc`: "Ctrl K" is 42 px. "Cmd K" gives its extra width back
         // from its own padding, so the text keeps the board's room.

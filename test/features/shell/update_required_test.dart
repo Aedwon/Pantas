@@ -184,7 +184,7 @@ void main() {
       expect(title.textAlign, TextAlign.center);
       expect(title.style!.fontSize, 22);
       expect(title.style!.fontWeight, FontWeight.w700);
-      expect(title.style!.height, 1.25);
+      expect(title.style!.height, 1.35);
       expect(title.style!.letterSpacing, closeTo(-.264, .000001));
       expect(find.bySemanticsLabel('Pantas'), findsOneWidget);
       expect(
@@ -222,7 +222,7 @@ void main() {
         ),
       );
       final background = scaffold.backgroundColor!;
-      expect(background, context.colors.background);
+      expect(background, context.colors.bgPage);
       expectContrast(title.style!.color!, background);
       final paintedLogo = tester.widget<CustomPaint>(
         find.descendant(

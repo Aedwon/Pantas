@@ -9,6 +9,10 @@ import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/ui/components/pantas_logo.dart';
 import 'package:pantas/core/ui/motion/pantas_effects.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 /// The time left before the beta starts, in whole days, hours and minutes.
@@ -159,7 +163,7 @@ class _BetaWaitingPageState extends ConsumerState<BetaWaitingPage> {
           state: _signingOut ? SignInButtonState.busy : SignInButtonState.idle,
           onPressed: _signOut,
         ),
-        const SizedBox(height: 14),
+        const SizedBox(height: PantasSpace.s14),
         SupportLine(style: style),
       ],
     );
@@ -167,14 +171,23 @@ class _BetaWaitingPageState extends ConsumerState<BetaWaitingPage> {
       return SignInFrame(
         child: SignInScroll(
           builder: (_) => Padding(
-            padding: const EdgeInsets.fromLTRB(20, 40, 20, 28),
+            padding: const EdgeInsets.fromLTRB(
+              PantasSpace.s20,
+              PantasSpace.s40,
+              PantasSpace.s20,
+              PantasSpace.s28,
+            ),
             child: Center(
               child: ConstrainedBox(
                 constraints: const BoxConstraints(maxWidth: 420),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [top, const SizedBox(height: 32), bottom],
+                  children: [
+                    top,
+                    const SizedBox(height: PantasSpace.s32),
+                    bottom,
+                  ],
                 ),
               ),
             ),
@@ -188,9 +201,19 @@ class _BetaWaitingPageState extends ConsumerState<BetaWaitingPage> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Padding(padding: const EdgeInsets.only(top: 132), child: top),
             Padding(
-              padding: const EdgeInsets.fromLTRB(20, 12, 20, 34),
+              padding: const EdgeInsets.only(
+                top: PantasSpace.s56 + PantasSpace.s56 + PantasSpace.s20,
+              ),
+              child: top,
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(
+                PantasSpace.s20,
+                PantasSpace.s12,
+                PantasSpace.s20,
+                PantasSpace.s32,
+              ),
               child: bottom,
             ),
           ],
@@ -216,13 +239,15 @@ class _Top extends StatelessWidget {
     final wide = style.wide;
     final subtitle = style.subtitle.copyWith(letterSpacing: 0);
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: wide ? 0 : 24),
+      padding: EdgeInsets.symmetric(
+        horizontal: wide ? PantasSpace.s0 : PantasSpace.s24,
+      ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Center(child: _WaitingLogo(size: wide ? 120 : 104)),
-          SizedBox(height: wide ? 32 : 26),
+          SizedBox(height: wide ? PantasSpace.s32 : PantasSpace.s28),
           SignInRise(
             delay: const Duration(milliseconds: 250),
             child: Column(
@@ -233,7 +258,7 @@ class _Top extends StatelessWidget {
                   textAlign: TextAlign.center,
                   style: style.title,
                 ),
-                SizedBox(height: wide ? 12 : 8),
+                SizedBox(height: wide ? PantasSpace.s12 : PantasSpace.s8),
                 Text.rich(
                   TextSpan(
                     children: [
@@ -254,14 +279,14 @@ class _Top extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(height: wide ? 32 : 28),
+          SizedBox(height: wide ? PantasSpace.s32 : PantasSpace.s28),
           Center(
             child: ConstrainedBox(
               constraints: const BoxConstraints(maxWidth: 300),
               child: _Tiles(style: style, countdown: countdown),
             ),
           ),
-          SizedBox(height: wide ? 28 : 24),
+          SizedBox(height: wide ? PantasSpace.s28 : PantasSpace.s24),
           Center(
             child: SignInRise(
               delay: const Duration(milliseconds: 640),
@@ -302,11 +327,7 @@ class _GuideLinkState extends State<GuideLink> {
   Widget build(BuildContext context) {
     final s = widget.style;
     final still = MediaQuery.disableAnimationsOf(context);
-    final color = !_hover
-        ? s.accent
-        : s.dark
-            ? s.accentTintText
-            : const Color(0xFF086A5A);
+    final color = _hover ? s.accentHover : s.accent;
     return MouseRegion(
       cursor: SystemMouseCursors.click,
       onEnter: (_) => setState(() => _hover = true),
@@ -327,10 +348,9 @@ class _GuideLinkState extends State<GuideLink> {
                     style: s.button(color: color).copyWith(letterSpacing: 0),
                   ),
                 ),
-                const SizedBox(width: 6),
+                const SizedBox(width: PantasSpace.s6),
                 AnimatedContainer(
-                  duration:
-                      still ? Duration.zero : const Duration(milliseconds: 200),
+                  duration: still ? Duration.zero : PantasDurations.nudge,
                   curve: PantasCurves.move,
                   transform: Matrix4.translationValues(_hover ? 4 : 0, 0, 0),
                   child: CustomPaint(
@@ -474,17 +494,17 @@ class _Tiles extends StatelessWidget {
         child: Row(
           children: [
             for (var i = 0; i < tiles.length; i++) ...[
-              if (i > 0) const SizedBox(width: 10),
+              if (i > 0) const SizedBox(width: PantasSpace.s10),
               Expanded(
                 child: SignInRise(
                   distance: 10,
                   duration: const Duration(milliseconds: 400),
                   delay: Duration(milliseconds: 400 + 80 * i),
                   child: Container(
-                    height: 88,
+                    height: PantasSpace.s44 * 2,
                     decoration: BoxDecoration(
                       color: style.box,
-                      borderRadius: BorderRadius.circular(18),
+                      borderRadius: BorderRadius.circular(PantasRadius.xl),
                     ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -494,11 +514,10 @@ class _Tiles extends StatelessWidget {
                           text: tiles[i].$1,
                           style: style,
                         ),
-                        const SizedBox(height: 2),
+                        const SizedBox(height: PantasSpace.s2),
                         Text(
                           tiles[i].$2,
                           style: style.small.copyWith(
-                            fontSize: 13,
                             fontWeight: FontWeight.w500,
                             color: style.secondary,
                           ),
@@ -529,7 +548,7 @@ class _RollingNumber extends StatefulWidget {
 
 class _RollingNumberState extends State<_RollingNumber>
     with SingleTickerProviderStateMixin {
-  static const _height = 40.0;
+  static const _height = PantasSpace.s40;
 
   late final AnimationController _roll = AnimationController(
     vsync: this,
@@ -564,10 +583,7 @@ class _RollingNumberState extends State<_RollingNumber>
         child: Text(
           text,
           maxLines: 1,
-          style: widget.style.title.copyWith(
-            fontSize: 34,
-            letterSpacing: -0.68,
-            height: 1.12,
+          style: PantasType.phoneLargeTitle.copyWith(
             color: color,
             fontFeatures: const [FontFeature.tabularFigures()],
           ),
@@ -578,7 +594,7 @@ class _RollingNumberState extends State<_RollingNumber>
   Widget build(BuildContext context) {
     final s = widget.style;
     return SizedBox(
-      width: 52,
+      width: PantasSpace.s56,
       height: _height,
       child: ClipRect(
         child: AnimatedBuilder(

@@ -1,14 +1,25 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/telemetry/telemetry.dart';
+import 'package:pantas/core/ui/components/offset_focus_ring.dart';
+import 'package:pantas/core/ui/components/pantas_shadows.dart';
 import 'package:pantas/core/ui/components/tab_bar_visibility.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/motion/selection_motion.dart';
+import 'package:pantas/core/ui/theme/app_text_scale.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
-import 'package:pantas/core/ui/theme/pantas_shape.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 
 class AppShell extends ConsumerWidget {
@@ -28,29 +39,55 @@ class AppShell extends ConsumerWidget {
                 valueListenable: phoneTabBarHidden,
                 builder: (context, hidden, bar) =>
                     hidden ? const SizedBox.shrink() : bar!,
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(16, 0, 16, 24),
-                  child: SafeArea(
-                    top: false,
-                    child: AppNavBar(
-                      currentIndex: navigationShell.currentIndex,
-                      onTap: (i) {
-                        ref.read(telemetryProvider).log(
-                          TelemetryEvent.tabOpened,
-                          properties: {'tab': _labels[i]},
-                        );
-                        navigationShell.goBranch(
-                          i,
-                          initialLocation: i == navigationShell.currentIndex,
-                        );
-                      },
-                    ),
+                child: _TabBarDock(
+                  child: AppNavBar(
+                    currentIndex: navigationShell.currentIndex,
+                    onTap: (i) {
+                      ref.read(telemetryProvider).log(
+                        TelemetryEvent.tabOpened,
+                        properties: {'tab': _labels[i]},
+                      );
+                      navigationShell.goBranch(
+                        i,
+                        initialLocation: i == navigationShell.currentIndex,
+                      );
+                    },
                   ),
                 ),
               ),
       );
 }
 
+/// Where the TabBar floats: inset 16 at each side, at most 358 wide and
+/// centered, 24 above the bottom edge or 8 above the safe area if that is
+/// higher (PhoneFrame, TabBar).
+class _TabBarDock extends StatelessWidget {
+  const _TabBarDock({required this.child});
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    final safeBottom = MediaQuery.paddingOf(context).bottom;
+    return Padding(
+      padding: EdgeInsets.fromLTRB(
+        PantasLayout.tabbarInset,
+        PantasSpace.s0,
+        PantasLayout.tabbarInset,
+        math.max(PantasLayout.tabbarBottom, safeBottom + PantasSpace.s8),
+      ),
+      child: Center(
+        heightFactor: 1,
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: PantasLayout.tabbarMax),
+          child: child,
+        ),
+      ),
+    );
+  }
+}
+
+/// TabBar: four destinations in a floating pill (D187 keeps it a pill). The
+/// current item sits on an `accent-tint` marker that glides to it.
 class AppNavBar extends StatelessWidget {
   const AppNavBar({required this.currentIndex, required this.onTap, super.key});
   final int currentIndex;
@@ -62,120 +99,27 @@ class AppNavBar extends StatelessWidget {
     (label: 'Settings', glyph: PantasIcons.settingsTab),
   ];
 
-  static const _labelHorizontalAllowance = 8.0;
-
-  ({List<double> widths, TextScaler textScaler}) _itemLayout(
-    BuildContext context,
-    double availableWidth,
-  ) {
-    final equalWidth = availableWidth / _tabs.length;
-    final textDirection = Directionality.of(context);
-    final textScaler = MediaQuery.textScalerOf(context);
-    final labelStyle = context.type.captionSmall.copyWith(
-      fontWeight: FontWeight.w600,
-    );
-
-    final requiredWidths = [
-      for (final tab in _tabs)
-        () {
-          final painter = TextPainter(
-            text: TextSpan(text: tab.label, style: labelStyle),
-            textDirection: textDirection,
-            textScaler: textScaler,
-            maxLines: 1,
-          );
-          final width = measureTabLabel(painter) + _labelHorizontalAllowance;
-          return width < kMinInteractiveDimension
-              ? kMinInteractiveDimension
-              : width;
-        }(),
-    ];
-
-    ({List<double> widths, TextScaler textScaler}) fit(List<double> widths) {
-      var factor = 1.0;
-      for (var i = 0; i < widths.length; i++) {
-        final fit = (widths[i] - _labelHorizontalAllowance)
-                .clamp(0.0, double.infinity) /
-            (requiredWidths[i] - _labelHorizontalAllowance);
-        if (fit < factor) factor = fit;
-      }
-      final fontSize = labelStyle.fontSize!;
-      return (
-        widths: widths,
-        textScaler:
-            TextScaler.linear(textScaler.scale(fontSize) / fontSize * factor),
-      );
-    }
-
-    if (requiredWidths.every((width) => width <= equalWidth)) {
-      return fit(List<double>.filled(_tabs.length, equalWidth));
-    }
-
-    final requiredTotal = requiredWidths.fold<double>(
-      0,
-      (total, width) => total + width,
-    );
-    if (requiredTotal <= availableWidth) {
-      final extraPerItem = (availableWidth - requiredTotal) / _tabs.length;
-      return fit([for (final width in requiredWidths) width + extraPerItem]);
-    }
-
-    final minimumTotal = kMinInteractiveDimension * _tabs.length;
-    if (minimumTotal >= availableWidth) {
-      return fit(List<double>.filled(_tabs.length, equalWidth));
-    }
-
-    final extraNeeds = [
-      for (final width in requiredWidths)
-        width > kMinInteractiveDimension
-            ? width - kMinInteractiveDimension
-            : 0.0,
-    ];
-    final totalExtraNeed = extraNeeds.fold<double>(
-      0,
-      (total, width) => total + width,
-    );
-    final distributableWidth = availableWidth - minimumTotal;
-
-    return fit([
-      for (final need in extraNeeds)
-        kMinInteractiveDimension +
-            (totalExtraNeed == 0
-                ? distributableWidth / _tabs.length
-                : distributableWidth * need / totalExtraNeed),
-    ]);
-  }
-
   @override
   Widget build(BuildContext context) {
-    final colors = context.colors;
-    return Container(
+    final c = context.colors;
+    const shape = BorderRadius.all(Radius.circular(PantasRadius.full));
+    // The 1px ring is `edge-bar`, drawn over the bar without taking room.
+    final bar = Container(
       decoration: BoxDecoration(
-        color: colors.surface,
-        borderRadius: BorderRadius.circular(PantasShape.pillRadius),
-        boxShadow: [
-          BoxShadow(
-            color: const Color(0xFF1D1D1F).withValues(alpha: 0.14),
-            offset: const Offset(0, 10),
-            blurRadius: 30,
-          ),
-          BoxShadow(
-            color: const Color(0xFF1D1D1F).withValues(alpha: 0.08),
-            spreadRadius: 0.5,
-          ),
-        ],
+        color: c.surfaceCard,
+        borderRadius: shape,
+        boxShadow: context.shadows.bar,
       ),
-      padding: const EdgeInsets.all(6),
+      padding: const EdgeInsets.all(PantasSpace.s6),
       child: LayoutBuilder(
         builder: (context, constraints) {
-          final layout = _itemLayout(context, constraints.maxWidth - 6);
+          const gap = PantasSpace.s2;
+          final width =
+              (constraints.maxWidth - gap * (_tabs.length - 1)) / _tabs.length;
           // Where each tab starts, so the pill can glide to it.
-          final offsets = <double>[];
-          var x = 0.0;
-          for (final width in layout.widths) {
-            offsets.add(x);
-            x += width + 2;
-          }
+          final offsets = [
+            for (var i = 0; i < _tabs.length; i++) i * (width + gap),
+          ];
           return Stack(
             children: [
               // The pill is the one thing that moves: a translation, drawn
@@ -186,15 +130,9 @@ class AppNavBar extends StatelessWidget {
                     child: SlidingMarker(
                       key: const ValueKey('nav-pill'),
                       offsets: offsets,
-                      lengths: layout.widths,
+                      lengths: List.filled(_tabs.length, width),
                       index: currentIndex,
-                      child: DecoratedBox(
-                        decoration: BoxDecoration(
-                          color: colors.accentTint,
-                          borderRadius:
-                              BorderRadius.circular(PantasShape.pillRadius),
-                        ),
-                      ),
+                      child: const _TabMarker(),
                     ),
                   ),
                 ),
@@ -202,13 +140,12 @@ class AppNavBar extends StatelessWidget {
               Row(
                 children: [
                   for (var i = 0; i < _tabs.length; i++) ...[
-                    if (i > 0) const SizedBox(width: 2),
+                    if (i > 0) const SizedBox(width: gap),
                     SizedBox(
-                      width: layout.widths[i],
+                      width: width,
                       child: _NavItem(
                         label: _tabs[i].label,
                         glyph: _tabs[i].glyph,
-                        labelTextScaler: layout.textScaler,
                         isActive: currentIndex == i,
                         onTap: () => onTap(i),
                       ),
@@ -221,94 +158,228 @@ class AppNavBar extends StatelessWidget {
         },
       ),
     );
+    return Stack(
+      children: [
+        bar,
+        Positioned.fill(
+          child: IgnorePointer(
+            child: DecoratedBox(
+              decoration: BoxDecoration(
+                borderRadius: shape,
+                border: Border.all(color: c.edgeBar),
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
   }
 }
 
-class _NavItem extends StatelessWidget {
+class _TabMarker extends StatelessWidget {
+  const _TabMarker();
+
+  @override
+  Widget build(BuildContext context) => DecoratedBox(
+        decoration: BoxDecoration(
+          color: context.colors.accentTint,
+          borderRadius: BorderRadius.circular(PantasRadius.full),
+        ),
+      );
+}
+
+class _NavItem extends StatefulWidget {
   const _NavItem({
     required this.label,
     required this.glyph,
-    required this.labelTextScaler,
     required this.isActive,
     required this.onTap,
   });
   final String label;
   final IconData glyph;
-  final TextScaler labelTextScaler;
   final bool isActive;
   final VoidCallback onTap;
 
   @override
-  Widget build(BuildContext context) {
+  State<_NavItem> createState() => _NavItemState();
+}
+
+class _NavItemState extends State<_NavItem> {
+  static const double _iconSize = 23;
+  static const double _pressedScale = .96;
+  bool _pressed = false;
+  OverlayEntry? _large;
+
+  @override
+  void dispose() {
+    _hideLarge();
+    super.dispose();
+  }
+
+  /// Large Content Viewer, as on iOS: a long press shows the label at the full
+  /// OS text size over the bar, because the label itself stops at 12.
+  void _showLarge() {
+    _hideLarge();
+    final box = context.findRenderObject();
+    final overlay = Overlay.maybeOf(context);
+    if (box is! RenderBox || !box.attached || overlay == null) return;
+    final rect = box.localToGlobal(Offset.zero) & box.size;
+    final screen = MediaQuery.sizeOf(context);
     final colors = context.colors;
-    // Unselected tabs are enabled controls, not disabled text.
-    final color = isActive ? colors.accent : colors.secondaryLabel;
-    return Semantics(
-      label: label,
-      button: true,
-      selected: isActive,
-      onTap: onTap,
-      excludeSemantics: true,
-      child: FocusableActionDetector(
-        shortcuts: const {
-          SingleActivator(
-            LogicalKeyboardKey.enter,
-            includeRepeats: false,
-          ): ActivateIntent(),
-          SingleActivator(LogicalKeyboardKey.space): ActivateIntent(),
-        },
-        actions: {
-          ActivateIntent: CallbackAction<ActivateIntent>(
-            onInvoke: (_) {
-              onTap();
-              return null;
-            },
-          ),
-        },
-        child: GestureDetector(
-          behavior: HitTestBehavior.opaque,
-          excludeFromSemantics: true,
-          onTap: onTap,
-          child: ConstrainedBox(
-            constraints: const BoxConstraints(minHeight: 52),
-            // The icon and label fade between the two colors; the label keeps
-            // one weight so the text never jumps while it does.
-            child: FadingColor(
-              color: color,
-              builder: (context, color, _) => Column(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(glyph, color: color, size: 23),
-                  const SizedBox(height: 2),
-                  Text(
-                    label,
-                    textScaler: labelTextScaler,
-                    maxLines: 1,
-                    softWrap: false,
-                    overflow: TextOverflow.clip,
-                    textAlign: TextAlign.center,
-                    style: context.type.captionSmall.copyWith(
-                      color: color,
-                      fontWeight: FontWeight.w600,
-                    ),
+    final shadows = context.shadows;
+    final os = OsTextScaler.of(context);
+    final label = widget.label;
+    final glyph = widget.glyph;
+    _large = OverlayEntry(
+      builder: (_) => Positioned(
+        left: 0,
+        right: 0,
+        bottom: screen.height - rect.top + PantasSpace.s8,
+        child: IgnorePointer(
+          child: Center(
+            child: Semantics(
+              excludeSemantics: true,
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  color: colors.surfaceCard,
+                  borderRadius: BorderRadius.circular(PantasRadius.lg),
+                  boxShadow: shadows.popover,
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: PantasSpace.s20,
+                    vertical: PantasSpace.s12,
                   ),
-                ],
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(
+                        glyph,
+                        size: _iconSize,
+                        color: colors.accentTintText,
+                      ),
+                      const SizedBox(width: PantasSpace.s8),
+                      Text(
+                        label,
+                        textScaler: os,
+                        style: PantasType.phoneHeadline.copyWith(
+                          color: colors.textPrimary,
+                          decoration: TextDecoration.none,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ),
             ),
           ),
         ),
       ),
     );
+    overlay.insert(_large!);
   }
-}
 
-/// Takes ownership of a temporary tab-label painter while reading its width.
-double measureTabLabel(TextPainter painter) {
-  try {
-    painter.layout();
-    return painter.width;
-  } finally {
-    painter.dispose();
+  void _hideLarge() {
+    _large?.remove();
+    _large?.dispose();
+    _large = null;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final c = context.colors;
+    final active = widget.isActive;
+    final still = MediaQuery.disableAnimationsOf(context);
+    // Unselected tabs are enabled controls, not disabled text.
+    final iconColor = active ? c.accentTintText : c.iconMuted;
+    final labelColor = active ? c.accentTintText : c.textSecondary;
+    // The one UI text that stops below the 2.0 clamp: the label grows to 12
+    // at most (D181). Browser zoom still scales it.
+    final labelScaler = MediaQuery.textScalerOf(context).clamp(
+      maxScaleFactor:
+          PantasSize.tabLabelMax / PantasType.phoneTabLabel.fontSize!,
+    );
+    return Semantics(
+      label: widget.label,
+      button: true,
+      selected: active,
+      onTap: widget.onTap,
+      excludeSemantics: true,
+      child: OffsetFocusRing(
+        borderRadius: BorderRadius.circular(PantasRadius.full),
+        child: FocusableActionDetector(
+          shortcuts: const {
+            SingleActivator(
+              LogicalKeyboardKey.enter,
+              includeRepeats: false,
+            ): ActivateIntent(),
+            SingleActivator(LogicalKeyboardKey.space): ActivateIntent(),
+          },
+          actions: {
+            ActivateIntent: CallbackAction<ActivateIntent>(
+              onInvoke: (_) {
+                widget.onTap();
+                return null;
+              },
+            ),
+          },
+          child: GestureDetector(
+            behavior: HitTestBehavior.opaque,
+            excludeFromSemantics: true,
+            onTap: widget.onTap,
+            onTapDown: (_) => setState(() => _pressed = true),
+            onTapUp: (_) => setState(() => _pressed = false),
+            onTapCancel: () => setState(() => _pressed = false),
+            onLongPress: _showLarge,
+            onLongPressUp: _hideLarge,
+            onLongPressCancel: _hideLarge,
+            child: AnimatedScale(
+              scale: _pressed && !still ? _pressedScale : 1,
+              duration: PantasDurations.short1,
+              curve: PantasCurves.fade,
+              child: ConstrainedBox(
+                // Fills the item: the focus ring's stack hands down loose
+                // constraints, and the whole item is the target.
+                constraints: const BoxConstraints(
+                  minWidth: double.infinity,
+                  minHeight: PantasSize.tabbarItem,
+                ),
+                // The icon and label fade between their two colors.
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    FadingColor(
+                      color: iconColor,
+                      builder: (context, color, _) =>
+                          Icon(widget.glyph, color: color, size: _iconSize),
+                    ),
+                    const SizedBox(height: PantasSpace.s2),
+                    FadingColor(
+                      color: labelColor,
+                      builder: (context, color, _) => Text(
+                        widget.label,
+                        textScaler: labelScaler,
+                        maxLines: 1,
+                        softWrap: false,
+                        overflow: TextOverflow.clip,
+                        textAlign: TextAlign.center,
+                        // Rest is 500; the current tab is the 600 state.
+                        style: PantasType.phoneTabLabel.copyWith(
+                          letterSpacing: 0,
+                          color: color,
+                          fontWeight:
+                              active ? FontWeight.w600 : FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }

@@ -130,7 +130,8 @@ void main() {
   });
 
   for (final dark in [false, true]) {
-    testWidgets('active tab uses accent and one caption weight, dark=$dark',
+    testWidgets(
+        'active tab is 600 in accent-tint-text, the rest 500, dark=$dark',
         (tester) async {
       await tester
           .pumpWidget(harness(currentIndex: 1, onTap: (_) {}, dark: dark));
@@ -138,12 +139,12 @@ void main() {
       final text = tester.widget<Text>(find.text('Study'));
       expect(text.style!.fontSize, 10);
       expect(text.style!.fontWeight, FontWeight.w600);
-      expect(text.style!.color, colors.accent);
-      // One weight for every tab, so the label cannot jump while the color
-      // fades (item 17, demo 1: the preview sets all labels at 600).
+      expect(text.style!.color, colors.accentTintText);
+      // The current tab is the 600 state of the tab label style; the others
+      // are its 500 rest style (R3-O09).
       expect(
         tester.widget<Text>(find.text('Home')).style!.fontWeight,
-        FontWeight.w600,
+        FontWeight.w500,
       );
     });
   }
@@ -184,13 +185,13 @@ void main() {
     await tester.pumpWidget(harness(currentIndex: 2, onTap: (_) {}));
     await tester.pump(const Duration(milliseconds: 60));
     final midway = tester.widget<Text>(find.text('Quiz')).style!.color;
-    expect(midway, isNot(PantasColors.light.accent));
-    expect(midway, isNot(PantasColors.light.secondaryLabel));
+    expect(midway, isNot(PantasColors.light.accentTintText));
+    expect(midway, isNot(PantasColors.light.textSecondary));
     expect(find.byKey(const ValueKey('nav-pill')), findsOneWidget);
     await tester.pumpAndSettle();
     expect(
       tester.widget<Text>(find.text('Quiz')).style!.color,
-      PantasColors.light.accent,
+      PantasColors.light.accentTintText,
     );
   });
 
@@ -201,7 +202,7 @@ void main() {
     );
     expect(
       tester.widget<Text>(find.text('Settings')).style!.color,
-      PantasColors.light.accent,
+      PantasColors.light.accentTintText,
     );
   });
 

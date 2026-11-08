@@ -12,6 +12,7 @@ import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/auth/sign_in_result.dart';
 import 'package:pantas/core/ui/components/pantas_logo.dart';
 import 'package:pantas/core/ui/motion/pantas_effects.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 
 /// True while the sign-in screen plays its signed-in beat. The beta gate holds
 /// the screen in place until the beat ends, so signing in does not swap the
@@ -521,13 +522,15 @@ class _EmailSignInPageState extends ConsumerState<EmailSignInPage> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Padding(
-            padding: const EdgeInsets.only(top: 132),
+            padding: const EdgeInsets.only(
+              top: PantasSpace.s56 + PantasSpace.s56 + PantasSpace.s20,
+            ),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 _logo(style),
-                const SizedBox(height: 28),
+                const SizedBox(height: PantasSpace.s28),
                 SignInRise(
                   duration: const Duration(milliseconds: 500),
                   delay: const Duration(milliseconds: 300),
@@ -540,7 +543,12 @@ class _EmailSignInPageState extends ConsumerState<EmailSignInPage> {
             duration: const Duration(milliseconds: 500),
             delay: const Duration(milliseconds: 450),
             child: Padding(
-              padding: const EdgeInsets.fromLTRB(20, 12, 20, 34),
+              padding: const EdgeInsets.fromLTRB(
+                PantasSpace.s20,
+                PantasSpace.s12,
+                PantasSpace.s20,
+                PantasSpace.s32,
+              ),
               child: StepSwitcher(
                 stepKey: _step,
                 delay: const Duration(milliseconds: 100),
@@ -564,7 +572,12 @@ class _EmailSignInPageState extends ConsumerState<EmailSignInPage> {
         // Page padding 40 and 28, plus the support line and its 24 px gap.
         final top = math.max<double>(0, (height - 110 - _wideContent) / 2);
         return Padding(
-          padding: const EdgeInsets.fromLTRB(20, 40, 20, 28),
+          padding: const EdgeInsets.fromLTRB(
+            PantasSpace.s20,
+            PantasSpace.s40,
+            PantasSpace.s20,
+            PantasSpace.s28,
+          ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -577,7 +590,7 @@ class _EmailSignInPageState extends ConsumerState<EmailSignInPage> {
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       _logo(style),
-                      const SizedBox(height: 32),
+                      const SizedBox(height: PantasSpace.s32),
                       SignInRise(
                         duration: const Duration(milliseconds: 500),
                         delay: const Duration(milliseconds: 300),
@@ -586,7 +599,7 @@ class _EmailSignInPageState extends ConsumerState<EmailSignInPage> {
                           child: _header(style),
                         ),
                       ),
-                      const SizedBox(height: 32),
+                      const SizedBox(height: PantasSpace.s32),
                       SignInRise(
                         duration: const Duration(milliseconds: 500),
                         delay: const Duration(milliseconds: 450),
@@ -601,7 +614,7 @@ class _EmailSignInPageState extends ConsumerState<EmailSignInPage> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 24),
+                padding: const EdgeInsets.only(top: PantasSpace.s24),
                 child: SupportLine(style: style),
               ),
             ],
@@ -626,8 +639,10 @@ class _EmailSignInPageState extends ConsumerState<EmailSignInPage> {
               WidgetSpan(
                 alignment: PlaceholderAlignment.top,
                 child: Padding(
-                  padding:
-                      EdgeInsets.only(left: wide ? 6 : 4, top: wide ? 7 : 5),
+                  padding: EdgeInsets.only(
+                    left: wide ? PantasSpace.s6 : PantasSpace.s4,
+                    top: wide ? PantasSpace.s8 : PantasSpace.s4,
+                  ),
                   child: Text(
                     'BETA',
                     style: style.input.copyWith(
@@ -680,7 +695,12 @@ class _EmailSignInPageState extends ConsumerState<EmailSignInPage> {
   }
 
   Widget _label(SignInStyle style, String text) => Padding(
-        padding: const EdgeInsets.fromLTRB(4, 0, 4, 8),
+        padding: const EdgeInsets.fromLTRB(
+          PantasSpace.s4,
+          PantasSpace.s0,
+          PantasSpace.s4,
+          PantasSpace.s8,
+        ),
         child: Text(text, style: style.fieldLabel),
       );
 
@@ -739,7 +759,7 @@ class _EmailSignInPageState extends ConsumerState<EmailSignInPage> {
           builder: (context, left, _) => SmoothSize(
             child: left > 0
                 ? Padding(
-                    padding: const EdgeInsets.only(top: 8),
+                    padding: const EdgeInsets.only(top: PantasSpace.s8),
                     child: Text(
                       'You can request a code in ${_clock(left)}.',
                       textAlign: TextAlign.center,
@@ -749,7 +769,7 @@ class _EmailSignInPageState extends ConsumerState<EmailSignInPage> {
                 : const SizedBox(width: double.infinity),
           ),
         ),
-        const SizedBox(height: 8),
+        const SizedBox(height: PantasSpace.s8),
         SignInTextButton(
           label: 'Use Google Instead',
           style: style,
@@ -757,7 +777,7 @@ class _EmailSignInPageState extends ConsumerState<EmailSignInPage> {
           onPressed: _google,
         ),
         if (!wide) ...[
-          const SizedBox(height: 14),
+          const SizedBox(height: PantasSpace.s14),
           SupportLine(style: style),
         ],
       ],
@@ -820,18 +840,18 @@ class _EmailSignInPageState extends ConsumerState<EmailSignInPage> {
         ),
         button,
         if (expired) ...[
-          const SizedBox(height: 8),
+          const SizedBox(height: PantasSpace.s8),
           SignInTextButton(
             label: 'Use a Different Email',
             style: style,
             onPressed: _useDifferentEmail,
           ),
           if (!wide) ...[
-            const SizedBox(height: 14),
+            const SizedBox(height: PantasSpace.s14),
             SupportLine(style: style),
           ],
         ] else ...[
-          const SizedBox(height: 16),
+          const SizedBox(height: PantasSpace.s16),
           ValueListenableBuilder<int>(
             valueListenable: _resend.left,
             builder: (context, left, _) => left > 0
@@ -848,7 +868,7 @@ class _EmailSignInPageState extends ConsumerState<EmailSignInPage> {
                     onTap: _resendCode,
                   ),
           ),
-          const SizedBox(height: 6),
+          const SizedBox(height: PantasSpace.s6),
           SignInTextButton(
             label: 'Use a Different Email',
             style: style,
@@ -904,18 +924,20 @@ class _NotOnList extends StatelessWidget {
     final top = SignInRise(
       duration: const Duration(milliseconds: 400),
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: wide ? 0 : 28),
+        padding: EdgeInsets.symmetric(
+          horizontal: wide ? PantasSpace.s0 : PantasSpace.s28,
+        ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             LockMark(color: style.lock),
-            const SizedBox(height: 22),
+            const SizedBox(height: PantasSpace.s20),
             Text(
               "This email isn't on the beta list",
               textAlign: TextAlign.center,
               style: style.title,
             ),
-            const SizedBox(height: 8),
+            const SizedBox(height: PantasSpace.s8),
             explanation,
           ],
         ),
@@ -935,7 +957,7 @@ class _NotOnList extends StatelessWidget {
             state: busy ? SignInButtonState.busy : SignInButtonState.idle,
             onPressed: onSwitch,
           ),
-          const SizedBox(height: 14),
+          const SizedBox(height: PantasSpace.s14),
           SupportLine(
             style: style,
             note: 'Selected testers get an email from Pantas.\n',
@@ -946,14 +968,23 @@ class _NotOnList extends StatelessWidget {
     if (wide) {
       return SignInScroll(
         builder: (_) => Padding(
-          padding: const EdgeInsets.fromLTRB(20, 40, 20, 28),
+          padding: const EdgeInsets.fromLTRB(
+            PantasSpace.s20,
+            PantasSpace.s40,
+            PantasSpace.s20,
+            PantasSpace.s28,
+          ),
           child: Center(
             child: ConstrainedBox(
               constraints: const BoxConstraints(maxWidth: 420),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [top, const SizedBox(height: 32), bottom],
+                children: [
+                  top,
+                  const SizedBox(height: PantasSpace.s32),
+                  bottom,
+                ],
               ),
             ),
           ),
@@ -965,9 +996,22 @@ class _NotOnList extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Padding(padding: const EdgeInsets.only(top: 196), child: top),
           Padding(
-            padding: const EdgeInsets.fromLTRB(20, 12, 20, 34),
+            padding: const EdgeInsets.only(
+              top: PantasSpace.s56 +
+                  PantasSpace.s56 +
+                  PantasSpace.s56 +
+                  PantasSpace.s28,
+            ),
+            child: top,
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(
+              PantasSpace.s20,
+              PantasSpace.s12,
+              PantasSpace.s20,
+              PantasSpace.s32,
+            ),
             child: bottom,
           ),
         ],

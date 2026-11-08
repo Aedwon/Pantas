@@ -2,36 +2,29 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
 
-/// Width tiers of the web app. Breakpoints come from `PantasLayout`.
+/// Width tiers of the web app (design system TabletLayout, D136). Breakpoints
+/// come from `PantasLayout`.
 ///
-/// - `phone`: under `bpTabletPortrait` (600).
-/// - `tabletPortrait`: 600 up to `bpTabletLandscape` (1024).
-/// - `tabletLandscape`: 1024 up to the sidebar start (see below).
-/// - `desktop`: from the sidebar start.
-///
-/// Design system D136 starts the sidebar at `bpTabletLandscape` (1024), with
-/// a compact layout up to `bpWide` - 1 (1439) and the full layout from
-/// `bpWide` (1440). The shell still starts it at 1280, so family C (shell and
-/// navigation) moves [_sidebarFromWidth] to 1024, adds the compact and full
-/// split and retires `tabletLandscape`.
-enum WebLayoutTier { phone, tabletPortrait, tabletLandscape, desktop }
-
-// LEGACY: remove in family C. The width where the sidebar starts today.
-const double _sidebarFromWidth = 1280;
+/// - `phone`: under `bpTabletPortrait` (600). TabBar.
+/// - `tabletPortrait`: 600 up to `bpTabletLandscape` (1024). TabBar, with the
+///   page in the centered tablet column.
+/// - `compact`: 1024 up to `bpWide` (1440). The sidebar at its minimum width
+///   and 32 px main sides.
+/// - `wide`: from `bpWide`. The full sidebar and 44 px main sides.
+enum WebLayoutTier { phone, tabletPortrait, compact, wide }
 
 WebLayoutTier webLayoutTier({required double width, bool web = kIsWeb}) {
   if (!web || width < PantasLayout.bpTabletPortrait) return WebLayoutTier.phone;
   if (width < PantasLayout.bpTabletLandscape) {
     return WebLayoutTier.tabletPortrait;
   }
-  if (width < _sidebarFromWidth) return WebLayoutTier.tabletLandscape;
-  return WebLayoutTier.desktop;
+  if (width < PantasLayout.bpWide) return WebLayoutTier.compact;
+  return WebLayoutTier.wide;
 }
 
-/// Desktop content starts on landscape tablets. The sidebar starts on desktop.
+/// Desktop content and the sidebar start together, at 1024.
 bool isWideWebLayout({required double width, bool web = kIsWeb}) =>
-    webLayoutTier(width: width, web: web).index >=
-    WebLayoutTier.tabletLandscape.index;
+    webLayoutTier(width: width, web: web).index >= WebLayoutTier.compact.index;
 
 /// Overrides only the platform input for native widget tests.
 @visibleForTesting
@@ -43,18 +36,12 @@ extension WebLayoutContext on BuildContext {
         width: MediaQuery.sizeOf(this).width,
         web: webPlatform,
       );
-  bool get wideWeb => webTier.index >= WebLayoutTier.tabletLandscape.index;
+  bool get wideWeb => webTier.index >= WebLayoutTier.compact.index;
 
-  /// The board's `.main` ends with 44 px of padding. It belongs to the end of a
-  /// page's scrolling content, not to the window: the shell stops at the window
-  /// bottom, so rows scroll to the edge and the last one rests this far above
-  /// it. The Navigator under the shell clips hard at its own box, so padding
-  /// the shell leaves would show as a cut line. On a landscape tablet the
-  /// floating navigation covers the bottom 100 px, so the content scrolls
-  /// under it and ends clear of it (3K-9).
-  double get webPageBottomInset => switch (webTier) {
-        WebLayoutTier.desktop => 44,
-        WebLayoutTier.tabletLandscape => 100,
-        _ => 0,
-      };
+  /// The page's scrolling content ends with `layout-main-pad-bottom` (44),
+  /// not the window: the shell stops at the window bottom, so rows scroll to
+  /// the edge and the last one rests this far above it. The Navigator under
+  /// the shell clips hard at its own box, so padding the shell leaves would
+  /// show as a cut line. Below 1024 the TabBar reserve covers this instead.
+  double get webPageBottomInset => wideWeb ? PantasLayout.mainPadBottom : 0;
 }

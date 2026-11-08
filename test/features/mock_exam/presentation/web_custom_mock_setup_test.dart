@@ -52,7 +52,7 @@ void main() {
     }
 
     testWidgets(
-        'on a landscape tablet the page ends above the navigation '
+        'in the compact sidebar range the page ends 44 px above the bottom '
         'dark=$dark', (tester) async {
       await pump(tester);
       tester.view.physicalSize = const Size(1180, 500);
@@ -65,8 +65,9 @@ void main() {
       );
       await tester.pumpAndSettle();
       final save = find.widgetWithText(WebButton, 'Save');
-      // 3K-9: the floating navigation covers the bottom 100 px.
-      expect(tester.getBottomLeft(save).dy, lessThanOrEqualTo(500 - 100));
+      // D136: from 1024 the sidebar is the navigation, so no floating bar
+      // covers the bottom; the page keeps `layout-main-pad-bottom` (44).
+      expect(tester.getBottomLeft(save).dy, lessThanOrEqualTo(500 - 44));
     });
     testWidgets(
         'the breakdown grows in and shrinks away over 300 ms '

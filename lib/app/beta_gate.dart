@@ -11,6 +11,7 @@ import 'package:pantas/core/auth/beta_access.dart';
 import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 
 final betaGateCutoff = DateTime.utc(2026, 11, 15, 16);
 
@@ -98,7 +99,7 @@ class BetaGatePage extends ConsumerWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               SkeletonBlock(width: 240, height: 32, radius: 0),
-              SizedBox(height: 24),
+              SizedBox(height: PantasSpace.s24),
               SkeletonBlock(width: 320, height: 48, radius: 0),
             ],
           ),
@@ -111,12 +112,12 @@ class BetaGatePage extends ConsumerWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             const Text("We couldn't check beta access. Try again."),
-            const SizedBox(height: 20),
+            const SizedBox(height: PantasSpace.s20),
             PantasButton(
               label: 'Try again',
               onPressed: () => ref.invalidate(betaAccessProvider),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: PantasSpace.s20),
             const Text('support@pantas.study'),
           ],
         ),
@@ -152,7 +153,7 @@ class _CenteredFrame extends StatelessWidget {
   Widget build(BuildContext context) => SignInFrame(
         child: Center(
           child: SingleChildScrollView(
-            padding: const EdgeInsets.all(24),
+            padding: const EdgeInsets.all(PantasSpace.s24),
             child: ConstrainedBox(
               constraints: const BoxConstraints(maxWidth: 400),
               child: child,

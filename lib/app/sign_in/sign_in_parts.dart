@@ -10,11 +10,15 @@ import 'package:pantas/core/platform/welcome/welcome_handover_providers.dart';
 import 'package:pantas/core/ui/motion/pantas_effects.dart';
 import 'package:pantas/core/ui/motion/press_scale.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_border.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
-import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 /// The width from which the sign-in screens use the laptop boards.
@@ -30,68 +34,62 @@ const supportEmail = 'support@pantas.study';
 class SignInStyle {
   SignInStyle(BuildContext context, {required this.wide})
       : c = context.colors,
-        dark = Theme.of(context).brightness == Brightness.dark,
-        _type = context.type;
+        dark = Theme.of(context).brightness == Brightness.dark;
 
   final bool wide;
   final bool dark;
   final PantasColors c;
-  final LegacyType _type;
 
-  Color get page => dark ? c.background : c.surface;
-  Color get field => c.surface;
-  Color get box => dark ? c.surface : c.background;
+  Color get page => dark ? c.bgPage : c.surfaceCard;
+  Color get field => c.surfaceCard;
+  Color get box => dark ? c.surfaceCard : c.bgPage;
   Color get accent => c.accent;
+  Color get accentHover => c.accentHover;
   Color get accentFill => c.accentFill;
+  Color get accentFillHover => c.accentFillHover;
   Color get onAccent => c.onAccent;
   Color get accentTint => c.accentTint;
+  Color get accentTintHover => c.accentTintHover;
   Color get accentTintText => c.accentTintText;
-  Color get label => c.label;
-  Color get secondary => c.secondaryLabel;
-  Color get tertiary => c.tertiaryLabel;
-  Color get red => c.wrongText;
-  Color get redTint => c.wrongTint;
-  Color get border => c.separator;
-  Color get placeholder => dark ? c.searchPlaceholder : tertiary;
-  Color get lock => dark ? tertiary : const Color(0xFFAEAEB2);
+  Color get label => c.textPrimary;
+  Color get secondary => c.textSecondary;
+  Color get tertiary => c.textSecondary;
+  Color get red => c.dangerText;
+  Color get redTint => c.dangerTint;
+  Color get border => c.divider;
+  Color get placeholder => c.textSecondary;
+  Color get lock => dark ? tertiary : c.iconChevron;
 
-  double get letter => wide ? 0 : -0.204;
+  double get letter => wide ? 0 : PantasType.phoneBody.letterSpacing!;
 
-  TextStyle get title => _type.largeTitle.copyWith(
-        fontSize: wide ? 48 : null,
-        letterSpacing: wide ? -1.44 : null,
-        height: wide ? 1.08 : null,
-      );
+  TextStyle get title =>
+      (wide ? PantasType.webDisplay : PantasType.phoneLargeTitle)
+          .copyWith(color: label);
 
-  TextStyle get subtitle => _type.body.copyWith(
-        fontSize: wide ? 19 : 17,
-        letterSpacing: letter,
-        height: 1.45,
-        color: secondary,
-      );
+  TextStyle get subtitle =>
+      PantasType.webLead.copyWith(letterSpacing: letter, color: secondary);
 
   TextStyle get emphasis => subtitle.copyWith(
         color: label,
         fontWeight: FontWeight.w600,
       );
 
-  TextStyle get fieldLabel => _type.subheadStrong.copyWith(
-        fontSize: 13,
-        color: secondary,
-      );
+  TextStyle get fieldLabel =>
+      PantasType.webFieldLabel.copyWith(color: secondary);
 
-  TextStyle get input => _type.body.copyWith(
-        fontSize: 17,
+  TextStyle get input => PantasType.phoneBody.copyWith(
+        color: label,
         letterSpacing: letter,
       );
 
-  TextStyle button({double? size, Color? color}) => _type.emphasized.copyWith(
-        fontSize: size ?? 17,
-        letterSpacing: wide ? 0 : -0.204,
-        color: color,
+  /// The button label: 17/600 on phones, 16/600 when [small].
+  TextStyle button({bool small = false, Color? color}) =>
+      (small ? PantasType.webButton : PantasType.phoneHeadline).copyWith(
+        letterSpacing: letter,
+        color: color ?? label,
       );
 
-  TextStyle get small => _type.footnote.copyWith(color: tertiary);
+  TextStyle get small => PantasType.phoneFootnote.copyWith(color: tertiary);
 }
 
 /// The page every sign-in state sits on. It tells the app the first screen is
@@ -435,7 +433,12 @@ class SignInMessage extends StatelessWidget {
                   child: Semantics(
                     liveRegion: true,
                     child: Padding(
-                      padding: EdgeInsets.fromLTRB(4, top, 4, 0),
+                      padding: EdgeInsets.fromLTRB(
+                        PantasSpace.s4,
+                        top,
+                        PantasSpace.s4,
+                        PantasSpace.s0,
+                      ),
                       child: Text(
                         text,
                         style: style.fieldLabel.copyWith(
@@ -609,17 +612,16 @@ class SignInButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final tokens = context.webTokens;
     final foreground = tonal ? style.accentTintText : style.onAccent;
     final fill = tonal ? style.accentTint : style.accentFill;
-    final hover = tonal ? tokens.secondaryHover : tokens.accentHover;
+    final hover = tonal ? style.accentTintHover : style.accentFillHover;
     final content = switch (state) {
       SignInButtonState.idle => Row(
           mainAxisSize: MainAxisSize.min,
           children: [
             Flexible(child: Text(label, textAlign: TextAlign.center)),
             if (keyHint != null) ...[
-              const SizedBox(width: 12),
+              const SizedBox(width: PantasSpace.s12),
               WebKeyHint(keyHint!, onButton: true),
             ],
           ],
@@ -635,14 +637,14 @@ class SignInButton extends StatelessWidget {
                 color: foreground,
                 delay: const Duration(milliseconds: 70),
               ),
-              const SizedBox(width: 8),
+              const SizedBox(width: PantasSpace.s8),
               const Text('Signed In'),
             ],
           ),
         ),
     };
     return SizedBox(
-      height: 52,
+      height: PantasSize.btnPhone,
       width: double.infinity,
       child: PressScale(
         child: TextButton(
@@ -651,7 +653,7 @@ class SignInButton extends StatelessWidget {
             tapTargetSize: MaterialTapTargetSize.shrinkWrap,
             minimumSize: const WidgetStatePropertyAll(Size.zero),
             padding: const WidgetStatePropertyAll(
-              EdgeInsets.symmetric(horizontal: 16),
+              EdgeInsets.symmetric(horizontal: PantasSpace.s16),
             ),
             animationDuration: MediaQuery.disableAnimationsOf(context)
                 ? Duration.zero
@@ -664,7 +666,9 @@ class SignInButton extends StatelessWidget {
             foregroundColor: WidgetStatePropertyAll(foreground),
             overlayColor: const WidgetStatePropertyAll(Colors.transparent),
             shape: WidgetStatePropertyAll(
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+              RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(PantasRadius.lg),
+              ),
             ),
             textStyle: WidgetStatePropertyAll(style.button()),
           ),
@@ -693,7 +697,7 @@ class SignInTextButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 44,
+      height: PantasSize.targetTouch,
       width: double.infinity,
       child: TextButton(
         onPressed: onPressed,
@@ -713,17 +717,22 @@ class SignInTextButton extends StatelessWidget {
           overlayColor: const WidgetStatePropertyAll(Colors.transparent),
           shape: WidgetStatePropertyAll(
             RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(style.wide ? 12 : 14),
+              borderRadius: BorderRadius.circular(
+                style.wide ? PantasRadius.md : PantasRadius.lg,
+              ),
             ),
           ),
           textStyle: WidgetStatePropertyAll(
-            style.button(size: style.wide ? 16 : 17),
+            style.button(small: style.wide),
           ),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            if (icon != null) ...[icon!, const SizedBox(width: 10)],
+            if (icon != null) ...[
+              icon!,
+              const SizedBox(width: PantasSpace.s10),
+            ],
             Flexible(child: Text(label)),
           ],
         ),
@@ -877,13 +886,16 @@ class SignInField extends StatelessWidget {
                 ? Duration.zero
                 : PantasDurations.short2,
             curve: PantasCurves.fade,
-            height: 52,
-            padding: const EdgeInsets.symmetric(horizontal: 15),
+            height: PantasSize.btnPhone,
+            padding: const EdgeInsets.symmetric(horizontal: PantasSpace.s14),
             alignment: Alignment.centerLeft,
             decoration: BoxDecoration(
               color: invalid ? style.redTint : style.field,
-              borderRadius: BorderRadius.circular(14),
-              border: Border.all(color: border, width: 2),
+              borderRadius: BorderRadius.circular(PantasRadius.lg),
+              border: Border.all(
+                color: border,
+                width: PantasBorder.ringSelected,
+              ),
             ),
             child: TextField(
               controller: controller,
@@ -1015,7 +1027,7 @@ class CodeBoxes extends StatelessWidget {
                       return Row(
                         children: [
                           for (var i = 0; i < 6; i++) ...[
-                            if (i > 0) const SizedBox(width: 8),
+                            if (i > 0) const SizedBox(width: PantasSpace.s8),
                             Expanded(
                               child: _CodeBox(
                                 index: i,
@@ -1099,7 +1111,7 @@ class _CodeBox extends StatelessWidget {
   final SignInStyle style;
   final double fontSize;
 
-  static const _radius = BorderRadius.all(Radius.circular(14));
+  static const _radius = BorderRadius.all(Radius.circular(PantasRadius.lg));
 
   @override
   Widget build(BuildContext context) {
@@ -1229,7 +1241,7 @@ class _CaretState extends State<_Caret> with SingleTickerProviderStateMixin {
           height: widget.wide ? 28 : 26,
           decoration: BoxDecoration(
             color: widget.color,
-            borderRadius: BorderRadius.circular(1),
+            borderRadius: BorderRadius.circular(PantasRadius.full),
           ),
         ),
       );

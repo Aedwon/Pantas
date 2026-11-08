@@ -10,14 +10,16 @@ import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/shell/presentation/app_shell.dart';
 
 void main() {
-  test('named web tiers follow all six boundaries and leave native alone', () {
+  test('named web tiers follow the D136 boundaries and leave native alone', () {
     for (final entry in <double, WebLayoutTier>{
       599: WebLayoutTier.phone,
       600: WebLayoutTier.tabletPortrait,
       1023: WebLayoutTier.tabletPortrait,
-      1024: WebLayoutTier.tabletLandscape,
-      1279: WebLayoutTier.tabletLandscape,
-      1280: WebLayoutTier.desktop,
+      1024: WebLayoutTier.compact,
+      1279: WebLayoutTier.compact,
+      1280: WebLayoutTier.compact,
+      1439: WebLayoutTier.compact,
+      1440: WebLayoutTier.wide,
     }.entries) {
       expect(webLayoutTier(width: entry.key, web: true), entry.value);
       expect(webLayoutTier(width: entry.key, web: false), WebLayoutTier.phone);
@@ -73,45 +75,6 @@ void main() {
       expect(find.text('Guardian'), findsOneWidget);
     });
   }
-  testWidgets('tablet focused route stacks its action above navigation',
-      (tester) async {
-    debugWebPlatformOverride = true;
-    addTearDown(() => debugWebPlatformOverride = null);
-    tester.view.devicePixelRatio = 1;
-    tester.view.physicalSize = const Size(1100, 900);
-    addTearDown(tester.view.resetPhysicalSize);
-    addTearDown(tester.view.resetDevicePixelRatio);
-    await tester.pumpWidget(
-      ProviderScope(
-        child: MaterialApp(
-          theme: buildLightTheme(web: true),
-          home: const WebRouteShell(
-            path: '/assessment/cse',
-            child: Scaffold(
-              body: Stack(
-                children: [
-                  Positioned(
-                    left: 24,
-                    right: 24,
-                    bottom: 28,
-                    child:
-                        WebBottomBar(counter: '1 of 10', action: Text('Next')),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ),
-      ),
-    );
-    expect(tester.getSize(find.byType(AppNavBar)).width, 358);
-    expect(
-      tester.getTopLeft(find.byType(AppNavBar)).dy -
-          tester.getBottomLeft(find.byType(WebBottomBar)).dy,
-      12,
-    );
-    expect(tester.takeException(), isNull);
-  });
   testWidgets('touch keeps copy instructions and removes button hint spacing',
       (tester) async {
     await tester.pumpWidget(

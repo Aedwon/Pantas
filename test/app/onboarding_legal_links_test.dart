@@ -18,6 +18,7 @@ import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/onboarding/presentation/exam_picker_screen.dart';
 import 'package:pantas/features/paywall/paywall.dart';
 import 'package:pantas/features/settings/application/settings_providers.dart';
+import 'package:pantas/features/shell/presentation/app_shell.dart';
 import 'package:pantas/features/shell/presentation/web_shell.dart';
 
 import '../helpers/in_memory_database.dart';
@@ -118,7 +119,7 @@ void main() {
           expect(find.text(heading), findsOneWidget);
           // During onboarding the main navigation never shows.
           expect(find.byType(WebShellFrame), findsNothing);
-          expect(find.byType(WebTabletNavigation), findsNothing);
+          expect(find.byType(AppNavBar), findsNothing);
           expect(find.text('Study'), findsNothing);
           expect(find.text('Settings'), findsNothing);
 

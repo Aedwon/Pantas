@@ -100,17 +100,16 @@ void main() {
   }
 
   for (final dark in [false, true]) {
-    testWidgets(
-        'unselected tab labels and icons use secondaryLabel, dark=$dark',
+    testWidgets('unselected tab labels and icons use muted roles, dark=$dark',
         (tester) async {
       await tester.pumpWidget(harness(dark: dark));
       final palette = dark ? PantasColors.dark : PantasColors.light;
       for (final label in ['Study', 'Quiz', 'Settings']) {
         final color = tester.widget<Text>(find.text(label)).style!.color!;
-        expect(color, palette.secondaryLabel);
+        expect(color, palette.textSecondary);
         final luminances = [
           color.computeLuminance(),
-          palette.surface.computeLuminance(),
+          palette.surfaceCard.computeLuminance(),
         ]..sort();
         expect(
           (luminances.last + 0.05) / (luminances.first + 0.05),
@@ -122,7 +121,7 @@ void main() {
             .widgetList<Icon>(find.byType(Icon))
             .skip(1)
             .map((icon) => icon.color),
-        everyElement(palette.secondaryLabel),
+        everyElement(palette.iconMuted),
       );
     });
   }
