@@ -5,20 +5,32 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:pantas/core/ui/components/accuracy_bar.dart';
 import 'package:pantas/core/ui/components/half_ring_gauge.dart';
+import 'package:pantas/core/ui/components/pantas_shadows.dart';
 import 'package:pantas/core/ui/components/pro_paused_line.dart';
 import 'package:pantas/core/ui/components/pro_tag.dart';
 import 'package:pantas/core/ui/components/sort_cycle_button.dart';
 import 'package:pantas/core/ui/motion/view_swap.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_hover.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/home/application/performance/performance_provider.dart';
 import 'package:pantas/features/home/application/performance/performance_view.dart';
+import 'package:pantas/features/home/presentation/widgets/home_columns.dart';
 
 /// PF_* presentation. Filtering and stored ordering stay with PerformancePage.
+const double _switcherWidth =
+    PantasSpace.s56 * 6 + PantasSpace.s40 + PantasSpace.s8;
+const double _subjectMenuWidth =
+    PantasSpace.s56 * 4 + PantasSpace.s40 + PantasSpace.s8;
+const double _sortMenuWidth = PantasSpace.s56 * 4 + PantasSpace.s8;
+
 class WebPerformanceLayout extends StatefulWidget {
   const WebPerformanceLayout({
     required this.data,
@@ -103,7 +115,7 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
         autofocus: true,
         skipTraversal: true,
         child: Scaffold(
-          backgroundColor: t.colors.background,
+          backgroundColor: t.colors.bgPage,
           body: SingleChildScrollView(
             // The shell ends at the window bottom, so rows scroll to the edge
             // and the page's own margin sits after the last one.
@@ -115,7 +127,7 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     WebPerformanceHeader(onBack: widget.onBack),
-                    const SizedBox(height: 26),
+                    const SizedBox(height: PantasSpace.s24),
                     _split(
                       left: Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -151,7 +163,7 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
                                       ...subjectNames,
                                     },
                                     selected: widget.subject,
-                                    width: 272,
+                                    width: _subjectMenuWidth,
                                     onSelected: widget.onSubject,
                                   ),
                                 if (!gated)
@@ -165,22 +177,37 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
                                       SortCycleOrder.alphabetical: 'A to Z',
                                     },
                                     selected: widget.sort,
-                                    width: 232,
+                                    width: _sortMenuWidth,
                                     onSelected: widget.onSort,
                                   ),
                               ];
-                              if (constraints.maxWidth >= 600) {
+                              // The row needs the switcher at its full width
+                              // beside the menus; the Free "Pro" tags do not
+                              // fit a squeezed segment.
+                              final switcherWidth = _switcherWidth *
+                                  MediaQuery.textScalerOf(context).scale(1);
+                              final rowNeeds = switcherWidth +
+                                  menus.fold<double>(
+                                    0,
+                                    (sum, menu) => sum + PantasSpace.s10,
+                                  ) +
+                                  (widget.level > 0 && !gated
+                                      ? _subjectMenuWidth
+                                      : PantasSpace.s0) +
+                                  (!gated ? _sortMenuWidth : PantasSpace.s0);
+                              if (constraints.maxWidth >= rowNeeds) {
                                 return Row(
                                   children: [
                                     Expanded(
                                       child: Padding(
-                                        padding:
-                                            const EdgeInsets.only(right: 10),
+                                        padding: const EdgeInsets.only(
+                                          right: PantasSpace.s10,
+                                        ),
                                         child: Align(
                                           alignment: Alignment.centerLeft,
                                           child: ConstrainedBox(
-                                            constraints: const BoxConstraints(
-                                              maxWidth: 384,
+                                            constraints: BoxConstraints(
+                                              maxWidth: switcherWidth,
                                             ),
                                             child: switcher,
                                           ),
@@ -188,7 +215,8 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
                                       ),
                                     ),
                                     for (var i = 0; i < menus.length; i++) ...[
-                                      if (i > 0) const SizedBox(width: 10),
+                                      if (i > 0)
+                                        const SizedBox(width: PantasSpace.s10),
                                       menus[i],
                                     ],
                                   ],
@@ -200,7 +228,8 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
                                 crossAxisAlignment: WrapCrossAlignment.center,
                                 children: [
                                   SizedBox(
-                                    width: constraints.maxWidth.clamp(0, 380),
+                                    width: constraints.maxWidth
+                                        .clamp(0, switcherWidth),
                                     child: switcher,
                                   ),
                                   ...menus,
@@ -208,7 +237,7 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
                               );
                             },
                           ),
-                          const SizedBox(height: 16),
+                          const SizedBox(height: PantasSpace.s16),
                           if (!gated)
                             ViewSwap(
                               index: widget.level,
@@ -268,11 +297,11 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
                               ),
                             ),
                           if (!widget.pro) ...[
-                            const SizedBox(height: 20),
+                            const SizedBox(height: PantasSpace.s20),
                             WebCard(
                               padding: const EdgeInsets.symmetric(
-                                horizontal: 24,
-                                vertical: 22,
+                                horizontal: PantasSpace.s24,
+                                vertical: PantasSpace.s24,
                               ),
                               child: widget.paused
                                   ? const ProPausedLine()
@@ -291,7 +320,7 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
                                             color: t.colors.accent,
                                           ),
                                         ),
-                                        const SizedBox(width: 18),
+                                        const SizedBox(width: PantasSpace.s18),
                                         Expanded(
                                           child: Column(
                                             crossAxisAlignment:
@@ -299,12 +328,15 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
                                             children: [
                                               Text(
                                                 'Go deeper with Pro',
-                                                style: t.style(
-                                                  17,
-                                                  weight: FontWeight.w700,
+                                                style: PantasType.webButtonLg
+                                                    .copyWith(
+                                                  fontWeight: FontWeight.w700,
+                                                  color: t.colors.textPrimary,
                                                 ),
                                               ),
-                                              const SizedBox(height: 2),
+                                              const SizedBox(
+                                                height: PantasSpace.s2,
+                                              ),
                                               Text(
                                                 'See your accuracy in '
                                                 'every topic and lesson, '
@@ -315,7 +347,7 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
                                             ],
                                           ),
                                         ),
-                                        const SizedBox(width: 18),
+                                        const SizedBox(width: PantasSpace.s18),
                                         WebButton(
                                           label: 'Unlock with Pro',
                                           onPressed: widget.onPro,
@@ -329,7 +361,8 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
                       right: accuracy == null
                           ? const SizedBox.shrink()
                           : Padding(
-                              padding: const EdgeInsets.only(top: 54),
+                              padding:
+                                  const EdgeInsets.only(top: PantasSpace.s56),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.stretch,
                                 children: [
@@ -339,14 +372,14 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
                                   ),
                                   WebCard(
                                     padding: const EdgeInsets.fromLTRB(
-                                      20,
-                                      28,
-                                      20,
-                                      24,
+                                      PantasSpace.s20,
+                                      PantasSpace.s28,
+                                      PantasSpace.s20,
+                                      PantasSpace.s24,
                                     ),
                                     child: Center(
                                       child: SizedBox(
-                                        width: 224,
+                                        width: PantasSize.gaugeW,
                                         child: MediaQuery(
                                           data: MediaQuery.of(
                                             context,
@@ -376,27 +409,28 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
     );
   }
 
-  /// The board's list column (flex 1.45 from 480 px) beside the Overall column
-  /// (flex 1 from 300 px), 28 px apart.
+  /// The Columns primary and secondary pair: the list column beside the
+  /// Overall column, stacked when the content is too narrow for both.
   Widget _split({required Widget left, required Widget right}) => LayoutBuilder(
         builder: (context, c) {
-          const gap = 28.0;
-          final free = c.maxWidth - 480 - 300 - gap;
-          if (free < 0) {
-            return Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
+          if (HomeColumns.stacks(c.maxWidth)) {
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Expanded(flex: 145, child: left),
-                const SizedBox(width: gap),
-                Expanded(flex: 100, child: right),
+                left,
+                const SizedBox(height: HomeColumns.gap),
+                right,
               ],
             );
           }
           return Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(width: 480 + free * 1.45 / 2.45, child: left),
-              const SizedBox(width: gap),
+              SizedBox(
+                width: HomeColumns.primaryWidth(c.maxWidth),
+                child: left,
+              ),
+              const SizedBox(width: HomeColumns.gap),
               Expanded(child: right),
             ],
           );
@@ -441,7 +475,7 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
         children: [
           for (final topic in shown)
             ColoredBox(
-              color: t.dark ? t.rowHover : const Color(0xFFFBFBFC),
+              color: t.colors.surfaceInset,
               child: _row(
                 context,
                 topic,
@@ -480,7 +514,7 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
     final t = context.webTokens;
     // The board indents a topic row 40 px left and keeps 20 px right.
     return Padding(
-      padding: EdgeInsets.only(left: indent ? 20 : 0),
+      padding: EdgeInsets.only(left: indent ? PantasSpace.s20 : PantasSpace.s0),
       child: LayoutBuilder(
         builder: (context, constraints) => WebRow(
           boardMetrics: !indent,
@@ -493,10 +527,10 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
           selected: row.id == _openTopic,
           compact: indent,
           subtitle: subtitle,
-          titleStyle: t.style(
-            indent ? 16 : 17,
-            height: indent ? null : 1.3,
-            weight: expanded ? FontWeight.w600 : FontWeight.w400,
+          titleStyle:
+              (indent ? PantasType.webBody : PantasType.webRowTitle).copyWith(
+            fontWeight: expanded ? FontWeight.w600 : FontWeight.w400,
+            color: t.colors.textPrimary,
           ),
           onPressed: onPressed,
           trailing: Row(
@@ -504,31 +538,32 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
             children: [
               if (widget.level > 0 || indent) ...[
                 SizedBox(
-                  width: 96,
+                  width: PantasSpace.s56 + PantasSpace.s40,
                   child: Text(
                     '${row.answered} answered',
                     textAlign: TextAlign.right,
                     style: t.sub,
                   ),
                 ),
-                const SizedBox(width: 12),
+                const SizedBox(width: PantasSpace.s12),
               ],
               SizedBox(
                 width: constraints.maxWidth > 600 ? 160 : 80,
                 child: AccuracyBar.topicRows(accuracy: row.accuracy!),
               ),
-              const SizedBox(width: 12),
+              const SizedBox(width: PantasSpace.s12),
               SizedBox(
-                width: 44,
+                width: PantasSpace.s44,
                 child: Text(
                   '${(row.accuracy! * 100).round()}%',
                   textAlign: TextAlign.right,
-                  style: t.style(16, weight: FontWeight.w600),
+                  style: PantasType.webTitleSm
+                      .copyWith(color: t.colors.textPrimary),
                 ),
               ),
               // The board's Free rows end at the percent: a tap leads to Pro.
               if (widget.pro || widget.level > 0 || indent)
-                const SizedBox(width: 12),
+                const SizedBox(width: PantasSpace.s12),
               if (!widget.pro && widget.level == 0 && !indent)
                 const SizedBox.shrink()
               else if (widget.level == 0 && !indent)
@@ -541,7 +576,7 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
                   child: Icon(
                     Icons.keyboard_arrow_down,
                     size: 16,
-                    color: t.colors.chevron,
+                    color: t.colors.iconChevron,
                   ),
                 )
               else
@@ -565,7 +600,7 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
     // hover and focus tint follows the rounded pill, and the keyboard ring
     // replaces the focus tint (3K-5).
     return WebKeyboardRing(
-      borderRadius: BorderRadius.circular(12),
+      borderRadius: BorderRadius.circular(PantasRadius.md),
       child: Theme(
         data: Theme.of(context).copyWith(focusColor: Colors.transparent),
         child: _popup<T>(
@@ -591,20 +626,20 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
     final t = context.webTokens;
     return PopupMenuButton<(T,)>(
       tooltip: '',
-      borderRadius: BorderRadius.circular(12),
-      color: t.colors.surface,
+      borderRadius: BorderRadius.circular(PantasRadius.md),
+      color: t.colors.surfaceCard,
       position: PopupMenuPosition.under,
       offset: const Offset(0, 10),
-      menuPadding: const EdgeInsets.all(6),
+      menuPadding: const EdgeInsets.all(PantasSpace.s6),
       constraints: BoxConstraints.tightFor(width: width),
       // Board (PF_Sort): a clear edge and a soft shadow, so the menu stands
       // off the white list card in light mode too.
       elevation: 12,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(14),
-        side: BorderSide(color: t.colors.separator),
+        borderRadius: BorderRadius.circular(PantasRadius.lg),
+        side: BorderSide(color: t.colors.divider),
       ),
-      shadowColor: Colors.black.withValues(alpha: .16),
+      shadowColor: context.shadows.popover.first.color,
       surfaceTintColor: Colors.transparent,
       initialValue: (selected,),
       onSelected: (value) => onSelected(value.$1),
@@ -616,21 +651,27 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
       child: WebHover(
         builder: (context, hovered) => Container(
           height: 38,
-          padding: const EdgeInsets.only(left: 14, right: 12),
+          padding: const EdgeInsets.only(
+            left: PantasSpace.s14,
+            right: PantasSpace.s12,
+          ),
           decoration: BoxDecoration(
-            color: hovered ? t.rowHover : t.colors.surface,
-            borderRadius: BorderRadius.circular(12),
-            border: Border.all(color: t.colors.separator),
+            color: hovered ? t.rowHover : t.colors.surfaceCard,
+            borderRadius: BorderRadius.circular(PantasRadius.md),
+            border: Border.all(color: t.colors.divider),
           ),
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text(label, style: t.style(15, weight: FontWeight.w600)),
-              const SizedBox(width: 8),
+              Text(
+                label,
+                style: PantasType.webLink.copyWith(color: t.colors.textPrimary),
+              ),
+              const SizedBox(width: PantasSpace.s8),
               Icon(
                 Icons.keyboard_arrow_down,
                 size: 16,
-                color: t.colors.label,
+                color: t.colors.textPrimary,
               ),
             ],
           ),
@@ -719,12 +760,12 @@ class _KeyboardMenuListState<T> extends State<_KeyboardMenuList<T>> {
                     onTap: () => _pick(i),
                     child: Container(
                       height: _KeyboardMenuList.rowHeight,
-                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: PantasSpace.s10,
+                      ),
                       decoration: BoxDecoration(
-                        color: i == _highlight
-                            ? (t.dark ? t.colors.fill : const Color(0xFFF2F2F5))
-                            : null,
-                        borderRadius: BorderRadius.circular(9),
+                        color: i == _highlight ? t.colors.fill : null,
+                        borderRadius: BorderRadius.circular(PantasRadius.sm),
                       ),
                       child: Row(
                         children: [
@@ -733,7 +774,8 @@ class _KeyboardMenuListState<T> extends State<_KeyboardMenuList<T>> {
                               widget.values[keys[i]]!,
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
-                              style: t.style(16),
+                              style: PantasType.webBody
+                                  .copyWith(color: t.colors.textPrimary),
                             ),
                           ),
                           if (keys[i] == widget.selected)
@@ -768,10 +810,10 @@ class WebPerformanceHeader extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           WebBackLink(label: 'Home', onPressed: onBack),
-          const SizedBox(height: 6),
+          const SizedBox(height: PantasSpace.s6),
           const WebText('Your performance', kind: WebTextKind.h1),
           if (description) ...[
-            const SizedBox(height: 6),
+            const SizedBox(height: PantasSpace.s6),
             const WebText(
               "Accuracy across everything you've answered.",
               kind: WebTextKind.lead,

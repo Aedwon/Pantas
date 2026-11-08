@@ -10,6 +10,9 @@ import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/time/local_day.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/home/application/plan_data.dart';
@@ -188,14 +191,16 @@ Widget _waiting<T>(
       onBack: onBack ?? () => _back(context),
       child: value.hasError
           ? WebCard(
-              padding:
-                  const EdgeInsets.symmetric(vertical: 120, horizontal: 24),
+              padding: const EdgeInsets.symmetric(
+                vertical: PantasSpace.s56,
+                horizontal: PantasSpace.s24,
+              ),
               child: Column(
                 children: [
                   const Icon(Icons.warning_amber_outlined, size: 28),
-                  const SizedBox(height: 16),
+                  const SizedBox(height: PantasSpace.s16),
                   const Text('Could not load your plan.'),
-                  const SizedBox(height: 16),
+                  const SizedBox(height: PantasSpace.s16),
                   WebButton(
                     label: 'Try Again',
                     variant: WebButtonVariant.secondary,
@@ -252,7 +257,10 @@ class _NoPlanDayState extends State<_NoPlanDay> {
         title: title,
         onBack: () => _back(context),
         child: const WebCard(
-          padding: EdgeInsets.symmetric(vertical: 80, horizontal: 24),
+          padding: EdgeInsets.symmetric(
+            vertical: PantasSpace.s56 + PantasSpace.s24,
+            horizontal: PantasSpace.s24,
+          ),
           child: Center(child: Text(line)),
         ),
       );
@@ -405,10 +413,12 @@ class _PlanDayScreenState extends ConsumerState<PlanDayScreen> {
                 // The day's note sits under the title as the Plan page's
                 // subtitle does, 2 px below it (4N-14).
                 titlePadding: EdgeInsets.fromLTRB(
-                  4,
-                  0,
-                  4,
-                  data != null && homeDayNoteLabel(data) != null ? 2 : 20,
+                  PantasSpace.s4,
+                  PantasSpace.s0,
+                  PantasSpace.s4,
+                  data != null && homeDayNoteLabel(data) != null
+                      ? PantasSpace.s2
+                      : PantasSpace.s20,
                 ),
                 children: [today],
               ),
@@ -666,7 +676,12 @@ Future<void> showPlanPastDay(BuildContext context, DateTime date) async {
   hold.close();
 }
 
-const _popoverWait = Duration(milliseconds: 120);
+const _popoverWait = PantasDurations.short1;
+
+// Where the past-day popover sits on the page, under the plan's own header.
+// A position, not a spacing value, so it keeps the approved board's numbers.
+const double _popoverTop = 128;
+const double _popoverRight = 150;
 
 Future<void> _openPlanPastDay(BuildContext context, DateTime date) =>
     showWebOverlay<void>(
@@ -678,9 +693,12 @@ Future<void> _openPlanPastDay(BuildContext context, DateTime date) =>
         child: Align(
           alignment: Alignment.topRight,
           child: Padding(
-            padding: const EdgeInsets.only(top: 128, right: 150),
+            padding: const EdgeInsets.only(
+              top: _popoverTop,
+              right: _popoverRight,
+            ),
             child: SizedBox(
-              width: 400,
+              width: PantasLayout.colPanel.basis,
               child: Material(
                 color: Colors.transparent,
                 child: PlanDayScreen(date: dayKey(date), popover: true),

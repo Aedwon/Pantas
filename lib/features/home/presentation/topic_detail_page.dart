@@ -6,6 +6,9 @@ import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
@@ -34,23 +37,36 @@ class TopicDetailPage extends StatelessWidget {
       title: detail.name,
       backLabel: 'Your performance',
       onBack: onBack,
-      titlePadding: const EdgeInsets.fromLTRB(4, 0, 4, 2),
+      titlePadding: const EdgeInsets.fromLTRB(
+        PantasSpace.s4,
+        PantasSpace.s0,
+        PantasSpace.s4,
+        PantasSpace.s2,
+      ),
       children: [
         Padding(
-          padding: const EdgeInsets.fromLTRB(4, 0, 4, 20),
+          padding: const EdgeInsets.fromLTRB(
+            PantasSpace.s4,
+            PantasSpace.s0,
+            PantasSpace.s4,
+            PantasSpace.s20,
+          ),
           child: Text(
             detail.subject,
             style: context.type.subhead
-                .copyWith(color: context.colors.secondaryLabel),
+                .copyWith(color: context.colors.textSecondary),
           ),
         ),
         DecoratedBox(
           decoration: BoxDecoration(
-            color: context.colors.surface,
-            borderRadius: BorderRadius.circular(14),
+            color: context.colors.surfaceCard,
+            borderRadius: BorderRadius.circular(PantasRadius.lg),
           ),
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 15),
+            padding: const EdgeInsets.symmetric(
+              horizontal: PantasSpace.s16,
+              vertical: PantasSpace.s16,
+            ),
             // Board (DT_Topic): the three figures sit side by side, 114 px
             // apart.
             child: Row(
@@ -58,14 +74,14 @@ class TopicDetailPage extends StatelessWidget {
               children: [
                 if (answered > 0)
                   SizedBox(
-                    width: 114,
+                    width: PantasSpace.s56 * 2,
                     child: _Stat(
                       value: '${(detail.correct / answered * 100).round()}%',
                       label: 'accuracy',
                     ),
                   ),
                 SizedBox(
-                  width: 114,
+                  width: PantasSpace.s56 * 2,
                   child: _Stat(value: '$answered', label: 'answered'),
                 ),
                 Expanded(
@@ -78,7 +94,7 @@ class TopicDetailPage extends StatelessWidget {
             ),
           ),
         ),
-        const SizedBox(height: 24),
+        const SizedBox(height: PantasSpace.s24),
         GroupedSection(
           header: 'Lessons',
           children: [
@@ -94,9 +110,9 @@ class TopicDetailPage extends StatelessWidget {
               ),
           ],
         ),
-        const SizedBox(height: 24),
+        const SizedBox(height: PantasSpace.s24),
         PantasButton(label: 'Practice This Topic', onPressed: onPractice),
-        const SizedBox(height: 8),
+        const SizedBox(height: PantasSpace.s8),
         Text(
           "Practice is outside your plan. It doesn't change today.",
           textAlign: TextAlign.center,
@@ -113,11 +129,17 @@ class TopicDetailPage extends StatelessWidget {
         : (detail.correct / detail.answered * 100).round();
     Widget stat(String value, String label) => Expanded(
           child: WebCard(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+            padding: const EdgeInsets.symmetric(
+              horizontal: PantasSpace.s16,
+              vertical: PantasSpace.s14,
+            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(value, style: t.style(26, weight: FontWeight.w700)),
+                Text(
+                  value,
+                  style: PantasType.webH2.copyWith(color: t.colors.textPrimary),
+                ),
                 Text(label, style: t.sm),
               ],
             ),
@@ -130,12 +152,12 @@ class TopicDetailPage extends StatelessWidget {
         skipTraversal: true,
         child: Material(
           key: const ValueKey('web-performance-topic'),
-          color: t.colors.background,
+          color: t.colors.bgPage,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               SizedBox(
-                height: 64,
+                height: PantasSpace.s56 + PantasSpace.s8,
                 child: WebTopBar(
                   leading: const SizedBox.shrink(),
                   trailing: Row(
@@ -152,19 +174,25 @@ class TopicDetailPage extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.fromLTRB(28, 0, 28, 22),
+                padding: const EdgeInsets.fromLTRB(
+                  PantasSpace.s28,
+                  PantasSpace.s0,
+                  PantasSpace.s28,
+                  PantasSpace.s24,
+                ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(detail.subject.toUpperCase(), style: t.eb),
-                    const SizedBox(height: 4),
+                    const SizedBox(height: PantasSpace.s4),
                     Text(detail.name, style: t.h2),
                   ],
                 ),
               ),
               Expanded(
                 child: SingleChildScrollView(
-                  padding: const EdgeInsets.symmetric(horizontal: 28),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: PantasSpace.s28),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
@@ -175,17 +203,17 @@ class TopicDetailPage extends StatelessWidget {
                               '$percent%',
                               'accuracy',
                             ),
-                            const SizedBox(width: 10),
+                            const SizedBox(width: PantasSpace.s10),
                           ],
                           stat('${detail.answered}', 'answered'),
-                          const SizedBox(width: 10),
+                          const SizedBox(width: PantasSpace.s10),
                           stat(
                             '${detail.lessonsRead} of ${detail.lessons.length}',
                             'lessons read',
                           ),
                         ],
                       ),
-                      const SizedBox(height: 24),
+                      const SizedBox(height: PantasSpace.s24),
                       const WebText(
                         'Lessons',
                         kind: WebTextKind.eyebrow,
@@ -198,12 +226,11 @@ class TopicDetailPage extends StatelessWidget {
                                 title: lesson.title,
                                 leading:
                                     _ReadMark(read: lesson.read, web: true),
-                                titleStyle: t.style(
-                                  17,
-                                  weight: FontWeight.w500,
+                                titleStyle: PantasType.webLead.copyWith(
+                                  fontWeight: FontWeight.w500,
                                   color: lesson.read
-                                      ? t.colors.secondaryLabel
-                                      : t.colors.label,
+                                      ? t.colors.textSecondary
+                                      : t.colors.textPrimary,
                                 ),
                                 titleSuffix: lesson.today
                                     ? const _TodayTag(web: true)
@@ -211,7 +238,7 @@ class TopicDetailPage extends StatelessWidget {
                                 trailing: Icon(
                                   Icons.chevron_right,
                                   size: 16,
-                                  color: t.colors.tertiaryLabel,
+                                  color: t.colors.textSecondary,
                                 ),
                                 divider: lesson != detail.lessons.last,
                                 onPressed: () => onLesson(lesson.id),
@@ -219,17 +246,22 @@ class TopicDetailPage extends StatelessWidget {
                           ],
                         ),
                       ),
-                      const SizedBox(height: 24),
+                      const SizedBox(height: PantasSpace.s24),
                     ],
                   ),
                 ),
               ),
               Container(
-                padding: const EdgeInsets.fromLTRB(28, 18, 28, 22),
+                padding: const EdgeInsets.fromLTRB(
+                  PantasSpace.s28,
+                  PantasSpace.s18,
+                  PantasSpace.s28,
+                  PantasSpace.s24,
+                ),
                 decoration: BoxDecoration(
                   border: Border(
                     top: BorderSide(
-                      color: t.colors.separator,
+                      color: t.colors.divider,
                       width: .5,
                     ),
                   ),
@@ -244,7 +276,7 @@ class TopicDetailPage extends StatelessWidget {
                   overflowAlignment: OverflowBarAlignment.end,
                   children: [
                     SizedBox(
-                      width: 200,
+                      width: PantasSpace.s56 * 3 + PantasSpace.s32,
                       child: Text(
                         'Practice is outside your plan. '
                         "It doesn't change today.",
@@ -277,13 +309,12 @@ class _Stat extends StatelessWidget {
         children: [
           Text(
             value,
-            style: context.type.emphasized.copyWith(
-              fontSize: 24,
-              fontWeight: FontWeight.w700,
+            style: PantasType.phoneTitle2.copyWith(
+              color: context.colors.textPrimary,
               fontFeatures: const [FontFeature.tabularFigures()],
             ),
           ),
-          const SizedBox(height: 2),
+          const SizedBox(height: PantasSpace.s2),
           Text(label, style: context.type.footnote),
         ],
       );
@@ -306,17 +337,17 @@ class _ReadMark extends StatelessWidget {
                 color: read
                     ? web
                         ? context.webTokens.colors.accentFill
-                        : context.colors.label
+                        : context.colors.textPrimary
                     : null,
                 border: read
                     ? null
-                    : Border.all(color: context.colors.chevron, width: 1.6),
+                    : Border.all(color: context.colors.iconChevron, width: 1.6),
               ),
               child: read
                   ? Icon(
                       PantasIcons.check,
                       size: 14,
-                      color: context.colors.surface,
+                      color: context.colors.surfaceCard,
                     )
                   : null,
             ),
@@ -332,18 +363,17 @@ class _TodayTag extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Container(
         height: 24,
-        padding: const EdgeInsets.symmetric(horizontal: 9),
+        padding: const EdgeInsets.symmetric(horizontal: PantasSpace.s8),
         alignment: Alignment.center,
         decoration: BoxDecoration(
           color:
               web ? context.webTokens.colors.accentTint : context.colors.fill,
-          borderRadius: BorderRadius.circular(99),
+          borderRadius: BorderRadius.circular(PantasRadius.full),
         ),
         child: Text(
           'Today',
-          style: context.type.footnote.copyWith(
+          style: context.type.caption.copyWith(
             color: web ? context.webTokens.tintText : null,
-            fontSize: 12,
             fontWeight: FontWeight.w600,
           ),
         ),

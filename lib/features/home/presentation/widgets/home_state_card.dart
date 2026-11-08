@@ -5,6 +5,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
@@ -73,7 +76,11 @@ class HomeStateCard extends StatelessWidget {
         HomeState.passed => 'Set a New Date',
       };
 
-  /// The board card: padding 26 / 24 / 22, the 20 px title beside a 40 px
+  /// A role as the `RRGGBB` an inline SVG stroke takes.
+  static String _hex(Color color) =>
+      color.toARGB32().toRadixString(16).padLeft(8, '0').substring(2);
+
+  /// The board card: a 20 px inset, the 20 px title beside a 40 px
   /// icon for the quiet days, 22 px without one, and the line at 16 px.
   Widget _wideCard(BuildContext context) {
     final t = context.webTokens;
@@ -81,16 +88,16 @@ class HomeStateCard extends StatelessWidget {
       HomeState.nothingDue || HomeState.reviewOnly => _wideIcon(
           // The card is the surface color in dark, so the circle takes the
           // accent tint there or it would not show.
-          t.dark ? t.colors.accentTint : const Color(0xFFE4F1EE),
+          t.colors.accentTint,
           '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" '
-          'stroke="${t.dark ? '#4CC3AC' : '#0B7A68'}" stroke-width="2.4" '
+          'stroke="${_hex(t.colors.accent)}" stroke-width="2.4" '
           'stroke-linecap="round" '
           'stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7"/></svg>',
         ),
       HomeState.dayOff => _wideIcon(
-          t.dark ? t.colors.fill : const Color(0xFFF5F5F7),
+          t.colors.fill,
           '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" '
-          'stroke="${t.dark ? '#A3A3A3' : '#8A8A8E'}" stroke-width="1.8" '
+          'stroke="${_hex(t.colors.textSecondary)}" stroke-width="1.8" '
           'stroke-linecap="round" '
           'stroke-linejoin="round"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 '
           '6.5 0 0 0 10.5 10.5z"/></svg>',
@@ -104,13 +111,15 @@ class HomeStateCard extends StatelessWidget {
       children: [
         Text(
           _title,
-          style: t.style(big ? 22 : 20, weight: FontWeight.w700, height: 1.3),
+          style: (big ? PantasType.webH3Lg : PantasType.webH3)
+              .copyWith(color: t.colors.textPrimary),
         ),
         if (state != HomeState.nothingDue || hasExamDate) ...[
-          const SizedBox(height: 6),
+          const SizedBox(height: PantasSpace.s6),
           Text(
             _detail,
-            style: t.style(16, height: 1.45, color: t.colors.secondaryLabel),
+            style: PantasType.webBody
+                .copyWith(height: 1.45, color: t.colors.textSecondary),
           ),
         ],
         if (onPrimary != null && _action != null ||
@@ -147,14 +156,15 @@ class HomeStateCard extends StatelessWidget {
       ],
     );
     final card = WebCard(
-      padding: EdgeInsets.fromLTRB(24, 26, 24, assessment ? 24 : 22),
+      // Home cards share one 20 px inset (D183).
+      padding: const EdgeInsets.all(PantasSpace.s20),
       child: icon == null
           ? body
           : Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 icon,
-                const SizedBox(width: 18),
+                const SizedBox(width: PantasSpace.s18),
                 Expanded(child: body),
               ],
             ),
@@ -166,7 +176,12 @@ class HomeStateCard extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Padding(
-          padding: const EdgeInsets.fromLTRB(4, 0, 4, 9),
+          padding: const EdgeInsets.fromLTRB(
+            PantasSpace.s4,
+            PantasSpace.s0,
+            PantasSpace.s4,
+            PantasSpace.s8,
+          ),
           child: Text('TODAY', style: t.eb),
         ),
         card,
@@ -202,7 +217,7 @@ class HomeStateCard extends StatelessWidget {
     final detail = Text(
       _detail,
       style: context.type.subhead.copyWith(
-        color: context.colors.secondaryLabel,
+        color: context.colors.textSecondary,
         height: 1.4,
       ),
     );
@@ -211,13 +226,18 @@ class HomeStateCard extends StatelessWidget {
       final assessment = state == HomeState.assessment;
       return DecoratedBox(
         decoration: BoxDecoration(
-          color: context.colors.surface,
-          borderRadius: BorderRadius.circular(18),
+          color: context.colors.surfaceCard,
+          borderRadius: BorderRadius.circular(PantasRadius.xl),
         ),
         child: Padding(
           padding: assessment
-              ? const EdgeInsets.fromLTRB(18, 20, 18, 18)
-              : const EdgeInsets.all(16),
+              ? const EdgeInsets.fromLTRB(
+                  PantasSpace.s18,
+                  PantasSpace.s20,
+                  PantasSpace.s18,
+                  PantasSpace.s18,
+                )
+              : const EdgeInsets.all(PantasSpace.s16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
@@ -249,13 +269,18 @@ class HomeStateCard extends StatelessWidget {
     return GroupedSection(
       children: [
         Padding(
-          padding: EdgeInsets.fromLTRB(16, 16, 16, action == null ? 16 : 4),
+          padding: EdgeInsets.fromLTRB(
+            PantasSpace.s16,
+            PantasSpace.s16,
+            PantasSpace.s16,
+            action == null ? PantasSpace.s16 : PantasSpace.s4,
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Text(_title, style: context.type.emphasized),
               if (state != HomeState.nothingDue || hasExamDate) ...[
-                const SizedBox(height: 6),
+                const SizedBox(height: PantasSpace.s6),
                 detail,
               ],
             ],
@@ -263,7 +288,12 @@ class HomeStateCard extends StatelessWidget {
         ),
         if (action != null)
           Padding(
-            padding: const EdgeInsets.fromLTRB(16, 10, 16, 16),
+            padding: const EdgeInsets.fromLTRB(
+              PantasSpace.s16,
+              PantasSpace.s10,
+              PantasSpace.s16,
+              PantasSpace.s16,
+            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
@@ -273,7 +303,7 @@ class HomeStateCard extends StatelessWidget {
                   variant: PantasButtonVariant.secondary,
                 ),
                 if (state == HomeState.passed && onSecondary != null) ...[
-                  const SizedBox(height: 8),
+                  const SizedBox(height: PantasSpace.s8),
                   PantasButton(
                     label: 'Switch Exams',
                     onPressed: onSecondary,

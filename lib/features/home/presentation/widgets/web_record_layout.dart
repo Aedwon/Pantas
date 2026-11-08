@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_page_heading.dart';
@@ -8,6 +11,7 @@ import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/home/application/record_provider.dart';
 import 'package:pantas/features/home/presentation/record_page.dart';
 import 'package:pantas/features/home/presentation/widgets/accuracy_line.dart';
+import 'package:pantas/features/home/presentation/widgets/home_columns.dart';
 import 'package:pantas/features/home/presentation/widgets/progress_skeletons.dart';
 
 /// Shared MY_* header and scroll inset inside the existing sidebar shell.
@@ -28,7 +32,7 @@ class WebMyPage extends StatelessWidget {
           autofocus: true,
           skipTraversal: true,
           child: Scaffold(
-            backgroundColor: context.webTokens.colors.background,
+            backgroundColor: context.webTokens.colors.bgPage,
             body: SingleChildScrollView(
               // The shell ends at the window bottom, so rows scroll to the
               // edge and the page's own margin sits after the last one.
@@ -89,7 +93,10 @@ class WebRecordLayout extends StatelessWidget {
               value,
               style: (big
                       ? t.big
-                      : t.style(28, weight: FontWeight.w700, height: 36 / 28))
+                      : PantasType.webH2.copyWith(
+                          height: 36 / 28,
+                          color: t.colors.textPrimary,
+                        ))
                   .copyWith(
                 color: streak ? t.colors.accent : null,
                 fontFeatures: [const FontFeature.tabularFigures()],
@@ -130,8 +137,8 @@ class WebRecordLayout extends StatelessWidget {
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
-                      horizontal: 24,
-                      vertical: 22,
+                      horizontal: PantasSpace.s24,
+                      vertical: PantasSpace.s24,
                     ),
                     child: figure(
                       '${record.weeksIn}',
@@ -142,14 +149,14 @@ class WebRecordLayout extends StatelessWidget {
                 ),
                 Container(
                   width: .5,
-                  margin: const EdgeInsets.symmetric(vertical: 18),
-                  color: t.colors.separator,
+                  margin: const EdgeInsets.symmetric(vertical: PantasSpace.s18),
+                  color: t.colors.divider,
                 ),
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
-                      horizontal: 24,
-                      vertical: 22,
+                      horizontal: PantasSpace.s24,
+                      vertical: PantasSpace.s24,
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -175,7 +182,7 @@ class WebRecordLayout extends StatelessWidget {
             ),
           ),
         ),
-        const SizedBox(height: 28),
+        const SizedBox(height: PantasSpace.s28),
         const WebText('Your totals', kind: WebTextKind.eyebrow),
         LayoutBuilder(
           builder: (context, constraints) => Wrap(
@@ -187,8 +194,8 @@ class WebRecordLayout extends StatelessWidget {
                   width: (constraints.maxWidth - 24) / 3,
                   child: WebCard(
                     padding: const EdgeInsets.symmetric(
-                      horizontal: 20,
-                      vertical: 18,
+                      horizontal: PantasSpace.s20,
+                      vertical: PantasSpace.s18,
                     ),
                     child: figure(total.value, total.label),
                   ),
@@ -196,24 +203,31 @@ class WebRecordLayout extends StatelessWidget {
             ],
           ),
         ),
-        const SizedBox(height: 28),
+        const SizedBox(height: PantasSpace.s28),
         const WebText('Accuracy across your prep', kind: WebTextKind.eyebrow),
         WebCard(
-          padding: const EdgeInsets.fromLTRB(24, 20, 24, 16),
+          padding: const EdgeInsets.fromLTRB(
+            PantasSpace.s24,
+            PantasSpace.s20,
+            PantasSpace.s24,
+            PantasSpace.s16,
+          ),
           child: record.accuracySeries.length < 2
               ? SizedBox(
-                  height: 200,
+                  height: PantasSize.chartH,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       SizedBox(
-                        width: 220,
-                        height: 60,
+                        width: PantasSpace.s56 * 3 +
+                            PantasSpace.s44 +
+                            PantasSpace.s8,
+                        height: PantasSpace.s56 + PantasSpace.s4,
                         child: CustomPaint(
                           painter: _EarlyRecordLine(t.strongDivider),
                         ),
                       ),
-                      const SizedBox(height: 10),
+                      const SizedBox(height: PantasSpace.s10),
                       Text(
                         'Your line starts after two weeks of answers.',
                         style: t.sub,
@@ -230,15 +244,16 @@ class WebRecordLayout extends StatelessWidget {
                       children: [
                         Text(
                           '${record.accuracySeries.last.accuracy.round()}%',
-                          style: t.style(28, weight: FontWeight.w700),
+                          style: PantasType.webH2
+                              .copyWith(color: t.colors.textPrimary),
                         ),
-                        const SizedBox(width: 8),
+                        const SizedBox(width: PantasSpace.s8),
                         Text('this week', style: t.sub),
                       ],
                     ),
-                    const SizedBox(height: 12),
+                    const SizedBox(height: PantasSpace.s12),
                     AccuracyLine(series: record.accuracySeries, web: true),
-                    const SizedBox(height: 8),
+                    const SizedBox(height: PantasSpace.s8),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -273,13 +288,14 @@ class WebRecordLayout extends StatelessWidget {
                       children: [
                         Text(
                           '${mock.percent}%',
-                          style: t.style(17, weight: FontWeight.w600),
+                          style: PantasType.webButtonLg
+                              .copyWith(color: t.colors.textPrimary),
                         ),
-                        const SizedBox(width: 12),
+                        const SizedBox(width: PantasSpace.s12),
                         Icon(
                           Icons.chevron_right,
                           size: 16,
-                          color: t.colors.chevron,
+                          color: t.colors.iconChevron,
                         ),
                       ],
                     ),
@@ -297,21 +313,20 @@ class WebRecordLayout extends StatelessWidget {
       onBack: onBack,
       child: LayoutBuilder(
         builder: (context, constraints) {
-          // The board's 520 + 320 + 28 basis wraps below 868 content pixels.
-          if (constraints.maxWidth < 868) {
+          if (HomeColumns.stacks(constraints.maxWidth)) {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [left, const SizedBox(height: 28), right],
+              children: [left, const SizedBox(height: PantasSpace.s28), right],
             );
           }
           return Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                width: 520 + (constraints.maxWidth - 868) * 1.6 / 2.6,
+                width: HomeColumns.primaryWidth(constraints.maxWidth),
                 child: left,
               ),
-              const SizedBox(width: 28),
+              const SizedBox(width: PantasSpace.s28),
               Expanded(child: right),
             ],
           );
@@ -363,20 +378,23 @@ class WebMyFailure extends StatelessWidget {
   final VoidCallback onRetry;
   @override
   Widget build(BuildContext context) => WebCard(
-        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 120),
+        padding: const EdgeInsets.symmetric(
+          horizontal: PantasSpace.s24,
+          vertical: PantasSpace.s56,
+        ),
         child: Column(
           children: [
             Icon(
               Icons.warning_amber_rounded,
               size: 28,
-              color: context.webTokens.colors.tertiaryLabel,
+              color: context.webTokens.colors.textSecondary,
             ),
-            const SizedBox(height: 14),
+            const SizedBox(height: PantasSpace.s14),
             Text(
               'Could not load your progress.',
               style: context.webTokens.style(17),
             ),
-            const SizedBox(height: 18),
+            const SizedBox(height: PantasSpace.s18),
             WebButton(
               label: 'Try Again',
               variant: WebButtonVariant.secondary,

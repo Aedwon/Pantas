@@ -5,10 +5,18 @@ import 'package:flutter/rendering.dart' show RenderAbstractViewport;
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/components/skeleton_fade.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_border.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
+import 'package:pantas/features/home/presentation/widgets/home_columns.dart';
 
 export 'package:pantas/core/ui/web/web_side_overlay.dart';
 
@@ -87,8 +95,11 @@ class HomeWebLayout extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 header,
-                const SizedBox(height: 26),
-                if (intro != null) ...[intro!, const SizedBox(height: 26)],
+                const SizedBox(height: PantasSpace.s24),
+                if (intro != null) ...[
+                  intro!,
+                  const SizedBox(height: PantasSpace.s24),
+                ],
                 _body(),
                 if (footer != null) footer!,
               ],
@@ -123,7 +134,7 @@ class HomeWebBody extends StatelessWidget {
             children: [
               today,
               if (onRecord != null && onTendencies != null) ...[
-                const SizedBox(height: 28),
+                const SizedBox(height: PantasSpace.s28),
                 const WebText(
                   'More about you',
                   kind: WebTextKind.eyebrow,
@@ -137,7 +148,7 @@ class HomeWebBody extends StatelessWidget {
                         onPressed: onRecord!,
                       ),
                     ),
-                    const SizedBox(width: 14),
+                    const SizedBox(width: PantasSpace.s14),
                     Expanded(
                       child: _MoreRow(
                         title: 'Your tendencies',
@@ -150,7 +161,7 @@ class HomeWebBody extends StatelessWidget {
               ],
               // The board puts every notice after "More about you".
               if (notice != null) ...[
-                const SizedBox(height: 28),
+                const SizedBox(height: PantasSpace.s28),
                 notice!,
               ],
             ],
@@ -158,15 +169,15 @@ class HomeWebBody extends StatelessWidget {
           if (performance == null) {
             return Align(
               alignment: Alignment.topLeft,
-              child: SizedBox(width: 640, child: left),
+              child: SizedBox(width: PantasLayout.tabletColumn, child: left),
             );
           }
-          if (constraints.maxWidth < 848) {
+          if (HomeColumns.stacks(constraints.maxWidth)) {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 left,
-                const SizedBox(height: 28),
+                const SizedBox(height: PantasSpace.s28),
                 performance!,
               ],
             );
@@ -175,16 +186,22 @@ class HomeWebBody extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                width: 480 + (constraints.maxWidth - 848) * 1.45 / 2.45,
+                width: HomeColumns.primaryWidth(constraints.maxWidth),
                 child: left,
               ),
-              const SizedBox(width: 28),
+              const SizedBox(width: PantasSpace.s28),
               Expanded(child: performance!),
             ],
           );
         },
       );
 }
+
+/// The notice icon, and the indent that lines the detail text under the title.
+const double _noticeIconSize = PantasSize.icon + PantasSpace.s2;
+
+/// The notice header's own corner: the card's radius less its 1 px rule.
+const double _noticeInnerRadius = PantasRadius.lg - PantasBorder.ring;
 
 /// "More about you" card: white, 16 px radius, as on the Home (Main) board,
 /// with the row hover fill.
@@ -202,7 +219,7 @@ class _MoreRow extends StatelessWidget {
     final t = context.webTokens;
     return DecoratedBox(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(PantasRadius.xl),
         border: t.dark ? Border.all(color: t.cardEdge) : null,
       ),
       child: TextButton(
@@ -210,34 +227,42 @@ class _MoreRow extends StatelessWidget {
         style: ButtonStyle(
           animationDuration: MediaQuery.disableAnimationsOf(context)
               ? Duration.zero
-              : const Duration(milliseconds: 150),
+              : PantasDurations.short2,
           visualDensity: VisualDensity.standard,
           tapTargetSize: MaterialTapTargetSize.shrinkWrap,
           minimumSize: const WidgetStatePropertyAll(Size(double.infinity, 60)),
           padding: const WidgetStatePropertyAll(
-            EdgeInsets.fromLTRB(20, 18, 18, 18),
+            EdgeInsets.fromLTRB(
+              PantasSpace.s20,
+              PantasSpace.s18,
+              PantasSpace.s18,
+              PantasSpace.s18,
+            ),
           ),
           backgroundColor: WidgetStateProperty.resolveWith(
             (s) => s.contains(WidgetState.hovered) || webKeyboardFocus(s)
                 ? t.rowHover
-                : t.dark
-                    ? t.colors.surface
-                    : Colors.white,
+                : t.colors.surfaceCard,
           ),
           overlayColor: const WidgetStatePropertyAll(Colors.transparent),
           side: WidgetStateProperty.resolveWith(
             (s) => webFocusRing(s, t.colors.accent),
           ),
           shape: WidgetStatePropertyAll(
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(PantasRadius.xl),
+            ),
           ),
         ),
         child: Row(
           children: [
             Icon(icon, color: t.colors.accent, size: 24),
-            const SizedBox(width: 14),
+            const SizedBox(width: PantasSpace.s14),
             Expanded(
-              child: Text(title, style: t.style(17, color: t.colors.label)),
+              child: Text(
+                title,
+                style: PantasType.webLead.copyWith(color: t.colors.textPrimary),
+              ),
             ),
             const WebChevron(),
           ],
@@ -306,15 +331,15 @@ class HomeWebNotice extends StatelessWidget {
     // `.nb` has 18 px sides, 16 px bottom and 12 px between its parts.
     final duration = MediaQuery.disableAnimationsOf(context)
         ? Duration.zero
-        : const Duration(milliseconds: 350);
+        : PantasDurations.switchDuration;
     return Container(
       decoration: BoxDecoration(
-        color: t.colors.surface,
-        borderRadius: BorderRadius.circular(16),
+        color: t.colors.surfaceCard,
+        borderRadius: BorderRadius.circular(PantasRadius.lg),
       ),
       foregroundDecoration: BoxDecoration(
-        border: Border.all(color: t.colors.separator),
-        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: t.colors.divider),
+        borderRadius: BorderRadius.circular(PantasRadius.lg),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -329,7 +354,12 @@ class HomeWebNotice extends StatelessWidget {
                   // (4N-7). The hover tint still reaches the rule, and runs to
                   // the dismiss button.
                   child: Padding(
-                    padding: const EdgeInsets.fromLTRB(1, 1, 0, 1),
+                    padding: const EdgeInsets.fromLTRB(
+                      PantasBorder.ring,
+                      PantasBorder.ring,
+                      PantasSpace.s0,
+                      PantasBorder.ring,
+                    ),
                     child: TextButton(
                       onPressed: onToggle,
                       style: TextButton.styleFrom(
@@ -340,16 +370,22 @@ class HomeWebNotice extends StatelessWidget {
                         visualDensity: VisualDensity.standard,
                         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                         minimumSize: const Size(0, 50),
-                        padding: const EdgeInsets.only(left: 17, right: 12),
+                        // 18 from the card's edge, less the 1 px rule inset.
+                        padding: const EdgeInsets.only(
+                          left: PantasSpace.s18 - PantasBorder.ring,
+                          right: PantasSpace.s12,
+                        ),
                         // The left corners follow the card's own, and the
                         // right ones are rounded like a row's, so the ring is
                         // a closed shape beside the dismiss button.
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.only(
-                            topLeft: const Radius.circular(15),
-                            bottomLeft: Radius.circular(expanded ? 0 : 15),
-                            topRight: const Radius.circular(10),
-                            bottomRight: const Radius.circular(10),
+                            topLeft: const Radius.circular(_noticeInnerRadius),
+                            bottomLeft: Radius.circular(
+                              expanded ? PantasSpace.s0 : _noticeInnerRadius,
+                            ),
+                            topRight: const Radius.circular(PantasRadius.sm),
+                            bottomRight: const Radius.circular(PantasRadius.sm),
                           ),
                         ),
                       ),
@@ -357,18 +393,19 @@ class HomeWebNotice extends StatelessWidget {
                         children: [
                           Icon(
                             icon ?? PantasIcons.addDate,
-                            size: 22,
-                            color: iconColor ?? t.colors.secondaryLabel,
+                            size: _noticeIconSize,
+                            color: iconColor ?? t.colors.textSecondary,
                           ),
-                          const SizedBox(width: 12),
+                          const SizedBox(width: PantasSpace.s12),
                           Expanded(
                             child: Text(
                               title,
-                              style: t.style(16, weight: FontWeight.w600),
+                              style: PantasType.webTitleSm
+                                  .copyWith(color: t.colors.textPrimary),
                             ),
                           ),
                           if (detail != null) ...[
-                            const SizedBox(width: 12),
+                            const SizedBox(width: PantasSpace.s12),
                             // One chevron turns, as the phone's does.
                             AnimatedRotation(
                               turns: expanded ? .5 : 0,
@@ -377,7 +414,7 @@ class HomeWebNotice extends StatelessWidget {
                               child: Icon(
                                 Icons.expand_more,
                                 size: 16,
-                                color: t.colors.secondaryLabel,
+                                color: t.colors.textSecondary,
                               ),
                             ),
                           ],
@@ -387,7 +424,7 @@ class HomeWebNotice extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(right: 6),
+                  padding: const EdgeInsets.only(right: PantasSpace.s6),
                   child: SizedBox.square(
                     dimension: 44,
                     child: IconButton(
@@ -397,7 +434,7 @@ class HomeWebNotice extends StatelessWidget {
                       icon: Icon(
                         Icons.close,
                         size: 16,
-                        color: t.colors.secondaryLabel,
+                        color: t.colors.textSecondary,
                       ),
                     ),
                   ),
@@ -439,7 +476,12 @@ class HomeWebNotice extends StatelessWidget {
                     ),
                   ),
             child: Padding(
-              padding: const EdgeInsets.fromLTRB(18, 0, 18, 16),
+              padding: const EdgeInsets.fromLTRB(
+                PantasSpace.s18,
+                PantasSpace.s0,
+                PantasSpace.s18,
+                PantasSpace.s16,
+              ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
@@ -448,14 +490,16 @@ class HomeWebNotice extends StatelessWidget {
                   // option D).
                   if (detail != null)
                     Padding(
-                      padding: const EdgeInsets.only(left: 34),
+                      padding: const EdgeInsets.only(
+                        left: _noticeIconSize + PantasSpace.s12,
+                      ),
                       child: Text(detail!, style: t.sub),
                     ),
                   if (editor != null) ...[
-                    const SizedBox(height: 12),
+                    const SizedBox(height: PantasSpace.s12),
                     editor!,
                   ],
-                  const SizedBox(height: 12),
+                  const SizedBox(height: PantasSpace.s12),
                   // The buttons sit at the right edge, the quiet one first.
                   Wrap(
                     spacing: 12,
@@ -517,10 +561,10 @@ class HomeWebLoading extends StatelessWidget {
                       height: 14,
                     ),
                   ),
-                  const SizedBox(height: 8),
+                  const SizedBox(height: PantasSpace.s8),
                   SkeletonCard(height: performance ? 520 : 330),
                   if (more) ...[
-                    const SizedBox(height: 28),
+                    const SizedBox(height: PantasSpace.s28),
                     const SkeletonCard(height: 96),
                   ],
                 ],

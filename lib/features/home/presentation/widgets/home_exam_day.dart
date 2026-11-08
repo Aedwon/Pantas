@@ -6,6 +6,9 @@ import 'package:pantas/core/ui/components/pantas_logo.dart';
 import 'package:pantas/core/ui/components/progress_ring.dart';
 import 'package:pantas/core/ui/components/today_questions.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
@@ -62,8 +65,7 @@ class HomeExamDay extends StatelessWidget {
                       child: ProgressRing(
                         fraction: reviewsDone / reviewsTotal,
                         emptyStrokeWidth: 2,
-                        emptyTrackColor:
-                            t.dark ? null : const Color(0xFFD1D1D6),
+                        emptyTrackColor: ProgressRing.phoneEmptyTrack(context),
                       ),
                     ),
                   ),
@@ -71,12 +73,17 @@ class HomeExamDay extends StatelessWidget {
                 ),
                 // The board's footer band. Its time estimate is left out.
                 Container(
-                  padding: const EdgeInsets.fromLTRB(20, 16, 20, 18),
+                  padding: const EdgeInsets.fromLTRB(
+                    PantasSpace.s20,
+                    PantasSpace.s16,
+                    PantasSpace.s20,
+                    PantasSpace.s18,
+                  ),
                   decoration: BoxDecoration(
-                    color: t.dark ? t.colors.surface : const Color(0xFFFBFBFC),
+                    color: t.colors.surfaceInset,
                     border: Border(
                       top: BorderSide(
-                        color: t.colors.separator,
+                        color: t.colors.divider,
                         width: webHairline(context),
                       ),
                     ),
@@ -103,26 +110,25 @@ class HomeExamDay extends StatelessWidget {
         // Board (HP_ExamDay): the title and line sit in a white 18 px card.
         DecoratedBox(
           decoration: BoxDecoration(
-            color: context.colors.surface,
-            borderRadius: BorderRadius.circular(18),
+            color: context.colors.surfaceCard,
+            borderRadius: BorderRadius.circular(PantasRadius.xl),
           ),
           child: Padding(
-            padding: const EdgeInsets.all(16),
+            padding: const EdgeInsets.all(PantasSpace.s16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   '$examShortName is today.',
-                  style: context.type.emphasized.copyWith(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w700,
+                  style: PantasType.phoneTitle3.copyWith(
+                    color: context.colors.textPrimary,
                   ),
                 ),
-                const SizedBox(height: 10),
+                const SizedBox(height: PantasSpace.s10),
                 Text(
                   detail,
                   style: context.type.subhead.copyWith(
-                    color: context.colors.secondaryLabel,
+                    color: context.colors.textSecondary,
                     height: 1.4,
                   ),
                 ),
@@ -131,7 +137,7 @@ class HomeExamDay extends StatelessWidget {
           ),
         ),
         if (hasWarmUp) ...[
-          const SizedBox(height: 16),
+          const SizedBox(height: PantasSpace.s16),
           HomeTodayHeader(onPlan: onPlan),
           GroupedSection(
             children: [
@@ -144,7 +150,12 @@ class HomeExamDay extends StatelessWidget {
                 divider: false,
               ),
               Padding(
-                padding: const EdgeInsets.fromLTRB(16, 14, 16, 16),
+                padding: const EdgeInsets.fromLTRB(
+                  PantasSpace.s16,
+                  PantasSpace.s14,
+                  PantasSpace.s16,
+                  PantasSpace.s16,
+                ),
                 child: PantasButton(
                   label: 'Start Warm-up',
                   busy: busy,
@@ -174,24 +185,26 @@ class HomeExamDayIntro extends StatelessWidget {
   Widget build(BuildContext context) {
     final t = context.webTokens;
     return Padding(
-      padding: const EdgeInsets.fromLTRB(4, 4, 4, 0),
+      padding: const EdgeInsets.fromLTRB(
+        PantasSpace.s4,
+        PantasSpace.s4,
+        PantasSpace.s4,
+        PantasSpace.s0,
+      ),
       child: Row(
         children: [
           const PantasLogo(size: 56),
-          const SizedBox(width: 22),
+          const SizedBox(width: PantasSpace.s24),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text('$examShortName is today.', style: t.h2),
-                const SizedBox(height: 4),
+                const SizedBox(height: PantasSpace.s4),
                 Text(
                   _examDayDetail(reviewsTotal),
-                  style: t.style(
-                    17,
-                    height: 1.45,
-                    color: t.colors.secondaryLabel,
-                  ),
+                  style: PantasType.webLead
+                      .copyWith(height: 1.45, color: t.colors.textSecondary),
                 ),
               ],
             ),

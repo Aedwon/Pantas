@@ -9,9 +9,17 @@ import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/domain/exam_date.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/time/pantas_dates.dart';
+import 'package:pantas/core/ui/components/pantas_shadows.dart';
 import 'package:pantas/core/ui/components/progress_ring.dart';
 import 'package:pantas/core/ui/components/week_strip.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_border.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
@@ -78,7 +86,7 @@ class HomeMasthead extends ConsumerWidget {
                   DateFormat('EEEE, MMMM d', 'en_US').format(now),
                   style: context.webTokens.sub,
                 ),
-                const SizedBox(height: 4),
+                const SizedBox(height: PantasSpace.s4),
                 Text(
                   greeting ?? greetingFor(now, AppLocalizations.of(context)),
                   style: context.webTokens.h1,
@@ -86,7 +94,10 @@ class HomeMasthead extends ConsumerWidget {
               ],
             ),
             if (!headState.hasError && !weekState.hasError)
-              const SizedBox(width: 480, child: HomeWebLoading(header: true)),
+              SizedBox(
+                width: PantasLayout.colPrimary.basis,
+                child: const HomeWebLoading(header: true),
+              ),
           ],
         );
       }
@@ -109,21 +120,18 @@ class HomeMasthead extends ConsumerWidget {
                 DateFormat('EEEE, MMMM d', 'en_US').format(now),
                 style: t.sub,
               ),
-              const SizedBox(height: 4),
+              const SizedBox(height: PantasSpace.s4),
               Text(
                 greeting ?? greetingFor(now, AppLocalizations.of(context)),
                 style: t.h1,
               ),
               if (dayNote != null) ...[
-                const SizedBox(height: 4),
+                const SizedBox(height: PantasSpace.s4),
                 // Board `.lead`: 17 px.
                 Text(
                   dayNote!,
-                  style: t.style(
-                    17,
-                    height: 1.45,
-                    color: t.colors.secondaryLabel,
-                  ),
+                  style: PantasType.webLead
+                      .copyWith(height: 1.45, color: t.colors.textSecondary),
                 ),
               ],
             ],
@@ -138,7 +146,6 @@ class HomeMasthead extends ConsumerWidget {
               masthead.examDate,
               now,
             ),
-            monthAbbreviation: _monthAbbreviation,
             onDay: (date) =>
                 date.isBefore(DateTime(now.year, now.month, now.day))
                     ? showPlanPastDay(context, date)
@@ -147,76 +154,84 @@ class HomeMasthead extends ConsumerWidget {
         ],
       );
     }
+    final c = context.colors;
+    final examState = _stateFor(masthead.examDate, now);
+    final chip = _ExamChip(
+      key: const ValueKey('masthead-exam-chip'),
+      masthead: masthead,
+      state: examState,
+      footer: _footer(examState, masthead.examDate, now),
+    );
+    final strip = WeekStrip(
+      today: now,
+      states: week.states,
+      todayFraction: week.todayFraction,
+      onSelected: (date) => unawaited(
+        context.push<void>('/plan/day/${dayKey(date)}'),
+      ),
+    );
+    // From 600 up the chip stays beside the days after a hairline; under it
+    // the chip takes its own line, 4 px in, with no rule (D185).
+    final beside =
+        MediaQuery.sizeOf(context).width >= PantasLayout.bpTabletPortrait;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
           decoration: BoxDecoration(
-            color: context.colors.surface,
-            borderRadius: BorderRadius.circular(18),
+            color: c.surfaceCard,
+            borderRadius: BorderRadius.circular(PantasRadius.xl),
           ),
           foregroundDecoration: Theme.of(context).brightness == Brightness.dark
               ? BoxDecoration(
-                  border: Border.all(color: context.colors.cardEdge),
-                  borderRadius: BorderRadius.circular(18),
+                  border: Border.all(color: c.edgeCard),
+                  borderRadius: BorderRadius.circular(PantasRadius.xl),
                 )
               : null,
-          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Expanded(
-                child: LayoutBuilder(
-                  builder: (context, constraints) {
-                    // The dots sit between the last day's number and the tile,
-                    // not between the last cell's edge and the tile. The last
-                    // number is centered in its cell, so the cell edge is
-                    // further right than the number the eye reads.
-                    final inset = WeekStrip.lastDayInset(
-                      context,
-                      width: constraints.maxWidth,
-                      today: now,
-                      states: week.states,
-                      todayFraction: week.todayFraction,
-                    );
-                    return Stack(
-                      clipBehavior: Clip.none,
-                      children: [
-                        WeekStrip(
-                          today: now,
-                          states: week.states,
-                          todayFraction: week.todayFraction,
-                          onSelected: (date) => unawaited(
-                            context.push<void>('/plan/day/${dayKey(date)}'),
-                          ),
-                        ),
-                        Positioned(
-                          left: constraints.maxWidth +
-                              (_stripToChipGap - _BridgeDots.width - inset) / 2,
-                          top: 0,
-                          child: const _BridgeDots(
-                            key: ValueKey('masthead-bridge-dots'),
-                          ),
-                        ),
-                      ],
-                    );
-                  },
-                ),
-              ),
-              const SizedBox(width: _stripToChipGap),
-              _ExamChip(
-                key: const ValueKey('masthead-exam-chip'),
-                examShortName: masthead.examShortName,
-                examDate: masthead.examDate,
-                now: now,
-              ),
-            ],
+          padding: const EdgeInsets.fromLTRB(
+            PantasSpace.s8,
+            PantasSpace.s8,
+            PantasSpace.s10,
+            PantasSpace.s8,
           ),
+          child: beside
+              ? Row(
+                  children: [
+                    Expanded(child: strip),
+                    Container(
+                      margin: const EdgeInsets.only(left: PantasSpace.s8),
+                      padding: const EdgeInsets.only(
+                        left: PantasSpace.s12,
+                        right: PantasSpace.s4,
+                      ),
+                      decoration: BoxDecoration(
+                        border: Border(
+                          left: BorderSide(
+                            color: c.divider,
+                            width: PantasBorder.hairline,
+                          ),
+                        ),
+                      ),
+                      child: chip,
+                    ),
+                  ],
+                )
+              : Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    strip,
+                    const SizedBox(height: PantasSpace.s8),
+                    Padding(
+                      padding: const EdgeInsets.only(left: PantasSpace.s4),
+                      child: chip,
+                    ),
+                  ],
+                ),
         ),
-        const SizedBox(height: 22),
+        const SizedBox(height: PantasSpace.s24),
         if (notice != null) notice!,
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 4),
+          padding: const EdgeInsets.symmetric(horizontal: PantasSpace.s4),
           child: Text(
             greeting ?? greetingFor(now, AppLocalizations.of(context)),
             style: context.type.largeTitle,
@@ -227,172 +242,51 @@ class HomeMasthead extends ConsumerWidget {
   }
 }
 
-/// Space between the week strip's right edge and the exam tile. The dots sit
-/// in it, centered between the last day's number and the tile.
-const double _stripToChipGap = 29;
-
-class _BridgeDots extends StatelessWidget {
-  const _BridgeDots({super.key});
-
-  /// Three 3 px dots with 3 px gaps.
-  static const double width = 15;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 29),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          for (var index = 0; index < 3; index++) ...[
-            Container(
-              width: 3,
-              height: 3,
-              decoration: BoxDecoration(
-                color: context.colors.chevron,
-                shape: BoxShape.circle,
-              ),
-            ),
-            if (index != 2) const SizedBox(width: 3),
-          ],
-        ],
-      ),
-    );
-  }
-}
-
 enum _ExamChipState { noDate, monthOnly, future, today, passed }
 
+/// ExamChip: the calendar tile and, beside it, the exam name and the days
+/// left. Not interactive; the date is changed from the exam row.
 class _ExamChip extends StatelessWidget {
   const _ExamChip({
-    required this.examShortName,
-    required this.examDate,
-    required this.now,
+    required this.masthead,
+    required this.state,
+    required this.footer,
     super.key,
   });
 
-  final String examShortName;
-  final ExamDate? examDate;
-  final DateTime now;
+  final HomeMastheadData masthead;
+  final _ExamChipState state;
+  final String footer;
 
   @override
   Widget build(BuildContext context) {
-    final colors = context.colors;
-    final scale = MediaQuery.textScalerOf(context).scale(1).clamp(1.0, 2.0);
-    final calendarWidth = 40 + (32 * (scale - 1));
-    final calendarHeight = 32 + (16 * (scale - 1));
-    final state = _stateFor(examDate, now);
-    final filled = state == _ExamChipState.today;
-    final passed = state == _ExamChipState.passed;
-    final borderColor = passed
-        ? colors.inactiveDateLabel
-        : state == _ExamChipState.noDate
-            ? colors.accent
-            : filled
-                ? colors.accentFill
-                : colors.label;
-    final foreground = filled
-        ? colors.onAccent
-        : passed
-            ? colors.secondaryLabel
-            : colors.label;
-
-    return SizedBox(
-      width: calendarWidth,
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Text(
-            examShortName,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-            style: context.type.captionStrong.copyWith(
-              color: colors.label,
-              fontWeight: FontWeight.w700,
-            ),
-          ),
-          const SizedBox(height: 2),
-          Container(
-            width: calendarWidth,
-            height: calendarHeight,
-            decoration: BoxDecoration(
-              color: filled ? colors.accentFill : colors.transparent,
-              borderRadius: BorderRadius.circular(9),
-              border: Border.all(color: borderColor, width: 1.5),
-            ),
-            alignment: Alignment.center,
-            child: _calendarContent(context, state, foreground),
-          ),
-          const SizedBox(height: 2),
-          Text(
-            _footer(state, examDate, now),
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-            style: context.type.captionSmall.copyWith(
-              fontSize: 9,
-              height: 1.1,
-              color: switch (state) {
-                _ExamChipState.today || _ExamChipState.noDate => colors.accent,
-                _ => colors.secondaryLabel,
-              },
-              fontWeight: state == _ExamChipState.today
-                  ? FontWeight.w700
-                  : FontWeight.w600,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _calendarContent(
-    BuildContext context,
-    _ExamChipState state,
-    Color foreground,
-  ) {
-    if (state == _ExamChipState.noDate) {
-      return Text(
-        '+',
-        style: context.type.emphasized.copyWith(
-          fontSize: 16,
-          fontWeight: FontWeight.w600,
-          color: context.colors.accent,
-        ),
-      );
-    }
-
-    final date = examDate!;
-    if (state == _ExamChipState.monthOnly) {
-      return Text(
-        _monthAbbreviation(date.month),
-        style: context.type.captionStrong.copyWith(
-          color: foreground,
-          fontWeight: FontWeight.w700,
-        ),
-      );
-    }
-
-    final day = date.day!;
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
+    final c = context.colors;
+    final noDateOrToday =
+        state == _ExamChipState.today || state == _ExamChipState.noDate;
+    return Row(
+      mainAxisSize: MainAxisSize.min,
       children: [
-        Text(
-          '${day.day}',
-          style: context.type.footnote.copyWith(
-            fontWeight: FontWeight.w700,
-            color: foreground,
-            height: 1,
-          ),
+        _WebExamTile(
+          date: masthead.examDate,
+          state: state,
+          monthAbbreviation: _monthAbbreviation,
         ),
-        Text(
-          _monthAbbreviation(day.month),
-          style: context.type.captionSmall.copyWith(
-            fontSize: 8,
-            fontWeight: FontWeight.w700,
-            color: state == _ExamChipState.today
-                ? context.colors.onAccent
-                : context.colors.secondaryLabel,
-            height: 1.1,
+        const SizedBox(width: PantasSpace.s10),
+        Flexible(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                masthead.examShortName,
+                style: PantasType.webChipName.copyWith(color: c.textPrimary),
+              ),
+              Text(
+                footer,
+                style: PantasType.webSmall.copyWith(
+                  color: noDateOrToday ? c.accent : c.textSecondary,
+                ),
+              ),
+            ],
           ),
         ),
       ],
@@ -474,7 +368,6 @@ class _WebWeekCard extends StatefulWidget {
     required this.week,
     required this.masthead,
     required this.footer,
-    required this.monthAbbreviation,
     required this.onDay,
   });
   final DateTime now;
@@ -482,7 +375,6 @@ class _WebWeekCard extends StatefulWidget {
   final HomeWeekStripData week;
   final HomeMastheadData masthead;
   final String footer;
-  final String Function(int month) monthAbbreviation;
 
   /// Resolves when what the tap opened is closed again.
   final Future<void> Function(DateTime) onDay;
@@ -511,66 +403,51 @@ class _WebWeekCardState extends State<_WebWeekCard> {
     final week = widget.week;
     final masthead = widget.masthead;
     final footer = widget.footer;
-    final monthAbbreviation = widget.monthAbbreviation;
-    final off = t.dark ? t.colors.tertiaryLabel : const Color(0xFFC7C7CC);
-    final date = masthead.examDate;
-    final examState = _stateFor(date, widget.now);
+    final examState = _stateFor(masthead.examDate, widget.now);
     return WebCard(
-      padding: const EdgeInsets.fromLTRB(8, 8, 10, 8),
+      padding: const EdgeInsets.fromLTRB(
+        PantasSpace.s8,
+        PantasSpace.s8,
+        PantasSpace.s10,
+        PantasSpace.s8,
+      ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
           for (var i = 0; i < 7; i++) ...[
-            if (i > 0) const SizedBox(width: 4),
+            if (i > 0) const SizedBox(width: PantasSpace.s4),
             _WebWeekDay(
               key: ValueKey('web-week-day-$i'),
               label: const ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][i],
               day: start.add(Duration(days: i)).day,
+              date: start.add(Duration(days: i)),
               state: week.states[i],
               todayFraction: week.todayFraction,
-              off: off,
+              planned: start.add(Duration(days: i)).isAfter(widget.now),
               selected: _open == start.add(Duration(days: i)),
               onPressed: () => unawaited(_tap(start.add(Duration(days: i)))),
             ),
           ],
           // `.exam`: margin-left 4 after the 4 px gap, 12 px padding.
           Container(
-            margin: const EdgeInsets.only(left: 8),
-            padding: const EdgeInsets.only(left: 12, right: 4),
+            margin: const EdgeInsets.only(left: PantasSpace.s8),
+            padding: const EdgeInsets.only(
+              left: PantasSpace.s12,
+              right: PantasSpace.s4,
+            ),
             decoration: BoxDecoration(
               border: Border(
                 left: BorderSide(
-                  color: t.colors.separator,
+                  color: t.colors.divider,
                   width: webHairline(context),
                 ),
               ),
             ),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                _WebExamTile(
-                  date: date,
-                  state: examState,
-                  monthAbbreviation: monthAbbreviation,
-                ),
-                const SizedBox(width: 10),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      masthead.examShortName,
-                      style: t.style(13, weight: FontWeight.w700, height: 1.3),
-                    ),
-                    Text(
-                      footer,
-                      style: examState == _ExamChipState.today ||
-                              examState == _ExamChipState.noDate
-                          ? t.sm.copyWith(color: t.colors.accent)
-                          : t.sm,
-                    ),
-                  ],
-                ),
-              ],
+            child: _ExamChip(
+              key: const ValueKey('masthead-exam-chip'),
+              masthead: masthead,
+              state: examState,
+              footer: footer,
             ),
           ),
         ],
@@ -579,8 +456,9 @@ class _WebWeekCardState extends State<_WebWeekCard> {
   }
 }
 
-/// Board `.exam` tile: 42 by 36. A day to come keeps the label color. Today
-/// is teal, a passed date is gray and no date is a dashed gray tile.
+/// Board `.exam` tile: 42 wide, 36 tall at least. A day to come keeps the
+/// label color. Today is teal, a passed date is gray and no date is a dashed
+/// gray tile.
 class _WebExamTile extends StatelessWidget {
   const _WebExamTile({
     required this.date,
@@ -597,26 +475,30 @@ class _WebExamTile extends StatelessWidget {
     final noDate = state == _ExamChipState.noDate;
     final passed = state == _ExamChipState.passed;
     final today = state == _ExamChipState.today;
-    final muted = t.disabledText;
-    final text = noDate || passed ? muted : t.colors.label;
-    final outline = noDate || passed
-        ? muted
-        : today
-            ? t.colors.accent
-            : t.colors.label;
+    final muted = t.colors.textSecondary;
+    final text = noDate || passed ? muted : t.colors.textPrimary;
+    final outline = noDate
+        ? t.colors.borderControl
+        : passed
+            ? muted
+            : today
+                ? t.colors.accent
+                : t.colors.textPrimary;
     final day = date?.day;
+    // 2.625 rem wide, so "DEC" stays inside the tile at 200% text.
+    final scale = MediaQuery.textScalerOf(context).scale(1).clamp(1.0, 2.0);
     final tile = Container(
-      width: 42,
-      height: 36,
+      width: (PantasSpace.s40 + PantasSpace.s2) * scale,
+      constraints: const BoxConstraints(minHeight: PantasSize.btnXs),
       alignment: Alignment.center,
       decoration: noDate
           ? null
           : BoxDecoration(
               border: Border.all(
                 color: outline,
-                width: passed ? 1 : 1.5,
+                width: passed ? PantasBorder.ring : PantasBorder.ringStrong,
               ),
-              borderRadius: BorderRadius.circular(9),
+              borderRadius: BorderRadius.circular(PantasRadius.sm),
             ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -628,31 +510,34 @@ class _WebExamTile extends StatelessWidget {
                     ? monthAbbreviation(date!.month)
                     : '${day.day}',
             maxLines: 1,
-            style: t.style(
-              14,
-              weight: FontWeight.w700,
-              height: 1,
-              color: text,
-            ),
+            style: PantasType.webGlyph.copyWith(height: 1, color: text),
           ),
           if (day != null)
             Text(
               monthAbbreviation(date!.month),
-              style: t.style(
-                9,
-                weight: FontWeight.w700,
-                height: 1.2,
-                color: t.colors.secondaryLabel,
+              style: PantasType.webPro.copyWith(
+                color: t.colors.textSecondary,
               ),
             ),
         ],
       ),
     );
-    if (!noDate) return tile;
-    return CustomPaint(
-      key: const ValueKey('web-exam-tile-dashed'),
-      foregroundPainter: _DashedTilePainter(color: outline),
-      child: tile,
+    final name = date == null
+        ? 'No exam date'
+        : day == null
+            ? DateFormat('MMMM', 'en_US').format(DateTime(2000, date!.month))
+            : DateFormat('MMMM d', 'en_US').format(day);
+    return Semantics(
+      image: true,
+      label: name,
+      excludeSemantics: true,
+      child: noDate
+          ? CustomPaint(
+              key: const ValueKey('web-exam-tile-dashed'),
+              foregroundPainter: _DashedTilePainter(color: outline),
+              child: tile,
+            )
+          : tile,
     );
   }
 }
@@ -671,7 +556,7 @@ class _DashedTilePainter extends CustomPainter {
       ..addRRect(
         RRect.fromRectAndRadius(
           (Offset.zero & size).deflate(.6),
-          const Radius.circular(9),
+          const Radius.circular(PantasRadius.sm),
         ),
       );
     for (final metric in outline.computeMetrics()) {
@@ -691,9 +576,10 @@ class _WebWeekDay extends StatefulWidget {
   const _WebWeekDay({
     required this.label,
     required this.day,
+    required this.date,
     required this.state,
     required this.todayFraction,
-    required this.off,
+    required this.planned,
     required this.onPressed,
     this.selected = false,
     super.key,
@@ -701,9 +587,12 @@ class _WebWeekDay extends StatefulWidget {
   final bool selected;
   final String label;
   final int day;
+  final DateTime date;
   final WeekDayState state;
   final double todayFraction;
-  final Color off;
+
+  /// Whether the day is after today, so a day with no mark is "Planned".
+  final bool planned;
   final VoidCallback onPressed;
   @override
   State<_WebWeekDay> createState() => _WebWeekDayState();
@@ -711,89 +600,113 @@ class _WebWeekDay extends StatefulWidget {
 
 class _WebWeekDayState extends State<_WebWeekDay> {
   bool _hover = false;
+  final GlobalKey<TooltipState> _tip = GlobalKey<TooltipState>();
+
+  /// The status the day's tooltip states, or null for a day with none
+  /// (WeekStrip, D186). Today always reads "Today".
+  String? get _status => switch (widget.state) {
+        WeekDayState.today => 'Today',
+        WeekDayState.done => 'Done',
+        WeekDayState.partial => 'Partly done',
+        WeekDayState.missed => 'No study',
+        WeekDayState.plain => widget.planned ? 'Planned' : null,
+        WeekDayState.dayOff => null,
+      };
+
   @override
   Widget build(BuildContext context) {
     final t = context.webTokens;
+    final c = t.colors;
     final today = widget.state == WeekDayState.today;
-    final dayOff = widget.state == WeekDayState.dayOff;
+    final dayOff = widget.state == WeekDayState.dayOff ||
+        widget.state == WeekDayState.missed;
     final fraction = widget.todayFraction;
+    final status = _status;
     final dot = switch (widget.state) {
-      WeekDayState.done => t.colors.accent,
+      WeekDayState.done => c.accent,
       WeekDayState.partial => null,
       _ => Colors.transparent,
     };
     final disc = Container(
-      width: 26,
-      height: 26,
+      width: PantasSize.task,
+      height: PantasSize.task,
       alignment: Alignment.center,
       decoration: BoxDecoration(
-        color: today ? t.colors.accentFill : null,
+        color: today ? c.accentFill : null,
         shape: BoxShape.circle,
       ),
       child: Text(
         '${widget.day}',
         style: today
-            ? t.style(
-                14,
-                weight: FontWeight.w700,
-                color: Colors.white,
-              )
-            : t.style(
-                15,
-                weight: FontWeight.w500,
-                color: dayOff ? widget.off : null,
+            ? PantasType.webGlyph.copyWith(color: c.onAccent)
+            : PantasType.webNav.copyWith(
+                color: dayOff ? c.textSecondary : c.textPrimary,
+                fontWeight: dayOff ? FontWeight.w400 : null,
               ),
       ),
     );
-    return MouseRegion(
+    final radius = BorderRadius.circular(PantasRadius.md);
+    final cell = MouseRegion(
       onEnter: (_) => setState(() => _hover = true),
       onExit: (_) => setState(() => _hover = false),
       child: WebKeyboardRing(
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: radius,
         child: InkWell(
           onTap: widget.onPressed,
-          borderRadius: BorderRadius.circular(12),
+          onFocusChange: (focused) {
+            if (focused &&
+                webKeyboardFocus({WidgetState.focused}) &&
+                status != null) {
+              _tip.currentState?.ensureTooltipVisible();
+            }
+          },
+          borderRadius: radius,
           hoverColor: Colors.transparent,
           splashColor: Colors.transparent,
           highlightColor: Colors.transparent,
           child: Container(
-            width: 44,
-            padding: const EdgeInsets.symmetric(vertical: 4),
+            width: PantasSize.weekDay,
+            padding: const EdgeInsets.symmetric(vertical: PantasSpace.s4),
             decoration: BoxDecoration(
-              color: _hover || widget.selected
-                  ? (t.dark ? t.colors.fill : const Color(0xFFF2F2F5))
-                  : null,
-              borderRadius: BorderRadius.circular(12),
+              color: _hover ? c.surfaceHover : null,
+              borderRadius: radius,
             ),
+            foregroundDecoration: widget.selected
+                ? BoxDecoration(
+                    borderRadius: radius,
+                    border: Border.all(
+                      color: c.accent,
+                      width: PantasBorder.ringSelected,
+                    ),
+                  )
+                : null,
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
                   widget.label,
-                  style: t.style(
-                    11,
-                    weight: today ? FontWeight.w700 : FontWeight.w600,
-                    height: 1.27,
-                    color: dayOff
-                        ? widget.off
-                        : today
-                            ? t.colors.accent
-                            : t.colors.secondaryLabel,
+                  style: PantasType.webKeyHintSm.copyWith(
+                    fontWeight: today
+                        ? FontWeight.w700
+                        : dayOff
+                            ? FontWeight.w400
+                            : null,
+                    color: today ? c.accent : c.textSecondary,
                   ),
                 ),
-                const SizedBox(height: 2),
+                const SizedBox(height: PantasSpace.s2),
                 SizedBox(
-                  height: 30,
+                  height: PantasSpace.s28 + PantasSpace.s2,
                   child: Stack(
                     alignment: Alignment.center,
                     clipBehavior: Clip.none,
                     children: [
                       // The ring stays through 100%. The check pops in over the
-                      // digit as the ring finishes (420 ms, popC).
+                      // digit as the ring finishes.
                       if (today && fraction > 0)
                         ProgressRing(
                           key: const ValueKey('web-today-progress'),
-                          size: 34,
+                          size: PantasSize.avatarLg - PantasSpace.s10,
                           fraction: fraction,
                           child: disc,
                         )
@@ -802,17 +715,17 @@ class _WebWeekDayState extends State<_WebWeekDay> {
                     ],
                   ),
                 ),
-                const SizedBox(height: 2),
+                const SizedBox(height: PantasSpace.s2),
                 Container(
-                  width: 5,
-                  height: 5,
+                  width: PantasSize.accuracyBar,
+                  height: PantasSize.accuracyBar,
                   decoration: BoxDecoration(
                     color: dot,
                     shape: BoxShape.circle,
                     gradient: dot == null
                         ? LinearGradient(
                             stops: const [.5, .5],
-                            colors: [t.colors.accent, const Color(0xFFD1D1D6)],
+                            colors: [c.accent, c.dividerStrong],
                           )
                         : null,
                   ),
@@ -821,6 +734,47 @@ class _WebWeekDayState extends State<_WebWeekDay> {
             ),
           ),
         ),
+      ),
+    );
+    if (status == null) {
+      return Semantics(
+        label: PantasDates.heading(widget.date),
+        button: true,
+        selected: widget.selected,
+        excludeSemantics: true,
+        onTap: widget.onPressed,
+        child: cell,
+      );
+    }
+    // The status tooltip replaces the legend (D186). It lives in the overlay,
+    // so the strip cannot clip it; a pointer waits 500 ms and a keyboard
+    // focus shows it at once.
+    return Semantics(
+      label: '${PantasDates.heading(widget.date)}, ${status.toLowerCase()}',
+      button: true,
+      selected: widget.selected,
+      excludeSemantics: true,
+      onTap: widget.onPressed,
+      child: Tooltip(
+        key: _tip,
+        message: status,
+        excludeFromSemantics: true,
+        waitDuration: PantasDurations.tooltip,
+        triggerMode: TooltipTriggerMode.manual,
+        preferBelow: false,
+        verticalOffset: PantasSize.weekDay / 2 + PantasSpace.s16,
+        constraints: const BoxConstraints(maxWidth: PantasSize.tooltipMax),
+        padding: const EdgeInsets.symmetric(
+          horizontal: PantasSpace.s8,
+          vertical: PantasSpace.s4,
+        ),
+        decoration: BoxDecoration(
+          color: c.toastBg,
+          borderRadius: BorderRadius.circular(PantasRadius.sm),
+          boxShadow: context.shadows.toast,
+        ),
+        textStyle: PantasType.webCaption.copyWith(color: c.toastText),
+        child: cell,
       ),
     );
   }

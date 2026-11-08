@@ -143,8 +143,9 @@ class AccuracyLine extends StatelessWidget {
           child: CustomPaint(
             painter: AccuracyLinePainter(
               series: series,
-              lineColor: web ? context.webTokens.colors.accent : colors.label,
-              gridColor: web ? context.webTokens.colors.separator : colors.fill,
+              lineColor:
+                  web ? context.webTokens.colors.accent : colors.textPrimary,
+              gridColor: web ? context.webTokens.colors.divider : colors.fill,
               web: web,
               areaColor: web ? context.webTokens.colors.accentTint : null,
             ),

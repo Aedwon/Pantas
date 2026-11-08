@@ -6,6 +6,10 @@ import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/half_ring_gauge.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
@@ -51,7 +55,12 @@ class HomePerformanceCard extends StatelessWidget {
               children: [
                 if (accuracy != null)
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(20, 26, 20, 14),
+                    padding: const EdgeInsets.fromLTRB(
+                      PantasSpace.s20,
+                      PantasSpace.s24,
+                      PantasSpace.s20,
+                      PantasSpace.s14,
+                    ),
                     child: HalfRingGauge(
                       web: true,
                       fraction: accuracy,
@@ -59,18 +68,25 @@ class HomePerformanceCard extends StatelessWidget {
                     ),
                   ),
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(20, 6, 20, 8),
+                  padding: const EdgeInsets.fromLTRB(
+                    PantasSpace.s20,
+                    PantasSpace.s6,
+                    PantasSpace.s20,
+                    PantasSpace.s8,
+                  ),
                   child: Column(
                     children: [
                       for (final row in measured)
                         Container(
-                          padding: const EdgeInsets.symmetric(vertical: 12),
+                          padding: const EdgeInsets.symmetric(
+                            vertical: PantasSpace.s12,
+                          ),
                           decoration: BoxDecoration(
                             border: row == measured.last
                                 ? null
                                 : Border(
                                     bottom: BorderSide(
-                                      color: context.webTokens.colors.separator,
+                                      color: context.webTokens.colors.divider,
                                       width: webHairline(context),
                                     ),
                                   ),
@@ -88,7 +104,7 @@ class HomePerformanceCard extends StatelessWidget {
                                   ),
                                   // A title that fills its line must still
                                   // leave a gap before the figure.
-                                  const SizedBox(width: 12),
+                                  const SizedBox(width: PantasSpace.s12),
                                   Text(
                                     '${(row.accuracy! * 100).round()}%',
                                     style: context.webTokens.style(
@@ -99,9 +115,9 @@ class HomePerformanceCard extends StatelessWidget {
                                   ),
                                 ],
                               ),
-                              const SizedBox(height: 8),
+                              const SizedBox(height: PantasSpace.s8),
                               SizedBox(
-                                height: 5,
+                                height: PantasSpace.s4,
                                 child: AccuracyBar(accuracy: row.accuracy!),
                               ),
                             ],
@@ -114,7 +130,7 @@ class HomePerformanceCard extends StatelessWidget {
                 // chevron. The PRO tag is on the Free plan only.
                 Container(
                   height: webHairline(context),
-                  color: context.webTokens.colors.separator,
+                  color: context.webTokens.colors.divider,
                 ),
                 _SeeAllRow(pro: pro, onPressed: onOpen),
               ],
@@ -128,7 +144,12 @@ class HomePerformanceCard extends StatelessWidget {
       children: [
         if (accuracy != null)
           Padding(
-            padding: const EdgeInsets.fromLTRB(16, 18, 16, 20),
+            padding: const EdgeInsets.fromLTRB(
+              PantasSpace.s16,
+              PantasSpace.s18,
+              PantasSpace.s16,
+              PantasSpace.s20,
+            ),
             child: HalfRingGauge(
               fraction: accuracy,
               label: 'Overall accuracy',
@@ -136,11 +157,14 @@ class HomePerformanceCard extends StatelessWidget {
           ),
         for (final row in measured)
           Container(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 13),
+            padding: const EdgeInsets.symmetric(
+              horizontal: PantasSpace.s16,
+              vertical: PantasSpace.s12,
+            ),
             decoration: BoxDecoration(
               border: Border(
                 top: BorderSide(
-                  color: context.colors.separator,
+                  color: context.colors.divider,
                   width: .5,
                 ),
               ),
@@ -152,14 +176,14 @@ class HomePerformanceCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Expanded(child: Text(row.title, style: context.type.body)),
-                    const SizedBox(width: 8),
+                    const SizedBox(width: PantasSpace.s8),
                     Text(
                       '${(row.accuracy! * 100).round()}%',
                       style: context.type.emphasized,
                     ),
                   ],
                 ),
-                const SizedBox(height: 9),
+                const SizedBox(height: PantasSpace.s8),
                 AccuracyBar(accuracy: row.accuracy!),
               ],
             ),
@@ -181,7 +205,7 @@ class HomePerformanceCard extends StatelessWidget {
                             .copyWith(color: context.colors.accent),
                       ),
                     ),
-                    const SizedBox(width: 8),
+                    const SizedBox(width: PantasSpace.s8),
                     const _ProPill(),
                   ],
                 ),
@@ -204,12 +228,15 @@ class _SeeAllRow extends StatelessWidget {
       style: ButtonStyle(
         animationDuration: MediaQuery.disableAnimationsOf(context)
             ? Duration.zero
-            : const Duration(milliseconds: 150),
+            : PantasDurations.short2,
         visualDensity: VisualDensity.standard,
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
         minimumSize: const WidgetStatePropertyAll(Size(double.infinity, 51)),
         padding: const WidgetStatePropertyAll(
-          EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+          EdgeInsets.symmetric(
+            horizontal: PantasSpace.s20,
+            vertical: PantasSpace.s16,
+          ),
         ),
         shape: const WidgetStatePropertyAll(RoundedRectangleBorder()),
         backgroundColor: WidgetStateProperty.resolveWith(
@@ -227,29 +254,29 @@ class _SeeAllRow extends StatelessWidget {
           Expanded(
             child: Text(
               'See all topics and lessons',
-              style: t.style(16, color: t.colors.label, height: 1.3),
+              style: PantasType.webBody
+                  .copyWith(height: 1.3, color: t.colors.textPrimary),
             ),
           ),
           if (!pro) ...[
-            const SizedBox(width: 12),
+            const SizedBox(width: PantasSpace.s12),
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 1),
+              padding: const EdgeInsets.symmetric(
+                horizontal: PantasSpace.s6,
+                vertical: PantasSpace.s2,
+              ),
               decoration: BoxDecoration(
                 color: t.colors.accentTint,
-                borderRadius: BorderRadius.circular(5),
+                borderRadius: BorderRadius.circular(PantasRadius.xs),
               ),
               child: Text(
                 'PRO',
-                style: t.style(
-                  11,
-                  weight: FontWeight.w700,
-                  color: t.tintText,
-                  spacing: .22,
-                ),
+                style: PantasType.webPro
+                    .copyWith(letterSpacing: .22, color: t.tintText),
               ),
             ),
           ],
-          const SizedBox(width: 12),
+          const SizedBox(width: PantasSpace.s12),
           const WebChevron(),
         ],
       ),
@@ -264,21 +291,20 @@ class _ProPill extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Container(
         height: 22,
-        padding: const EdgeInsets.symmetric(horizontal: 8),
+        padding: const EdgeInsets.symmetric(horizontal: PantasSpace.s8),
         alignment: Alignment.center,
         decoration: BoxDecoration(
           color: context.colors.accentTint,
-          borderRadius: BorderRadius.circular(99),
+          borderRadius: BorderRadius.circular(PantasRadius.full),
         ),
         child: Text(
           'Pro',
-          style: context.type.footnote.copyWith(
-            fontSize: 12,
+          style: context.type.caption.copyWith(
             fontWeight: FontWeight.w700,
             letterSpacing: .24,
             height: 1.35,
             color: Theme.of(context).brightness == Brightness.dark
-                ? context.colors.label
+                ? context.colors.textPrimary
                 : context.colors.accent,
           ),
         ),

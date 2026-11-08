@@ -8,6 +8,9 @@ import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/components/progress_ring.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
@@ -56,7 +59,7 @@ class PlanDayPage extends StatelessWidget {
                   ListRow(
                     title: 'Rest day',
                     icon: PantasIcons.restDay,
-                    iconColor: context.colors.secondaryLabel,
+                    iconColor: context.colors.textSecondary,
                     variant: ListRowVariant.value,
                   )
                 else ...[
@@ -74,15 +77,20 @@ class PlanDayPage extends StatelessWidget {
                                   ProgressRing.phoneEmptyTrack(context),
                             ),
                       titleColor:
-                          lesson.read ? context.colors.secondaryLabel : null,
+                          lesson.read ? context.colors.textSecondary : null,
                       onTap: () => onLesson(lesson),
                       divider: true,
                       naturalValue: true,
                       dividerInset: 52,
-                      contentPadding: const EdgeInsets.fromLTRB(16, 11, 16, 12),
+                      contentPadding: const EdgeInsets.fromLTRB(
+                        PantasSpace.s16,
+                        PantasSpace.s12,
+                        PantasSpace.s16,
+                        PantasSpace.s12,
+                      ),
                       subtitleGap: 2,
                       valueStyle: context.type.subhead
-                          .copyWith(color: context.colors.secondaryLabel),
+                          .copyWith(color: context.colors.textSecondary),
                     ),
                   if (!past || reviewsTotal > 0)
                     ListRow(
@@ -101,16 +109,21 @@ class PlanDayPage extends StatelessWidget {
                                   ProgressRing.phoneEmptyTrack(context),
                             ),
                       titleColor: past && reviewsDone == reviewsTotal
-                          ? context.colors.secondaryLabel
+                          ? context.colors.textSecondary
                           : null,
                       variant: ListRowVariant.value,
                       divider: true,
                       naturalValue: true,
                       dividerInset: 52,
-                      contentPadding: const EdgeInsets.fromLTRB(16, 11, 16, 12),
+                      contentPadding: const EdgeInsets.fromLTRB(
+                        PantasSpace.s16,
+                        PantasSpace.s12,
+                        PantasSpace.s16,
+                        PantasSpace.s12,
+                      ),
                       subtitleGap: 2,
                       valueStyle: context.type.subhead
-                          .copyWith(color: context.colors.secondaryLabel),
+                          .copyWith(color: context.colors.textSecondary),
                     ),
                   if (!past || newTotal > 0)
                     ListRow(
@@ -129,22 +142,32 @@ class PlanDayPage extends StatelessWidget {
                                   ProgressRing.phoneEmptyTrack(context),
                             ),
                       titleColor: past && newDone == newTotal
-                          ? context.colors.secondaryLabel
+                          ? context.colors.textSecondary
                           : null,
                       variant: ListRowVariant.value,
                       naturalValue: true,
                       dividerInset: 52,
-                      contentPadding: const EdgeInsets.fromLTRB(16, 11, 16, 12),
+                      contentPadding: const EdgeInsets.fromLTRB(
+                        PantasSpace.s16,
+                        PantasSpace.s12,
+                        PantasSpace.s16,
+                        PantasSpace.s12,
+                      ),
                       subtitleGap: 2,
                       valueStyle: context.type.subhead
-                          .copyWith(color: context.colors.secondaryLabel),
+                          .copyWith(color: context.colors.textSecondary),
                     ),
                 ],
               ],
             ),
             if (!past && !rest)
               Padding(
-                padding: const EdgeInsets.fromLTRB(16, 7, 16, 0),
+                padding: const EdgeInsets.fromLTRB(
+                  PantasSpace.s16,
+                  PantasSpace.s8,
+                  PantasSpace.s16,
+                  PantasSpace.s0,
+                ),
                 child: Text(
                   'Reviews and new questions are counted that morning.',
                   style: context.type.footnote,
@@ -174,7 +197,12 @@ class PlanDayPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(20, 20, 20, 6),
+                    padding: const EdgeInsets.fromLTRB(
+                      PantasSpace.s20,
+                      PantasSpace.s20,
+                      PantasSpace.s20,
+                      PantasSpace.s6,
+                    ),
                     child: Row(
                       children: [
                         Expanded(
@@ -185,19 +213,18 @@ class PlanDayPage extends StatelessWidget {
                         ),
                         Container(
                           padding: const EdgeInsets.symmetric(
-                            horizontal: 8,
-                            vertical: 2,
+                            horizontal: PantasSpace.s8,
+                            vertical: PantasSpace.s2,
                           ),
                           decoration: BoxDecoration(
                             color: t.disabledBackground,
-                            borderRadius: BorderRadius.circular(99),
+                            borderRadius:
+                                BorderRadius.circular(PantasRadius.full),
                           ),
                           child: Text(
                             'PLANNED',
-                            style: t.sm.copyWith(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w600,
-                            ),
+                            style: PantasType.webTag
+                                .copyWith(color: t.colors.textSecondary),
                           ),
                         ),
                       ],
@@ -215,8 +242,7 @@ class PlanDayPage extends StatelessWidget {
                         boardMetrics: true,
                         title: lesson.title,
                         subtitle: lesson.subject,
-                        titleColor:
-                            lesson.read ? t.colors.secondaryLabel : null,
+                        titleColor: lesson.read ? t.colors.textSecondary : null,
                         leading: lesson.read
                             ? Icon(
                                 Icons.check_circle,
@@ -227,7 +253,7 @@ class PlanDayPage extends StatelessWidget {
                                 fraction: 0,
                                 size: 26,
                                 emptyTrackColor:
-                                    t.dark ? null : const Color(0xFFD1D1D6),
+                                    ProgressRing.phoneEmptyTrack(context),
                               ),
                         value: lesson.read ? 'Read' : null,
                         trailing: !past && !lesson.read
@@ -248,7 +274,7 @@ class PlanDayPage extends StatelessWidget {
                               : 0,
                           size: 26,
                           emptyTrackColor:
-                              t.dark ? null : const Color(0xFFD1D1D6),
+                              ProgressRing.phoneEmptyTrack(context),
                         ),
                         subtitle: past
                             ? 'Questions due that day'
@@ -264,7 +290,7 @@ class PlanDayPage extends StatelessWidget {
                               past && newTotal > 0 ? newDone / newTotal : 0,
                           size: 26,
                           emptyTrackColor:
-                              t.dark ? null : const Color(0xFFD1D1D6),
+                              ProgressRing.phoneEmptyTrack(context),
                         ),
                         subtitle: past
                             ? "From that day's lessons"
@@ -278,7 +304,12 @@ class PlanDayPage extends StatelessWidget {
             ),
             if (!past && !rest)
               Padding(
-                padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
+                padding: const EdgeInsets.fromLTRB(
+                  PantasSpace.s16,
+                  PantasSpace.s8,
+                  PantasSpace.s16,
+                  PantasSpace.s0,
+                ),
                 child: Text(
                   'Reviews and new questions are counted that morning. '
                   'You can read a lesson early; it counts toward its day.',
@@ -355,9 +386,9 @@ class PlanWeekPage extends StatelessWidget {
                           Icon(
                             PantasIcons.restDay,
                             size: 13,
-                            color: context.colors.tertiaryLabel,
+                            color: context.colors.textSecondary,
                           ),
-                          const SizedBox(width: 6),
+                          const SizedBox(width: PantasSpace.s6),
                         ],
                         Expanded(
                           child: Text(
@@ -366,8 +397,8 @@ class PlanWeekPage extends StatelessWidget {
                             overflow: TextOverflow.ellipsis,
                             style: context.type.subhead.copyWith(
                               color: days[i].rest
-                                  ? context.colors.secondaryLabel
-                                  : context.colors.label,
+                                  ? context.colors.textSecondary
+                                  : context.colors.textPrimary,
                             ),
                           ),
                         ),
@@ -375,7 +406,7 @@ class PlanWeekPage extends StatelessWidget {
                     ),
                     verticalPadding: 12.25,
                     leading: SizedBox(
-                      width: 64,
+                      width: PantasSpace.s56 + PantasSpace.s8,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -383,8 +414,8 @@ class PlanWeekPage extends StatelessWidget {
                             DateFormat('EEE', 'en_US').format(days[i].date),
                             style: context.type.subheadStrong.copyWith(
                               color: days[i].rest
-                                  ? context.colors.secondaryLabel
-                                  : context.colors.label,
+                                  ? context.colors.textSecondary
+                                  : context.colors.textPrimary,
                             ),
                           ),
                           Text(
@@ -401,7 +432,12 @@ class PlanWeekPage extends StatelessWidget {
               ],
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(16, 8, 8, 0),
+              padding: const EdgeInsets.fromLTRB(
+                PantasSpace.s16,
+                PantasSpace.s8,
+                PantasSpace.s8,
+                PantasSpace.s0,
+              ),
               child: Wrap(
                 alignment: WrapAlignment.spaceBetween,
                 crossAxisAlignment: WrapCrossAlignment.center,
@@ -442,23 +478,21 @@ class PlanWeekPage extends StatelessWidget {
                       dimmed: days[i].rest,
                       divider: i < days.length - 1,
                       leading: SizedBox(
-                        width: 34,
+                        width: PantasSpace.s32,
                         child: Column(
                           children: [
                             Text(
                               DateFormat('EEE', 'en_US').format(days[i].date),
-                              style: t.sm.copyWith(
-                                fontSize: 11,
-                                fontWeight: FontWeight.w600,
+                              style: PantasType.webKeyHintSm.copyWith(
+                                color: t.colors.textSecondary,
                                 height: 14 / 11,
                               ),
                             ),
                             Text(
                               '${days[i].date.day}',
-                              style: t.style(
-                                17,
-                                weight: FontWeight.w600,
+                              style: PantasType.webButtonLg.copyWith(
                                 height: 1.3,
+                                color: t.colors.textPrimary,
                               ),
                             ),
                           ],
@@ -469,12 +503,17 @@ class PlanWeekPage extends StatelessWidget {
                           days[i].rest ? null : () => onDay(days[i].date),
                     ),
                   Container(
-                    padding: const EdgeInsets.fromLTRB(20, 16, 20, 18),
+                    padding: const EdgeInsets.fromLTRB(
+                      PantasSpace.s20,
+                      PantasSpace.s16,
+                      PantasSpace.s20,
+                      PantasSpace.s18,
+                    ),
                     decoration: BoxDecoration(
-                      color: t.dark ? null : const Color(0xFFFBFBFC),
+                      color: t.colors.surfaceInset,
                       border: Border(
                         top: BorderSide(
-                          color: t.colors.separator,
+                          color: t.colors.divider,
                           width: webHairline(context),
                         ),
                       ),

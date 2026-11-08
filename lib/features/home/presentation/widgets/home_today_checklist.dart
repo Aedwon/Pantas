@@ -9,6 +9,9 @@ import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/progress_ring.dart';
 import 'package:pantas/core/ui/components/today_questions.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
@@ -139,7 +142,12 @@ class HomeTodayChecklist extends StatelessWidget {
             ],
           ),
           Padding(
-            padding: const EdgeInsets.fromLTRB(16, 20, 16, 8),
+            padding: const EdgeInsets.fromLTRB(
+              PantasSpace.s16,
+              PantasSpace.s20,
+              PantasSpace.s16,
+              PantasSpace.s8,
+            ),
             child: Text('FROM TOMORROW', style: context.type.sectionHeader),
           ),
         ],
@@ -151,7 +159,7 @@ class HomeTodayChecklist extends StatelessWidget {
                 subtitle: mockSubtitle,
                 value: mockDuration,
                 valueStyle: context.type.subhead
-                    .copyWith(color: context.colors.secondaryLabel),
+                    .copyWith(color: context.colors.textSecondary),
                 leading: const ProgressRing(fraction: 0),
                 onTap: onMock,
                 divider: true,
@@ -195,7 +203,12 @@ class HomeTodayChecklist extends StatelessWidget {
               ),
             if (main != null)
               Padding(
-                padding: const EdgeInsets.fromLTRB(16, 14, 16, 16),
+                padding: const EdgeInsets.fromLTRB(
+                  PantasSpace.s16,
+                  PantasSpace.s14,
+                  PantasSpace.s16,
+                  PantasSpace.s16,
+                ),
                 child: PantasButton(
                   label: main.label,
                   busy: advancing,
@@ -204,7 +217,12 @@ class HomeTodayChecklist extends StatelessWidget {
               ),
             if (canAdvance)
               Padding(
-                padding: const EdgeInsets.fromLTRB(16, 4, 16, 16),
+                padding: const EdgeInsets.fromLTRB(
+                  PantasSpace.s16,
+                  PantasSpace.s4,
+                  PantasSpace.s16,
+                  PantasSpace.s16,
+                ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
@@ -212,7 +230,7 @@ class HomeTodayChecklist extends StatelessWidget {
                       "That's all for today.",
                       style: context.type.emphasized,
                     ),
-                    const SizedBox(height: 8),
+                    const SizedBox(height: PantasSpace.s8),
                     Text(
                       advanced
                           ? 'Want to keep going? '
@@ -225,7 +243,7 @@ class HomeTodayChecklist extends StatelessWidget {
                               'Stop whenever you like.',
                       style: context.type.footnote.copyWith(height: 1.4),
                     ),
-                    const SizedBox(height: 8),
+                    const SizedBox(height: PantasSpace.s8),
                     PantasButton(
                       label: 'I Want to Advance',
                       busy: advancing,
@@ -237,7 +255,12 @@ class HomeTodayChecklist extends StatelessWidget {
               )
             else if (doneNote != null)
               Padding(
-                padding: const EdgeInsets.fromLTRB(16, 14, 16, 16),
+                padding: const EdgeInsets.fromLTRB(
+                  PantasSpace.s16,
+                  PantasSpace.s14,
+                  PantasSpace.s16,
+                  PantasSpace.s16,
+                ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
@@ -280,7 +303,7 @@ class HomeTodayChecklist extends StatelessWidget {
                 : ProgressRing(
                     fraction: 0,
                     emptyStrokeWidth: 2,
-                    emptyTrackColor: t.dark ? null : const Color(0xFFD1D1D6),
+                    emptyTrackColor: ProgressRing.phoneEmptyTrack(context),
                   ),
           ),
         );
@@ -293,23 +316,21 @@ class HomeTodayChecklist extends StatelessWidget {
           chevron: upNext ? WebRowChevron.none : WebRowChevron.hover,
           title: l.title,
           subtitle: l.subject,
-          titleColor: l.read ? t.colors.secondaryLabel : null,
+          titleColor: l.read ? t.colors.textSecondary : null,
           titleSuffix: !upNext
               ? null
               : Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: PantasSpace.s8,
+                    vertical: PantasSpace.s2,
+                  ),
                   decoration: BoxDecoration(
                     color: t.colors.accentTint,
-                    borderRadius: BorderRadius.circular(99),
+                    borderRadius: BorderRadius.circular(PantasRadius.full),
                   ),
                   child: Text(
                     'Up next',
-                    style: t.style(
-                      12,
-                      weight: FontWeight.w600,
-                      color: t.tintText,
-                    ),
+                    style: PantasType.webTag.copyWith(color: t.tintText),
                   ),
                 ),
           value: l.read
@@ -351,14 +372,19 @@ class HomeTodayChecklist extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Padding(
-              padding: const EdgeInsets.fromLTRB(4, 0, 4, 9),
+              padding: const EdgeInsets.fromLTRB(
+                PantasSpace.s4,
+                PantasSpace.s0,
+                PantasSpace.s4,
+                PantasSpace.s8,
+              ),
               child: Row(
                 children: [
                   Expanded(child: Text('TODAY', style: t.eb)),
                   if (onPlan != null)
                     // The board's label row is 19 px tall (link line box).
                     SizedBox(
-                      height: 19,
+                      height: PantasSpace.s20,
                       child: Center(
                         child: WebTextLink(
                           label: 'View full plan',
@@ -381,7 +407,12 @@ class HomeTodayChecklist extends StatelessWidget {
                       leading: const CheckMark(),
                     ),
                     Padding(
-                      padding: const EdgeInsets.fromLTRB(20, 14, 20, 4),
+                      padding: const EdgeInsets.fromLTRB(
+                        PantasSpace.s20,
+                        PantasSpace.s14,
+                        PantasSpace.s20,
+                        PantasSpace.s4,
+                      ),
                       child: Text('FROM TOMORROW', style: t.eb),
                     ),
                   ],
@@ -428,13 +459,17 @@ class HomeTodayChecklist extends StatelessWidget {
                     ),
                   if (start != null)
                     Container(
-                      padding: const EdgeInsets.fromLTRB(20, 16, 20, 18),
+                      padding: const EdgeInsets.fromLTRB(
+                        PantasSpace.s20,
+                        PantasSpace.s16,
+                        PantasSpace.s20,
+                        PantasSpace.s18,
+                      ),
                       decoration: BoxDecoration(
-                        color:
-                            t.dark ? t.colors.surface : const Color(0xFFFBFBFC),
+                        color: t.colors.surfaceInset,
                         border: Border(
                           top: BorderSide(
-                            color: t.colors.separator,
+                            color: t.colors.divider,
                             width: webHairline(context),
                           ),
                         ),
@@ -444,7 +479,7 @@ class HomeTodayChecklist extends StatelessWidget {
                           Expanded(
                             child: Text(footerCaption ?? '', style: t.sub),
                           ),
-                          const SizedBox(width: 16),
+                          const SizedBox(width: PantasSpace.s16),
                           WebButton(
                             label: label,
                             keyHint: 'Enter',
@@ -479,7 +514,12 @@ class HomeTodayChecklist extends StatelessWidget {
                 'Stop whenever you like.'
         : _doneDetail;
     return Padding(
-      padding: const EdgeInsets.fromLTRB(4, 22, 4, 0),
+      padding: const EdgeInsets.fromLTRB(
+        PantasSpace.s4,
+        PantasSpace.s24,
+        PantasSpace.s4,
+        PantasSpace.s0,
+      ),
       child: Row(
         children: [
           Expanded(
@@ -488,17 +528,17 @@ class HomeTodayChecklist extends StatelessWidget {
               children: [
                 Text(
                   "That's all for today.",
-                  style: t.style(19, weight: FontWeight.w700),
+                  style: PantasType.webH3.copyWith(color: t.colors.textPrimary),
                 ),
                 if (detail != null) ...[
-                  const SizedBox(height: 4),
+                  const SizedBox(height: PantasSpace.s4),
                   Text(detail, style: t.sub),
                 ],
               ],
             ),
           ),
           if (canAdvance) ...[
-            const SizedBox(width: 20),
+            const SizedBox(width: PantasSpace.s20),
             WebButton(
               label: 'I Want to Advance',
               variant: WebButtonVariant.secondary,
@@ -541,8 +581,8 @@ class HomeTodayChecklist extends StatelessWidget {
                 ? 'Resume'
                 : '${lesson.minutes} min',
         valueStyle:
-            context.type.subhead.copyWith(color: context.colors.secondaryLabel),
-        titleColor: lesson.read ? context.colors.secondaryLabel : null,
+            context.type.subhead.copyWith(color: context.colors.textSecondary),
+        titleColor: lesson.read ? context.colors.textSecondary : null,
         leading: lesson.read
             ? const CheckMark()
             : ProgressRing(
@@ -565,17 +605,24 @@ class HomeTodayHeader extends StatelessWidget {
   final VoidCallback? onPlan;
 
   @override
-  Widget build(BuildContext context) =>
-      isWideWebLayout(width: MediaQuery.sizeOf(context).width, web: web)
+  Widget build(BuildContext context) => isWideWebLayout(
+        width: MediaQuery.sizeOf(context).width,
+        web: web,
+      )
           ? Padding(
-              padding: const EdgeInsets.fromLTRB(4, 0, 4, 9),
+              padding: const EdgeInsets.fromLTRB(
+                PantasSpace.s4,
+                PantasSpace.s0,
+                PantasSpace.s4,
+                PantasSpace.s8,
+              ),
               child: Row(
                 children: [
                   Expanded(child: Text('TODAY', style: context.webTokens.eb)),
                   if (onPlan != null)
                     // The board's label row is 19 px tall, with no arrow.
                     SizedBox(
-                      height: 19,
+                      height: PantasSpace.s20,
                       child: Center(
                         child: WebTextLink(
                           label: 'View full plan',
@@ -589,12 +636,12 @@ class HomeTodayHeader extends StatelessWidget {
             )
           : Padding(
               padding: EdgeInsets.only(
-                left: 16,
-                right: 4,
-                // Boards: the link line sits 22 px under the card above and
+                left: PantasSpace.s16,
+                right: PantasSpace.s4,
+                // Boards: the link line sits 24 px under the card above and
                 // 8 px over the Today card.
-                top: onPlan == null ? 0 : 6,
-                bottom: onPlan == null ? 7 : 8,
+                top: onPlan == null ? PantasSpace.s0 : PantasSpace.s6,
+                bottom: PantasSpace.s8,
               ),
               child: Wrap(
                 alignment: WrapAlignment.spaceBetween,
@@ -607,7 +654,9 @@ class HomeTodayHeader extends StatelessWidget {
                       style: TextButton.styleFrom(
                         visualDensity: VisualDensity.standard,
                         minimumSize: const Size(0, 20),
-                        padding: const EdgeInsets.symmetric(horizontal: 12),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: PantasSpace.s12,
+                        ),
                         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                       ),
                       child: Text(

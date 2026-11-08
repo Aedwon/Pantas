@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/features/home/presentation/widgets/home_columns.dart';
 
 /// Phone Your record: the three always-present sections of the loaded page.
 class RecordSkeleton extends StatelessWidget {
@@ -10,9 +12,9 @@ class RecordSkeleton extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             SkeletonSection(height: 125),
-            SizedBox(height: 24),
+            SizedBox(height: PantasSpace.s24),
             SkeletonSection(height: 238),
-            SizedBox(height: 24),
+            SizedBox(height: PantasSpace.s24),
             SkeletonSection(height: 230),
           ],
         ),
@@ -28,7 +30,7 @@ class TendenciesSkeleton extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             SkeletonSurface(height: 150),
-            SizedBox(height: 24),
+            SizedBox(height: PantasSpace.s24),
             SkeletonSection(height: 400),
           ],
         ),
@@ -44,9 +46,9 @@ class PerformanceSkeleton extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             SkeletonBlock(height: 130, radius: 14),
-            SizedBox(height: 20),
+            SizedBox(height: PantasSpace.s20),
             SkeletonBlock(height: 32, radius: 9),
-            SizedBox(height: 16),
+            SizedBox(height: PantasSpace.s16),
             SkeletonSection(height: 360, headerWidth: 90),
           ],
         ),
@@ -65,10 +67,10 @@ class WebRecordLoading extends StatelessWidget {
               children: [
                 WebSkeletonEyebrow(),
                 SkeletonCard(height: 100),
-                SizedBox(height: 28),
+                SizedBox(height: PantasSpace.s28),
                 WebSkeletonEyebrow(width: 110),
                 _TotalsGrid(),
-                SizedBox(height: 28),
+                SizedBox(height: PantasSpace.s28),
                 WebSkeletonEyebrow(width: 190),
                 SkeletonCard(height: 236),
               ],
@@ -80,20 +82,20 @@ class WebRecordLoading extends StatelessWidget {
                 SkeletonCard(height: 224),
               ],
             );
-            if (constraints.maxWidth < 868) {
+            if (HomeColumns.stacks(constraints.maxWidth)) {
               return const Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [left, SizedBox(height: 28), right],
+                children: [left, SizedBox(height: PantasSpace.s28), right],
               );
             }
             return Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(
-                  width: 520 + (constraints.maxWidth - 868) * 1.6 / 2.6,
+                  width: HomeColumns.primaryWidth(constraints.maxWidth),
                   child: left,
                 ),
-                const SizedBox(width: 28),
+                const SizedBox(width: PantasSpace.s28),
                 const Expanded(child: right),
               ],
             );
@@ -129,20 +131,20 @@ class WebTendenciesLoading extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             SkeletonCard(height: 112),
-            SizedBox(height: 26),
+            SizedBox(height: PantasSpace.s24),
             WebSkeletonEyebrow(),
             Row(
               children: [
                 Expanded(child: SkeletonCard(height: 180)),
-                SizedBox(width: 14),
+                SizedBox(width: PantasSpace.s14),
                 Expanded(child: SkeletonCard(height: 180)),
               ],
             ),
-            SizedBox(height: 14),
+            SizedBox(height: PantasSpace.s14),
             Row(
               children: [
                 Expanded(child: SkeletonCard(height: 180)),
-                SizedBox(width: 14),
+                SizedBox(width: PantasSpace.s14),
                 Expanded(child: SkeletonCard(height: 180)),
               ],
             ),
@@ -165,17 +167,17 @@ class WebPerformanceLoading extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   SkeletonBlock(height: 36, radius: 10),
-                  SizedBox(height: 16),
+                  SizedBox(height: PantasSpace.s16),
                   WebSkeletonEyebrow(width: 90),
                   SkeletonCard(height: 360),
                 ],
               ),
             ),
-            SizedBox(width: 28),
+            SizedBox(width: PantasSpace.s28),
             Expanded(
               flex: 100,
               child: Padding(
-                padding: EdgeInsets.only(top: 54),
+                padding: EdgeInsets.only(top: PantasSpace.s56),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [

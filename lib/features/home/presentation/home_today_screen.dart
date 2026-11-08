@@ -20,6 +20,8 @@ import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/components/today_questions.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
@@ -72,7 +74,7 @@ String? homeDayNoteLabel(HomeTodayData data) {
 }
 
 /// The longest Home waits for a lesson's content before opening it anyway.
-const _lessonReadWait = Duration(milliseconds: 500);
+const _lessonReadWait = PantasDurations.reveal;
 
 /// Owns one Home request, including its retries and every asynchronous launch.
 /// Closing the page invalidates the original captured account/exam boundary.
@@ -708,16 +710,21 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
           // Boards (HE_BackAfterBreak, HE_MockMoved): the line sits 6 px lower
           // and the Today label 16 px nearer than the plain gap.
           Padding(
-            padding: EdgeInsets.fromLTRB(4, widget.noteTopGap, 4, 0),
+            padding: EdgeInsets.fromLTRB(
+              PantasSpace.s4,
+              widget.noteTopGap,
+              PantasSpace.s4,
+              PantasSpace.s0,
+            ),
             child: Text(
               note,
               style: context.type.subhead.copyWith(
-                color: context.colors.secondaryLabel,
+                color: context.colors.textSecondary,
                 height: 1.4,
               ),
             ),
           ),
-          const SizedBox(height: 6),
+          const SizedBox(height: PantasSpace.s6),
         ],
         body,
         if (_failed && _sheet == null)
@@ -820,7 +827,7 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
               wrapTitle: true,
               titleStyle: context.webTokens.style(
                 16,
-                color: lesson.read ? context.colors.secondaryLabel : null,
+                color: lesson.read ? context.colors.textSecondary : null,
                 height: 1.3,
               ),
               boardMetrics: true,
@@ -842,9 +849,10 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
               naturalValue: true,
               // A long title is read in full, not cut with dots (Nov 3 rule).
               wrapTitle: true,
-              contentPadding: const EdgeInsets.symmetric(vertical: 9),
+              contentPadding:
+                  const EdgeInsets.symmetric(vertical: PantasSpace.s8),
               minimumHeight: 0,
-              titleColor: lesson.read ? context.colors.secondaryLabel : null,
+              titleColor: lesson.read ? context.colors.textSecondary : null,
               leading: lesson.read
                   ? const CheckMark()
                   : ProgressRing(fraction: lesson.fraction ?? 0),
@@ -870,12 +878,15 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
                 for (final group
                     in groupBy(shown, (lesson) => lesson.subject).entries)
                   Padding(
-                    padding: const EdgeInsets.only(bottom: 16),
+                    padding: const EdgeInsets.only(bottom: PantasSpace.s16),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(left: 8, bottom: 9),
+                          padding: const EdgeInsets.only(
+                            left: PantasSpace.s8,
+                            bottom: PantasSpace.s8,
+                          ),
                           child: WebText(
                             group.key,
                             kind: WebTextKind.eyebrow,
@@ -904,13 +915,16 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
                     Align(
                       alignment: Alignment.centerLeft,
                       child: Padding(
-                        padding: const EdgeInsets.only(top: 12, bottom: 2),
+                        padding: const EdgeInsets.only(
+                          top: PantasSpace.s12,
+                          bottom: PantasSpace.s2,
+                        ),
                         child: Text(
                           group.key.toUpperCase(),
-                          style: context.type.sectionHeader.copyWith(
-                            fontSize: 12,
+                          style: context.type.caption.copyWith(
+                            fontWeight: FontWeight.w600,
                             letterSpacing: .48,
-                            color: context.colors.secondaryLabel,
+                            color: context.colors.textSecondary,
                           ),
                         ),
                       ),
@@ -1021,9 +1035,10 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
               leading: done == total
                   ? const CheckMark()
                   : ProgressRing(fraction: total == 0 ? 0 : done / total),
-              contentPadding: const EdgeInsets.symmetric(vertical: 9),
+              contentPadding:
+                  const EdgeInsets.symmetric(vertical: PantasSpace.s8),
               minimumHeight: 0,
               valueStyle: context.type.subhead
-                  .copyWith(color: context.colors.secondaryLabel),
+                  .copyWith(color: context.colors.textSecondary),
             );
 }

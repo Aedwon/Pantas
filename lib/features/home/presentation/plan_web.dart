@@ -4,6 +4,9 @@ import 'package:pantas/core/ui/components/pro_paused_line.dart';
 import 'package:pantas/core/ui/components/progress_ring.dart';
 import 'package:pantas/core/ui/motion/pane_transition.dart';
 import 'package:pantas/core/ui/motion/view_swap.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_hover.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -50,7 +53,7 @@ class PlanWebFrame extends StatelessWidget {
                     // only the pane beside them shows the page behind while it
                     // fades.
                     ColoredBox(
-                      color: context.webTokens.colors.background,
+                      color: context.webTokens.colors.bgPage,
                       child: WebPageHeading(
                         title: title,
                         backLabel: backLabel,
@@ -94,7 +97,7 @@ class PlanSplit extends StatelessWidget {
               : free < 0
                   ? (c.maxWidth - gap) * 13 / 23
                   : 460 + free * 1.3 / 2.3;
-          final background = context.webTokens.colors.background;
+          final background = context.webTokens.colors.bgPage;
           final shownLeft = ColoredBox(
             color: background,
             child: stillLeft ? PlanEntryStill(child: left) : left,
@@ -147,8 +150,8 @@ class PlanExamCalendar extends StatelessWidget {
         width: 26,
         height: 28,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(7),
-          border: Border.all(color: t.colors.label, width: 1.5),
+          borderRadius: BorderRadius.circular(PantasRadius.sm),
+          border: Border.all(color: t.colors.textPrimary, width: 1.5),
         ),
         alignment: Alignment.center,
         child: Column(
@@ -156,15 +159,18 @@ class PlanExamCalendar extends StatelessWidget {
           children: [
             Text(
               '${day.day}',
-              style: t.style(12, weight: FontWeight.w700, height: 1),
+              style: PantasType.webTag.copyWith(
+                fontWeight: FontWeight.w700,
+                height: 1,
+                color: t.colors.textPrimary,
+              ),
             ),
             Text(
               months[day.month - 1],
-              style: t.style(
-                7,
-                weight: FontWeight.w700,
-                color: t.colors.secondaryLabel,
+              style: PantasType.webKeyHintSm.copyWith(
+                fontWeight: FontWeight.w700,
                 height: 1.2,
+                color: t.colors.textSecondary,
               ),
             ),
           ],
@@ -241,8 +247,7 @@ class PlanWebColumns extends StatelessWidget {
                       leading: ProgressRing(
                         fraction: page.total == 0 ? 0 : page.done / page.total,
                         size: 26,
-                        emptyTrackColor:
-                            t.dark ? null : const Color(0xFFD1D1D6),
+                        emptyTrackColor: ProgressRing.phoneEmptyTrack(context),
                       ),
                       trailing: const WebChevron(),
                       divider: false,
@@ -252,7 +257,7 @@ class PlanWebColumns extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(height: 28),
+            const SizedBox(height: PantasSpace.s28),
             const PlanEntry(
               start: 100,
               duration: 450,
@@ -269,7 +274,10 @@ class PlanWebColumns extends StatelessWidget {
                         boardMetrics: true,
                         title: nodes[i].title,
                         titleStyle: nodes[i].kind == PlanNodeKind.exam
-                            ? t.style(17, weight: FontWeight.w600, height: 1.3)
+                            ? PantasType.webButtonLg.copyWith(
+                                height: 1.3,
+                                color: t.colors.textPrimary,
+                              )
                             : null,
                         subtitle: nodes[i].subtitle,
                         value: nodes[i].date,
@@ -292,9 +300,9 @@ class PlanWebColumns extends StatelessWidget {
                                 size: 26,
                                 color: nodes[i].kind == PlanNodeKind.week
                                     ? (t.dark
-                                        ? t.colors.secondaryLabel
-                                        : const Color(0xFFD1D1D6))
-                                    : t.colors.secondaryLabel,
+                                        ? t.colors.textSecondary
+                                        : t.colors.dividerStrong)
+                                    : t.colors.textSecondary,
                               ),
                           },
                         ),
@@ -313,7 +321,12 @@ class PlanWebColumns extends StatelessWidget {
             ),
             if (page.pro)
               Padding(
-                padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
+                padding: const EdgeInsets.fromLTRB(
+                  PantasSpace.s16,
+                  PantasSpace.s8,
+                  PantasSpace.s16,
+                  PantasSpace.s0,
+                ),
                 child: Text('Later weeks show topics only.', style: t.sm),
               ),
           ],
@@ -341,7 +354,12 @@ class PlanWebColumns extends StatelessWidget {
                   )
                 else
                   WebCard(
-                    padding: const EdgeInsets.fromLTRB(24, 26, 24, 24),
+                    padding: const EdgeInsets.fromLTRB(
+                      PantasSpace.s24,
+                      PantasSpace.s24,
+                      PantasSpace.s24,
+                      PantasSpace.s24,
+                    ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -359,13 +377,16 @@ class PlanWebColumns extends StatelessWidget {
                             color: t.colors.accent,
                           ),
                         ),
-                        const SizedBox(height: 18),
+                        const SizedBox(height: PantasSpace.s18),
                         Text(
                           'See every week up to your exam, '
                           'and every time your plan adjusts.',
-                          style: t.style(17, height: 1.45),
+                          style: PantasType.webLead.copyWith(
+                            height: 1.45,
+                            color: t.colors.textPrimary,
+                          ),
                         ),
-                        const SizedBox(height: 14),
+                        const SizedBox(height: PantasSpace.s14),
                         if (page.paused)
                           const ProPausedLine()
                         else
@@ -434,13 +455,15 @@ class PlanWebHistory extends StatelessWidget {
                 _historyEntry(
                   i,
                   Container(
-                    margin: const EdgeInsets.symmetric(horizontal: 20),
-                    padding: const EdgeInsets.symmetric(vertical: 14),
+                    margin:
+                        const EdgeInsets.symmetric(horizontal: PantasSpace.s20),
+                    padding:
+                        const EdgeInsets.symmetric(vertical: PantasSpace.s14),
                     decoration: BoxDecoration(
                       border: i < entries.length - 1
                           ? Border(
                               bottom: BorderSide(
-                                color: t.colors.separator,
+                                color: t.colors.divider,
                                 width: hairline,
                               ),
                             )
@@ -453,8 +476,14 @@ class PlanWebHistory extends StatelessWidget {
                           entries[i].date,
                           style: t.sm.copyWith(fontWeight: FontWeight.w600),
                         ),
-                        const SizedBox(height: 3),
-                        Text(entries[i].text, style: t.style(16, height: 1.45)),
+                        const SizedBox(height: PantasSpace.s4),
+                        Text(
+                          entries[i].text,
+                          style: PantasType.webBody.copyWith(
+                            height: 1.45,
+                            color: t.colors.textPrimary,
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -466,7 +495,7 @@ class PlanWebHistory extends StatelessWidget {
                   WebKeyboardRing(
                     // The last row of the card, so the ring takes its corners.
                     borderRadius: const BorderRadius.vertical(
-                      bottom: Radius.circular(18),
+                      bottom: Radius.circular(PantasRadius.xl),
                     ),
                     child: InkWell(
                       onTap: loading ? null : onMore,
@@ -480,16 +509,20 @@ class PlanWebHistory extends StatelessWidget {
                                 ? t.rowHover
                                 : Colors.transparent,
                             borderRadius: const BorderRadius.vertical(
-                              bottom: Radius.circular(18),
+                              bottom: Radius.circular(PantasRadius.xl),
                             ),
                           ),
                           child: Container(
-                            margin: const EdgeInsets.symmetric(horizontal: 20),
-                            padding: const EdgeInsets.symmetric(vertical: 15),
+                            margin: const EdgeInsets.symmetric(
+                              horizontal: PantasSpace.s20,
+                            ),
+                            padding: const EdgeInsets.symmetric(
+                              vertical: PantasSpace.s16,
+                            ),
                             decoration: BoxDecoration(
                               border: Border(
                                 top: BorderSide(
-                                  color: t.colors.separator,
+                                  color: t.colors.divider,
                                   width: hairline,
                                 ),
                               ),
@@ -499,11 +532,8 @@ class PlanWebHistory extends StatelessWidget {
                                 Expanded(
                                   child: Text(
                                     loading ? 'Loading' : 'See more',
-                                    style: t.style(
-                                      16,
-                                      weight: FontWeight.w600,
-                                      color: t.colors.accent,
-                                    ),
+                                    style: PantasType.webTitleSm
+                                        .copyWith(color: t.colors.accent),
                                   ),
                                 ),
                                 const WebChevron(),
@@ -518,7 +548,7 @@ class PlanWebHistory extends StatelessWidget {
             ],
           ),
         ),
-        if (!inside) const SizedBox(height: 18),
+        if (!inside) const SizedBox(height: PantasSpace.s18),
         if (inside)
           const SizedBox.shrink()
         else if (hasMore)
@@ -556,7 +586,7 @@ class PlanPaneHeader extends StatelessWidget {
       style: onLabel == null ? t.eb : t.eb.copyWith(color: t.colors.accent),
     );
     return SizedBox(
-      height: 30,
+      height: PantasSpace.s28 + PantasSpace.s2,
       child: Stack(
         clipBehavior: Clip.none,
         children: [
@@ -577,7 +607,7 @@ class PlanPaneHeader extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 const WebKeyHint('Esc'),
-                const SizedBox(width: 6),
+                const SizedBox(width: PantasSpace.s6),
                 SizedBox.square(
                   dimension: 32,
                   child: IconButton(
@@ -587,7 +617,7 @@ class PlanPaneHeader extends StatelessWidget {
                     style: IconButton.styleFrom(
                       foregroundColor: t.colors.accent,
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
+                        borderRadius: BorderRadius.circular(PantasRadius.md),
                       ),
                     ),
                     icon: const Icon(Icons.close, size: 18),

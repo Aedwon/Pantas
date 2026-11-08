@@ -110,6 +110,8 @@ Widget harness({
   HomeDayNote? note,
   List<PerformanceRow> subjects = const [],
   List<Override> extra = const [],
+  ThemeData? theme,
+  double textScale = 1,
 }) {
   final router = GoRouter(
     routes: [
@@ -211,11 +213,21 @@ Widget harness({
       ...extra,
     ],
     child: MaterialApp.router(
-      theme: buildLightTheme(),
+      theme: theme ?? buildLightTheme(),
       routerConfig: router,
+      builder: (context, child) => MediaQuery(
+        data: MediaQuery.of(context).copyWith(
+          textScaler: TextScaler.linear(textScale),
+        ),
+        child: child!,
+      ),
     ),
   );
 }
+
+ThemeData lightTheme() =>
+    buildLightTheme(web: debugWebPlatformOverride ?? false);
+ThemeData darkTheme() => buildDarkTheme(web: debugWebPlatformOverride ?? false);
 
 AssessmentResult assessed() => AssessmentResult(
       examId: examId,

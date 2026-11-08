@@ -4,12 +4,10 @@
 # This file is empty after family M. lib/core/ui/theme/ and lib/core/ui/motion/
 # are the token definitions and are never listed.
 lib/app/routes/deferred_route.dart
-lib/app/routes/home_routes.dart
 lib/app/routes/settings_routes_native.dart
 lib/features/assessment/
 lib/features/beta_feedback/
 lib/features/guardian/
-lib/features/home/
 lib/features/legal/
 lib/features/lesson/
 lib/features/metrics/

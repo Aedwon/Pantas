@@ -118,7 +118,7 @@ void main() {
     await tester.pumpWidget(harness(data(null)));
     await tester.pumpAndSettle();
     expect(find.text('+'), findsOneWidget);
-    expect(tester.widget<Text>(find.text('+')).style?.fontSize, 16);
+    expect(tester.widget<Text>(find.text('+')).style?.fontSize, 14);
     expect(find.text('Add date'), findsOneWidget);
 
     await tester.pumpWidget(
@@ -140,7 +140,7 @@ void main() {
     expect(find.text('Today'), findsOneWidget);
     final examDayMonth = tester.widget<Text>(find.text('OCT'));
     final examDayColors = tester.element(find.text('OCT')).colors;
-    expect(examDayMonth.style?.color, examDayColors.onAccent);
+    expect(examDayMonth.style?.color, examDayColors.textSecondary);
     expect(find.text('Magandang umaga'), findsOneWidget);
 
     await tester.pumpWidget(

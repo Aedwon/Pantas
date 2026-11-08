@@ -376,7 +376,7 @@ void main() {
             expect(badge, findsOneWidget);
             final decoration =
                 tester.widget<Container>(badge).decoration! as BoxDecoration;
-            expect(decoration.borderRadius, BorderRadius.circular(99));
+            expect(decoration.borderRadius, BorderRadius.circular(9999));
           } else {
             expect(find.text('Measured underPressure'), findsNothing);
           }

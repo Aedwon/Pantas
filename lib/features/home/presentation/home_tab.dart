@@ -18,6 +18,8 @@ import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/components/skeleton_fade.dart';
 import 'package:pantas/core/ui/components/tab_bar_visibility.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/assessment/application/assessment_result_providers.dart';
 import 'package:pantas/features/home/application/home_notices.dart';
@@ -258,7 +260,12 @@ class _SelectedExamHomeState extends ConsumerState<_SelectedExamHome> {
       );
     }
     return ListView(
-      padding: const EdgeInsets.fromLTRB(16, 16, 16, 104),
+      padding: const EdgeInsets.fromLTRB(
+        PantasSpace.s16,
+        PantasSpace.s16,
+        PantasSpace.s16,
+        PantasLayout.reserveTabbar,
+      ),
       children: [
         HomeMasthead(
           examId: widget.examId,
@@ -284,11 +291,11 @@ class _SelectedExamHomeState extends ConsumerState<_SelectedExamHome> {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              SizedBox(height: 17),
+              SizedBox(height: PantasSpace.s16),
               HomeTodaySkeleton(),
-              SizedBox(height: 22),
+              SizedBox(height: PantasSpace.s24),
               HomePerformanceSkeleton(),
-              SizedBox(height: 24),
+              SizedBox(height: PantasSpace.s24),
               SkeletonPulse(child: SkeletonGroup(rows: 2)),
             ],
           ),
@@ -309,9 +316,9 @@ class _SelectedExamHomeState extends ConsumerState<_SelectedExamHome> {
               ),
               today,
               if (showPerformance) ...[
-                const SizedBox(height: 22),
+                const SizedBox(height: PantasSpace.s24),
                 const HomePerformanceSection(),
-                const SizedBox(height: 24),
+                const SizedBox(height: PantasSpace.s24),
                 _moreAboutYou(context),
               ],
             ],
@@ -379,14 +386,14 @@ class _MoreIcon extends StatelessWidget {
     final hex = color.toARGB32().toRadixString(16).padLeft(8, '0').substring(2);
     return ExcludeSemantics(
       child: SizedBox(
-        width: 30,
+        width: PantasSpace.s28 + PantasSpace.s2,
         child: Center(
           child: SvgPicture.string(
             '<svg viewBox="0 0 24 24" fill="none" stroke="#$hex" '
             'stroke-width="2" stroke-linecap="round" '
             'stroke-linejoin="round">$paths</svg>',
-            width: 22,
-            height: 22,
+            width: PantasSpace.s20 + PantasSpace.s2,
+            height: PantasSpace.s20 + PantasSpace.s2,
           ),
         ),
       ),

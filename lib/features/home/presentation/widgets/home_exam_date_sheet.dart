@@ -7,6 +7,9 @@ import 'package:pantas/core/storage/domain/exam_date.dart';
 import 'package:pantas/core/ui/components/month_first_date_picker.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
@@ -78,8 +81,13 @@ class _HomeExamDateSheetState extends State<HomeExamDateSheet> {
     );
     final content = Padding(
       padding: wide
-          ? const EdgeInsets.all(26)
-          : const EdgeInsets.fromLTRB(20, 8, 20, 34),
+          ? const EdgeInsets.all(PantasSpace.s24)
+          : const EdgeInsets.fromLTRB(
+              PantasSpace.s20,
+              PantasSpace.s8,
+              PantasSpace.s20,
+              PantasSpace.s32,
+            ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -90,8 +98,8 @@ class _HomeExamDateSheetState extends State<HomeExamDateSheet> {
                 : 'When is your exam?',
             style: wide
                 ? context.webTokens.h3
-                : context.type.emphasized
-                    .copyWith(fontSize: 22, fontWeight: FontWeight.w700),
+                : PantasType.phoneTitle2
+                    .copyWith(color: context.colors.textPrimary),
           ),
           SizedBox(height: wide ? 0 : 4),
           Text(
@@ -101,9 +109,9 @@ class _HomeExamDateSheetState extends State<HomeExamDateSheet> {
             style: wide
                 ? context.webTokens.sub
                 : context.type.subhead
-                    .copyWith(color: context.colors.secondaryLabel),
+                    .copyWith(color: context.colors.textSecondary),
           ),
-          const SizedBox(height: 18),
+          const SizedBox(height: PantasSpace.s18),
           if (wide)
             HomeWebDatePicker(
               value: _value,
@@ -117,10 +125,10 @@ class _HomeExamDateSheetState extends State<HomeExamDateSheet> {
               today: widget.today,
               onChanged: (next) => setState(() => _value = next),
             ),
-          const SizedBox(height: 18),
+          const SizedBox(height: PantasSpace.s18),
           if (widget.failed && date != null) ...[
             saveFailureLine(() => widget.onSave(date)),
-            const SizedBox(height: 8),
+            const SizedBox(height: PantasSpace.s8),
           ],
           if (wide)
             Row(
@@ -153,7 +161,7 @@ class _HomeExamDateSheetState extends State<HomeExamDateSheet> {
                   variant: WebButtonVariant.tertiary,
                   onPressed: widget.onCancel,
                 ),
-                const SizedBox(width: 8),
+                const SizedBox(width: PantasSpace.s8),
                 WebButton(
                   label: 'Save',
                   keyHint: 'Enter',
@@ -222,10 +230,10 @@ class HomeWebDatePicker extends StatelessWidget {
         : Container(
             key: const ValueKey('home-web-calendar'),
             height: requireDay ? null : _panelHeight,
-            padding: const EdgeInsets.all(14),
+            padding: const EdgeInsets.all(PantasSpace.s14),
             decoration: BoxDecoration(
-              color: t.colors.background,
-              borderRadius: BorderRadius.circular(14),
+              color: t.colors.bgPage,
+              borderRadius: BorderRadius.circular(PantasRadius.lg),
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -236,27 +244,26 @@ class HomeWebDatePicker extends StatelessWidget {
                       child: Text(
                         DateFormat('MMMM yyyy', 'en_US')
                             .format(DateTime(value.year, month)),
-                        style: t.style(16, weight: FontWeight.w700),
+                        style: PantasType.webTitleSm.copyWith(
+                          fontWeight: FontWeight.w700,
+                          color: t.colors.textPrimary,
+                        ),
                       ),
                     ),
                     if (!requireDay) Text('Optional', style: t.sm),
                   ],
                 ),
-                const SizedBox(height: 8),
+                const SizedBox(height: PantasSpace.s8),
                 Row(
                   children: [
                     for (var i = 0; i < 7; i++) ...[
-                      if (i > 0) const SizedBox(width: 2),
+                      if (i > 0) const SizedBox(width: PantasSpace.s2),
                       Expanded(
                         child: Center(
                           child: Text(
                             'SMTWTFS'[i],
-                            style: t.style(
-                              11,
-                              weight: FontWeight.w600,
-                              color: t.dark
-                                  ? t.colors.tertiaryLabel
-                                  : const Color(0xFF8A8A8E),
+                            style: PantasType.webKeyHintSm.copyWith(
+                              color: t.colors.textSecondary,
                             ),
                           ),
                         ),
@@ -264,13 +271,13 @@ class HomeWebDatePicker extends StatelessWidget {
                     ],
                   ],
                 ),
-                const SizedBox(height: 4),
+                const SizedBox(height: PantasSpace.s4),
                 for (var week = 0; week < weeks; week++) ...[
-                  if (week > 0) const SizedBox(height: 2),
+                  if (week > 0) const SizedBox(height: PantasSpace.s2),
                   Row(
                     children: [
                       for (var weekday = 0; weekday < 7; weekday++) ...[
-                        if (weekday > 0) const SizedBox(width: 2),
+                        if (weekday > 0) const SizedBox(width: PantasSpace.s2),
                         Expanded(
                           child: _day(
                             context,
@@ -289,7 +296,7 @@ class HomeWebDatePicker extends StatelessWidget {
           );
     final months = SizedBox(
       key: const ValueKey('home-web-months'),
-      width: 160,
+      width: PantasSpace.s56 * 2 + PantasSpace.s44 + PantasSpace.s4,
       height: _panelHeight,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -299,26 +306,25 @@ class HomeWebDatePicker extends StatelessWidget {
               itemBuilder: (context, index) {
                 final year = today.year + index;
                 final first = year == today.year ? today.month : 1;
+                final gap = index == 0 ? PantasSpace.s0 : PantasSpace.s16;
                 return Padding(
-                  padding: EdgeInsets.only(top: index == 0 ? 0 : 16),
+                  padding: EdgeInsets.only(top: gap),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       Text(
                         '$year',
-                        style: t.style(
-                          13,
-                          weight: FontWeight.w700,
-                          color: t.colors.secondaryLabel,
-                        ),
+                        style: PantasType.webChipName
+                            .copyWith(color: t.colors.textSecondary),
                       ),
-                      const SizedBox(height: 8),
+                      const SizedBox(height: PantasSpace.s8),
                       for (var start = first; start <= 12; start += 2) ...[
-                        if (start > first) const SizedBox(height: 6),
+                        if (start > first)
+                          const SizedBox(height: PantasSpace.s6),
                         Row(
                           children: [
                             Expanded(child: _month(context, year, start)),
-                            const SizedBox(width: 6),
+                            const SizedBox(width: PantasSpace.s6),
                             Expanded(
                               child: start + 1 > 12
                                   ? const SizedBox.shrink()
@@ -347,7 +353,7 @@ class HomeWebDatePicker extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               months,
-              const SizedBox(width: 14),
+              const SizedBox(width: PantasSpace.s14),
               Expanded(child: calendar),
             ],
           ),
@@ -359,7 +365,7 @@ class HomeWebDatePicker extends StatelessWidget {
     final t = context.webTokens;
     final selected = year == value.year && month == value.month;
     return SizedBox(
-      height: 38,
+      height: PantasSpace.s32 + PantasSpace.s6,
       child: TextButton(
         key: ValueKey(
           year == value.year ? 'date-month-$month' : 'date-month-$year-$month',
@@ -368,22 +374,21 @@ class HomeWebDatePicker extends StatelessWidget {
         style: TextButton.styleFrom(
           padding: EdgeInsets.zero,
           minimumSize: const Size(0, 38),
-          backgroundColor: selected ? t.colors.accentFill : t.colors.surface,
+          backgroundColor:
+              selected ? t.colors.accentFill : t.colors.surfaceCard,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(PantasRadius.md),
             side: selected
                 ? BorderSide.none
                 : BorderSide(
-                    color: t.dark ? t.cardEdge : const Color(0xFFE3E3E8),
+                    color: t.cardEdge,
                   ),
           ),
         ),
         child: Text(
           DateFormat('MMM', 'en_US').format(DateTime(year, month)),
-          style: t.style(
-            16,
-            weight: FontWeight.w600,
-            color: selected ? Colors.white : t.colors.label,
+          style: PantasType.webTitleSm.copyWith(
+            color: selected ? t.colors.onAccent : t.colors.textPrimary,
           ),
         ),
       ),
@@ -393,14 +398,14 @@ class HomeWebDatePicker extends StatelessWidget {
   Widget _day(BuildContext context, int day) {
     final month = value.month!;
     if (day < 1 || day > DateTime(value.year, month + 1, 0).day) {
-      return const SizedBox(height: 32);
+      return const SizedBox(height: PantasSpace.s32);
     }
     final date = DateTime(value.year, month, day);
     final past = date.isBefore(DateTime(today.year, today.month, today.day));
     final selected = day == value.day;
     final t = context.webTokens;
     return SizedBox(
-      height: 32,
+      height: PantasSpace.s32,
       child: TextButton(
         key: ValueKey('date-day-$day'),
         onPressed: past
@@ -418,14 +423,13 @@ class HomeWebDatePicker extends StatelessWidget {
         ),
         child: Text(
           '$day',
-          style: t.style(
-            14,
-            weight: selected ? FontWeight.w700 : FontWeight.w400,
+          style: PantasType.webRowSub.copyWith(
+            fontWeight: selected ? FontWeight.w700 : FontWeight.w400,
             color: past
-                ? t.colors.tertiaryLabel
+                ? t.colors.textSecondary
                 : selected
-                    ? Colors.white
-                    : t.colors.label,
+                    ? t.colors.onAccent
+                    : t.colors.textPrimary,
           ),
         ),
       ),

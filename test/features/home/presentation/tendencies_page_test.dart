@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_opacity.dart';
 import 'package:pantas/features/home/application/how_you_work_provider.dart';
 import 'package:pantas/features/home/presentation/tendencies_page.dart';
 import 'package:pantas/features/metrics/domain/tendency_confidence.dart';
@@ -174,7 +176,7 @@ void main() {
         await tester.pump();
       }
       final rect = tester.getRect(card);
-      // 20 px padding, a 15 px name on a 20 px line, 6 px, then the 30 px
+      // 20 px padding, a 15 px name on a 20 px line, 6 px, then the 28 px
       // headline on 1.14.
       final name = tester.getRect(find.text('Aerol'));
       expect(name.left, rect.left + 20);
@@ -185,7 +187,7 @@ void main() {
         matching: find.text('Needs more usage data'),
       );
       final style = tester.widget<Text>(headline).style!;
-      expect(style.fontSize, 30);
+      expect(style.fontSize, 28);
       expect(style.fontWeight, FontWeight.w700);
       expect(style.letterSpacing, -.6);
       expect(style.height, 1.14);
@@ -193,19 +195,22 @@ void main() {
       expect(tester.getTopLeft(headline).dy, name.bottom + 6);
       // The headline wraps inside 270 px.
       expect(tester.getSize(headline).width, lessThanOrEqualTo(270));
-      expect(tester.getSize(headline).height, closeTo(2 * 30 * 1.14, 0.5));
+      expect(tester.getSize(headline).height, closeTo(2 * 28 * 1.14, 0.5));
       // The card is at least 130 px tall, and not taller than its content.
-      expect(rect.height, closeTo(20 + 20 + 6 + 2 * 30 * 1.14 + 20, 0.5));
-      // The ghost mark: 150 px, 2 px from the right and 8 px above the top,
-      // dim gray.
+      expect(rect.height, closeTo(20 + 20 + 6 + 2 * 28 * 1.14 + 20, 0.5));
+      // The ghost mark: the display size (88 px), 2 px from the right and
+      // 8 px above the top, a faint wash of the ink card's text color.
       final mark = tester.getRect(ghost);
       expect(mark.right, closeTo(rect.right - 2, 0.5));
       expect(mark.top, closeTo(rect.top - 8, 0.5));
-      expect(mark.height, 150);
+      expect(mark.height, 88);
       final markStyle = tester.widget<Text>(ghost).style!;
-      expect(markStyle.fontSize, 150);
+      expect(markStyle.fontSize, 88);
       expect(markStyle.fontWeight, FontWeight.w400);
-      expect(markStyle.color, const Color(0xff3a3a3d));
+      expect(
+        markStyle.color,
+        PantasColors.light.toastText.withValues(alpha: PantasOpacity.hover),
+      );
       expect(tester.takeException(), isNull);
     });
   }
@@ -413,7 +418,7 @@ void main() {
       final first = tester.getRect(cards.first);
       expect(
         tester.getTopLeft(find.text('UNDER PRESSURE')).dx - first.left,
-        closeTo(20 + 17 + 7, .5),
+        closeTo(20 + 17 + 8, .5),
       );
     });
   }

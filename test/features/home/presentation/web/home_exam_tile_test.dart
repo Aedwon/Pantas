@@ -59,7 +59,12 @@ Border _outline(WidgetTester tester) {
     find.byWidgetPredicate(
       (w) =>
           w is Container &&
-          w.constraints == const BoxConstraints.tightFor(width: 42, height: 36),
+          w.constraints ==
+              const BoxConstraints(
+                minWidth: 42,
+                maxWidth: 42,
+                minHeight: 36,
+              ),
     ),
   );
   return (tile.decoration! as BoxDecoration).border! as Border;
@@ -79,10 +84,10 @@ void main() {
     testWidgets('exam passed: gray outline, date and Passed, dark=$dark',
         (tester) async {
       await _mount(tester, ExamDate.onDay(DateTime(2026, 10, 28)), dark: dark);
-      expect(_outline(tester).top.color, t.disabledText);
+      expect(_outline(tester).top.color, t.colors.textSecondary);
       expect(
         tester.widget<Text>(find.text('28')).style!.color,
-        t.disabledText,
+        t.colors.textSecondary,
       );
       expect(_color(tester, 'Passed'), t.sm.color);
     });
@@ -95,7 +100,7 @@ void main() {
         find.byKey(const ValueKey('web-exam-tile-dashed')),
         findsOneWidget,
       );
-      expect(_color(tester, '+'), t.disabledText);
+      expect(_color(tester, '+'), t.colors.textSecondary);
       expect(_color(tester, 'Add date'), t.colors.accent);
     });
   }
@@ -103,7 +108,7 @@ void main() {
   testWidgets('a day to come keeps the label color outline', (tester) async {
     await _mount(tester, ExamDate.onDay(DateTime(2026, 11, 20)));
     const t = WebTokens(Brightness.light);
-    expect(_outline(tester).top.color, t.colors.label);
+    expect(_outline(tester).top.color, t.colors.textPrimary);
     expect(find.byKey(const ValueKey('web-exam-tile-dashed')), findsNothing);
   });
 }

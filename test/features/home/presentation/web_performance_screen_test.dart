@@ -62,7 +62,7 @@ void main() {
       final card = find.ancestor(of: warning, matching: find.byType(WebCard));
       expect(
         tester.widget<WebCard>(card).padding,
-        const EdgeInsets.symmetric(horizontal: 24, vertical: 120),
+        const EdgeInsets.symmetric(horizontal: 24, vertical: 56),
       );
       fail = false;
       await tester.tap(find.text('Try Again'));
@@ -92,7 +92,7 @@ void main() {
             find.byKey(const ValueKey('web-performance-topic')),
           )
           .width,
-      480,
+      440,
     );
     expect(tester.takeException(), isNull);
   });
@@ -136,16 +136,16 @@ void main() {
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 100));
     final middle = drawerLeft(tester);
-    expect(middle, inExclusiveRange(960, 1440));
+    expect(middle, inExclusiveRange(1000, 1440));
     await tester.pumpAndSettle();
-    expect(drawerLeft(tester), 960);
+    expect(drawerLeft(tester), 1000);
 
     await tester.tapAt(const Offset(100, 100));
     await tester.pump();
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 100));
     expect(find.byKey(drawerKey), findsOneWidget);
-    expect(drawerLeft(tester), greaterThan(960));
+    expect(drawerLeft(tester), greaterThan(1000));
     await tester.pumpAndSettle();
     expect(find.byKey(drawerKey), findsNothing);
   });
@@ -170,15 +170,15 @@ void main() {
         .descendant(
           of: layer,
           matching: find.byWidgetPredicate(
-            (w) => w is SizedBox && w.width == 480,
+            (w) => w is SizedBox && w.width == 440,
           ),
         )
         .first;
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 100));
-    expect(tester.getTopLeft(panel).dx, inExclusiveRange(960, 1440));
+    expect(tester.getTopLeft(panel).dx, inExclusiveRange(1000, 1440));
     await tester.pumpAndSettle();
-    expect(tester.getTopLeft(panel).dx, 960);
+    expect(tester.getTopLeft(panel).dx, 1000);
   });
   group('a topic drawer opened by address leaves with an exit', () {
     Future<void> openByAddress(
@@ -203,7 +203,7 @@ void main() {
         realTopic: true,
       );
       await tester.pumpAndSettle();
-      expect(drawerLeft(tester), 960);
+      expect(drawerLeft(tester), 1000);
     }
 
     testWidgets('a scrim tap slides it out, then goes home', (tester) async {
@@ -212,7 +212,7 @@ void main() {
       await tester.pump();
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 150));
-      expect(drawerLeft(tester), inExclusiveRange(960, 1440));
+      expect(drawerLeft(tester), inExclusiveRange(1000, 1440));
       expect(find.text('open'), findsNothing);
       await tester.pumpAndSettle();
       expect(find.text('open'), findsOneWidget);
@@ -226,7 +226,7 @@ void main() {
       await tester.pump();
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 150));
-      expect(drawerLeft(tester), inExclusiveRange(960, 1440));
+      expect(drawerLeft(tester), inExclusiveRange(1000, 1440));
       expect(find.text('open'), findsNothing);
       await tester.pumpAndSettle();
       expect(find.text('open'), findsOneWidget);
@@ -266,13 +266,13 @@ void main() {
           .push<void>('/performance/topic/Geometry')
           .ignore();
       await tester.pumpAndSettle();
-      expect(drawerLeft(tester), 960);
+      expect(drawerLeft(tester), 1000);
       final navigator = tester.state<NavigatorState>(find.byType(Navigator));
       await navigator.maybePop();
       await tester.pump();
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 150));
-      expect(drawerLeft(tester), inExclusiveRange(960, 1440));
+      expect(drawerLeft(tester), inExclusiveRange(1000, 1440));
       await tester.pumpAndSettle();
       expect(find.byKey(drawerKey), findsNothing);
       expect(find.text('Your performance'), findsOneWidget);
@@ -294,7 +294,7 @@ void main() {
     );
     await tester.pump();
     await tester.pump();
-    expect(drawerLeft(tester), 960);
+    expect(drawerLeft(tester), 1000);
   });
 }
 

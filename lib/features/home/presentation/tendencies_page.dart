@@ -9,6 +9,11 @@ import 'package:pantas/core/ui/components/pro_paused_line.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_opacity.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/home/application/how_you_work_provider.dart';
 import 'package:pantas/features/home/presentation/widgets/web_tendencies_layout.dart';
@@ -75,11 +80,16 @@ class TendenciesPage extends StatelessWidget {
       bottomInset: 104,
       children: [
         _Profile(data: data, onName: onName),
-        const SizedBox(height: 24),
+        const SizedBox(height: PantasSpace.s24),
         if (!pro) ...[
           // YO_Free: a section label over the locked cards.
           Padding(
-            padding: const EdgeInsets.fromLTRB(16, 0, 16, 7),
+            padding: const EdgeInsets.fromLTRB(
+              PantasSpace.s16,
+              PantasSpace.s0,
+              PantasSpace.s16,
+              PantasSpace.s8,
+            ),
             child: Text(
               'YOUR TENDENCIES',
               style: context.type.sectionHeader,
@@ -87,7 +97,7 @@ class TendenciesPage extends StatelessWidget {
           ),
           for (final t in data.tendencies) ...[
             _Finding(tendency: t, covered: false, standalone: true),
-            const SizedBox(height: 12),
+            const SizedBox(height: PantasSpace.s12),
           ],
           if (paused)
             const ProPausedLine()
@@ -98,17 +108,17 @@ class TendenciesPage extends StatelessWidget {
               textAlign: TextAlign.center,
               style: context.type.body,
             ),
-            const SizedBox(height: 14),
+            const SizedBox(height: PantasSpace.s14),
             PantasButton(label: 'Unlock with Pro', onPressed: onPro),
           ],
         ] else ...[
           if (clear.isNotEmpty) ...[
             group('What we found', clear),
-            const SizedBox(height: 24),
+            const SizedBox(height: PantasSpace.s24),
           ],
           if (pending.isNotEmpty) ...[
             group('Needs more usage data', pending),
-            const SizedBox(height: 24),
+            const SizedBox(height: PantasSpace.s24),
           ],
           if (data.whenYouWork.isNotEmpty)
             GroupedSection(
@@ -158,7 +168,7 @@ class _Profile extends StatelessWidget {
     // The ghost slides in as the archetype glyph does.
     Widget slide(Widget child) => TweenAnimationBuilder<double>(
           tween: Tween(begin: reduce ? 1 : 0, end: 1),
-          duration: const Duration(milliseconds: 800),
+          duration: PantasDurations.long3,
           curve: PantasCurves.house,
           builder: (_, value, child) => Transform.translate(
             offset: Offset(20 * (1 - value), 0),
@@ -177,9 +187,9 @@ class _Profile extends StatelessWidget {
           return painter.height;
         }
 
-        final heading =
-            context.type.largeTitle.copyWith(fontSize: 30, color: Colors.white);
-        final line = context.type.body.copyWith(color: const Color(0xffddddde));
+        final c = context.colors;
+        final heading = PantasType.phoneTitle1.copyWith(color: c.toastText);
+        final line = context.type.body.copyWith(color: c.toastText);
         final identityHeight = archetypeCatalog
             .map(
               (a) =>
@@ -198,8 +208,8 @@ class _Profile extends StatelessWidget {
           constraints: BoxConstraints(minHeight: height),
           clipBehavior: Clip.hardEdge,
           decoration: BoxDecoration(
-            color: const Color(0xff1d1d1f),
-            borderRadius: BorderRadius.circular(22),
+            color: c.toastBg,
+            borderRadius: BorderRadius.circular(PantasRadius.r2xl),
           ),
           child: Stack(
             children: [
@@ -212,12 +222,13 @@ class _Profile extends StatelessWidget {
                       Text(
                         '?',
                         key: const ValueKey('tendencies-ghost'),
-                        style: context.type.body.copyWith(
-                          fontSize: 150,
+                        style: PantasType.phoneDisplayL.copyWith(
                           fontWeight: FontWeight.w400,
                           height: 1,
                           leadingDistribution: TextLeadingDistribution.even,
-                          color: const Color(0xff3a3a3d),
+                          color: c.toastText.withValues(
+                            alpha: PantasOpacity.hover,
+                          ),
                         ),
                       ),
                     ),
@@ -229,22 +240,26 @@ class _Profile extends StatelessWidget {
                   top: 12,
                   child: slide(
                     SizedBox(
-                      width: 150,
-                      height: 150,
+                      width: _ghostGlyph,
+                      height: _ghostGlyph,
                       child: Stack(
                         alignment: Alignment.center,
                         children: [
                           Icon(
                             glyph,
-                            size: 150,
-                            color: const Color(0xff3a3a3d),
+                            size: _ghostGlyph,
+                            color: c.toastText.withValues(
+                              alpha: PantasOpacity.hover,
+                            ),
                           ),
                           if (data.archetype == 'Strong Recall' ||
                               data.archetype == 'Thorough Reviewer')
                             Icon(
                               PantasIcons.check,
-                              size: 52,
-                              color: const Color(0xff3a3a3d),
+                              size: PantasSpace.s56,
+                              color: c.toastText.withValues(
+                                alpha: PantasOpacity.hover,
+                              ),
                             ),
                         ],
                       ),
@@ -252,7 +267,7 @@ class _Profile extends StatelessWidget {
                   ),
                 ),
               Padding(
-                padding: const EdgeInsets.all(20),
+                padding: const EdgeInsets.all(PantasSpace.s20),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -265,37 +280,37 @@ class _Profile extends StatelessWidget {
                       Text(
                         data.name!,
                         style: context.type.subhead.copyWith(
-                          color: const Color(0xffb6b6b7),
+                          color: c.toastText,
                           height: empty ? 20 / 15 : null,
                         ),
                       ),
                     if (empty) ...[
-                      const SizedBox(height: 6),
+                      const SizedBox(height: PantasSpace.s6),
                       ConstrainedBox(
                         constraints: const BoxConstraints(maxWidth: 270),
                         child: Text(
                           'Needs more usage data',
-                          style: context.type.largeTitle.copyWith(
-                            fontSize: 30,
+                          style: PantasType.phoneTitle1.copyWith(
                             letterSpacing: -.6,
                             height: 1.14,
-                            color: Colors.white,
+                            color: c.toastText,
                           ),
                         ),
                       ),
                     ],
                     if (data.archetype != null) ...[
-                      const SizedBox(height: 6),
+                      const SizedBox(height: PantasSpace.s6),
                       Text(
                         data.archetype!,
-                        style: context.type.largeTitle
-                            .copyWith(fontSize: 30, color: Colors.white),
+                        style:
+                            PantasType.phoneTitle1.copyWith(color: c.toastText),
                       ),
-                      const SizedBox(height: 8),
+                      const SizedBox(height: PantasSpace.s8),
                       Text(
                         data.archetypeLine ?? '',
-                        style: context.type.body
-                            .copyWith(color: const Color(0xffddddde)),
+                        style: context.type.body.copyWith(
+                          color: c.toastText,
+                        ),
                       ),
                     ],
                   ],
@@ -308,6 +323,9 @@ class _Profile extends StatelessWidget {
     );
   }
 }
+
+/// The ghost glyph behind the profile card text.
+final double _ghostGlyph = PantasType.phoneDisplayL.fontSize!;
 
 /// Board `.fnd`: an 18 px card.
 const double _findingRadius = 18;
@@ -374,9 +392,9 @@ class _Finding extends StatelessWidget {
             TendencyId.stamina => PantasIcons.answerStreak,
           },
           size: 17,
-          color: context.colors.secondaryLabel,
+          color: context.colors.textSecondary,
         ),
-        const SizedBox(width: 7),
+        const SizedBox(width: PantasSpace.s8),
         Expanded(
           child: Text(
             t.heading.toUpperCase(),
@@ -393,20 +411,25 @@ class _Finding extends StatelessWidget {
     Widget frame(Widget child) => standalone
         ? Container(
             decoration: BoxDecoration(
-              color: context.colors.surface,
+              color: context.colors.surfaceCard,
               borderRadius: BorderRadius.circular(_findingRadius),
-              border: dark ? Border.all(color: context.colors.cardEdge) : null,
+              border: dark ? Border.all(color: context.colors.edgeCard) : null,
             ),
             padding: EdgeInsets.fromLTRB(
-              20 - edge,
+              PantasSpace.s20 - edge,
               topInset - edge,
-              20 - edge,
+              PantasSpace.s20 - edge,
               bottomInset - edge,
             ),
             child: child,
           )
         : Padding(
-            padding: EdgeInsets.fromLTRB(20, topInset, 20, bottomInset),
+            padding: EdgeInsets.fromLTRB(
+              PantasSpace.s20,
+              topInset,
+              PantasSpace.s20,
+              bottomInset,
+            ),
             child: child,
           );
     if (empty) {
@@ -430,38 +453,37 @@ class _Finding extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             header,
-            const SizedBox(height: 10),
+            const SizedBox(height: PantasSpace.s10),
             Text(
               caption,
-              style: context.type.emphasized.copyWith(
-                fontSize: 20,
+              style: PantasType.phoneTitle3.copyWith(
                 height: 26 / 20,
-                color: context.colors.secondaryLabel,
+                color: context.colors.textSecondary,
               ),
             ),
             if (t.unlockAction.isNotEmpty) ...[
-              const SizedBox(height: 6),
+              const SizedBox(height: PantasSpace.s6),
               Text(
                 t.unlockAction,
                 style: context.type.subhead.copyWith(
-                  color: context.colors.secondaryLabel,
+                  color: context.colors.textSecondary,
                   height: 20 / 15,
                 ),
               ),
             ],
             if (t.id == TendencyId.underPressure) ...[
-              const SizedBox(height: 44),
+              const SizedBox(height: PantasSpace.s44),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 4),
+                padding: const EdgeInsets.symmetric(horizontal: PantasSpace.s4),
                 child: bar(1, 4),
               ),
             ] else if (_bars(t)) ...[
-              const SizedBox(height: 72),
+              const SizedBox(height: PantasSpace.s56 + PantasSpace.s16),
               Align(
                 alignment: Alignment.centerLeft,
                 child: bar(.65, 14),
               ),
-              const SizedBox(height: 16),
+              const SizedBox(height: PantasSpace.s16),
               Align(
                 alignment: Alignment.centerLeft,
                 child: bar(.85, 14),
@@ -476,14 +498,14 @@ class _Finding extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           header,
-          const SizedBox(height: 10),
+          const SizedBox(height: PantasSpace.s10),
           Text(
             clear ? t.sentence ?? caption : caption,
             style: context.type.emphasized.copyWith(
               fontSize: covered ? 20 : 17,
               color: clear || !covered
-                  ? context.colors.label
-                  : context.colors.secondaryLabel,
+                  ? context.colors.textPrimary
+                  : context.colors.textSecondary,
             ),
           ),
           if (covered &&
@@ -491,14 +513,14 @@ class _Finding extends StatelessWidget {
               missing &&
               t.confidence != TendencyConfidence.forming &&
               t.unlockAction.isNotEmpty) ...[
-            const SizedBox(height: 6),
+            const SizedBox(height: PantasSpace.s6),
             Text(
               t.unlockAction,
               style: context.type.subhead
-                  .copyWith(color: context.colors.secondaryLabel),
+                  .copyWith(color: context.colors.textSecondary),
             ),
           ],
-          const SizedBox(height: 18),
+          const SizedBox(height: PantasSpace.s18),
           if (clear && t.id == TendencyId.howYouStudy)
             Row(
               children: [
@@ -545,13 +567,13 @@ class _Finding extends StatelessWidget {
                       style: context.type.subhead.copyWith(
                         color: t.isLoss
                             ? context.colors.warningText
-                            : context.colors.label,
+                            : context.colors.textPrimary,
                       ),
                     ),
                   ),
                 ],
               ),
-            const SizedBox(height: 8),
+            const SizedBox(height: PantasSpace.s8),
             Semantics(
               label: clear
                   ? '${t.leftLabel}: ${t.leftFigure}. '
@@ -559,7 +581,7 @@ class _Finding extends StatelessWidget {
                   : '${t.leftLabel} compared with ${t.rightLabel}. '
                       'No finding yet.',
               child: SizedBox(
-                height: 65 *
+                height: (PantasSpace.s56 + PantasSpace.s16) *
                     math.max(
                       1,
                       MediaQuery.textScalerOf(context).scale(10) / 10,
@@ -569,7 +591,7 @@ class _Finding extends StatelessWidget {
                   children: [
                     if (clear && t.id == TendencyId.stamina)
                       Padding(
-                        padding: const EdgeInsets.only(right: 8),
+                        padding: const EdgeInsets.only(right: PantasSpace.s8),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -582,8 +604,7 @@ class _Finding extends StatelessWidget {
                             ])
                               Text(
                                 tick,
-                                style:
-                                    context.type.footnote.copyWith(fontSize: 9),
+                                style: context.type.captionSmall,
                               ),
                           ],
                         ),
@@ -595,14 +616,14 @@ class _Finding extends StatelessWidget {
                               MediaQuery.disableAnimationsOf(context) ? 1 : 0,
                           end: 1,
                         ),
-                        duration: const Duration(milliseconds: 900),
+                        duration: PantasDurations.long3,
                         curve: PantasCurves.house,
                         builder: (_, value, __) => CustomPaint(
                           painter: _FindingPainter(
                             t,
                             value,
                             context.colors.fill,
-                            context.colors.label,
+                            context.colors.textPrimary,
                             context.colors.warningText,
                             clear: clear,
                           ),
@@ -660,17 +681,17 @@ class _Finding extends StatelessWidget {
                 icon,
                 size: 24,
                 color: strong
-                    ? context.colors.label
-                    : context.colors.secondaryLabel,
+                    ? context.colors.textPrimary
+                    : context.colors.textSecondary,
               ),
-            const SizedBox(height: 5),
+            const SizedBox(height: PantasSpace.s4),
             Text(
               figure,
               style: context.type.largeTitle.copyWith(
                 fontSize: icon == null ? 34 : 24,
                 color: strong
-                    ? context.colors.label
-                    : context.colors.secondaryLabel,
+                    ? context.colors.textPrimary
+                    : context.colors.textSecondary,
               ),
             ),
             Text(label, style: context.type.footnote),
@@ -790,7 +811,7 @@ class _FindingPainter extends CustomPainter {
         canvas.drawRRect(
           RRect.fromRectAndRadius(
             Rect.fromLTWH(0, i * 30, width, 14),
-            const Radius.circular(4),
+            const Radius.circular(PantasRadius.xs),
           ),
           Paint()..color = clear ? ink : faint,
         );
@@ -803,7 +824,7 @@ class _FindingPainter extends CustomPainter {
                 size.width * (b - a) / max * fraction,
                 14,
               ),
-              const Radius.circular(4),
+              const Radius.circular(PantasRadius.xs),
             ),
             Paint()..color = loss,
           );

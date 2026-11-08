@@ -123,8 +123,8 @@ void main() {
       expect(shape.side.width, 2);
       // Rounded on the right too, where the dismiss button begins.
       final radius = shape.borderRadius as BorderRadius;
-      expect(radius.topRight, const Radius.circular(10));
-      expect(radius.bottomRight, const Radius.circular(10));
+      expect(radius.topRight, const Radius.circular(8));
+      expect(radius.bottomRight, const Radius.circular(8));
     });
   }
 

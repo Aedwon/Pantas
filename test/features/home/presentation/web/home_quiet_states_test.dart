@@ -95,8 +95,8 @@ void main() {
 
     final card = tester.getRect(find.byType(WebCard));
     final title = tester.getRect(find.text('Nothing due today'));
-    expect(title.left - card.left, 24 + 40 + 18);
-    expect(title.top - card.top, closeTo(26, 4));
+    expect(title.left - card.left, 20 + 40 + 18);
+    expect(title.top - card.top, closeTo(20, 4));
   });
 
   testWidgets('the exam day intro names the exam and the warm-up',
@@ -174,7 +174,7 @@ void p2Main() {
       final box = tester.getRect(find.byType(WebCard));
       final main = tester.widgetList<WebButton>(find.byType(WebButton)).last;
       final rect = tester.getRect(find.byWidget(main));
-      expect(rect.right, box.right - 24, reason: 'flush with the padding');
+      expect(rect.right, box.right - 20, reason: 'flush with the padding');
       expect(rect.height, 44, reason: 'card buttons are 44 px');
     });
   }
@@ -186,6 +186,6 @@ void p2Main() {
     final other =
         tester.getRect(find.widgetWithText(WebButton, 'Switch Exams'));
     expect(other.right, lessThan(main.left));
-    expect(main.right, tester.getRect(find.byType(WebCard)).right - 24);
+    expect(main.right, tester.getRect(find.byType(WebCard)).right - 20);
   });
 }

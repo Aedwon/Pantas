@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 
 /// Which plan screen is loading.
 enum PlanSkeletonKind { plan, day, week, history }
@@ -16,9 +17,9 @@ class PlanSkeleton extends StatelessWidget {
           children: switch (kind) {
             PlanSkeletonKind.plan || PlanSkeletonKind.history => const [
                 SkeletonSection(height: 63),
-                SizedBox(height: 24),
+                SizedBox(height: PantasSpace.s24),
                 SkeletonSection(height: 228, headerWidth: 120),
-                SizedBox(height: 24),
+                SizedBox(height: PantasSpace.s24),
                 SkeletonSection(height: 270, headerWidth: 90),
               ],
             PlanSkeletonKind.day => const [
@@ -50,13 +51,13 @@ class WebPlanLoading extends StatelessWidget {
                     children: [
                       WebSkeletonEyebrow(width: 70),
                       SkeletonCard(height: 77),
-                      SizedBox(height: 28),
+                      SizedBox(height: PantasSpace.s28),
                       WebSkeletonEyebrow(width: 110),
                       SkeletonCard(height: 430),
                     ],
                   ),
                 ),
-                SizedBox(width: 28),
+                SizedBox(width: PantasSpace.s28),
                 Expanded(
                   flex: 10,
                   child: Column(

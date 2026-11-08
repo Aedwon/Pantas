@@ -11,6 +11,8 @@ import 'package:pantas/core/ui/components/pro_paused_line.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/home/presentation/plan_web.dart';
 
@@ -200,7 +202,12 @@ class _PlanPageState extends State<PlanPage> {
       );
 
   Widget _heading(String text) => Padding(
-        padding: const EdgeInsets.fromLTRB(16, 0, 16, 7),
+        padding: const EdgeInsets.fromLTRB(
+          PantasSpace.s16,
+          PantasSpace.s0,
+          PantasSpace.s16,
+          PantasSpace.s8,
+        ),
         // Boards: 13 px gray caps, like the Today label.
         child: Text(text.toUpperCase(), style: context.type.sectionHeader),
       );
@@ -232,19 +239,22 @@ class _PlanPageState extends State<PlanPage> {
       bottomInset: 104,
       // Board DP_PlanA: the subtitle sits 2 px under the title.
       titlePadding: EdgeInsets.fromLTRB(
-        4,
-        0,
-        4,
-        widget.subtitle != null ? 2 : 20,
+        PantasSpace.s4,
+        PantasSpace.s0,
+        PantasSpace.s4,
+        widget.subtitle != null ? PantasSpace.s2 : PantasSpace.s20,
       ),
       children: [
         if (widget.subtitle != null)
           Padding(
-            padding: const EdgeInsets.only(left: 4, bottom: 20),
+            padding: const EdgeInsets.only(
+              left: PantasSpace.s4,
+              bottom: PantasSpace.s20,
+            ),
             child: Text(
               widget.subtitle!,
               style: context.type.subhead
-                  .copyWith(color: context.colors.secondaryLabel),
+                  .copyWith(color: context.colors.textSecondary),
             ),
           ),
         _entry(
@@ -265,7 +275,7 @@ class _PlanPageState extends State<PlanPage> {
                 footer: widget.done == widget.total || widget.left == null
                     ? null
                     : Padding(
-                        padding: const EdgeInsets.only(top: 1),
+                        padding: const EdgeInsets.only(top: PantasSpace.s2),
                         child: Text(
                           widget.left!,
                           style: context.type.footnote,
@@ -275,21 +285,28 @@ class _PlanPageState extends State<PlanPage> {
                   fraction: widget.total == 0 ? 0 : widget.done / widget.total,
                 ),
                 leadingGap: 14,
-                contentPadding:
-                    const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+                contentPadding: const EdgeInsets.symmetric(
+                  horizontal: PantasSpace.s16,
+                  vertical: PantasSpace.s14,
+                ),
                 variant: ListRowVariant.value,
               ),
             ],
           ),
           y: 14,
         ),
-        const SizedBox(height: 24),
+        const SizedBox(height: PantasSpace.s24),
         _entry(100, 450, _heading('Coming up'), y: 14),
         if (widget.pro) ...[
           GroupedSection(
             children: [
               Padding(
-                padding: const EdgeInsets.fromLTRB(10, 16, 16, 12),
+                padding: const EdgeInsets.fromLTRB(
+                  PantasSpace.s10,
+                  PantasSpace.s16,
+                  PantasSpace.s16,
+                  PantasSpace.s12,
+                ),
                 child: Column(
                   children: [
                     for (var i = 0; i < widget.nodes.length; i++)
@@ -299,15 +316,15 @@ class _PlanPageState extends State<PlanPage> {
               ),
             ],
           ),
-          const SizedBox(height: 7),
+          const SizedBox(height: PantasSpace.s8),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
+            padding: const EdgeInsets.symmetric(horizontal: PantasSpace.s16),
             child: Text(
               'Later weeks show topics only.',
               style: context.type.footnote,
             ),
           ),
-          const SizedBox(height: 24),
+          const SizedBox(height: PantasSpace.s24),
           _entry(historyStart, 500, _heading('History'), y: 14),
           GroupedSection(
             children: [
@@ -345,7 +362,12 @@ class _PlanPageState extends State<PlanPage> {
           GroupedSection(
             children: [
               Padding(
-                padding: const EdgeInsets.fromLTRB(10, 16, 16, 12),
+                padding: const EdgeInsets.fromLTRB(
+                  PantasSpace.s10,
+                  PantasSpace.s16,
+                  PantasSpace.s16,
+                  PantasSpace.s12,
+                ),
                 child: Column(
                   children: [
                     for (final (index, row) in _freeRows.indexed)
@@ -360,7 +382,7 @@ class _PlanPageState extends State<PlanPage> {
               ),
             ],
           ),
-          const SizedBox(height: 24),
+          const SizedBox(height: PantasSpace.s24),
           _heading('History'),
           GroupedSection(
             children: [
@@ -370,13 +392,15 @@ class _PlanPageState extends State<PlanPage> {
                 (56.0, 240.0),
               ].indexed)
                 Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 16, vertical: 15),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: PantasSpace.s16,
+                    vertical: PantasSpace.s16,
+                  ),
                   decoration: BoxDecoration(
                     border: index < 2
                         ? Border(
                             bottom: BorderSide(
-                              color: context.colors.separator,
+                              color: context.colors.divider,
                               width: .5,
                             ),
                           )
@@ -385,24 +409,29 @@ class _PlanPageState extends State<PlanPage> {
                   child: Row(
                     children: [
                       _Bar(width: row.$1, height: 12),
-                      const SizedBox(width: 12),
+                      const SizedBox(width: PantasSpace.s12),
                       _Bar(width: row.$2, height: 12),
                     ],
                   ),
                 ),
             ],
           ),
-          const SizedBox(height: 28),
+          const SizedBox(height: PantasSpace.s28),
           if (widget.paused)
             const ProPausedLine()
           else
             DecoratedBox(
               decoration: BoxDecoration(
-                color: context.colors.surface,
-                borderRadius: BorderRadius.circular(18),
+                color: context.colors.surfaceCard,
+                borderRadius: BorderRadius.circular(PantasRadius.xl),
               ),
               child: Padding(
-                padding: const EdgeInsets.fromLTRB(16, 18, 16, 16),
+                padding: const EdgeInsets.fromLTRB(
+                  PantasSpace.s16,
+                  PantasSpace.s18,
+                  PantasSpace.s16,
+                  PantasSpace.s16,
+                ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
@@ -410,7 +439,7 @@ class _PlanPageState extends State<PlanPage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(top: 1),
+                          padding: const EdgeInsets.only(top: PantasSpace.s2),
                           child: ExcludeSemantics(
                             child: SvgPicture.string(
                               '<svg viewBox="0 0 24 24" fill="none" '
@@ -425,7 +454,7 @@ class _PlanPageState extends State<PlanPage> {
                             ),
                           ),
                         ),
-                        const SizedBox(width: 12),
+                        const SizedBox(width: PantasSpace.s12),
                         Expanded(
                           child: Text(
                             'See every week up to your exam, and every time '
@@ -438,7 +467,7 @@ class _PlanPageState extends State<PlanPage> {
                         ),
                       ],
                     ),
-                    const SizedBox(height: 14),
+                    const SizedBox(height: PantasSpace.s14),
                     PantasButton(
                       label: 'Unlock with Pro',
                       onPressed: widget.onPro,
@@ -466,14 +495,17 @@ class _PlanPageState extends State<PlanPage> {
   /// DP_PlanFree: the exam day closes the gray timeline.
   Widget _freeExamRow(PlanNode node) {
     final c = context.colors;
-    return SizedBox(
-      height: 46,
+    // A row grows with the text size; it is never shorter than its board
+    // height.
+    return ConstrainedBox(
+      constraints:
+          const BoxConstraints(minHeight: PantasSpace.s44 + PantasSpace.s2),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(
-            width: 28,
-            height: 24,
+            width: PantasSpace.s28,
+            height: PantasSpace.s24,
             child: OverflowBox(
               maxWidth: 30,
               maxHeight: 30,
@@ -482,14 +514,16 @@ class _PlanPageState extends State<PlanPage> {
                   width: 30,
                   height: 30,
                   alignment: Alignment.center,
-                  decoration:
-                      BoxDecoration(color: c.surface, shape: BoxShape.circle),
+                  decoration: BoxDecoration(
+                    color: c.surfaceCard,
+                    shape: BoxShape.circle,
+                  ),
                   child: const PantasLogo(size: 28),
                 ),
               ),
             ),
           ),
-          const SizedBox(width: 12),
+          const SizedBox(width: PantasSpace.s12),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -507,7 +541,7 @@ class _PlanPageState extends State<PlanPage> {
                       ),
                     ),
                     if (node.date != null) ...[
-                      const SizedBox(width: 8),
+                      const SizedBox(width: PantasSpace.s8),
                       Text(
                         node.date!,
                         maxLines: 1,
@@ -518,17 +552,17 @@ class _PlanPageState extends State<PlanPage> {
                     ],
                   ],
                 ),
-                const SizedBox(height: 2),
+                const SizedBox(height: PantasSpace.s2),
                 Text(
                   node.subtitle,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
-                  style: context.type.subhead.copyWith(color: c.secondaryLabel),
+                  style: context.type.subhead.copyWith(color: c.textSecondary),
                 ),
               ],
             ),
           ),
-          const SizedBox(width: 22),
+          const SizedBox(width: PantasSpace.s24),
         ],
       ),
     );
@@ -547,16 +581,18 @@ class _PlanPageState extends State<PlanPage> {
           height: 12,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            color: index == 0 ? c.label : c.surface,
-            border: index == 0 ? null : Border.all(color: c.chevron, width: 2),
-            boxShadow: [BoxShadow(color: c.surface, spreadRadius: 3)],
+            color: index == 0 ? c.textPrimary : c.surfaceCard,
+            border:
+                index == 0 ? null : Border.all(color: c.iconChevron, width: 2),
+            boxShadow: [BoxShadow(color: c.surfaceCard, spreadRadius: 3)],
           ),
         ),
       PlanNodeKind.exam => Container(
           width: 30,
           height: 30,
           alignment: Alignment.center,
-          decoration: BoxDecoration(color: c.surface, shape: BoxShape.circle),
+          decoration:
+              BoxDecoration(color: c.surfaceCard, shape: BoxShape.circle),
           child: const PantasLogo(size: 28),
         ),
       _ => Container(
@@ -564,15 +600,15 @@ class _PlanPageState extends State<PlanPage> {
           height: 28,
           alignment: Alignment.center,
           decoration: BoxDecoration(
-            color: c.surface,
+            color: c.surfaceCard,
             shape: BoxShape.circle,
-            border: Border.all(color: c.label, width: 1.6),
+            border: Border.all(color: c.textPrimary, width: 1.6),
           ),
           child: CustomPaint(
             size: const Size.square(14),
             painter: _TimelineGlyph(
               clock: node.kind == PlanNodeKind.mock,
-              color: c.label,
+              color: c.textPrimary,
             ),
           ),
         ),
@@ -599,7 +635,7 @@ class _PlanPageState extends State<PlanPage> {
                     ),
                   ),
                   if (node.date != null) ...[
-                    const SizedBox(width: 8),
+                    const SizedBox(width: PantasSpace.s8),
                     Text(
                       node.date!,
                       maxLines: 1,
@@ -611,43 +647,48 @@ class _PlanPageState extends State<PlanPage> {
                   ],
                 ],
               ),
-              const SizedBox(height: 2),
+              const SizedBox(height: PantasSpace.s2),
               Text(
                 node.subtitle,
                 maxLines: 1,
                 softWrap: false,
                 overflow: TextOverflow.ellipsis,
-                style: context.type.subhead.copyWith(color: c.secondaryLabel),
+                style: context.type.subhead.copyWith(color: c.textSecondary),
               ),
             ],
           ),
         ),
-        const SizedBox(width: 8),
+        const SizedBox(width: PantasSpace.s8),
         if (week && node.target != null)
           Padding(
-            padding: const EdgeInsets.only(top: 17),
-            child: Icon(PantasIcons.next, size: 14, color: c.chevron),
+            padding: const EdgeInsets.only(top: PantasSpace.s16),
+            child: Icon(PantasIcons.next, size: 14, color: c.iconChevron),
           )
         else
-          const SizedBox(width: 14),
+          const SizedBox(width: PantasSpace.s14),
       ],
     );
-    final row = SizedBox(
-      height: last ? 46 : 66,
+    final row = ConstrainedBox(
+      constraints: BoxConstraints(
+        minHeight: last
+            ? PantasSpace.s44 + PantasSpace.s2
+            : PantasSpace.s56 + PantasSpace.s10,
+      ),
       child: Stack(
         clipBehavior: Clip.none,
         children: [
           if (!last)
             Positioned(
               left: node.reviewOnly ? 12.5 : 13,
-              top: 12,
+              top: PantasSpace.s12,
+              // Down to the next marker, which sits 12 px into the next row.
+              bottom: -PantasSpace.s12,
               child: _entry(
                 start + 120,
                 140,
                 Container(
                   width: lineWidth,
-                  height: 66,
-                  color: node.reviewOnly ? const Color(0xFF8E8E93) : c.fill,
+                  color: node.reviewOnly ? c.iconChevron : c.fill,
                 ),
                 draw: true,
                 effectKey: ValueKey('plan-line-$index'),
@@ -657,8 +698,8 @@ class _PlanPageState extends State<PlanPage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                width: 28,
-                height: 24,
+                width: PantasSpace.s28,
+                height: PantasSpace.s24,
                 child: OverflowBox(
                   maxWidth: 30,
                   maxHeight: 30,
@@ -672,7 +713,7 @@ class _PlanPageState extends State<PlanPage> {
                   ),
                 ),
               ),
-              const SizedBox(width: 12),
+              const SizedBox(width: PantasSpace.s12),
               Expanded(child: _entry(start + 40, 300, text, x: -6)),
             ],
           ),
@@ -718,7 +759,7 @@ class _TimelineGlyph extends CustomPainter {
         ..drawRRect(
           RRect.fromRectAndRadius(
             const Rect.fromLTWH(3.8, 5, 16.4, 15.2),
-            const Radius.circular(3),
+            const Radius.circular(PantasRadius.xs),
           ),
           paint,
         )
@@ -754,9 +795,9 @@ class _PlanDoneRing extends StatelessWidget {
             // Dark keeps the 3:1 gray the phone's other empty rings use; the
             // pale fill disappears into the card (A-1, 2G-17).
             track: Theme.of(context).brightness == Brightness.dark
-                ? context.colors.chevron
+                ? context.colors.iconChevron
                 : context.colors.fill,
-            fill: context.colors.label,
+            fill: context.colors.textPrimary,
           ),
         ),
       );
@@ -822,7 +863,7 @@ class _HistoryFooter extends StatelessWidget {
                 'See more',
                 style: context.type.body.copyWith(color: context.colors.accent),
               ),
-              const SizedBox(width: 4),
+              const SizedBox(width: PantasSpace.s4),
               RotatedBox(
                 quarterTurns: 1,
                 child: Icon(
@@ -835,7 +876,10 @@ class _HistoryFooter extends StatelessWidget {
           ),
         )
       : Padding(
-          padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
+          padding: const EdgeInsets.symmetric(
+            vertical: PantasSpace.s16,
+            horizontal: PantasSpace.s20,
+          ),
           child: Text(
             "That's everything since you started.",
             textAlign: TextAlign.center,
@@ -884,7 +928,12 @@ class _PlanHistoryPageState extends State<PlanHistoryPage> {
       bottomInset: 104,
       children: [
         Padding(
-          padding: const EdgeInsets.fromLTRB(16, 8, 16, 7),
+          padding: const EdgeInsets.fromLTRB(
+            PantasSpace.s16,
+            PantasSpace.s8,
+            PantasSpace.s16,
+            PantasSpace.s8,
+          ),
           child: Text('HISTORY', style: context.type.sectionHeader),
         ),
         GroupedSection(
@@ -942,41 +991,45 @@ class _HistoryRow extends StatelessWidget {
         child: InkWell(
           onTap: onTap,
           child: Container(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 13),
+            padding: const EdgeInsets.symmetric(
+              horizontal: PantasSpace.s16,
+              vertical: PantasSpace.s12,
+            ),
             decoration: BoxDecoration(
               border: divider
-                  ? Border(bottom: BorderSide(color: c.separator, width: .5))
+                  ? Border(bottom: BorderSide(color: c.divider, width: .5))
                   : null,
             ),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(
-                  width: 74,
+                  width: PantasSpace.s56 + PantasSpace.s18,
                   child: Text(
                     date,
                     maxLines: 1,
                     style: context.type.subhead.copyWith(
                       fontWeight: FontWeight.w500,
-                      color: c.secondaryLabel,
+                      color: c.textSecondary,
                     ),
                   ),
                 ),
-                const SizedBox(width: 12),
+                const SizedBox(width: PantasSpace.s12),
                 Expanded(
                   child: Text(
                     text,
                     maxLines: expanded ? null : 1,
                     overflow: expanded ? null : TextOverflow.ellipsis,
-                    style: context.type.subhead.copyWith(color: c.label),
+                    style: context.type.subhead.copyWith(color: c.textPrimary),
                   ),
                 ),
-                const SizedBox(width: 12),
+                const SizedBox(width: PantasSpace.s12),
                 Padding(
-                  padding: const EdgeInsets.only(top: 4),
+                  padding: const EdgeInsets.only(top: PantasSpace.s4),
                   child: RotatedBox(
                     quarterTurns: expanded ? 3 : 1,
-                    child: Icon(PantasIcons.next, size: 13, color: c.chevron),
+                    child:
+                        Icon(PantasIcons.next, size: 13, color: c.iconChevron),
                   ),
                 ),
               ],
@@ -1019,26 +1072,28 @@ class _PlaceholderRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final c = context.colors;
-    return SizedBox(
-      height: 66,
+    return ConstrainedBox(
+      constraints: const BoxConstraints(
+        minHeight: PantasSpace.s56 + PantasSpace.s10,
+      ),
       child: Stack(
         clipBehavior: Clip.none,
         children: [
           Positioned(
             left: icon != null ? 12.5 : 13,
-            top: 12,
+            top: PantasSpace.s12,
+            bottom: -PantasSpace.s12,
             child: Container(
               width: icon != null ? 3 : 2,
-              height: 66,
-              color: c.separator,
+              color: c.divider,
             ),
           ),
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                width: 28,
-                height: 24,
+                width: PantasSpace.s28,
+                height: PantasSpace.s24,
                 child: OverflowBox(
                   maxWidth: 30,
                   maxHeight: 30,
@@ -1048,7 +1103,7 @@ class _PlaceholderRow extends StatelessWidget {
                             width: 12,
                             height: 12,
                             decoration: BoxDecoration(
-                              color: c.separator,
+                              color: c.divider,
                               shape: BoxShape.circle,
                             ),
                           )
@@ -1057,10 +1112,10 @@ class _PlaceholderRow extends StatelessWidget {
                             height: 28,
                             alignment: Alignment.center,
                             decoration: BoxDecoration(
-                              color: c.surface,
+                              color: c.surfaceCard,
                               shape: BoxShape.circle,
                               border: Border.all(
-                                color: c.separator,
+                                color: c.divider,
                                 width: 1.6,
                               ),
                             ),
@@ -1068,28 +1123,28 @@ class _PlaceholderRow extends StatelessWidget {
                               size: const Size.square(14),
                               painter: _TimelineGlyph(
                                 clock: icon!.clock,
-                                color: c.chevron,
+                                color: c.iconChevron,
                               ),
                             ),
                           ),
                   ),
                 ),
               ),
-              const SizedBox(width: 12),
+              const SizedBox(width: PantasSpace.s12),
               Expanded(
                 child: Padding(
-                  padding: const EdgeInsets.only(top: 6),
+                  padding: const EdgeInsets.only(top: PantasSpace.s6),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       _Bar(width: top, height: 12),
-                      const SizedBox(height: 8),
+                      const SizedBox(height: PantasSpace.s8),
                       _Bar(width: bottom, height: 10),
                     ],
                   ),
                 ),
               ),
-              const SizedBox(width: 22),
+              const SizedBox(width: PantasSpace.s24),
             ],
           ),
         ],

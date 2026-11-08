@@ -11,6 +11,9 @@ import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/components/sort_cycle_button.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
@@ -75,29 +78,29 @@ class PerformanceScreen extends ConsumerWidget {
                   onBack: () => _back(context),
                   description: false,
                 ),
-                const SizedBox(height: 28),
+                const SizedBox(height: PantasSpace.s28),
                 if (failed)
                   WebCard(
                     padding: const EdgeInsets.symmetric(
-                      horizontal: 24,
-                      vertical: 120,
+                      horizontal: PantasSpace.s24,
+                      vertical: PantasSpace.s56,
                     ),
                     child: Column(
                       children: [
                         Icon(
                           Icons.warning_amber_rounded,
                           size: 28,
-                          color: context.webTokens.colors.tertiaryLabel,
+                          color: context.webTokens.colors.textSecondary,
                         ),
-                        const SizedBox(height: 12),
+                        const SizedBox(height: PantasSpace.s12),
                         Text(
                           'Could not load your performance.',
                           style: context.webTokens.style(
                             17,
-                            color: context.webTokens.colors.secondaryLabel,
+                            color: context.webTokens.colors.textSecondary,
                           ),
                         ),
-                        const SizedBox(height: 12),
+                        const SizedBox(height: PantasSpace.s12),
                         WebButton(
                           label: 'Try Again',
                           variant: WebButtonVariant.secondary,
@@ -147,13 +150,13 @@ class PerformanceScreen extends ConsumerWidget {
         if (context.wideWeb) {
           return showWebOverlay<void>(
             context: context,
-            motion: WebOverlayMotion.drawerOf(480),
+            motion: WebOverlayMotion.drawerOf(PantasLayout.drawer),
             barrierLabel: 'Close topic',
-            barrierColor: Colors.black.withValues(alpha: .28),
+            barrierColor: context.colors.scrim,
             builder: (context) => Align(
               alignment: Alignment.centerRight,
               child: SizedBox(
-                width: 480,
+                width: PantasLayout.drawer,
                 child: TopicScreen(topicId: id, inDrawer: true),
               ),
             ),
@@ -292,12 +295,12 @@ class _TopicDrawerPageState extends State<_TopicDrawerPage> {
             ),
             Positioned.fill(
               child: WebOverlayLayer(
-                motion: WebOverlayMotion.drawerOf(480),
+                motion: WebOverlayMotion.drawerOf(PantasLayout.drawer),
                 barrierLabel: 'Close topic',
                 onDismiss: () => _exit.close(() => _back(context)),
                 exit: _exit,
                 child: SizedBox(
-                  width: 480,
+                  width: PantasLayout.drawer,
                   child: TopicScreen(
                     topicId: widget.topicId,
                     inDrawer: true,

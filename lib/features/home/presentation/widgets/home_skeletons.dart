@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/home/presentation/widgets/home_web_layout.dart';
@@ -15,9 +17,9 @@ class HomeMastheadSkeleton extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             SkeletonCard(height: 75.5),
-            SizedBox(height: 22),
+            SizedBox(height: PantasSpace.s24),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 4),
+              padding: EdgeInsets.symmetric(horizontal: PantasSpace.s4),
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: SkeletonBlock(width: 230, height: 38, radius: 10),
@@ -37,9 +39,12 @@ class HomeTodaySkeleton extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             SizedBox(
-              height: 48,
+              height: PantasSpace.s44 + PantasSpace.s4,
               child: Padding(
-                padding: EdgeInsets.only(left: 16, right: 8),
+                padding: EdgeInsets.only(
+                  left: PantasSpace.s16,
+                  right: PantasSpace.s8,
+                ),
                 child: Align(
                   alignment: Alignment.centerLeft,
                   child: SkeletonBlock(width: 60, height: 13),
@@ -83,14 +88,19 @@ class HomePageSkeleton extends StatelessWidget {
     }
     return ListView(
       physics: const NeverScrollableScrollPhysics(),
-      padding: const EdgeInsets.fromLTRB(16, 16, 16, 104),
+      padding: const EdgeInsets.fromLTRB(
+        PantasSpace.s16,
+        PantasSpace.s16,
+        PantasSpace.s16,
+        PantasLayout.reserveTabbar,
+      ),
       children: const [
         HomeMastheadSkeleton(),
-        SizedBox(height: 22),
+        SizedBox(height: PantasSpace.s24),
         HomeTodaySkeleton(),
-        SizedBox(height: 22),
+        SizedBox(height: PantasSpace.s24),
         HomePerformanceSkeleton(),
-        SizedBox(height: 24),
+        SizedBox(height: PantasSpace.s24),
         SkeletonPulse(child: SkeletonGroup(rows: 2)),
       ],
     );
@@ -120,7 +130,7 @@ class _WideHeader extends StatelessWidget {
                   child: SkeletonBlock(width: 180, height: 13),
                 ),
               ),
-              const SizedBox(height: 4),
+              const SizedBox(height: PantasSpace.s4),
               SizedBox(
                 height: _line(t.h1),
                 child: const Align(
@@ -131,7 +141,10 @@ class _WideHeader extends StatelessWidget {
             ],
           ),
         ),
-        const SizedBox(width: 480, child: HomeWebLoading(header: true)),
+        SizedBox(
+          width: PantasLayout.colPrimary.basis,
+          child: const HomeWebLoading(header: true),
+        ),
       ],
     );
   }

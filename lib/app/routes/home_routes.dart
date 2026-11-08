@@ -1,5 +1,7 @@
 // ignore_for_file: directives_ordering
 
+import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
 import 'package:pantas/features/home/presentation/home_tab.dart';
 import 'package:pantas/features/home/presentation/plan_screen.dart';
 import 'package:pantas/features/home/presentation/record_screen.dart';
@@ -78,11 +80,11 @@ Future<void> openPlanLesson(
       context: context,
       motion: WebOverlayMotion.lesson,
       barrierLabel: 'Close lesson',
-      barrierColor: Colors.black.withValues(alpha: .28),
+      barrierColor: context.colors.scrim,
       builder: (dialogContext) => Align(
         alignment: Alignment.centerRight,
         child: SizedBox(
-          width: 620,
+          width: PantasLayout.reader,
           height: double.infinity,
           child: LessonPage(
             lessonId: lessonId,

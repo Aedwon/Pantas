@@ -4,6 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/pro_paused_line.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_opacity.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/home/application/how_you_work_provider.dart';
@@ -35,12 +41,12 @@ class WebTendenciesLayout extends StatelessWidget {
           children: [
             // The board's hero sits 26 px under the title; the eyebrow pages
             // above get 2 px from their own label box.
-            const SizedBox(height: 2),
+            const SizedBox(height: PantasSpace.s2),
             WebTendencyProfile(data: data, onName: onName),
-            const SizedBox(height: 26),
+            const SizedBox(height: PantasSpace.s24),
             const WebText('What we found', kind: WebTextKind.eyebrow),
             for (var index = 0; index < data.tendencies.length; index += 2) ...[
-              if (index > 0) const SizedBox(height: 14),
+              if (index > 0) const SizedBox(height: PantasSpace.s14),
               IntrinsicHeight(
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -51,7 +57,7 @@ class WebTendenciesLayout extends StatelessWidget {
                         pro: pro,
                       ),
                     ),
-                    const SizedBox(width: 14),
+                    const SizedBox(width: PantasSpace.s14),
                     Expanded(
                       child: index + 1 < data.tendencies.length
                           ? WebTendencyFinding(
@@ -65,13 +71,15 @@ class WebTendenciesLayout extends StatelessWidget {
               ),
             ],
             if (!pro) ...[
-              const SizedBox(height: 26),
+              const SizedBox(height: PantasSpace.s24),
               if (paused)
                 const ProPausedLine()
               else
                 WebCard(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 24, vertical: 22),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: PantasSpace.s24,
+                    vertical: PantasSpace.s24,
+                  ),
                   child: Row(
                     children: [
                       Container(
@@ -88,7 +96,7 @@ class WebTendenciesLayout extends StatelessWidget {
                           size: 22,
                         ),
                       ),
-                      const SizedBox(width: 18),
+                      const SizedBox(width: PantasSpace.s18),
                       Expanded(
                         child: Text(
                           'Unlock complete insights into your study habits, '
@@ -96,13 +104,13 @@ class WebTendenciesLayout extends StatelessWidget {
                           style: context.webTokens.style(17, height: 1.45),
                         ),
                       ),
-                      const SizedBox(width: 18),
+                      const SizedBox(width: PantasSpace.s18),
                       WebButton(label: 'Unlock with Pro', onPressed: onPro),
                     ],
                   ),
                 ),
             ] else if (data.whenYouWork.isNotEmpty) ...[
-              const SizedBox(height: 26),
+              const SizedBox(height: PantasSpace.s24),
               const WebText('When you work', kind: WebTextKind.eyebrow),
               WebCard(
                 child: Row(
@@ -112,8 +120,8 @@ class WebTendenciesLayout extends StatelessWidget {
                       Expanded(
                         child: Padding(
                           padding: const EdgeInsets.symmetric(
-                            horizontal: 22,
-                            vertical: 18,
+                            horizontal: PantasSpace.s24,
+                            vertical: PantasSpace.s18,
                           ),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -152,7 +160,7 @@ class WebTendencyProfile extends StatelessWidget {
     if (data.archetype == null) {
       return WebCard(
         key: const ValueKey('tendencies-profile'),
-        padding: const EdgeInsets.all(24),
+        padding: const EdgeInsets.all(PantasSpace.s24),
         child: Row(
           children: [
             Container(
@@ -165,10 +173,10 @@ class WebTendencyProfile extends StatelessWidget {
               ),
               child: Text(
                 '?',
-                style: t.style(26, color: t.colors.tertiaryLabel),
+                style: PantasType.webH2.copyWith(color: t.colors.textSecondary),
               ),
             ),
-            const SizedBox(width: 18),
+            const SizedBox(width: PantasSpace.s18),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -183,19 +191,16 @@ class WebTendencyProfile extends StatelessWidget {
                       ),
                       child: Text(
                         'Add your name',
-                        style: t.style(
-                          15,
-                          weight: FontWeight.w600,
-                          color: t.colors.accent,
-                        ),
+                        style:
+                            PantasType.webLink.copyWith(color: t.colors.accent),
                       ),
                     )
                   else
                     Text(data.name!, style: t.sub),
-                  const SizedBox(height: 4),
+                  const SizedBox(height: PantasSpace.s4),
                   Text(
                     'Needs more usage data',
-                    style: t.h3.copyWith(color: t.colors.tertiaryLabel),
+                    style: t.h3.copyWith(color: t.colors.textSecondary),
                   ),
                 ],
               ),
@@ -224,8 +229,8 @@ class WebTendencyProfile extends StatelessWidget {
       constraints: const BoxConstraints(minHeight: 148),
       clipBehavior: Clip.antiAlias,
       decoration: BoxDecoration(
-        color: const Color(0xff1d1d1f),
-        borderRadius: BorderRadius.circular(22),
+        color: t.colors.toastBg,
+        borderRadius: BorderRadius.circular(PantasRadius.r2xl),
       ),
       child: Stack(
         children: [
@@ -238,7 +243,7 @@ class WebTendencyProfile extends StatelessWidget {
                 begin: MediaQuery.disableAnimationsOf(context) ? 1 : 0,
                 end: 1,
               ),
-              duration: const Duration(milliseconds: 800),
+              duration: PantasDurations.long3,
               curve: PantasCurves.house,
               builder: (_, value, child) => Transform.translate(
                 offset: Offset(20 * (1 - value), 0),
@@ -246,14 +251,24 @@ class WebTendencyProfile extends StatelessWidget {
               ),
               child: Transform.rotate(
                 angle: -8 * math.pi / 180,
-                child: Icon(glyph, size: 150, color: const Color(0xff3a3a3d)),
+                child: Icon(
+                  glyph,
+                  size: PantasType.phoneDisplayL.fontSize,
+                  color:
+                      t.colors.toastText.withValues(alpha: PantasOpacity.hover),
+                ),
               ),
             ),
           ),
           SizedBox(
             width: double.infinity,
             child: Padding(
-              padding: const EdgeInsets.fromLTRB(28, 26, 124, 28),
+              padding: const EdgeInsets.fromLTRB(
+                PantasSpace.s28,
+                PantasSpace.s24,
+                PantasSpace.s56 * PantasSpace.s2,
+                PantasSpace.s28,
+              ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -265,32 +280,26 @@ class WebTendencyProfile extends StatelessWidget {
                   else
                     Text(
                       data.name!,
-                      style: t.style(
-                        15,
-                        weight: FontWeight.w500,
-                        color: Colors.white.withValues(alpha: .6),
+                      style: PantasType.webNav.copyWith(
+                        color: t.colors.toastText,
                       ),
                     ),
-                  const SizedBox(height: 6),
+                  const SizedBox(height: PantasSpace.s6),
                   Text(
                     data.archetype!,
-                    style: t
-                        .style(
-                          30,
-                          weight: FontWeight.w700,
-                          height: 1.1,
-                          color: Colors.white,
-                        )
-                        .copyWith(letterSpacing: -.6),
+                    style: PantasType.phoneTitle1.copyWith(
+                      height: 1.1,
+                      color: t.colors.toastText,
+                      letterSpacing: -.6,
+                    ),
                   ),
                   if (data.archetypeLine != null) ...[
-                    const SizedBox(height: 6),
+                    const SizedBox(height: PantasSpace.s6),
                     Text(
                       data.archetypeLine!,
-                      style: t.style(
-                        17,
+                      style: PantasType.webLead.copyWith(
                         height: 1.4,
-                        color: Colors.white.withValues(alpha: .78),
+                        color: t.colors.toastText,
                       ),
                     ),
                   ],
@@ -332,25 +341,26 @@ class WebTendencyFinding extends StatelessWidget {
     Widget pair(Widget left, Widget right) => Row(
           children: [
             Expanded(child: left),
-            const SizedBox(width: 12),
+            const SizedBox(width: PantasSpace.s12),
             Expanded(child: right),
           ],
         );
     Widget number(String label, String? value) => Container(
-          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+          padding: const EdgeInsets.symmetric(
+            horizontal: PantasSpace.s14,
+            vertical: PantasSpace.s12,
+          ),
           decoration: BoxDecoration(
-            color: t.colors.background,
-            borderRadius: BorderRadius.circular(12),
+            color: t.colors.bgPage,
+            borderRadius: BorderRadius.circular(PantasRadius.md),
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 clear ? value! : '–',
-                style: t.style(
-                  26,
-                  weight: FontWeight.w700,
-                  color: clear ? t.colors.label : t.colors.tertiaryLabel,
+                style: PantasType.webH2.copyWith(
+                  color: clear ? t.colors.textPrimary : t.colors.textSecondary,
                 ),
               ),
               Text(label, style: t.sm),
@@ -362,13 +372,16 @@ class WebTendencyFinding extends StatelessWidget {
     Widget bar(String label, String? figure, double fraction, Color color) =>
         Row(
           children: [
-            SizedBox(width: 92, child: Text(label, style: t.sm)),
-            const SizedBox(width: 12),
+            SizedBox(
+              width: PantasSpace.s56 + PantasSpace.s32 + PantasSpace.s4,
+              child: Text(label, style: t.sm),
+            ),
+            const SizedBox(width: PantasSpace.s12),
             Expanded(
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(99),
+                borderRadius: BorderRadius.circular(PantasRadius.full),
                 child: SizedBox(
-                  height: 10,
+                  height: PantasSpace.s10,
                   child: ColoredBox(
                     color: t.disabledBackground,
                     child: Align(
@@ -380,7 +393,7 @@ class WebTendencyFinding extends StatelessWidget {
                               MediaQuery.disableAnimationsOf(context) ? 1 : 0,
                           end: 1,
                         ),
-                        duration: const Duration(milliseconds: 900),
+                        duration: PantasDurations.long3,
                         curve: PantasCurves.house,
                         builder: (_, grow, child) => FractionallySizedBox(
                           widthFactor: fraction.clamp(0, 1) * grow,
@@ -396,13 +409,14 @@ class WebTendencyFinding extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(width: 12),
+            const SizedBox(width: PantasSpace.s12),
             SizedBox(
-              width: 40,
+              width: PantasSpace.s40,
               child: Text(
                 clear ? figure! : '',
                 textAlign: TextAlign.right,
-                style: t.style(16, weight: FontWeight.w600),
+                style:
+                    PantasType.webTitleSm.copyWith(color: t.colors.textPrimary),
               ),
             ),
           ],
@@ -422,22 +436,25 @@ class WebTendencyFinding extends StatelessWidget {
               a.leftLabel,
               a.leftFigure,
               clear ? fraction(a.leftFigure) : .6,
-              clear ? t.colors.accent : t.colors.separator,
+              clear ? t.colors.accent : t.colors.divider,
             ),
-            const SizedBox(height: 14),
+            const SizedBox(height: PantasSpace.s14),
             bar(
               a.rightLabel,
               a.rightFigure,
               clear ? fraction(a.rightFigure) : .45,
-              clear
-                  ? t.colors.accent.withValues(alpha: .55)
-                  : t.colors.separator,
+              clear ? t.colors.accent.withValues(alpha: .55) : t.colors.divider,
             ),
           ]);
           if (clear && pressure) {
             content.add(
               Padding(
-                padding: const EdgeInsets.fromLTRB(104, 14, 52, 0),
+                padding: const EdgeInsets.fromLTRB(
+                  PantasLayout.reserveTabbar,
+                  PantasSpace.s14,
+                  PantasSpace.s44 + PantasSpace.s8,
+                  PantasSpace.s0,
+                ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -451,23 +468,21 @@ class WebTendencyFinding extends StatelessWidget {
           if (clear && !pressure && a.isLoss && a.gap != null) {
             content.add(
               Padding(
-                padding: const EdgeInsets.only(top: 14),
+                padding: const EdgeInsets.only(top: PantasSpace.s14),
                 child: Align(
                   alignment: Alignment.centerLeft,
                   child: Container(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: PantasSpace.s8,
+                      vertical: PantasSpace.s2,
+                    ),
                     decoration: BoxDecoration(
                       color: t.colors.accentTint,
-                      borderRadius: BorderRadius.circular(99),
+                      borderRadius: BorderRadius.circular(PantasRadius.full),
                     ),
                     child: Text(
                       '+${a.gap} on wrong answers',
-                      style: t.style(
-                        12,
-                        weight: FontWeight.w600,
-                        color: t.tintText,
-                      ),
+                      style: PantasType.webTag.copyWith(color: t.tintText),
                     ),
                   ),
                 ),
@@ -482,16 +497,16 @@ class WebTendencyFinding extends StatelessWidget {
         final share = clear ? value(a.leftFigure) / 100 : .5;
         content.addAll([
           ClipRRect(
-            borderRadius: BorderRadius.circular(99),
+            borderRadius: BorderRadius.circular(PantasRadius.full),
             child: SizedBox(
-              height: 12,
+              height: PantasSpace.s12,
               // The phone's chart draw: 900 ms from empty to the value.
               child: TweenAnimationBuilder<double>(
                 tween: Tween(
                   begin: MediaQuery.disableAnimationsOf(context) ? 1 : 0,
                   end: 1,
                 ),
-                duration: const Duration(milliseconds: 900),
+                duration: PantasDurations.long3,
                 curve: PantasCurves.house,
                 builder: (_, grow, child) => Align(
                   alignment: Alignment.centerLeft,
@@ -506,13 +521,13 @@ class WebTendencyFinding extends StatelessWidget {
                         child: const SizedBox.expand(),
                       ),
                     ),
-                    const SizedBox(width: 2),
+                    const SizedBox(width: PantasSpace.s2),
                     Expanded(
                       flex: math.max(1, ((1 - share) * 1000).round()),
                       child: ColoredBox(
                         color: clear
                             ? t.colors.accent.withValues(alpha: .35)
-                            : t.colors.separator,
+                            : t.colors.divider,
                         child: const SizedBox.expand(),
                       ),
                     ),
@@ -521,7 +536,7 @@ class WebTendencyFinding extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(height: 8),
+          const SizedBox(height: PantasSpace.s8),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -547,10 +562,10 @@ class WebTendencyFinding extends StatelessWidget {
         content.addAll([
           if (clear) ...[
             Text('Accuracy in your mocks', style: t.sm),
-            const SizedBox(height: 8),
+            const SizedBox(height: PantasSpace.s8),
           ],
           SizedBox(
-            height: 80,
+            height: PantasSpace.s56 + PantasSpace.s24,
             width: double.infinity,
             child: CustomPaint(
               painter: _StaminaLine(
@@ -569,13 +584,16 @@ class WebTendencyFinding extends StatelessWidget {
           ),
           if (pro && forming)
             Padding(
-              padding: const EdgeInsets.only(top: 14),
+              padding: const EdgeInsets.only(top: PantasSpace.s14),
               child: Text('Needs more usage data', style: t.sm),
             ),
         ]);
     }
     return WebCard(
-      padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 20),
+      padding: const EdgeInsets.symmetric(
+        horizontal: PantasSpace.s24,
+        vertical: PantasSpace.s20,
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -584,29 +602,27 @@ class WebTendencyFinding extends StatelessWidget {
             style:
                 t.sm.copyWith(fontWeight: FontWeight.w600, letterSpacing: .26),
           ),
-          const SizedBox(height: 14),
+          const SizedBox(height: PantasSpace.s14),
           Text(
             caption,
-            style: t.style(
-              16,
+            style: PantasType.webBody.copyWith(
               height: 1.45,
-              color: clear ? t.colors.label : t.colors.tertiaryLabel,
+              color: clear ? t.colors.textPrimary : t.colors.textSecondary,
             ),
           ),
-          if (content.isNotEmpty) ...[const SizedBox(height: 14), ...content],
+          if (content.isNotEmpty) ...[
+            const SizedBox(height: PantasSpace.s14),
+            ...content,
+          ],
           if (pro &&
               !clear &&
               !forming &&
               missing &&
               a.unlockAction.isNotEmpty) ...[
-            const SizedBox(height: 14),
+            const SizedBox(height: PantasSpace.s14),
             Text(
               a.unlockAction,
-              style: t.style(
-                16,
-                weight: FontWeight.w600,
-                color: t.colors.accent,
-              ),
+              style: PantasType.webTitleSm.copyWith(color: t.colors.accent),
             ),
           ],
         ],

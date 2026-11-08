@@ -10,6 +10,8 @@ import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/notice_strip.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/home/application/home_notices.dart';
 import 'package:pantas/features/home/presentation/widgets/home_web_layout.dart';
@@ -78,7 +80,7 @@ class _HomeNoticeStripState extends ConsumerState<HomeNoticeStrip> {
           day++)
         if (!DateTime(month.year, month.month, day).isBefore(today))
           SizedBox(
-            width: 44,
+            width: PantasSpace.s44,
             child: TextButton(
               key: ValueKey('notice-day-$day'),
               onPressed: _saving
@@ -88,14 +90,14 @@ class _HomeNoticeStripState extends ConsumerState<HomeNoticeStrip> {
                             _pickedDay = DateTime(month.year, month.month, day),
                       ),
               style: TextButton.styleFrom(
-                padding: const EdgeInsets.symmetric(vertical: 8),
+                padding: const EdgeInsets.symmetric(vertical: PantasSpace.s8),
                 minimumSize: const Size(44, 52),
                 backgroundColor: _pickedDay?.day == day
                     ? context.colors.accentFill
-                    : context.colors.surface,
+                    : context.colors.surfaceCard,
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
-                  side: BorderSide(color: context.colors.separator),
+                  borderRadius: BorderRadius.circular(PantasRadius.md),
+                  side: BorderSide(color: context.colors.divider),
                 ),
               ),
               child: Column(
@@ -105,11 +107,10 @@ class _HomeNoticeStripState extends ConsumerState<HomeNoticeStrip> {
                     DateFormat('EEE', 'en_US').format(
                       DateTime(month.year, month.month, day),
                     ),
-                    style: context.type.caption.copyWith(
-                      fontSize: 10,
+                    style: context.type.captionSmall.copyWith(
                       color: _pickedDay?.day == day
                           ? context.colors.onAccent
-                          : context.colors.secondaryLabel,
+                          : context.colors.textSecondary,
                     ),
                   ),
                   Text(
@@ -120,7 +121,7 @@ class _HomeNoticeStripState extends ConsumerState<HomeNoticeStrip> {
                           : FontWeight.w500,
                       color: _pickedDay?.day == day
                           ? context.colors.onAccent
-                          : context.colors.label,
+                          : context.colors.textPrimary,
                     ),
                   ),
                 ],
@@ -220,7 +221,7 @@ class _HomeNoticeStripState extends ConsumerState<HomeNoticeStrip> {
       );
     }
     return Padding(
-      padding: const EdgeInsets.only(bottom: 22),
+      padding: const EdgeInsets.only(bottom: PantasSpace.s24),
       child: NoticeStrip(
         title: notice.title,
         detail: notice.detail,

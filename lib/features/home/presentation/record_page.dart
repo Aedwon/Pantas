@@ -5,6 +5,8 @@ import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/home/application/record_provider.dart';
 import 'package:pantas/features/home/presentation/widgets/accuracy_line.dart';
@@ -83,7 +85,12 @@ class RecordPage extends StatelessWidget {
           header: 'Since you started',
           children: [
             Padding(
-              padding: const EdgeInsets.fromLTRB(18, 18, 18, 16),
+              padding: const EdgeInsets.fromLTRB(
+                PantasSpace.s18,
+                PantasSpace.s18,
+                PantasSpace.s18,
+                PantasSpace.s16,
+              ),
               child: IntrinsicHeight(
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -95,9 +102,9 @@ class RecordPage extends StatelessWidget {
                         label: record.weeksIn == 1 ? 'week in' : 'weeks in',
                       ),
                     ),
-                    const SizedBox(width: 16),
+                    const SizedBox(width: PantasSpace.s16),
                     _divider(context),
-                    const SizedBox(width: 16),
+                    const SizedBox(width: PantasSpace.s16),
                     Expanded(
                       child: _sinceCell(
                         context,
@@ -117,7 +124,7 @@ class RecordPage extends StatelessWidget {
             ),
           ],
         ),
-        const SizedBox(height: 24),
+        const SizedBox(height: PantasSpace.s24),
         GroupedSection(
           header: 'Your totals',
           children: [
@@ -128,7 +135,8 @@ class RecordPage extends StatelessWidget {
                   children: [
                     Expanded(child: _totalCell(context, figures[i])),
                     Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 12),
+                      padding:
+                          const EdgeInsets.symmetric(vertical: PantasSpace.s12),
                       child: _divider(context),
                     ),
                     Expanded(
@@ -143,30 +151,30 @@ class RecordPage extends StatelessWidget {
                 Divider(
                   height: .5,
                   thickness: .5,
-                  color: context.colors.separator,
+                  color: context.colors.divider,
                 ),
             ],
           ],
         ),
-        const SizedBox(height: 24),
+        const SizedBox(height: PantasSpace.s24),
         GroupedSection(
           header: 'Accuracy across your prep',
           children: [
             Padding(
-              padding: const EdgeInsets.all(20),
+              padding: const EdgeInsets.all(PantasSpace.s20),
               child: record.accuracySeries.length < 2
                   ? Column(
                       children: [
                         SizedBox(
-                          height: 95,
+                          height: PantasSpace.s56 + PantasSpace.s40,
                           width: double.infinity,
                           child: CustomPaint(
                             painter: _PlaceholderLine(
-                              context.colors.separator,
+                              context.colors.divider,
                             ),
                           ),
                         ),
-                        const SizedBox(height: 10),
+                        const SizedBox(height: PantasSpace.s10),
                         Text(
                           'Your line starts after two weeks of answers.',
                           style: context.type.footnote,
@@ -185,16 +193,16 @@ class RecordPage extends StatelessWidget {
                               '${record.accuracySeries.last.accuracy.round()}%',
                               style: context.type.sectionHero,
                             ),
-                            const SizedBox(width: 6),
+                            const SizedBox(width: PantasSpace.s6),
                             Text(
                               'this week',
                               style: context.type.footnote,
                             ),
                           ],
                         ),
-                        const SizedBox(height: 12),
+                        const SizedBox(height: PantasSpace.s12),
                         AccuracyLine(series: record.accuracySeries),
-                        const SizedBox(height: 8),
+                        const SizedBox(height: PantasSpace.s8),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -216,7 +224,7 @@ class RecordPage extends StatelessWidget {
           ],
         ),
         if (mocks.isNotEmpty) ...[
-          const SizedBox(height: 24),
+          const SizedBox(height: PantasSpace.s24),
           GroupedSection(
             header: 'Your mocks',
             children: [
@@ -237,14 +245,17 @@ class RecordPage extends StatelessWidget {
             ],
           ),
         ],
-        if (wrappedRow != null) ...[const SizedBox(height: 24), wrappedRow!],
+        if (wrappedRow != null) ...[
+          const SizedBox(height: PantasSpace.s24),
+          wrappedRow!,
+        ],
       ],
     );
   }
 
   // YR_Full: a half-point hairline between cells.
   Widget _divider(BuildContext context) =>
-      SizedBox(width: .5, child: ColoredBox(color: context.colors.separator));
+      SizedBox(width: .5, child: ColoredBox(color: context.colors.divider));
 
   Widget _sinceCell(
     BuildContext context, {
@@ -269,27 +280,25 @@ class RecordPage extends StatelessWidget {
                     child: PantasIcons.streak,
                   ),
                 ),
-                const SizedBox(width: 6),
+                const SizedBox(width: PantasSpace.s6),
               ],
               Flexible(
                 child: Text(
                   value,
-                  style: context.type.largeTitle.tabular.copyWith(
-                    fontSize: 40,
+                  style: PantasType.webBigNumeral.tabular.copyWith(
+                    color: context.colors.textPrimary,
                     letterSpacing: -1.2,
-                    height: 1.05,
                   ),
                 ),
               ),
             ],
           ),
-          const SizedBox(height: 2),
+          const SizedBox(height: PantasSpace.s2),
           Text(
             label,
             style: context.type.subhead.copyWith(
-              fontSize: 15,
               fontWeight: FontWeight.w500,
-              color: context.colors.label,
+              color: context.colors.textPrimary,
             ),
           ),
           if (since != null) Text(since, style: context.type.footnote),
@@ -301,20 +310,23 @@ class RecordPage extends StatelessWidget {
     ({String value, String label}) figure,
   ) =>
       Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+        padding: const EdgeInsets.symmetric(
+          horizontal: PantasSpace.s16,
+          vertical: PantasSpace.s14,
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               figure.value,
               // YR_Full: 24 px on a 32 px line, so the card is 237 px.
-              style: context.type.sectionHero.tabular.copyWith(
-                fontSize: 24,
+              style: PantasType.phoneTitle2.tabular.copyWith(
+                color: context.colors.textPrimary,
                 height: 32 / 24,
                 letterSpacing: -.48,
               ),
             ),
-            const SizedBox(height: 1),
+            const SizedBox(height: PantasSpace.s2),
             Text(figure.label, style: context.type.footnote),
           ],
         ),

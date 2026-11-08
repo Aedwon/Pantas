@@ -230,9 +230,9 @@ void main() {
       expect(
         shape.borderRadius,
         const BorderRadius.only(
-          topLeft: Radius.circular(15),
-          topRight: Radius.circular(10),
-          bottomRight: Radius.circular(10),
+          topLeft: Radius.circular(13),
+          topRight: Radius.circular(8),
+          bottomRight: Radius.circular(8),
         ),
       );
       // It reaches the card's rule, which is drawn over its outer pixel.

@@ -15,6 +15,8 @@ import 'package:pantas/core/ui/components/sort_cycle_button.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/motion/view_swap.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/home/application/performance/performance_view.dart';
 import 'package:pantas/features/home/presentation/widgets/web_performance_layout.dart';
@@ -136,6 +138,11 @@ class _PerformancePageState extends State<PerformancePage> {
         .toRadixString(16)
         .padLeft(8, '0')
         .substring(2);
+    final mutedHex = context.colors.textSecondary
+        .toARGB32()
+        .toRadixString(16)
+        .padLeft(8, '0')
+        .substring(2);
     final page = PantasPage(
       title: 'Your performance',
       backLabel: 'Home',
@@ -146,7 +153,7 @@ class _PerformancePageState extends State<PerformancePage> {
           // Boards (DT_Free, DT_TopicsA): the ring starts 4 px lower; the
           // switch is 6 px lower on the Pro Topics and Lessons views.
           Padding(
-            padding: const EdgeInsets.only(top: 4),
+            padding: const EdgeInsets.only(top: PantasSpace.s4),
             child: HalfRingGauge(
               fraction: accuracy,
               label: 'Overall accuracy',
@@ -172,7 +179,7 @@ class _PerformancePageState extends State<PerformancePage> {
                 }),
               ),
             ),
-            const SizedBox(width: 8),
+            const SizedBox(width: PantasSpace.s8),
             SizedBox.square(
               dimension: 36,
               child: OverflowBox(
@@ -198,14 +205,21 @@ class _PerformancePageState extends State<PerformancePage> {
         SizedBox(height: level == 0 ? 28 : 22),
         if (!gated)
           Padding(
-            padding: EdgeInsets.fromLTRB(16, 0, 16, level == 0 ? 7 : 9),
+            padding: const EdgeInsets.fromLTRB(
+              PantasSpace.s16,
+              PantasSpace.s0,
+              PantasSpace.s16,
+              PantasSpace.s8,
+            ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 if (level == 0)
-                  Text(
-                    '${subjects.length} SUBJECTS',
-                    style: context.type.sectionHeader,
+                  Flexible(
+                    child: Text(
+                      '${subjects.length} SUBJECTS',
+                      style: context.type.sectionHeader,
+                    ),
                   )
                 else
                   // The subject name gives way to the order label, which stays
@@ -233,11 +247,11 @@ class _PerformancePageState extends State<PerformancePage> {
                               style: context.type.sectionHeader,
                             ),
                           ),
-                          const SizedBox(width: 3),
+                          const SizedBox(width: PantasSpace.s4),
                           ExcludeSemantics(
                             child: SvgPicture.string(
                               '<svg viewBox="0 0 24 24" fill="none" '
-                              'stroke="#6E6E73" stroke-width="2.4" '
+                              'stroke="#$mutedHex" stroke-width="2.4" '
                               'stroke-linecap="round" stroke-linejoin="round"> '
                               '<path d="M8 9.5 12 5.5l4 4M8 14.5l4 4 4-4"/></svg>',
                               width: 13,
@@ -248,8 +262,15 @@ class _PerformancePageState extends State<PerformancePage> {
                       ),
                     ),
                   ),
-                const SizedBox(width: 12),
-                Text(order, style: context.type.sectionHeader),
+                const SizedBox(width: PantasSpace.s12),
+                // Both labels give way at large text instead of overflowing.
+                Flexible(
+                  child: Text(
+                    order,
+                    textAlign: TextAlign.end,
+                    style: context.type.sectionHeader,
+                  ),
+                ),
               ],
             ),
           ),
@@ -289,11 +310,16 @@ class _PerformancePageState extends State<PerformancePage> {
         if (gated) ...[
           // Board (DT_Free): the card starts 7 px higher, content centered
           // under a 26 px sparkle.
-          const SizedBox(height: 13),
+          const SizedBox(height: PantasSpace.s12),
           GroupedSection(
             children: [
               Padding(
-                padding: const EdgeInsets.fromLTRB(18, 22, 18, 18),
+                padding: const EdgeInsets.fromLTRB(
+                  PantasSpace.s18,
+                  PantasSpace.s24,
+                  PantasSpace.s18,
+                  PantasSpace.s18,
+                ),
                 child: widget.paused
                     ? const ProPausedLine()
                     : Column(
@@ -315,14 +341,14 @@ class _PerformancePageState extends State<PerformancePage> {
                               ),
                             ),
                           ),
-                          const SizedBox(height: 12),
+                          const SizedBox(height: PantasSpace.s12),
                           Text(
                             'Go deeper with Pro',
                             textAlign: TextAlign.center,
-                            style:
-                                context.type.emphasized.copyWith(fontSize: 20),
+                            style: PantasType.phoneTitle3
+                                .copyWith(color: context.colors.textPrimary),
                           ),
-                          const SizedBox(height: 8),
+                          const SizedBox(height: PantasSpace.s8),
                           Center(
                             child: ConstrainedBox(
                               constraints: const BoxConstraints(maxWidth: 280),
@@ -331,13 +357,12 @@ class _PerformancePageState extends State<PerformancePage> {
                                 'so you know exactly where to practice.',
                                 textAlign: TextAlign.center,
                                 style: context.type.subhead.copyWith(
-                                  fontSize: 15,
-                                  color: context.colors.secondaryLabel,
+                                  color: context.colors.textSecondary,
                                 ),
                               ),
                             ),
                           ),
-                          const SizedBox(height: 18),
+                          const SizedBox(height: PantasSpace.s18),
                           PantasButton(
                             label: 'Unlock with Pro',
                             onPressed: widget.onPro,
@@ -357,13 +382,14 @@ class _PerformancePageState extends State<PerformancePage> {
       onDismiss: () => setState(() => _picker = false),
       readerContents: true,
       child: Padding(
-        padding: const EdgeInsets.all(20),
+        padding: const EdgeInsets.all(PantasSpace.s20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Text(
               'Subjects',
-              style: context.type.emphasized.copyWith(fontSize: 20),
+              style: PantasType.phoneTitle3
+                  .copyWith(color: context.colors.textPrimary),
             ),
             ListRow(
               title: 'All subjects',
@@ -412,10 +438,13 @@ class _PerformanceRow extends StatelessWidget {
       child: InkWell(
         onTap: onTap,
         child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+          padding: const EdgeInsets.symmetric(
+            horizontal: PantasSpace.s16,
+            vertical: PantasSpace.s12,
+          ),
           decoration: BoxDecoration(
             border: divider
-                ? Border(bottom: BorderSide(color: c.separator, width: .5))
+                ? Border(bottom: BorderSide(color: c.divider, width: .5))
                 : null,
           ),
           child: Column(
@@ -434,7 +463,7 @@ class _PerformanceRow extends StatelessWidget {
                           style: context.type.body,
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(top: 1),
+                          padding: const EdgeInsets.only(top: PantasSpace.s2),
                           child: Text(
                             subtitle,
                             maxLines: 1,
@@ -445,18 +474,18 @@ class _PerformanceRow extends StatelessWidget {
                       ],
                     ),
                   ),
-                  const SizedBox(width: 8),
+                  const SizedBox(width: PantasSpace.s8),
                   Text(
                     '${(accuracy * 100).round()}%',
                     style: context.type.emphasized.copyWith(
                       fontFeatures: const [FontFeature.tabularFigures()],
                     ),
                   ),
-                  const SizedBox(width: 8),
-                  Icon(PantasIcons.next, size: 14, color: c.chevron),
+                  const SizedBox(width: PantasSpace.s8),
+                  Icon(PantasIcons.next, size: 14, color: c.iconChevron),
                 ],
               ),
-              const SizedBox(height: 8),
+              const SizedBox(height: PantasSpace.s8),
               AccuracyBar(accuracy: accuracy),
             ],
           ),
