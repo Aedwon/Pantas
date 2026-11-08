@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/leave_page.dart';
-import 'package:pantas/core/ui/theme/legacy_theme_shim.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/features/beta_feedback/application/beta_feedback_providers.dart';
 import 'package:pantas/features/beta_feedback/domain/beta_feedback_models.dart';
 import 'package:pantas/features/beta_feedback/presentation/days_card.dart';
@@ -12,6 +12,10 @@ import 'package:pantas/features/beta_feedback/presentation/survey_controls.dart'
 import 'package:pantas/features/beta_feedback/presentation/survey_sent.dart';
 
 const feedbackPath = '/settings/beta-feedback';
+
+/// The width of the "keep using" control on wide web. The system sets no
+/// width for it; the board draws 320.
+const _q4Width = 320.0;
 
 enum _Phase { form, sending, sent }
 
@@ -142,7 +146,7 @@ class _ExitSurveyPageState extends ConsumerState<ExitSurveyPage> {
         if (reward.hasError)
           Text(
             'Could not load the survey.',
-            style: context.fbText(15, color: context.fb.secondaryLabel),
+            style: context.fbSub,
           )
         else
           const SkeletonPulse(child: SkeletonBlock(height: 120)),
@@ -172,7 +176,6 @@ class _ExitSurveyPageState extends ConsumerState<ExitSurveyPage> {
         frame,
   ) {
     final wide = context.fbWide;
-    final c = context.fb;
     final sent = ref.watch(sentFeedbackProvider).valueOrNull ?? const [];
     final gap = SizedBox(height: wide ? 30 : 28);
     final sending = _phase == _Phase.sending;
@@ -225,7 +228,10 @@ class _ExitSurveyPageState extends ConsumerState<ExitSurveyPage> {
       child: wide
           ? Align(
               alignment: Alignment.centerLeft,
-              child: SizedBox(width: 320, child: q4Control),
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: _q4Width),
+                child: q4Control,
+              ),
             )
           : q4Control,
     );
@@ -260,15 +266,19 @@ class _ExitSurveyPageState extends ConsumerState<ExitSurveyPage> {
     final button = FbButton(
       onPressed: _ready && !sending ? _send : null,
       busy: sending,
-      minWidth: 156,
       child: sending ? const FbSpinner() : const Text('Send Survey'),
     );
     final appeal = wide
         ? Padding(
-            padding: const EdgeInsets.fromLTRB(4, 14, 4, 0),
+            padding: const EdgeInsets.fromLTRB(
+              PantasSpace.s4,
+              PantasSpace.s14,
+              PantasSpace.s4,
+              PantasSpace.s0,
+            ),
             child: Text(
               'Think a day was missed? Email support@pantas.study by Nov 30.',
-              style: context.fbText(13, height: 1.4, color: c.secondaryLabel),
+              style: context.fbSmall,
             ),
           )
         : const FbFootnote(
@@ -278,7 +288,7 @@ class _ExitSurveyPageState extends ConsumerState<ExitSurveyPage> {
     final body = <Widget>[
       if (wide) ...[
         SurveyProgress(answered: _answered),
-        const SizedBox(height: 22),
+        const SizedBox(height: PantasSpace.s20),
       ],
       expander,
       if (!wide)
@@ -291,7 +301,7 @@ class _ExitSurveyPageState extends ConsumerState<ExitSurveyPage> {
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             Expanded(child: q2),
-            const SizedBox(width: 24),
+            const SizedBox(width: PantasSpace.s24),
             Expanded(child: q3),
           ],
         )
@@ -304,17 +314,17 @@ class _ExitSurveyPageState extends ConsumerState<ExitSurveyPage> {
       q6,
       gap,
       q7,
-      const SizedBox(height: 28),
+      const SizedBox(height: PantasSpace.s28),
       if (wide)
         Row(
           children: [
             button,
-            const SizedBox(width: 14),
+            const SizedBox(width: PantasSpace.s14),
             Text(
               _ready
                   ? 'You can send it once.'
                   : 'Answer questions 1 to 6 to send.',
-              style: context.fbText(13, color: c.secondaryLabel),
+              style: context.fbSmall,
             ),
           ],
         )

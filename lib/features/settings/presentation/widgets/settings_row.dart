@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/pantas_switch.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
@@ -24,7 +28,7 @@ class SettingsRow extends StatelessWidget {
     this.divider = false,
     this.leading,
     this.titleColor,
-    this.verticalPadding = 11,
+    this.verticalPadding = PantasSpace.s10,
     this.valueStyle,
     this.titleWidget,
     this.trailingWidget,
@@ -124,17 +128,16 @@ class SettingsRow extends StatelessWidget {
             title: title,
             subtitle: subtitle,
             subtitleStyle: subtitleStyle,
-            titleStyle: t.style(
-              16,
+            titleStyle: PantasType.webRowTitleSettings.copyWith(
               color: variant == ListRowVariant.destructive
-                  ? c.wrongText
-                  : titleColor,
+                  ? c.dangerText
+                  : titleColor ?? c.textPrimary,
             ),
             titleSuffix: footer,
-            horizontalPadding: 16,
-            compact: true,
+            horizontalPadding: PantasLayout.rowInsetSettings,
             value: value,
-            valueStyle: valueStyle ?? t.style(16, color: c.secondaryLabel),
+            valueStyle: valueStyle ??
+                PantasType.webRowTitleSettings.copyWith(color: c.textSecondary),
             leading: leading ??
                 (icon == null
                     ? null
@@ -170,17 +173,27 @@ class SettingsRow extends StatelessWidget {
           if (MediaQuery.disableAnimationsOf(context))
             if (expanded)
               Padding(
-                padding: const EdgeInsets.fromLTRB(16, 6, 16, 16),
+                padding: const EdgeInsets.fromLTRB(
+                  PantasSpace.s16,
+                  PantasSpace.s6,
+                  PantasSpace.s16,
+                  PantasSpace.s16,
+                ),
                 child: editor,
               )
             else
               const SizedBox.shrink()
           else
             AnimatedSize(
-              duration: const Duration(milliseconds: 300),
+              duration: PantasDurations.flip,
               child: expanded
                   ? Padding(
-                      padding: const EdgeInsets.fromLTRB(16, 6, 16, 16),
+                      padding: const EdgeInsets.fromLTRB(
+                        PantasSpace.s16,
+                        PantasSpace.s6,
+                        PantasSpace.s16,
+                        PantasSpace.s16,
+                      ),
                       child: editor,
                     )
                   : const SizedBox.shrink(),

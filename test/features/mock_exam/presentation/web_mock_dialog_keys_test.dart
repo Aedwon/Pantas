@@ -140,9 +140,11 @@ void paused() {
     final buttons =
         tester.getRect(find.byKey(const ValueKey('web-pause-content')));
     // The title's line is 60 px and the words sit in the middle of it.
-    expect(title.center.dy, closeTo(glass.bottom + 22 + 30, 1));
-    expect(time.top, closeTo(glass.bottom + 22 + 60 + 2, 1));
-    expect(time.height, closeTo(38, .5));
+    // The gap under the glass is 24 (`space-24`), the nearest system step to
+    // the board's 22.
+    expect(title.center.dy, closeTo(glass.bottom + 24 + 30, 1));
+    expect(time.top, closeTo(glass.bottom + 24 + 60 + 2, 1));
+    expect(time.height, closeTo(28 * 1.2, .5));
     expect(left.top, closeTo(time.bottom, 1));
     expect(buttons.top - left.bottom, closeTo(32, 1));
   });

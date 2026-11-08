@@ -1,12 +1,19 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
+import 'package:pantas/core/ui/components/pantas_button_spec.dart';
 import 'package:pantas/core/ui/motion/press_scale.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_border.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
-import 'package:pantas/core/ui/web/web_tokens.dart';
 
 /// The shell the Feedback pages sit in. The route builds it from the Settings
 /// pane page, so these pages never import another feature's presentation.
@@ -25,28 +32,31 @@ typedef FeedbackFrame = Widget Function({
   bool heading,
 });
 
-/// Board colors for both layouts. The phone boards and the desktop boards use
-/// one palette; `WebTokens` holds it with the board's tertiary gray (#8A8A8E).
+/// The page's roles and width tier for the Feedback pieces. One palette
+/// serves both layouts (design system 4.0).
 extension FbContext on BuildContext {
-  WebTokens get fbTokens => webTokens;
-  PantasColors get fb => webTokens.colors;
+  PantasColors get fb => colors;
   bool get fbWide => wideWeb;
 
-  /// A board text style: Geist, [size] px, in the label color unless told.
-  TextStyle fbText(
-    double size, {
-    FontWeight weight = FontWeight.w400,
-    Color? color,
-    double? height,
-    double spacing = 0,
-  }) =>
-      webTokens.style(
-        size,
-        weight: weight,
-        color: color,
-        height: height,
-        spacing: spacing,
-      );
+  /// Body text: `web-body` on wide, `phone-body` on the phone.
+  TextStyle get fbBody => (fbWide ? PantasType.webBody : PantasType.phoneBody)
+      .copyWith(color: fb.textPrimary);
+
+  /// A title in a row or a card: `web-title-sm` on wide, `phone-headline` on
+  /// the phone.
+  TextStyle get fbTitle =>
+      (fbWide ? PantasType.webTitleSm : PantasType.phoneHeadline)
+          .copyWith(color: fb.textPrimary);
+
+  /// A line of detail: `web-sub` on wide, `phone-explanation` on the phone.
+  TextStyle get fbSub =>
+      (fbWide ? PantasType.webSub : PantasType.phoneExplanation)
+          .copyWith(color: fb.textSecondary);
+
+  /// Fine print: `web-small` on wide, `phone-footnote` on the phone.
+  TextStyle get fbSmall =>
+      (fbWide ? PantasType.webSmall : PantasType.phoneFootnote)
+          .copyWith(color: fb.textSecondary);
 }
 
 // ---------------------------------------------------------------------------
@@ -117,24 +127,18 @@ String imageCount(int n) => n == 1 ? '1 image' : '$n images';
 // ---------------------------------------------------------------------------
 // Marks and glyphs.
 
-/// The raised BETA mark after a title (9 px, w700, .08 em, 4 px after).
+/// The raised BETA mark after a title (`web-pro` type, 4 after).
 class BetaMark extends StatelessWidget {
-  const BetaMark({this.top = 4, super.key});
+  const BetaMark({this.top = PantasSpace.s4, super.key});
   final double top;
 
   @override
   Widget build(BuildContext context) => ExcludeSemantics(
         child: Padding(
-          padding: EdgeInsets.only(top: top, left: 4),
+          padding: EdgeInsets.only(top: top, left: PantasSpace.s4),
           child: Text(
             'BETA',
-            style: context.fbText(
-              9,
-              weight: FontWeight.w700,
-              spacing: .72,
-              height: 1,
-              color: context.fb.accent,
-            ),
+            style: PantasType.webPro.copyWith(color: context.fb.accent),
           ),
         ),
       );
@@ -145,7 +149,7 @@ class BetaTitle extends StatelessWidget {
   const BetaTitle({
     required this.title,
     required this.style,
-    this.markTop = 4,
+    this.markTop = PantasSpace.s4,
     super.key,
   });
   final String title;
@@ -345,8 +349,8 @@ class _FbTimelineState extends State<FbTimeline>
 class FbRise extends StatelessWidget {
   const FbRise({
     required this.child,
-    this.dy = 10,
-    this.duration = const Duration(milliseconds: 300),
+    this.dy = PantasSpace.s10,
+    this.duration = PantasDurations.flip,
     this.delay = Duration.zero,
     this.curve = PantasCurves.enter,
     super.key,
@@ -381,7 +385,7 @@ class FbPop extends StatelessWidget {
   const FbPop({
     required this.child,
     this.peak = 1.08,
-    this.duration = const Duration(milliseconds: 450),
+    this.duration = PantasDurations.long1,
     this.delay = Duration.zero,
     super.key,
   });
@@ -422,7 +426,7 @@ class FbDrawnGlyph extends StatelessWidget {
     required this.size,
     required this.color,
     required this.stroke,
-    this.duration = const Duration(milliseconds: 350),
+    this.duration = PantasDurations.switchDuration,
     this.delay = Duration.zero,
     super.key,
   });
@@ -447,11 +451,14 @@ class FbDrawnGlyph extends StatelessWidget {
       );
 }
 
-/// The button spinner: an 18 px ring, 2.4 px, a white arc turning every .9 s.
-/// Under reduced motion it holds still.
+/// The button spinner: an 18 ring, 2.4 thick (`size-ring-stroke`), an
+/// `on-accent` arc turning every `dur-long-3`. Under reduced motion it holds
+/// still.
 class FbSpinner extends StatefulWidget {
-  const FbSpinner({this.color = Colors.white, super.key});
-  final Color color;
+  const FbSpinner({this.color, super.key});
+
+  /// Null draws the arc in `on-accent`.
+  final Color? color;
 
   @override
   State<FbSpinner> createState() => _FbSpinnerState();
@@ -461,7 +468,7 @@ class _FbSpinnerState extends State<FbSpinner>
     with SingleTickerProviderStateMixin {
   late final AnimationController _c = AnimationController(
     vsync: this,
-    duration: const Duration(milliseconds: 900),
+    duration: PantasDurations.long3,
   );
   bool _started = false;
 
@@ -489,8 +496,8 @@ class _FbSpinnerState extends State<FbSpinner>
         child: RotationTransition(
           turns: _c,
           child: CustomPaint(
-            size: const Size.square(18),
-            painter: _SpinnerPainter(widget.color),
+            size: const Size.square(PantasSpace.s18),
+            painter: _SpinnerPainter(widget.color ?? context.fb.onAccent),
           ),
         ),
       );
@@ -502,7 +509,7 @@ class _SpinnerPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    const width = 2.4;
+    const width = PantasSize.ringStroke;
     final rect = (Offset.zero & size).deflate(width / 2);
     final paint = Paint()
       ..style = PaintingStyle.stroke
@@ -538,7 +545,7 @@ class FbCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final wide = context.fbWide;
-    final r = radius ?? (wide ? 16 : 14);
+    final r = radius ?? PantasRadius.xl;
     if (wide) {
       return WebCard(radius: r, padding: padding, child: child);
     }
@@ -546,8 +553,8 @@ class FbCard extends StatelessWidget {
     final dark = Theme.of(context).brightness == Brightness.dark;
     return DecoratedBox(
       decoration: BoxDecoration(
-        color: c.surface,
-        border: dark ? Border.all(color: c.cardEdge) : null,
+        color: c.surfaceCard,
+        border: dark ? Border.all(color: c.edgeCard) : null,
         borderRadius: BorderRadius.circular(r),
       ),
       child: ClipRRect(
@@ -558,50 +565,104 @@ class FbCard extends StatelessWidget {
   }
 }
 
-/// The 13 px grey line under a card (7 px below it on the phone, 8 on wide).
+/// The Field well of the design system: `surface-card`, `radius-md`, a 1
+/// `border-control` ring, and a 2 `accent` ring when [lit] (focus, or an
+/// answer with text). The ring is drawn over the well and takes up no room.
+class FbFieldWell extends StatelessWidget {
+  const FbFieldWell({
+    required this.child,
+    required this.lit,
+    this.padding = const EdgeInsets.symmetric(
+      vertical: PantasSpace.s12,
+      horizontal: PantasSpace.s14,
+    ),
+    this.boxKey,
+    super.key,
+  });
+  final Widget child;
+  final bool lit;
+  final EdgeInsetsGeometry padding;
+
+  /// The key of the animated box, for tests.
+  final Key? boxKey;
+
+  @override
+  Widget build(BuildContext context) {
+    final c = context.fb;
+    final radius = BorderRadius.circular(PantasRadius.md);
+    return AnimatedContainer(
+      key: boxKey,
+      duration: MediaQuery.disableAnimationsOf(context)
+          ? Duration.zero
+          : PantasDurations.short2,
+      curve: PantasCurves.fade,
+      padding: padding,
+      decoration: BoxDecoration(color: c.surfaceCard, borderRadius: radius),
+      foregroundDecoration: BoxDecoration(
+        borderRadius: radius,
+        border: Border.all(
+          color: lit ? c.accent : c.borderControl,
+          width: lit ? PantasBorder.ringSelected : PantasBorder.ring,
+        ),
+      ),
+      child: child,
+    );
+  }
+}
+
+/// The grey line under a card (`web-small` on wide, `phone-footnote` on the
+/// phone), 8 below the card on wide and 6 on the phone.
 class FbFootnote extends StatelessWidget {
   const FbFootnote(this.text, {super.key});
   final String text;
 
   @override
   Widget build(BuildContext context) => Padding(
-        padding: EdgeInsets.fromLTRB(16, context.fbWide ? 8 : 7, 16, 0),
+        padding: EdgeInsets.fromLTRB(
+          PantasSpace.s16,
+          context.fbWide ? PantasSpace.s8 : PantasSpace.s6,
+          PantasSpace.s16,
+          PantasSpace.s0,
+        ),
         child: Text(
           text,
-          style: context.fbText(
-            13,
-            height: 1.4,
-            color: context.fb.secondaryLabel,
-          ),
+          style:
+              (context.fbWide ? PantasType.webSmall : PantasType.phoneFootnote)
+                  .copyWith(color: context.fb.textSecondary),
         ),
       );
 }
 
-/// "SEND FEEDBACK" and "SENT": 13 px, w600, .26 spacing, above a card.
+/// "SEND FEEDBACK" and "SENT": the section header type (`web-eyebrow` on
+/// wide, `phone-section-header` on the phone) above a card.
 class FbSectionHeader extends StatelessWidget {
   const FbSectionHeader(this.text, {super.key});
   final String text;
 
   @override
   Widget build(BuildContext context) => Padding(
-        padding: EdgeInsets.fromLTRB(16, 0, 16, context.fbWide ? 8 : 7),
+        padding: EdgeInsets.fromLTRB(
+          PantasSpace.s16,
+          PantasSpace.s0,
+          PantasSpace.s16,
+          context.fbWide ? PantasSpace.s8 : PantasSpace.s6,
+        ),
         child: Semantics(
           header: true,
           child: Text(
             text,
-            style: context.fbText(
-              13,
-              weight: FontWeight.w600,
-              spacing: .26,
-              color: context.fb.secondaryLabel,
-            ),
+            style: (context.fbWide
+                    ? PantasType.webEyebrow
+                    : PantasType.phoneSectionHeader)
+                .copyWith(color: context.fb.textSecondary),
           ),
         ),
       );
 }
 
-/// A board button: filled, tinted or disabled. 52 px on the phone and 44 px on
-/// wide web, with the radius and label size of each board.
+/// The Feedback button: primary, or the secondary tint. It takes the height,
+/// radius, padding and label type of the Button measurements: the standard
+/// 44 on wide web (and for [compact]), the 52 phone button on the phone.
 class FbButton extends StatelessWidget {
   const FbButton({
     required this.onPressed,
@@ -617,68 +678,61 @@ class FbButton extends StatelessWidget {
   final VoidCallback? onPressed;
   final Widget child;
 
-  /// The tint button ("Back to Feedback").
+  /// The secondary (tint) button ("Back to Feedback").
   final bool tint;
 
   /// Looks pressed-in and enabled but ignores taps (a spinner is showing).
   final bool busy;
   final double? minWidth;
 
-  /// The 44 px button at natural width on both layouts ("Back to Feedback").
+  /// The 44 button at natural width on both layouts ("Back to Feedback").
   final bool compact;
 
   @override
   Widget build(BuildContext context) {
-    final t = context.fbTokens;
-    final c = t.colors;
+    final c = context.fb;
     final wide = context.fbWide;
     final small = wide || compact;
-    final height = small ? 44.0 : 52.0;
-    final radius = small ? 12.0 : 14.0;
+    final metrics = pantasButtonMetrics(
+      small ? PantasButtonSize.standard : PantasButtonSize.phone,
+      tint ? PantasButtonKind.secondary : PantasButtonKind.primary,
+    );
     final enabled = onPressed != null || busy;
     final foreground = !enabled
-        ? t.disabledText
+        ? c.textDisabled
         : tint
             ? c.accentTintText
-            : Colors.white;
+            : c.onAccent;
     Color background(Set<WidgetState> states) {
-      if (!enabled) return t.disabledBackground;
+      if (!enabled) return c.fill;
       final hover = wide && states.contains(WidgetState.hovered);
-      if (tint) return hover ? t.secondaryHover : c.accentTint;
-      return hover ? t.accentHover : c.accentFill;
+      if (tint) return hover ? c.accentTintHover : c.accentTint;
+      return hover ? c.accentFillHover : c.accentFill;
     }
 
     final motion = MediaQuery.disableAnimationsOf(context);
     final button = TextButton(
       onPressed: busy ? () {} : onPressed,
       style: ButtonStyle(
-        animationDuration: motion ? Duration.zero : _quick,
+        animationDuration: motion ? Duration.zero : PantasDurations.short2,
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
         visualDensity: VisualDensity.standard,
         minimumSize: WidgetStatePropertyAll(
-          Size(small ? (minWidth ?? 0) : double.infinity, height),
+          Size(small ? (minWidth ?? 0) : double.infinity, metrics.height),
         ),
         padding: WidgetStatePropertyAll(
-          EdgeInsets.symmetric(horizontal: small ? 20 : 16),
+          EdgeInsets.only(left: metrics.padLeft, right: metrics.padRight),
         ),
         backgroundColor: WidgetStateProperty.resolveWith(background),
         foregroundColor: WidgetStatePropertyAll(foreground),
         overlayColor: const WidgetStatePropertyAll(Colors.transparent),
         side: WidgetStateProperty.resolveWith(
           (s) => webKeyboardFocus(s)
-              ? BorderSide(color: c.accent, width: 2)
+              ? BorderSide(color: c.accent, width: PantasBorder.focus)
               : BorderSide.none,
         ),
-        shape: WidgetStatePropertyAll(
-          RoundedRectangleBorder(borderRadius: BorderRadius.circular(radius)),
-        ),
-        textStyle: WidgetStatePropertyAll(
-          context.fbText(
-            small ? 16 : 17,
-            weight: FontWeight.w600,
-            spacing: small ? 0 : -.204,
-          ),
-        ),
+        shape: WidgetStatePropertyAll(metrics.shape()),
+        textStyle: WidgetStatePropertyAll(metrics.style),
       ),
       child: DefaultTextStyle.merge(
         style: TextStyle(color: foreground),
@@ -686,7 +740,7 @@ class FbButton extends StatelessWidget {
       ),
     );
     final pressable = PressScale(
-      scale: small ? .96 : .98,
+      scale: pantasPressScale,
       enabled: enabled && !busy,
       child: button,
     );
@@ -700,11 +754,25 @@ class FbButton extends StatelessWidget {
   }
 }
 
-const _quick = Duration(milliseconds: 160);
-
-/// The app's toast: a snack bar over the page, one at a time.
+/// The app's toast: a snack bar over the page, one at a time, drawn as the
+/// design system Toast (`toast-bg`, `toast-text`, `radius-lg`).
 void fbToast(BuildContext context, String message) {
+  final c = context.fb;
+  final wide = context.fbWide;
   ScaffoldMessenger.maybeOf(context)
     ?..clearSnackBars()
-    ..showSnackBar(SnackBar(content: Text(message)));
+    ..showSnackBar(
+      SnackBar(
+        content: Text(
+          message,
+          style: (wide ? PantasType.webRowValue : PantasType.phoneSubhead)
+              .copyWith(color: c.toastText),
+        ),
+        backgroundColor: c.toastBg,
+        behavior: SnackBarBehavior.floating,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(PantasRadius.lg),
+        ),
+      ),
+    );
 }

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 
+/// Height of the drawing. The design system sets no height for diagrams.
+const double _figureHeight = 140;
+
 /// Water in a vessel, or water flowing through a pipe that changes width.
 ///
 /// Two shapes, because the family asks two questions.
@@ -88,7 +91,7 @@ class FluidVesselFigure extends StatelessWidget {
         _ => 'A container of water with points marked at different depths.',
       },
       child: SizedBox(
-        height: 140,
+        height: _figureHeight,
         child: CustomPaint(
           painter: _FluidPainter(
             vessel: vessel,

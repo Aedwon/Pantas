@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/features/mock_exam/domain/mock_availability.dart';
 
 class MockStatusCard extends StatelessWidget {
@@ -42,13 +43,13 @@ class MockStatusCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(title, style: textStyles.emphasized),
-            const SizedBox(height: 4),
+            const SizedBox(height: PantasSpace.s4),
             Text(
               'A timed exam-style practice run.',
               style: textStyles.subhead.copyWith(color: colors.secondaryLabel),
             ),
             if (action != null) ...[
-              const SizedBox(height: 12),
+              const SizedBox(height: PantasSpace.s12),
               PantasButton(label: action, onPressed: callback),
             ],
           ],

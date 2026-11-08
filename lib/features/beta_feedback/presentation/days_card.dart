@@ -6,9 +6,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
-import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_border.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/features/beta_feedback/domain/beta_feedback_models.dart';
 import 'package:pantas/features/beta_feedback/presentation/fb_kit.dart';
@@ -102,22 +104,30 @@ class _DaysCardState extends ConsumerState<DaysCard> {
     final status = surveyStatus(reward, widget.now);
 
     final countStyle = condensed
-        ? context.fbText(
-            wide ? 16 : 17,
-            weight: FontWeight.w600,
-            spacing: wide ? 0 : -.204,
-          )
-        : context.fbText(
-            wide ? 22 : 24,
-            weight: FontWeight.w700,
-            spacing: wide ? -.264 : -.288,
-          );
+        ? context.fbTitle
+        : (wide ? PantasType.webH3Lg : PantasType.phoneTitle2)
+            .copyWith(color: c.textPrimary);
     final header = Padding(
       padding: condensed
-          ? const EdgeInsets.fromLTRB(16, 18, 16, 4)
+          ? const EdgeInsets.fromLTRB(
+              PantasSpace.s16,
+              PantasSpace.s18,
+              PantasSpace.s16,
+              PantasSpace.s4,
+            )
           : wide
-              ? const EdgeInsets.fromLTRB(16, 18, 16, 6)
-              : const EdgeInsets.fromLTRB(16, 18, 16, 16),
+              ? const EdgeInsets.fromLTRB(
+                  PantasSpace.s16,
+                  PantasSpace.s18,
+                  PantasSpace.s16,
+                  PantasSpace.s6,
+                )
+              : const EdgeInsets.fromLTRB(
+                  PantasSpace.s16,
+                  PantasSpace.s18,
+                  PantasSpace.s16,
+                  PantasSpace.s16,
+                ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -133,14 +143,10 @@ class _DaysCardState extends ConsumerState<DaysCard> {
                   ),
           ),
           if (!condensed) ...[
-            const SizedBox(height: 4),
+            const SizedBox(height: PantasSpace.s4),
             Text(
               'A day counts when you finish your whole Today plan.',
-              style: context.fbText(
-                15,
-                height: 1.4,
-                color: c.secondaryLabel,
-              ),
+              style: context.fbSub,
             ),
           ],
         ],
@@ -168,20 +174,31 @@ class _DaysCardState extends ConsumerState<DaysCard> {
     }
     final strip = wide
         ? Padding(
-            padding: EdgeInsets.fromLTRB(16, condensed ? 12 : 14, 16, 18),
+            padding: EdgeInsets.fromLTRB(
+              PantasSpace.s16,
+              condensed ? PantasSpace.s12 : PantasSpace.s14,
+              PantasSpace.s16,
+              PantasSpace.s18,
+            ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                for (final cell in cells) SizedBox(width: 40, child: cell),
+                for (final cell in cells)
+                  SizedBox(width: PantasSpace.s40, child: cell),
               ],
             ),
           )
         : Padding(
-            padding: EdgeInsets.fromLTRB(12, condensed ? 10 : 4, 12, 18),
+            padding: EdgeInsets.fromLTRB(
+              PantasSpace.s12,
+              condensed ? PantasSpace.s10 : PantasSpace.s4,
+              PantasSpace.s12,
+              PantasSpace.s18,
+            ),
             child: Row(
               children: [
                 for (var i = 0; i < cells.length; i++) ...[
-                  if (i > 0) const SizedBox(width: 4),
+                  if (i > 0) const SizedBox(width: PantasSpace.s4),
                   Expanded(child: cells[i]),
                 ],
               ],
@@ -195,8 +212,13 @@ class _DaysCardState extends ConsumerState<DaysCard> {
           header,
           strip,
           Padding(
-            padding: EdgeInsets.fromLTRB(16, 0, wide ? 16 : 0, 0),
-            child: Container(height: .5, color: c.separator),
+            padding: EdgeInsets.fromLTRB(
+              PantasSpace.s16,
+              PantasSpace.s0,
+              wide ? PantasSpace.s16 : PantasSpace.s0,
+              PantasSpace.s0,
+            ),
+            child: Container(height: PantasBorder.hairline, color: c.divider),
           ),
           ExitSurveyRow(reward: reward, status: status),
         ],
@@ -221,7 +243,7 @@ class _RollingCount extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final rise = style.fontSize ?? 24;
+    final rise = style.fontSize ?? PantasSpace.s24;
     return TweenAnimationBuilder<double>(
       tween: Tween(begin: 0, end: 1),
       duration: PantasDurations.medium1,
@@ -304,7 +326,7 @@ class _DayCell extends StatelessWidget {
           child: FbGlyph(
             FbGlyphKind.check,
             size: wide ? 20 : 18,
-            color: Colors.white,
+            color: c.onAccent,
             stroke: 2.6,
           ),
         ),
@@ -317,11 +339,11 @@ class _DayCell extends StatelessWidget {
         alignment: Alignment.center,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          border: Border.all(color: c.accent, width: 1.5),
+          border: Border.all(color: c.accent, width: PantasBorder.ringStrong),
         ),
         child: Text(
           '$number',
-          style: context.fbText(15, weight: FontWeight.w600, color: c.accent),
+          style: PantasType.webLink.copyWith(color: c.accent),
         ),
       );
     } else {
@@ -335,10 +357,7 @@ class _DayCell extends StatelessWidget {
           decoration: BoxDecoration(color: c.fill, shape: BoxShape.circle),
           child: Text(
             '$number',
-            style: context.fbText(
-              15,
-              color: condensed && wide ? c.tertiaryLabel : c.secondaryLabel,
-            ),
+            style: PantasType.webSub.copyWith(color: c.textSecondary),
           ),
         ),
       );
@@ -350,13 +369,11 @@ class _DayCell extends StatelessWidget {
         Text(
           label,
           maxLines: 1,
-          style: context.fbText(
-            wide ? 12 : 11,
-            weight: today ? FontWeight.w600 : FontWeight.w500,
-            color: today ? c.accent : c.secondaryLabel,
+          style: (today ? PantasType.webTag : PantasType.webCaption).copyWith(
+            color: today ? c.accent : c.textSecondary,
           ),
         ),
-        const SizedBox(height: 6),
+        const SizedBox(height: PantasSpace.s6),
         if (counted && delay != null)
           FbPop(delay: delay, child: circle)
         else
@@ -390,30 +407,25 @@ class ExitSurveyRow extends StatelessWidget {
       SurveyStatus.sent => 'Sent',
       SurveyStatus.closed => 'Closed',
     };
-    final titleColor = muted ? c.tertiaryLabel : c.label;
-    final valueColor = muted ? c.tertiaryLabel : c.secondaryLabel;
+    final titleColor = muted ? c.textSecondary : c.textPrimary;
+    final valueColor = c.textSecondary;
     final sentValue = Row(
       mainAxisSize: MainAxisSize.min,
       children: [
         Text(
           'Sent',
-          style: context.fbText(
-            wide ? 16 : 17,
-            color: valueColor,
-            spacing: wide ? 0 : -.204,
-          ),
+          style: context.fbBody.copyWith(color: valueColor),
         ),
-        const SizedBox(width: 6),
+        const SizedBox(width: PantasSpace.s6),
         FbGlyph(FbGlyphKind.check, size: 16, color: c.accent, stroke: 2.6),
       ],
     );
     if (wide) {
-      final t = context.fbTokens;
       return WebRow(
         title: 'Exit Survey',
-        titleStyle: t.style(16, color: titleColor),
+        titleStyle: PantasType.webBody.copyWith(color: titleColor),
         value: status == SurveyStatus.sent ? null : value,
-        valueStyle: t.style(16, color: valueColor),
+        valueStyle: PantasType.webBody.copyWith(color: valueColor),
         trailing: status == SurveyStatus.sent ? sentValue : null,
         horizontalPadding: 16,
         compact: true,
@@ -427,9 +439,8 @@ class ExitSurveyRow extends StatelessWidget {
       titleColor: titleColor,
       value: status == SurveyStatus.sent ? null : value,
       valueWidget: status == SurveyStatus.sent ? sentValue : null,
-      valueStyle: context.type.rowValue.copyWith(color: valueColor),
+      valueStyle: PantasType.phoneBody.copyWith(color: valueColor),
       hideTrailing: !open,
-      minimumHeight: 45,
       onTap: open ? () => _open(context) : null,
     );
   }

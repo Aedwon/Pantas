@@ -5,6 +5,10 @@ import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_key_focus.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -90,12 +94,19 @@ class _PartTransitionPageState extends State<PartTransitionPage>
             children: [
               Expanded(
                 child: SingleChildScrollView(
-                  padding: const EdgeInsets.fromLTRB(16, 54, 16, 24),
+                  padding: const EdgeInsets.fromLTRB(
+                    PantasSpace.s16,
+                    PantasSpace.s56,
+                    PantasSpace.s16,
+                    PantasSpace.s24,
+                  ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 4),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: PantasSpace.s4,
+                        ),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -103,32 +114,32 @@ class _PartTransitionPageState extends State<PartTransitionPage>
                               widget.endedEarly
                                   ? 'Part ${widget.nextPartIndex} ended.'
                                   : 'Time is up.',
-                              style: context.type.largeTitle.copyWith(
-                                fontSize: 32,
-                                height: 1.12,
-                                letterSpacing: -.704,
-                              ),
+                              style: context.type.largeTitle,
                             ),
-                            const SizedBox(height: 4),
+                            const SizedBox(height: PantasSpace.s4),
                             Text(
                               'Part ${widget.nextPartIndex} · '
                               '${widget.partNames[closedIndex]}',
-                              style: context.type.subhead.copyWith(
-                                fontSize: 16,
-                                color: c.secondaryLabel,
+                              style: PantasType.phoneCallout.copyWith(
+                                color: c.textSecondary,
                               ),
                             ),
                           ],
                         ),
                       ),
-                      const SizedBox(height: 22),
+                      const SizedBox(height: PantasSpace.s24),
                       DecoratedBox(
                         decoration: BoxDecoration(
                           color: c.surface,
-                          borderRadius: BorderRadius.circular(14),
+                          borderRadius: BorderRadius.circular(PantasRadius.lg),
                         ),
                         child: Padding(
-                          padding: const EdgeInsets.fromLTRB(16, 20, 16, 16),
+                          padding: const EdgeInsets.fromLTRB(
+                            PantasSpace.s16,
+                            PantasSpace.s20,
+                            PantasSpace.s16,
+                            PantasSpace.s16,
+                          ),
                           child: Column(
                             children: [
                               LayoutBuilder(
@@ -158,7 +169,7 @@ class _PartTransitionPageState extends State<PartTransitionPage>
                                   );
                                 },
                               ),
-                              const SizedBox(height: 16),
+                              const SizedBox(height: PantasSpace.s16),
                               Wrap(
                                 alignment: WrapAlignment.center,
                                 spacing: 16,
@@ -180,9 +191,11 @@ class _PartTransitionPageState extends State<PartTransitionPage>
                           ),
                         ),
                       ),
-                      const SizedBox(height: 28),
+                      const SizedBox(height: PantasSpace.s28),
                       Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 4),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: PantasSpace.s4,
+                        ),
                         child: AnimatedBuilder(
                           animation: _motion,
                           builder: (context, _) {
@@ -202,12 +215,13 @@ class _PartTransitionPageState extends State<PartTransitionPage>
                                       SizedBox(
                                         height: rowHeight,
                                         child: Padding(
-                                          padding:
-                                              const EdgeInsets.only(left: 26),
+                                          padding: const EdgeInsets.only(
+                                            left: PantasSpace.s28,
+                                          ),
                                           child: Row(
                                             children: [
                                               SizedBox(
-                                                width: 24,
+                                                width: PantasSpace.s24,
                                                 height: rowHeight,
                                                 child: Stack(
                                                   clipBehavior: Clip.none,
@@ -275,7 +289,9 @@ class _PartTransitionPageState extends State<PartTransitionPage>
                                                   ],
                                                 ),
                                               ),
-                                              const SizedBox(width: 14),
+                                              const SizedBox(
+                                                width: PantasSpace.s14,
+                                              ),
                                               Expanded(
                                                 child: Text(
                                                   widget.partNames[i],
@@ -333,7 +349,12 @@ class _PartTransitionPageState extends State<PartTransitionPage>
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.fromLTRB(16, 14, 16, 30),
+                padding: const EdgeInsets.fromLTRB(
+                  PantasSpace.s16,
+                  PantasSpace.s14,
+                  PantasSpace.s16,
+                  PantasSpace.s32,
+                ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
@@ -341,7 +362,7 @@ class _PartTransitionPageState extends State<PartTransitionPage>
                       label: 'Start Part ${widget.nextPartIndex + 1}',
                       onPressed: widget.onStartNext,
                     ),
-                    const SizedBox(height: 8),
+                    const SizedBox(height: PantasSpace.s8),
                     Text(
                       'The clock starts when you tap.',
                       textAlign: TextAlign.center,
@@ -369,9 +390,9 @@ class _PartTransitionPageState extends State<PartTransitionPage>
           body: Center(
             child: SingleChildScrollView(
               key: const ValueKey('web-mock-between'),
-              padding: const EdgeInsets.all(40),
+              padding: const EdgeInsets.all(PantasSpace.s40),
               child: SizedBox(
-                width: 800,
+                width: PantasLayout.readerWide,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -381,23 +402,22 @@ class _PartTransitionPageState extends State<PartTransitionPage>
                           : 'Time is up.',
                       style: t.h1,
                     ),
-                    const SizedBox(height: 8),
+                    const SizedBox(height: PantasSpace.s8),
                     Text(
                       'Part ${widget.nextPartIndex} · '
                       '${widget.partNames[widget.nextPartIndex - 1]}',
-                      style: t.style(
-                        17,
-                        color: t.colors.secondaryLabel,
+                      style: PantasType.webLead.copyWith(
+                        color: t.colors.textSecondary,
                       ),
                     ),
-                    const SizedBox(height: 28),
+                    const SizedBox(height: PantasSpace.s28),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Expanded(
                           child: WebCard(
                             padding: const EdgeInsets.all(
-                              24,
+                              PantasSpace.s24,
                             ),
                             child: Column(
                               children: [
@@ -406,7 +426,7 @@ class _PartTransitionPageState extends State<PartTransitionPage>
                                   style: t.sub,
                                 ),
                                 const SizedBox(
-                                  height: 20,
+                                  height: PantasSpace.s20,
                                 ),
                                 // The phone's dots: 12 ms apart, 200 ms each.
                                 AnimatedBuilder(
@@ -426,7 +446,7 @@ class _PartTransitionPageState extends State<PartTransitionPage>
                             ),
                           ),
                         ),
-                        const SizedBox(width: 28),
+                        const SizedBox(width: PantasSpace.s28),
                         Expanded(
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -434,7 +454,7 @@ class _PartTransitionPageState extends State<PartTransitionPage>
                               for (final (i, name) in widget.partNames.indexed)
                                 Padding(
                                   padding: const EdgeInsets.symmetric(
-                                    vertical: 14,
+                                    vertical: PantasSpace.s14,
                                   ),
                                   child: Row(
                                     children: [
@@ -451,16 +471,18 @@ class _PartTransitionPageState extends State<PartTransitionPage>
                                               : t.colors.tertiaryLabel,
                                         ),
                                       const SizedBox(
-                                        width: 12,
+                                        width: PantasSpace.s12,
                                       ),
                                       Expanded(
                                         child: Text(
                                           'Part ${i + 1} · $name',
-                                          style: t.style(
-                                            17,
-                                            weight: i == widget.nextPartIndex
-                                                ? FontWeight.w600
-                                                : FontWeight.w400,
+                                          style:
+                                              PantasType.webRowTitle.copyWith(
+                                            color: t.colors.textPrimary,
+                                            fontWeight:
+                                                i == widget.nextPartIndex
+                                                    ? FontWeight.w600
+                                                    : FontWeight.w400,
                                           ),
                                         ),
                                       ),
@@ -477,7 +499,7 @@ class _PartTransitionPageState extends State<PartTransitionPage>
                         ),
                       ],
                     ),
-                    const SizedBox(height: 28),
+                    const SizedBox(height: PantasSpace.s28),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
@@ -485,7 +507,7 @@ class _PartTransitionPageState extends State<PartTransitionPage>
                           'The clock starts when you click.',
                           style: t.sm,
                         ),
-                        const SizedBox(width: 20),
+                        const SizedBox(width: PantasSpace.s20),
                         WebButton(
                           label: 'Start Part ${widget.nextPartIndex + 1}',
                           keyHint: 'Enter',
@@ -562,7 +584,7 @@ class _PartTransitionPageState extends State<PartTransitionPage>
     final answered = widget.answeredQuestions[index];
     final c = context.colors;
     return SizedBox(
-      width: 18,
+      width: PantasSpace.s18,
       height: 18,
       child: Opacity(
         key: ValueKey('part-dot-opacity-$index'),
@@ -602,7 +624,7 @@ class _PartTransitionPageState extends State<PartTransitionPage>
                   : null,
             ),
           ),
-          const SizedBox(width: 6),
+          const SizedBox(width: PantasSpace.s6),
           Flexible(
             child: Text(
               label,

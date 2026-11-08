@@ -13,6 +13,7 @@ class QuestionCard extends StatelessWidget {
     this.passage,
     this.choices = const [],
     this.headerTrailing,
+    this.showHeader = true,
     super.key,
   });
   final String subject;
@@ -24,6 +25,9 @@ class QuestionCard extends StatelessWidget {
   /// The question header's trailing slot (`page-head__trail`). On a phone
   /// narrower than 400 the quiz puts the flag here (D71).
   final Widget? headerTrailing;
+
+  /// False when the page pins the subject row above its own scroll view.
+  final bool showHeader;
   @override
   Widget build(BuildContext context) => Column(
         mainAxisSize: MainAxisSize.min,
@@ -33,20 +37,22 @@ class QuestionCard extends StatelessWidget {
             passage!,
             const SizedBox(height: PantasSpace.s20),
           ],
-          Row(
-            children: [
-              Expanded(
-                child: Text(
-                  subject.toUpperCase(),
-                  style: PantasType.phoneSectionHeader.copyWith(
-                    color: context.colors.textSecondary,
+          if (showHeader) ...[
+            Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    subject.toUpperCase(),
+                    style: PantasType.phoneSectionHeader.copyWith(
+                      color: context.colors.textSecondary,
+                    ),
                   ),
                 ),
-              ),
-              if (headerTrailing != null) headerTrailing!,
-            ],
-          ),
-          const SizedBox(height: PantasSpace.s8),
+                if (headerTrailing != null) headerTrailing!,
+              ],
+            ),
+            const SizedBox(height: PantasSpace.s8),
+          ],
           ContentRenderer(
             text: stem,
             questionStem: true,

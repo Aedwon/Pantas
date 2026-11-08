@@ -1,6 +1,8 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/mock_exam/domain/mock_session_state.dart';
 import 'package:pantas/features/mock_exam/presentation/widgets/mock_finale.dart';
@@ -167,7 +169,7 @@ class _WebFinaleScene extends CustomPainter {
       checking.opacity,
       centered: true,
     );
-    final reflow = const Cubic(.65, 0, .35, 1)
+    final reflow = PantasCurves.liquid
         .transform(((time - 820.0375) / (1460.0005 - 820.0375)).clamp(0, 1));
     final fade = 1 - ((time - 3420) / 200).clamp(0.0, 1.0);
     if (fade > 0) {
@@ -177,7 +179,7 @@ class _WebFinaleScene extends CustomPainter {
         reflow,
       )!;
       canvas.drawRRect(
-        RRect.fromRectAndRadius(rect, const Radius.circular(22)),
+        RRect.fromRectAndRadius(rect, const Radius.circular(PantasRadius.r2xl)),
         Paint()..color = c.surface.withValues(alpha: fade),
       );
     }
@@ -298,7 +300,7 @@ class _WebFinaleScene extends CustomPainter {
       canvas.drawRRect(
         RRect.fromRectAndRadius(
           Rect.fromLTWH(126, 470 + scan.offset.dy, 1188, 3),
-          const Radius.circular(2),
+          const Radius.circular(PantasRadius.xs),
         ),
         Paint()..color = c.accent.withValues(alpha: scan.opacity),
       );

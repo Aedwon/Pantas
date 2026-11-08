@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/leave_page.dart';
-import 'package:pantas/core/ui/theme/legacy_theme_shim.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/features/beta_feedback/application/beta_feedback_providers.dart';
 import 'package:pantas/features/beta_feedback/domain/beta_feedback_models.dart';
 import 'package:pantas/features/beta_feedback/presentation/compose_card.dart';
@@ -45,7 +45,7 @@ class _FeedbackPageState extends ConsumerState<FeedbackPage> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           RewardCard(reward: data, now: now),
-          const SizedBox(height: 24),
+          const SizedBox(height: PantasSpace.s24),
           DaysCard(reward: data, now: now, condensed: true),
         ],
       );
@@ -90,14 +90,14 @@ class _DaysSkeleton extends StatelessWidget {
   Widget build(BuildContext context) => const FbCard(
         child: SkeletonPulse(
           child: Padding(
-            padding: EdgeInsets.all(16),
+            padding: EdgeInsets.all(PantasSpace.s16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SkeletonBlock(width: 120, height: 24),
-                SizedBox(height: 8),
+                SizedBox(height: PantasSpace.s8),
                 SkeletonBlock(width: 240, height: 15),
-                SizedBox(height: 22),
+                SizedBox(height: PantasSpace.s20),
                 SkeletonBlock(width: double.infinity, height: 56),
               ],
             ),
@@ -112,13 +112,13 @@ class _DaysError extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => FbCard(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(PantasSpace.s16),
         child: Row(
           children: [
             Expanded(
               child: Text(
                 'Could not load your days.',
-                style: context.fbText(15, color: context.fb.secondaryLabel),
+                style: context.fbSub,
               ),
             ),
             TextButton(onPressed: onRetry, child: const Text('Try again')),

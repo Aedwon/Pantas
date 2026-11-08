@@ -5,9 +5,12 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:pantas/core/ui/theme/legacy_theme_shim.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_keyboard_hints.dart';
 import 'package:pantas/features/beta_feedback/application/beta_feedback_providers.dart';
 import 'package:pantas/features/beta_feedback/domain/beta_feedback_models.dart';
@@ -17,6 +20,11 @@ const addImageKey = ValueKey('add-image');
 Key removeKey(int n) => ValueKey('remove-image-$n');
 
 const _maxImages = 3;
+
+/// The screenshot tiles. The system sets no size for them; the boards draw 64
+/// on wide web and 72 on the phone.
+const _thumbWide = 64.0;
+const _thumbPhone = 72.0;
 const _idChars =
     'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 
@@ -55,6 +63,7 @@ class FeedbackCompose extends ConsumerStatefulWidget {
 class _FeedbackComposeState extends ConsumerState<FeedbackCompose> {
   final _text = TextEditingController();
   final _drafts = <_Draft>[];
+  final _focus = FocusNode();
   StreamSubscription<List<PickedImage>>? _drops;
   _Phase _phase = _Phase.idle;
   String? _feedbackId;
@@ -64,6 +73,7 @@ class _FeedbackComposeState extends ConsumerState<FeedbackCompose> {
   void initState() {
     super.initState();
     _text.addListener(_edited);
+    _focus.addListener(_edited);
     _drops = ref.read(betaImageSourceProvider).dropsAndPastes().listen(_add);
   }
 
@@ -71,6 +81,7 @@ class _FeedbackComposeState extends ConsumerState<FeedbackCompose> {
   void dispose() {
     unawaited(_drops?.cancel());
     _text.dispose();
+    _focus.dispose();
     super.dispose();
   }
 
@@ -176,14 +187,13 @@ class _FeedbackComposeState extends ConsumerState<FeedbackCompose> {
     final wide = context.fbWide;
     final c = context.fb;
     final active = _active.length;
-    final fieldStyle = wide
-        ? context.fbText(16, height: 1.4)
-        : context.fbText(17, height: 1.35, spacing: -.204);
+    final fieldStyle = context.fbBody;
     final field = Semantics(
       label: 'Your feedback',
       textField: true,
       child: TextField(
         controller: _text,
+        focusNode: _focus,
         readOnly: _phase != _Phase.idle,
         minLines: wide ? 4 : 5,
         maxLines: wide ? 4 : 5,
@@ -192,11 +202,11 @@ class _FeedbackComposeState extends ConsumerState<FeedbackCompose> {
         cursorColor: c.accent,
         decoration: InputDecoration.collapsed(
           hintText: 'What worked, what broke, what you would change',
-          hintStyle: fieldStyle.copyWith(color: c.tertiaryLabel),
+          hintStyle: fieldStyle.copyWith(color: c.textSecondary),
         ),
       ),
     );
-    final size = wide ? 64.0 : 72.0;
+    final size = wide ? _thumbWide : _thumbPhone;
     final tiles = Row(
       children: [
         for (var i = 0; i < _drafts.length; i++) ...[
@@ -212,32 +222,30 @@ class _FeedbackComposeState extends ConsumerState<FeedbackCompose> {
         if (active < _maxImages)
           _AddTile(count: active, size: size, onTap: _pick),
         if (wide && active < _maxImages) ...[
-          const SizedBox(width: 16),
+          const SizedBox(width: PantasSpace.s16),
           Flexible(
             child: Text(
               'or drop or paste screenshots here',
-              style: context.fbText(13, color: c.secondaryLabel),
+              style: context.fbSmall,
             ),
           ),
         ],
       ],
     );
-    final card = FbCard(
-      padding: wide
-          ? const EdgeInsets.fromLTRB(16, 14, 16, 16)
-          : const EdgeInsets.all(14),
+    final card = FbFieldWell(
+      lit: _focus.hasFocus,
+      padding: const EdgeInsets.all(PantasSpace.s14),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [field, const SizedBox(height: 14), tiles],
+        children: [field, const SizedBox(height: PantasSpace.s14), tiles],
       ),
     );
 
     final applePlatform = defaultTargetPlatform == TargetPlatform.macOS ||
         defaultTargetPlatform == TargetPlatform.iOS;
     final chipOn = wide && WebKeyboardHints.visibleOf(context);
-    final foreground = _canSend || _phase != _Phase.idle
-        ? Colors.white
-        : context.fbTokens.disabledText;
+    final foreground =
+        _canSend || _phase != _Phase.idle ? c.onAccent : c.textDisabled;
     final button = FbButton(
       onPressed: _canSend ? _send : null,
       busy: _phase != _Phase.idle,
@@ -247,8 +255,8 @@ class _FeedbackComposeState extends ConsumerState<FeedbackCompose> {
         _Phase.done => FbDrawnGlyph(
             FbGlyphKind.check,
             key: const ValueKey('send-done'),
-            size: wide ? 20 : 22,
-            color: Colors.white,
+            size: PantasSize.icon,
+            color: c.onAccent,
             stroke: 2.6,
           ),
         _Phase.idle => Row(
@@ -256,7 +264,7 @@ class _FeedbackComposeState extends ConsumerState<FeedbackCompose> {
             children: [
               const Text('Send Feedback'),
               if (chipOn) ...[
-                const SizedBox(width: 10),
+                const SizedBox(width: PantasSpace.s10),
                 _KeyChip(
                   label: applePlatform ? '⌘ Enter' : 'Ctrl Enter',
                   color: foreground,
@@ -271,7 +279,7 @@ class _FeedbackComposeState extends ConsumerState<FeedbackCompose> {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         card,
-        const SizedBox(height: 14),
+        const SizedBox(height: PantasSpace.s14),
         button,
       ],
     );
@@ -302,16 +310,16 @@ class _KeyChip extends StatelessWidget {
   @override
   Widget build(BuildContext context) => ExcludeSemantics(
         child: Container(
-          height: 20,
-          padding: const EdgeInsets.symmetric(horizontal: 6),
+          height: PantasSize.icon,
+          padding: const EdgeInsets.symmetric(horizontal: PantasSpace.s6),
           alignment: Alignment.center,
           decoration: BoxDecoration(
             color: color.withValues(alpha: .18),
-            borderRadius: BorderRadius.circular(5),
+            borderRadius: BorderRadius.circular(PantasRadius.xs),
           ),
           child: Text(
             label,
-            style: context.fbText(11, weight: FontWeight.w600, color: color),
+            style: PantasType.webKeyHintSm.copyWith(color: color),
           ),
         ),
       );
@@ -330,7 +338,6 @@ class _AddTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final c = context.fb;
-    final wide = context.fbWide;
     return Semantics(
       button: true,
       label: 'Add image',
@@ -346,24 +353,21 @@ class _AddTile extends StatelessWidget {
             height: size,
             decoration: BoxDecoration(
               color: c.accentTint,
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(PantasRadius.md),
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 FbGlyph(
                   FbGlyphKind.plus,
-                  size: wide ? 20 : 22,
+                  size: PantasSize.icon,
                   color: c.accentTintText,
                 ),
-                const SizedBox(height: 2),
+                const SizedBox(height: PantasSpace.s2),
                 Text(
                   '$count of $_maxImages',
-                  style: context.fbText(
-                    11,
-                    weight: FontWeight.w500,
-                    color: c.accentTintText,
-                  ),
+                  style:
+                      PantasType.webKeyHintSm.copyWith(color: c.accentTintText),
                 ),
               ],
             ),
@@ -392,14 +396,13 @@ class _Thumb extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final c = context.fb;
-    final wide = context.fbWide;
     final still = MediaQuery.disableAnimationsOf(context);
-    final badge = wide ? 20.0 : 22.0;
+
     final thumb = SizedBox(
       width: size,
       height: size,
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(PantasRadius.md),
         child: Stack(
           fit: StackFit.expand,
           children: [
@@ -410,8 +413,8 @@ class _Thumb extends StatelessWidget {
               errorBuilder: (_, __, ___) => const SizedBox.shrink(),
             ),
             Positioned(
-              top: 0,
-              right: 0,
+              top: PantasSpace.s0,
+              right: PantasSpace.s0,
               child: Semantics(
                 button: true,
                 label: 'Remove image $number',
@@ -420,21 +423,28 @@ class _Thumb extends StatelessWidget {
                   key: removeKey(number),
                   behavior: HitTestBehavior.opaque,
                   onTap: onRemove,
-                  child: Padding(
-                    padding: const EdgeInsets.fromLTRB(8, 4, 4, 8),
-                    child: Container(
-                      width: badge,
-                      height: badge,
-                      alignment: Alignment.center,
-                      decoration: const BoxDecoration(
-                        color: Color(0x8C000000),
-                        shape: BoxShape.circle,
-                      ),
-                      child: FbGlyph(
-                        FbGlyphKind.close,
-                        size: wide ? 11 : 12,
-                        color: Colors.white,
-                        stroke: 3,
+                  // The whole 44 corner takes the tap; the badge sits in it.
+                  child: SizedBox.square(
+                    dimension: PantasSize.targetTouch,
+                    child: Align(
+                      alignment: Alignment.topRight,
+                      child: Padding(
+                        padding: const EdgeInsets.all(PantasSpace.s4),
+                        child: Container(
+                          width: PantasSize.icon,
+                          height: PantasSize.icon,
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                            color: c.scrim,
+                            shape: BoxShape.circle,
+                          ),
+                          child: FbGlyph(
+                            FbGlyphKind.close,
+                            size: PantasSpace.s12,
+                            color: c.onAccent,
+                            stroke: 3,
+                          ),
+                        ),
                       ),
                     ),
                   ),
@@ -459,7 +469,7 @@ class _Thumb extends StatelessWidget {
         child: Opacity(opacity: v, child: child),
       ),
       child: Padding(
-        padding: const EdgeInsets.only(right: 10),
+        padding: const EdgeInsets.only(right: PantasSpace.s10),
         child: FbRise(delay: draft.riseDelay, child: thumb),
       ),
     );

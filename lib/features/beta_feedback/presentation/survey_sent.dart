@@ -3,6 +3,8 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/theme/legacy_theme_shim.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/features/beta_feedback/presentation/fb_kit.dart';
 
 /// The ring and the check of the sent state, each drawn to its own progress.
@@ -69,7 +71,12 @@ class SurveySent extends StatelessWidget {
   Widget build(BuildContext context) {
     final c = context.fb;
     return Padding(
-      padding: const EdgeInsets.fromLTRB(24, 56, 24, 40),
+      padding: const EdgeInsets.fromLTRB(
+        PantasSpace.s24,
+        PantasSpace.s56,
+        PantasSpace.s24,
+        PantasSpace.s40,
+      ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -104,7 +111,7 @@ class SurveySent extends StatelessWidget {
               ],
             ),
           ),
-          const SizedBox(height: 22),
+          const SizedBox(height: PantasSpace.s20),
           FbRise(
             dy: 14,
             duration: const Duration(milliseconds: 450),
@@ -114,11 +121,7 @@ class SurveySent extends StatelessWidget {
               child: Text(
                 'Survey sent',
                 textAlign: TextAlign.center,
-                style: context.fbText(
-                  26,
-                  weight: FontWeight.w700,
-                  spacing: -.468,
-                ),
+                style: PantasType.webH2.copyWith(color: c.textPrimary),
               ),
             ),
           ),
@@ -127,23 +130,19 @@ class SurveySent extends StatelessWidget {
             duration: const Duration(milliseconds: 450),
             delay: const Duration(milliseconds: 380),
             child: Padding(
-              padding: const EdgeInsets.only(top: 8),
+              padding: const EdgeInsets.only(top: PantasSpace.s8),
               child: ConstrainedBox(
                 constraints: const BoxConstraints(maxWidth: 380),
                 child: Text(
                   'Thank you for helping shape Pantas. '
                   'Your answers go straight to the team.',
                   textAlign: TextAlign.center,
-                  style: context.fbText(
-                    15,
-                    height: 1.45,
-                    color: c.secondaryLabel,
-                  ),
+                  style: PantasType.webSub.copyWith(color: c.textSecondary),
                 ),
               ),
             ),
           ),
-          const SizedBox(height: 24),
+          const SizedBox(height: PantasSpace.s24),
           FbRise(
             dy: 14,
             duration: const Duration(milliseconds: 450),
@@ -170,7 +169,7 @@ class _Ripple extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // The boards use rgba(11,122,104,.38) in both themes.
-    const color = Color(0xFF0B7A68);
+    final color = context.fb.accent;
     return ExcludeSemantics(
       child: FbTimeline(
         duration: const Duration(milliseconds: 700),

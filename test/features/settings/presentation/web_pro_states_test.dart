@@ -212,9 +212,10 @@ void main() {
     testWidgets('Season Pass choice keeps its end date dark=$dark',
         (tester) async {
       await _pump(tester, dark: dark);
+      // The Season Pass tile spans the row below the plan tiles.
       expect(
         tester.getTopLeft(find.text('Season Pass')).dy,
-        tester.getTopLeft(find.text('Monthly')).dy,
+        greaterThan(tester.getTopLeft(find.text('Monthly')).dy),
       );
       expect(tester.widget<Text>(find.text('₱499')).style?.fontSize, 26);
       await tester.tap(find.text('Season Pass'));
@@ -226,20 +227,23 @@ void main() {
       );
       expect(tester.takeException(), isNull);
     });
-    testWidgets('plan cards share one height dark=$dark', (tester) async {
+    testWidgets('Season Pass tile spans the row dark=$dark', (tester) async {
       await _pump(tester, dark: dark);
-      double height(String label) => tester
-          .getSize(
+      Size size(String label) => tester.getSize(
             find
                 .ancestor(
                   of: find.text(label),
-                  matching: find.byType(InkWell),
+                  matching: find.byKey(const ValueKey('pro-plan-tile')),
                 )
                 .first,
-          )
-          .height;
-      // Monthly has no second line and Season Pass has an end date.
-      expect(height('Monthly'), height('Season Pass'));
+          );
+      // One plan tile in the row and the pass tile under it, as wide as the
+      // row.
+      expect(size('Season Pass').width, size('Monthly').width);
+      expect(
+        size('Season Pass').height,
+        greaterThanOrEqualTo(size('Monthly').height),
+      );
       expect(tester.takeException(), isNull);
     });
     testWidgets('restore uses a busy verb dark=$dark', (tester) async {

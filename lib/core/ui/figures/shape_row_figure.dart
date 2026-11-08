@@ -3,6 +3,9 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 
+/// Height of the drawing. The design system sets no height for diagrams.
+const double _figureHeight = 110;
+
 /// A row of shapes, for the odd-one-out questions.
 ///
 /// ```yaml
@@ -86,7 +89,7 @@ class ShapeRowFigure extends StatelessWidget {
       label: 'A row of ${shapes.length} shapes: '
           '${shapes.map((s) => s.form).join(', ')}.',
       child: SizedBox(
-        height: 110,
+        height: _figureHeight,
         child: CustomPaint(
           painter: _ShapeRowPainter(shapes: shapes, ink: colors.label),
           size: Size.infinite,

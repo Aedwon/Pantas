@@ -114,8 +114,13 @@ void main() {
       find.text('Part 1 runs to the end of its time. Strict mode is on.'),
       findsOneWidget,
     );
-    final next = tester.widget<InkWell>(find.byKey(const Key('mock-next')));
-    expect(next.onTap, isNull);
+    final next = tester.widget<IconButton>(
+      find.descendant(
+        of: find.byKey(const Key('mock-next')),
+        matching: find.byType(IconButton),
+      ),
+    );
+    expect(next.onPressed, isNull);
   });
 
   testWidgets('the strict line appears only on the last item of a part',

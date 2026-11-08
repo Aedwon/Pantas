@@ -192,9 +192,9 @@ void main() {
         await pumpCard(tester, wide: true, dark: dark);
         expectSignUpCard();
         final title = tester.widget<Text>(find.text(_title)).style!;
-        expect(title.fontSize, 24);
+        expect(title.fontSize, 22);
         expect(title.fontWeight, FontWeight.w700);
-        expect(title.letterSpacing, -.384);
+        expect(title.letterSpacing, -.264);
         expect(tester.widget<Text>(find.text(_message)).style!.fontSize, 16);
         expect(tester.widget<Text>(find.text(_note)).style!.fontSize, 15);
         final button = find.widgetWithText(TextButton, _button);
@@ -210,16 +210,17 @@ void main() {
         final fill = style.backgroundColor!.resolve({})!;
         final label = style.foregroundColor!.resolve({})!;
         expect(fill.computeLuminance() > label.computeLuminance(), dark);
-        // 22 px between the parts of the card.
+        // 24 px (`space-24`, the system step nearest the board's 22) between
+        // the parts of the card.
         expect(
           tester.getTopLeft(find.text(_message)).dy -
               tester.getBottomLeft(find.text(_title)).dy,
-          22,
+          24,
         );
         expect(
           tester.getTopLeft(button).dy -
               tester.getBottomLeft(find.text(_note)).dy,
-          22,
+          24,
         );
       });
 

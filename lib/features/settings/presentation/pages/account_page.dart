@@ -20,6 +20,10 @@ import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/leave_page.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
@@ -172,32 +176,32 @@ class _AccountPageState extends ConsumerState<AccountPage> {
               ),
             ],
           ),
-          const SizedBox(height: 24),
+          const SizedBox(height: PantasSpace.s24),
           if (user == null) ...[
             WebButton(
               label: _signingIn ? 'Signing in…' : 'Continue with Google',
               variant: WebButtonVariant.white,
-              height: 48,
+              height: PantasSize.field,
               icon: SvgPicture.string(_googleMark, width: 18, height: 18),
               busy: _signingIn,
               onPressed: _signingIn ? null : _signIn,
             ),
             if (web) ...[
-              const SizedBox(height: 12),
+              const SizedBox(height: PantasSpace.s12),
               WebButton(
                 label: 'Continue with email',
                 variant: WebButtonVariant.secondary,
                 onPressed: _signingIn ? null : () => push('/auth/email-link'),
               ),
             ],
-            const SizedBox(height: 12),
+            const SizedBox(height: PantasSpace.s12),
             Text(
               _errorMessage ??
                   'Your progress stays in this browser. '
                       'Signing in gives you an account you can come back to.',
               style: t.sm,
             ),
-            const SizedBox(height: 24),
+            const SizedBox(height: PantasSpace.s24),
             WebButton(
               label: 'Delete My Data',
               variant: WebButtonVariant.dangerOutline,
@@ -224,13 +228,13 @@ class _AccountPageState extends ConsumerState<AccountPage> {
                     ),
                 ],
               ),
-              const SizedBox(height: 24),
+              const SizedBox(height: PantasSpace.s24),
             ],
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 4),
+              padding: const EdgeInsets.symmetric(horizontal: PantasSpace.s4),
               child: Wrap(
-                spacing: 8,
-                runSpacing: 8,
+                spacing: PantasSpace.s8,
+                runSpacing: PantasSpace.s8,
                 children: [
                   WebTextAction(
                     label: 'Sign Out',
@@ -240,8 +244,8 @@ class _AccountPageState extends ConsumerState<AccountPage> {
                     label: 'Delete Account',
                     variant: WebButtonVariant.tertiary,
                     redText: true,
-                    height: 42,
-                    radius: 11,
+                    height: PantasSize.btnSm,
+                    radius: PantasRadius.md,
                     onPressed: () => push('/settings/account/delete'),
                   ),
                 ],
@@ -262,7 +266,10 @@ class _AccountPageState extends ConsumerState<AccountPage> {
       children: [
         // ST_Account: a centered 84 px avatar over a 24 px name and the email.
         Padding(
-          padding: const EdgeInsets.only(top: 10, bottom: 7),
+          padding: const EdgeInsets.only(
+            top: PantasSpace.s10,
+            bottom: PantasSpace.s6,
+          ),
           child: Column(
             children: [
               Avatar(
@@ -272,24 +279,22 @@ class _AccountPageState extends ConsumerState<AccountPage> {
                     ? null
                     : NetworkImage(user!.photoUrl!),
               ),
-              const SizedBox(height: 6),
+              const SizedBox(height: PantasSpace.s6),
               Text(
                 settings.name ?? 'Add your name',
-                style: context.type.emphasized
-                    .copyWith(fontSize: 24, fontWeight: FontWeight.w700),
+                style: PantasType.phoneTitle2
+                    .copyWith(color: context.colors.textPrimary),
               ),
-              const SizedBox(height: 10),
+              const SizedBox(height: PantasSpace.s10),
               Text(
                 user?.email ?? 'Not signed in',
-                style: context.type.subhead.copyWith(
-                  fontSize: 15,
-                  color: context.colors.secondaryLabel,
-                ),
+                style: PantasType.phoneExplanation
+                    .copyWith(color: context.colors.textSecondary),
               ),
             ],
           ),
         ),
-        const SizedBox(height: 22),
+        const SizedBox(height: PantasSpace.s20),
         SettingsSection(
           children: [
             SettingsRow(
@@ -306,7 +311,7 @@ class _AccountPageState extends ConsumerState<AccountPage> {
               ),
           ],
         ),
-        const SizedBox(height: 22),
+        const SizedBox(height: PantasSpace.s20),
         SettingsSection(
           footer: user == null
               ? 'You get your own Pantas ID when you sign in.'
@@ -335,7 +340,7 @@ class _AccountPageState extends ConsumerState<AccountPage> {
             ),
           ],
         ),
-        const SizedBox(height: 22),
+        const SizedBox(height: PantasSpace.s20),
         if (user == null) ...[
           PantasButton(
             label: 'Continue with Google',
@@ -343,14 +348,14 @@ class _AccountPageState extends ConsumerState<AccountPage> {
             onPressed: _signingIn ? null : _signIn,
           ),
           if (web) ...[
-            const SizedBox(height: 12),
+            const SizedBox(height: PantasSpace.s12),
             PantasButton(
               label: 'Continue with email',
               variant: PantasButtonVariant.secondary,
               onPressed: _signingIn ? null : () => push('/auth/email-link'),
             ),
           ],
-          const SizedBox(height: 12),
+          const SizedBox(height: PantasSpace.s12),
           Text(
             // The web build keeps the progress in the browser, whatever the
             // window size, so it says so, as the wide layout and Backup do.
@@ -388,7 +393,7 @@ class _AccountPageState extends ConsumerState<AccountPage> {
               ],
             ),
           ],
-          const SizedBox(height: 22),
+          const SizedBox(height: PantasSpace.s20),
           // ST_Account: Sign Out and Delete Account are separate cards.
           SettingsSection(
             children: [
@@ -400,7 +405,7 @@ class _AccountPageState extends ConsumerState<AccountPage> {
               ),
             ],
           ),
-          const SizedBox(height: 22),
+          const SizedBox(height: PantasSpace.s20),
           SettingsSection(
             children: [
               SettingsRow(
@@ -412,7 +417,7 @@ class _AccountPageState extends ConsumerState<AccountPage> {
           ),
         ],
         if (user == null) ...[
-          const SizedBox(height: 22),
+          const SizedBox(height: PantasSpace.s20),
           SettingsSection(
             children: [
               SettingsRow(
@@ -474,7 +479,7 @@ class _AccountPageState extends ConsumerState<AccountPage> {
   Future<void> _confirmSignOut() async {
     final confirmed = await showDialog<bool>(
       context: context,
-      barrierColor: context.wideWeb ? const Color(0x521D1D1F) : null,
+      barrierColor: context.colors.scrim,
       builder: (context) => CenteredDialog(
         title: 'Sign out?',
         inlineActions: true,

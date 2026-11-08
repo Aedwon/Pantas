@@ -9,6 +9,10 @@ import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
@@ -75,6 +79,14 @@ String _promptBody({
 }) =>
     'Some content on $previous is on $exam too. '
     'Count them and continue where you are.';
+
+// The vessel illustration is drawn to the approved board, and the system sets
+// none of its measures.
+const double _wideArtWidth = 278;
+const double _wideCardHeight = 476;
+const double _phoneLabelWidth = 130;
+const double _phoneStreamWidth = 70;
+const double _phoneStreamTop = 82;
 
 class CarryOverScreen extends ConsumerStatefulWidget {
   const CarryOverScreen({
@@ -190,10 +202,10 @@ class _TransferScreenState extends ConsumerState<CarryOverScreen>
         final ms = (_controller.value * 6400).clamp(0.0, 6100.0);
         double at(double a, double b, [Curve curve = Curves.ease]) =>
             curve.transform(((ms - a) / (b - a)).clamp(0.0, 1.0));
-        final group = at(750, 1200, const Cubic(.3, .9, .3, 1));
-        final drain = at(1450, 3050, const Cubic(.45, 0, .25, 1));
+        final group = at(750, 1200, PantasCurves.house);
+        final drain = at(1450, 3050, PantasCurves.liquid);
         final labels = at(3300, 3600);
-        final check = at(3350, 3650, const Cubic(.3, 1.5, .5, 1));
+        final check = at(3350, 3650, PantasCurves.popB);
         final prompt = 1 - at(700, 1000);
         final done = at(3800, 4150);
         Widget vessel(String name, {required bool old}) => Column(
@@ -206,7 +218,7 @@ class _TransferScreenState extends ConsumerState<CarryOverScreen>
                   decoration: BoxDecoration(
                     color:
                         old ? Color.lerp(c.fill, c.accentTint, drain) : c.fill,
-                    borderRadius: BorderRadius.circular(34),
+                    borderRadius: BorderRadius.circular(PantasRadius.full),
                     border: Border.all(color: c.separator, width: 1.5),
                   ),
                   child: Stack(
@@ -221,16 +233,13 @@ class _TransferScreenState extends ConsumerState<CarryOverScreen>
                           child: Stack(
                             clipBehavior: Clip.none,
                             children: [
-                              const Positioned.fill(
+                              Positioned.fill(
                                 child: DecoratedBox(
                                   decoration: BoxDecoration(
                                     gradient: LinearGradient(
                                       begin: Alignment.topCenter,
                                       end: Alignment.bottomCenter,
-                                      colors: [
-                                        Color(0xFF14937D),
-                                        Color(0xFF0B7A68),
-                                      ],
+                                      colors: [c.liquidStart, c.liquidEnd],
                                     ),
                                   ),
                                 ),
@@ -249,7 +258,7 @@ class _TransferScreenState extends ConsumerState<CarryOverScreen>
                                         : 'web-transfer-wave-new',
                                   ),
                                   size: const Size(224, 12),
-                                  painter: const _TransferWave(),
+                                  painter: _TransferWave(c.liquidStart),
                                 ),
                               ),
                             ],
@@ -262,9 +271,9 @@ class _TransferScreenState extends ConsumerState<CarryOverScreen>
                             opacity: check.clamp(0, 1),
                             child: Transform.scale(
                               scale: .4 + .6 * check,
-                              child: const Icon(
+                              child: Icon(
                                 Icons.check,
-                                color: Colors.white,
+                                color: c.onAccent,
                                 size: 40,
                               ),
                             ),
@@ -273,12 +282,10 @@ class _TransferScreenState extends ConsumerState<CarryOverScreen>
                     ],
                   ),
                 ),
-                const SizedBox(height: 12),
+                const SizedBox(height: PantasSpace.s12),
                 Text(
                   name,
-                  style: t.style(
-                    15,
-                    weight: FontWeight.w600,
+                  style: PantasType.webLink.copyWith(
                     color: Color.lerp(
                       old ? c.accent : c.secondaryLabel,
                       old ? c.secondaryLabel : c.accent,
@@ -299,9 +306,9 @@ class _TransferScreenState extends ConsumerState<CarryOverScreen>
               ),
             );
         return WebCard(
-          radius: 22,
+          radius: PantasRadius.r2xl,
           child: SizedBox(
-            height: 476 + extra,
+            height: _wideCardHeight + extra,
             child: Stack(
               children: [
                 Positioned(
@@ -314,7 +321,7 @@ class _TransferScreenState extends ConsumerState<CarryOverScreen>
                       child: Transform.scale(
                         scale: 1 + .12 * group,
                         child: SizedBox(
-                          width: 278,
+                          width: _wideArtWidth,
                           height: 202,
                           child: Stack(
                             clipBehavior: Clip.none,
@@ -325,7 +332,8 @@ class _TransferScreenState extends ConsumerState<CarryOverScreen>
                                 width: 82,
                                 height: 12,
                                 child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(6),
+                                  borderRadius:
+                                      BorderRadius.circular(PantasRadius.xs),
                                   child: ColoredBox(
                                     color: c.fill,
                                     child: Transform.translate(
@@ -336,23 +344,13 @@ class _TransferScreenState extends ConsumerState<CarryOverScreen>
                                                     at(
                                                       1250,
                                                       1550,
-                                                      const Cubic(
-                                                        .45,
-                                                        0,
-                                                        .25,
-                                                        1,
-                                                      ),
+                                                      PantasCurves.liquid,
                                                     ) +
                                                 1.01 *
                                                     at(
                                                       3050,
                                                       3350,
-                                                      const Cubic(
-                                                        .45,
-                                                        0,
-                                                        .25,
-                                                        1,
-                                                      ),
+                                                      PantasCurves.liquid,
                                                     )),
                                         0,
                                       ),
@@ -388,7 +386,7 @@ class _TransferScreenState extends ConsumerState<CarryOverScreen>
                     Column(
                       children: [
                         Text("You're not starting from zero", style: t.h3),
-                        const SizedBox(height: 6),
+                        const SizedBox(height: PantasSpace.s6),
                         Text(
                           _promptBody(
                             count: widget.count,
@@ -396,11 +394,8 @@ class _TransferScreenState extends ConsumerState<CarryOverScreen>
                             previous: previousName,
                           ),
                           textAlign: TextAlign.center,
-                          style: t.style(
-                            16,
-                            height: 1.45,
-                            color: c.secondaryLabel,
-                          ),
+                          style: PantasType.webBody
+                              .copyWith(color: c.textSecondary),
                         ),
                       ],
                     ),
@@ -416,7 +411,7 @@ class _TransferScreenState extends ConsumerState<CarryOverScreen>
                     Column(
                       children: [
                         Text('You pick up where you are', style: t.h3),
-                        const SizedBox(height: 6),
+                        const SizedBox(height: PantasSpace.s6),
                         Text(
                           'Your $previousName answers '
                           'stay on $previousName too.',
@@ -436,8 +431,8 @@ class _TransferScreenState extends ConsumerState<CarryOverScreen>
                     10,
                     Wrap(
                       alignment: WrapAlignment.center,
-                      spacing: 8,
-                      runSpacing: 8,
+                      spacing: PantasSpace.s8,
+                      runSpacing: PantasSpace.s8,
                       children: [
                         WebButton(
                           label: 'Start My Numbers Fresh',
@@ -528,9 +523,9 @@ class _TransferScreenState extends ConsumerState<CarryOverScreen>
         modal: (modalContext) => Dialog(
           elevation: 0,
           backgroundColor: Colors.transparent,
-          insetPadding: const EdgeInsets.all(24),
+          insetPadding: const EdgeInsets.all(PantasSpace.s24),
           child: SizedBox(
-            width: 560,
+            width: PantasLayout.modalWide,
             child: _wideTransfer(modalContext, previousName),
           ),
         ),
@@ -542,8 +537,7 @@ class _TransferScreenState extends ConsumerState<CarryOverScreen>
         child: AnimatedBuilder(
           animation: _controller,
           builder: (context, _) {
-            final drain =
-                const Cubic(.45, 0, .25, 1).transform(phase(750, 2350));
+            final drain = PantasCurves.liquid.transform(phase(750, 2350));
             final finish = PantasCurves.fade.transform(phase(2950, 3300));
             final lift = PantasCurves.house.transform(phase(50, 500));
             final hide = PantasCurves.fade.transform(phase(0, 300));
@@ -565,7 +559,7 @@ class _TransferScreenState extends ConsumerState<CarryOverScreen>
                         color: old
                             ? Color.lerp(c.fill, c.accentTint, drain)
                             : c.fill,
-                        borderRadius: BorderRadius.circular(24),
+                        borderRadius: BorderRadius.circular(PantasRadius.r2xl),
                       ),
                       child: Stack(
                         children: [
@@ -577,16 +571,13 @@ class _TransferScreenState extends ConsumerState<CarryOverScreen>
                               0,
                               168 * 1.1 * (old ? drain : 1 - drain),
                             ),
-                            child: const SizedBox.expand(
+                            child: SizedBox.expand(
                               child: DecoratedBox(
                                 decoration: BoxDecoration(
                                   gradient: LinearGradient(
                                     begin: Alignment.topCenter,
                                     end: Alignment.bottomCenter,
-                                    colors: [
-                                      Color(0xFF14937D),
-                                      Color(0xFF0B7A68),
-                                    ],
+                                    colors: [c.liquidStart, c.liquidEnd],
                                   ),
                                 ),
                               ),
@@ -612,9 +603,9 @@ class _TransferScreenState extends ConsumerState<CarryOverScreen>
                         ],
                       ),
                     ),
-                    const SizedBox(height: 12),
+                    const SizedBox(height: PantasSpace.s12),
                     SizedBox(
-                      width: 130,
+                      width: _phoneLabelWidth,
                       child: Text(
                         name,
                         textAlign: TextAlign.center,
@@ -675,14 +666,16 @@ class _TransferScreenState extends ConsumerState<CarryOverScreen>
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.only(top: 82),
+                                  padding: const EdgeInsets.only(
+                                    top: _phoneStreamTop,
+                                  ),
                                   child: SizedBox(
-                                    width: 70,
+                                    width: _phoneStreamWidth,
                                     height: 8,
                                     child: ClipRect(
                                       child: Transform.translate(
                                         offset: Offset(
-                                          70 *
+                                          _phoneStreamWidth *
                                               (-1.01 +
                                                   1.01 *
                                                       PantasCurves.liquid
@@ -733,7 +726,7 @@ class _TransferScreenState extends ConsumerState<CarryOverScreen>
                                 textAlign: TextAlign.center,
                                 style: context.type.pageTitle,
                               ),
-                              const SizedBox(height: 8),
+                              const SizedBox(height: PantasSpace.s8),
                               Text(
                                 _promptBody(
                                   count: widget.count,
@@ -799,7 +792,7 @@ class _TransferScreenState extends ConsumerState<CarryOverScreen>
                                     style: context.type.pageTitle,
                                     textAlign: TextAlign.center,
                                   ),
-                                  const SizedBox(height: 6),
+                                  const SizedBox(height: PantasSpace.s6),
                                   if (widget.previous != null)
                                     Text(
                                       'Your ${widget.previous} answers '
@@ -841,7 +834,8 @@ class CarryOverRequest {
 
 // ST_ExamSwitchCount's SVG surface, repeated across the moving liquid.
 class _TransferWave extends CustomPainter {
-  const _TransferWave();
+  const _TransferWave(this.color);
+  final Color color;
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -860,10 +854,10 @@ class _TransferWave extends CustomPainter {
       ..lineTo(0, 12)
       ..close();
     canvas
-      ..drawPath(wave, Paint()..color = const Color(0xFF14937D))
+      ..drawPath(wave, Paint()..color = color)
       ..restore();
   }
 
   @override
-  bool shouldRepaint(_TransferWave oldDelegate) => false;
+  bool shouldRepaint(_TransferWave oldDelegate) => oldDelegate.color != color;
 }

@@ -19,6 +19,11 @@ import 'package:pantas/core/ui/figures/question_figure.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/leave_page.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_key_focus.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -30,6 +35,9 @@ import 'package:pantas/features/mock_exam/application/server_mock_providers.dart
 import 'package:pantas/features/mock_exam/application/server_mock_results_providers.dart';
 import 'package:pantas/features/mock_exam/data/server_mock_api.dart';
 import 'package:pantas/features/mock_exam/domain/mock_results.dart';
+
+/// The width of the question filter (board width; the system sets no token).
+const _filterWidth = 464.0;
 
 class MockReviewPage extends ConsumerStatefulWidget {
   const MockReviewPage({
@@ -164,7 +172,7 @@ class _MockReviewPageState extends ConsumerState<MockReviewPage> {
               centerTitle: false,
               title: Padding(
                 // MK_ReviewAll: the link sits 5 px lower.
-                padding: const EdgeInsets.only(top: 8),
+                padding: const EdgeInsets.only(top: PantasSpace.s8),
                 child: Align(
                   alignment: Alignment.centerLeft,
                   child: GestureDetector(
@@ -187,7 +195,7 @@ class _MockReviewPageState extends ConsumerState<MockReviewPage> {
                                 size: 24,
                                 color: context.colors.accent,
                               ),
-                              const SizedBox(width: 2),
+                              const SizedBox(width: PantasSpace.s2),
                               Text(
                                 _viewerIndex == null
                                     ? 'Results'
@@ -208,7 +216,7 @@ class _MockReviewPageState extends ConsumerState<MockReviewPage> {
                 if (viewed != null && savedFlags.hasValue)
                   Padding(
                     // MK_ReviewQ: the icon sits level with the link.
-                    padding: const EdgeInsets.only(top: 9),
+                    padding: const EdgeInsets.only(top: PantasSpace.s10),
                     child: IconButton(
                       constraints:
                           const BoxConstraints.tightFor(width: 44, height: 44),
@@ -232,7 +240,7 @@ class _MockReviewPageState extends ConsumerState<MockReviewPage> {
                     ),
                   ),
                 if (viewed != null && savedFlags.hasValue)
-                  const SizedBox(width: 8),
+                  const SizedBox(width: PantasSpace.s8),
               ],
             ),
       body: reviewAsync.when(
@@ -493,7 +501,12 @@ class _ReviewListBody extends StatelessWidget {
       final t = context.webTokens;
       return SingleChildScrollView(
         key: const ValueKey('web-mock-review'),
-        padding: const EdgeInsets.fromLTRB(40, 16, 40, 56),
+        padding: const EdgeInsets.fromLTRB(
+          PantasSpace.s40,
+          PantasSpace.s16,
+          PantasSpace.s40,
+          PantasSpace.s56,
+        ),
         child: Center(
           child: ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 760),
@@ -501,11 +514,11 @@ class _ReviewListBody extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Text('All questions', style: t.h1),
-                const SizedBox(height: 20),
+                const SizedBox(height: PantasSpace.s20),
                 Align(
                   alignment: Alignment.centerLeft,
                   child: SizedBox(
-                    width: 464,
+                    width: _filterWidth,
                     child: WebSegmentedControl(
                       labels: [
                         'All ${counts.all}',
@@ -519,11 +532,11 @@ class _ReviewListBody extends StatelessWidget {
                   ),
                 ),
                 if (proIsActive && filter == ReviewFilter.wrong) ...[
-                  const SizedBox(height: 20),
+                  const SizedBox(height: PantasSpace.s20),
                   WebCard(
                     padding: const EdgeInsets.symmetric(
-                      horizontal: 20,
-                      vertical: 18,
+                      horizontal: PantasSpace.s20,
+                      vertical: PantasSpace.s18,
                     ),
                     child: Row(
                       children: [
@@ -535,7 +548,7 @@ class _ReviewListBody extends StatelessWidget {
                             style: t.sub,
                           ),
                         ),
-                        const SizedBox(width: 24),
+                        const SizedBox(width: PantasSpace.s24),
                         WebButton(
                           label: 'Finish the Notes',
                           variant: WebButtonVariant.secondary,
@@ -546,11 +559,11 @@ class _ReviewListBody extends StatelessWidget {
                   ),
                 ],
                 if (showFlagOffer) ...[
-                  const SizedBox(height: 20),
+                  const SizedBox(height: PantasSpace.s20),
                   WebCard(
                     padding: const EdgeInsets.symmetric(
-                      horizontal: 20,
-                      vertical: 18,
+                      horizontal: PantasSpace.s20,
+                      vertical: PantasSpace.s18,
                     ),
                     child: Row(
                       children: [
@@ -563,13 +576,13 @@ class _ReviewListBody extends StatelessWidget {
                             style: t.sub.copyWith(color: t.colors.label),
                           ),
                         ),
-                        const SizedBox(width: 18),
+                        const SizedBox(width: PantasSpace.s18),
                         WebButton(
                           label: 'No Thanks',
                           variant: WebButtonVariant.tertiary,
                           onPressed: onDismissFlags,
                         ),
-                        const SizedBox(width: 8),
+                        const SizedBox(width: PantasSpace.s8),
                         WebButton(
                           label: 'Save All $markedCount',
                           onPressed: onKeepFlags,
@@ -578,10 +591,15 @@ class _ReviewListBody extends StatelessWidget {
                     ),
                   ),
                 ],
-                const SizedBox(height: 20),
+                const SizedBox(height: PantasSpace.s20),
                 for (final group in groups.entries) ...[
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(4, 0, 4, 9),
+                    padding: const EdgeInsets.fromLTRB(
+                      PantasSpace.s4,
+                      PantasSpace.s0,
+                      PantasSpace.s4,
+                      PantasSpace.s10,
+                    ),
                     child: Row(
                       children: [
                         Expanded(
@@ -609,23 +627,25 @@ class _ReviewListBody extends StatelessWidget {
                                 ? null
                                 : Container(
                                     padding: const EdgeInsets.symmetric(
-                                      horizontal: 8,
-                                      vertical: 2,
+                                      horizontal: PantasSpace.s8,
+                                      vertical: PantasSpace.s2,
                                     ),
                                     decoration: BoxDecoration(
                                       color: t.disabledBackground,
-                                      borderRadius: BorderRadius.circular(99),
+                                      borderRadius: BorderRadius.circular(
+                                        PantasRadius.full,
+                                      ),
                                     ),
                                     child: Text(
                                       'Left blank',
-                                      style: t.style(
-                                        12,
-                                        weight: FontWeight.w600,
+                                      style: PantasType.webCaption.copyWith(
                                         color: t.colors.secondaryLabel,
+                                        fontWeight: FontWeight.w600,
                                       ),
                                     ),
                                   ),
-                            titleStyle: t.style(16),
+                            titleStyle: PantasType.webBody
+                                .copyWith(color: t.colors.textPrimary),
                             leading: Container(
                               width: filter == ReviewFilter.wrong ? 34 : 30,
                               height: filter == ReviewFilter.wrong ? null : 30,
@@ -642,14 +662,16 @@ class _ReviewListBody extends StatelessWidget {
                                     ),
                               child: Text(
                                 '${entry.number}',
-                                style: t.style(
-                                  filter == ReviewFilter.wrong ? 15 : 12,
-                                  weight: filter == ReviewFilter.wrong
+                                style: (filter == ReviewFilter.wrong
+                                        ? PantasType.webSub
+                                        : PantasType.webCaption)
+                                    .copyWith(
+                                  fontWeight: filter == ReviewFilter.wrong
                                       ? FontWeight.w700
                                       : FontWeight.w600,
                                   color: entry.isCorrect
                                       ? t.colors.accent
-                                      : t.colors.wrongText,
+                                      : t.colors.dangerText,
                                 ),
                               ),
                             ),
@@ -659,7 +681,7 @@ class _ReviewListBody extends StatelessWidget {
                       ],
                     ),
                   ),
-                  const SizedBox(height: 24),
+                  const SizedBox(height: PantasSpace.s24),
                 ],
               ],
             ),
@@ -669,25 +691,31 @@ class _ReviewListBody extends StatelessWidget {
     }
 
     return SingleChildScrollView(
-      padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
+      padding: const EdgeInsets.fromLTRB(
+        PantasSpace.s16,
+        PantasSpace.s8,
+        PantasSpace.s16,
+        PantasSpace.s24,
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 4),
+            padding: const EdgeInsets.symmetric(horizontal: PantasSpace.s4),
             child: Text(
               'All questions',
-              style: context.type.sectionHero.copyWith(fontSize: 28),
+              style: PantasType.phoneTitle1
+                  .copyWith(color: context.colors.textPrimary),
             ),
           ),
-          const SizedBox(height: 19),
+          const SizedBox(height: PantasSpace.s20),
           _MockFilterRow(active: filter, counts: counts, onChanged: onFilter),
           if (proIsActive && filter == ReviewFilter.wrong) ...[
-            const SizedBox(height: 22),
+            const SizedBox(height: PantasSpace.s24),
             _NotesPrompt(onPressed: onFinishNotes),
           ],
           if (showFlagOffer) ...[
-            const SizedBox(height: 22),
+            const SizedBox(height: PantasSpace.s24),
             _FlagOffer(
               count: markedCount,
               onKeep: onKeepFlags,
@@ -695,7 +723,7 @@ class _ReviewListBody extends StatelessWidget {
             ),
           ],
           for (final group in groups.entries) ...[
-            const SizedBox(height: 22),
+            const SizedBox(height: PantasSpace.s24),
             _PartHeader(
               name: group.key,
               label: groupLabel(group.value),
@@ -705,7 +733,7 @@ class _ReviewListBody extends StatelessWidget {
               clipBehavior: Clip.antiAlias,
               decoration: BoxDecoration(
                 color: context.colors.surface,
-                borderRadius: BorderRadius.circular(14),
+                borderRadius: BorderRadius.circular(PantasRadius.lg),
               ),
               child: Column(
                 children: [
@@ -744,10 +772,10 @@ class _MockFilterRow extends StatelessWidget {
           ReviewFilter.flagged => 'Flagged ${counts.flagged}',
         };
     return Container(
-      padding: const EdgeInsets.all(2),
+      padding: const EdgeInsets.all(PantasSpace.s2),
       decoration: BoxDecoration(
         color: context.colors.fill,
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(PantasRadius.back),
       ),
       child: Row(
         children: [
@@ -755,14 +783,14 @@ class _MockFilterRow extends StatelessWidget {
             Expanded(
               child: InkWell(
                 onTap: () => onChanged(filter),
-                borderRadius: BorderRadius.circular(8),
+                borderRadius: BorderRadius.circular(PantasRadius.sm),
                 child: Container(
                   height: 32,
                   alignment: Alignment.center,
                   decoration: active == filter
                       ? BoxDecoration(
                           color: context.colors.surface,
-                          borderRadius: BorderRadius.circular(8),
+                          borderRadius: BorderRadius.circular(PantasRadius.sm),
                         )
                       : null,
                   child: Text(
@@ -785,10 +813,15 @@ class _NotesPrompt extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Container(
-        padding: const EdgeInsets.fromLTRB(16, 16, 16, 14),
+        padding: const EdgeInsets.fromLTRB(
+          PantasSpace.s16,
+          PantasSpace.s16,
+          PantasSpace.s16,
+          PantasSpace.s14,
+        ),
         decoration: BoxDecoration(
           color: context.colors.surface,
-          borderRadius: BorderRadius.circular(14),
+          borderRadius: BorderRadius.circular(PantasRadius.lg),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -799,14 +832,14 @@ class _NotesPrompt extends StatelessWidget {
               'the more every review helps.',
               style: context.type.subhead.copyWith(height: 22 / 15),
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: PantasSpace.s10),
             PantasButton(
               label: 'Finish the Notes',
               onPressed: onPressed,
               variant: PantasButtonVariant.secondary,
-              height: 44,
-              radius: 99,
-              fontSize: 15,
+              height: PantasSize.btn,
+              radius: PantasRadius.full,
+              fontSize: PantasType.webButton.fontSize,
             ),
           ],
         ),
@@ -825,10 +858,10 @@ class _FlagOffer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Container(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(PantasSpace.s16),
         decoration: BoxDecoration(
           color: context.colors.surface,
-          borderRadius: BorderRadius.circular(14),
+          borderRadius: BorderRadius.circular(PantasRadius.lg),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -842,7 +875,7 @@ class _FlagOffer extends StatelessWidget {
                 height: 22 / 15,
               ),
             ),
-            const SizedBox(height: 12),
+            const SizedBox(height: PantasSpace.s12),
             Row(
               children: [
                 Expanded(
@@ -850,20 +883,20 @@ class _FlagOffer extends StatelessWidget {
                     label: 'No Thanks',
                     onPressed: onDismiss,
                     variant: PantasButtonVariant.neutral,
-                    height: 40,
-                    radius: 99,
-                    fontSize: 15,
+                    height: PantasSize.btnSm,
+                    radius: PantasRadius.full,
+                    fontSize: PantasType.webButton.fontSize,
                   ),
                 ),
-                const SizedBox(width: 10),
+                const SizedBox(width: PantasSpace.s10),
                 Expanded(
                   child: PantasButton(
                     label: 'Save All $count',
                     onPressed: onKeep,
                     variant: PantasButtonVariant.secondary,
-                    height: 40,
-                    radius: 99,
-                    fontSize: 15,
+                    height: PantasSize.btnSm,
+                    radius: PantasRadius.full,
+                    fontSize: PantasType.webButton.fontSize,
                   ),
                 ),
               ],
@@ -880,14 +913,16 @@ class _PartHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final style = context.type.sectionHeader.copyWith(
-      color: context.colors.secondaryLabel,
-      fontSize: 13,
-      fontWeight: FontWeight.w600,
-      letterSpacing: .26,
+    final style = PantasType.phoneSectionHeader.copyWith(
+      color: context.colors.textSecondary,
     );
     return Padding(
-      padding: const EdgeInsets.fromLTRB(16, 0, 16, 7),
+      padding: const EdgeInsets.fromLTRB(
+        PantasSpace.s16,
+        PantasSpace.s0,
+        PantasSpace.s16,
+        PantasSpace.s8,
+      ),
       child: Row(
         children: [
           Expanded(child: Text(name.toUpperCase(), style: style)),
@@ -921,11 +956,11 @@ class _MockReviewRow extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Padding(
-        padding: const EdgeInsets.only(left: 16),
+        padding: const EdgeInsets.only(left: PantasSpace.s16),
         child: Row(
           children: [
             SizedBox(
-              width: 42,
+              width: PantasSpace.s44,
               child: Text(
                 '${entry.number}',
                 style: context.type.subheadStrong.copyWith(
@@ -937,7 +972,12 @@ class _MockReviewRow extends StatelessWidget {
             ),
             Expanded(
               child: Container(
-                padding: const EdgeInsets.fromLTRB(0, 9.75, 16, 9.75),
+                padding: const EdgeInsets.fromLTRB(
+                  PantasSpace.s0,
+                  PantasSpace.s10,
+                  PantasSpace.s16,
+                  PantasSpace.s10,
+                ),
                 constraints: const BoxConstraints(minHeight: 46),
                 decoration: BoxDecoration(
                   border: divider
@@ -961,7 +1001,7 @@ class _MockReviewRow extends StatelessWidget {
                             maxLines: entry.labelIsStem ? 1 : null,
                           ),
                           if (!entry.isAnswered) ...[
-                            const SizedBox(height: 3),
+                            const SizedBox(height: PantasSpace.s4),
                             Text(
                               'Left blank',
                               style: context.type.footnote.copyWith(
@@ -972,7 +1012,7 @@ class _MockReviewRow extends StatelessWidget {
                         ],
                       ),
                     ),
-                    const SizedBox(width: 8),
+                    const SizedBox(width: PantasSpace.s8),
                     Icon(
                       PantasIcons.next,
                       size: 16,
@@ -1030,7 +1070,12 @@ class _QuestionViewer extends StatelessWidget {
             fit: StackFit.expand,
             children: [
               SingleChildScrollView(
-                padding: const EdgeInsets.fromLTRB(40, 56, 40, 140),
+                padding: const EdgeInsets.fromLTRB(
+                  PantasSpace.s40,
+                  PantasSpace.s56,
+                  PantasSpace.s40,
+                  PantasLayout.reserveBar,
+                ),
                 child: WebQuizQuestion(
                   question: entry.question,
                   subject: entry.subjectName,
@@ -1067,7 +1112,8 @@ class _QuestionViewer extends StatelessWidget {
                   child: WebBottomBar(
                     compact: true,
                     gap: 6,
-                    counterPadding: const EdgeInsets.symmetric(horizontal: 14),
+                    counterPadding:
+                        const EdgeInsets.symmetric(horizontal: PantasSpace.s14),
                     state:
                         entry.isCorrect ? WebBarState.right : WebBarState.wrong,
                     counter: '${index + 1} of ${entries.length}',
@@ -1079,7 +1125,7 @@ class _QuestionViewer extends StatelessWidget {
                           onPressed: onPrevious,
                           icon: Icons.chevron_left,
                         ),
-                        const SizedBox(width: 6),
+                        const SizedBox(width: PantasSpace.s6),
                         const WebKeyHint('←'),
                       ],
                     ),
@@ -1087,7 +1133,7 @@ class _QuestionViewer extends StatelessWidget {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         const WebKeyHint('→'),
-                        const SizedBox(width: 6),
+                        const SizedBox(width: PantasSpace.s6),
                         WebBarArrow(
                           tooltip: 'Next question',
                           onPressed: onNext,
@@ -1120,7 +1166,12 @@ class _QuestionViewer extends StatelessWidget {
     return Stack(
       children: [
         SingleChildScrollView(
-          padding: const EdgeInsets.fromLTRB(16, 16, 16, 118),
+          padding: const EdgeInsets.fromLTRB(
+            PantasSpace.s16,
+            PantasSpace.s16,
+            PantasSpace.s16,
+            PantasLayout.reserveBarPhone,
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
@@ -1149,7 +1200,7 @@ class _QuestionViewer extends StatelessWidget {
                     ),
                 ],
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: PantasSpace.s20),
               AnswerReveal(
                 correctLetter: entry.question.correctChoice.label,
                 explanation: entry.question.explanation,
@@ -1165,7 +1216,7 @@ class _QuestionViewer extends StatelessWidget {
                     : null,
               ),
               if (noteOpen && proIsActive && !entry.isCorrect) ...[
-                const SizedBox(height: 16),
+                const SizedBox(height: PantasSpace.s16),
                 _ReasonPanel(
                   key: ValueKey(entry.question.id),
                   savedAnswer: savedAnswer,
@@ -1187,16 +1238,20 @@ class _QuestionViewer extends StatelessWidget {
                 : FloatingBarState.wrong,
             inset: 0,
             child: Padding(
-              padding: const EdgeInsets.fromLTRB(4, 8, 8, 8),
+              padding: const EdgeInsets.fromLTRB(
+                PantasSpace.s4,
+                PantasSpace.s8,
+                PantasSpace.s8,
+                PantasSpace.s8,
+              ),
               child: Row(
                 children: [
                   arrow('Previous question', PantasIcons.back, onPrevious),
-                  const SizedBox(width: 14),
+                  const SizedBox(width: PantasSpace.s14),
                   Text(
                     '${index + 1} of ${entries.length}',
-                    style: context.type.subheadStrong.copyWith(
-                      fontSize: 15,
-                      fontWeight: FontWeight.w600,
+                    style: PantasType.webLink.copyWith(
+                      color: context.colors.textPrimary,
                     ),
                   ),
                   const Spacer(),
@@ -1319,10 +1374,10 @@ class _ReasonPanelState extends State<_ReasonPanel> {
     final title =
         widget.isBlank ? 'Why did you leave it blank?' : 'Why did you miss it?';
     return Container(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(PantasSpace.s16),
       decoration: BoxDecoration(
         color: context.colors.surface,
-        borderRadius: BorderRadius.circular(14),
+        borderRadius: BorderRadius.circular(PantasRadius.lg),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -1331,7 +1386,7 @@ class _ReasonPanelState extends State<_ReasonPanel> {
             title,
             style: context.type.subhead.copyWith(fontWeight: FontWeight.w600),
           ),
-          const SizedBox(height: 10),
+          const SizedBox(height: PantasSpace.s10),
           if (widget.isBlank) ...[
             _ReasonChoice(
               label: 'I ran out of time',
@@ -1384,9 +1439,9 @@ class _ReasonPanelState extends State<_ReasonPanel> {
           ),
           if (_retry != null) saveFailureLine(() => _save(_retry!)),
           if (_typing) ...[
-            const SizedBox(height: 8),
+            const SizedBox(height: PantasSpace.s8),
             TextField(controller: _controller, maxLines: 3),
-            const SizedBox(height: 8),
+            const SizedBox(height: PantasSpace.s8),
             PantasButton(
               label: 'Save Note',
               onPressed: () {
@@ -1474,7 +1529,12 @@ class _ReasonPanelState extends State<_ReasonPanel> {
         autofocus: true,
         child: WebCard(
           radius: 20,
-          padding: const EdgeInsets.fromLTRB(20, 20, 20, 18),
+          padding: const EdgeInsets.fromLTRB(
+            PantasSpace.s20,
+            PantasSpace.s20,
+            PantasSpace.s20,
+            PantasSpace.s18,
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
@@ -1484,18 +1544,21 @@ class _ReasonPanelState extends State<_ReasonPanel> {
                     size: const Size.square(20),
                     painter: _NoteGlyphPainter(t.colors.accent),
                   ),
-                  const SizedBox(width: 10),
+                  const SizedBox(width: PantasSpace.s10),
                   Expanded(
                     child: Text(
                       widget.isBlank
                           ? 'Why did you leave it blank?'
                           : 'Why did you miss it?',
-                      style: t.style(17, weight: FontWeight.w600),
+                      style: PantasType.webLead.copyWith(
+                        color: t.colors.textPrimary,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
                   ),
                 ],
               ),
-              const SizedBox(height: 14),
+              const SizedBox(height: PantasSpace.s14),
               LayoutBuilder(
                 builder: (context, constraints) {
                   final width = (constraints.maxWidth - 8) / 2;
@@ -1520,22 +1583,24 @@ class _ReasonPanelState extends State<_ReasonPanel> {
                                   _selected == i ? t.tintText : t.colors.label,
                               overlayColor: Colors.transparent,
                               shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(12),
+                                borderRadius:
+                                    BorderRadius.circular(PantasRadius.md),
                               ),
                               padding: const EdgeInsets.symmetric(
-                                horizontal: 12,
-                                vertical: 8,
+                                horizontal: PantasSpace.s12,
+                                vertical: PantasSpace.s8,
                               ),
                             ),
                             child: Row(
                               mainAxisSize: MainAxisSize.min,
                               children: [
                                 WebKeyHint('${i + 1}'),
-                                const SizedBox(width: 10),
+                                const SizedBox(width: PantasSpace.s10),
                                 Flexible(
                                   child: Text(
                                     label,
-                                    style: t.style(15),
+                                    style: PantasType.webSub
+                                        .copyWith(color: t.colors.textPrimary),
                                   ),
                                 ),
                               ],
@@ -1547,7 +1612,7 @@ class _ReasonPanelState extends State<_ReasonPanel> {
                 },
               ),
               if (_typing) ...[
-                const SizedBox(height: 14),
+                const SizedBox(height: PantasSpace.s14),
                 TextField(
                   controller: _controller,
                   maxLines: 3,
@@ -1558,23 +1623,18 @@ class _ReasonPanelState extends State<_ReasonPanel> {
                 ),
               ],
               if (_retry != null) saveFailureLine(() => _save(_retry!)),
-              const SizedBox(height: 14),
+              const SizedBox(height: PantasSpace.s14),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   WebButton(
                     label: 'Not Now',
-                    height: 40,
-                    fontSize: 15,
                     variant: WebButtonVariant.tertiary,
                     onPressed: _saving ? null : widget.onCancel,
                   ),
-                  const SizedBox(width: 8),
+                  const SizedBox(width: PantasSpace.s8),
                   WebButton(
                     label: 'Add Note',
-                    height: 40,
-                    fontSize: 15,
-                    radius: 10,
                     busy: _saving,
                     onPressed: _selected == null ||
                             (_typing && _controller.text.trim().isEmpty)
@@ -1606,7 +1666,7 @@ class _ReasonChoice extends StatelessWidget {
         title: label,
         selected: selected,
         onTap: onTap,
-        padding: const EdgeInsets.symmetric(vertical: 10),
+        padding: const EdgeInsets.symmetric(vertical: PantasSpace.s10),
       );
 }
 

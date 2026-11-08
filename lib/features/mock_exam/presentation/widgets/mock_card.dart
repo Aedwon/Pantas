@@ -6,6 +6,9 @@ import 'package:pantas/core/ui/components/pro_paused_line.dart';
 import 'package:pantas/core/ui/motion/press_scale.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
@@ -89,11 +92,8 @@ class MockCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final state = model.state;
     final type = context.type;
-    final titleStyle = type.body.copyWith(
-      fontSize: 20,
-      fontWeight: FontWeight.w700,
-      letterSpacing: -.24,
-    );
+    final titleStyle =
+        PantasType.phoneTitle3.copyWith(color: context.colors.textPrimary);
     final duration = model.durationMinutes;
     final header = _TitleRow(
       name: model.name,
@@ -157,42 +157,42 @@ class MockCard extends StatelessWidget {
       };
       Widget history(String value, String caption, {String? unit}) => Expanded(
             child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+              padding: const EdgeInsets.symmetric(
+                horizontal: PantasSpace.s16,
+                vertical: PantasSpace.s14,
+              ),
               decoration: BoxDecoration(
                 color: t.colors.background,
-                borderRadius: BorderRadius.circular(14),
+                borderRadius: BorderRadius.circular(PantasRadius.lg),
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(
-                    height: 34,
+                    height: PantasSpace.s32,
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.baseline,
                       textBaseline: TextBaseline.alphabetic,
                       children: [
                         Text(
                           value,
-                          style: t.style(
-                            34,
-                            weight: FontWeight.w700,
+                          style: PantasType.phoneLargeTitle.copyWith(
+                            color: t.colors.textPrimary,
                             height: 1,
-                            spacing: -1.02,
                           ),
                         ),
                         if (unit != null)
                           Text(
                             unit,
-                            style: t.style(
-                              17,
-                              weight: FontWeight.w600,
+                            style: PantasType.webLead.copyWith(
                               color: t.colors.secondaryLabel,
+                              fontWeight: FontWeight.w600,
                             ),
                           ),
                       ],
                     ),
                   ),
-                  const SizedBox(height: 6),
+                  const SizedBox(height: PantasSpace.s6),
                   Text(caption, style: t.sm),
                 ],
               ),
@@ -205,18 +205,20 @@ class MockCard extends StatelessWidget {
           children: [
             const WebText('Mock exam', kind: WebTextKind.eyebrow),
             WebCard(
-              padding: const EdgeInsets.fromLTRB(24, 24, 24, 22),
+              padding: const EdgeInsets.fromLTRB(
+                PantasSpace.s24,
+                PantasSpace.s24,
+                PantasSpace.s24,
+                PantasSpace.s24,
+              ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   _TitleRow(
                     name: model.name,
                     duration: duration == null ? null : _duration(duration),
-                    titleStyle: t.style(
-                      24,
-                      weight: FontWeight.w700,
-                      spacing: -.384,
-                    ),
+                    titleStyle: PantasType.webH3Lg
+                        .copyWith(color: t.colors.textPrimary),
                     durationStyle: t.sub,
                     gap: 12,
                   ),
@@ -224,7 +226,7 @@ class MockCard extends StatelessWidget {
                           state == MockCardState.waiting) &&
                       (model.lastPercent != null ||
                           model.lastAttemptAt != null)) ...[
-                    const SizedBox(height: 22),
+                    const SizedBox(height: PantasSpace.s24),
                     Row(
                       children: [
                         if (model.lastPercent != null)
@@ -235,7 +237,7 @@ class MockCard extends StatelessWidget {
                           ),
                         if (model.lastPercent != null &&
                             model.lastAttemptAt != null)
-                          const SizedBox(width: 12),
+                          const SizedBox(width: PantasSpace.s12),
                         if (model.lastAttemptAt != null)
                           history(
                             PantasDates.short(model.lastAttemptAt!.toLocal()),
@@ -245,21 +247,22 @@ class MockCard extends StatelessWidget {
                     ),
                   ],
                   if (body != null) ...[
-                    const SizedBox(height: 22),
+                    const SizedBox(height: PantasSpace.s24),
                     Text(
                       body,
-                      style: t.style(16, height: 1.45),
+                      style: PantasType.webBody
+                          .copyWith(color: t.colors.textPrimary, height: 1.45),
                     ),
                   ],
                   if (state != MockCardState.quizPaused &&
                       state != MockCardState.unavailable) ...[
-                    const SizedBox(height: 22),
+                    const SizedBox(height: PantasSpace.s24),
                     if (model.proPaused)
                       const ProPausedLine()
                     else
                       Text(rule, style: t.sub),
                   ],
-                  const SizedBox(height: 22),
+                  const SizedBox(height: PantasSpace.s24),
                   _MockActionButton(
                     label: label,
                     onPressed: callback,
@@ -290,7 +293,10 @@ class MockCard extends StatelessWidget {
       if ((state == MockCardState.ready || state == MockCardState.waiting) &&
           (model.lastPercent != null || model.lastAttemptAt != null))
         Padding(
-          padding: const EdgeInsets.only(top: 6, bottom: 2),
+          padding: const EdgeInsets.only(
+            top: PantasSpace.s6,
+            bottom: PantasSpace.s2,
+          ),
           child: _History(model: model),
         ),
       if (state != MockCardState.quizPaused &&
@@ -316,12 +322,12 @@ class MockCard extends StatelessWidget {
         header: 'MOCK EXAM',
         children: [
           Padding(
-            padding: const EdgeInsets.all(16),
+            padding: const EdgeInsets.all(PantasSpace.s16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 for (var i = 0; i < children.length; i++) ...[
-                  if (i > 0) const SizedBox(height: 12),
+                  if (i > 0) const SizedBox(height: PantasSpace.s12),
                   children[i],
                 ],
               ],
@@ -387,7 +393,7 @@ class _MockActionButton extends StatelessWidget {
         visualDensity: VisualDensity.standard,
         minimumSize: const WidgetStatePropertyAll(Size(double.infinity, 48)),
         padding: const WidgetStatePropertyAll(
-          EdgeInsets.symmetric(horizontal: 18),
+          EdgeInsets.symmetric(horizontal: PantasSpace.s18),
         ),
         overlayColor: const WidgetStatePropertyAll(Colors.transparent),
         backgroundColor: WidgetStateProperty.resolveWith((s) {
@@ -415,10 +421,16 @@ class _MockActionButton extends StatelessWidget {
           ),
         ),
         shape: WidgetStatePropertyAll(
-          RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(PantasRadius.md),
+          ),
         ),
         textStyle: WidgetStatePropertyAll(
-          t.style(17, weight: FontWeight.w600, height: 1.2),
+          PantasType.webLead.copyWith(
+            color: t.colors.textPrimary,
+            fontWeight: FontWeight.w600,
+            height: 1.2,
+          ),
         ),
       ),
       child: Text(label),
@@ -434,18 +446,13 @@ class _History extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final type = context.type;
-    final figure = type.pageTitle
-        .copyWith(
-          fontSize: 28,
-          fontWeight: FontWeight.w700,
-          height: 1.12,
-          letterSpacing: -.56,
-        )
+    final figure = PantasType.phoneTitle1
+        .copyWith(color: context.colors.textPrimary)
         .tabular;
     Widget column(Widget value, String label) => Column(
           children: [
             value,
-            const SizedBox(height: 2),
+            const SizedBox(height: PantasSpace.s2),
             Text(label, style: type.footnote),
           ],
         );
@@ -458,7 +465,7 @@ class _History extends StatelessWidget {
             textBaseline: TextBaseline.alphabetic,
             children: [
               Text('${model.lastPercent!.round()}', style: figure),
-              const SizedBox(width: 1),
+              const SizedBox(width: PantasSpace.s2),
               Text(
                 '%',
                 style: type.subheadStrong
@@ -481,7 +488,7 @@ class _History extends StatelessWidget {
         ? Column(
             children: [
               for (var i = 0; i < columns.length; i++) ...[
-                if (i > 0) const SizedBox(height: 12),
+                if (i > 0) const SizedBox(height: PantasSpace.s12),
                 columns[i],
               ],
             ],
@@ -600,24 +607,33 @@ class MockSignUpCard extends StatelessWidget {
             children: [
               const WebText('Mock exam', kind: WebTextKind.eyebrow),
               WebCard(
-                padding: const EdgeInsets.fromLTRB(24, 24, 24, 22),
+                padding: const EdgeInsets.fromLTRB(
+                  PantasSpace.s24,
+                  PantasSpace.s24,
+                  PantasSpace.s24,
+                  PantasSpace.s24,
+                ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     Text(
                       _title,
-                      style: t.style(
-                        24,
-                        weight: FontWeight.w700,
+                      style: PantasType.webH3Lg.copyWith(
+                        color: t.colors.textPrimary,
                         height: 1.2,
-                        spacing: -.384,
                       ),
                     ),
-                    const SizedBox(height: 22),
-                    Text(_message, style: t.style(16, height: 1.45)),
-                    const SizedBox(height: 22),
+                    const SizedBox(height: PantasSpace.s24),
+                    Text(
+                      _message,
+                      style: PantasType.webBody.copyWith(
+                        color: t.colors.textPrimary,
+                        height: 1.45,
+                      ),
+                    ),
+                    const SizedBox(height: PantasSpace.s24),
                     Text(note, style: t.sub),
-                    const SizedBox(height: 22),
+                    const SizedBox(height: PantasSpace.s24),
                     button,
                   ],
                 ),
@@ -632,10 +648,8 @@ class MockSignUpCard extends StatelessWidget {
     final lines = <Widget>[
       Text(
         _title,
-        style: type.body.copyWith(
-          fontSize: 20,
-          fontWeight: FontWeight.w700,
-          letterSpacing: -.24,
+        style: PantasType.phoneTitle3.copyWith(
+          color: context.colors.textPrimary,
           height: 1.3,
         ),
       ),
@@ -655,12 +669,12 @@ class MockSignUpCard extends StatelessWidget {
           header: 'MOCK EXAM',
           children: [
             Padding(
-              padding: const EdgeInsets.all(16),
+              padding: const EdgeInsets.all(PantasSpace.s16),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   for (var i = 0; i < lines.length; i++) ...[
-                    if (i > 0) const SizedBox(height: 12),
+                    if (i > 0) const SizedBox(height: PantasSpace.s12),
                     lines[i],
                   ],
                 ],
@@ -697,7 +711,7 @@ class _CreateAccountButton extends StatelessWidget {
           visualDensity: VisualDensity.standard,
           minimumSize: const WidgetStatePropertyAll(Size(double.infinity, 50)),
           padding: const WidgetStatePropertyAll(
-            EdgeInsets.symmetric(horizontal: 18),
+            EdgeInsets.symmetric(horizontal: PantasSpace.s18),
           ),
           overlayColor: const WidgetStatePropertyAll(Colors.transparent),
           backgroundColor: WidgetStatePropertyAll(fill),
@@ -711,10 +725,16 @@ class _CreateAccountButton extends StatelessWidget {
             ),
           ),
           shape: WidgetStatePropertyAll(
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(PantasRadius.lg),
+            ),
           ),
           textStyle: WidgetStatePropertyAll(
-            t.style(16, weight: FontWeight.w600, height: 1.2),
+            PantasType.webBody.copyWith(
+              color: t.colors.textPrimary,
+              fontWeight: FontWeight.w600,
+              height: 1.2,
+            ),
           ),
         ),
         child: const Text('Create Free Account'),

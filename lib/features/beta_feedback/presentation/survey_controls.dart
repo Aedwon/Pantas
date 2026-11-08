@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:pantas/core/ui/components/pantas_shadows.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/motion/selection_motion.dart';
-import 'package:pantas/core/ui/theme/legacy_theme_shim.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_border.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/features/beta_feedback/domain/beta_feedback_models.dart';
 import 'package:pantas/features/beta_feedback/presentation/fb_kit.dart';
 
@@ -30,16 +35,17 @@ class SurveyQuestion extends StatelessWidget {
   Widget build(BuildContext context) {
     final wide = context.fbWide;
     final c = context.fb;
-    final style = context.fbText(
-      wide ? 16 : 17,
-      weight: FontWeight.w600,
-      spacing: wide ? 0 : -.204,
-    );
+    final style = context.fbTitle;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Padding(
-          padding: EdgeInsets.fromLTRB(4, 0, 4, wide ? 12 : 10),
+          padding: EdgeInsets.fromLTRB(
+            PantasSpace.s4,
+            PantasSpace.s0,
+            PantasSpace.s4,
+            wide ? PantasSpace.s12 : PantasSpace.s10,
+          ),
           child: Semantics(
             header: true,
             child: Text.rich(
@@ -51,7 +57,7 @@ class SurveyQuestion extends StatelessWidget {
                       text: ' Optional',
                       style: TextStyle(
                         fontWeight: FontWeight.w400,
-                        color: c.secondaryLabel,
+                        color: c.textSecondary,
                       ),
                     ),
                 ],
@@ -63,18 +69,17 @@ class SurveyQuestion extends StatelessWidget {
         child,
         if (ends != null)
           Padding(
-            padding: const EdgeInsets.fromLTRB(4, 6, 4, 0),
+            padding: const EdgeInsets.fromLTRB(
+              PantasSpace.s4,
+              PantasSpace.s6,
+              PantasSpace.s4,
+              PantasSpace.s0,
+            ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
-                  ends!.$1,
-                  style: context.fbText(13, color: c.secondaryLabel),
-                ),
-                Text(
-                  ends!.$2,
-                  style: context.fbText(13, color: c.secondaryLabel),
-                ),
+                Text(ends!.$1, style: context.fbSmall),
+                Text(ends!.$2, style: context.fbSmall),
               ],
             ),
           ),
@@ -121,7 +126,7 @@ class LetterOptions extends StatelessWidget {
   Widget build(BuildContext context) {
     final wide = context.fbWide;
     final c = context.fb;
-    final circle = wide ? 28.0 : 30.0;
+    final circle = wide ? PantasSize.optBadge : PantasSize.optBadgePhone;
     Widget option(int i) {
       final picked = selected == i;
       final letter = String.fromCharCode(65 + i);
@@ -137,18 +142,20 @@ class LetterOptions extends StatelessWidget {
           child: MouseRegion(
             cursor: SystemMouseCursors.click,
             child: AnimatedContainer(
-              duration: _dur(context, const Duration(milliseconds: 180)),
+              duration: _dur(context, PantasDurations.short3),
               curve: PantasCurves.fade,
               padding: EdgeInsets.symmetric(
-                vertical: wide ? 9.5 : 11.5,
-                horizontal: wide ? 10.5 : 12.5,
+                vertical: wide ? PantasSpace.s10 : PantasSpace.s12,
+                horizontal: wide ? PantasSpace.s10 : PantasSpace.s12,
               ),
               decoration: BoxDecoration(
-                color: picked ? c.accentTint : c.surface,
-                borderRadius: BorderRadius.circular(wide ? 12 : 14),
+                color: picked ? c.accentTint : c.surfaceCard,
+                borderRadius: BorderRadius.circular(
+                  wide ? PantasRadius.md : PantasRadius.lg,
+                ),
                 border: Border.all(
-                  color: picked ? c.accent : c.transparent,
-                  width: 1.5,
+                  color: picked ? c.accent : Colors.transparent,
+                  width: PantasBorder.ringStrong,
                 ),
               ),
               child: Row(
@@ -162,18 +169,15 @@ class LetterOptions extends StatelessWidget {
                             decoration: BoxDecoration(
                               shape: BoxShape.circle,
                               border: Border.all(
-                                color: c.choiceOutline,
-                                width: 1.5,
+                                color: c.borderControl,
+                                width: PantasBorder.ringStrong,
                               ),
                             ),
                             child: Center(
                               child: Text(
                                 letter,
-                                style: context.fbText(
-                                  wide ? 13 : 14,
-                                  weight: FontWeight.w600,
-                                  color: c.secondaryLabel,
-                                ),
+                                style: PantasType.webFieldLabel
+                                    .copyWith(color: c.textSecondary),
                               ),
                             ),
                           ),
@@ -182,7 +186,7 @@ class LetterOptions extends StatelessWidget {
                           Positioned.fill(
                             child: FbPop(
                               peak: 1.12,
-                              duration: const Duration(milliseconds: 420),
+                              duration: PantasDurations.medium3,
                               child: DecoratedBox(
                                 decoration: BoxDecoration(
                                   color: c.accentFill,
@@ -191,11 +195,8 @@ class LetterOptions extends StatelessWidget {
                                 child: Center(
                                   child: Text(
                                     letter,
-                                    style: context.fbText(
-                                      wide ? 13 : 14,
-                                      weight: FontWeight.w600,
-                                      color: Colors.white,
-                                    ),
+                                    style: PantasType.webFieldLabel
+                                        .copyWith(color: c.onAccent),
                                   ),
                                 ),
                               ),
@@ -204,15 +205,9 @@ class LetterOptions extends StatelessWidget {
                       ],
                     ),
                   ),
-                  const SizedBox(width: 12),
+                  const SizedBox(width: PantasSpace.s12),
                   Expanded(
-                    child: Text(
-                      labels[i],
-                      style: context.fbText(
-                        wide ? 16 : 17,
-                        spacing: wide ? 0 : -.204,
-                      ),
-                    ),
+                    child: Text(labels[i], style: context.fbBody),
                   ),
                 ],
               ),
@@ -224,12 +219,12 @@ class LetterOptions extends StatelessWidget {
 
     final options = [for (var i = 0; i < labels.length; i++) option(i)];
     return wide
-        ? surveyGrid(options, 2, 8)
+        ? surveyGrid(options, 2, PantasSpace.s8)
         : Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               for (var i = 0; i < options.length; i++) ...[
-                if (i > 0) const SizedBox(height: 8),
+                if (i > 0) const SizedBox(height: PantasSpace.s8),
                 options[i],
               ],
             ],
@@ -280,17 +275,19 @@ class _SurveySegmentedState extends State<SurveySegmented> {
     final picked = widget.selected;
     return LayoutBuilder(
       builder: (context, box) {
-        final cell = (box.maxWidth - 12 - 4 * (n - 1)) / n;
-        double left(int i) => 6 + i * (cell + 4);
+        const inset = PantasSpace.s6;
+        const gap = PantasSpace.s4;
+        final cell = (box.maxWidth - inset * 2 - gap * (n - 1)) / n;
+        double left(int i) => inset + i * (cell + gap);
         return SizedBox(
-          height: 44,
+          height: PantasSize.btn,
           child: Stack(
             children: [
               Positioned.fill(
                 child: DecoratedBox(
                   decoration: BoxDecoration(
                     color: c.fill,
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(PantasRadius.md),
                   ),
                 ),
               ),
@@ -300,8 +297,8 @@ class _SurveySegmentedState extends State<SurveySegmented> {
                     : _dur(context, PantasDurations.medium1),
                 curve: PantasCurves.move,
                 left: left(picked ?? 0),
-                top: 6,
-                bottom: 6,
+                top: inset,
+                bottom: inset,
                 width: cell,
                 child: AnimatedOpacity(
                   key: ValueKey('${widget.id}-thumb'),
@@ -310,25 +307,19 @@ class _SurveySegmentedState extends State<SurveySegmented> {
                   curve: PantasCurves.fade,
                   child: DecoratedBox(
                     decoration: BoxDecoration(
-                      color: c.segmentOn,
-                      borderRadius: BorderRadius.circular(8),
-                      boxShadow: [
-                        BoxShadow(
-                          color: c.segmentedShadow,
-                          blurRadius: 3,
-                          offset: const Offset(0, 1),
-                        ),
-                      ],
+                      color: c.surfaceSegmentOn,
+                      borderRadius: BorderRadius.circular(PantasRadius.sm),
+                      boxShadow: context.shadows.segment,
                     ),
                   ),
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(6),
+                padding: const EdgeInsets.all(PantasSpace.s6),
                 child: Row(
                   children: [
                     for (var i = 0; i < n; i++) ...[
-                      if (i > 0) const SizedBox(width: 4),
+                      if (i > 0) const SizedBox(width: PantasSpace.s4),
                       Expanded(
                         child: Semantics(
                           button: true,
@@ -345,15 +336,13 @@ class _SurveySegmentedState extends State<SurveySegmented> {
                               cursor: SystemMouseCursors.click,
                               child: Center(
                                 child: FadingColor(
-                                  color:
-                                      picked == i ? c.label : c.secondaryLabel,
+                                  color: picked == i
+                                      ? c.textPrimary
+                                      : c.textSecondary,
                                   builder: (context, color, _) => Text(
                                     widget.labels[i],
-                                    style: context.fbText(
-                                      14,
-                                      weight: FontWeight.w600,
-                                      color: color,
-                                    ),
+                                    style: PantasType.webLabel
+                                        .copyWith(color: color),
                                   ),
                                 ),
                               ),
@@ -397,20 +386,25 @@ class SurveyPills extends StatelessWidget {
             child: MouseRegion(
               cursor: SystemMouseCursors.click,
               child: SizedBox(
-                height: 40,
+                height: PantasSize.iconBtnMd,
                 child: Stack(
                   children: [
                     Positioned.fill(
                       child: DecoratedBox(
                         decoration: BoxDecoration(
-                          color: c.surface,
-                          borderRadius: BorderRadius.circular(99),
+                          color: c.surfaceCard,
+                          borderRadius:
+                              BorderRadius.circular(PantasRadius.full),
                           border: wide && dark
-                              ? Border.all(color: c.cardEdge)
+                              ? Border.all(color: c.edgeCard)
                               : null,
                         ),
                         child: Center(
-                          child: Text('$i', style: context.fbText(14)),
+                          child: Text(
+                            '$i',
+                            style: PantasType.webRowSub
+                                .copyWith(color: c.textPrimary),
+                          ),
                         ),
                       ),
                     ),
@@ -418,20 +412,18 @@ class SurveyPills extends StatelessWidget {
                       Positioned.fill(
                         child: FbPop(
                           peak: 1.12,
-                          duration: const Duration(milliseconds: 360),
+                          duration: PantasDurations.switchDuration,
                           child: DecoratedBox(
                             decoration: BoxDecoration(
-                              color: c.label,
-                              borderRadius: BorderRadius.circular(99),
+                              color: c.textPrimary,
+                              borderRadius:
+                                  BorderRadius.circular(PantasRadius.full),
                             ),
                             child: Center(
                               child: Text(
                                 '$i',
-                                style: context.fbText(
-                                  14,
-                                  weight: FontWeight.w600,
-                                  color: c.surface,
-                                ),
+                                style: PantasType.webLabel
+                                    .copyWith(color: c.surfaceCard),
                               ),
                             ),
                           ),
@@ -446,14 +438,16 @@ class SurveyPills extends StatelessWidget {
     return surveyGrid(
       [for (var i = 0; i <= 10; i++) pill(i)],
       wide ? 11 : 6,
-      wide ? 6 : 8,
+      wide ? PantasSpace.s6 : PantasSpace.s8,
     );
   }
 }
 
-/// Questions 6 and 7: a text answer. An answer with text takes an accent
-/// border (phone 1.5 px; wide 1 px and a 1 px ring), fading in over 160 ms.
-class SurveyTextBox extends StatelessWidget {
+/// Questions 6 and 7: a text answer, drawn as the design system Field: a
+/// `surface-card` well, `radius-md`, a 1 `border-control` ring, and a 2
+/// `accent` ring on focus. An answer with text keeps the accent ring, fading
+/// in over `dur-short-2`.
+class SurveyTextBox extends StatefulWidget {
   const SurveyTextBox({
     required this.id,
     required this.label,
@@ -467,53 +461,57 @@ class SurveyTextBox extends StatelessWidget {
   final int rows;
 
   @override
+  State<SurveyTextBox> createState() => _SurveyTextBoxState();
+}
+
+class _SurveyTextBoxState extends State<SurveyTextBox> {
+  final _focus = FocusNode();
+
+  @override
+  void initState() {
+    super.initState();
+    _focus.addListener(_changed);
+  }
+
+  void _changed() {
+    if (mounted) setState(() {});
+  }
+
+  @override
+  void dispose() {
+    _focus
+      ..removeListener(_changed)
+      ..dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final wide = context.fbWide;
     final c = context.fb;
     return ListenableBuilder(
-      listenable: controller,
+      listenable: widget.controller,
       builder: (context, _) {
-        final filled = controller.text.trim().isNotEmpty;
-        final border = wide ? 1.0 : 1.5;
-        final style = wide
-            ? context.fbText(16, height: 1.4)
-            : context.fbText(17, height: 1.35, spacing: -.204);
-        return AnimatedContainer(
-          key: ValueKey('$id-box'),
-          duration: _dur(context, PantasDurations.short2),
-          curve: PantasCurves.fade,
-          // The border takes room when it appears, so the text keeps its
-          // place by giving that room back while it is absent.
-          padding: EdgeInsets.symmetric(
-            vertical: (wide ? 12 : 12) - border + (filled ? 0 : border),
-            horizontal: (wide ? 15 : 16) - border + (filled ? 0 : border),
-          ),
-          decoration: BoxDecoration(
-            color: c.surface,
-            borderRadius: BorderRadius.circular(wide ? 12 : 14),
-            border: filled
-                ? Border.all(color: c.accent, width: border)
-                : wide
-                    ? Border.all(color: c.separator)
-                    : null,
-            boxShadow: wide && filled
-                ? [BoxShadow(color: c.accent, spreadRadius: 1)]
-                : null,
-          ),
+        final filled = widget.controller.text.trim().isNotEmpty;
+        final lit = filled || _focus.hasFocus;
+        final style = context.fbBody;
+        return FbFieldWell(
+          boxKey: ValueKey('${widget.id}-box'),
+          lit: lit,
           child: Semantics(
-            label: label,
+            label: widget.label,
             textField: true,
             child: TextField(
-              key: ValueKey('$id-field'),
-              controller: controller,
-              minLines: rows,
-              maxLines: rows,
+              key: ValueKey('${widget.id}-field'),
+              controller: widget.controller,
+              focusNode: _focus,
+              minLines: widget.rows,
+              maxLines: widget.rows,
               keyboardType: TextInputType.multiline,
               style: style,
               cursorColor: c.accent,
               decoration: InputDecoration.collapsed(
                 hintText: 'Your answer',
-                hintStyle: style.copyWith(color: c.tertiaryLabel),
+                hintStyle: style.copyWith(color: c.textSecondary),
               ),
             ),
           ),
@@ -532,7 +530,7 @@ class SurveyProgress extends StatelessWidget {
   Widget build(BuildContext context) {
     final c = context.fb;
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 4),
+      padding: const EdgeInsets.symmetric(horizontal: PantasSpace.s4),
       child: Row(
         children: [
           Expanded(
@@ -542,14 +540,14 @@ class SurveyProgress extends StatelessWidget {
               child: Row(
                 children: [
                   for (var i = 0; i < 7; i++) ...[
-                    if (i > 0) const SizedBox(width: 6),
+                    if (i > 0) const SizedBox(width: PantasSpace.s6),
                     Expanded(
                       child: ClipRRect(
-                        borderRadius: BorderRadius.circular(99),
+                        borderRadius: BorderRadius.circular(PantasRadius.full),
                         child: ColoredBox(
                           color: c.fill,
                           child: SizedBox(
-                            height: 4,
+                            height: PantasSize.sliderTrack,
                             child: AnimatedFractionallySizedBox(
                               duration: _dur(context, PantasDurations.medium1),
                               curve: PantasCurves.move,
@@ -567,15 +565,16 @@ class SurveyProgress extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(width: 14),
-          SizedBox(
-            width: 72,
+          const SizedBox(width: PantasSpace.s14),
+          ConstrainedBox(
+            constraints: const BoxConstraints(minWidth: PantasSpace.s56),
             child: Text(
               '$answered of 7',
               textAlign: TextAlign.right,
-              style: context
-                  .fbText(13, weight: FontWeight.w500, color: c.secondaryLabel)
-                  .copyWith(fontFeatures: const [FontFeature.tabularFigures()]),
+              style: PantasType.webSmall.copyWith(
+                color: c.textSecondary,
+                fontFeatures: const [FontFeature.tabularFigures()],
+              ),
             ),
           ),
         ],
@@ -602,8 +601,7 @@ class SentFeedbackExpander extends StatelessWidget {
   Widget build(BuildContext context) {
     final wide = context.fbWide;
     final c = context.fb;
-    final rowStyle =
-        wide ? context.fbText(16) : context.fbText(17, spacing: -.204);
+    final rowStyle = context.fbBody;
     return FbCard(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -617,11 +615,13 @@ class SentFeedbackExpander extends StatelessWidget {
               child: MouseRegion(
                 cursor: SystemMouseCursors.click,
                 child: ConstrainedBox(
-                  constraints: BoxConstraints(minHeight: wide ? 0 : 45),
+                  constraints: BoxConstraints(
+                    minHeight: wide ? 0 : PantasSize.rowMinPhone,
+                  ),
                   child: Padding(
                     padding: EdgeInsets.symmetric(
-                      horizontal: 16,
-                      vertical: wide ? 12 : 11,
+                      horizontal: PantasSpace.s16,
+                      vertical: wide ? PantasSpace.s12 : PantasSpace.s10,
                     ),
                     child: Row(
                       children: [
@@ -630,13 +630,9 @@ class SentFeedbackExpander extends StatelessWidget {
                         ),
                         Text(
                           '${items.length}',
-                          style: context.fbText(
-                            wide ? 15 : 17,
-                            color: c.secondaryLabel,
-                            spacing: wide ? 0 : -.204,
-                          ),
+                          style: rowStyle.copyWith(color: c.textSecondary),
                         ),
-                        const SizedBox(width: 12),
+                        const SizedBox(width: PantasSpace.s12),
                         AnimatedRotation(
                           key: const ValueKey('sent-chevron'),
                           turns: open ? .25 : 0,
@@ -644,8 +640,8 @@ class SentFeedbackExpander extends StatelessWidget {
                           curve: PantasCurves.move,
                           child: Icon(
                             PantasIcons.next,
-                            size: 16,
-                            color: c.chevron,
+                            size: PantasSpace.s16,
+                            color: c.iconChevron,
                           ),
                         ),
                       ],
@@ -657,7 +653,7 @@ class SentFeedbackExpander extends StatelessWidget {
           ),
           TweenAnimationBuilder<double>(
             tween: Tween(end: open ? 1 : 0),
-            duration: _dur(context, const Duration(milliseconds: 300)),
+            duration: _dur(context, PantasDurations.flip),
             curve: PantasCurves.move,
             builder: (context, v, _) {
               if (v == 0) return const SizedBox.shrink();
@@ -669,11 +665,21 @@ class SentFeedbackExpander extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 16),
-                        child: Container(height: .5, color: c.separator),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: PantasSpace.s16,
+                        ),
+                        child: Container(
+                          height: PantasBorder.hairline,
+                          color: c.divider,
+                        ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.fromLTRB(16, 6, 16, 14),
+                        padding: const EdgeInsets.fromLTRB(
+                          PantasSpace.s16,
+                          PantasSpace.s6,
+                          PantasSpace.s16,
+                          PantasSpace.s14,
+                        ),
                         child: Column(
                           children: [
                             for (var i = 0; i < items.length; i++)
@@ -712,8 +718,8 @@ class _SentItem extends StatelessWidget {
     final c = context.fb;
     final images = item.attachments.length;
     final hasText = item.text.trim().isNotEmpty;
-    const fade = Duration(milliseconds: 200);
-    final total = delay + const Duration(milliseconds: 300);
+    const fade = PantasDurations.nudge;
+    final total = delay + PantasDurations.flip;
     return TweenAnimationBuilder<double>(
       tween: Tween(begin: 0, end: open ? 1 : 0),
       duration: _dur(context, total),
@@ -723,23 +729,23 @@ class _SentItem extends StatelessWidget {
         curve: PantasCurves.enter,
       ),
       builder: (context, t, child) => Opacity(
-        opacity: (t * (300 / fade.inMilliseconds)).clamp(0.0, 1.0),
-        child:
-            Transform.translate(offset: Offset(0, 6 * (1 - t)), child: child),
+        opacity:
+            (t * (total.inMilliseconds / fade.inMilliseconds)).clamp(0.0, 1.0),
+        child: Transform.translate(
+          offset: Offset(0, PantasSpace.s6 * (1 - t)),
+          child: child,
+        ),
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 8),
+        padding: const EdgeInsets.symmetric(vertical: PantasSpace.s8),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
-              width: 52,
-              child: Text(
-                monthDay(item.createdAt),
-                style: context.fbText(15, height: 1.4, color: c.secondaryLabel),
-              ),
+              width: PantasSpace.s56,
+              child: Text(monthDay(item.createdAt), style: context.fbSub),
             ),
-            const SizedBox(width: 12),
+            const SizedBox(width: PantasSpace.s12),
             Expanded(
               child: Text.rich(
                 TextSpan(
@@ -750,11 +756,11 @@ class _SentItem extends StatelessWidget {
                         text: hasText
                             ? ' ${imageCount(images)}'
                             : imageCount(images),
-                        style: TextStyle(color: c.secondaryLabel),
+                        style: TextStyle(color: c.textSecondary),
                       ),
                   ],
                 ),
-                style: context.fbText(15, height: 1.4),
+                style: context.fbSub.copyWith(color: c.textPrimary),
               ),
             ),
           ],

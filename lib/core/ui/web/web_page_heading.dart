@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 
 /// The top of a page that opens from another: the back link, then the title
@@ -21,24 +23,18 @@ class WebPageHeading extends StatelessWidget {
   final String? subtitle;
   final VoidCallback onBack;
 
-  /// Back link to the title.
-  static const double backToTitle = 6;
-
-  /// Title (or its line) to the content.
-  static const double toContent = 26;
-
   @override
   Widget build(BuildContext context) => Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           WebBackLink(label: backLabel, onPressed: onBack),
-          const SizedBox(height: backToTitle),
+          const SizedBox(height: PantasSpace.s6),
           WebText(title, kind: WebTextKind.h1),
           if (subtitle != null) ...[
-            const SizedBox(height: 6),
+            const SizedBox(height: PantasSpace.s6),
             WebText(subtitle!, kind: WebTextKind.lead),
           ],
-          const SizedBox(height: toContent),
+          const SizedBox(height: PantasLayout.sectionGap),
         ],
       );
 }

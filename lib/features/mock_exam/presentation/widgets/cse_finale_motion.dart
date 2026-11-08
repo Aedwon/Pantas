@@ -1,6 +1,8 @@
 import 'dart:math' as math;
 
 import 'package:flutter/animation.dart';
+import 'package:pantas/core/ui/motion/finale_track_curve.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/features/mock_exam/presentation/widgets/cse_finale_tracks.dart';
 import 'package:pantas/features/mock_exam/presentation/widgets/mock_finale.dart';
 
@@ -53,7 +55,7 @@ class CseFinaleMotion {
           milliseconds,
           1007.5395,
           1462.4475,
-          const Cubic(.32, .72, 0, 1),
+          PantasCurves.move,
         ),
       )!;
 
@@ -65,7 +67,7 @@ class CseFinaleMotion {
             milliseconds,
             2145.0365,
             2795.051,
-            const Cubic(.45, 0, .55, 1),
+            PantasCurves.liquid,
           );
 
   CseFinaleDot dotAt(
@@ -82,7 +84,7 @@ class CseFinaleMotion {
         milliseconds,
         1007.5395,
         1462.4475,
-        const Cubic(.32, .72, 0, 1),
+        PantasCurves.move,
       ),
     )!;
     final checked = scanYAt(milliseconds) >= checkingPosition(index).dy;
@@ -173,7 +175,7 @@ CseFinaleSample _sample(List<CseMotionStop> stops, double milliseconds) {
           milliseconds,
           first.t,
           second.t,
-          Cubic(curve.$1, curve.$2, curve.$3, curve.$4),
+          finaleTrackCurve(curve.$1, curve.$2, curve.$3, curve.$4),
         );
   double mix(double a, double b) => a + (b - a) * progress;
   return CseFinaleSample(

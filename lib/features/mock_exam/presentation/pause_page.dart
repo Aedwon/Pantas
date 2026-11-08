@@ -9,6 +9,9 @@ import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_key_focus.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -17,6 +20,9 @@ import 'package:pantas/features/mock_exam/presentation/mock_clock.dart';
 import 'package:pantas/features/mock_exam/presentation/mock_hourglass.dart';
 import 'package:pantas/features/mock_exam/presentation/widgets/web_mock_dialog.dart';
 
+/// Board A sets "Paused" in a 60 line box (no system height for it).
+const _pausedLineBox = 60.0;
+
 /// MK_PauseA and the pause half of MK_PauseFlow.
 ///
 /// On entry a large hourglass appears mid-screen, grains fall, and it shrinks
@@ -24,6 +30,7 @@ import 'package:pantas/features/mock_exam/presentation/widgets/web_mock_dialog.d
 /// Under reduced motion the screen is simply its last frame and Resume acts
 /// at once. The clock restarts when [onResume] is called, which is after the
 /// closing sequence, so the sequence never costs the student time.
+
 class PausePage extends StatefulWidget {
   const PausePage({
     required this.partNames,
@@ -229,7 +236,7 @@ class _PausePageState extends State<PausePage> with TickerProviderStateMixin {
 
   /// The slow tip, once the hourglass is in place.
   double _tipDegrees(double wobble) {
-    const curve = Cubic(.4, 0, .2, 1);
+    const curve = PantasCurves.liquid;
     double segment(double from, double to, double a, double b) =>
         a + (b - a) * curve.transform(_lerp(wobble, from, to, 0, 1));
     if (wobble < 2400) return 0;
@@ -254,22 +261,16 @@ class _PausePageState extends State<PausePage> with TickerProviderStateMixin {
     const circle = Icons.circle_outlined;
     final entry = _entry.value * 3900;
     final exit = _exit.value * 2400;
-    final drop =
-        const Cubic(.2, .9, .3, 1.12).transform((entry / 594).clamp(0, 1));
+    final drop = PantasCurves.enter.transform((entry / 594).clamp(0, 1));
     final glide = _leaving
         ? 1 - _ease(exit, 100, 850)
-        : const Cubic(.5, 0, .15, 1)
-            .transform(((entry - 2244) / 1056).clamp(0, 1));
-    final drain = const Cubic(.55, 0, 1, .45)
-        .transform(((entry - 1050) / 450).clamp(0, 1));
+        : PantasCurves.liquid.transform(((entry - 2244) / 1056).clamp(0, 1));
+    final drain = Curves.easeIn.transform(((entry - 1050) / 450).clamp(0, 1));
     final refill =
-        const Cubic(.2, .8, .3, 1).transform(((exit - 500) / 400).clamp(0, 1));
+        PantasCurves.gauge.transform(((exit - 500) / 400).clamp(0, 1));
     final thunk = entry < 1677
-        ? const Cubic(.3, 1.5, .5, 1)
-            .transform(((entry - 1520) / 157).clamp(0, 1))
-        : 1 -
-            const Cubic(.3, 1.5, .5, 1)
-                .transform(((entry - 1677) / 293).clamp(0, 1));
+        ? PantasCurves.popB.transform(((entry - 1520) / 157).clamp(0, 1))
+        : 1 - PantasCurves.popB.transform(((entry - 1677) / 293).clamp(0, 1));
     final reveal =
         _leaving ? 1 - _ease(exit, 0, 250) : _ease(entry, 2800, 3350);
     final paused = _leaving
@@ -345,11 +346,11 @@ class _PausePageState extends State<PausePage> with TickerProviderStateMixin {
                   ),
                 ),
               ),
-              const SizedBox(height: 22),
+              const SizedBox(height: PantasSpace.s24),
               Opacity(
                 opacity: paused,
                 child: SizedBox(
-                  height: 60 * paused,
+                  height: _pausedLineBox * paused,
                   // Board A sets "Paused" in a 60 px line box, so the words sit
                   // in the middle of it, not at the top.
                   child: Transform.translate(
@@ -358,16 +359,14 @@ class _PausePageState extends State<PausePage> with TickerProviderStateMixin {
                   ),
                 ),
               ),
-              const SizedBox(height: 2),
+              const SizedBox(height: PantasSpace.s2),
               Opacity(
                 opacity: blink,
                 child: Text(
                   formatMockRemaining(widget.remaining),
                   // Board A: 30 px in a 38 px line.
-                  style: t.style(
-                    30,
-                    height: 38 / 30,
-                    weight: FontWeight.w700,
+                  style: PantasType.phoneTitle1.copyWith(
+                    color: t.colors.textPrimary,
                   ),
                 ),
               ),
@@ -397,13 +396,13 @@ class _PausePageState extends State<PausePage> with TickerProviderStateMixin {
                 if (widget.partNames.length > 1) ...[
                   WebCard(
                     padding: const EdgeInsets.symmetric(
-                      horizontal: 24,
-                      vertical: 22,
+                      horizontal: PantasSpace.s24,
+                      vertical: PantasSpace.s24,
                     ),
                     child: Column(
                       children: [
                         for (final (i, name) in widget.partNames.indexed) ...[
-                          if (i > 0) const SizedBox(height: 16),
+                          if (i > 0) const SizedBox(height: PantasSpace.s16),
                           Row(
                             children: [
                               Icon(
@@ -413,18 +412,17 @@ class _PausePageState extends State<PausePage> with TickerProviderStateMixin {
                                     ? t.colors.label
                                     : t.colors.tertiaryLabel,
                               ),
-                              const SizedBox(width: 12),
+                              const SizedBox(width: PantasSpace.s12),
                               Expanded(
                                 child: Text(
                                   'Part ${i + 1} · '
                                   '$name',
-                                  style: t.style(
-                                    17,
-                                    weight: i == currentPart
+                                  style: PantasType.webRowTitle.copyWith(
+                                    fontWeight: i == currentPart
                                         ? FontWeight.w600
                                         : FontWeight.w400,
                                     color: i == currentPart
-                                        ? t.colors.label
+                                        ? t.colors.textPrimary
                                         : secondary,
                                   ),
                                 ),
@@ -435,7 +433,7 @@ class _PausePageState extends State<PausePage> with TickerProviderStateMixin {
                       ],
                     ),
                   ),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: PantasSpace.s20),
                 ],
                 Wrap(
                   alignment: single ? WrapAlignment.center : WrapAlignment.end,
@@ -500,13 +498,13 @@ class _PausePageState extends State<PausePage> with TickerProviderStateMixin {
                     child: Center(
                       child: SingleChildScrollView(
                         key: const ValueKey('web-mock-paused'),
-                        padding: const EdgeInsets.all(40),
+                        padding: const EdgeInsets.all(PantasSpace.s40),
                         child: single
                             ? Column(
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
                                   hourglassGroup,
-                                  const SizedBox(height: 32),
+                                  const SizedBox(height: PantasSpace.s32),
                                   content,
                                 ],
                               )
@@ -514,7 +512,7 @@ class _PausePageState extends State<PausePage> with TickerProviderStateMixin {
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
                                   hourglassGroup,
-                                  const SizedBox(width: 72),
+                                  const SizedBox(width: PantasSpace.s56),
                                   content,
                                 ],
                               ),
@@ -551,13 +549,9 @@ class _PausePageState extends State<PausePage> with TickerProviderStateMixin {
           children: [
             Text(
               'Paused',
-              style: context.type.largeTitle.copyWith(
-                fontSize: 30,
-                height: 1.12,
-                letterSpacing: -.66,
-              ),
+              style: context.type.largeTitle,
             ),
-            const SizedBox(height: 4),
+            const SizedBox(height: PantasSpace.s4),
             Row(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.baseline,
@@ -565,20 +559,18 @@ class _PausePageState extends State<PausePage> with TickerProviderStateMixin {
               children: [
                 Text(
                   formatMockRemaining(widget.remaining),
-                  style: context.type.emphasized.copyWith(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w700,
+                  style: PantasType.phoneTitle3.copyWith(
+                    color: c.textPrimary,
                     fontFeatures: const [FontFeature.tabularFigures()],
                   ),
                 ),
-                const SizedBox(width: 6),
+                const SizedBox(width: PantasSpace.s6),
                 Flexible(
                   child: Text(
                     // One block (CSE) has no parts, as on wide.
                     showParts ? 'left in this part' : 'left',
-                    style: context.type.subhead.copyWith(
-                      fontSize: 16,
-                      color: c.secondaryLabel,
+                    style: PantasType.phoneCallout.copyWith(
+                      color: c.textSecondary,
                     ),
                   ),
                 ),
@@ -587,7 +579,7 @@ class _PausePageState extends State<PausePage> with TickerProviderStateMixin {
           ],
         ),
         if (showParts) ...[
-          const SizedBox(height: 22),
+          const SizedBox(height: PantasSpace.s24),
           _PartList(
             names: widget.partNames,
             currentIndex: widget.currentPartIndex,
@@ -597,7 +589,12 @@ class _PausePageState extends State<PausePage> with TickerProviderStateMixin {
     );
 
     final bottom = Container(
-      padding: const EdgeInsets.fromLTRB(16, 14, 16, 30),
+      padding: const EdgeInsets.fromLTRB(
+        PantasSpace.s16,
+        PantasSpace.s14,
+        PantasSpace.s16,
+        PantasSpace.s32,
+      ),
       decoration: BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topCenter,
@@ -611,7 +608,7 @@ class _PausePageState extends State<PausePage> with TickerProviderStateMixin {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           PantasButton(label: 'Resume', onPressed: _resume),
-          const SizedBox(height: 8),
+          const SizedBox(height: PantasSpace.s8),
           Semantics(
             button: true,
             label: 'Discard This Mock',
@@ -620,7 +617,7 @@ class _PausePageState extends State<PausePage> with TickerProviderStateMixin {
             child: InkWell(
               onTap: _leaving ? null : _confirmDiscard,
               child: SizedBox(
-                height: 44,
+                height: PantasSpace.s44,
                 child: Center(
                   child: Text(
                     'Discard This Mock',
@@ -689,12 +686,17 @@ class _PausePageState extends State<PausePage> with TickerProviderStateMixin {
                       children: [
                         Expanded(
                           child: SingleChildScrollView(
-                            padding: const EdgeInsets.fromLTRB(16, 28, 16, 24),
+                            padding: const EdgeInsets.fromLTRB(
+                              PantasSpace.s16,
+                              PantasSpace.s28,
+                              PantasSpace.s16,
+                              PantasSpace.s24,
+                            ),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.stretch,
                               children: [
                                 Center(child: hourglass),
-                                const SizedBox(height: 18),
+                                const SizedBox(height: PantasSpace.s18),
                                 Opacity(
                                   key: const ValueKey('pause-content'),
                                   opacity: _contentOpacity(entry, exit)
@@ -740,12 +742,17 @@ class _PartList extends StatelessWidget {
     return DecoratedBox(
       decoration: BoxDecoration(
         color: c.surface,
-        borderRadius: BorderRadius.circular(14),
+        borderRadius: BorderRadius.circular(PantasRadius.lg),
       ),
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(6, 14, 16, 14),
+        padding: const EdgeInsets.fromLTRB(
+          PantasSpace.s6,
+          PantasSpace.s14,
+          PantasSpace.s16,
+          PantasSpace.s14,
+        ),
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 4),
+          padding: const EdgeInsets.symmetric(horizontal: PantasSpace.s4),
           child: Stack(
             children: [
               Column(
@@ -756,7 +763,7 @@ class _PartList extends StatelessWidget {
                       child: Row(
                         children: [
                           SizedBox(
-                            width: 24,
+                            width: PantasSpace.s24,
                             height: rowHeight,
                             child: Stack(
                               clipBehavior: Clip.none,
@@ -801,7 +808,7 @@ class _PartList extends StatelessWidget {
                               ],
                             ),
                           ),
-                          const SizedBox(width: 14),
+                          const SizedBox(width: PantasSpace.s14),
                           Expanded(
                             child: Text(
                               names[i],

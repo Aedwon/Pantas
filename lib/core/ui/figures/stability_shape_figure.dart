@@ -3,6 +3,9 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 
+/// Height of the drawing. The design system sets no height for diagrams.
+const double _figureHeight = 140;
+
 /// One or two shapes standing on the ground, with the centre of gravity
 /// marked and a plumb line dropped from it.
 ///
@@ -79,7 +82,7 @@ class StabilityShapeFigure extends StatelessWidget {
           : '${shapes.length} shapes side by side on the ground, each with '
               'its centre of gravity marked.',
       child: SizedBox(
-        height: 140,
+        height: _figureHeight,
         child: CustomPaint(
           painter: _StabilityPainter(
             shapes: shapes,

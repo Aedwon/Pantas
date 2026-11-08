@@ -22,7 +22,6 @@ export 'domain/use_cases/discard_mock.dart';
 export 'domain/use_cases/resume_mock.dart';
 export 'domain/use_cases/start_mock.dart';
 export 'domain/use_cases/submit_mock.dart';
-export 'presentation/clock_rule.dart';
 export 'presentation/pages/mock_results_page.dart';
 export 'presentation/pages/mock_review_page.dart';
 export 'presentation/pages/mock_session_page.dart';

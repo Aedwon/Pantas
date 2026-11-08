@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/features/mock_exam/domain/mock_attempt.dart';
 
 class MockResumeSheet extends StatelessWidget {
@@ -23,21 +24,21 @@ class MockResumeSheet extends StatelessWidget {
         (attempt.durationMinutes * 60) - attempt.elapsedSeconds;
     return SafeArea(
       child: Padding(
-        padding: const EdgeInsets.all(24),
+        padding: const EdgeInsets.all(PantasSpace.s24),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(attempt.blueprintName, style: textStyles.sectionHero),
-            const SizedBox(height: 8),
+            const SizedBox(height: PantasSpace.s8),
             Text(
               'Elapsed ${_format(attempt.elapsedSeconds)} · '
               'Remaining ${_format(remainingSeconds)}',
               style: textStyles.subhead.copyWith(color: colors.secondaryLabel),
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: PantasSpace.s16),
             PantasButton(label: 'Resume', onPressed: onResume),
-            const SizedBox(height: 8),
+            const SizedBox(height: PantasSpace.s8),
             PantasButton(
               label: 'Discard',
               variant: PantasButtonVariant.tertiary,

@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/features/mock_exam/application/mock_blueprint_providers.dart';
 import 'package:pantas/features/mock_exam/domain/mock_sample.dart';
 
@@ -46,7 +48,12 @@ class MockStartPreparationPage extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: ListView(
-          padding: const EdgeInsets.fromLTRB(16, 48, 16, 28),
+          padding: const EdgeInsets.fromLTRB(
+            PantasSpace.s16,
+            PantasSpace.s44,
+            PantasSpace.s16,
+            PantasSpace.s28,
+          ),
           children: [
             Align(
               child: Container(
@@ -54,7 +61,7 @@ class MockStartPreparationPage extends StatelessWidget {
                 height: 56,
                 decoration: BoxDecoration(
                   color: colors.label,
-                  borderRadius: BorderRadius.circular(16),
+                  borderRadius: BorderRadius.circular(PantasRadius.xl),
                 ),
                 child: Icon(
                   Icons.timer_outlined,
@@ -63,23 +70,23 @@ class MockStartPreparationPage extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: PantasSpace.s10),
             Text(
               'Setting out your paper',
               textAlign: TextAlign.center,
               style: type.pageTitleCompact,
             ),
-            const SizedBox(height: 6),
+            const SizedBox(height: PantasSpace.s6),
             Text(
               '${parsedBlueprint.blueprint.name} · $count questions',
               textAlign: TextAlign.center,
               style: type.subhead.copyWith(color: colors.secondaryLabel),
             ),
-            const SizedBox(height: 22),
+            const SizedBox(height: PantasSpace.s24),
             Container(
               decoration: BoxDecoration(
                 color: colors.surface,
-                borderRadius: BorderRadius.circular(14),
+                borderRadius: BorderRadius.circular(PantasRadius.lg),
               ),
               clipBehavior: Clip.antiAlias,
               child: Column(
@@ -102,14 +109,14 @@ class MockStartPreparationPage extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(height: 22),
+            const SizedBox(height: PantasSpace.s24),
             if (ready) ...[
               Text(
                 'Your paper is set. The clock starts when you tap.',
                 textAlign: TextAlign.center,
                 style: type.subheadStrong,
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: PantasSpace.s20),
               PantasButton(
                 label: 'Start the Paper',
                 onPressed: onStart,
@@ -122,7 +129,7 @@ class MockStartPreparationPage extends StatelessWidget {
                   child: Column(
                     children: [
                       SkeletonBlock(width: 280, height: 18),
-                      SizedBox(height: 22),
+                      SizedBox(height: PantasSpace.s24),
                       SkeletonBlock(height: 52, radius: 14),
                     ],
                   ),
@@ -151,11 +158,14 @@ class _PreparationRow extends StatelessWidget {
     final colors = context.colors;
     final type = context.type;
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 13),
+      padding: const EdgeInsets.symmetric(
+        horizontal: PantasSpace.s16,
+        vertical: PantasSpace.s14,
+      ),
       child: Row(
         children: [
           SizedBox(
-            width: 24,
+            width: PantasSpace.s24,
             height: 24,
             child: ready
                 ? DecoratedBox(
@@ -176,13 +186,13 @@ class _PreparationRow extends StatelessWidget {
                     ),
                   ),
           ),
-          const SizedBox(width: 14),
+          const SizedBox(width: PantasSpace.s14),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(name, style: type.body),
-                const SizedBox(height: 2),
+                const SizedBox(height: PantasSpace.s2),
                 Text(
                   '$questionCount ${questionCount == 1 ? 'question' : 'questions'}',
                   style: type.footnote.copyWith(color: colors.secondaryLabel),

@@ -9,6 +9,10 @@ import 'package:pantas/core/ui/components/pro_paused_line.dart';
 import 'package:pantas/core/ui/components/score_breakdown_row.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_key_focus.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -86,8 +90,12 @@ class MockResultsPage extends StatelessWidget {
               576,
               SafeArea(
                 top: false,
-                minimum:
-                    EdgeInsets.fromLTRB(16, 14, 16, time == null ? 26 : 30),
+                minimum: EdgeInsets.fromLTRB(
+                  PantasSpace.s16,
+                  PantasSpace.s14,
+                  PantasSpace.s16,
+                  time == null ? PantasSpace.s28 : PantasSpace.s32,
+                ),
                 child: PantasButton(label: 'Done', onPressed: onDone),
               ),
             ),
@@ -111,7 +119,10 @@ class MockResultsPage extends StatelessWidget {
                       )
                     // Board (MK_Results): the X sits at x 19, y 17, in #8E8E93.
                     : Padding(
-                        padding: const EdgeInsets.only(left: 6, top: 4),
+                        padding: const EdgeInsets.only(
+                          left: PantasSpace.s6,
+                          top: PantasSpace.s4,
+                        ),
                         child: IconButton(
                           tooltip: 'Close',
                           onPressed: onDone,
@@ -125,13 +136,20 @@ class MockResultsPage extends StatelessWidget {
               ),
             Expanded(
               child: ListView(
-                padding: EdgeInsets.fromLTRB(16, time == null ? 6 : 50, 16, 24),
+                padding: EdgeInsets.fromLTRB(
+                  PantasSpace.s16,
+                  time == null ? PantasSpace.s6 : PantasSpace.s56,
+                  PantasSpace.s16,
+                  PantasSpace.s24,
+                ),
                 children: [
                   _phase(
                     time,
                     562,
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 4),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: PantasSpace.s4,
+                      ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -141,10 +159,7 @@ class MockResultsPage extends StatelessWidget {
                             children: [
                               Text(
                                 blueprintName,
-                                style: context.type.pageTitle.copyWith(
-                                  fontSize: 22,
-                                  height: time == null ? null : 1.35,
-                                ),
+                                style: context.type.sectionHero,
                               ),
                               if (forfeited)
                                 Text(
@@ -153,12 +168,14 @@ class MockResultsPage extends StatelessWidget {
                                 ),
                             ],
                           ),
-                          SizedBox(height: time == null ? 5 : 2),
+                          SizedBox(
+                            height:
+                                time == null ? PantasSpace.s4 : PantasSpace.s2,
+                          ),
                           Text(
                             dateFormatted,
                             style: context.type.subhead.copyWith(
                               color: context.colors.secondaryLabel,
-                              fontSize: time == null ? null : 15,
                               height: time == null ? null : 1.35,
                             ),
                           ),
@@ -169,9 +186,11 @@ class MockResultsPage extends StatelessWidget {
                   SizedBox(height: time == null ? 22 : 10),
                   _gauge(context, time, caption),
                   if (forfeited && forfeitedPart != null) ...[
-                    const SizedBox(height: 12),
+                    const SizedBox(height: PantasSpace.s12),
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 4),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: PantasSpace.s4,
+                      ),
                       child: Text(
                         'With strict mode enabled, you left the app during '
                         'Part $forfeitedPart, so the mock ended there. '
@@ -183,7 +202,7 @@ class MockResultsPage extends StatelessWidget {
                       ),
                     ),
                   ],
-                  const SizedBox(height: 22),
+                  const SizedBox(height: PantasSpace.s24),
                   _phase(
                     time,
                     567,
@@ -200,7 +219,7 @@ class MockResultsPage extends StatelessWidget {
                                       time,
                                       6100 + i * 120,
                                       6850 + i * 120,
-                                      const Cubic(.2, .8, .25, 1),
+                                      PantasCurves.gauge,
                                     ),
                             divider: i < results.sections.length - 1,
                           ),
@@ -208,7 +227,7 @@ class MockResultsPage extends StatelessWidget {
                     ),
                   ),
                   if (!forfeited && pastResults.isNotEmpty) ...[
-                    const SizedBox(height: 22),
+                    const SizedBox(height: PantasSpace.s24),
                     _phase(
                       time,
                       572,
@@ -216,7 +235,12 @@ class MockResultsPage extends StatelessWidget {
                         header: 'VERSUS PAST RESULTS',
                         children: [
                           Padding(
-                            padding: const EdgeInsets.fromLTRB(16, 14, 16, 6),
+                            padding: const EdgeInsets.fromLTRB(
+                              PantasSpace.s16,
+                              PantasSpace.s14,
+                              PantasSpace.s16,
+                              PantasSpace.s6,
+                            ),
                             child: MockPastChart(
                               points: pastResults,
                               time: time,
@@ -235,7 +259,7 @@ class MockResultsPage extends StatelessWidget {
                       ),
                     ),
                   ],
-                  const SizedBox(height: 22),
+                  const SizedBox(height: PantasSpace.s24),
                   _phase(time, 573, _reviewControls(context)),
                 ],
               ),
@@ -304,7 +328,12 @@ class MockResultsPage extends StatelessWidget {
                 ),
               Expanded(
                 child: SingleChildScrollView(
-                  padding: const EdgeInsets.fromLTRB(40, 16, 40, 56),
+                  padding: const EdgeInsets.fromLTRB(
+                    PantasSpace.s40,
+                    PantasSpace.s16,
+                    PantasSpace.s40,
+                    PantasSpace.s56,
+                  ),
                   child: Center(
                     child: ConstrainedBox(
                       constraints: const BoxConstraints(maxWidth: 1040),
@@ -329,11 +358,10 @@ class MockResultsPage extends StatelessWidget {
                                         children: [
                                           Text(
                                             blueprintName,
-                                            style: t.style(
-                                              34,
-                                              weight: FontWeight.w700,
+                                            style: PantasType.phoneLargeTitle
+                                                .copyWith(
+                                              color: t.colors.textPrimary,
                                               height: 1.15,
-                                              spacing: -.748,
                                             ),
                                           ),
                                           if (forfeited)
@@ -343,11 +371,10 @@ class MockResultsPage extends StatelessWidget {
                                             ),
                                         ],
                                       ),
-                                      const SizedBox(height: 4),
+                                      const SizedBox(height: PantasSpace.s4),
                                       Text(
                                         dateFormatted,
-                                        style: t.style(
-                                          17,
+                                        style: PantasType.webLead.copyWith(
                                           color: t.colors.secondaryLabel,
                                         ),
                                       ),
@@ -368,7 +395,7 @@ class MockResultsPage extends StatelessWidget {
                               ],
                             ),
                           ),
-                          const SizedBox(height: 28),
+                          const SizedBox(height: PantasSpace.s28),
                           WebFinaleEffect(
                             milliseconds: time,
                             track: 'k-rsc',
@@ -381,10 +408,10 @@ class MockResultsPage extends StatelessWidget {
                                     flex: 10,
                                     child: Padding(
                                       padding: const EdgeInsets.fromLTRB(
-                                        24,
-                                        36,
-                                        24,
-                                        30,
+                                        PantasSpace.s24,
+                                        PantasSpace.s40,
+                                        PantasSpace.s24,
+                                        PantasSpace.s32,
                                       ),
                                       child: Column(
                                         children: [
@@ -442,7 +469,7 @@ class MockResultsPage extends StatelessWidget {
                                               forfeitedPart != null)
                                             Padding(
                                               padding: const EdgeInsets.only(
-                                                top: 20,
+                                                top: PantasSpace.s20,
                                               ),
                                               child: Text(
                                                 'With strict mode enabled, '
@@ -464,10 +491,10 @@ class MockResultsPage extends StatelessWidget {
                                     flex: 13,
                                     child: Padding(
                                       padding: const EdgeInsets.fromLTRB(
-                                        30,
-                                        14,
-                                        30,
-                                        20,
+                                        PantasSpace.s32,
+                                        PantasSpace.s14,
+                                        PantasSpace.s32,
+                                        PantasSpace.s20,
                                       ),
                                       child: WebFinaleEffect(
                                         milliseconds: time,
@@ -487,7 +514,7 @@ class MockResultsPage extends StatelessWidget {
                                                     results.sections.length - 1,
                                               ),
                                             const SizedBox(
-                                              height: 14,
+                                              height: PantasSpace.s14,
                                             ),
                                             if (canReview)
                                               // The board puts the Free
@@ -531,12 +558,12 @@ class MockResultsPage extends StatelessWidget {
                             ),
                           ),
                           if (!canReview) ...[
-                            const SizedBox(height: 28),
+                            const SizedBox(height: PantasSpace.s28),
                             WebCard(
                               radius: 16,
                               padding: const EdgeInsets.symmetric(
-                                horizontal: 20,
-                                vertical: 18,
+                                horizontal: PantasSpace.s20,
+                                vertical: PantasSpace.s18,
                               ),
                               child: proPaused
                                   ? const ProPausedLine()
@@ -547,15 +574,17 @@ class MockResultsPage extends StatelessWidget {
                                           color: t.colors.accent,
                                           size: 28,
                                         ),
-                                        const SizedBox(width: 16),
+                                        const SizedBox(width: PantasSpace.s16),
                                         Expanded(
                                           child: Text(
                                             'Go through all $total questions '
                                             'again with Pro.',
-                                            style: t.style(16),
+                                            style: PantasType.webBody.copyWith(
+                                              color: t.colors.textPrimary,
+                                            ),
                                           ),
                                         ),
-                                        const SizedBox(width: 16),
+                                        const SizedBox(width: PantasSpace.s16),
                                         WebButton(
                                           label: 'See Pro',
                                           variant: WebButtonVariant.secondary,
@@ -566,15 +595,13 @@ class MockResultsPage extends StatelessWidget {
                             ),
                           ],
                           if (fromRecord && onFullRecord != null) ...[
-                            const SizedBox(height: 28),
+                            const SizedBox(height: PantasSpace.s28),
                             WebCard(
                               radius: 20,
                               child: WebRow(
                                 title: 'See full record',
-                                titleStyle: t.style(
-                                  16,
-                                  color: t.colors.accent,
-                                ),
+                                titleStyle: PantasType.webBody
+                                    .copyWith(color: t.colors.accent),
                                 chevron: WebRowChevron.always,
                                 onPressed: onFullRecord,
                                 divider: false,
@@ -583,7 +610,7 @@ class MockResultsPage extends StatelessWidget {
                           ] else if (!fromRecord &&
                               !forfeited &&
                               pastResults.isNotEmpty) ...[
-                            const SizedBox(height: 28),
+                            const SizedBox(height: PantasSpace.s28),
                             WebFinaleEffect(
                               milliseconds: time,
                               track: 'k-rpast',
@@ -591,17 +618,17 @@ class MockResultsPage extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.stretch,
                                 children: [
                                   Text('VERSUS PAST RESULTS', style: t.eb),
-                                  const SizedBox(height: 9),
+                                  const SizedBox(height: PantasSpace.s10),
                                   WebCard(
                                     radius: 20,
                                     child: Column(
                                       children: [
                                         Padding(
                                           padding: const EdgeInsets.fromLTRB(
-                                            20,
-                                            20,
-                                            20,
-                                            8,
+                                            PantasSpace.s20,
+                                            PantasSpace.s20,
+                                            PantasSpace.s20,
+                                            PantasSpace.s8,
                                           ),
                                           child: MockPastChart(
                                             points: pastResults,
@@ -657,7 +684,12 @@ class MockResultsPage extends StatelessWidget {
             ),
             if (!fromRecord && !proIsActive && reviewUntil != null)
               Padding(
-                padding: const EdgeInsets.fromLTRB(16, 7, 16, 0),
+                padding: const EdgeInsets.fromLTRB(
+                  PantasSpace.s16,
+                  PantasSpace.s8,
+                  PantasSpace.s16,
+                  PantasSpace.s0,
+                ),
                 child: Text(
                   'On Free, you can go through these until your next '
                   'mock opens on '
@@ -671,7 +703,7 @@ class MockResultsPage extends StatelessWidget {
             GroupedSection(
               children: [
                 Padding(
-                  padding: const EdgeInsets.all(16),
+                  padding: const EdgeInsets.all(PantasSpace.s16),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
@@ -682,7 +714,7 @@ class MockResultsPage extends StatelessWidget {
                         style: context.type.body,
                       ),
                       if (onSeePro != null) ...[
-                        const SizedBox(height: 12),
+                        const SizedBox(height: PantasSpace.s12),
                         PantasButton(
                           label: 'See Pro',
                           variant: PantasButtonVariant.secondary,
@@ -723,7 +755,7 @@ class MockResultsPage extends StatelessWidget {
                     time,
                     4563.0405,
                     5200.0025,
-                    const Cubic(.12, .75, .25, 1),
+                    PantasCurves.gauge,
                   ),
               displayedFraction: results.percent /
                   100 *
@@ -731,7 +763,7 @@ class MockResultsPage extends StatelessWidget {
                     time,
                     5265.038,
                     5817.556,
-                    const Cubic(.2, .8, .25, 1),
+                    PantasCurves.gauge,
                   ),
               numberOpacity: cseFinaleInterval(time, 5265.038, 5427.4565),
               labelOpacity: cseFinaleInterval(time, 5687.485, 5900),
@@ -810,7 +842,7 @@ class _PastPainter extends CustomPainter {
     required this.accent,
     required this.previous,
     required this.separator,
-    this.strongLabel = const Color(0xFF1D1D1F),
+    this.strongLabel = PantasColors.gray892,
     this.time,
     this.web = false,
   });
@@ -836,7 +868,10 @@ class _PastPainter extends CustomPainter {
         text: value,
         style: TextStyle(
           fontFamily: 'Geist',
-          fontSize: size ?? (strong ? 12 : 11),
+          fontSize: size ??
+              (strong
+                  ? PantasType.webCaption.fontSize
+                  : PantasType.webKeyHintSm.fontSize),
           fontWeight: strong ? FontWeight.w700 : FontWeight.w400,
           color: color ?? label,
         ),
@@ -893,7 +928,7 @@ class _PastPainter extends CustomPainter {
                           time!,
                           8750.055,
                           9300,
-                          const Cubic(.5, 0, .3, 1),
+                          PantasCurves.draw,
                         ),
                 )!
               : point,

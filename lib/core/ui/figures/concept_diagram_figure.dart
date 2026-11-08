@@ -4,6 +4,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 
+/// Height of the drawing. The design system sets no height for diagrams.
+const double _figureHeight = 220;
+
 /// A labeled relationship diagram for sequences, flows, hierarchies, and
 /// physics diagrams.
 class ConceptDiagramFigure extends StatelessWidget {
@@ -585,7 +588,7 @@ class ConceptDiagramFigure extends StatelessWidget {
     return Semantics(
       label: 'A $type diagram.',
       child: SizedBox(
-        height: 220,
+        height: _figureHeight,
         child: CustomPaint(
           size: Size.infinite,
           painter: _ConceptDiagramPainter(

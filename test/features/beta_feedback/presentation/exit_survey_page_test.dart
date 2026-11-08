@@ -277,17 +277,19 @@ void main() {
       await tester.pumpAndSettle();
     });
 
-    testWidgets('a text answer shows an accent border once it has text',
+    testWidgets('a text answer keeps an accent ring once it has text',
         (tester) async {
       final h = _harness();
       await h.pump(tester, _page, routes: _routes);
-      BoxDecoration deco() =>
-          tester.widget<AnimatedContainer>(_key('q6-box')).decoration!
-              as BoxDecoration;
-      expect(deco().border, isNull);
+      Border ring() => (tester
+              .widget<AnimatedContainer>(_key('q6-box'))
+              .foregroundDecoration! as BoxDecoration)
+          .border! as Border;
+      // At rest the Field draws its 1 px control ring.
+      expect(ring().top.width, 1);
       await tester.enterText(find.byKey(const ValueKey('q6-field')), 'x');
       await tester.pumpAndSettle();
-      expect((deco().border! as Border).top.width, 1.5);
+      expect(ring().top.width, 2);
     });
   });
 

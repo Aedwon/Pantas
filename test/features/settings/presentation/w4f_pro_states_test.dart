@@ -349,9 +349,10 @@ void main() {
     expect(find.text('Switch on Free'), findsOneWidget);
     expect(find.text('Upgrade for ₱149 a Month'), findsOneWidget);
     expect(find.text('Try 7 Days Free'), findsNothing);
+    // The Season Pass tile spans the row below the plan tiles.
     expect(
       tester.getTopLeft(find.text('Monthly')).dy,
-      tester.getTopLeft(find.text('Season Pass')).dy,
+      lessThan(tester.getTopLeft(find.text('Season Pass')).dy),
     );
   });
   testWidgets('web shows real expired pass history without granting access',
@@ -498,8 +499,8 @@ void main() {
       'plan cards use the approved type sizes and keep the action visible',
       (tester) async {
     await _pump(tester);
-    expect(tester.widget<Text>(find.text('₱149')).style?.fontSize, 22);
-    expect(tester.widget<Text>(find.text('Monthly')).style?.fontSize, 14);
+    expect(tester.widget<Text>(find.text('₱149')).style?.fontSize, 26);
+    expect(tester.widget<Text>(find.text('Monthly')).style?.fontSize, 15);
     expect(
       find.text('Subscribe for ₱149 a Month').hitTestable(),
       findsOneWidget,

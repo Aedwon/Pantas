@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/floating_bar.dart';
+import 'package:pantas/core/ui/components/progress_bar.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/mock_exam/application/mock_start_providers.dart';
 import 'package:pantas/features/mock_exam/domain/mock_session_state.dart';
 import 'package:pantas/features/mock_exam/domain/part_clock.dart';
-import 'package:pantas/features/mock_exam/presentation/clock_rule.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/mock_session_page.dart';
 
 void main() {
@@ -77,11 +77,13 @@ void main() {
       );
       expect(find.text('1:12:40'), findsOneWidget);
       expect(find.byType(FloatingBar), findsOneWidget);
-      expect(tester.getSize(find.byType(ClockRule)).width, 120);
-      expect(tester.getSize(find.byType(ClockRule)).height, 5);
+      // The system Timer: a 120 by 5 bar under the time.
+      expect(tester.getSize(find.byType(PantasProgressBar)).width, 120);
+      expect(tester.getSize(find.byType(PantasProgressBar)).height, 5);
     });
-    testWidgets('last-minute clock has readable red, dark=$dark',
-        (tester) async {
+    testWidgets(
+        'last-minute clock keeps the warning color, never red, '
+        'dark=$dark', (tester) async {
       await tester.pumpWidget(
         paper(
           theme: theme,
@@ -92,9 +94,10 @@ void main() {
       );
       final context = tester.element(find.byType(MockSessionPage));
       final text = tester.widget<Text>(find.text('00:58'));
-      expect(text.style!.color, context.colors.wrongText);
+      expect(text.style!.color, context.colors.warningText);
+      expect(text.style!.color, isNot(context.colors.dangerText));
       final a = text.style!.color!.computeLuminance();
-      final b = context.colors.background.computeLuminance();
+      final b = context.colors.bgPage.computeLuminance();
       expect(
         (a > b ? (a + .05) / (b + .05) : (b + .05) / (a + .05)),
         greaterThanOrEqualTo(4.5),
@@ -108,13 +111,13 @@ void main() {
           remaining: const Duration(minutes: 4, seconds: 52),
         ),
       );
-      final context = tester.element(find.byType(ClockRule));
-      final bar =
-          tester.widget<Container>(find.byKey(const Key('clock-rule-bar')));
       expect(
-        (bar.decoration! as BoxDecoration).color,
-        context.colors.warningText,
+        tester
+            .widget<PantasProgressBar>(find.byType(PantasProgressBar))
+            .warning,
+        isTrue,
       );
+      expect(find.text('5 min left'), findsOneWidget);
     });
   }
 }

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 
+/// Height of the drawing. The design system sets no height for diagrams.
+const double _figureHeight = 110;
+
 /// A beam on a fulcrum, with the load on one side and the effort on the
 /// other.
 ///
@@ -45,7 +48,7 @@ class LeverBalanceFigure extends StatelessWidget {
       label: 'A beam resting on a fulcrum. The load sits on the short side '
           'and the effort is applied on the long side.',
       child: SizedBox(
-        height: 110,
+        height: _figureHeight,
         child: CustomPaint(
           painter: _LeverPainter(
             loadDistance: loadDistance,
