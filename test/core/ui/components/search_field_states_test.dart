@@ -76,14 +76,14 @@ void main() {
       find
           .ancestor(
             of: find.byIcon(Icons.close).evaluate().isEmpty
-                ? find.byType(InkResponse)
+                ? find.byType(InkWell)
                 : find.byIcon(Icons.close),
             matching: find.byType(SizedBox),
           )
           .first,
     );
     expect(target.height, greaterThanOrEqualTo(44));
-    await tester.tap(find.byType(InkResponse));
+    await tester.tap(find.bySemanticsLabel('Clear search'));
     await tester.pump();
     expect(value, '');
     expect(

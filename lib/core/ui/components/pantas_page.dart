@@ -3,6 +3,7 @@ import 'package:pantas/core/ui/components/onboarding_frame.dart';
 import 'package:pantas/core/ui/components/tab_bar_visibility.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 
@@ -362,6 +363,14 @@ class PantasPage extends StatelessWidget {
                                           onPressed: onBack,
                                           style: TextButton.styleFrom(
                                             minimumSize: const Size(44, 44),
+                                            // Back link A: a rounded
+                                            // rectangle, never a pill.
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(
+                                                PantasRadius.back,
+                                              ),
+                                            ),
                                             padding: backPadding,
                                             visualDensity:
                                                 VisualDensity.standard,

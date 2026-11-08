@@ -508,6 +508,10 @@ class OnboardingBackBar extends StatelessWidget {
               onPressed: onBack,
               style: TextButton.styleFrom(
                 minimumSize: const Size.square(PantasSize.targetTouch),
+                // Back link A: a rounded rectangle, never a pill.
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(PantasRadius.back),
+                ),
                 padding: const EdgeInsets.fromLTRB(
                   PantasSpace.s4,
                   PantasSpace.s0,

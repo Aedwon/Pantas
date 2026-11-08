@@ -158,7 +158,7 @@ class _MonthFirstDatePickerState extends State<MonthFirstDatePicker> {
           ),
         ),
         OffsetFocusRing(
-          borderRadius: BorderRadius.circular(PantasRadius.full),
+          borderRadius: BorderRadius.circular(PantasRadius.md),
           child: IconButton(
             style: target,
             tooltip: 'Previous year',
@@ -173,7 +173,7 @@ class _MonthFirstDatePickerState extends State<MonthFirstDatePicker> {
           ),
         ),
         OffsetFocusRing(
-          borderRadius: BorderRadius.circular(PantasRadius.full),
+          borderRadius: BorderRadius.circular(PantasRadius.md),
           child: IconButton(
             style: target,
             tooltip: 'Next year',

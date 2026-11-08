@@ -1,10 +1,10 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/motion/web_page_transitions.dart';
+import 'package:pantas/core/ui/theme/component_themes.dart';
 import 'package:pantas/core/ui/theme/pantas_shape.dart';
 import 'package:pantas/core/ui/theme/theme_names.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
-import 'package:pantas/core/ui/web/web_keyboard_focus.dart';
 
 // Lets every `context.colors` caller read the screen-facing color names.
 export 'package:pantas/core/ui/theme/theme_names.dart';
@@ -43,48 +43,30 @@ ThemeData _buildTheme(
     surfaceTint: Colors.transparent,
   );
   final type = PantasTypeBundle.create(colors: colors);
-  final overlay = WidgetStateProperty.resolveWith<Color?>((states) {
-    if (states.contains(WidgetState.pressed)) return Colors.transparent;
-    if (states.contains(WidgetState.hovered)) {
-      return colors.surfaceHover;
-    }
-    return null;
-  });
-  final buttonStyle = ButtonStyle(
-    // One keyboard-only focus ring for every Material button on web, drawn on
-    // the button's own shape. The hover tint below has no focus state, so
-    // without this a Tab stop showed nothing at all (3K-11). A button that
-    // sets its own `side` keeps it.
-    side: WidgetStateProperty.resolveWith(
-      (states) => webFocusRing(states, colors.accent),
-    ),
-    overlayColor: WidgetStateProperty.resolveWith((states) {
-      if (states.contains(WidgetState.pressed)) return Colors.transparent;
-      if (states.contains(WidgetState.hovered)) {
-        return colors.label.withValues(alpha: .08);
-      }
-      // The ring above is the focus mark. Material's own focus fill is a
-      // square tint that ignores the button's corners and shows after a click.
-      if (states.contains(WidgetState.focused)) return Colors.transparent;
-      return null;
-    }),
-  );
+  final themes = PantasComponentThemes(colors, brightness);
   return ThemeData(
     pageTransitionsTheme: web ? webPageTransitionsTheme : null,
-    splashFactory: web ? NoSplash.splashFactory : null,
-    splashColor: web ? Colors.transparent : null,
-    highlightColor: web ? Colors.transparent : null,
-    hoverColor: web ? colors.surfaceHover : null,
-    textButtonTheme: web ? TextButtonThemeData(style: buttonStyle) : null,
-    filledButtonTheme: web ? FilledButtonThemeData(style: buttonStyle) : null,
-    elevatedButtonTheme:
-        web ? ElevatedButtonThemeData(style: buttonStyle) : null,
-    outlinedButtonTheme:
-        web ? OutlinedButtonThemeData(style: buttonStyle) : null,
-    iconButtonTheme: web ? IconButtonThemeData(style: buttonStyle) : null,
-    checkboxTheme: web ? CheckboxThemeData(overlayColor: overlay) : null,
-    radioTheme: web ? RadioThemeData(overlayColor: overlay) : null,
-    switchTheme: web ? SwitchThemeData(overlayColor: overlay) : null,
+    splashFactory: NoSplash.splashFactory,
+    splashColor: Colors.transparent,
+    highlightColor: Colors.transparent,
+    hoverColor: colors.surfaceHover,
+    textButtonTheme: themes.textButton,
+    filledButtonTheme: themes.filledButton,
+    elevatedButtonTheme: themes.elevatedButton,
+    outlinedButtonTheme: themes.outlinedButton,
+    iconButtonTheme: themes.iconButton,
+    inputDecorationTheme: themes.inputDecoration,
+    tooltipTheme: themes.tooltip,
+    snackBarTheme: themes.snackBar,
+    listTileTheme: themes.listTile,
+    progressIndicatorTheme: themes.progressIndicator,
+    checkboxTheme: themes.checkbox,
+    radioTheme: themes.radio,
+    switchTheme: themes.switchTheme,
+    sliderTheme: themes.slider,
+    chipTheme: themes.chip,
+    popupMenuTheme: themes.popupMenu,
+    bottomSheetTheme: themes.bottomSheet,
     useMaterial3: true,
     colorScheme: scheme,
     scaffoldBackgroundColor: colors.background,
@@ -111,15 +93,6 @@ ThemeData _buildTheme(
       shape: const RoundedRectangleBorder(
         borderRadius:
             BorderRadius.all(Radius.circular(PantasShape.groupRadius)),
-      ),
-    ),
-    bottomSheetTheme: BottomSheetThemeData(
-      backgroundColor: colors.background,
-      surfaceTintColor: Colors.transparent,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(
-          top: Radius.circular(PantasShape.groupRadius),
-        ),
       ),
     ),
     fontFamily: 'Geist',

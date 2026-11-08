@@ -5,6 +5,7 @@ import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_border.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_opacity.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
@@ -304,10 +305,13 @@ class _SearchFieldState extends State<SearchField> {
         label: 'Clear search',
         excludeSemantics: true,
         onTap: _clear,
-        child: InkResponse(
+        child: InkWell(
           onTap: _clear,
           canRequestFocus: false,
-          radius: PantasSize.targetTouch / 2,
+          borderRadius: BorderRadius.circular(PantasRadius.md),
+          hoverColor: context.colors.textPrimary.withValues(
+            alpha: PantasOpacity.hover,
+          ),
           child: SizedBox.square(
             dimension: PantasSize.targetTouch,
             child: Center(

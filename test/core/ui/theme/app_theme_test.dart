@@ -14,7 +14,6 @@ void main() {
       expect(theme.splashColor, Colors.transparent);
       for (final overlay in [
         theme.textButtonTheme.style?.overlayColor,
-        theme.filledButtonTheme.style?.overlayColor,
         theme.elevatedButtonTheme.style?.overlayColor,
         theme.outlinedButtonTheme.style?.overlayColor,
         theme.iconButtonTheme.style?.overlayColor,
@@ -28,10 +27,19 @@ void main() {
           isNot(Colors.transparent),
         );
       }
+      // A filled button hovers by darkening its fill (`accent-fill-hover`),
+      // so it adds no wash.
+      expect(
+        theme.filledButtonTheme.style!.backgroundColor!
+            .resolve({WidgetState.hovered}),
+        isNot(theme.filledButtonTheme.style!.backgroundColor!.resolve({})),
+      );
+      // The system has no ripple (it presses with a scale and washes), so the
+      // phone theme draws none either.
       final phone =
           dark ? buildDarkTheme(web: false) : buildLightTheme(web: false);
-      expect(phone.splashFactory, isNot(NoSplash.splashFactory));
-      expect(phone.highlightColor, isNot(Colors.transparent));
+      expect(phone.splashFactory, NoSplash.splashFactory);
+      expect(phone.highlightColor, Colors.transparent);
     });
   }
 
@@ -106,7 +114,7 @@ void main() {
         borderRadius: BorderRadius.all(Radius.circular(14)),
       ),
     );
-    expect(theme.bottomSheetTheme.backgroundColor, c.background);
+    expect(theme.bottomSheetTheme.backgroundColor, c.surfaceModal);
     expect(theme.bottomSheetTheme.surfaceTintColor, Colors.transparent);
   });
 }
