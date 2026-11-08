@@ -6,6 +6,10 @@ import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/leave_page.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
@@ -39,14 +43,34 @@ class LegalDocumentPage extends StatelessWidget {
       onBack: () => leavePage(context, fallback: backFallback),
       // ST_Privacy: a 28 px title 6 px above the updated line.
       backPadding: context.wideWeb
-          ? const EdgeInsets.fromLTRB(8, 0, 16, 0)
-          : const EdgeInsets.fromLTRB(4, 0, 16, 0),
+          ? const EdgeInsets.fromLTRB(
+              PantasSpace.s8,
+              PantasSpace.s0,
+              PantasSpace.s16,
+              PantasSpace.s0,
+            )
+          : const EdgeInsets.fromLTRB(
+              PantasSpace.s4,
+              PantasSpace.s0,
+              PantasSpace.s16,
+              PantasSpace.s0,
+            ),
       titleStyle: context.wideWeb
           ? null
           : context.type.pageTitleCompact.copyWith(height: 1.2),
       titlePadding: context.wideWeb
-          ? const EdgeInsets.fromLTRB(4, 0, 4, 20)
-          : const EdgeInsets.fromLTRB(4, 6, 4, 6),
+          ? const EdgeInsets.fromLTRB(
+              PantasSpace.s4,
+              PantasSpace.s0,
+              PantasSpace.s4,
+              PantasSpace.s20,
+            )
+          : const EdgeInsets.fromLTRB(
+              PantasSpace.s4,
+              PantasSpace.s6,
+              PantasSpace.s4,
+              PantasSpace.s6,
+            ),
       children: _documentChildren(context, documentId, phone: !context.wideWeb),
     );
   }
@@ -73,15 +97,23 @@ class LegalDocumentBody extends StatelessWidget {
       // headings and 17 px text, 14 px apart.
       final t = context.webTokens;
       return WebCard(
-        padding: const EdgeInsets.fromLTRB(32, 28, 32, 16),
+        padding: const EdgeInsets.fromLTRB(
+          PantasSpace.s32,
+          PantasSpace.s28,
+          PantasSpace.s32,
+          PantasSpace.s16,
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             for (final section in document.sections) ...[
               Text(section.heading, style: t.h3),
-              const SizedBox(height: 14),
-              Text(section.body, style: t.style(17, height: 1.6)),
-              const SizedBox(height: 14),
+              const SizedBox(height: PantasSpace.s14),
+              Text(
+                section.body,
+                style: PantasType.webLead.copyWith(color: t.colors.textPrimary),
+              ),
+              const SizedBox(height: PantasSpace.s14),
             ],
           ],
         ),
@@ -106,30 +138,26 @@ List<Widget> _documentChildren(
     else if (phone) ...[
       // ST_Privacy: a 16 px updated line, 17 px headings, 26 px body lines.
       Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 4),
+        padding: const EdgeInsets.symmetric(horizontal: PantasSpace.s4),
         child: Text(
           'Updated ${DateFormat.yMMMd().format(document.updatedAt)}',
-          style: context.type.body.copyWith(
-            fontSize: 16,
-            color: context.colors.secondaryLabel,
-          ),
+          style: PantasType.phoneCallout
+              .copyWith(color: context.colors.textSecondary),
         ),
       ),
-      const SizedBox(height: 22),
+      const SizedBox(height: PantasSpace.s20),
       for (final (index, section) in document.sections.indexed) ...[
-        if (index > 0) const SizedBox(height: 22),
+        if (index > 0) const SizedBox(height: PantasSpace.s20),
         Text(
           section.heading,
-          style: context.type.emphasized.copyWith(fontWeight: FontWeight.w700),
+          style: PantasType.phoneHeadline
+              .copyWith(color: context.colors.textPrimary),
         ),
-        const SizedBox(height: 5),
+        const SizedBox(height: PantasSpace.s4),
         Text(
           section.body,
-          style: context.type.body.copyWith(
-            fontSize: 16,
-            height: 1.55,
-            letterSpacing: 0,
-          ),
+          style: PantasType.phoneReaderBody
+              .copyWith(color: context.colors.textPrimary),
         ),
       ],
     ] else ...[
@@ -137,12 +165,12 @@ List<Widget> _documentChildren(
         'Updated ${DateFormat.yMMMd().format(document.updatedAt)}',
         style: context.type.footnote,
       ),
-      const SizedBox(height: 24),
+      const SizedBox(height: PantasSpace.s24),
       for (final section in document.sections) ...[
         Text(section.heading, style: context.type.emphasized),
-        const SizedBox(height: 8),
+        const SizedBox(height: PantasSpace.s8),
         Text(section.body, style: context.type.body),
-        const SizedBox(height: 24),
+        const SizedBox(height: PantasSpace.s24),
       ],
     ],
   ];
@@ -164,21 +192,26 @@ class OnboardingLegalPage extends StatelessWidget {
         children: [
           // The same 10 px logo inset as the onboarding frame's bar.
           const Padding(
-            padding: EdgeInsets.only(left: 10),
+            padding: EdgeInsets.only(left: PantasSpace.s10),
             child: WebTopBar(
               leading: PantasLogo(size: 28),
               title: Text(
                 'Pantas',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
+                style: PantasType.webH3,
               ),
             ),
           ),
           Expanded(
             child: SingleChildScrollView(
-              padding: const EdgeInsets.fromLTRB(40, 40, 40, 60),
+              padding: const EdgeInsets.fromLTRB(
+                PantasSpace.s40,
+                PantasSpace.s40,
+                PantasSpace.s40,
+                PantasSpace.s56,
+              ),
               child: Center(
                 child: SizedBox(
-                  width: 580,
+                  width: PantasLayout.qcolNarrow,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
@@ -205,35 +238,31 @@ class OnboardingLegalPage extends StatelessWidget {
                           label: const Text('Back'),
                           style: TextButton.styleFrom(
                             foregroundColor: t.colors.accent,
-                            minimumSize: const Size(0, 36),
+                            minimumSize: const Size(0, PantasSize.btnXs),
                             tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                             padding: EdgeInsets.zero,
-                            textStyle: t.style(16),
+                            textStyle: PantasType.webRowTitle,
                           ),
                         ),
                       ),
-                      const SizedBox(height: 28),
+                      const SizedBox(height: PantasSpace.s28),
                       Text(
                         documentId == 'privacy'
                             ? 'Privacy Policy'
                             : document?.title ?? 'Legal',
-                        style: t
-                            .style(36, weight: FontWeight.w700, height: 1.12)
-                            .copyWith(letterSpacing: -.864),
+                        style: PantasType.webH1
+                            .copyWith(color: t.colors.textPrimary),
                       ),
                       if (LegalDocumentBody.updatedLine(documentId)
                           case final updated?) ...[
-                        const SizedBox(height: 8),
+                        const SizedBox(height: PantasSpace.s8),
                         Text(
                           updated,
-                          style: t.style(
-                            17,
-                            height: 1.45,
-                            color: t.colors.secondaryLabel,
-                          ),
+                          style: PantasType.webLead
+                              .copyWith(color: t.colors.textSecondary),
                         ),
                       ],
-                      const SizedBox(height: 28),
+                      const SizedBox(height: PantasSpace.s28),
                       LegalDocumentBody(documentId: documentId),
                     ],
                   ),

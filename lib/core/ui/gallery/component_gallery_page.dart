@@ -38,6 +38,13 @@ import 'package:pantas/core/ui/components/toast.dart';
 import 'package:pantas/core/ui/components/value_wheel.dart';
 import 'package:pantas/core/ui/components/week_strip.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+
+// Heights of the demo frames. The design system sets no height for them.
+const double _pageFrameHeight = 260;
+const double _stepsFrameHeight = 360;
+const double _stateFrameHeight = 420;
+const double _figureFrameHeight = 80;
 
 class ComponentGalleryPage extends StatefulWidget {
   const ComponentGalleryPage({super.key});
@@ -208,7 +215,7 @@ class _ComponentGalleryPageState extends State<ComponentGalleryPage> {
       ],
       'PantasPage': [
         SizedBox(
-          height: 260,
+          height: _pageFrameHeight,
           child: PantasPage(
             title: 'Settings',
             backLabel: 'Home',
@@ -405,7 +412,7 @@ class _ComponentGalleryPageState extends State<ComponentGalleryPage> {
       ],
       'StepsScreen': [
         const SizedBox(
-          height: 360,
+          height: _stepsFrameHeight,
           child: StepsScreen(
             title: 'Restoring purchases',
             subtitle: 'This may take a moment.',
@@ -421,7 +428,7 @@ class _ComponentGalleryPageState extends State<ComponentGalleryPage> {
         StateView(message: 'Could not load your progress.', onRetry: noop),
         const StateView(message: 'No questions yet.'),
         SizedBox(
-          height: 420,
+          height: _stateFrameHeight,
           child: StateView.fullScreen(
             onRetry: noop,
             error: Exception('Not rendered'),
@@ -445,7 +452,7 @@ class _ComponentGalleryPageState extends State<ComponentGalleryPage> {
           subject: 'Math',
           stem: 'Use the figure.',
           figure: SizedBox(
-            height: 80,
+            height: _figureFrameHeight,
             child: Center(child: Text('Figure backing stays white.')),
           ),
         ),
@@ -578,21 +585,21 @@ class _ComponentGalleryPageState extends State<ComponentGalleryPage> {
               ],
             ),
             body: ListView(
-              padding: const EdgeInsets.all(16),
+              padding: const EdgeInsets.all(PantasSpace.s16),
               children: [
                 for (final name in ComponentGalleryPage.contractNames)
                   Padding(
                     key: ValueKey('gallery-$name'),
-                    padding: const EdgeInsets.only(bottom: 28),
+                    padding: const EdgeInsets.only(bottom: PantasSpace.s28),
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
                         Text(name, style: context.type.emphasized),
-                        const SizedBox(height: 12),
+                        const SizedBox(height: PantasSpace.s12),
                         for (final sample in demos[name]!) ...[
                           sample,
-                          const SizedBox(height: 10),
+                          const SizedBox(height: PantasSpace.s10),
                         ],
                       ],
                     ),
@@ -607,7 +614,7 @@ class _ComponentGalleryPageState extends State<ComponentGalleryPage> {
             label: 'Gallery sheet',
             onDismiss: () => setState(() => _sheet = false),
             child: Padding(
-              padding: const EdgeInsets.all(20),
+              padding: const EdgeInsets.all(PantasSpace.s20),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.stretch,

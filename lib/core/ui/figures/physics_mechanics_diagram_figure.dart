@@ -2,6 +2,7 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 
 /// Original mechanics diagrams for the seven physics briefs in original-code-a.
 class PhysicsMechanicsDiagramFigure extends StatelessWidget {
@@ -256,7 +257,10 @@ class _PhysicsMechanicsPainter extends CustomPainter {
           'acceleration',
           Offset(x0 + slot * 0.53, 72),
           slot * 0.45,
-          style: labelStyle.copyWith(color: board, fontSize: 11),
+          style: labelStyle.copyWith(
+            color: board,
+            fontSize: PantasType.phoneCaption.fontSize,
+          ),
           maxLines: 1,
         );
       } else {

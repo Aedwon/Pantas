@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 
+/// Height of the drawing. The design system sets no height for diagrams.
+const double _figureHeight = 150;
+
 /// A pulley system: a beam above, one fixed pulley or a run of movable
 /// ones, and a load hanging underneath.
 ///
@@ -60,7 +63,7 @@ class PulleySystemFigure extends StatelessWidget {
     return Semantics(
       label: description,
       child: SizedBox(
-        height: 150,
+        height: _figureHeight,
         child: CustomPaint(
           painter: _PulleyPainter(
             fixed: fixed,

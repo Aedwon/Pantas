@@ -34,6 +34,8 @@ void main() {
     final slider = tester.widget<Slider>(find.byType(Slider));
     slider.onChanged!(1.5);
     await tester.pumpAndSettle();
+    // The system slider prints the size beside the track.
+    expect(find.text('1.5\u00d7'), findsOneWidget);
     final prefs = AppPreferencesRepository(db);
     expect(await prefs.deviceValue('lesson_text_scale'), '1.5');
   });

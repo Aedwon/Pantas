@@ -2,15 +2,17 @@ import 'dart:typed_data';
 import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_border.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
 import 'package:pantas/features/wrapped/domain/wrapped_payload.dart';
 import 'package:pantas/features/wrapped/domain/wrapped_share_url.dart';
+import 'package:pantas/features/wrapped/rendering/wrapped_share_card.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
 // The light palette by value. A share card is rendered off screen and must
-// not follow the reader's dark mode: what they post is a sheet of paper.
-const Color _paper = Color(0xFFFBF9F4);
-const Color _ink = Color(0xFF26221B);
-const Color _inkMuted = Color(0xFF6E675C);
+// not follow the reader's dark mode.
+const PantasColors _palette = PantasColors.light;
 
 class WrappedPngRenderer {
   const WrappedPngRenderer();
@@ -29,22 +31,25 @@ class WrappedPngRenderer {
     final recorder = ui.PictureRecorder();
     final canvas = Canvas(recorder);
     const rect = Rect.fromLTWH(0, 0, 1080, 1920);
-    // Paper, not a gradient, and the same paper whatever the reader's theme
-    // is set to. This is the artefact a student posts, so it is the one place
-    // the identity is seen by people who have never opened the app.
+    // The share card gradient, the same whatever the reader's theme is set
+    // to. This is the artifact a student posts, so it is the one place the
+    // identity is seen by people who have never opened the app.
     canvas
-      ..drawRect(rect, Paint()..color = _paper)
-      // The rule under the wordmark, as on every ruled surface in the app.
       ..drawRect(
-        const Rect.fromLTWH(84, 190, 1080 - 168, 2),
-        Paint()..color = _ink,
+        rect,
+        Paint()..shader = wrappedShareGradient.createShader(rect),
+      )
+      // The rule under the wordmark.
+      ..drawRect(
+        const Rect.fromLTWH(84, 190, 1080 - 168, PantasBorder.ringSelected),
+        Paint()..color = _palette.onHero,
       );
     _drawText(
       canvas,
       'Pantas Wrapped',
       const Offset(84, 128),
       42,
-      _inkMuted,
+      _palette.onHeroSecondary,
       FontWeight.w700,
       width - 168,
     );
@@ -53,7 +58,7 @@ class WrappedPngRenderer {
       payload.title,
       const Offset(84, 640),
       76,
-      _ink,
+      _palette.onHero,
       FontWeight.w700,
       width - 168,
     );
@@ -63,7 +68,7 @@ class WrappedPngRenderer {
         payload.slides.first.body,
         const Offset(84, 880),
         46,
-        _ink,
+        _palette.onHero,
         FontWeight.w500,
         width - 168,
       );
@@ -74,7 +79,7 @@ class WrappedPngRenderer {
         payload.archetypeId.replaceAll('_', ' ').toUpperCase(),
         const Offset(84, 1260),
         34,
-        _inkMuted,
+        _palette.onHeroSecondary,
         FontWeight.w700,
         width - 168,
       );
@@ -84,7 +89,7 @@ class WrappedPngRenderer {
       shareUrl.replaceFirst('https://', ''),
       const Offset(84, 1700),
       34,
-      _inkMuted,
+      _palette.onHeroSecondary,
       FontWeight.w500,
       width - 168,
     );
@@ -93,7 +98,7 @@ class WrappedPngRenderer {
       'Watermarked by Pantas',
       const Offset(84, 1764),
       30,
-      _inkMuted,
+      _palette.onHeroSecondary,
       FontWeight.w500,
       width - 168,
     );
@@ -122,21 +127,21 @@ class WrappedPngRenderer {
           qrSize + padding * 2,
           qrSize + padding * 2,
         ),
-        const Radius.circular(16),
+        const Radius.circular(PantasRadius.xl),
       ),
-      Paint()..color = Colors.white,
+      Paint()..color = PantasColors.gray0,
     );
     final painter = QrPainter(
       data: data,
       version: QrVersions.auto,
       gapless: true,
-      eyeStyle: const QrEyeStyle(
+      eyeStyle: QrEyeStyle(
         eyeShape: QrEyeShape.square,
-        color: Color(0xFF16213E),
+        color: _palette.textPrimary,
       ),
-      dataModuleStyle: const QrDataModuleStyle(
+      dataModuleStyle: QrDataModuleStyle(
         dataModuleShape: QrDataModuleShape.square,
-        color: Color(0xFF16213E),
+        color: _palette.textPrimary,
       ),
     );
     canvas

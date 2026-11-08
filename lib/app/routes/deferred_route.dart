@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 
 /// Keeps route matching synchronous while its screen library loads.
 class DeferredRoute extends StatefulWidget {
@@ -61,7 +62,7 @@ class _DeferredRouteState extends State<DeferredRoute> {
                       }),
                     )
                   : Padding(
-                      padding: const EdgeInsets.all(24),
+                      padding: const EdgeInsets.all(PantasSpace.s24),
                       child: loadingFor(const AsyncLoading<void>()),
                     ),
             ),
