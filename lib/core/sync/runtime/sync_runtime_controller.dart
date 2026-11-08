@@ -62,7 +62,9 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
     required SyncCoordinator coordinator,
     required SyncRuntimeEngine engine,
     Stream<SyncRuntimeEvent>? runtimeEvents,
+    DateTime Function()? now,
   })  : _db = db,
+        _now = now ?? DateTime.now,
         _claimGateway = claimGateway,
         _activeContextStore = activeContextStore,
         _generationRepositoryForUid = generationRepositoryForUid,
@@ -71,7 +73,11 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
     _runtimeEventSubscription = runtimeEvents?.listen(_handleRuntimeEvent);
   }
 
+  /// Prefix of the sync_meta key that holds an account's last backup time.
+  static const lastBackupKeyPrefix = 'last_backup_at:';
+
   final AppDatabase _db;
+  final DateTime Function() _now;
   final SyncClaimGateway _claimGateway;
   final SyncActiveContextStore _activeContextStore;
   final GenerationRepositoryFactory _generationRepositoryForUid;
@@ -635,7 +641,27 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
         markers.isNotEmpty) {
       return Syncing(pendingCount: pending.length);
     }
-    return const SyncUpToDate();
+    return SyncUpToDate(lastSyncedAt: await _settledAt());
+  }
+
+  /// When this account's backup last finished. A settle that follows backing
+  /// up records the current time; a settle with nothing new keeps the time
+  /// already stored. Null until a device's first backup records one.
+  Future<DateTime?> _settledAt() async {
+    final context = await _activeContextStore.readStable();
+    if (context == null) return null;
+    final key = '$lastBackupKeyPrefix${context.uid}';
+    if (_status is Syncing || _status is SyncActivating) {
+      final now = _now().toUtc();
+      await _db.into(_db.syncMeta).insertOnConflictUpdate(
+            SyncMetaCompanion.insert(key: key, value: now.toIso8601String()),
+          );
+      return now;
+    }
+    final row = await (_db.select(_db.syncMeta)
+          ..where((meta) => meta.key.equals(key)))
+        .getSingleOrNull();
+    return row == null ? null : DateTime.tryParse(row.value);
   }
 
   Future<void> _enqueue(Future<void> Function() operation) {

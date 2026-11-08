@@ -61,7 +61,7 @@ void main() {
     });
 
     testWidgets(
-        'native BackupPage shows measured work without network internals',
+        'native BackupPage shows one status row without network internals',
         (tester) async {
       const syncStatus = Syncing(pendingCount: 12);
 
@@ -82,7 +82,8 @@ void main() {
       await tester.pump(const Duration(milliseconds: 100));
 
       expect(find.text('Backing up'), findsOneWidget);
-      expect(find.text('12 changes'), findsOneWidget);
+      // One row only (Aedwon, Nov 8): no waiting count.
+      expect(find.text('12 changes'), findsNothing);
       expect(find.textContaining('Pending queue'), findsNothing);
       expect(find.textContaining('Network'), findsNothing);
     });

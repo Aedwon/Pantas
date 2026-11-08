@@ -12,7 +12,6 @@ import 'package:pantas/core/auth/public_id_provider.dart';
 import 'package:pantas/core/auth/sign_in_result.dart';
 import 'package:pantas/core/error/app_exception.dart';
 import 'package:pantas/core/sync/providers.dart';
-import 'package:pantas/core/sync/sync_status.dart';
 import 'package:pantas/core/ui/components/avatar.dart';
 import 'package:pantas/core/ui/components/centered_dialog.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
@@ -82,16 +81,7 @@ class _AccountPageState extends ConsumerState<AccountPage> {
         ref.watch(entitlementProvider).valueOrNull?.proIsActive ?? false;
     final web = ref.watch(paymentsOnWebProvider);
     final sync = ref.watch(syncStatusProvider).valueOrNull;
-    final backup = switch (sync) {
-      SyncUpToDate() || SyncOk() => 'Saved',
-      Syncing() || SyncActivating() => 'Backing up',
-      SyncOffline() => 'Offline',
-      SyncError() ||
-      SyncFailedSince() ||
-      SyncPartialFailure() =>
-        "Couldn't back up",
-      _ => 'Not backed up'
-    };
+    final backup = backupLabel(sync, now: DateTime.now());
     void push(String path) {
       final router = GoRouter.maybeOf(context);
       if (router != null) unawaited(router.push<void>(path));

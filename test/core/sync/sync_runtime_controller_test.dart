@@ -1018,6 +1018,26 @@ void main() {
     expect((h.runtime.status as SyncError).message, 'push failed');
   });
 
+  test('a settle after backing up records the backup time', () async {
+    final h = _Harness();
+    addTearDown(h.close);
+    await h.seedUnsettled('outbox');
+    await h.runtime.update(
+      identity: const SyncIdentity(uid: 'user-1'),
+      entitlement: SyncEntitlement.pro,
+    );
+    expect(h.runtime.status, isA<Syncing>());
+    await h.db.delete(h.db.pendingSync).go();
+    await h.db.customStatement('delete from sync_local_mutations');
+    await h.runtime.update(
+      identity: const SyncIdentity(uid: 'user-1'),
+      entitlement: SyncEntitlement.pro,
+    );
+    final status = h.runtime.status;
+    expect(status, isA<SyncUpToDate>());
+    expect((status as SyncUpToDate).lastSyncedAt, isNotNull);
+  });
+
   test('failed rows are summarized in the web error report', () async {
     final sender = _ReportSender();
     final reporter = ClientReporter(
