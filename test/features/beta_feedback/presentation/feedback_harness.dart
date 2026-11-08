@@ -52,6 +52,8 @@ class FbHarness {
     this.wide = false,
     this.dark = false,
     this.reduceMotion = false,
+    this.width,
+    this.textScale = 1,
   })  : api = api ?? FakeBetaFeedbackApi(),
         images = images ?? FakeBetaImageSource(),
         now = now ?? ph(11, 12, 20);
@@ -62,6 +64,10 @@ class FbHarness {
   final bool wide;
   final bool dark;
   final bool reduceMotion;
+
+  /// A window width other than the 390 and 1440 of [wide].
+  final double? width;
+  final double textScale;
   late final AppDatabase db = inMemoryDatabase();
 
   /// Pumps [page] at the phone or wide size, signed in as a tester.
@@ -76,7 +82,7 @@ class FbHarness {
     debugWebPlatformOverride = wide ? true : null;
     addTearDown(() => debugWebPlatformOverride = null);
     tester.view
-      ..physicalSize = wide ? const Size(1440, 1400) : const Size(390, 1500)
+      ..physicalSize = Size(width ?? (wide ? 1440 : 390), wide ? 1400 : 1500)
       ..devicePixelRatio = 1;
     addTearDown(tester.view.resetPhysicalSize);
     addTearDown(tester.view.resetDevicePixelRatio);
@@ -104,8 +110,10 @@ class FbHarness {
           routerConfig: router,
           theme: dark ? buildDarkTheme(web: wide) : buildLightTheme(web: wide),
           builder: (context, child) => MediaQuery(
-            data: MediaQuery.of(context)
-                .copyWith(disableAnimations: reduceMotion),
+            data: MediaQuery.of(context).copyWith(
+              disableAnimations: reduceMotion,
+              textScaler: TextScaler.linear(textScale),
+            ),
             child: child!,
           ),
         ),

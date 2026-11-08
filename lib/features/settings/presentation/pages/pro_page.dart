@@ -14,9 +14,15 @@ import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/telemetry/telemetry.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pro_paused_line.dart';
+import 'package:pantas/core/ui/components/pro_tag.dart';
+import 'package:pantas/core/ui/components/selectable_tile.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/leave_page.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
@@ -33,6 +39,7 @@ import 'package:pantas/features/paywall/domain/products.dart';
 import 'package:pantas/features/review_prompt/application/review_prompt_providers.dart';
 import 'package:pantas/features/settings/application/carry_over_providers.dart';
 import 'package:pantas/features/settings/presentation/carry_over_prompt.dart';
+import 'package:pantas/features/settings/presentation/widgets/pro_plan_tile.dart';
 import 'package:pantas/features/settings/presentation/widgets/settings_pane_page.dart';
 import 'package:pantas/features/settings/presentation/widgets/settings_row.dart';
 import 'package:pantas/features/settings/presentation/widgets/settings_section.dart';
@@ -717,7 +724,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Transform.translate(
-                      offset: const Offset(-14, 0),
+                      offset: const Offset(-PantasSpace.s14, 0),
                       child: WebButton(
                         label: upgrade
                             ? 'Switch on Free'
@@ -725,8 +732,6 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                                 ? 'Restoring purchases'
                                 : 'Restore Purchases',
                         variant: WebButtonVariant.tertiary,
-                        height: 42,
-                        radius: 11,
                         busy: _busy,
                         onPressed: _busy
                             ? null
@@ -735,14 +740,15 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                                 : _restore,
                       ),
                     ),
-                    const SizedBox(width: 16),
+                    const SizedBox(width: PantasSpace.s16),
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
                           if (askGuardian)
                             Padding(
-                              padding: const EdgeInsets.only(bottom: 8),
+                              padding:
+                                  const EdgeInsets.only(bottom: PantasSpace.s8),
                               child: Text(
                                 askGuardianLine,
                                 textAlign: TextAlign.right,
@@ -778,7 +784,8 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                               selectedPass != null &&
                               sitting != null)
                             Padding(
-                              padding: const EdgeInsets.only(top: 8),
+                              padding:
+                                  const EdgeInsets.only(top: PantasSpace.s8),
                               child: Text(
                                 '${_money(selectedPass.priceString)} once. '
                                 'Ends after the exam on $sittingEnd.',
@@ -788,7 +795,8 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                             )
                           else if (showOffers && trial && !lapsed)
                             Padding(
-                              padding: const EdgeInsets.only(top: 8),
+                              padding:
+                                  const EdgeInsets.only(top: PantasSpace.s8),
                               child: Text(
                                 web
                                     ? 'No payment needed.'
@@ -815,7 +823,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                   ),
                 if (_feedback != null)
                   Padding(
-                    padding: const EdgeInsets.only(top: 8),
+                    padding: const EdgeInsets.only(top: PantasSpace.s8),
                     child: Text(_feedback!, style: context.webTokens.sm),
                   ),
               ],
@@ -823,7 +831,12 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
           : SafeArea(
               top: false,
               child: Padding(
-                padding: const EdgeInsets.fromLTRB(16, 14, 16, 16),
+                padding: const EdgeInsets.fromLTRB(
+                  PantasSpace.s16,
+                  PantasSpace.s14,
+                  PantasSpace.s16,
+                  PantasSpace.s16,
+                ),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -835,7 +848,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                           textAlign: TextAlign.center,
                           style: context.type.footnote,
                         ),
-                        const SizedBox(height: 8),
+                        const SizedBox(height: PantasSpace.s8),
                       ],
                       if (web && anonymous)
                         PantasButton(
@@ -858,7 +871,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                                   ),
                         ),
                       if (selectedPass != null && sitting != null) ...[
-                        const SizedBox(height: 8),
+                        const SizedBox(height: PantasSpace.s8),
                         Text(
                           '${_money(selectedPass.priceString)} once. '
                           'Ends after the exam on $sittingEnd.',
@@ -866,7 +879,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                           style: context.type.footnote,
                         ),
                       ] else if (trial && !lapsed) ...[
-                        const SizedBox(height: 8),
+                        const SizedBox(height: PantasSpace.s8),
                         Text(
                           web
                               ? 'No payment needed.'
@@ -917,7 +930,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
       children: [
         if (widget.checkoutReturnUri?.queryParameters['benefit'] == 'diagnosis')
           Padding(
-            padding: const EdgeInsets.only(bottom: 24),
+            padding: const EdgeInsets.only(bottom: PantasSpace.s24),
             child: Semantics(
               header: true,
               child: Text(
@@ -944,10 +957,10 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                         '${DateFormat.yMMMd().format(ended)}. Nothing was lost.'
                     : null,
           ),
-          const SizedBox(height: 24),
+          const SizedBox(height: PantasSpace.s24),
         ] else ...[
           if (!upgrade) Text('PANTAS PRO', style: context.type.sectionHeader),
-          const SizedBox(height: 12),
+          const SizedBox(height: PantasSpace.s12),
           if (!upgrade)
             Text(
               owned
@@ -961,43 +974,45 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
             ),
           if (upgrade)
             Container(
-              padding: const EdgeInsets.fromLTRB(18, 18, 18, 20),
+              padding: const EdgeInsets.fromLTRB(
+                PantasSpace.s18,
+                PantasSpace.s18,
+                PantasSpace.s18,
+                PantasSpace.s20,
+              ),
               decoration: BoxDecoration(
-                color: context.colors.surface,
-                borderRadius: BorderRadius.circular(18),
+                color: context.colors.surfaceCard,
+                borderRadius: BorderRadius.circular(PantasRadius.lg),
+              ),
+              foregroundDecoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(PantasRadius.lg),
+                border: Border.all(color: context.colors.divider),
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Icon(
-                    PantasIcons.pro,
-                    size: 36,
-                    color: context.colors.warningText,
-                  ),
-                  const SizedBox(height: 12),
+                  // Gold marks only Pro (D54), so the mark is the Pro mark.
+                  const ProMark(),
+                  const SizedBox(height: PantasSpace.s12),
                   Text(
                     '${exam!.shortName} has its own price tier',
-                    style: context.type.pageTitle
-                        .copyWith(fontSize: 28, height: 1.2),
+                    style: context.type.pageTitle,
                   ),
-                  const SizedBox(height: 6),
+                  const SizedBox(height: PantasSpace.s6),
                   Text(
                     'Your Pro covers '
                     "${widget.previousExamName ?? 'student exams'} "
                     'and other student exams only. '
                     'Pro for ${exam.shortName} covers those too '
                     'if you upgrade.',
-                    style: context.type.body.copyWith(
-                      fontSize: 16,
-                      color: context.colors.secondaryLabel,
-                      height: 1.45,
-                    ),
+                    style: PantasType.phoneCallout
+                        .copyWith(color: context.colors.textSecondary),
                   ),
                 ],
               ),
             ),
           if (owned) ...[
-            const SizedBox(height: 8),
+            const SizedBox(height: PantasSpace.s8),
             Text(
               "Thanks for backing Pantas. Here's everything that's yours.",
               style: context.type.body,
@@ -1011,7 +1026,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                   : 'It ended on ${DateFormat.yMMMd().format(ended)}.',
               style: context.type.body,
             ),
-          const SizedBox(height: 24),
+          const SizedBox(height: PantasSpace.s24),
           if (!upgrade)
             for (final feature in [
               (PantasIcons.unlimitedMocks, 'Unlimited mock exams'),
@@ -1021,19 +1036,23 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
               (PantasIcons.topicResults, 'Results by topic and lesson'),
             ])
               Padding(
-                padding: const EdgeInsets.only(bottom: 12),
+                padding: const EdgeInsets.only(bottom: PantasSpace.s12),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Icon(feature.$1, color: context.colors.accent, size: 21),
-                    const SizedBox(width: 12),
+                    Icon(
+                      feature.$1,
+                      color: context.colors.accent,
+                      size: PantasSize.icon,
+                    ),
+                    const SizedBox(width: PantasSpace.s12),
                     Expanded(
                       child: Text(feature.$2, style: context.type.subhead),
                     ),
                   ],
                 ),
               ),
-          const SizedBox(height: 24),
+          const SizedBox(height: PantasSpace.s24),
         ],
         if (paused) const ProPausedLine(),
         if (!upgrade &&
@@ -1103,13 +1122,13 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
               ),
             ],
           ),
-          const SizedBox(height: 22),
+          const SizedBox(height: PantasSpace.s20),
         ],
         if (waiting)
           SettingsSection(
             children: [
               Padding(
-                padding: const EdgeInsets.all(16),
+                padding: const EdgeInsets.all(PantasSpace.s16),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -1117,7 +1136,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                       'Waiting for your payment',
                       style: context.type.emphasized,
                     ),
-                    const SizedBox(height: 8),
+                    const SizedBox(height: PantasSpace.s8),
                     Text(
                       '${pendingPlan}Pay in GCash or at the counter to finish. '
                       'Pro turns on as soon as Google Play confirms it.',
@@ -1137,8 +1156,8 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
           if (exam != null)
             Padding(
               padding: EdgeInsets.only(
-                left: context.wideWeb ? 4 : 0,
-                bottom: context.wideWeb ? 10 : 0,
+                left: context.wideWeb ? PantasSpace.s4 : PantasSpace.s0,
+                bottom: context.wideWeb ? PantasSpace.s10 : PantasSpace.s0,
               ),
               child: Text(
                 'PLANS FOR ${exam.shortName.toUpperCase()}',
@@ -1147,130 +1166,65 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                     : context.type.sectionHeader,
               ),
             ),
-          SizedBox(height: context.wideWeb ? 6 : 12),
+          SizedBox(
+            height: context.wideWeb ? PantasSpace.s6 : PantasSpace.s12,
+          ),
           if (offering.isLoading) const Text('Loading subscriptions...'),
           if (packages.isNotEmpty)
-            _plansRow(
+            _plansGrid(
               context,
-              children: [
+              tiles: [
                 for (final package in packages)
-                  Expanded(
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: context.wideWeb ? 0 : 3,
-                      ),
-                      child: _plan(
-                        context,
-                        package,
-                        selectedPackage?.productId == package.productId,
-                        () => setState(
-                          () => _selected = package.productId,
-                        ),
-                        monthly: packages
-                            .where((p) => p.sku == PaywallSku.monthly)
-                            .firstOrNull,
-                        showTrial: !upgrade &&
-                            !lapsed &&
-                            !entitlement.proIsActive &&
-                            !(web && anonymous),
-                      ),
-                    ),
+                  _plan(
+                    context,
+                    package,
+                    selectedPackage?.productId == package.productId,
+                    () => setState(() => _selected = package.productId),
+                    monthly: packages
+                        .where((p) => p.sku == PaywallSku.monthly)
+                        .firstOrNull,
+                    showTrial: !upgrade &&
+                        !lapsed &&
+                        !entitlement.proIsActive &&
+                        !(web && anonymous),
                   ),
+              ],
+              wide: [
                 if (upgrade || context.wideWeb)
                   for (final pass in passes)
-                    Expanded(
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: context.wideWeb ? 0 : 3,
-                        ),
-                        child: _choiceCard(
-                          context,
-                          label: 'Season Pass',
-                          price: _money(pass.priceString),
-                          periodText: 'one time',
-                          detail: passDetail,
-                          selected: selectedPass == pass,
-                          choose: sitting == null
-                              ? null
-                              : () =>
-                                  setState(() => _selected = pass.productId),
-                        ),
-                      ),
+                    ProPlanTile(
+                      name: 'Season Pass',
+                      amount: _money(pass.priceString),
+                      period: 'one time',
+                      sub: passDetail,
+                      selected: selectedPass == pass,
+                      unavailable: sitting == null,
+                      onTap: sitting == null || _busy
+                          ? null
+                          : () => setState(() => _selected = pass.productId),
                     ),
               ],
             ),
           for (final pass in upgrade || context.wideWeb
               ? const <PaywallPassPackage>[]
               : passes) ...[
-            const SizedBox(height: 22),
-            Semantics(
-              button: true,
+            const SizedBox(height: PantasSpace.s10),
+            ProPlanTile(
+              name: 'Season Pass',
+              amount: _money(pass.priceString),
+              period: 'one time',
+              sub: passDetail,
               selected: selectedPass == pass,
-              enabled: sitting != null && !_busy,
-              child: InkWell(
-                onTap: sitting == null || _busy
-                    ? null
-                    : () => setState(() => _selected = pass.productId),
-                borderRadius: BorderRadius.circular(16),
-                child: Container(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 18,
-                    vertical: 16,
-                  ),
-                  decoration: BoxDecoration(
-                    color: selectedPass == pass
-                        ? context.colors.accentTint
-                        : context.colors.surface,
-                    borderRadius: BorderRadius.circular(16),
-                    border: Border.all(
-                      color: selectedPass == pass
-                          ? context.colors.accent
-                          : context.colors.separator,
-                      width: selectedPass == pass ? 2 : .5,
-                    ),
-                  ),
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Season Pass',
-                              style: context.type.emphasized,
-                            ),
-                            const SizedBox(height: 2),
-                            Text(
-                              passDetail,
-                              style: context.type.footnote,
-                            ),
-                          ],
-                        ),
-                      ),
-                      const SizedBox(width: 12),
-                      Flexible(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            Text(
-                              _money(pass.priceString),
-                              style: context.type.emphasized
-                                  .copyWith(fontSize: 22),
-                            ),
-                            Text('one time', style: context.type.caption),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
+              unavailable: sitting == null,
+              onTap: sitting == null || _busy
+                  ? null
+                  : () => setState(() => _selected = pass.productId),
             ),
           ],
           if (passes.isEmpty &&
               sitting == null &&
               exam?.priceTier == 'Civil Service') ...[
-            const SizedBox(height: 22),
+            const SizedBox(height: PantasSpace.s20),
             const SettingsSection(
               children: [
                 SettingsRow(
@@ -1282,7 +1236,9 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
             ),
           ],
           // The wide page adds its own 24 px before the Restore row.
-          SizedBox(height: context.wideWeb ? 0 : 24),
+          SizedBox(
+            height: context.wideWeb ? PantasSpace.s0 : PantasSpace.s24,
+          ),
           if (!offering.isLoading && packages.isEmpty)
             PantasButton(
               label: 'Try Again',
@@ -1307,7 +1263,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
   /// source; real centavos stay.
   String _money(String priceString) => wholePesos(priceString);
 
-  Widget _plan(
+  ProPlanTile _plan(
     BuildContext context,
     PaywallPackage package,
     bool selected,
@@ -1337,238 +1293,78 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
         : package.sku == PaywallSku.yearly && savings != null && savings > 0
             ? 'SAVE $savings%'
             : null;
-    return _choiceCard(
-      context,
-      label: label,
-      price: _money(package.priceString),
-      periodText: 'a ${_period(package.sku).toLowerCase()}',
-      detail: package.sku == PaywallSku.yearly
+    return ProPlanTile(
+      name: label,
+      amount: _money(package.priceString),
+      period: 'a ${_period(package.sku).toLowerCase()}',
+      sub: package.sku == PaywallSku.yearly
           ? '$monthlyEquivalent a month'
           : null,
-      badge: badge,
-      trialBadge: package.sku == PaywallSku.monthly,
+      tag: badge,
       selected: selected,
-      choose: choose,
+      onTap: _busy ? null : choose,
     );
   }
 
-  /// The plan cards side by side. They share one height, as the board's grid
-  /// does, so the bottoms line up whatever each card holds. The yearly card has
-  /// a line the others lack, and on the phone that left it taller.
-  Widget _plansRow(BuildContext context, {required List<Widget> children}) =>
-      IntrinsicHeight(
-        child: Row(
-          spacing: context.wideWeb ? 12 : 0,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: children,
-        ),
-      );
-
-  Widget _choiceCard(
+  /// The plan tiles: three across on a wide page and one per row on the phone
+  /// (SelectableTile, plan grid). The Season Pass tile in [wide] spans the row
+  /// below them. A tagged tile makes its untagged siblings keep the same
+  /// header slot, and the grid adds half the tag above itself (D190).
+  Widget _plansGrid(
     BuildContext context, {
-    required String label,
-    required String price,
-    required String periodText,
-    required bool selected,
-    required VoidCallback? choose,
-    String? detail,
-    String? badge,
-    bool trialBadge = false,
+    required List<ProPlanTile> tiles,
+    List<ProPlanTile> wide = const [],
   }) {
-    if (context.wideWeb) {
-      final t = context.webTokens;
-      return Semantics(
-        button: true,
-        selected: selected,
-        child: InkWell(
-          onTap: _busy ? null : choose,
-          borderRadius: BorderRadius.circular(16),
-          child: Stack(
-            clipBehavior: Clip.none,
-            fit: StackFit.passthrough,
-            children: [
-              Container(
-                width: double.infinity,
-                padding: EdgeInsets.fromLTRB(
-                  18 - (selected ? 2 : 1),
-                  18 - (selected ? 2 : 1),
-                  18 - (selected ? 2 : 1),
-                  16 - (selected ? 2 : 1),
-                ),
-                decoration: BoxDecoration(
-                  color: t.colors.surface,
-                  borderRadius: BorderRadius.circular(16),
-                  border: Border.all(
-                    color: selected ? t.colors.accent : t.colors.separator,
-                    width: selected ? 2 : 1,
-                  ),
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(label, style: t.style(15, weight: FontWeight.w600)),
-                    const SizedBox(height: 6),
-                    Wrap(
-                      spacing: 6,
-                      crossAxisAlignment: WrapCrossAlignment.center,
-                      children: [
-                        Text(
-                          price,
-                          style: t.style(26, weight: FontWeight.w700),
-                        ),
-                        Text(periodText, style: t.sub),
-                      ],
-                    ),
-                    if (detail != null) ...[
-                      const SizedBox(height: 6),
-                      Text(detail, style: t.sm),
-                    ],
-                  ],
-                ),
-              ),
-              if (badge != null)
-                Positioned(
-                  top: -10,
-                  left: 16,
-                  right: 8,
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 8,
-                        vertical: 2,
-                      ),
-                      decoration: BoxDecoration(
-                        color:
-                            trialBadge ? t.colors.accentFill : t.colors.label,
-                        borderRadius: BorderRadius.circular(99),
-                      ),
-                      child: Text(
-                        badge,
-                        style: t.style(
-                          12,
-                          weight: FontWeight.w600,
-                          color:
-                              trialBadge ? Colors.white : t.colors.background,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-            ],
-          ),
-        ),
-      );
-    }
-    final borderInset = selected ? 2.0 : .5;
-    return Semantics(
-      button: true,
-      selected: selected,
-      child: InkWell(
-        onTap: _busy ? null : choose,
-        borderRadius: BorderRadius.circular(16),
-        child: Stack(
-          clipBehavior: Clip.none,
-          children: [
-            Container(
-              width: double.infinity,
-              padding: EdgeInsets.fromLTRB(
-                10 - borderInset,
-                (MediaQuery.textScalerOf(context).scale(11) > 16.5 &&
-                            badge != null
-                        ? 48
-                        : 18) -
-                    borderInset,
-                10 - borderInset,
-                14 - borderInset,
-              ),
-              decoration: BoxDecoration(
-                color: selected
-                    ? context.colors.accentTint
-                    : context.colors.surface,
-                borderRadius: BorderRadius.circular(16),
-                border: Border.all(
-                  color: selected
-                      ? context.colors.accent
-                      : context.colors.separator,
-                  width: selected ? 2 : .5,
-                ),
-              ),
-              child: Column(
+    final anyTag = tiles.any((tile) => tile.tag != null);
+    final row = context.wideWeb && tiles.length > 1;
+    // Only tiles that share a row keep an empty tag slot, so their tops line
+    // up; a tile alone on its row needs none.
+    final shown = [
+      for (final tile in tiles)
+        if (row && anyTag && tile.tag == null)
+          ProPlanTile(
+            name: tile.name,
+            amount: tile.amount,
+            period: tile.period,
+            sub: tile.sub,
+            selected: tile.selected,
+            onTap: tile.onTap,
+            reserveTagSlot: true,
+          )
+        else
+          tile,
+    ];
+    return Padding(
+      padding: EdgeInsets.only(
+        top: anyTag
+            ? SelectableTile.tagHeight(context) / PantasSpace.s2
+            : PantasSpace.s0,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          if (row)
+            IntrinsicHeight(
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Text(
-                    label,
-                    style: context.type.subhead.copyWith(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w600,
-                      color: selected
-                          ? context.colors.accent
-                          : context.colors.secondaryLabel,
-                    ),
-                  ),
-                  const SizedBox(height: 4),
-                  // A price never breaks across lines: it shrinks to fit.
-                  FittedBox(
-                    fit: BoxFit.scaleDown,
-                    child: Text(
-                      price,
-                      maxLines: 1,
-                      softWrap: false,
-                      style: context.type.emphasized
-                          .copyWith(fontSize: 22, fontWeight: FontWeight.w700),
-                    ),
-                  ),
-                  Text(
-                    periodText,
-                    style: context.type.caption,
-                  ),
-                  if (detail != null) ...[
-                    const SizedBox(height: 4),
-                    Text(
-                      detail,
-                      style: context.type.caption.copyWith(
-                        fontWeight: FontWeight.w600,
-                        color: context.colors.accent,
-                      ),
-                    ),
+                  for (final (index, tile) in shown.indexed) ...[
+                    if (index > 0) const SizedBox(width: PantasSpace.s10),
+                    Expanded(child: tile),
                   ],
                 ],
               ),
-            ),
-            if (badge != null)
-              Positioned(
-                top: -10,
-                left: 0,
-                right: 0,
-                child: Align(
-                  alignment: Alignment.topCenter,
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 8,
-                      vertical: 2,
-                    ),
-                    decoration: BoxDecoration(
-                      color: trialBadge
-                          ? context.colors.accentFill
-                          : context.colors.label,
-                      borderRadius: BorderRadius.circular(99),
-                    ),
-                    child: Text(
-                      badge,
-                      textAlign: TextAlign.center,
-                      style: context.type.caption.copyWith(
-                        fontSize: 11,
-                        fontWeight: FontWeight.w700,
-                        color: trialBadge
-                            ? context.colors.onAccent
-                            : context.colors.background,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+            )
+          else
+            for (final (index, tile) in shown.indexed) ...[
+              if (index > 0) const SizedBox(height: PantasSpace.s10),
+              tile,
+            ],
+          for (final tile in wide) ...[
+            const SizedBox(height: PantasSpace.s10),
+            tile,
           ],
-        ),
+        ],
       ),
     );
   }
