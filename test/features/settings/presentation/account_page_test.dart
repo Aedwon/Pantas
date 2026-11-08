@@ -76,7 +76,7 @@ void main() {
     );
     expect(find.text('This browser only'), findsOneWidget);
     expect(find.text(webFreeBackupNote), findsOneWidget);
-    expect(find.text('Back Up with Pro'), findsOneWidget);
+    expect(find.text('Back Up with Pro'), findsNothing);
     expect(find.textContaining('this phone'), findsNothing);
   });
 

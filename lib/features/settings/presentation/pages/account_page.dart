@@ -383,7 +383,9 @@ class _AccountPageState extends ConsumerState<AccountPage> {
                     title: 'Details',
                     onTap: () => push('/settings/backup'),
                   )
-                else
+                // Web leaves this out, as the wide layout does: during the
+                // beta, Pro comes from the switch on Settings, not checkout.
+                else if (!web)
                   SettingsRow(
                     title: 'Back Up with Pro',
                     onTap: () => push('/settings/pro'),
