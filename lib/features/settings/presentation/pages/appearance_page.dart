@@ -2,10 +2,16 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pantas/core/ui/components/pantas_slider.dart';
 import 'package:pantas/core/ui/leave_page.dart';
 import 'package:pantas/core/ui/motion/press_scale.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/lesson_text_scale.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_border.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_keyboard_hints.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
@@ -14,6 +20,9 @@ import 'package:pantas/features/settings/presentation/widgets/settings_pane_page
 import 'package:pantas/features/settings/presentation/widgets/settings_row.dart';
 import 'package:pantas/features/settings/presentation/widgets/settings_section.dart';
 import 'package:pantas/features/settings/settings.dart';
+
+// The board's wide theme tile: a 128 px preview with 6 px on each side.
+const double _themeTileWidth = 140;
 
 class AppearancePage extends ConsumerWidget {
   const AppearancePage({super.key});
@@ -29,7 +38,6 @@ class AppearancePage extends ConsumerWidget {
               .setThemePreference(value),
         );
     if (context.wideWeb) {
-      final t = context.webTokens;
       return SettingsPanePage(
         section: 'Appearance',
         title: 'Appearance',
@@ -39,12 +47,14 @@ class AppearancePage extends ConsumerWidget {
             footer: "Automatic follows your computer's light or dark setting.",
             children: [
               Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 16, vertical: 18),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: PantasSpace.s16,
+                  vertical: PantasSpace.s18,
+                ),
                 child: Wrap(
                   alignment: WrapAlignment.center,
-                  spacing: 24,
-                  runSpacing: 18,
+                  spacing: PantasSpace.s24,
+                  runSpacing: PantasSpace.s18,
                   children: [
                     for (final value in ThemePreference.values)
                       _ThemeTile(
@@ -57,7 +67,7 @@ class AppearancePage extends ConsumerWidget {
               ),
             ],
           ),
-          const SizedBox(height: 24),
+          const SizedBox(height: PantasSpace.s24),
           SettingsSection(
             header: 'Text size',
             footer: 'Lessons and questions use this size. '
@@ -65,52 +75,20 @@ class AppearancePage extends ConsumerWidget {
                 'whole page.',
             children: [
               Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 16, vertical: 18),
-                child: Row(
-                  children: [
-                    Text('A', style: t.style(14)),
-                    const SizedBox(width: 2),
-                    Expanded(
-                      child: SliderTheme(
-                        data: SliderTheme.of(context).copyWith(
-                          trackHeight: 4,
-                          activeTrackColor: t.colors.accentFill,
-                          inactiveTrackColor: t.colors.separator,
-                          thumbColor: Colors.white,
-                          overlayColor: Colors.transparent,
-                          thumbShape: const RoundSliderThumbShape(
-                            enabledThumbRadius: 13,
-                            elevation: 3,
-                          ),
-                          overlayShape: SliderComponentShape.noOverlay,
-                          trackShape: const RoundedRectSliderTrackShape(),
-                        ),
-                        child: Slider(
-                          min: 1,
-                          max: 2,
-                          value: scale.clamp(1, 2),
-                          onChanged: (value) => unawaited(
-                            ref
-                                .read(lessonTextScaleProvider.notifier)
-                                .setScale(value),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Text(
-                      'A',
-                      // ST_LargeText: 31 px row, 67 px card.
-                      style: t.style(24).copyWith(
-                            height: context.wideWeb ? 31 / 24 : null,
-                          ),
-                    ),
-                  ],
+                padding: const EdgeInsets.symmetric(
+                  horizontal: PantasSpace.s16,
+                  vertical: PantasSpace.s18,
+                ),
+                child: _TextSizeSlider(
+                  scale: scale,
+                  onChanged: (value) => unawaited(
+                    ref.read(lessonTextScaleProvider.notifier).setScale(value),
+                  ),
                 ),
               ),
             ],
           ),
-          const SizedBox(height: 24),
+          const SizedBox(height: PantasSpace.s24),
           SettingsSection(
             children: [
               SettingsRow(
@@ -145,12 +123,17 @@ class AppearancePage extends ConsumerWidget {
           footer: "Automatic follows your phone's light or dark setting.",
           children: [
             Container(
-              padding: const EdgeInsets.fromLTRB(16, 18, 16, 16),
+              padding: const EdgeInsets.fromLTRB(
+                PantasSpace.s16,
+                PantasSpace.s18,
+                PantasSpace.s16,
+                PantasSpace.s16,
+              ),
               decoration: BoxDecoration(
                 border: Border(
                   bottom: BorderSide(
                     color: context.colors.separator,
-                    width: .5,
+                    width: PantasBorder.hairline,
                   ),
                 ),
               ),
@@ -163,7 +146,7 @@ class AppearancePage extends ConsumerWidget {
                     selected: preference == ThemePreference.light,
                     onTap: () => setTheme(ThemePreference.light),
                   ),
-                  const SizedBox(width: 56),
+                  const SizedBox(width: PantasSpace.s56),
                   _PhoneTile(
                     value: ThemePreference.dark,
                     label: 'Dark',
@@ -185,65 +168,23 @@ class AppearancePage extends ConsumerWidget {
             ),
           ],
         ),
-        const SizedBox(height: 22),
+        const SizedBox(height: PantasSpace.s20),
         SettingsSection(
           header: 'Text size',
           footer: 'Lessons and questions use this size.',
           children: [
             Padding(
-              padding: const EdgeInsets.all(16),
-              child: Row(
-                children: [
-                  Text(
-                    'A',
-                    style: context.type.subhead.copyWith(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w500,
-                      color: context.colors.secondaryLabel,
-                    ),
-                  ),
-                  const SizedBox(width: 14),
-                  Expanded(
-                    child: SliderTheme(
-                      data: SliderTheme.of(context).copyWith(
-                        trackHeight: 4,
-                        activeTrackColor: context.colors.accentFill,
-                        inactiveTrackColor: context.colors.fill,
-                        thumbColor: Colors.white,
-                        overlayColor: Colors.transparent,
-                        thumbShape: const RoundSliderThumbShape(
-                          enabledThumbRadius: 13,
-                          elevation: 3,
-                        ),
-                        overlayShape: SliderComponentShape.noOverlay,
-                        trackShape: const RoundedRectSliderTrackShape(),
-                      ),
-                      child: Slider(
-                        min: 1,
-                        max: 2,
-                        value: scale.clamp(1, 2),
-                        onChanged: (value) => unawaited(
-                          ref
-                              .read(lessonTextScaleProvider.notifier)
-                              .setScale(value),
-                        ),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(width: 14),
-                  Text(
-                    'A',
-                    style: context.type.body.copyWith(
-                      fontSize: 22,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ],
+              padding: const EdgeInsets.all(PantasSpace.s16),
+              child: _TextSizeSlider(
+                scale: scale,
+                onChanged: (value) => unawaited(
+                  ref.read(lessonTextScaleProvider.notifier).setScale(value),
+                ),
               ),
             ),
           ],
         ),
-        const SizedBox(height: 22),
+        const SizedBox(height: PantasSpace.s20),
         SettingsSection(
           footer: 'Keeps how you sorted "See all topics and lessons" for next '
               'time.',
@@ -299,9 +240,11 @@ class _ThemeTile extends StatelessWidget {
             behavior: HitTestBehavior.opaque,
             onTap: onTap,
             child: SizedBox(
-              width: 140,
+              width: _themeTileWidth,
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 1),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: PantasSpace.s6,
+                ),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
@@ -310,25 +253,25 @@ class _ThemeTile extends StatelessWidget {
                       height: 84,
                       decoration: BoxDecoration(
                         color: value == ThemePreference.dark
-                            ? const Color(0xFF151515)
-                            : const Color(0xFFF5F5F7),
+                            ? PantasColors.dark.bgPage
+                            : PantasColors.light.bgPage,
                         gradient: value == ThemePreference.system
-                            ? const LinearGradient(
+                            ? LinearGradient(
                                 begin: Alignment.topLeft,
                                 end: Alignment.bottomRight,
                                 colors: [
-                                  Color(0xFFF5F5F7),
-                                  Color(0xFFF5F5F7),
-                                  Color(0xFF151515),
-                                  Color(0xFF151515),
+                                  PantasColors.light.bgPage,
+                                  PantasColors.light.bgPage,
+                                  PantasColors.dark.bgPage,
+                                  PantasColors.dark.bgPage,
                                 ],
-                                stops: [0, .5, .5, 1],
+                                stops: const [0, .5, .5, 1],
                               )
                             : null,
-                        borderRadius: BorderRadius.circular(14),
+                        borderRadius: BorderRadius.circular(PantasRadius.lg),
                         border: selected
                             ? null
-                            : Border.all(color: const Color(0xFFE3E3E8)),
+                            : Border.all(color: PantasColors.light.divider),
                         boxShadow: selected
                             ? [
                                 BoxShadow(
@@ -339,12 +282,12 @@ class _ThemeTile extends StatelessWidget {
                             : null,
                       ),
                     ),
-                    const SizedBox(height: 10),
+                    const SizedBox(height: PantasSpace.s10),
                     Wrap(
                       alignment: WrapAlignment.center,
                       crossAxisAlignment: WrapCrossAlignment.center,
-                      spacing: 8,
-                      runSpacing: 2,
+                      spacing: PantasSpace.s8,
+                      runSpacing: PantasSpace.s2,
                       children: [
                         Container(
                           width: 20,
@@ -356,21 +299,23 @@ class _ThemeTile extends StatelessWidget {
                             border: selected
                                 ? null
                                 : Border.all(
-                                    color: t.dark
-                                        ? t.colors.controlOutline
-                                        : const Color(0xFFC7C7CC),
-                                    width: 1.5,
+                                    color: t.colors.borderControl,
+                                    width: PantasBorder.ringStrong,
                                   ),
                           ),
                           child: selected
-                              ? const Icon(
+                              ? Icon(
                                   Icons.check,
                                   size: 11,
-                                  color: Colors.white,
+                                  color: t.colors.onAccent,
                                 )
                               : null,
                         ),
-                        Text(label, style: t.style(15)),
+                        Text(
+                          label,
+                          style: PantasType.webSub
+                              .copyWith(color: t.colors.textPrimary),
+                        ),
                       ],
                     ),
                   ],
@@ -415,7 +360,8 @@ class _PhoneTile extends StatelessWidget {
             borderRadius: BorderRadius.circular(radius),
           ),
         );
-    final soft = dark ? const Color(0xFF2A2A2A) : const Color(0xFFE5E5EA);
+    final palette = dark ? PantasColors.dark : PantasColors.light;
+    final soft = palette.fill;
     return Semantics(
       button: true,
       selected: selected,
@@ -432,31 +378,29 @@ class _PhoneTile extends StatelessWidget {
               Container(
                 width: 74,
                 height: 140,
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 9, vertical: 14),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: PantasSpace.s8,
+                  vertical: PantasSpace.s14,
+                ),
                 decoration: BoxDecoration(
-                  color: dark ? const Color(0xFF151515) : Colors.white,
-                  borderRadius: BorderRadius.circular(14),
-                  border: Border.all(color: const Color(0xFFE3E3E8)),
+                  color: dark
+                      ? PantasColors.dark.bgPage
+                      : PantasColors.light.surfaceCard,
+                  borderRadius: BorderRadius.circular(PantasRadius.lg),
+                  border: Border.all(color: PantasColors.light.divider),
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     Align(
                       alignment: Alignment.centerLeft,
-                      child: bar(
-                        9,
-                        dark
-                            ? const Color(0xFF3D3D3D)
-                            : const Color(0xFFD1D1D6),
-                        width: 40,
-                      ),
+                      child: bar(9, palette.dividerStrong, width: 40),
                     ),
-                    const SizedBox(height: 7),
+                    const SizedBox(height: PantasSpace.s6),
                     bar(34, soft, radius: 6),
-                    const SizedBox(height: 7),
+                    const SizedBox(height: PantasSpace.s6),
                     bar(6, soft),
-                    const SizedBox(height: 7),
+                    const SizedBox(height: PantasSpace.s6),
                     Align(
                       alignment: Alignment.centerLeft,
                       child: FractionallySizedBox(
@@ -467,9 +411,13 @@ class _PhoneTile extends StatelessWidget {
                   ],
                 ),
               ),
-              const SizedBox(height: 8),
-              Text(label, style: context.type.body.copyWith(fontSize: 15)),
-              const SizedBox(height: 8),
+              const SizedBox(height: PantasSpace.s8),
+              Text(
+                label,
+                style: PantasType.phoneExplanation
+                    .copyWith(color: context.colors.textPrimary),
+              ),
+              const SizedBox(height: PantasSpace.s8),
               Container(
                 width: 22,
                 height: 22,
@@ -479,16 +427,42 @@ class _PhoneTile extends StatelessWidget {
                   color: selected ? context.colors.accentFill : null,
                   border: selected
                       ? null
-                      : Border.all(color: const Color(0xFFC7C7CC), width: 1.5),
+                      : Border.all(
+                          color: context.colors.borderControl,
+                          width: PantasBorder.ringStrong,
+                        ),
                 ),
                 child: selected
-                    ? const Icon(Icons.check, size: 12, color: Colors.white)
+                    ? Icon(
+                        Icons.check,
+                        size: 12,
+                        color: context.colors.onAccent,
+                      )
                     : null,
               ),
             ],
           ),
         ),
       ),
+    );
+  }
+}
+
+/// The lesson text size control: the system Slider, 1.0 to 2.0 times.
+class _TextSizeSlider extends StatelessWidget {
+  const _TextSizeSlider({required this.scale, required this.onChanged});
+  final double scale;
+  final ValueChanged<double> onChanged;
+
+  @override
+  Widget build(BuildContext context) {
+    final value = scale.clamp(1.0, 2.0);
+    final shown = value.toStringAsFixed(1);
+    return PantasSlider(
+      value: value,
+      onChanged: onChanged,
+      valueText: '$shown\u00d7',
+      semanticValue: '$shown times',
     );
   }
 }

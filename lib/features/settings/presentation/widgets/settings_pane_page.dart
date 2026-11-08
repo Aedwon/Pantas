@@ -13,6 +13,10 @@ import 'package:pantas/core/ui/icons/own/own_icons.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/motion/pane_transition.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
@@ -31,7 +35,7 @@ class SettingsPanePage extends StatelessWidget {
     this.backLabel,
     this.onBack,
     this.bottom,
-    this.bottomInset = 24,
+    this.bottomInset = PantasSpace.s24,
     super.key,
     this.description,
     this.icon,
@@ -39,10 +43,10 @@ class SettingsPanePage extends StatelessWidget {
     this.noHeading = false,
     this.compactTitle = false,
     this.titleLineHeight = 1.12,
-    this.titleGap = 22,
+    this.titleGap = PantasSpace.s20,
     this.titleSuffix,
     this.headingGlyph,
-    this.headingGap = 24,
+    this.headingGap = PantasSpace.s24,
     this.hideHeading = false,
   });
   final String title;
@@ -90,13 +94,28 @@ class SettingsPanePage extends StatelessWidget {
         bottom: bottom,
         bottomInset: bottomInset,
         // Settings boards put the back row 4 px from the edge.
-        backPadding: const EdgeInsets.fromLTRB(4, 0, 16, 0),
+        backPadding: const EdgeInsets.fromLTRB(
+          PantasSpace.s4,
+          PantasSpace.s0,
+          PantasSpace.s16,
+          PantasSpace.s0,
+        ),
         titleStyle: compactTitle
             ? context.type.pageTitleCompact.copyWith(height: titleLineHeight)
             : null,
         titlePadding: compactTitle
-            ? EdgeInsets.fromLTRB(4, 6, 4, titleGap)
-            : const EdgeInsets.fromLTRB(4, 0, 4, 20),
+            ? EdgeInsets.fromLTRB(
+                PantasSpace.s4,
+                PantasSpace.s6,
+                PantasSpace.s4,
+                titleGap,
+              )
+            : const EdgeInsets.fromLTRB(
+                PantasSpace.s4,
+                PantasSpace.s0,
+                PantasSpace.s4,
+                PantasSpace.s20,
+              ),
         hero: noHeading
             ? const SizedBox.shrink()
             : titleSuffix != null || (compactTitle && description != null)
@@ -132,11 +151,8 @@ class SettingsPanePage extends StatelessWidget {
                 'Your exam' =>
                   Icon(PantasIcons.exam, size: 22, color: t.colors.accent),
                 // The list row's size and blue, like the other headers.
-                'Practice' => Icon(
-                    PantasIcons.practice,
-                    size: 22,
-                    color: const Color(0xFF2F6FEB),
-                  ),
+                'Practice' =>
+                  Icon(PantasIcons.practice, size: 22, color: t.colors.accent),
                 'Appearance' => _grayGlyph(t, PantasIcons.appearance),
                 'About' => _grayGlyph(t, PantasIcons.about),
                 _ => null,
@@ -169,10 +185,12 @@ class SettingsPanePage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 4),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: PantasSpace.s4,
+                      ),
                       child: Text('Settings', style: t.h1),
                     ),
-                    const SizedBox(height: 26),
+                    const SizedBox(height: PantasSpace.s24),
                   ],
                 ),
               ),
@@ -191,8 +209,10 @@ class SettingsPanePage extends StatelessWidget {
                       ),
                       ColoredBox(
                         color: background,
-                        child:
-                            SizedBox(width: 28, height: constraints.maxHeight),
+                        child: SizedBox(
+                          width: PantasSpace.s28,
+                          height: constraints.maxHeight,
+                        ),
                       ),
                       Expanded(
                         child: PaneDetailMotion(
@@ -200,7 +220,8 @@ class SettingsPanePage extends StatelessWidget {
                           child: SingleChildScrollView(
                             key: const ValueKey('settings-detail'),
                             padding: EdgeInsets.only(
-                              bottom: 24 + context.webPageBottomInset,
+                              bottom:
+                                  PantasSpace.s24 + context.webPageBottomInset,
                             ),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -210,28 +231,34 @@ class SettingsPanePage extends StatelessWidget {
                                     children: [
                                       WebBackLink(
                                         label: backLabel!,
-                                        fontSize: 15,
-                                        tightIcon: true,
                                         onPressed: onBack ?? () {},
                                       ),
-                                      const SizedBox(width: 8),
+                                      const SizedBox(width: PantasSpace.s8),
                                       const WebKeyHint('Esc'),
                                     ],
                                   ),
-                                  const SizedBox(height: 14),
+                                  const SizedBox(height: PantasSpace.s14),
                                 ],
                                 if (!hideHeading) ...[
                                   Padding(
-                                    padding:
-                                        const EdgeInsets.fromLTRB(4, 4, 4, 0),
+                                    padding: const EdgeInsets.fromLTRB(
+                                      PantasSpace.s4,
+                                      PantasSpace.s4,
+                                      PantasSpace.s4,
+                                      PantasSpace.s0,
+                                    ),
                                     child: Row(
                                       children: [
                                         if (headingGlyph != null) ...[
                                           headingGlyph!,
-                                          const SizedBox(width: 14),
+                                          const SizedBox(
+                                            width: PantasSpace.s14,
+                                          ),
                                         ] else if (headingIcon != null) ...[
                                           headingIcon,
-                                          const SizedBox(width: 14),
+                                          const SizedBox(
+                                            width: PantasSpace.s14,
+                                          ),
                                         ],
                                         Expanded(
                                           child: Column(
@@ -266,7 +293,7 @@ class SettingsPanePage extends StatelessWidget {
                                 ],
                                 ...children,
                                 if (bottom != null) ...[
-                                  const SizedBox(height: 24),
+                                  const SizedBox(height: PantasSpace.s24),
                                   bottom!,
                                 ],
                               ],
@@ -397,9 +424,9 @@ class SettingsNavigation extends ConsumerWidget {
           trailing: trailing,
           // The label keeps one weight, so the text does not jump while the
           // tint fades (item 17, demo 4).
-          titleStyle: t.style(16),
-          horizontalPadding: 16,
-          compact: true,
+          titleStyle: PantasType.webRowTitleSettings
+              .copyWith(color: t.colors.textPrimary),
+          horizontalPadding: PantasLayout.rowInsetSettings,
           leadingGap: 12,
           selected: selected == label,
           enterFromSelected: from == null ? null : from == label,
@@ -418,7 +445,6 @@ class SettingsNavigation extends ConsumerWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         WebCard(
-          radius: 16,
           // Until auth is known the card is a skeleton. Reading no user as
           // "Not signed in" showed that line for a frame (7W-16).
           child: !auth.hasValue && !auth.hasError
@@ -428,9 +454,12 @@ class SettingsNavigation extends ConsumerWidget {
                       ? settings.name!
                       : 'Add your name',
                   subtitle: user?.email ?? 'Not signed in',
-                  titleStyle: t.style(17, weight: FontWeight.w600),
-                  horizontalPadding: 16,
-                  verticalPadding: 14,
+                  titleStyle: PantasType.webRowTitle.copyWith(
+                    fontWeight: FontWeight.w600,
+                    color: t.colors.textPrimary,
+                  ),
+                  horizontalPadding: PantasLayout.rowInsetSettings,
+                  verticalPadding: PantasSpace.s14,
                   leadingGap: 12,
                   selected: selected == 'Account',
                   enterFromSelected: from == null ? null : from == 'Account',
@@ -451,11 +480,10 @@ class SettingsNavigation extends ConsumerWidget {
                   onPressed: () => open('/settings/account'),
                 ),
         ),
-        const SizedBox(height: 18),
+        const SizedBox(height: PantasSpace.s18),
         if (tester) ...[
           // FbDesk: Feedback and the Beta switch share the first card.
           WebCard(
-            radius: 16,
             child: Column(
               children: [
                 row(
@@ -465,7 +493,8 @@ class SettingsNavigation extends ConsumerWidget {
                   titleSuffix: const SettingsBetaMark(),
                   trailing: FeedbackRowValue(
                     value: ref.watch(feedbackRowValueProvider),
-                    style: t.style(15, color: t.colors.secondaryLabel),
+                    style: PantasType.webRowValue
+                        .copyWith(color: t.colors.textSecondary),
                     selectedColor: t.colors.accent,
                     selected: selected == 'Feedback',
                   ),
@@ -476,10 +505,9 @@ class SettingsNavigation extends ConsumerWidget {
             ),
           ),
           const BetaProNote(),
-          const SizedBox(height: 18),
+          const SizedBox(height: PantasSpace.s18),
         ],
         WebCard(
-          radius: 16,
           child: Column(
             children: [
               row(
@@ -493,9 +521,8 @@ class SettingsNavigation extends ConsumerWidget {
           ),
         ),
         if (!tester) const BetaProNote(),
-        const SizedBox(height: 18),
+        const SizedBox(height: PantasSpace.s18),
         WebCard(
-          radius: 16,
           child: Column(
             children: [
               row(
@@ -507,11 +534,7 @@ class SettingsNavigation extends ConsumerWidget {
               row(
                 'Practice',
                 '/settings/practice',
-                Icon(
-                  PantasIcons.practice,
-                  size: 22,
-                  color: const Color(0xFF2F6FEB),
-                ),
+                Icon(PantasIcons.practice, size: 22, color: t.colors.accent),
                 value: length < 0 ? 'All questions' : '$length questions',
               ),
               row(
@@ -527,9 +550,8 @@ class SettingsNavigation extends ConsumerWidget {
             ],
           ),
         ),
-        const SizedBox(height: 18),
+        const SizedBox(height: PantasSpace.s18),
         WebCard(
-          radius: 16,
           child:
               row('About', '/settings/about', _grayGlyph(t, PantasIcons.about)),
         ),
@@ -562,13 +584,18 @@ class _PhoneHeading extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Padding(
-          padding: EdgeInsets.fromLTRB(4, 6, 4, subline == null ? gap : 6),
+          padding: EdgeInsets.fromLTRB(
+            PantasSpace.s4,
+            PantasSpace.s6,
+            PantasSpace.s4,
+            subline == null ? gap : PantasSpace.s6,
+          ),
           child: Semantics(
             header: true,
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(title, style: style),
+                Flexible(child: Text(title, style: style)),
                 if (suffix != null) suffix!,
               ],
             ),
@@ -576,14 +603,16 @@ class _PhoneHeading extends StatelessWidget {
         ),
         if (subline != null)
           Padding(
-            padding: const EdgeInsets.fromLTRB(4, 0, 4, 22),
+            padding: const EdgeInsets.fromLTRB(
+              PantasSpace.s4,
+              PantasSpace.s0,
+              PantasSpace.s4,
+              PantasSpace.s20,
+            ),
             child: Text(
               subline!,
-              style: context.type.body.copyWith(
-                fontSize: 15,
-                height: 1.4,
-                letterSpacing: 0,
-                color: context.colors.secondaryLabel,
+              style: PantasType.phoneExplanation.copyWith(
+                color: context.colors.textSecondary,
               ),
             ),
           ),
@@ -608,49 +637,46 @@ class _SettingsHero extends StatelessWidget {
   Widget build(BuildContext context) {
     final c = context.colors;
     final icon = switch (section) {
-      'Practice' =>
-        Icon(PantasIcons.practice, size: 42, color: const Color(0xFF2F6FEB)),
+      'Practice' => Icon(PantasIcons.practice, size: 42, color: c.accent),
       'Appearance' => IconTheme(
-          data: const IconThemeData(color: Color(0xFF5F3DC4), size: 42),
+          data: IconThemeData(color: c.textSecondary, size: 42),
           child: context.wideWeb
               ? PantasIcons.appearance
-              : const OwnIcon(OwnIconKind.appearance, fill: Color(0xFF1D1D1F)),
+              : OwnIcon(OwnIconKind.appearance, fill: c.label),
         ),
       _ => Icon(PantasIcons.exam, size: 42, color: c.accent),
     };
     return Padding(
-      padding: const EdgeInsets.only(top: 6, bottom: 22),
+      padding:
+          const EdgeInsets.only(top: PantasSpace.s6, bottom: PantasSpace.s20),
       child: Container(
-        padding: const EdgeInsets.fromLTRB(18, 18, 18, 20),
+        padding: const EdgeInsets.fromLTRB(
+          PantasSpace.s18,
+          PantasSpace.s18,
+          PantasSpace.s18,
+          PantasSpace.s20,
+        ),
         decoration: BoxDecoration(
           color: c.surface,
-          borderRadius: BorderRadius.circular(18),
+          borderRadius: BorderRadius.circular(PantasRadius.xl),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox.square(dimension: 52, child: Center(child: icon)),
-            const SizedBox(height: 10),
+            const SizedBox(height: PantasSpace.s10),
             Semantics(
               header: true,
               child: Text(
                 title,
-                style: context.type.sectionHero.copyWith(
-                  fontSize: 24,
-                  fontWeight: FontWeight.w700,
-                  height: 1.35,
-                  letterSpacing: -0.288,
-                ),
+                style: PantasType.phoneTitle2.copyWith(color: c.textPrimary),
               ),
             ),
-            const SizedBox(height: 4),
+            const SizedBox(height: PantasSpace.s4),
             Text(
               subtitle,
-              style: context.type.body.copyWith(
-                fontSize: 15,
-                height: 1.4,
-                letterSpacing: 0,
-                color: c.secondaryLabel,
+              style: PantasType.phoneExplanation.copyWith(
+                color: c.textSecondary,
               ),
             ),
           ],
@@ -668,16 +694,19 @@ class _AccountCardSkeleton extends StatelessWidget {
   @override
   Widget build(BuildContext context) => const SkeletonPulse(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+          padding: EdgeInsets.symmetric(
+            horizontal: PantasSpace.s16,
+            vertical: PantasSpace.s14,
+          ),
           child: Row(
             children: [
-              SkeletonBlock(width: 44, height: 44, radius: 22),
-              SizedBox(width: 12),
+              SkeletonBlock(width: 44, height: 44, radius: PantasRadius.r2xl),
+              SizedBox(width: PantasSpace.s12),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SkeletonBlock(width: 120, height: 17),
-                  SizedBox(height: 6),
+                  SizedBox(height: PantasSpace.s6),
                   SkeletonBlock(width: 170, height: 14),
                 ],
               ),

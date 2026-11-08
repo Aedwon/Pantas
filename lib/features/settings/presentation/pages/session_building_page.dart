@@ -6,6 +6,8 @@ import 'package:pantas/core/ui/components/segmented_switch.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/leave_page.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
 import 'package:pantas/features/quiz/domain/models/quiz_preferences.dart';
@@ -39,8 +41,16 @@ class SessionBuildingPage extends ConsumerWidget {
           children: [
             Padding(
               padding: context.wideWeb
-                  ? const EdgeInsets.symmetric(horizontal: 16, vertical: 14)
-                  : const EdgeInsets.fromLTRB(16, 6, 16, 6),
+                  ? const EdgeInsets.symmetric(
+                      horizontal: PantasSpace.s16,
+                      vertical: PantasSpace.s14,
+                    )
+                  : const EdgeInsets.fromLTRB(
+                      PantasSpace.s16,
+                      PantasSpace.s6,
+                      PantasSpace.s16,
+                      PantasSpace.s6,
+                    ),
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: ConstrainedBox(
@@ -68,7 +78,7 @@ class SessionBuildingPage extends ConsumerWidget {
             ),
           ],
         ),
-        const SizedBox(height: 24),
+        const SizedBox(height: PantasSpace.s24),
         SettingsSection(
           header: 'How sessions are built',
           footer: 'Studies show that mixing topics is harder now but gets '
@@ -103,7 +113,7 @@ class SessionBuildingPage extends ConsumerWidget {
                 ),
           ],
         ),
-        const SizedBox(height: 24),
+        const SizedBox(height: PantasSpace.s24),
         SettingsSection(
           footer: 'For mock exams: no pausing and no ending a section early. '
               'Leaving the ${context.wideWeb ? 'mock' : 'app'} instantly ends '
@@ -169,7 +179,10 @@ class _ChoiceRow extends StatelessWidget {
       child: InkWell(
         onTap: onTap,
         child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 11),
+          padding: const EdgeInsets.symmetric(
+            horizontal: PantasSpace.s16,
+            vertical: PantasSpace.s10,
+          ),
           decoration: BoxDecoration(
             border: divider
                 ? Border(bottom: BorderSide(color: c.separator, width: .5))
@@ -183,17 +196,13 @@ class _ChoiceRow extends StatelessWidget {
                   children: [
                     Wrap(
                       crossAxisAlignment: WrapCrossAlignment.center,
-                      spacing: 8,
+                      spacing: PantasSpace.s8,
                       children: [
                         Text(title, style: context.type.body),
                         if (recommended) ...[
                           Text(
                             'Recommended',
-                            style: context.type.footnote.copyWith(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w600,
-                              color: c.accent,
-                            ),
+                            style: PantasType.webTag.copyWith(color: c.accent),
                           ),
                         ],
                       ],
