@@ -2,11 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:pantas/core/ui/components/button_pair.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/pantas_shadows.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
-import 'package:pantas/core/ui/web/web_tokens.dart';
 
+/// Asks one question over a scrim with at most two buttons (design system:
+/// Dialog). Surface `surface-modal`, radius `radius-2xl`, shadow `elev-modal`.
+///
+/// Wide screens: 440 wide (560 with [content]), padding 24, gap 16, title
+/// `web-h3`, the body scrolls while the actions stay in view, and the buttons
+/// sit at the right: the safe one first, the main one last. Phone: inset 24,
+/// padding 20 20 18, gap 8, title `phone-title-3`, and a pill pair 46 high,
+/// 10 apart, that stacks with the main action on top at large text.
 class CenteredDialog extends StatelessWidget {
   const CenteredDialog({
     required this.title,
@@ -19,8 +32,8 @@ class CenteredDialog extends StatelessWidget {
     this.inlineActions = false,
     this.content,
     this.allowEscape = true,
-    this.horizontalInset = 28,
-    this.actionGap = 8,
+    this.horizontalInset = PantasSpace.s24,
+    this.actionGap = PantasSpace.s10,
     this.lift = 0,
     super.key,
   });
@@ -31,81 +44,125 @@ class CenteredDialog extends StatelessWidget {
   final VoidCallback onConfirm;
   final VoidCallback onCancel;
   final bool destructive;
+
+  /// Kept for callers. The phone pair is always side by side now.
   final bool inlineActions;
   final Widget? content;
   final bool allowEscape;
 
-  /// Phone gap to the screen edge. ST_SignOut uses 24, the leave dialogs 28.
+  /// Phone gap to the screen edge (system: 24).
   final double horizontalInset;
 
-  /// Phone gap between side-by-side buttons. ST_SignOut uses 10.
+  /// Phone gap between the pair (system: 10).
   final double actionGap;
 
   /// Phone: how far above the screen center the card sits (the mock boards
-  /// center it 30 px high). A negative value sits it lower.
+  /// center it 30 high). A negative value sits it lower.
   final double lift;
+
+  /// Space between the card and the edge of the window.
+  static const double _windowInset = PantasSpace.s24;
+
+  /// The inset that moves a centered card by one unit of [lift].
+  static const double _liftSpread = PantasSpace.s2;
+
   @override
   Widget build(BuildContext context) {
-    final c = context.colors;
+    final colors = context.colors;
+    final shortcuts = <ShortcutActivator, VoidCallback>{
+      if (allowEscape)
+        const SingleActivator(LogicalKeyboardKey.escape): onCancel,
+    };
+    // Moving the card up by `lift` takes `lift` off the top and puts twice
+    // that on the bottom, since the dialog centers in what is left.
+    final extraTop = lift < 0 ? -lift * _liftSpread : 0.0;
+    final extraBottom = lift > 0 ? lift * _liftSpread : 0.0;
+    final surface = BoxDecoration(
+      color: colors.surfaceModal,
+      borderRadius: BorderRadius.circular(PantasRadius.r2xl),
+      boxShadow: context.shadows.modal,
+    );
+    // Tab reaches the safe action first in a destructive dialog and the main
+    // action first otherwise, whatever the visual order.
+    Widget order(Widget button, {required bool main}) => FocusTraversalOrder(
+          order: NumericFocusOrder(main == destructive ? 1 : 0),
+          child: button,
+        );
     if (context.wideWeb) {
-      final t = context.webTokens;
       return CallbackShortcuts(
-        bindings: {
-          if (allowEscape)
-            const SingleActivator(LogicalKeyboardKey.escape): onCancel,
-        },
+        bindings: shortcuts,
         // Keys only reach the shortcut from a focused node inside it, and a
         // dialog opens with focus on its route, not on anything in the card.
         child: Focus(
           autofocus: true,
           child: Dialog(
-            backgroundColor: t.colors.transparent,
+            backgroundColor: Colors.transparent,
             elevation: 0,
-            insetPadding: const EdgeInsets.all(24),
+            insetPadding: const EdgeInsets.all(_windowInset),
             child: SizedBox(
-              width: content == null ? 440 : 560,
-              child: WebCard(
+              width:
+                  content == null ? PantasLayout.modal : PantasLayout.modalWide,
+              child: DecoratedBox(
                 key: const ValueKey('centered-dialog-surface'),
-                radius: 22,
-                padding: const EdgeInsets.all(26),
-                child: SingleChildScrollView(
+                decoration: surface,
+                child: Padding(
+                  padding: const EdgeInsets.all(PantasSpace.s24),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      Text(title, style: t.h3),
-                      const SizedBox(height: 18),
                       Text(
-                        message,
-                        style: t.style(
-                          16,
-                          height: 1.45,
-                          color: t.colors.secondaryLabel,
+                        title,
+                        style: PantasType.webH3
+                            .copyWith(color: colors.textPrimary),
+                      ),
+                      const SizedBox(height: PantasSpace.s16),
+                      Flexible(
+                        child: SingleChildScrollView(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: [
+                              Text(
+                                message,
+                                style: PantasType.webBody
+                                    .copyWith(color: colors.textSecondary),
+                              ),
+                              if (content != null) ...[
+                                const SizedBox(height: PantasSpace.s16),
+                                content!,
+                              ],
+                            ],
+                          ),
                         ),
                       ),
-                      if (content != null) ...[
-                        const SizedBox(height: 18),
-                        content!,
-                      ],
-                      const SizedBox(height: 18),
-                      Wrap(
-                        alignment: WrapAlignment.end,
-                        spacing: 8,
-                        runSpacing: 8,
-                        children: [
-                          WebButton(
-                            label: secondaryLabel,
-                            variant: WebButtonVariant.tertiary,
-                            onPressed: onCancel,
-                          ),
-                          WebButton(
-                            label: primaryLabel,
-                            variant: destructive
-                                ? WebButtonVariant.danger
-                                : WebButtonVariant.primary,
-                            onPressed: onConfirm,
-                          ),
-                        ],
+                      const SizedBox(height: PantasSpace.s16),
+                      FocusTraversalGroup(
+                        policy: OrderedTraversalPolicy(),
+                        child: Wrap(
+                          alignment: WrapAlignment.end,
+                          spacing: PantasSpace.s8,
+                          runSpacing: PantasSpace.s8,
+                          children: [
+                            order(
+                              WebButton(
+                                label: secondaryLabel,
+                                variant: WebButtonVariant.tertiary,
+                                onPressed: onCancel,
+                              ),
+                              main: false,
+                            ),
+                            order(
+                              WebButton(
+                                label: primaryLabel,
+                                variant: destructive
+                                    ? WebButtonVariant.danger
+                                    : WebButtonVariant.primary,
+                                onPressed: onConfirm,
+                              ),
+                              main: true,
+                            ),
+                          ],
+                        ),
                       ),
                     ],
                   ),
@@ -116,110 +173,86 @@ class CenteredDialog extends StatelessWidget {
         ),
       );
     }
-    Widget pill(String label, VoidCallback action, {required bool primary}) =>
-        TextButton(
+    Widget pill(
+      String label,
+      VoidCallback action, {
+      required PantasButtonVariant variant,
+    }) =>
+        PantasButton(
+          label: label,
+          variant: variant,
           onPressed: action,
-          style: TextButton.styleFrom(
-            backgroundColor: primary
-                ? destructive
-                    ? c.destructive
-                    : c.accentFill
-                : c.fill,
-            foregroundColor: primary
-                ? destructive
-                    ? c.onDestructive
-                    : c.onAccent
-                : c.label,
-            minimumSize: const Size(0, 46),
-            visualDensity: VisualDensity.standard,
-            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
-            shape: const StadiumBorder(),
-          ),
-          child: Text(
-            label,
-            style: context.type.emphasized.copyWith(
-              fontSize: 16,
-              color: primary
-                  ? destructive
-                      ? c.onDestructive
-                      : c.onAccent
-                  : c.label,
-            ),
-          ),
+          height: PantasSize.btnBar,
+          radius: PantasRadius.full,
+          horizontalPadding: PantasSpace.s12,
         );
     return CallbackShortcuts(
-      bindings: {
-        if (allowEscape)
-          const SingleActivator(LogicalKeyboardKey.escape): onCancel,
-      },
+      bindings: shortcuts,
       child: Dialog(
-        backgroundColor: context.colors.transparent,
+        backgroundColor: Colors.transparent,
         elevation: 0,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(PantasRadius.r2xl),
+        ),
         insetPadding: EdgeInsets.fromLTRB(
           horizontalInset,
-          24 + (lift < 0 ? -2 * lift : 0),
+          _windowInset + extraTop,
           horizontalInset,
-          24 + (lift > 0 ? 2 * lift : 0),
+          _windowInset + extraBottom,
         ),
         child: DecoratedBox(
           key: const ValueKey('centered-dialog-surface'),
-          decoration: BoxDecoration(
-            color: c.surface,
-            borderRadius: BorderRadius.circular(20),
-            boxShadow: [
-              BoxShadow(
-                color: context.colors.shadow.withValues(alpha: .2),
-                blurRadius: 40,
-                offset: const Offset(0, 10),
-              ),
-            ],
-          ),
+          decoration: surface,
           child: SingleChildScrollView(
-            padding: const EdgeInsets.fromLTRB(20, 22, 20, 18),
+            padding: const EdgeInsets.fromLTRB(
+              PantasSpace.s20,
+              PantasSpace.s20,
+              PantasSpace.s20,
+              PantasSpace.s18,
+            ),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Text(
                   title,
-                  style: context.type.emphasized.copyWith(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w700,
-                    letterSpacing: -.24,
-                  ),
+                  style: PantasType.phoneTitle3
+                      .copyWith(color: colors.textPrimary),
                 ),
-                const SizedBox(height: 8),
+                const SizedBox(height: PantasSpace.s8),
                 Text(
                   message,
-                  style: context.type.subhead
-                      .copyWith(color: c.secondaryLabel, height: 1.45),
+                  style: PantasType.phoneExplanation
+                      .copyWith(color: colors.textSecondary),
                 ),
-                if (content != null) content!,
-                SizedBox(
-                  height: content != null
-                      ? 8
-                      : destructive || inlineActions
-                          ? 20
-                          : 18,
-                ),
-                ButtonPair(
-                  stacked: !destructive && !inlineActions,
-                  gap: actionGap,
-                  primary: destructive || inlineActions
-                      ? pill(primaryLabel, onConfirm, primary: true)
-                      : PantasButton(
-                          label: primaryLabel,
-                          onPressed: onConfirm,
-                        ),
-                  secondary: destructive || inlineActions
-                      ? pill(secondaryLabel, onCancel, primary: false)
-                      : PantasButton(
-                          label: secondaryLabel,
-                          onPressed: onCancel,
-                          variant: PantasButtonVariant.tertiary,
-                          height: 44,
-                        ),
+                if (content != null) ...[
+                  const SizedBox(height: PantasSpace.s8),
+                  content!,
+                ],
+                const SizedBox(height: PantasSpace.s12),
+                FocusTraversalGroup(
+                  policy: OrderedTraversalPolicy(),
+                  child: ButtonPair(
+                    gap: actionGap,
+                    primary: order(
+                      pill(
+                        primaryLabel,
+                        onConfirm,
+                        variant: destructive
+                            ? PantasButtonVariant.destructive
+                            : PantasButtonVariant.primary,
+                      ),
+                      main: true,
+                    ),
+                    secondary: order(
+                      pill(
+                        secondaryLabel,
+                        onCancel,
+                        variant: PantasButtonVariant.neutral,
+                      ),
+                      main: false,
+                    ),
+                  ),
                 ),
               ],
             ),

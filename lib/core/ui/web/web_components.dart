@@ -5,11 +5,24 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:pantas/core/ui/components/content_renderer.dart';
 import 'package:pantas/core/ui/components/math_text.dart';
+import 'package:pantas/core/ui/components/offset_focus_ring.dart';
+import 'package:pantas/core/ui/components/pantas_button_parts.dart';
+import 'package:pantas/core/ui/components/pantas_button_spec.dart';
+import 'package:pantas/core/ui/components/pantas_icon_button.dart';
+import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/motion/press_scale.dart';
 import 'package:pantas/core/ui/motion/selection_motion.dart';
 import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_border.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_opacity.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_shadow.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_back_link_ring.dart';
 import 'package:pantas/core/ui/web/web_keyboard_focus.dart';
 import 'package:pantas/core/ui/web/web_keyboard_hints.dart';
@@ -27,11 +40,22 @@ enum WebButtonVariant {
 }
 
 /// Canvas buttons are natural width, including when placed in a wide column.
+///
+/// The look is design system 4.0, Button. Name the [variant] (the older
+/// names) or a [kind] and a [tone]; a [kind] wins. [size] names a size class;
+/// without it the flags choose one: [large] is `btn--lg`, [pill] is
+/// `btn--bar`, and [tall] is a 48 px button. [height] sets a minimum height
+/// other than the class's, and the radius then follows the height rule.
+/// [fontSize], [radius] and [sidePadding] are old board overrides: the
+/// system's size classes now decide them, so they are not read.
 class WebButton extends StatelessWidget {
   const WebButton({
     required this.label,
     this.onPressed,
     this.variant = WebButtonVariant.primary,
+    this.kind,
+    this.tone,
+    this.size,
     this.large = false,
     this.pill = false,
     this.keyHint,
@@ -48,206 +72,200 @@ class WebButton extends StatelessWidget {
   });
   final String label;
 
-  /// Both side paddings, when the board's differ from the variant's usual
-  /// ones (board `.btn2` is 20 px and `.btn3` 16 px).
+  /// Not read: the size class decides the side padding.
   final double? sidePadding;
 
-  /// Board overrides for a smaller button: its height, text size and radius.
+  /// A minimum height other than the size class's.
   final double? height;
+
+  /// Not read: the size class decides the label style.
   final double? fontSize;
+
+  /// Not read: the radius follows the height, and only filled bar, dialog and
+  /// compact buttons are pills.
   final double? radius;
 
-  /// A tertiary button whose label is red (board `.btn3.red`).
+  /// A tertiary button whose label is red (board `.btn3.red`): the critical
+  /// tone.
   final bool redText;
 
   /// Drawn before the label, 8 px apart (board `.btn3` with an icon).
   final Widget? icon;
   final VoidCallback? onPressed;
   final WebButtonVariant variant;
+
+  /// The kind. When set it replaces [variant].
+  final PantasButtonKind? kind;
+
+  /// The tone. Null is the kind's default.
+  final PantasButtonTone? tone;
+
+  /// A size class. When set it replaces [large] and [pill].
+  final PantasButtonSize? size;
   final bool large;
   final bool pill;
   final String? keyHint;
   final bool busy;
 
-  /// 48 px onboarding height with the board's padding.
+  /// 48 px, the onboarding height.
   final bool tall;
 
   /// Full width of the parent, label centered (board `width: 100%`).
   final bool expand;
 
+  (PantasButtonKind, PantasButtonTone?) get _pair {
+    final k = kind;
+    if (k != null) {
+      return (
+        k,
+        tone ??
+            (redText && k == PantasButtonKind.tertiary
+                ? PantasButtonTone.critical
+                : null)
+      );
+    }
+    return switch (variant) {
+      WebButtonVariant.primary => (PantasButtonKind.primary, null),
+      WebButtonVariant.secondary => (PantasButtonKind.secondary, null),
+      WebButtonVariant.tertiary => (
+          PantasButtonKind.tertiary,
+          redText ? PantasButtonTone.critical : null
+        ),
+      WebButtonVariant.white => (PantasButtonKind.white, null),
+      WebButtonVariant.danger => (
+          PantasButtonKind.primary,
+          PantasButtonTone.critical
+        ),
+      WebButtonVariant.dangerOutline => (
+          PantasButtonKind.secondary,
+          PantasButtonTone.critical
+        ),
+    };
+  }
+
   @override
   Widget build(BuildContext context) {
-    final t = context.webTokens;
-    final c = t.colors;
+    final c = context.webTokens.colors;
     final showKeyHint = keyHint != null && WebKeyboardHints.visibleOf(context);
-    final solid = variant == WebButtonVariant.primary ||
-        variant == WebButtonVariant.danger;
-    final danger = variant == WebButtonVariant.danger ||
-        variant == WebButtonVariant.dangerOutline;
-    final foreground = solid
-        ? Colors.white
-        : danger || redText
-            ? c.wrongText
-            : variant == WebButtonVariant.secondary
-                ? t.tintText
-                : variant == WebButtonVariant.tertiary
-                    ? c.secondaryLabel
-                    : c.label;
-    Color background(Set<WidgetState> states) {
-      if (states.contains(WidgetState.disabled) && !busy) {
-        return t.disabledBackground;
-      }
-      final hover = states.contains(WidgetState.hovered);
-      return switch (variant) {
-        WebButtonVariant.primary => hover ? t.accentHover : c.accentFill,
-        WebButtonVariant.danger => hover ? t.dangerHover : t.dangerFill,
-        WebButtonVariant.secondary => hover ? t.secondaryHover : c.accentTint,
-        WebButtonVariant.white => hover ? t.rowHover : c.surface,
-        WebButtonVariant.tertiary =>
-          hover ? t.disabledBackground : Colors.transparent,
-        WebButtonVariant.dangerOutline =>
-          hover ? c.wrongTint : Colors.transparent,
-      };
-    }
-
-    final radius = this.radius ??
+    final (pairKind, pairTone) = _pair;
+    final sizeClass = size ??
         (pill
-            ? 99.0
+            ? PantasButtonSize.bar
             : large
-                ? 14.0
-                : 12.0);
-    final height = this.height ??
-        (tall
-            ? 48.0
-            : pill
-                ? 46.0
-                : large
-                    ? 50.0
-                    : 44.0);
+                ? PantasButtonSize.lg
+                : PantasButtonSize.standard);
+    final m = pantasButtonMetrics(
+      sizeClass,
+      pairKind,
+      heightOverride: height ?? (tall ? PantasSize.btn + PantasSpace.s4 : null),
+      keyHint: showKeyHint,
+    );
+    // A hint on a primary button hangs 6 px into the padding (`.kbd`).
+    final padRight = showKeyHint &&
+            pairKind == PantasButtonKind.primary &&
+            sizeClass != PantasButtonSize.bar
+        ? m.padRight - PantasSpace.s6
+        : m.padRight;
+    final enabled = onPressed != null || busy;
+    final palette =
+        pantasButtonPalette(c, pairKind, pairTone, enabled: enabled);
+    final reduced = MediaQuery.disableAnimationsOf(context);
     final button = TextButton(
       onPressed: busy ? null : onPressed,
       style: ButtonStyle(
-        animationDuration: MediaQuery.disableAnimationsOf(context)
-            ? Duration.zero
-            : PantasDurations.short2,
+        animationDuration: reduced ? Duration.zero : PantasDurations.short2,
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
         visualDensity: VisualDensity.standard,
         minimumSize: WidgetStatePropertyAll(
-          Size(expand ? double.infinity : 0, height),
+          Size(expand ? double.infinity : 0, m.height),
         ),
         padding: WidgetStatePropertyAll(
-          sidePadding != null
-              ? EdgeInsets.symmetric(horizontal: sidePadding!)
-              : EdgeInsets.only(
-                  left: tall
-                      ? switch (variant) {
-                          WebButtonVariant.primary => 22,
-                          WebButtonVariant.tertiary => 16,
-                          WebButtonVariant.white => 18,
-                          _ => 18,
-                        }
-                      : pill
-                          ? 22
-                          : variant == WebButtonVariant.tertiary
-                              ? 14
-                              : variant == WebButtonVariant.secondary ||
-                                      variant == WebButtonVariant.white ||
-                                      variant == WebButtonVariant.dangerOutline
-                                  ? 18
-                                  : 20,
-                  right: tall && variant == WebButtonVariant.tertiary
-                      ? 16
-                      : pill || showKeyHint
-                          ? 14
-                          : variant == WebButtonVariant.tertiary
-                              ? 14
-                              : variant == WebButtonVariant.secondary ||
-                                      variant == WebButtonVariant.white ||
-                                      variant == WebButtonVariant.dangerOutline
-                                  ? 18
-                                  : 20,
-                ),
+          EdgeInsets.only(
+            left: m.padLeft,
+            right: padRight,
+            top: PantasSpace.s8,
+            bottom: PantasSpace.s8,
+          ),
         ),
-        backgroundColor: WidgetStateProperty.resolveWith(background),
+        backgroundColor: WidgetStateProperty.resolveWith(
+          (s) => enabled &&
+                  (s.contains(WidgetState.hovered) ||
+                      s.contains(WidgetState.pressed))
+              ? palette.hoverFill
+              : palette.fill,
+        ),
         foregroundColor: WidgetStateProperty.resolveWith(
-          (s) => s.contains(WidgetState.disabled) && !busy
-              ? t.disabledText
-              : foreground,
+          (s) => enabled &&
+                  (s.contains(WidgetState.hovered) ||
+                      s.contains(WidgetState.pressed))
+              ? palette.hoverLabel
+              : palette.label,
         ),
         overlayColor: const WidgetStatePropertyAll(Colors.transparent),
-        side: WidgetStateProperty.resolveWith(
-          (s) => BorderSide(
-            color: webKeyboardFocus(s)
-                ? c.accent
-                : variant == WebButtonVariant.dangerOutline
-                    ? c.destructive
-                    : variant == WebButtonVariant.white
-                        ? (tall
-                            ? Colors.transparent
-                            : t.dark
-                                ? t.cardEdge
-                                : c.separator)
-                        : Colors.transparent,
-            width: webKeyboardFocus(s) ? 2 : 1,
-          ),
-        ),
-        shape: WidgetStatePropertyAll(
-          RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(radius),
-          ),
-        ),
-        textStyle: WidgetStatePropertyAll(
-          t.style(
-            fontSize ?? (large ? 17 : 16),
-            weight: FontWeight.w600,
-            height: 1.2,
-          ),
-        ),
+        // The theme's inside ring is the old focus mark; this button draws
+        // its own ring outside (OffsetFocusRing) and keeps only its control
+        // ring.
+        side: WidgetStatePropertyAll(palette.ring ?? BorderSide.none),
+        shape: WidgetStatePropertyAll(m.shape()),
+        textStyle: WidgetStatePropertyAll(m.style),
       ),
       child: Row(
         mainAxisSize: expand ? MainAxisSize.max : MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           if (busy) ...[
-            SizedBox.square(
-              dimension: 18,
-              child: CircularProgressIndicator(
-                strokeWidth: 2,
-                color: foreground,
-                value: MediaQuery.disableAnimationsOf(context) ? 1 : null,
-              ),
-            ),
-            const SizedBox(width: 8),
+            PantasSpinner.inline(color: palette.label),
+            SizedBox(width: m.gap),
           ],
-          if (icon != null) ...[icon!, const SizedBox(width: 8)],
-          Flexible(child: Text(label)),
+          if (icon != null) ...[
+            IconTheme(
+              data: IconThemeData(color: palette.label, size: PantasSpace.s18),
+              child: icon!,
+            ),
+            SizedBox(width: m.gap),
+          ],
+          Flexible(child: Text(label, textAlign: TextAlign.center)),
           if (showKeyHint) ...[
-            const SizedBox(width: 12),
+            SizedBox(width: m.gap),
             WebKeyHint(
               keyHint!,
-              onButton: variant != WebButtonVariant.tertiary,
+              onButton: pairKind == PantasButtonKind.primary,
               enabled: onPressed != null,
             ),
           ],
         ],
       ),
     );
-    // A button shrinks to 96% under a press, as the phone's chip does.
+    // Pressed scales to 0.97 over 120 ms, back over 180 ms.
     final pressable = PressScale(
-      scale: .96,
+      scale: pantasPressScale,
       enabled: onPressed != null && !busy,
-      child: button,
+      child: OffsetFocusRing(
+        borderRadius: BorderRadius.circular(m.radius),
+        child: ButtonWidthLock(busy: busy, child: button),
+      ),
     );
     if (expand) return pressable;
-    return Align(
+    final natural = Align(
       widthFactor: 1,
       heightFactor: 1,
       alignment: Alignment.centerLeft,
       child: pressable,
     );
+    // A small button reaches 44 px on a layout that is touched.
+    return m.height < PantasSize.targetTouch
+        ? TouchTarget(child: natural)
+        : natural;
   }
 }
 
+/// A chip that names a keyboard shortcut (design system 4.0, KeyHint).
+///
+/// Standalone it is 11/600 `text-secondary` in a 1 px `divider-strong` ring.
+/// With [onButton] it sits in a primary or critical button: 12/600
+/// `on-accent` on `kbd-on-fill`, no ring. A hint in a disabled button
+/// ([enabled] false) is transparent with the ring and `text-disabled` text.
+/// It is visual help only: the button keeps its own label.
 class WebKeyHint extends StatelessWidget {
   const WebKeyHint(
     this.label, {
@@ -258,8 +276,12 @@ class WebKeyHint extends StatelessWidget {
     super.key,
   });
   final String label;
+
+  /// True inside a primary or critical button.
   final bool onButton;
   final bool keyboard;
+
+  /// False when the button around it is disabled.
   final bool enabled;
 
   /// A fixed width, with the label centered, when the board gives the hint
@@ -271,33 +293,34 @@ class WebKeyHint extends StatelessWidget {
     if (keyboard && !WebKeyboardHints.visibleOf(context)) {
       return const SizedBox.shrink();
     }
-    final t = context.webTokens;
+    final c = context.webTokens.colors;
+    final filled = onButton && enabled;
+    final style = filled ? PantasType.webTag : PantasType.webKeyHintSm;
     return ExcludeSemantics(
       child: Container(
         width: width,
         alignment: width == null ? null : Alignment.center,
         padding: EdgeInsets.symmetric(
-          horizontal: width != null ? 0 : (onButton ? 7 : 6),
-          vertical: 2,
+          horizontal: width != null
+              ? PantasSpace.s0
+              : filled
+                  ? PantasSpace.s8
+                  : PantasSpace.s6,
+          vertical: PantasSpace.s2,
         ),
         decoration: BoxDecoration(
-          color:
-              onButton && enabled ? Colors.white.withValues(alpha: .16) : null,
-          borderRadius: BorderRadius.circular(onButton ? 6 : 5),
-          border:
-              !onButton || !enabled ? Border.all(color: t.strongDivider) : null,
+          color: filled ? c.kbdOnFill : null,
+          borderRadius: BorderRadius.circular(PantasRadius.xs),
+          border: filled ? null : Border.all(color: c.dividerStrong),
         ),
         child: Text(
           label,
-          style: t.style(
-            onButton ? 12 : 11,
-            height: 1.2,
-            weight: FontWeight.w600,
-            color: onButton && enabled
-                ? Colors.white.withValues(alpha: .88)
-                : t.dark
-                    ? t.colors.secondaryLabel
-                    : t.colors.tertiaryLabel,
+          style: style.copyWith(
+            color: filled
+                ? c.onAccent
+                : enabled
+                    ? c.textSecondary
+                    : c.textDisabled,
           ),
         ),
       ),
@@ -305,6 +328,10 @@ class WebKeyHint extends StatelessWidget {
   }
 }
 
+/// Secondary navigation: accent text with an arrow, never a box (design
+/// system 4.0, TextLink). Hover turns the text `accent-hover` and nudges the
+/// arrow 4 px right. The focus ring hugs the text (`radius-xs`). A null
+/// [onPressed] is the disabled state.
 class WebTextLink extends StatefulWidget {
   const WebTextLink({
     required this.label,
@@ -313,7 +340,7 @@ class WebTextLink extends StatefulWidget {
     super.key,
   });
   final String label;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
 
   /// The board's Home links are text only; other pages keep the arrow.
   final bool arrow;
@@ -323,57 +350,82 @@ class WebTextLink extends StatefulWidget {
 
 class _WebTextLinkState extends State<WebTextLink> {
   bool _hover = false;
+
+  /// Phosphor `arrow-right`, Bold weight.
+  static const IconData _arrow = PantasIcons.arrowRightBold;
+
   @override
   Widget build(BuildContext context) {
-    final t = context.webTokens;
-    return MouseRegion(
+    final c = context.webTokens.colors;
+    final reduced = MediaQuery.disableAnimationsOf(context);
+    final enabled = widget.onPressed != null;
+    final hover = enabled && _hover;
+    final color = !enabled
+        ? c.textDisabled
+        : hover
+            ? c.accentHover
+            : c.accent;
+    final radius = BorderRadius.circular(PantasRadius.xs);
+    final link = MouseRegion(
+      cursor: enabled ? SystemMouseCursors.click : MouseCursor.defer,
       onEnter: (_) => setState(() => _hover = true),
       onExit: (_) => setState(() => _hover = false),
       child: TextButton(
         onPressed: widget.onPressed,
         style: TextButton.styleFrom(
-          // Light darkens the accent, dark lightens it to the tint text, so
-          // a link answers the pointer in both themes (5Q-6, 5Q-8).
-          foregroundColor: !_hover
-              ? t.colors.accent
-              : t.dark
-                  ? t.tintText
-                  : const Color(0xFF075C4E),
+          foregroundColor: color,
+          disabledForegroundColor: color,
           overlayColor: Colors.transparent,
-          animationDuration: MediaQuery.disableAnimationsOf(context)
-              ? Duration.zero
-              : const Duration(milliseconds: 150),
+          animationDuration: reduced ? Duration.zero : PantasDurations.short2,
           padding: EdgeInsets.zero,
           minimumSize: Size.zero,
           tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-          textStyle: t.style(15, weight: FontWeight.w600),
+          shape: RoundedRectangleBorder(borderRadius: radius),
+          side: BorderSide.none,
+          textStyle: PantasType.webLink,
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text(widget.label),
+            Flexible(child: Text(widget.label)),
             if (widget.arrow) ...[
-              const SizedBox(width: 4),
+              const SizedBox(width: PantasSpace.s6),
               AnimatedContainer(
-                transform: Matrix4.translationValues(_hover ? 4 : 0, 0, 0),
-                duration: MediaQuery.disableAnimationsOf(context)
-                    ? Duration.zero
-                    : const Duration(milliseconds: 150),
-                child: const Text('→'),
+                transform: Matrix4.translationValues(
+                  hover && !reduced ? PantasSpace.s4 : 0,
+                  0,
+                  0,
+                ),
+                duration: reduced ? Duration.zero : PantasDurations.nudge,
+                curve: PantasCurves.move,
+                child: ExcludeSemantics(
+                  child: Icon(_arrow, size: PantasSpace.s16, color: color),
+                ),
               ),
             ],
           ],
         ),
       ),
     );
+    return TouchTarget(
+      child: PressScale(
+        scale: pantasPressScale,
+        enabled: enabled,
+        child: OffsetFocusRing(borderRadius: radius, child: link),
+      ),
+    );
   }
 }
 
+/// The system's Card: a flat `surface-card` block, `radius-xl`, clipped, with
+/// no shadow in light and a 1 `edge-card` inner edge in dark. A selected card
+/// is `accent-tint` with a 2 `accent` ring. A floating card takes `elev-bar`
+/// and the 1 `edge-bar` edge.
 class WebCard extends StatelessWidget {
   const WebCard({
     required this.child,
     this.padding = EdgeInsets.zero,
-    this.radius = 18,
+    this.radius = PantasRadius.xl,
     this.selected = false,
     this.minHeight,
     this.floating = false,
@@ -401,9 +453,7 @@ class WebCard extends StatelessWidget {
     // takes up no room, so a card is the same size in dark and light (6T-11).
     final edge = t.dark && !selected && !floating ? t.cardEdge : null;
     return FadingColor(
-      color: selected
-          ? (t.dark ? t.colors.accentTint : const Color(0xFFE4F1EE))
-          : t.colors.surface,
+      color: selected ? t.colors.accentTint : t.colors.surfaceCard,
       builder: (context, fill, _) => FadingColor(
         color: t.colors.accent.withValues(alpha: selected ? 1 : 0),
         builder: (context, outline, _) => Container(
@@ -414,13 +464,7 @@ class WebCard extends StatelessWidget {
           decoration: BoxDecoration(
             color: fill,
             borderRadius: BorderRadius.circular(radius),
-            // The question bar's 6 percent edge vanishes where a popover lies
-            // over a white choice card, so light takes the divider gray (N-4).
-            border: floating
-                ? Border.all(
-                    color: t.dark ? webFloatingEdge(t) : t.strongDivider,
-                  )
-                : null,
+            border: floating ? Border.all(color: webFloatingEdge(t)) : null,
             boxShadow: floating ? webFloatingShadow(t, blur: 24, dy: 4) : null,
           ),
           // Drawn on top like the board inset outline; content stays put.
@@ -433,7 +477,10 @@ class WebCard extends StatelessWidget {
                     )
               : BoxDecoration(
                   borderRadius: BorderRadius.circular(radius),
-                  border: Border.all(color: outline, width: 2),
+                  border: Border.all(
+                    color: outline,
+                    width: PantasBorder.ringSelected,
+                  ),
                 ),
           padding: padding,
           child: child,
@@ -445,8 +492,7 @@ class WebCard extends StatelessWidget {
 
 /// The edge of a surface that floats over the page (the question bar, a
 /// popover).
-Color webFloatingEdge(WebTokens t) =>
-    t.dark ? t.colors.separator : Colors.black.withValues(alpha: .06);
+Color webFloatingEdge(WebTokens t) => t.colors.edgeBar;
 
 /// The shadow of a surface that floats over the page. A popover that sits
 /// just above another floating surface asks for a tighter one, so its shadow
@@ -458,7 +504,8 @@ List<BoxShadow> webFloatingShadow(
 }) =>
     [
       BoxShadow(
-        color: Colors.black.withValues(alpha: t.dark ? .4 : .10),
+        color:
+            (t.dark ? PantasShadow.dark : PantasShadow.light).bar.first.color,
         blurRadius: blur,
         offset: Offset(0, dy),
       ),
@@ -469,7 +516,8 @@ List<BoxShadow> webFloatingShadow(
 double webHairline(BuildContext context) =>
     1 / MediaQuery.devicePixelRatioOf(context).clamp(1.0, 2.0);
 
-/// The board's 16 px row chevron (`m9.5 5.5 6.5 6.5-6.5 6.5`, 2.2 stroke).
+/// The 16 px row chevron (rule D178): the Bold Phosphor chevron in
+/// `icon-chevron`. It is decorative and hidden from the screen reader.
 class WebChevron extends StatelessWidget {
   const WebChevron({this.color, super.key});
   final Color? color;
@@ -477,43 +525,25 @@ class WebChevron extends StatelessWidget {
   Widget build(BuildContext context) {
     final t = context.webTokens;
     return ExcludeSemantics(
-      child: CustomPaint(
-        size: const Size.square(16),
-        painter: _ChevronPainter(
-          color ?? (t.dark ? t.colors.tertiaryLabel : const Color(0xFFB8B8BD)),
-        ),
+      child: Icon(
+        PantasIcons.bold(PantasIcons.next),
+        size: PantasSpace.s16,
+        color: color ?? t.colors.iconChevron,
       ),
     );
   }
 }
 
-class _ChevronPainter extends CustomPainter {
-  const _ChevronPainter(this.color);
-  final Color color;
-  @override
-  void paint(Canvas canvas, Size size) {
-    final k = size.width / 24;
-    canvas.drawPath(
-      Path()
-        ..moveTo(9.5 * k, 5.5 * k)
-        ..lineTo(16 * k, 12 * k)
-        ..lineTo(9.5 * k, 18.5 * k),
-      Paint()
-        ..style = PaintingStyle.stroke
-        ..strokeWidth = 2.2 * k
-        ..strokeCap = StrokeCap.round
-        ..strokeJoin = StrokeJoin.round
-        ..color = color,
-    );
-  }
-
-  @override
-  bool shouldRepaint(_ChevronPainter old) => old.color != color;
-}
-
 /// Row chevron: absent, shown on hover only (board `.cv`), or always shown.
 enum WebRowChevron { none, hover, always }
 
+/// The system's ListRow for wide screens: an optional leading widget, a title,
+/// a subtitle, a value and a chevron, 13 above and below. Hover and press show
+/// the `surface-hover` well and the chevron fades in; a selected row is
+/// `accent-tint` with `text-on-tint-secondary` supporting text and an
+/// `accent-tint-text` chevron; the keyboard ring sits inside the row. At large
+/// text, and for a [wrapTitle] row when the title would lose its 6em, the
+/// value stacks under the title. A row that truncates keeps its one line.
 class WebRow extends StatefulWidget {
   const WebRow({
     required this.title,
@@ -521,7 +551,7 @@ class WebRow extends StatefulWidget {
     this.wrapTitle = false,
     this.mathTitle = false,
     this.titleStyle,
-    this.horizontalPadding = 20,
+    this.horizontalPadding = PantasLayout.rowInset,
     this.titleColor,
     this.titleSuffix,
     this.tooltipWhenCut = false,
@@ -535,7 +565,7 @@ class WebRow extends StatefulWidget {
     this.compact = false,
     this.divider = true,
     this.boardMetrics = false,
-    this.leadingGap = 16,
+    this.leadingGap = PantasSpace.s16,
     this.chevron = WebRowChevron.none,
     this.verticalPadding,
     this.subtitleStyle,
@@ -599,8 +629,12 @@ class _WebRowState extends State<WebRow> {
     final lines = large || w.wrapTitle ? null : 1;
     final overflow =
         large || w.wrapTitle ? TextOverflow.visible : TextOverflow.ellipsis;
-    final style =
-        w.titleStyle ?? t.style(17, color: w.titleColor, height: lineHeight);
+    final style = w.titleStyle ??
+        PantasType.webRowTitle.copyWith(
+          color: w.titleColor ??
+              (w.dimmed ? t.colors.textSecondary : t.colors.textPrimary),
+          height: lineHeight,
+        );
     final text = w.mathTitle
         ? MathText(
             ContentRenderer.plainText(w.title),
@@ -669,17 +703,32 @@ class _WebRowState extends State<WebRow> {
     final w = widget;
     final large = MediaQuery.textScalerOf(context).scale(17) > 25.5;
     final lineHeight = w.boardMetrics ? 1.3 : null;
-    final hairline = w.boardMetrics ? webHairline(context) : .5;
-    final baseValue = w.valueStyle ?? t.sub;
-    final valueStyle = w.selectedValueColor == null
-        ? baseValue
-        : baseValue.copyWith(
-            color: Color.lerp(
-              baseValue.color,
-              w.selectedValueColor,
-              selection,
-            ),
-          );
+    final hairline =
+        w.boardMetrics ? webHairline(context) : PantasBorder.hairline;
+    final baseValue = w.valueStyle ??
+        PantasType.webRowValue.copyWith(color: t.colors.textSecondary);
+    final valueStyle = baseValue.copyWith(
+      color: Color.lerp(
+        baseValue.color,
+        w.selectedValueColor ?? t.colors.textOnTintSecondary,
+        selection,
+      ),
+    );
+    final subStyle = w.subtitleStyle ??
+        PantasType.webRowSub.copyWith(
+          color: Color.lerp(
+            t.colors.textSecondary,
+            t.colors.textOnTintSecondary,
+            selection,
+          ),
+          height: lineHeight,
+        );
+    final chevronColor = Color.lerp(
+      t.colors.iconChevron,
+      t.colors.accentTintText,
+      selection,
+    );
+    const gap = PantasSpace.s12;
     final tint = t.colors.accentTint;
     final button = TextButton(
       statesController: _states,
@@ -687,7 +736,7 @@ class _WebRowState extends State<WebRow> {
       style: ButtonStyle(
         animationDuration: MediaQuery.disableAnimationsOf(context)
             ? Duration.zero
-            : const Duration(milliseconds: 150),
+            : PantasDurations.short2,
         padding: WidgetStatePropertyAll(
           EdgeInsets.symmetric(horizontal: w.horizontalPadding),
         ),
@@ -720,141 +769,190 @@ class _WebRowState extends State<WebRow> {
           Expanded(
             child: Container(
               padding: EdgeInsets.symmetric(
-                vertical: w.verticalPadding ?? (w.compact ? 12 : 15),
+                vertical: w.verticalPadding ??
+                    (w.compact ? PantasSpace.s12 : PantasLayout.rowPadY),
               ),
               decoration: BoxDecoration(
                 border: w.divider
                     ? Border(
                         bottom: BorderSide(
-                          color: t.colors.separator,
+                          color: t.colors.divider,
                           width: hairline,
                         ),
                       )
                     : null,
               ),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        if (w.titleSuffix == null)
-                          _title(w, large, lineHeight, t)
-                        else
-                          Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Flexible(
-                                child: _title(w, large, lineHeight, t),
+              child: LayoutBuilder(
+                builder: (context, box) {
+                  // Ruling 12: the value wraps under the title when the two
+                  // no longer fit on one line, and the title keeps at least
+                  // 6em of its own text beside a value.
+                  final stacked = w.value != null &&
+                      _stacks(
+                        context,
+                        box.maxWidth -
+                            (w.chevron == WebRowChevron.none
+                                ? PantasSpace.s0
+                                : gap + PantasSpace.s16),
+                        valueStyle,
+                        large: large,
+                      );
+                  final release = stacked || large;
+                  return Row(
+                    children: [
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            if (w.titleSuffix == null)
+                              _title(w, release, lineHeight, t)
+                            else
+                              Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Flexible(
+                                    child: _title(w, release, lineHeight, t),
+                                  ),
+                                  const SizedBox(width: PantasSpace.s6),
+                                  w.titleSuffix!,
+                                ],
                               ),
-                              const SizedBox(width: 6),
-                              w.titleSuffix!,
-                            ],
-                          ),
-                        if (w.subtitle != null)
-                          Text(
-                            w.subtitle!,
-                            maxLines: large || w.wrapTitle ? null : 1,
-                            overflow: large || w.wrapTitle
-                                ? TextOverflow.visible
-                                : TextOverflow.ellipsis,
-                            style: w.subtitleStyle ??
-                                t.style(
-                                  14,
-                                  color: t.colors.secondaryLabel,
-                                  height: lineHeight,
-                                ),
-                          ),
-                        if (large && w.value != null)
-                          Text(w.value!, style: valueStyle),
-                      ],
-                    ),
-                  ),
-                  if (!large && w.value != null) ...[
-                    const SizedBox(width: 12),
-                    Text(
-                      w.value!,
-                      style: valueStyle,
-                      textAlign: TextAlign.end,
-                    ),
-                  ],
-                  if (w.trailing != null) ...[
-                    const SizedBox(width: 12),
-                    w.trailing!,
-                  ],
-                  if (w.chevron != WebRowChevron.none) ...[
-                    const SizedBox(width: 12),
-                    if (w.chevron == WebRowChevron.always)
-                      const WebChevron()
-                    else
-                      ListenableBuilder(
-                        listenable: _states,
-                        builder: (context, child) => AnimatedOpacity(
-                          opacity: _states.value
-                                      .contains(WidgetState.hovered) ||
-                                  _states.value.contains(WidgetState.focused)
-                              ? 1
-                              : 0,
-                          duration: MediaQuery.disableAnimationsOf(context)
-                              ? Duration.zero
-                              : PantasDurations.short2,
-                          curve: PantasCurves.fade,
-                          child: child,
+                            if (w.subtitle != null)
+                              Text(
+                                w.subtitle!,
+                                maxLines: release || w.wrapTitle ? null : 1,
+                                overflow: release || w.wrapTitle
+                                    ? TextOverflow.visible
+                                    : TextOverflow.ellipsis,
+                                style: subStyle,
+                              ),
+                            if (stacked) Text(w.value!, style: valueStyle),
+                          ],
                         ),
-                        child: const WebChevron(),
                       ),
-                  ],
-                ],
+                      if (!stacked && w.value != null) ...[
+                        const SizedBox(width: gap),
+                        Text(
+                          w.value!,
+                          style: valueStyle,
+                          textAlign: TextAlign.end,
+                        ),
+                      ],
+                      if (w.trailing != null) ...[
+                        const SizedBox(width: gap),
+                        w.trailing!,
+                      ],
+                      if (w.chevron != WebRowChevron.none) ...[
+                        const SizedBox(width: gap),
+                        if (w.chevron == WebRowChevron.always)
+                          WebChevron(color: chevronColor)
+                        else
+                          ListenableBuilder(
+                            listenable: _states,
+                            builder: (context, child) => AnimatedOpacity(
+                              opacity:
+                                  _states.value.contains(WidgetState.hovered) ||
+                                          _states.value
+                                              .contains(WidgetState.focused)
+                                      ? 1
+                                      : 0,
+                              duration: MediaQuery.disableAnimationsOf(context)
+                                  ? Duration.zero
+                                  : PantasDurations.short2,
+                              curve: PantasCurves.fade,
+                              child: child,
+                            ),
+                            child: WebChevron(color: chevronColor),
+                          ),
+                      ],
+                    ],
+                  );
+                },
               ),
             ),
           ),
         ],
       ),
     );
-    return Opacity(
-      opacity: w.dimmed ? .45 : 1,
-      child: Semantics(
-        selected: w.selected,
-        child: Stack(
-          fit: StackFit.passthrough,
-          children: [
-            Positioned.fill(
-              child: _tracked
-                  ? IgnorePointer(
-                      child: ColoredBox(
-                        color: tint.withValues(alpha: tint.a * selection),
+    return Semantics(
+      selected: w.selected,
+      child: Stack(
+        fit: StackFit.passthrough,
+        children: [
+          Positioned.fill(
+            child: _tracked
+                ? IgnorePointer(
+                    child: ColoredBox(
+                      color: tint.withValues(alpha: tint.a * selection),
+                    ),
+                  )
+                : const SizedBox.shrink(),
+          ),
+          button,
+          Positioned.fill(
+            child: IgnorePointer(
+              child: ListenableBuilder(
+                listenable: Listenable.merge([_states, webKeyboardInput]),
+                builder: (context, _) {
+                  final ring = webFocusRing(_states.value, t.colors.accent);
+                  if (ring == null) return const SizedBox.shrink();
+                  // Rounded and 3 in from the row's edge: it clears the 18
+                  // corner of the card the row sits in (3K-6), where a square
+                  // ring flush with the edge would be cut off.
+                  return Padding(
+                    padding: const EdgeInsets.all(
+                      PantasSpace.s2 + PantasBorder.ring,
+                    ),
+                    child: DecoratedBox(
+                      decoration: BoxDecoration(
+                        border: Border.fromBorderSide(ring),
+                        borderRadius: BorderRadius.circular(PantasRadius.md),
                       ),
-                    )
-                  : const SizedBox.shrink(),
-            ),
-            button,
-            Positioned.fill(
-              child: IgnorePointer(
-                child: ListenableBuilder(
-                  listenable: Listenable.merge([_states, webKeyboardInput]),
-                  builder: (context, _) {
-                    final ring = webFocusRing(_states.value, t.colors.accent);
-                    if (ring == null) return const SizedBox.shrink();
-                    // Rounded and 3 px in from the row's edge: it clears the
-                    // 18 px corner of the card the row sits in.
-                    return Padding(
-                      padding: const EdgeInsets.all(3),
-                      child: DecoratedBox(
-                        decoration: BoxDecoration(
-                          border: Border.fromBorderSide(ring),
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                      ),
-                    );
-                  },
-                ),
+                    ),
+                  );
+                },
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
+  }
+
+  /// Whether [valueStyle]'s value must go under the title in a row [width]
+  /// wide. A row with a trailing widget or a maths title falls back to the
+  /// large-text rule, since its text cannot be measured here.
+  bool _stacks(
+    BuildContext context,
+    double width,
+    TextStyle valueStyle, {
+    required bool large,
+  }) {
+    final w = widget;
+    // A row that asks for one line with an ellipsis (and maybe a tooltip,
+    // 5Q-16) keeps that choice: it stacks only at large text.
+    if (w.trailing != null || w.mathTitle || !w.wrapTitle) return large;
+    final titleStyle = w.titleStyle ?? PantasType.webRowTitle;
+    final scaler = MediaQuery.textScalerOf(context);
+    double natural(String text, TextStyle style) {
+      final painter = TextPainter(
+        text: TextSpan(text: text, style: style),
+        textDirection: Directionality.of(context),
+        textScaler: scaler,
+        maxLines: 1,
+      )..layout();
+      final result = painter.width;
+      painter.dispose();
+      return result;
+    }
+
+    const gap = PantasSpace.s12;
+    final start = natural(w.title, titleStyle);
+    final end = natural(w.value!, valueStyle);
+    if (start + gap + end <= width) return false;
+    final sixEm = scaler.scale(titleStyle.fontSize ?? PantasSpace.s16) * 6;
+    return width - gap - end < (start < sixEm ? start : sixEm);
   }
 }
 
@@ -882,196 +980,233 @@ class WebSegmentedControl extends StatelessWidget {
 
   /// Performance's switch (board `.seg button`) sets every label in the accent.
   final bool accentLabels;
+
+  /// The drawn segment: 34 (`btn-xs` less its 2 px of room), the system's
+  /// `.seg__btn` min height. The track adds 2 px of padding around it.
+  static const double _segment = PantasSize.btnXs - PantasSpace.s2;
+
   @override
   Widget build(BuildContext context) {
     final t = context.webTokens;
-    return DecoratedBox(
-      decoration: BoxDecoration(
-        color: t.disabledBackground,
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(2),
-        child: LayoutBuilder(
-          builder: (context, constraints) {
-            // Cells are an equal share of the control, as on the board. When
-            // a label is too long for its share, the cells follow the labels'
-            // own widths instead, so every label keeps one size. Only when
-            // the labels cannot fit at all do they all shrink by one factor.
-            const labelSize = 14.0;
-            const padding = 16.0;
-            final scaler = MediaQuery.textScalerOf(context);
-            double natural(int i) {
-              if (suffixes?[i] != null) return 0;
-              final painter = TextPainter(
-                text: TextSpan(
-                  text: labels[i],
-                  style: t.style(
-                    labelSize,
-                    weight: FontWeight.w600,
-                    height: 1.2,
-                  ),
-                ),
-                textDirection: Directionality.of(context),
-                textScaler: scaler,
-                maxLines: 1,
-              )..layout();
-              final width = painter.width + padding;
-              painter.dispose();
-              return width;
-            }
+    // On touch the segments are 44 high themselves; a transparent border keeps
+    // the drawn segment 34 inside a 38 well (D190 item 2).
+    final touch = switch (Theme.of(context).platform) {
+      TargetPlatform.android ||
+      TargetPlatform.iOS ||
+      TargetPlatform.fuchsia =>
+        true,
+      _ => false,
+    };
+    final rowHeight = touch ? PantasSize.targetTouch : _segment;
+    final thumbInset = (rowHeight - _segment) / 2;
+    const well = _segment + PantasSpace.s2 * 2;
+    final trackInset = touch ? (PantasSize.targetTouch - well) / 2 : 0.0;
+    final radius = BorderRadius.circular(PantasRadius.sm);
+    final shadow = (t.dark ? PantasShadow.dark : PantasShadow.light).segment;
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        // Cells are an equal share of the control, as on the board. A cell is
+        // never narrower than the widest label needs, and a label never
+        // wraps or shrinks: when the cells do not fit, the track scrolls
+        // inside itself (the thumb is sized from the track, so it stays on
+        // its segment).
+        final scaler = MediaQuery.textScalerOf(context);
+        double natural(int i) {
+          if (suffixes?[i] != null) return 0;
+          final painter = TextPainter(
+            text: TextSpan(
+              text: labels[i],
+              style: PantasType.webLabel,
+            ),
+            textDirection: Directionality.of(context),
+            textScaler: scaler,
+            maxLines: 1,
+          )..layout();
+          final width = painter.width + PantasSpace.s12 * 2;
+          painter.dispose();
+          return width;
+        }
 
-            final needs = [for (var i = 0; i < labels.length; i++) natural(i)];
-            final equal = constraints.maxWidth / labels.length;
-            final fits = needs.every((need) => need <= equal);
-            final total = needs.fold<double>(0, (sum, need) => sum + need);
-            final cells = fits || !constraints.hasBoundedWidth
-                ? List.filled(labels.length, equal)
-                : total <= constraints.maxWidth
-                    ? [
-                        for (final need in needs)
-                          need + (constraints.maxWidth - total) / labels.length,
-                      ]
-                    : [
-                        for (final need in needs)
-                          constraints.maxWidth * need / total,
-                      ];
-            // Past the point where the labels fit, all of them share one
-            // smaller size.
-            final scale = !fits && total > constraints.maxWidth
-                ? ((constraints.maxWidth - padding * labels.length) /
-                        (total - padding * labels.length))
-                    .clamp(.5, 1.0)
-                : 1.0;
-            final offsets = <double>[];
-            var at = 0.0;
-            for (final cell in cells) {
-              offsets.add(at);
-              at += cell;
-            }
-            return Stack(
-              children: [
-                // One thumb slides under the labels (item 17, demo 7): 240 ms
-                // on the shared ease. Only a translation changes.
-                Positioned.fill(
-                  child: ExcludeSemantics(
-                    child: IgnorePointer(
-                      child: SlidingMarker(
-                        key: const ValueKey('segmented-control-thumb'),
-                        offsets: offsets,
-                        lengths: cells,
-                        index: selected,
-                        child: DecoratedBox(
-                          decoration: BoxDecoration(
-                            color: t.segmentOn,
-                            borderRadius: BorderRadius.circular(8),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.black.withValues(alpha: .1),
-                                blurRadius: 3,
-                                offset: const Offset(0, 1),
+        final needs = [for (var i = 0; i < labels.length; i++) natural(i)];
+        final widest = needs.reduce((a, b) => a > b ? a : b);
+        final inner = constraints.maxWidth - PantasSpace.s2 * 2;
+        final bounded = constraints.hasBoundedWidth;
+        final equal = bounded ? inner / labels.length : 0.0;
+        final total = needs.fold<double>(0, (sum, need) => sum + need);
+        // Equal columns when the widest label fits its share; otherwise the
+        // columns follow the labels' own widths, spread over the room; when
+        // even those do not fit, the track scrolls.
+        final List<double> cells;
+        if (!bounded || equal >= widest) {
+          cells = List.filled(labels.length, equal > widest ? equal : widest);
+        } else if (total <= inner) {
+          cells = [
+            for (final need in needs) need + (inner - total) / labels.length,
+          ];
+        } else {
+          cells = needs;
+        }
+        final scrolls =
+            bounded && cells.fold<double>(0, (a, b) => a + b) > inner + .5;
+        final offsets = <double>[];
+        var at = 0.0;
+        for (final c in cells) {
+          offsets.add(at);
+          at += c;
+        }
+        final track = Stack(
+          children: [
+            Positioned.fill(
+              top: trackInset,
+              bottom: trackInset,
+              child: DecoratedBox(
+                key: const ValueKey('segmented-control-track'),
+                decoration: BoxDecoration(
+                  color: t.disabledBackground,
+                  borderRadius: radius,
+                ),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: PantasSpace.s2,
+                vertical: touch ? PantasSpace.s0 : PantasSpace.s2,
+              ),
+              child: SizedBox(
+                width: cells.fold<double>(0, (a, b) => a + b),
+                child: Stack(
+                  children: [
+                    // One thumb slides under the labels (item 17, demo 7):
+                    // 240 ms on the shared ease. Only a translation changes.
+                    Positioned.fill(
+                      child: ExcludeSemantics(
+                        child: IgnorePointer(
+                          child: SlidingMarker(
+                            key: const ValueKey('segmented-control-thumb'),
+                            offsets: offsets,
+                            lengths: cells,
+                            index: selected,
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(
+                                vertical: thumbInset,
                               ),
-                            ],
+                              child: DecoratedBox(
+                                decoration: BoxDecoration(
+                                  color: t.segmentOn,
+                                  borderRadius: radius,
+                                  boxShadow: shadow,
+                                ),
+                              ),
+                            ),
                           ),
                         ),
                       ),
                     ),
-                  ),
-                ),
-                Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    for (var i = 0; i < labels.length; i++)
-                      SizedBox(
-                        width: cells[i],
-                        child: Semantics(
-                          selected: selected == i,
-                          child: TextButton(
-                            onPressed: () => onChanged(i),
-                            style: ButtonStyle(
-                              animationDuration:
-                                  MediaQuery.disableAnimationsOf(context)
-                                      ? Duration.zero
-                                      : const Duration(milliseconds: 150),
-                              minimumSize:
-                                  const WidgetStatePropertyAll(Size(0, 34)),
-                              visualDensity: VisualDensity.standard,
-                              // An unselected cell answers the pointer with
-                              // the same tint every web button gets; the
-                              // selected one already has the thumb (5Q-9).
-                              overlayColor: WidgetStateProperty.resolveWith(
-                                (states) => selected != i &&
-                                        states.contains(WidgetState.hovered)
-                                    ? t.colors.label.withValues(alpha: .08)
-                                    : Colors.transparent,
-                              ),
-                              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                              padding: const WidgetStatePropertyAll(
-                                EdgeInsets.symmetric(horizontal: 8),
-                              ),
-                              foregroundColor: WidgetStatePropertyAll(
-                                accentLabels ? t.colors.accent : t.colors.label,
-                              ),
-                              backgroundColor: const WidgetStatePropertyAll(
-                                Colors.transparent,
-                              ),
-                              shape: WidgetStatePropertyAll(
-                                RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(8),
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        for (var i = 0; i < labels.length; i++)
+                          SizedBox(
+                            width: cells[i],
+                            child: Semantics(
+                              selected: selected == i,
+                              inMutuallyExclusiveGroup: true,
+                              child: TextButton(
+                                onPressed: () => onChanged(i),
+                                style: ButtonStyle(
+                                  animationDuration:
+                                      MediaQuery.disableAnimationsOf(context)
+                                          ? Duration.zero
+                                          : PantasDurations.short2,
+                                  minimumSize: WidgetStatePropertyAll(
+                                    Size(0, rowHeight),
+                                  ),
+                                  visualDensity: VisualDensity.standard,
+                                  // An unselected cell answers the pointer
+                                  // with an `opacity-hover` wash of
+                                  // `text-primary`; the selected one already
+                                  // has the thumb (5Q-9).
+                                  overlayColor: WidgetStateProperty.resolveWith(
+                                    (states) => selected != i &&
+                                            states.contains(WidgetState.hovered)
+                                        ? t.colors.textPrimary.withValues(
+                                            alpha: PantasOpacity.hover,
+                                          )
+                                        : Colors.transparent,
+                                  ),
+                                  tapTargetSize:
+                                      MaterialTapTargetSize.shrinkWrap,
+                                  padding: const WidgetStatePropertyAll(
+                                    EdgeInsets.symmetric(
+                                      horizontal: PantasSpace.s12,
+                                    ),
+                                  ),
+                                  foregroundColor: WidgetStatePropertyAll(
+                                    accentLabels
+                                        ? t.colors.accent
+                                        : selected == i
+                                            ? t.colors.textPrimary
+                                            : t.colors.textOnFill,
+                                  ),
+                                  backgroundColor: const WidgetStatePropertyAll(
+                                    Colors.transparent,
+                                  ),
+                                  shape: WidgetStatePropertyAll(
+                                    RoundedRectangleBorder(
+                                      borderRadius: radius,
+                                    ),
+                                  ),
+                                  textStyle: WidgetStatePropertyAll(
+                                    PantasType.webLabel.copyWith(
+                                      fontWeight: selected == i
+                                          ? FontWeight.w600
+                                          : FontWeight.w500,
+                                    ),
+                                  ),
                                 ),
-                              ),
-                              textStyle: WidgetStatePropertyAll(
-                                t.style(
-                                  14,
-                                  weight: FontWeight.w600,
-                                  height: 1.2,
-                                ),
+                                // A label never wraps and every label keeps
+                                // its size (4N-8).
+                                child: suffixes?[i] == null
+                                    ? Text(
+                                        labels[i],
+                                        maxLines: 1,
+                                        softWrap: false,
+                                      )
+                                    : Row(
+                                        mainAxisSize: MainAxisSize.min,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Flexible(
+                                            child: Text(
+                                              labels[i],
+                                              maxLines: 1,
+                                              overflow: TextOverflow.ellipsis,
+                                            ),
+                                          ),
+                                          const SizedBox(
+                                            width: PantasSpace.s6,
+                                          ),
+                                          suffixes![i]!,
+                                        ],
+                                      ),
                               ),
                             ),
-                            // A label never wraps, and every label has the
-                            // same size (4N-8). The box only guards a cell
-                            // that is a hair too narrow.
-                            child: suffixes?[i] == null
-                                ? FittedBox(
-                                    fit: BoxFit.scaleDown,
-                                    child: Text(
-                                      labels[i],
-                                      maxLines: 1,
-                                      softWrap: false,
-                                      style: scale == 1
-                                          ? null
-                                          : TextStyle(
-                                              fontSize: labelSize * scale,
-                                            ),
-                                    ),
-                                  )
-                                : Row(
-                                    mainAxisSize: MainAxisSize.min,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Flexible(
-                                        child: Text(
-                                          labels[i],
-                                          maxLines: 1,
-                                          overflow: TextOverflow.ellipsis,
-                                        ),
-                                      ),
-                                      if (suffixes?[i] != null) ...[
-                                        const SizedBox(width: 6),
-                                        suffixes![i]!,
-                                      ],
-                                    ],
-                                  ),
                           ),
-                        ),
-                      ),
+                      ],
+                    ),
                   ],
                 ),
-              ],
-            );
-          },
-        ),
-      ),
+              ),
+            ),
+          ],
+        );
+        if (!scrolls) return track;
+        return SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: track,
+        );
+      },
     );
   }
 }
@@ -1534,26 +1669,37 @@ class WebTopBar extends StatelessWidget {
 
 /// The 44 px button a question page's top bar uses at its two ends. The
 /// quiz and the assessment share it, so the ends sit at the same x.
+///
+/// It is a [PantasIconButton]: give a [glyph] or an [icon]. With [toggled]
+/// set it is a toggle: the outline glyph when off, the Fill glyph in `accent`
+/// when on.
 class WebTopBarButton extends StatelessWidget {
   const WebTopBarButton({
     required this.tooltip,
-    required this.icon,
     required this.onPressed,
+    this.icon,
+    this.glyph,
+    this.toggled,
+    this.size = PantasIconButtonSize.standard,
+    this.accent = false,
     super.key,
   });
   final String tooltip;
-  final Widget icon;
+  final Widget? icon;
+  final IconData? glyph;
+  final bool? toggled;
+  final PantasIconButtonSize size;
+  final bool accent;
   final VoidCallback? onPressed;
   @override
-  Widget build(BuildContext context) => IconButton(
+  Widget build(BuildContext context) => PantasIconButton(
         tooltip: tooltip,
         onPressed: onPressed,
-        constraints: const BoxConstraints.tightFor(width: 44, height: 44),
-        visualDensity: VisualDensity.standard,
-        style: IconButton.styleFrom(
-          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-        ),
         icon: icon,
+        glyph: glyph,
+        toggled: toggled,
+        size: size,
+        accent: accent,
       );
 }
 
@@ -1638,20 +1784,24 @@ class WebBarArrow extends StatelessWidget {
 /// glyph has blank space of its own on the left; the label's last letter
 /// has none, and the ring touched it. Top bars set the Esc hint right after
 /// the link, where a 10 px gap used to be.
-const double webBackLinkPadRight = 10;
+const double webBackLinkPadRight = PantasSpace.s10;
 
 /// Room inside the back link's highlight before its arrow (back link A).
-const double webBackLinkPadLeft = 8;
+const double webBackLinkPadLeft = PantasSpace.s8;
 
-/// The board's `.back` link: 17 px accent text, 40 px tall. It highlights as a
-/// rounded rectangle (radius 11) like the other ghost buttons, never a pill.
-/// The highlight reaches 14 px into the page margin with 8 px inside it, so
-/// the arrow still sits 6 px left of the page edge (back link A).
-class WebBackLink extends StatelessWidget {
+/// The board's `.back` link: a 20 px Bold chevron and a 17 px accent label,
+/// 2 px apart, 40 px tall with a 44 px touch target. It highlights as a
+/// rounded rectangle of `radius-back` (11), never a pill. The highlight
+/// reaches 14 px into the page margin with 8 px inside it, so the chevron
+/// still sits 6 px left of the page edge (back link A). Hover washes the
+/// accent at `opacity-hover`, turns the label `accent-hover` and nudges the
+/// chevron 2 px left. [fontSize] and [tightIcon] are old Settings overrides:
+/// the system sets one size and a 2 px gap, so they are not read.
+class WebBackLink extends StatefulWidget {
   const WebBackLink({
     required this.label,
     required this.onPressed,
-    this.fontSize = 17,
+    this.fontSize,
     this.tightIcon = false,
     this.nudge = true,
     super.key,
@@ -1664,97 +1814,135 @@ class WebBackLink extends StatelessWidget {
   /// sits on the bar's padding turns this off.
   final bool nudge;
 
-  /// Settings pages set this link at 15 px (board `.back` with an override).
-  final double fontSize;
+  /// Not read: the label is 17 px.
+  final double? fontSize;
 
-  /// Board `.back` puts 2 px between the arrow and the label.
+  /// Not read: the chevron and the label are always 2 px apart.
   final bool tightIcon;
+
+  @override
+  State<WebBackLink> createState() => _WebBackLinkState();
+}
+
+class _WebBackLinkState extends State<WebBackLink> {
+  bool _hover = false;
+
   @override
   Widget build(BuildContext context) {
-    final t = context.webTokens;
+    final c = context.webTokens.colors;
+    final reduced = MediaQuery.disableAnimationsOf(context);
     // The nudge puts the link's left end outside the page's clip, so the ring
-    // is drawn in the overlay (5Q-11). Without one the theme's ring stays.
-    final overlayRing = nudge && WebBackLinkRing.supported(context);
+    // is drawn in the overlay (5Q-11). Without one the ring is drawn here.
+    final overlayRing = widget.nudge && WebBackLinkRing.supported(context);
+    final radius = BorderRadius.circular(PantasRadius.back);
     final style = TextButton.styleFrom(
-      foregroundColor: t.colors.accent,
       padding: EdgeInsets.only(
-        left: nudge ? webBackLinkPadLeft : 0,
+        left: widget.nudge ? webBackLinkPadLeft : PantasSpace.s0,
         right: webBackLinkPadRight,
       ),
-      minimumSize: const Size(0, 40),
+      minimumSize: const Size(0, PantasSize.back),
       tapTargetSize: MaterialTapTargetSize.shrinkWrap,
       visualDensity: VisualDensity.standard,
-      textStyle: t.style(fontSize),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(11)),
+      textStyle: PantasType.webRowTitle,
+      shape: RoundedRectangleBorder(borderRadius: radius),
+      side: BorderSide.none,
+      animationDuration: reduced ? Duration.zero : PantasDurations.short2,
     ).copyWith(
-      // The overlay draws the hover fill and the ring whole (5Q-11).
-      side: overlayRing ? const WidgetStatePropertyAll(BorderSide.none) : null,
-      overlayColor:
-          overlayRing ? const WidgetStatePropertyAll(Colors.transparent) : null,
-    );
-    final link = tightIcon
-        ? TextButton(
-            onPressed: onPressed,
-            style: style,
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                const Icon(Icons.chevron_left, size: 20),
-                const SizedBox(width: 2),
-                Text(label),
-              ],
+      foregroundColor: WidgetStateProperty.resolveWith(
+        (s) =>
+            s.contains(WidgetState.hovered) || s.contains(WidgetState.pressed)
+                ? c.accentHover
+                : c.accent,
+      ),
+      // The overlay draws the hover wash whole (5Q-11).
+      backgroundColor: overlayRing
+          ? null
+          : WidgetStateProperty.resolveWith(
+              (s) => s.contains(WidgetState.hovered) ||
+                      s.contains(WidgetState.pressed)
+                  ? c.accent.withValues(alpha: PantasOpacity.hover)
+                  : Colors.transparent,
             ),
-          )
-        : TextButton.icon(
-            onPressed: onPressed,
-            icon: const Icon(Icons.chevron_left, size: 20),
-            label: Text(label),
-            style: style,
-          );
+      overlayColor: const WidgetStatePropertyAll(Colors.transparent),
+    );
+    final link = MouseRegion(
+      onEnter: (_) => setState(() => _hover = true),
+      onExit: (_) => setState(() => _hover = false),
+      child: TextButton(
+        onPressed: widget.onPressed,
+        style: style,
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            AnimatedContainer(
+              transform: Matrix4.translationValues(
+                _hover && !reduced ? -PantasSpace.s2 : 0,
+                0,
+                0,
+              ),
+              duration: reduced ? Duration.zero : PantasDurations.nudge,
+              curve: PantasCurves.move,
+              child: ExcludeSemantics(
+                child: Icon(
+                  PantasIcons.bold(PantasIcons.back),
+                  size: PantasSize.icon,
+                ),
+              ),
+            ),
+            const SizedBox(width: PantasSpace.s2),
+            Flexible(child: Text(widget.label)),
+          ],
+        ),
+      ),
+    );
     return Align(
       alignment: Alignment.centerLeft,
       child: Transform.translate(
-        offset: Offset(nudge ? -6 - webBackLinkPadLeft : 0, 0),
-        child: overlayRing ? WebBackLinkRing(child: link) : link,
+        offset: Offset(
+          widget.nudge ? -(PantasSpace.s6 + webBackLinkPadLeft) : 0,
+          0,
+        ),
+        child: TouchTarget(
+          child: PressScale(
+            scale: pantasPressScale,
+            child: overlayRing
+                ? WebBackLinkRing(child: link)
+                : OffsetFocusRing(borderRadius: radius, child: link),
+          ),
+        ),
       ),
     );
   }
 }
 
-/// The board's `.btn3.teal`: a natural-width text action, 11 px radius, 14 px
-/// side padding, 16 px semibold accent label.
+/// The board's `.btn3.teal`: a natural-width text action. It is a tertiary
+/// Button in the accent tone at 42 px (`btn--sm`), so it keeps a rounded
+/// rectangle, never a pill.
 class WebTextAction extends StatelessWidget {
   const WebTextAction({
     required this.label,
     required this.onPressed,
-    this.height = 42,
+    this.height = PantasSize.btnSm,
     super.key,
   });
   final String label;
   final VoidCallback onPressed;
   final double height;
   @override
-  Widget build(BuildContext context) {
-    final t = context.webTokens;
-    return TextButton(
-      onPressed: onPressed,
-      style: TextButton.styleFrom(
-        foregroundColor: t.colors.accent,
-        minimumSize: Size(0, height),
-        maximumSize: Size(double.infinity, height),
-        padding: const EdgeInsets.symmetric(horizontal: 14),
-        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-        visualDensity: VisualDensity.standard,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(11)),
-        textStyle: t.style(16, weight: FontWeight.w600),
-      ),
-      child: Text(label),
-    );
-  }
+  Widget build(BuildContext context) => WebButton(
+        label: label,
+        onPressed: onPressed,
+        kind: PantasButtonKind.tertiary,
+        tone: PantasButtonTone.accent,
+        size: PantasButtonSize.sm,
+        height: height == PantasSize.btnSm ? null : height,
+      );
 }
 
-/// One column of the board's date picker (`.pk`): five 38 px rows 2 px apart
-/// around the chosen value, 120 px wide. The chosen row is accent on the tint
+/// One column of the board's date picker (`.pk`): five rows 2 px apart around
+/// the chosen value, 120 px wide. A row is the larger of 36 (`size-wheel-row`)
+/// and the scaled line plus 16, so the rows and the band follow large text
+/// (D190 item 6). The chosen row is accent on the tint
 /// and bold; the rest are muted. A row is picked by tapping it or by the
 /// mouse wheel over the column. The rows slide a row to the new value, 240 ms
 /// on the shared ease, as the phone's wheel glides. A pick made while one is
@@ -1782,9 +1970,18 @@ class WebPickerColumn extends StatefulWidget {
 
 class _WebPickerColumnState extends State<WebPickerColumn>
     with SingleTickerProviderStateMixin {
-  static const _row = 38.0;
-  static const _pitch = _row + 2;
-  static const _height = _row * 5 + 2 * 4;
+  static const double _width = PantasSpace.s40 * 3;
+
+  /// The row height: the larger of `size-wheel-row` and the scaled line
+  /// plus 16.
+  double _row(BuildContext context) {
+    final line = MediaQuery.textScalerOf(context)
+            .scale(PantasType.webRowTitle.fontSize!) *
+        PantasType.webRowTitle.height!;
+    return line + PantasSpace.s16 > PantasSize.wheelRow
+        ? line + PantasSpace.s16
+        : PantasSize.wheelRow;
+  }
 
   late final AnimationController _controller = AnimationController(
     vsync: this,
@@ -1827,6 +2024,7 @@ class _WebPickerColumnState extends State<WebPickerColumn>
     final t = context.webTokens;
     final chosen = index == widget.selectedIndex;
     final disabled = widget.disabledIndices.contains(index);
+    final row = _row(context);
     return Semantics(
       button: true,
       selected: chosen,
@@ -1836,8 +2034,8 @@ class _WebPickerColumnState extends State<WebPickerColumn>
       child: TextButton(
         onPressed: disabled || chosen ? null : () => widget.onSelected(index),
         style: ButtonStyle(
-          minimumSize: const WidgetStatePropertyAll(Size(120, _row)),
-          maximumSize: const WidgetStatePropertyAll(Size(120, _row)),
+          minimumSize: WidgetStatePropertyAll(Size(_width, row)),
+          maximumSize: WidgetStatePropertyAll(Size(_width, row)),
           padding: const WidgetStatePropertyAll(EdgeInsets.zero),
           tapTargetSize: MaterialTapTargetSize.shrinkWrap,
           visualDensity: VisualDensity.standard,
@@ -1850,19 +2048,20 @@ class _WebPickerColumnState extends State<WebPickerColumn>
                     : Colors.transparent,
           ),
           shape: WidgetStatePropertyAll(
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(9)),
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(PantasRadius.sm),
+            ),
           ),
         ),
         child: Text(
           widget.values[index],
-          style: t.style(
-            17,
-            weight: chosen ? FontWeight.w700 : FontWeight.w400,
+          style: PantasType.webRowTitle.copyWith(
+            fontWeight: chosen ? FontWeight.w700 : FontWeight.w400,
             color: chosen
                 ? t.colors.accent
                 : disabled
                     ? t.disabledText
-                    : t.colors.tertiaryLabel,
+                    : t.colors.textSecondary,
           ),
         ),
       ),
@@ -1881,32 +2080,39 @@ class _WebPickerColumnState extends State<WebPickerColumn>
             widget.onSelected(next);
           }
         },
-        child: SizedBox(
-          width: 120,
-          height: _height,
-          child: AnimatedBuilder(
-            animation: _controller,
-            builder: (context, _) {
-              final position = _position;
-              return Stack(
-                children: [
-                  for (var index = position.floor() - 3;
-                      index <= position.ceil() + 3;
-                      index++)
-                    if (index >= 0 && index < widget.values.length)
-                      if ((index - position + 2) * _pitch case final top
-                          when top + _row > 0 && top < _height)
-                        Positioned(
-                          top: top,
-                          left: 0,
-                          width: 120,
-                          height: _row,
-                          child: _rowAt(context, index),
-                        ),
-                ],
-              );
-            },
-          ),
+        child: Builder(
+          builder: (context) {
+            final row = _row(context);
+            final pitch = row + PantasSpace.s2;
+            final height = row * 5 + PantasSpace.s2 * 4;
+            return SizedBox(
+              width: _width,
+              height: height,
+              child: AnimatedBuilder(
+                animation: _controller,
+                builder: (context, _) {
+                  final position = _position;
+                  return Stack(
+                    children: [
+                      for (var index = position.floor() - 3;
+                          index <= position.ceil() + 3;
+                          index++)
+                        if (index >= 0 && index < widget.values.length)
+                          if ((index - position + 2) * pitch case final top
+                              when top + row > 0 && top < height)
+                            Positioned(
+                              top: top,
+                              left: 0,
+                              width: _width,
+                              height: row,
+                              child: _rowAt(context, index),
+                            ),
+                    ],
+                  );
+                },
+              ),
+            );
+          },
         ),
       );
 }
@@ -1970,10 +2176,8 @@ class _WebRootModalState extends State<WebRootModal> {
       overlayChildBuilder: (context) => WebOverlayLayer(
         motion: WebOverlayMotion.dialog,
         alignment: Alignment.center,
-        // The board's gray would lighten a dark page.
-        barrierColor: context.webTokens.dark
-            ? Colors.black.withValues(alpha: .28)
-            : const Color(0x521D1D1F),
+        // `scrim` (z-overlay): one recipe for every modal.
+        barrierColor: context.webTokens.colors.scrim,
         onDismiss: widget.onDismiss,
         exit: _exit,
         child: widget.onEscape == null
@@ -2015,14 +2219,17 @@ class WebFullNotice extends StatelessWidget {
   final String actionLabel;
   final VoidCallback? onPressed;
 
+  /// The "P" mark is a square of this size.
+  static const double _markSize = PantasSpace.s56 + PantasSpace.s4;
+
   @override
   Widget build(BuildContext context) {
     final t = context.webTokens;
     return Scaffold(
-      backgroundColor: t.colors.background,
+      backgroundColor: t.colors.bgPage,
       body: Center(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24),
+          padding: const EdgeInsets.symmetric(horizontal: PantasSpace.s24),
           child: Semantics(
             liveRegion: true,
             child: Column(
@@ -2031,38 +2238,34 @@ class WebFullNotice extends StatelessWidget {
                 ExcludeSemantics(
                   child: Container(
                     key: const ValueKey('web-notice-mark'),
-                    width: 60,
-                    height: 60,
+                    width: _markSize,
+                    height: _markSize,
                     decoration: BoxDecoration(
                       color: t.colors.accentFill,
-                      borderRadius: BorderRadius.circular(16),
+                      borderRadius: BorderRadius.circular(PantasRadius.xl),
                     ),
                     alignment: Alignment.center,
                     child: Text(
                       'P',
-                      style: t.style(
-                        30,
-                        weight: FontWeight.w700,
-                        color: Colors.white,
+                      style: PantasType.webH1.copyWith(
+                        fontWeight: FontWeight.w700,
+                        color: t.colors.onAccent,
                       ),
                     ),
                   ),
                 ),
-                const SizedBox(height: 16),
+                const SizedBox(height: PantasSpace.s16),
                 Text(title, textAlign: TextAlign.center, style: t.h2),
                 if (lead != null) ...[
-                  const SizedBox(height: 16),
+                  const SizedBox(height: PantasSpace.s16),
                   Text(
                     lead!,
                     textAlign: TextAlign.center,
-                    style: t.style(
-                      17,
-                      height: 1.45,
-                      color: t.colors.secondaryLabel,
-                    ),
+                    style: PantasType.webLead
+                        .copyWith(color: t.colors.textSecondary),
                   ),
                 ],
-                const SizedBox(height: 16),
+                const SizedBox(height: PantasSpace.s16),
                 CallbackShortcuts(
                   bindings: {
                     if (onPressed != null)

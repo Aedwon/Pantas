@@ -1,9 +1,17 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:pantas/core/ui/components/offset_focus_ring.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
-import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 
 @immutable
 class MonthFirstDate {
@@ -32,7 +40,7 @@ class MonthRiseSwitcher extends StatelessWidget {
         key: switcherKey,
         duration: MediaQuery.disableAnimationsOf(context)
             ? Duration.zero
-            : const Duration(milliseconds: 320),
+            : PantasDurations.medium2,
         reverseDuration: Duration.zero,
         transitionBuilder: (child, animation) => AnimatedBuilder(
           animation: animation,
@@ -42,7 +50,7 @@ class MonthRiseSwitcher extends StatelessWidget {
             return Opacity(
               opacity: p,
               child: Transform.translate(
-                offset: Offset((1 - p) * 40 * direction, 0),
+                offset: Offset((1 - p) * PantasSpace.s40 * direction, 0),
                 child: child,
               ),
             );
@@ -85,12 +93,150 @@ class _MonthFirstDatePickerState extends State<MonthFirstDatePicker> {
   ValueChanged<MonthFirstDate> get onChanged => widget.onChanged;
   bool get onboarding => widget.onboarding;
   int _direction = 1;
+
+  /// A day cell is 48 wide at default text and grows with the scaled digit.
+  static double _dayWidth(TextScaler scale) => math.max<double>(
+        PantasSize.weekDay + PantasSpace.s4,
+        scale.scale(PantasType.webNav.fontSize!) * 2.2 + PantasSpace.s6,
+      );
   @override
   void didUpdateWidget(MonthFirstDatePicker oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (oldWidget.value.year != value.year) {
       _direction = value.year > oldWidget.value.year ? 1 : -1;
     }
+  }
+
+  /// A grid cell's look (DatePicker README): `bg-page` well, `radius-md`,
+  /// `surface-hover` under the pointer, `accent-fill` when chosen.
+  ButtonStyle _cellStyle(
+    PantasColors c, {
+    required bool chosen,
+    required Size minimum,
+    required EdgeInsets padding,
+  }) =>
+      ButtonStyle(
+        minimumSize: WidgetStatePropertyAll(minimum),
+        padding: WidgetStatePropertyAll(padding),
+        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+        overlayColor: const WidgetStatePropertyAll(Colors.transparent),
+        animationDuration: PantasDurations.short2,
+        backgroundColor: WidgetStateProperty.resolveWith(
+          (states) => chosen
+              ? c.accentFill
+              : states.contains(WidgetState.hovered) &&
+                      !states.contains(WidgetState.disabled)
+                  ? c.surfaceHover
+                  : c.bgPage,
+        ),
+        shape: WidgetStatePropertyAll(
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(PantasRadius.md),
+          ),
+        ),
+      );
+
+  /// The year, with its previous and next buttons (44 px targets).
+  Widget _yearRow(BuildContext context, int year) {
+    final c = context.colors;
+    const target = ButtonStyle(
+      fixedSize: WidgetStatePropertyAll(
+        Size.square(PantasSize.targetTouch),
+      ),
+      minimumSize: WidgetStatePropertyAll(
+        Size.square(PantasSize.targetTouch),
+      ),
+      padding: WidgetStatePropertyAll(EdgeInsets.zero),
+      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+    );
+    return Row(
+      children: [
+        Expanded(
+          child: Text(
+            '$year',
+            style: PantasType.webTitleSm.copyWith(color: c.textPrimary),
+          ),
+        ),
+        OffsetFocusRing(
+          borderRadius: BorderRadius.circular(PantasRadius.full),
+          child: IconButton(
+            style: target,
+            tooltip: 'Previous year',
+            onPressed: year <= today.year
+                ? null
+                : () => onChanged(MonthFirstDate(year: year - 1)),
+            icon: Icon(
+              PantasIcons.back,
+              size: PantasSize.icon + PantasSpace.s2,
+              color: year <= today.year ? c.iconChevron : c.accent,
+            ),
+          ),
+        ),
+        OffsetFocusRing(
+          borderRadius: BorderRadius.circular(PantasRadius.full),
+          child: IconButton(
+            style: target,
+            tooltip: 'Next year',
+            onPressed: () => onChanged(MonthFirstDate(year: year + 1)),
+            icon: Icon(
+              PantasIcons.next,
+              size: PantasSize.icon + PantasSpace.s2,
+              color: c.accent,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _monthCell(BuildContext context, int year, int month) {
+    final c = context.colors;
+    final past = year == today.year && month < today.month;
+    final chosen = value.month == month;
+    final label = DateFormat('MMMM', 'en_US').format(DateTime(year, month));
+    return Semantics(
+      label: label,
+      button: true,
+      selected: chosen,
+      enabled: !past,
+      excludeSemantics: true,
+      child: OffsetFocusRing(
+        borderRadius: BorderRadius.circular(PantasRadius.md),
+        child: TextButton(
+          key: ValueKey('date-month-$month'),
+          onPressed: past
+              ? null
+              : () => onChanged(MonthFirstDate(year: year, month: month)),
+          style: _cellStyle(
+            c,
+            chosen: chosen,
+            minimum: const Size(
+              PantasSize.targetTouch,
+              PantasSize.targetTouch,
+            ),
+            padding: const EdgeInsets.symmetric(
+              horizontal: PantasSpace.s4,
+              vertical: PantasSpace.s12,
+            ),
+          ),
+          child: Text(
+            DateFormat('MMM', 'en_US').format(DateTime(year, month)),
+            style: PantasType.webNav.copyWith(
+              fontWeight: chosen
+                  ? FontWeight.w700
+                  : past
+                      ? FontWeight.w400
+                      : FontWeight.w500,
+              color: past
+                  ? c.textSecondary
+                  : chosen
+                      ? c.onAccent
+                      : c.textPrimary,
+            ),
+          ),
+        ),
+      ),
+    );
   }
 
   @override
@@ -105,44 +251,15 @@ class _MonthFirstDatePickerState extends State<MonthFirstDatePicker> {
           Row(
             children: [
               for (var month = start; month < start + 3; month++) ...[
-                if (month != start) const SizedBox(width: 8),
+                if (month != start) const SizedBox(width: PantasSpace.s8),
                 Expanded(
-                  child: TextButton(
-                    key: ValueKey('date-month-$month'),
-                    onPressed: year == today.year && month < today.month
-                        ? null
-                        : () =>
-                            onChanged(MonthFirstDate(year: year, month: month)),
-                    style: TextButton.styleFrom(
-                      minimumSize: const Size(44, 52),
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 4,
-                        vertical: 12,
-                      ),
-                      backgroundColor:
-                          value.month == month ? c.accentFill : c.background,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                    ),
-                    child: Text(
-                      DateFormat('MMM', 'en_US').format(DateTime(year, month)),
-                      style: context.type.emphasized.copyWith(
-                        fontSize: 17,
-                        color: year == today.year && month < today.month
-                            ? c.chevron
-                            : value.month == month
-                                ? (c.onAccent)
-                                : c.label,
-                      ),
-                    ),
-                  ),
+                  child: _monthCell(context, year, month),
                 ),
               ],
             ],
           ),
         )
-        ..add(const SizedBox(height: 8));
+        ..add(const SizedBox(height: PantasSpace.s8));
     }
     if (onboarding && rows.isNotEmpty) rows.removeLast();
     final days = <Widget>[];
@@ -150,9 +267,15 @@ class _MonthFirstDatePickerState extends State<MonthFirstDatePicker> {
       final month = value.month!;
       final last = DateTime(year, month + 1, 0).day;
       final scale = MediaQuery.textScalerOf(context);
-      final width = (scale.scale(19) * 2.2 + 6).clamp(48.0, double.infinity);
-      final height = (scale.scale(11) * 1.35 + scale.scale(19) * 1.35 + 12)
-          .clamp(60.0, double.infinity);
+      final width = _dayWidth(scale);
+      final height = math.max<double>(
+        PantasSize.dateCell + PantasSpace.s14,
+        scale.scale(PantasType.webKeyHintSm.fontSize!) *
+                PantasType.webKeyHintSm.height! +
+            scale.scale(PantasType.webNav.fontSize!) *
+                PantasType.webNav.height! +
+            PantasSpace.s16,
+      );
       for (var day = 1; day <= last; day++) {
         final date = DateTime(year, month, day);
         final past =
@@ -171,78 +294,88 @@ class _MonthFirstDatePickerState extends State<MonthFirstDatePicker> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  TextButton(
-                    key: ValueKey('date-day-$day'),
-                    onPressed: past
-                        ? null
-                        : () => onChanged(
-                              MonthFirstDate(
-                                year: year,
-                                month: month,
-                                day: day,
+                  Semantics(
+                    label: DateFormat('MMMM d, y', 'en_US').format(date),
+                    button: true,
+                    selected: selected,
+                    enabled: !past,
+                    excludeSemantics: true,
+                    child: OffsetFocusRing(
+                      borderRadius: BorderRadius.circular(PantasRadius.md),
+                      child: TextButton(
+                        key: ValueKey('date-day-$day'),
+                        onPressed: past
+                            ? null
+                            : () => onChanged(
+                                  MonthFirstDate(
+                                    year: year,
+                                    month: month,
+                                    day: day,
+                                  ),
+                                ),
+                        style: _cellStyle(
+                          c,
+                          chosen: selected,
+                          minimum: Size(width, height),
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: PantasSpace.s2,
+                            vertical: PantasSpace.s8,
+                          ),
+                        ),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Text(
+                              DateFormat('EEE', 'en_US').format(date),
+                              style: PantasType.webKeyHintSm.copyWith(
+                                color: past
+                                    ? c.textSecondary
+                                    : selected
+                                        ? c.onAccent
+                                        : isToday
+                                            ? c.accent
+                                            : c.textSecondary,
+                                fontWeight: isToday && !selected
+                                    ? FontWeight.w700
+                                    : FontWeight.w600,
                               ),
                             ),
-                    style: TextButton.styleFrom(
-                      minimumSize: Size(width, height),
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 2,
-                        vertical: 8,
-                      ),
-                      backgroundColor: selected ? c.accentFill : c.background,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
-                        side: BorderSide(
-                          color: isToday && !selected
-                              ? c.accent
-                              : context.colors.transparent,
-                          width: 1.5,
+                            const SizedBox(height: PantasSpace.s2),
+                            Text(
+                              '$day',
+                              style: PantasType.webNav.copyWith(
+                                fontFeatures: const [
+                                  FontFeature.tabularFigures(),
+                                ],
+                                fontWeight: selected || isToday
+                                    ? FontWeight.w700
+                                    : past
+                                        ? FontWeight.w400
+                                        : FontWeight.w500,
+                                color: past
+                                    ? c.textSecondary
+                                    : selected
+                                        ? c.onAccent
+                                        : isToday
+                                            ? c.accent
+                                            : c.textPrimary,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
-                    ),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Text(
-                          DateFormat('EEE', 'en_US').format(date),
-                          style: context.type.caption.copyWith(
-                            fontWeight: FontWeight.w600,
-                            color: past
-                                ? c.chevron
-                                : selected
-                                    ? (c.onAccent)
-                                    : isToday
-                                        ? c.accent
-                                        : c.secondaryLabel,
-                          ),
-                        ),
-                        const SizedBox(height: 2),
-                        Text(
-                          '$day',
-                          style: context.type.body.copyWith(
-                            fontSize: 19,
-                            fontWeight:
-                                selected ? FontWeight.w600 : FontWeight.w500,
-                            color: past
-                                ? c.chevron
-                                : selected
-                                    ? (c.onAccent)
-                                    : c.label,
-                            letterSpacing: -.228,
-                          ),
-                        ),
-                      ],
                     ),
                   ),
                   if (isToday)
                     Text(
                       'Today',
-                      style: context.type.caption.copyWith(color: c.accent),
+                      style: PantasType.webCaption.copyWith(color: c.accent),
                     ),
                 ],
               ),
             ),
           )
-          ..add(const SizedBox(width: 8));
+          ..add(const SizedBox(width: PantasSpace.s8));
       }
     }
     final monthLabel = value.month == null
@@ -258,10 +391,10 @@ class _MonthFirstDatePickerState extends State<MonthFirstDatePicker> {
                 .format(DateTime(year, value.month!, value.day!));
     Widget card(String key, List<Widget> children) => Container(
           key: ValueKey(key),
-          padding: const EdgeInsets.all(14),
+          padding: const EdgeInsets.all(PantasSpace.s14),
           decoration: BoxDecoration(
-            color: c.surface,
-            borderRadius: BorderRadius.circular(20),
+            color: c.surfaceCard,
+            borderRadius: BorderRadius.circular(PantasRadius.xl),
           ),
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -270,44 +403,8 @@ class _MonthFirstDatePickerState extends State<MonthFirstDatePicker> {
           ),
         );
     final monthCard = card('onboarding-month-card', [
-      Row(
-        children: [
-          Expanded(child: Text('$year', style: context.type.emphasized)),
-          IconButton(
-            style: context.wideWeb
-                ? null
-                : IconButton.styleFrom(
-                    fixedSize: const Size(44, 44),
-                    minimumSize: const Size(44, 44),
-                    padding: EdgeInsets.zero,
-                    tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                  ),
-            tooltip: 'Previous year',
-            onPressed: year <= today.year
-                ? null
-                : () => onChanged(MonthFirstDate(year: year - 1)),
-            icon: Icon(
-              PantasIcons.back,
-              size: 22,
-              color: year <= today.year ? c.chevron : c.accent,
-            ),
-          ),
-          IconButton(
-            style: context.wideWeb
-                ? null
-                : IconButton.styleFrom(
-                    fixedSize: const Size(44, 44),
-                    minimumSize: const Size(44, 44),
-                    padding: EdgeInsets.zero,
-                    tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                  ),
-            tooltip: 'Next year',
-            onPressed: () => onChanged(MonthFirstDate(year: year + 1)),
-            icon: Icon(PantasIcons.next, size: 22, color: c.accent),
-          ),
-        ],
-      ),
-      const SizedBox(height: 10),
+      _yearRow(context, year),
+      const SizedBox(height: PantasSpace.s10),
       if (onboarding)
         MonthRiseSwitcher(
           switcherKey: const ValueKey('onboarding-year-motion'),
@@ -326,14 +423,17 @@ class _MonthFirstDatePickerState extends State<MonthFirstDatePicker> {
         Wrap(
           alignment: WrapAlignment.spaceBetween,
           crossAxisAlignment: WrapCrossAlignment.center,
-          spacing: 12,
-          runSpacing: 4,
+          spacing: PantasSpace.s12,
+          runSpacing: PantasSpace.s4,
           children: [
-            Text('Know the exact day?', style: context.type.subheadStrong),
+            Text(
+              'Know the exact day?',
+              style: PantasType.webLabel.copyWith(color: c.textPrimary),
+            ),
             Text(
               DateFormat('MMMM y', 'en_US')
                   .format(DateTime(year, value.month!)),
-              style: context.type.footnote,
+              style: PantasType.webSmall.copyWith(color: c.textSecondary),
             ),
             if (!onboarding && value.day != null)
               TextButton(
@@ -342,12 +442,12 @@ class _MonthFirstDatePickerState extends State<MonthFirstDatePicker> {
                 ),
                 child: Text(
                   'Month only',
-                  style: context.type.footnote.copyWith(color: c.accent),
+                  style: PantasType.webSmall.copyWith(color: c.accent),
                 ),
               ),
           ],
         ),
-        const SizedBox(height: 8),
+        const SizedBox(height: PantasSpace.s8),
         if (onboarding)
           _DayStrip(
             key: ValueKey('$year-${value.month}'),
@@ -359,10 +459,10 @@ class _MonthFirstDatePickerState extends State<MonthFirstDatePicker> {
             scrollDirection: Axis.horizontal,
             child: Row(children: days),
           ),
-        const SizedBox(height: 8),
+        const SizedBox(height: PantasSpace.s8),
         Text(
           note,
-          style: context.type.footnote.copyWith(height: 1.4),
+          style: PantasType.webSmall.copyWith(color: c.textSecondary),
         ),
       ],
     ];
@@ -373,51 +473,15 @@ class _MonthFirstDatePickerState extends State<MonthFirstDatePicker> {
         children: [
           monthCard,
           if (value.month != null) ...[
-            const SizedBox(height: 18),
+            const SizedBox(height: PantasSpace.s18),
             card('onboarding-day-card', dayChildren),
           ],
         ],
       );
     }
     return card('date-picker-card', [
-      Row(
-        children: [
-          Expanded(child: Text('$year', style: context.type.emphasized)),
-          IconButton(
-            style: context.wideWeb
-                ? null
-                : IconButton.styleFrom(
-                    fixedSize: const Size(44, 44),
-                    minimumSize: const Size(44, 44),
-                    padding: EdgeInsets.zero,
-                    tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                  ),
-            tooltip: 'Previous year',
-            onPressed: year <= today.year
-                ? null
-                : () => onChanged(MonthFirstDate(year: year - 1)),
-            icon: Icon(
-              PantasIcons.back,
-              size: 22,
-              color: year <= today.year ? c.chevron : c.accent,
-            ),
-          ),
-          IconButton(
-            style: context.wideWeb
-                ? null
-                : IconButton.styleFrom(
-                    fixedSize: const Size(44, 44),
-                    minimumSize: const Size(44, 44),
-                    padding: EdgeInsets.zero,
-                    tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                  ),
-            tooltip: 'Next year',
-            onPressed: () => onChanged(MonthFirstDate(year: year + 1)),
-            icon: Icon(PantasIcons.next, size: 22, color: c.accent),
-          ),
-        ],
-      ),
-      const SizedBox(height: 10),
+      _yearRow(context, year),
+      const SizedBox(height: PantasSpace.s10),
       ...rows,
       _CalendarExpansion(
         child: value.month == null
@@ -439,7 +503,7 @@ class _CalendarExpansion extends StatelessWidget {
   Widget build(BuildContext context) => MediaQuery.disableAnimationsOf(context)
       ? child
       : AnimatedSize(
-          duration: const Duration(milliseconds: 400),
+          duration: PantasDurations.drawerClose,
           curve: PantasCurves.house,
           child: child,
         );
@@ -475,11 +539,11 @@ class _DayStripState extends State<_DayStrip> {
   void _scrollToSelected() {
     final generation = ++_generation;
     final still = MediaQuery.disableAnimationsOf(context);
-    final stride = (MediaQuery.textScalerOf(context).scale(19) * 2.2 + 6)
-            .clamp(48.0, double.infinity) +
-        8;
+    final stride =
+        _MonthFirstDatePickerState._dayWidth(MediaQuery.textScalerOf(context)) +
+            PantasSpace.s8;
     WidgetsBinding.instance.addPostFrameCallback((_) async {
-      if (!still) await Future<void>.delayed(const Duration(milliseconds: 450));
+      if (!still) await Future<void>.delayed(PantasDurations.long1);
       if (!mounted || generation != _generation || !_scroll.hasClients) return;
       final target = (((widget.selected ?? 1) - 4) * stride)
           .clamp(0.0, _scroll.position.maxScrollExtent);
@@ -488,8 +552,8 @@ class _DayStripState extends State<_DayStrip> {
       } else {
         await _scroll.animateTo(
           target,
-          duration: const Duration(milliseconds: 900),
-          curve: const Cubic(.3, .9, .3, 1),
+          duration: PantasDurations.long3,
+          curve: PantasCurves.house,
         );
       }
     });

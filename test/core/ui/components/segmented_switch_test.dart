@@ -28,8 +28,8 @@ void main() {
         );
         expect(active.style!.fontSize, 14);
         expect(active.style!.fontWeight, FontWeight.w600);
-        expect(active.style!.height, 1.35);
-        expect(active.style!.letterSpacing, 0);
+        expect(active.style!.height, 1.3);
+        expect(active.style!.letterSpacing, isNull);
         // The selected look is the one sliding thumb since item 17.
         final background = tester
             .widget<DecoratedBox>(find.byKey(const ValueKey('segment-thumb')))

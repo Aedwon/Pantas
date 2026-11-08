@@ -32,8 +32,8 @@ void main() {
     final row = find.byType(WebRow);
     // Value right edge = row right edge less the 20 px padding.
     expect(tester.getTopRight(find.text('0 of 18')).dx, 618 - 20);
-    // 15 + 22.1 + 18.2 + 15 + one device pixel for the hairline.
-    expect(tester.getSize(row).height, closeTo(71.3, .5));
+    // 13 + 22.1 + 18.2 + 13 + one device pixel for the hairline.
+    expect(tester.getSize(row).height, closeTo(67.3, .5));
   });
 
   testWidgets('the hover chevron is hidden until the row is hovered',

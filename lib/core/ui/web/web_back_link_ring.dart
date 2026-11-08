@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_border.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_opacity.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/web/web_keyboard_focus.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 
@@ -10,10 +14,11 @@ import 'package:pantas/core/ui/web/web_tokens.dart';
 /// page's navigator and scroll view both clip at that edge, so a fill or ring
 /// drawn on the link was cut square on the left (5Q-11). This draws them in
 /// the root overlay, which nothing clips, following the link: the rounded
-/// rectangle every ghost button uses (radius 11), the hover tint of Sign Out,
-/// and the 2 px ring only for keyboard focus, by the rule every web ring uses.
+/// rectangle of `radius-back` (11), the hover wash of the accent at
+/// `opacity-hover`, and the 2 px ring, 2 px outside the link, only for
+/// keyboard focus, by the rule every web ring uses.
 ///
-/// The overlay sits above the label, so the 8 percent tint falls on the text
+/// The overlay sits above the label, so the 8 percent wash falls on the text
 /// too. At that strength the label's color barely moves; drawing it under the
 /// label would need the page's clip to move, which every page shares.
 ///
@@ -81,6 +86,9 @@ class _WebBackLinkRingState extends State<WebBackLinkRing> {
   Widget _ring(BuildContext context) {
     final size = (_box.currentContext?.findRenderObject() as RenderBox?)?.size;
     if (size == null) return const SizedBox.shrink();
+    final accent = context.webTokens.colors.accent;
+    const reach = PantasBorder.focus + PantasSpace.s2;
+    final radius = BorderRadius.circular(PantasRadius.back);
     return CompositedTransformFollower(
       link: _link,
       showWhenUnlinked: false,
@@ -89,21 +97,43 @@ class _WebBackLinkRingState extends State<WebBackLinkRing> {
         child: IgnorePointer(
           child: SizedBox.fromSize(
             size: size,
-            child: DecoratedBox(
-              decoration: ShapeDecoration(
-                color: _hovered
-                    ? context.webTokens.colors.label.withValues(alpha: .08)
-                    : null,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(11),
-                  side: _ringShown
-                      ? BorderSide(
-                          color: context.webTokens.colors.accent,
-                          width: 2,
-                        )
-                      : BorderSide.none,
-                ),
-              ),
+            child: Stack(
+              clipBehavior: Clip.none,
+              children: [
+                // The hover wash: the accent at `opacity-hover`, a rounded
+                // rectangle of `radius-back`, never a pill.
+                if (_hovered)
+                  Positioned.fill(
+                    child: DecoratedBox(
+                      decoration: ShapeDecoration(
+                        color: accent.withValues(alpha: PantasOpacity.hover),
+                        shape: RoundedRectangleBorder(borderRadius: radius),
+                      ),
+                    ),
+                  ),
+                // The keyboard ring: `border-focus` in `accent`, 2 outside.
+                if (_ringShown)
+                  Positioned(
+                    left: -reach,
+                    top: -reach,
+                    right: -reach,
+                    bottom: -reach,
+                    child: DecoratedBox(
+                      key: const ValueKey('back-link-ring'),
+                      decoration: ShapeDecoration(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(
+                            PantasRadius.back + reach,
+                          ),
+                          side: BorderSide(
+                            color: accent,
+                            width: PantasBorder.focus,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+              ],
             ),
           ),
         ),

@@ -108,6 +108,7 @@ ThemeData _buildTheme(
     dialogTheme: DialogThemeData(
       backgroundColor: colors.surface,
       surfaceTintColor: Colors.transparent,
+      barrierColor: colors.scrim,
       shape: const RoundedRectangleBorder(
         borderRadius:
             BorderRadius.all(Radius.circular(PantasShape.groupRadius)),

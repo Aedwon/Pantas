@@ -1,8 +1,15 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
+import 'package:pantas/core/ui/components/offset_focus_ring.dart';
+import 'package:pantas/core/ui/components/pantas_button_spec.dart';
+import 'package:pantas/core/ui/motion/press_scale.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_opacity.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 
 enum SortCycleOrder { weakest, strongest, alphabetical }
 
@@ -23,7 +30,6 @@ class _SortCycleButtonState extends State<SortCycleButton>
     with SingleTickerProviderStateMixin {
   late final AnimationController _motion;
   late SortCycleOrder _from;
-  bool _pressed = false;
 
   @override
   void initState() {
@@ -67,146 +73,46 @@ class _SortCycleButtonState extends State<SortCycleButton>
       SortCycleOrder.strongest => 'Strongest first',
       SortCycleOrder.alphabetical => 'A to Z',
     };
+    // The 36 px square follows the height rule (under 40 is `radius-sm`).
+    final radius = BorderRadius.circular(
+      pantasButtonRadiusForHeight(PantasSize.btnXs),
+    );
     return Semantics(
       label: 'Sort: $label',
       button: true,
       onTap: _cycle,
       excludeSemantics: true,
-      child: Material(
-        type: MaterialType.transparency,
-        child: InkWell(
-          onTap: _cycle,
-          onHighlightChanged: (pressed) => setState(() => _pressed = pressed),
-          borderRadius: BorderRadius.circular(10),
-          child: SizedBox.square(
-            dimension: 44,
-            child: Center(
-              child: AnimatedScale(
-                scale: _pressed && !still ? .88 : 1,
-                duration: still
-                    ? Duration.zero
-                    : Duration(milliseconds: _pressed ? 120 : 220),
-                curve: LegacyCurves.easeOut,
-                child: DecoratedBox(
-                  key: const ValueKey('sort-square'),
-                  decoration: BoxDecoration(
-                    color: colors.fill,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: SizedBox.square(
-                    dimension: 36,
-                    child: AnimatedBuilder(
-                      animation: _motion,
-                      builder: (context, child) {
-                        final ms = (still ? 1 : _motion.value) * 520;
-                        final toLetters =
-                            widget.value == SortCycleOrder.alphabetical;
-                        final fromLetters =
-                            _from == SortCycleOrder.alphabetical;
-                        final fade = PantasCurves.house.transform(
-                          (ms / (toLetters ? 220 : 300)).clamp(0.0, 1.0),
-                        );
-                        final barsOpacity = toLetters
-                            ? 1 - fade
-                            : fromLetters
-                                ? fade
-                                : 1.0;
-                        final barsScale = toLetters
-                            ? 1 - .4 * fade
-                            : fromLetters
-                                ? .6 + .4 * fade
-                                : 1.0;
-                        final rotation = toLetters
-                            ? -20 * fade
-                            : fromLetters
-                                ? -20 * (1 - fade)
-                                : 0.0;
-                        final letterProgress = PantasCurves.popB.transform(
-                          ((ms - (toLetters ? 120 : 0)) /
-                                  (toLetters ? 300 : 200))
-                              .clamp(0.0, 1.0),
-                        );
-                        final lettersOpacity = toLetters
-                            ? letterProgress.clamp(0.0, 1.0)
-                            : fromLetters
-                                ? (1 - letterProgress).clamp(0.0, 1.0)
-                                : 0.0;
-                        final lettersScale = toLetters
-                            ? .6 + .4 * letterProgress
-                            : 1 - .4 * letterProgress;
-                        final morph = PantasCurves.house
-                            .transform((ms / 520).clamp(0.0, 1.0));
-                        final fromStrong = _from != SortCycleOrder.weakest;
-                        final toStrong = widget.value != SortCycleOrder.weakest;
-                        return Stack(
-                          alignment: Alignment.center,
-                          children: [
-                            Opacity(
-                              opacity: barsOpacity,
-                              child: Transform.rotate(
-                                angle: rotation * math.pi / 180,
-                                child: Transform.scale(
-                                  scale: barsScale,
-                                  child: SizedBox(
-                                    width: 14,
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        for (var i = 0; i < 3; i++) ...[
-                                          if (i > 0) const SizedBox(height: 3),
-                                          SizedBox(
-                                            key: ValueKey('sort-bar-$i'),
-                                            width: (fromStrong
-                                                    ? 14 - 4 * i
-                                                    : 6 + 4 * i) +
-                                                ((toStrong
-                                                            ? 14 - 4 * i
-                                                            : 6 + 4 * i) -
-                                                        (fromStrong
-                                                            ? 14 - 4 * i
-                                                            : 6 + 4 * i)) *
-                                                    morph,
-                                            height: 2.4,
-                                            child: DecoratedBox(
-                                              decoration: BoxDecoration(
-                                                color: colors.label,
-                                                borderRadius:
-                                                    BorderRadius.circular(
-                                                  2,
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Opacity(
-                              key: const ValueKey('sort-alphabet-opacity'),
-                              opacity: lettersOpacity,
-                              child: Transform.scale(
-                                scale: lettersScale,
-                                child: FittedBox(
-                                  fit: BoxFit.scaleDown,
-                                  child: Text(
-                                    'A–Z',
-                                    style: context.type.footnote.copyWith(
-                                      color: colors.label,
-                                      fontWeight: FontWeight.w700,
-                                      letterSpacing: -.26,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        );
-                      },
+      child: OffsetFocusRing(
+        borderRadius: radius,
+        child: Material(
+          type: MaterialType.transparency,
+          child: InkWell(
+            onTap: _cycle,
+            hoverColor: colors.textPrimary.withValues(
+              alpha: PantasOpacity.hover,
+            ),
+            splashColor: Colors.transparent,
+            highlightColor: Colors.transparent,
+            focusColor: Colors.transparent,
+            borderRadius: radius,
+            child: SizedBox.square(
+              dimension: PantasSize.targetTouch,
+              child: Center(
+                child: PressScale(
+                  scale: pantasPressScale,
+                  child: DecoratedBox(
+                    key: const ValueKey('sort-square'),
+                    decoration: BoxDecoration(
+                      color: colors.fill,
+                      borderRadius: radius,
+                    ),
+                    child: SizedBox.square(
+                      dimension: PantasSize.btnXs,
+                      child: AnimatedBuilder(
+                        animation: _motion,
+                        builder: (context, child) =>
+                            _glyph(context, still: still),
+                      ),
                     ),
                   ),
                 ),
@@ -215,6 +121,109 @@ class _SortCycleButtonState extends State<SortCycleButton>
           ),
         ),
       ),
+    );
+  }
+
+  /// The three bars and the "A to Z" letters, crossfading as the order
+  /// changes.
+  Widget _glyph(BuildContext context, {required bool still}) {
+    final colors = context.colors;
+    final ms = (still ? 1 : _motion.value) * 520;
+    final toLetters = widget.value == SortCycleOrder.alphabetical;
+    final fromLetters = _from == SortCycleOrder.alphabetical;
+    final fade = PantasCurves.house.transform(
+      (ms / (toLetters ? 220 : 300)).clamp(0.0, 1.0),
+    );
+    final barsOpacity = toLetters
+        ? 1 - fade
+        : fromLetters
+            ? fade
+            : 1.0;
+    final barsScale = toLetters
+        ? 1 - .4 * fade
+        : fromLetters
+            ? .6 + .4 * fade
+            : 1.0;
+    final rotation = toLetters
+        ? -20 * fade
+        : fromLetters
+            ? -20 * (1 - fade)
+            : 0.0;
+    final letterProgress = PantasCurves.popB.transform(
+      ((ms - (toLetters ? 120 : 0)) / (toLetters ? 300 : 200)).clamp(0.0, 1.0),
+    );
+    final lettersOpacity = toLetters
+        ? letterProgress.clamp(0.0, 1.0)
+        : fromLetters
+            ? (1 - letterProgress).clamp(0.0, 1.0)
+            : 0.0;
+    final lettersScale =
+        toLetters ? .6 + .4 * letterProgress : 1 - .4 * letterProgress;
+    final morph = PantasCurves.house.transform((ms / 520).clamp(0.0, 1.0));
+    final fromStrong = _from != SortCycleOrder.weakest;
+    final toStrong = widget.value != SortCycleOrder.weakest;
+    // Strongest first: 14, 10, 6. Weakest first: 6, 10, 14.
+    double barWidth({required bool strong, required int i}) => strong
+        ? PantasSpace.s14 - PantasSpace.s4 * i
+        : PantasSpace.s6 + PantasSpace.s4 * i;
+    return Stack(
+      alignment: Alignment.center,
+      children: [
+        Opacity(
+          opacity: barsOpacity,
+          child: Transform.rotate(
+            angle: rotation * math.pi / 180,
+            child: Transform.scale(
+              scale: barsScale,
+              child: SizedBox(
+                width: PantasSpace.s14,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    for (var i = 0; i < 3; i++) ...[
+                      if (i > 0) const SizedBox(height: PantasSpace.s6 / 2),
+                      SizedBox(
+                        key: ValueKey('sort-bar-$i'),
+                        width: barWidth(strong: fromStrong, i: i) +
+                            (barWidth(strong: toStrong, i: i) -
+                                    barWidth(strong: fromStrong, i: i)) *
+                                morph,
+                        height: PantasSize.ringStroke,
+                        child: DecoratedBox(
+                          decoration: BoxDecoration(
+                            color: colors.textPrimary,
+                            borderRadius: BorderRadius.circular(
+                              PantasSpace.s2,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ),
+        Opacity(
+          key: const ValueKey('sort-alphabet-opacity'),
+          opacity: lettersOpacity,
+          child: Transform.scale(
+            scale: lettersScale,
+            child: FittedBox(
+              fit: BoxFit.scaleDown,
+              child: Text(
+                'A–Z',
+                style: PantasType.phoneFootnoteStrong.copyWith(
+                  color: colors.textPrimary,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

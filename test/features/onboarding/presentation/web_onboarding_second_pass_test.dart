@@ -11,6 +11,7 @@ import 'package:pantas/core/auth/sign_in_result.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/month_first_date_picker.dart';
+import 'package:pantas/core/ui/components/pantas_button_parts.dart';
 import 'package:pantas/core/ui/components/search_field.dart';
 import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/components/steps_screen.dart';
@@ -224,7 +225,8 @@ void main() {
           tester.widget<Container>(find.byKey(const ValueKey('search-fill')));
       final decoration = fill.decoration! as BoxDecoration;
       expect(decoration.color, dark ? const Color(0xFF1F1F1F) : Colors.white);
-      expect(decoration.border, isNotNull);
+      // The ring is drawn over the well (an inset ring), in `border-control`.
+      expect((fill.foregroundDecoration! as BoxDecoration).border, isNotNull);
       expect(
         tester.getSize(find.byKey(const ValueKey('search-fill'))).height,
         44,
@@ -340,7 +342,8 @@ void main() {
       await tester.tap(find.text('Continue with Google'));
       await tester.pump();
       expect(find.text('Signing in…'), findsOneWidget);
-      expect(find.byType(CircularProgressIndicator), findsOneWidget);
+      // The busy button shows the system spinner (Button README, Busy).
+      expect(find.byType(PantasSpinner), findsOneWidget);
       expect(find.text('Name'), findsOneWidget);
       auth.result.complete(const SignInResult.cancelled());
       await tester.pumpAndSettle();

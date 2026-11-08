@@ -41,15 +41,15 @@ void main() {
           disableAnimations: true,
         );
         final paint = find.byKey(const ValueKey('half-ring-paint'));
-        expect(tester.getSize(paint), const Size(220, 112));
+        expect(tester.getSize(paint), const Size(224, 118));
         expect(
           paint,
           paints
             ..arc(
-              rect: const Rect.fromLTWH(18, 10, 184, 184),
+              rect: const Rect.fromLTWH(7, 6, 210, 210),
               startAngle: math.pi,
               sweepAngle: math.pi,
-              strokeWidth: 16,
+              strokeWidth: 14,
               style: PaintingStyle.stroke,
             ),
         );
@@ -57,12 +57,12 @@ void main() {
           expect(
             paint,
             paints
-              ..arc(strokeWidth: 16)
+              ..arc(strokeWidth: 14)
               ..arc(
-                rect: const Rect.fromLTWH(18, 10, 184, 184),
+                rect: const Rect.fromLTWH(7, 6, 210, 210),
                 startAngle: math.pi,
                 sweepAngle: math.pi * fraction,
-                strokeWidth: 16,
+                strokeWidth: 14,
                 color: brightness == Brightness.light
                     ? const Color(0xFF0B7A68)
                     : const Color(0xFF4CC3AC),
@@ -76,7 +76,7 @@ void main() {
         expect(number.style!.fontWeight, FontWeight.w700);
         expect(number.style!.letterSpacing, -1.32);
         final percent = tester.widget<Text>(find.text('%'));
-        expect(percent.style!.fontSize, 20);
+        expect(percent.style!.fontSize, 22);
         expect(percent.style!.fontWeight, FontWeight.w600);
         final background = brightness == Brightness.light
             ? const Color(0xFFFFFFFF)

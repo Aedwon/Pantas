@@ -85,9 +85,9 @@ double _lastDayRight(WidgetTester tester, {required bool lastIsToday}) {
       of: cell,
       matching: find.byWidgetPredicate(
         (w) =>
-            w is Container &&
+            w is DecoratedBox &&
             w.decoration is BoxDecoration &&
-            (w.decoration! as BoxDecoration).shape == BoxShape.circle,
+            (w.decoration as BoxDecoration).shape == BoxShape.circle,
       ),
     );
     return tester.getRect(disc.first).right;

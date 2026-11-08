@@ -3,9 +3,33 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
-import 'package:pantas/core/ui/theme/pantas_shape.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
+
+/// The width of a section heading placeholder.
+const double _headerWidth = 140;
+
+/// Space under a section heading placeholder.
+const double _headingGap = PantasSpace.s6 + 1;
+
+/// Space under an eyebrow placeholder.
+const double _eyebrowGap = PantasSpace.s8 + 1;
+
+/// The width of the small label above a question stem.
+const double _kickerWidth = 90;
+
+/// Space between the stem and the answer cards.
+const double _stemGap = PantasSpace.s24 + PantasSpace.s2;
+
+const double _resultsTitleWidth = 220;
+const double _resultsCardHeight = 210;
+
+/// Space between the blocks of the results page.
+const double _resultsGap = PantasSpace.s20 + PantasSpace.s2;
 
 /// Marks the main sections of a loading skeleton so tests and layout checks can
 /// compare them with the loaded screen.
@@ -32,8 +56,10 @@ class SkeletonRevealScope extends InheritedWidget {
       oldWidget.immediate != immediate;
 }
 
-/// Shows its skeleton after 300ms, pulses it, and holds it still under reduced
-/// motion. Wrap a whole skeleton layout in one of these so every block pulses
+/// Shows its skeleton after `PantasDurations.wait` (300ms), pulses its opacity
+/// between 1 and 0.45 over `PantasDurations.pulse` (1300ms, ease in and out),
+/// and holds it still under reduced motion. Wrap a whole skeleton layout in
+/// one of these so every block pulses
 /// together.
 class SkeletonPulse extends StatefulWidget {
   const SkeletonPulse({
@@ -55,9 +81,12 @@ class SkeletonPulse extends StatefulWidget {
 
 class _SkeletonPulseState extends State<SkeletonPulse>
     with SingleTickerProviderStateMixin {
+  /// Opacity falls from 1 to 0.45 (`pn-pulse`): a drop of 0.55.
+  static const double _pulseDrop = .55;
+
   late final AnimationController _pulse = AnimationController(
     vsync: this,
-    duration: const Duration(milliseconds: 1300),
+    duration: PantasDurations.pulse,
   );
   Timer? _delay;
   bool _shown = false;
@@ -70,7 +99,7 @@ class _SkeletonPulseState extends State<SkeletonPulse>
       _shown = true;
       return;
     }
-    _delay = Timer(const Duration(milliseconds: 300), () {
+    _delay = Timer(PantasDurations.wait, () {
       if (!mounted) return;
       setState(() => _shown = true);
       _updatePulse();
@@ -122,9 +151,10 @@ class _SkeletonPulseState extends State<SkeletonPulse>
                 builder: (context, child) {
                   final t = _pulse.value;
                   final opacity = t <= .5
-                      ? 1 - .55 * LegacyCurves.easeInOut.transform(t * 2)
-                      : .45 +
-                          .55 * LegacyCurves.easeInOut.transform((t - .5) * 2);
+                      ? 1 - _pulseDrop * Curves.easeInOut.transform(t * 2)
+                      : 1 -
+                          _pulseDrop *
+                              (1 - Curves.easeInOut.transform((t - .5) * 2));
                   return Opacity(
                     key: const ValueKey('loading-shapes-opacity'),
                     opacity: opacity,
@@ -151,14 +181,20 @@ class SkeletonBlock extends StatelessWidget {
   const SkeletonBlock({
     required this.height,
     this.width,
-    this.radius = 6,
+    this.radius,
     this.section = false,
     super.key,
   });
 
   final double? width;
   final double height;
-  final double radius;
+
+  /// Null picks the system radius: `radius-xs` (5) for a line, `radius-md`
+  /// (12) for a block. A block up to 24 high is a line.
+  final double? radius;
+
+  /// The tallest block that counts as a line.
+  static const double _lineMax = PantasSpace.s24;
 
   /// Tags the block as a main section of the skeleton.
   final bool section;
@@ -169,13 +205,15 @@ class SkeletonBlock extends StatelessWidget {
         width: width,
         height: height,
         decoration: BoxDecoration(
-          color: context.colors.skeleton,
-          borderRadius: BorderRadius.circular(radius),
+          color: context.colors.fillSkeleton,
+          borderRadius: BorderRadius.circular(
+            radius ?? (height <= _lineMax ? PantasRadius.xs : PantasRadius.md),
+          ),
         ),
       );
 }
 
-/// A large card placeholder. Radius 18 is the card radius on every screen.
+/// A large card placeholder. `radius-xl` (18) is the card radius.
 class SkeletonCard extends StatelessWidget {
   const SkeletonCard({required this.height, this.width, super.key});
   final double height;
@@ -184,19 +222,19 @@ class SkeletonCard extends StatelessWidget {
   Widget build(BuildContext context) => SkeletonBlock(
         width: width,
         height: height,
-        radius: PantasShape.cardRadius,
+        radius: PantasRadius.xl,
         section: true,
       );
 }
 
-/// The placeholder for a grouped list surface (radius 14) on phone.
+/// The placeholder for a grouped list surface (`radius-lg`, 14) on phone.
 class SkeletonSurface extends StatelessWidget {
   const SkeletonSurface({required this.height, super.key});
   final double height;
   @override
   Widget build(BuildContext context) => SkeletonBlock(
         height: height,
-        radius: PantasShape.groupRadius,
+        radius: PantasRadius.lg,
         section: true,
       );
 }
@@ -206,7 +244,7 @@ class SkeletonSurface extends StatelessWidget {
 class SkeletonSection extends StatelessWidget {
   const SkeletonSection({
     required this.height,
-    this.headerWidth = 140,
+    this.headerWidth = _headerWidth,
     this.header = true,
     super.key,
   });
@@ -226,12 +264,21 @@ class SkeletonSection extends StatelessWidget {
 /// A small label placeholder that stands in for a section heading. Its box is
 /// the height of one line of section header text so the rows below do not move.
 class SkeletonHeading extends StatelessWidget {
-  const SkeletonHeading({this.width = 140, this.height = 17.55, super.key});
+  const SkeletonHeading({
+    this.width = _headerWidth,
+    this.height = 17.55,
+    super.key,
+  });
   final double width;
   final double height;
   @override
   Widget build(BuildContext context) => Padding(
-        padding: const EdgeInsets.fromLTRB(16, 0, 16, 7),
+        padding: const EdgeInsets.fromLTRB(
+          PantasSpace.s16,
+          PantasSpace.s0,
+          PantasSpace.s16,
+          _headingGap,
+        ),
         child: SizedBox(
           height: height,
           child: Align(
@@ -248,7 +295,7 @@ class SkeletonGroup extends StatelessWidget {
     this.rows = 3,
     this.rowHeight = 45,
     this.header = true,
-    this.headerWidth = 140,
+    this.headerWidth = _headerWidth,
     super.key,
   });
 
@@ -268,7 +315,8 @@ class SkeletonGroup extends StatelessWidget {
                 SizedBox(
                   height: rowHeight,
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: PantasSpace.s16),
                     child: Align(
                       alignment: Alignment.centerLeft,
                       child: FractionallySizedBox(
@@ -291,11 +339,16 @@ double skeletonLineHeight(TextStyle style) =>
 /// The web eyebrow label placeholder: same inset and line height as the
 /// uppercase eyebrow text it replaces.
 class WebSkeletonEyebrow extends StatelessWidget {
-  const WebSkeletonEyebrow({this.width = 140, super.key});
+  const WebSkeletonEyebrow({this.width = _headerWidth, super.key});
   final double width;
   @override
   Widget build(BuildContext context) => Padding(
-        padding: const EdgeInsets.fromLTRB(4, 0, 4, 9),
+        padding: const EdgeInsets.fromLTRB(
+          PantasSpace.s4,
+          PantasSpace.s0,
+          PantasSpace.s4,
+          _eyebrowGap,
+        ),
         child: SizedBox(
           height: skeletonLineHeight(context.webTokens.eb),
           child: Align(
@@ -314,8 +367,8 @@ class SkeletonGroups extends StatelessWidget {
     this.rows = 3,
     this.rowHeight = 45,
     this.header = true,
-    this.gap = 24,
-    this.headerWidth = 140,
+    this.gap = PantasSpace.s24,
+    this.headerWidth = _headerWidth,
     super.key,
   });
 
@@ -356,23 +409,23 @@ class SkeletonQuestionPage extends StatelessWidget {
     final body = Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        const SkeletonBlock(width: 90, height: 14),
-        const SizedBox(height: 18),
-        const SkeletonBlock(height: 20),
-        const SizedBox(height: 10),
-        const SkeletonBlock(height: 20),
-        const SizedBox(height: 10),
+        const SkeletonBlock(width: _kickerWidth, height: 14),
+        const SizedBox(height: PantasSpace.s18),
+        const SkeletonBlock(height: PantasSpace.s20),
+        const SizedBox(height: PantasSpace.s10),
+        const SkeletonBlock(height: PantasSpace.s20),
+        const SizedBox(height: PantasSpace.s10),
         const FractionallySizedBox(
           widthFactor: .6,
           alignment: Alignment.centerLeft,
-          child: SkeletonBlock(height: 20),
+          child: SkeletonBlock(height: PantasSpace.s20),
         ),
-        const SizedBox(height: 26),
+        const SizedBox(height: _stemGap),
         for (var i = 0; i < 4; i++) ...[
-          if (i > 0) SizedBox(height: wide ? 12 : 10),
+          if (i > 0) SizedBox(height: wide ? PantasSpace.s12 : PantasSpace.s10),
           SkeletonBlock(
             height: wide ? 64 : 58,
-            radius: PantasShape.groupRadius,
+            radius: PantasRadius.lg,
             section: true,
           ),
         ],
@@ -380,11 +433,18 @@ class SkeletonQuestionPage extends StatelessWidget {
     );
     return SkeletonPulse(
       child: Padding(
-        padding: EdgeInsets.fromLTRB(wide ? 40 : 16, 12, wide ? 40 : 16, 16),
+        padding: EdgeInsets.fromLTRB(
+          wide ? PantasSpace.s40 : PantasSpace.s16,
+          PantasSpace.s12,
+          wide ? PantasSpace.s40 : PantasSpace.s16,
+          PantasSpace.s16,
+        ),
         child: wide
             ? Center(
                 child: ConstrainedBox(
-                  constraints: const BoxConstraints(maxWidth: 760),
+                  constraints: const BoxConstraints(
+                    maxWidth: PantasLayout.qcol + PantasSpace.s40,
+                  ),
                   child: body,
                 ),
               )
@@ -403,15 +463,23 @@ class SkeletonResultsPage extends StatelessWidget {
   Widget build(BuildContext context) => const SafeArea(
         child: SingleChildScrollView(
           physics: NeverScrollableScrollPhysics(),
-          padding: EdgeInsets.fromLTRB(16, 24, 16, 24),
+          padding: EdgeInsets.symmetric(
+            horizontal: PantasSpace.s16,
+            vertical: PantasSpace.s24,
+          ),
           child: SkeletonPulse(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Center(child: SkeletonBlock(width: 220, height: 32, radius: 9)),
-                SizedBox(height: 22),
-                SkeletonBlock(height: 210, radius: 18, section: true),
-                SizedBox(height: 22),
+                Center(
+                  child: SkeletonBlock(
+                    width: _resultsTitleWidth,
+                    height: PantasSpace.s32,
+                  ),
+                ),
+                SizedBox(height: _resultsGap),
+                SkeletonCard(height: _resultsCardHeight),
+                SizedBox(height: _resultsGap),
                 SkeletonSection(height: 240, headerWidth: 120),
               ],
             ),

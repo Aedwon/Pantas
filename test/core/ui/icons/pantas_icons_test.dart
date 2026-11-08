@@ -859,4 +859,17 @@ void main() {
       expect(icon.fontPackage, isNull);
     }
   });
+
+  test('Fill and Bold weights keep the Regular codepoint', () {
+    expect(
+      PantasIcons.fill(PantasIcons.flag),
+      same(PantasIcons.flagFill),
+    );
+    expect(PantasIcons.flagFill.codePoint, PantasIcons.flag.codePoint);
+    expect(PantasIcons.flagFill.fontFamily, 'PhosphorFill');
+    expect(PantasIcons.bold(PantasIcons.back).codePoint, 0xe138);
+    expect(PantasIcons.bold(PantasIcons.next).fontFamily, 'PhosphorBold');
+    expect(PantasIcons.backBold.fontPackage, isNull);
+    expect(PantasIcons.fill(PantasIcons.check), PantasIcons.check);
+  });
 }

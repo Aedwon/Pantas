@@ -36,7 +36,7 @@ void main() {
       expect(tester.getSize(markFinder), const Size(24, 24));
       final off =
           tester.widget<Container>(markFinder).decoration! as BoxDecoration;
-      expect(off.borderRadius, BorderRadius.circular(7));
+      expect(off.borderRadius, BorderRadius.circular(8));
       expect((off.border! as Border).top.width, 1.5);
       final button = tester.widget<TextButton>(find.byType(TextButton));
       expect(button.style!.splashFactory, NoSplash.splashFactory);
@@ -99,10 +99,10 @@ void main() {
         .toList();
     expect(
       (marks.first.decoration! as BoxDecoration).borderRadius,
-      BorderRadius.circular(99),
+      BorderRadius.circular(9999),
     );
     expect(
-      find.byWidgetPredicate((w) => w is Opacity && w.opacity == .45),
+      find.byWidgetPredicate((w) => w is Opacity && w.opacity == .4),
       findsNWidgets(2),
     );
     expect(

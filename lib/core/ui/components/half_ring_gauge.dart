@@ -3,6 +3,45 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
+
+// The Gauge component is a 224 by 118 dial with a 14 px stroke
+// (`size-gauge-w`, `size-gauge-stroke`). The quiz result, the assessment
+// result and the mock finale draw larger dials from their own boards, which
+// the system has no tokens for: their geometry and number sizes are named
+// here, so the gap is in one place (reported to the lead).
+
+/// The dial's `aspect-ratio: 224 / 118`.
+const double _dialRatio = 118 / 224;
+
+/// Quiz and mock result dial (phone), and the wide assessment dial.
+const double _largeWidth = 264;
+const double _largeHeight = 128;
+const double _wideAssessmentHeight = 140;
+const double _wideMockWidth = 300;
+const double _wideMockHeight = 158;
+const double _wideQuizWidth = 320;
+const double _wideQuizHeight = 150;
+const double _largeStroke = 16;
+const double _wideMockStroke = 18;
+
+/// Number and unit sizes of those boards.
+const double _largeNumber = 56;
+const double _wideMockNumber = 64;
+const double _largeUnit = 24;
+const double _wideMockUnit = 26;
+const double _quizCount = 60;
+const double _wideQuizCount = 76;
+const double _quizCountHeight = 64;
+const double _wideQuizCountHeight = 80;
+const double _quizTotal = 24;
+const double _wideQuizTotal = 28;
+const Duration _quizWait = Duration(milliseconds: 400);
+const Duration _quizDuration = Duration(milliseconds: 1600);
+const Duration _assessmentDuration = Duration(milliseconds: 1500);
 
 /// [overlayBuilder] lets the mock finale add its two balls to this same arc.
 class HalfRingGauge extends StatefulWidget {
@@ -101,7 +140,7 @@ class _HalfRingGaugeState extends State<HalfRingGauge>
     with SingleTickerProviderStateMixin {
   late final AnimationController _controller = AnimationController(
     vsync: this,
-    duration: const Duration(milliseconds: 1400),
+    duration: PantasDurations.gauge,
   );
   late Animation<double> _fill;
   late Animation<double> _count;
@@ -132,15 +171,14 @@ class _HalfRingGaugeState extends State<HalfRingGauge>
 
   void animate(double begin, {double beginCount = 0}) {
     final quiz = widget.correct != null;
-    _controller.duration =
-        Duration(milliseconds: quiz ? (widget.assessment ? 1500 : 1600) : 1400);
-    final curve = quiz
-        ? Interval(
-            widget.assessment ? 4 / 15 : .25,
-            1,
-            curve: const Cubic(.2, .8, .25, 1),
-          )
-        : const Interval(3 / 14, 1, curve: PantasCurves.house);
+    _controller.duration = quiz
+        ? (widget.assessment ? _assessmentDuration : _quizDuration)
+        : PantasDurations.gauge;
+    // The arc waits `dur-wait` and then fills on `motion-gauge`. The quiz
+    // result keeps its board's 400 ms lead.
+    final wait = (quiz ? _quizWait : PantasDurations.wait).inMilliseconds /
+        _controller.duration!.inMilliseconds;
+    final curve = Interval(wait, 1, curve: PantasCurves.gauge);
     _count = _controller.drive(
       Tween(begin: beginCount, end: (widget.correct ?? 0).toDouble())
           .chain(CurveTween(curve: curve)),
@@ -161,10 +199,11 @@ class _HalfRingGaugeState extends State<HalfRingGauge>
     }
   }
 
-  Widget _mockOdometer(BuildContext context, LegacyType type) {
-    final style = type.largeTitle
-        .copyWith(fontSize: 64, height: 1, letterSpacing: -1.68)
-        .tabular;
+  Widget _mockOdometer(BuildContext context) {
+    final style = PantasType.webDisplay.copyWith(
+      fontSize: _wideMockNumber,
+      color: context.colors.textPrimary,
+    );
     final target = widget.fraction * 100;
     final text = TextPainter(
       text: TextSpan(text: target.toStringAsFixed(1), style: style),
@@ -173,7 +212,7 @@ class _HalfRingGaugeState extends State<HalfRingGauge>
     )..layout();
     final width = text.width;
     text.dispose();
-    final height = MediaQuery.textScalerOf(context).scale(64);
+    final height = MediaQuery.textScalerOf(context).scale(_wideMockNumber);
     return Baseline(
       baseline: height * .8,
       baselineType: TextBaseline.alphabetic,
@@ -217,7 +256,6 @@ class _HalfRingGaugeState extends State<HalfRingGauge>
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
-    final type = context.type;
     final quiz = widget.correct != null;
     final large = quiz || widget.mockSize;
     final wideAssessment = quiz && widget.web && widget.assessment;
@@ -229,6 +267,7 @@ class _HalfRingGaugeState extends State<HalfRingGauge>
         _painter!.glowOpacity != widget.glowOpacity ||
         _painter!.glowScale != widget.glowScale ||
         _painter!.fill != colors.accent ||
+        _painter!.liquidStart != colors.liquidStart ||
         _painter!.track != colors.fill ||
         _painter!.mockSize != large ||
         _painter!.wideMock != wideMock ||
@@ -240,6 +279,7 @@ class _HalfRingGaugeState extends State<HalfRingGauge>
         glowOpacity: widget.glowOpacity,
         glowScale: widget.glowScale,
         fill: colors.accent,
+        liquidStart: colors.liquidStart,
         track: colors.fill,
         mockSize: large,
         web: widget.web,
@@ -247,6 +287,22 @@ class _HalfRingGaugeState extends State<HalfRingGauge>
         wideAssessment: wideAssessment,
       );
     }
+    const defaultDial = Size(
+      PantasSize.gaugeW,
+      PantasSize.gaugeW * _dialRatio,
+    );
+    final dial = wideAssessment
+        ? const Size(_largeWidth, _wideAssessmentHeight)
+        : wideMock
+            ? const Size(_wideMockWidth, _wideMockHeight)
+            : wideQuiz
+                ? const Size(_wideQuizWidth, _wideQuizHeight)
+                : large
+                    ? const Size(_largeWidth, _largeHeight)
+                    : defaultDial;
+    final numberStyle =
+        (widget.web ? PantasType.webDisplay : PantasType.phoneDisplayS)
+            .copyWith(fontFeatures: const [FontFeature.tabularFigures()]);
     final percentage = ((widget.displayedFraction ?? widget.fraction) * 100)
         .toStringAsFixed(widget.decimalPlaces);
     return Semantics(
@@ -262,61 +318,29 @@ class _HalfRingGaugeState extends State<HalfRingGauge>
         mainAxisSize: MainAxisSize.min,
         children: [
           SizedBox(
-            width: wideAssessment
-                ? 264
-                : wideMock
-                    ? 300
-                    : wideQuiz
-                        ? 320
-                        : large
-                            ? 264
-                            : widget.web
-                                ? 224
-                                : 220,
-            height: wideAssessment
-                ? 140
-                : wideMock
-                    ? 158
-                    : wideQuiz
-                        ? 150
-                        : large
-                            ? 128
-                            : widget.web
-                                ? 118
-                                : 112,
+            width: dial.width,
+            height: dial.height,
             child: Stack(
               children: [
                 CustomPaint(
                   key: const ValueKey('half-ring-paint'),
-                  size: wideAssessment
-                      ? const Size(264, 140)
-                      : wideMock
-                          ? const Size(300, 158)
-                          : wideQuiz
-                              ? const Size(320, 150)
-                              : large
-                                  ? const Size(264, 128)
-                                  : widget.web
-                                      ? const Size(224, 118)
-                                      : const Size(220, 112),
+                  size: dial,
                   painter: _painter,
                 ),
                 Positioned(
                   left: 0,
                   right: 0,
                   bottom: wideAssessment
-                      ? 24
+                      ? PantasSpace.s24
                       : large
-                          ? 2
-                          : widget.web
-                              ? 0
-                              : 10,
+                          ? PantasSpace.s2
+                          : PantasSpace.s0,
                   child: Opacity(
                     opacity: widget.numberOpacity,
                     child: FittedBox(
                       fit: BoxFit.scaleDown,
                       child: quiz
-                          ? _rollingCount(context, type)
+                          ? _rollingCount(context)
                           : AnimatedBuilder(
                               animation: _fill,
                               builder: (context, percent) => Row(
@@ -327,7 +351,7 @@ class _HalfRingGaugeState extends State<HalfRingGauge>
                                 children: [
                                   if (wideMock &&
                                       widget.odometerProgress != null)
-                                    _mockOdometer(context, type)
+                                    _mockOdometer(context)
                                   else
                                     Text(
                                       ((widget.displayedFraction ??
@@ -336,38 +360,29 @@ class _HalfRingGaugeState extends State<HalfRingGauge>
                                           .toStringAsFixed(
                                         widget.decimalPlaces,
                                       ),
-                                      style: type.largeTitle
-                                          .copyWith(
-                                            fontSize: wideMock
-                                                ? 64
-                                                : large
-                                                    ? 56
-                                                    : widget.web
-                                                        ? 48
-                                                        : 44,
-                                            height:
-                                                large || widget.web ? 1 : 1.12,
-                                            letterSpacing:
-                                                large ? -1.68 : -1.32,
-                                          )
-                                          .tabular,
+                                      style: numberStyle.copyWith(
+                                        color: colors.textPrimary,
+                                        fontSize: wideMock
+                                            ? _wideMockNumber
+                                            : large
+                                                ? _largeNumber
+                                                : null,
+                                        height: large ? 1 : null,
+                                      ),
                                     ),
-                                  const SizedBox(width: 1),
+                                  const SizedBox(width: PantasSpace.s2),
                                   percent!,
                                 ],
                               ),
                               child: Text(
                                 '%',
-                                style: type.emphasized.copyWith(
+                                style: PantasType.webStatUnit.copyWith(
                                   fontSize: wideMock
-                                      ? 26
+                                      ? _wideMockUnit
                                       : large
-                                          ? 24
-                                          : widget.web
-                                              ? 22
-                                              : 20,
-                                  letterSpacing: -.24,
-                                  color: colors.secondaryLabel,
+                                          ? _largeUnit
+                                          : null,
+                                  color: colors.textSecondary,
                                 ),
                               ),
                             ),
@@ -382,9 +397,8 @@ class _HalfRingGaugeState extends State<HalfRingGauge>
                     child: Text(
                       widget.label,
                       textAlign: TextAlign.center,
-                      style: type.subhead.copyWith(
-                        fontSize: 16,
-                        color: colors.secondaryLabel,
+                      style: PantasType.webBody.copyWith(
+                        color: colors.textSecondary,
                       ),
                     ),
                   ),
@@ -399,32 +413,18 @@ class _HalfRingGaugeState extends State<HalfRingGauge>
           ),
           if (!wideAssessment)
             SizedBox(
-              height: wideMock
-                  ? 10
-                  : large || widget.web
-                      ? 4
-                      : 6,
+              height: wideMock ? PantasSpace.s10 : PantasSpace.s4,
             ),
           if (!wideAssessment)
             Opacity(
               opacity: widget.labelOpacity,
               child: Text(
                 widget.label,
-                style: quiz
-                    ? type.subhead.copyWith(
-                        fontWeight: FontWeight.w500,
-                        color: colors.secondaryLabel,
-                      )
-                    : wideMock
-                        ? type.subhead.copyWith(
-                            fontSize: 16,
-                            color: colors.secondaryLabel,
-                          )
-                        // Wide boards: the caption is regular gray.
-                        : large || widget.web
-                            ? type.subhead
-                                .copyWith(color: colors.secondaryLabel)
-                            : type.subheadStrong,
+                style: (wideMock ? PantasType.webBody : PantasType.webSub)
+                    .copyWith(
+                  fontWeight: quiz ? FontWeight.w500 : null,
+                  color: colors.textSecondary,
+                ),
               ),
             ),
         ],
@@ -432,17 +432,16 @@ class _HalfRingGaugeState extends State<HalfRingGauge>
     );
   }
 
-  Widget _rollingCount(BuildContext context, LegacyType type) {
-    final style = type.largeTitle
-        .copyWith(
-          fontSize: widget.web && !widget.assessment ? 76 : 60,
-          height: 1,
-          letterSpacing: -1.8,
-        )
-        .tabular;
+  Widget _rollingCount(BuildContext context) {
+    final wide = widget.web && !widget.assessment;
+    final fontSize = wide ? _wideQuizCount : _quizCount;
+    final style = PantasType.phoneDisplayM.copyWith(
+      fontSize: fontSize,
+      color: context.colors.textPrimary,
+      fontFeatures: const [FontFeature.tabularFigures()],
+    );
     final scaler = MediaQuery.textScalerOf(context);
-    final fontSize = widget.web && !widget.assessment ? 76.0 : 60.0;
-    final countHeight = widget.web && !widget.assessment ? 80.0 : 64.0;
+    final countHeight = wide ? _wideQuizCountHeight : _quizCountHeight;
     final extent = countHeight * scaler.scale(fontSize) / fontSize;
     final measure = TextPainter(
       text: TextSpan(
@@ -505,18 +504,17 @@ class _HalfRingGaugeState extends State<HalfRingGauge>
                   ),
                 ),
               ),
-              const SizedBox(width: 4),
+              const SizedBox(width: PantasSpace.s4),
               Padding(
-                padding: const EdgeInsets.only(bottom: 9),
+                padding: const EdgeInsets.only(bottom: PantasSpace.s8),
                 child: Text(
                   '/${widget.total}',
-                  style: type.emphasized
-                      .copyWith(
-                        fontSize: widget.web && !widget.assessment ? 28 : 24,
-                        height: 1.35,
-                        color: context.colors.secondaryLabel,
-                      )
-                      .tabular,
+                  style: PantasType.webStatUnit.copyWith(
+                    fontSize: wide ? _wideQuizTotal : _quizTotal,
+                    height: PantasType.phoneBody.height,
+                    color: context.colors.textSecondary,
+                    fontFeatures: const [FontFeature.tabularFigures()],
+                  ),
                 ),
               ),
             ],
@@ -531,6 +529,7 @@ class _GaugePainter extends CustomPainter {
   _GaugePainter({
     required this.fraction,
     required this.fill,
+    required this.liquidStart,
     required this.track,
     required this.mockSize,
     required this.web,
@@ -539,26 +538,19 @@ class _GaugePainter extends CustomPainter {
     this.glowScale = 1,
     this.wideMock = false,
     this.wideAssessment = false,
-  })  : trackPaint = (Paint()
+  })  : stroke = wideAssessment
+            ? _largeStroke
+            : wideMock
+                ? _wideMockStroke
+                : mockSize
+                    ? _largeStroke
+                    : PantasSize.gaugeStroke,
+        trackPaint = (Paint()
           ..style = PaintingStyle.stroke
-          ..strokeWidth = wideAssessment
-              ? 16
-              : wideMock
-                  ? 18
-                  : web
-                      ? 14
-                      : 16
           ..strokeCap = StrokeCap.round
           ..color = track),
         fillPaint = (Paint()
           ..style = PaintingStyle.stroke
-          ..strokeWidth = wideAssessment
-              ? 16
-              : wideMock
-                  ? 18
-                  : web
-                      ? 14
-                      : 16
           ..strokeCap = StrokeCap.round
           ..color = fill),
         super(repaint: fraction);
@@ -571,7 +563,12 @@ class _GaugePainter extends CustomPainter {
   final bool web;
   final Animation<double> fraction;
   final Color fill;
+
+  /// The liquid gradient runs from this color to [fill] (`accent`) across
+  /// the dial, so the arc ends on the contrast color in both themes.
+  final Color liquidStart;
   final Color track;
+  final double stroke;
   final Paint trackPaint;
   final Paint fillPaint;
 
@@ -585,9 +582,17 @@ class _GaugePainter extends CustomPainter {
                 ? const Rect.fromLTWH(22, 12, 276, 276)
                 : mockSize
                     ? const Rect.fromLTWH(24, 10, 216, 216)
-                    : web
-                        ? const Rect.fromLTWH(18, 14, 188, 188)
-                        : const Rect.fromLTWH(18, 10, 184, 184);
+                    // The Gauge dial: the arc runs from (7, 111) to (217, 111)
+                    // with radius 105, so the stroke fits the dial.
+                    : Rect.fromCircle(
+                        center:
+                            Offset(size.width / 2, size.height - stroke / 2),
+                        radius: size.width / 2 - stroke / 2,
+                      );
+    trackPaint.strokeWidth = stroke;
+    fillPaint
+      ..strokeWidth = stroke
+      ..shader = LinearGradient(colors: [liquidStart, fill]).createShader(rect);
     if (wideMock && glowOpacity > 0) {
       final center = Offset(size.width / 2, size.height * .7);
       final radius = 150 * glowScale;
@@ -622,6 +627,7 @@ class _GaugePainter extends CustomPainter {
       oldDelegate.glowOpacity != glowOpacity ||
       oldDelegate.glowScale != glowScale ||
       oldDelegate.fill != fill ||
+      oldDelegate.liquidStart != liquidStart ||
       oldDelegate.track != track ||
       oldDelegate.mockSize != mockSize ||
       oldDelegate.wideMock != wideMock ||

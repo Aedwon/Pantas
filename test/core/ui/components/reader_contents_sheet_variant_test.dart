@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/pantas_sheet.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 
 import '../../../helpers/accessibility.dart';
@@ -14,6 +15,11 @@ void main() {
   for (final brightness in Brightness.values) {
     testWidgets('reader Contents exact opening and closing in $brightness',
         (tester) async {
+      final scrimA = (brightness == Brightness.dark
+              ? PantasColors.dark
+              : PantasColors.light)
+          .scrim
+          .a;
       var open = false;
       late StateSetter change;
       await pumpAccessibilitySurface(
@@ -49,7 +55,7 @@ void main() {
       await tester.pump(const Duration(milliseconds: 175));
       expect(
         tester.widget<ModalBarrier>(inSheet(ModalBarrier)).color!.a,
-        closeTo(.32 * PantasCurves.fade.transform(.5), .00001),
+        closeTo(scrimA * PantasCurves.fade.transform(.5), .00001),
       );
       await tester.pump(const Duration(milliseconds: 50));
       expect(
@@ -62,14 +68,17 @@ void main() {
         closeTo(1.05 * (1 - PantasCurves.slide.transform(.5)), .00001),
       );
       await tester.pump(const Duration(milliseconds: 225));
-      expect(tester.widget<ModalBarrier>(inSheet(ModalBarrier)).color!.a, .32);
+      expect(
+        tester.widget<ModalBarrier>(inSheet(ModalBarrier)).color!.a,
+        closeTo(scrimA, .001),
+      );
       expect(
         tester
             .getSize(
               find.byKey(const ValueKey('pantas-sheet-surface')),
             )
             .height,
-        200,
+        213,
       );
       for (final key in [
         'pantas-sheet-page-scale',
@@ -85,7 +94,7 @@ void main() {
       await tester.pump(const Duration(milliseconds: 175));
       expect(
         tester.widget<ModalBarrier>(inSheet(ModalBarrier)).color!.a,
-        closeTo(.32 * (1 - PantasCurves.fade.transform(.5)), .00001),
+        closeTo(scrimA * (1 - PantasCurves.fade.transform(.5)), .00001),
       );
       await tester.pump(const Duration(milliseconds: 25));
       expect(
@@ -128,7 +137,17 @@ void main() {
             .dy,
         0,
       );
-      expect(tester.widget<ModalBarrier>(inSheet(ModalBarrier)).color!.a, .32);
+      expect(
+        tester.widget<ModalBarrier>(inSheet(ModalBarrier)).color!.a,
+        closeTo(
+          (brightness == Brightness.dark
+                  ? PantasColors.dark
+                  : PantasColors.light)
+              .scrim
+              .a,
+          .001,
+        ),
+      );
       expect(
         tester
             .getSize(

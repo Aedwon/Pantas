@@ -7,6 +7,7 @@ import 'package:go_router/go_router.dart';
 import 'package:pantas/app/routes/settings_routes.dart';
 import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/ui/components/pantas_button_parts.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/legal/legal.dart';
@@ -148,7 +149,8 @@ void main() {
     await tester.pump();
 
     expect(find.text('Deleting...'), findsOneWidget);
-    expect(find.byType(CircularProgressIndicator), findsOneWidget);
+    // The busy button shows the system spinner (Button README, Busy).
+    expect(find.byType(PantasSpinner), findsOneWidget);
 
     completer.complete();
     await tester.pumpAndSettle();

@@ -141,3 +141,13 @@ flutter:
       fonts:
         - asset: assets/fonts/phosphor/Phosphor.ttf
           weight: 400
+    # Same glyph codepoints as Regular (phosphor-icons/web 2.1.1). Fill is the
+    # on state of a toggle (D190 item 10); Bold is the 14 to 16px chevrons.
+    - family: PhosphorFill
+      fonts:
+        - asset: assets/fonts/phosphor/Phosphor-Fill.ttf
+          weight: 400
+    - family: PhosphorBold
+      fonts:
+        - asset: assets/fonts/phosphor/Phosphor-Bold.ttf
+          weight: 400

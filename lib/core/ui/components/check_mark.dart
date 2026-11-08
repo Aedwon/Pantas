@@ -2,8 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
 
-const _popDuration = Duration(milliseconds: 420);
+/// The pop of the done mark: `dur-medium-3` on `motion-spring`.
+const _popDuration = PantasDurations.medium3;
+
+/// The check inside the 24 disc, as the Checkbox draws it.
+const _glyph = 14.0;
 
 class CheckMark extends StatelessWidget {
   const CheckMark({
@@ -50,10 +56,10 @@ class CheckMark extends StatelessWidget {
               shape: BoxShape.circle,
             ),
             child: SizedBox.square(
-              dimension: 24,
+              dimension: PantasSize.check,
               child: Icon(
                 PantasIcons.check,
-                size: 14,
+                size: _glyph,
                 color: context.colors.onAccent,
               ),
             ),

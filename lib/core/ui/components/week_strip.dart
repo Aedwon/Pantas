@@ -1,12 +1,31 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 import 'package:pantas/core/time/pantas_dates.dart';
+import 'package:pantas/core/ui/components/offset_focus_ring.dart';
+import 'package:pantas/core/ui/components/pantas_shadows.dart';
 import 'package:pantas/core/ui/components/progress_ring.dart';
+import 'package:pantas/core/ui/motion/press_scale.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_border.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
+import 'package:pantas/core/ui/web/web_keyboard_focus.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 
 // Pending Aedwon decision, October 10 lead ruling. HP_Free's day-off text.
 
 enum WeekDayState { done, partial, missed, dayOff, today, plain }
 
+/// The seven days of the current week (design system WeekStrip): 44 px day
+/// columns, a gap that shrinks from 10 toward 4 as the strip narrows and a
+/// sideways scroll when seven days do not fit. A day with a status shows a
+/// tooltip after `dur-tooltip` on a fine pointer, and at once on keyboard
+/// focus; the tooltip lives in the overlay, outside the scroller, so the
+/// scroller cannot clip it. The card and the ExamChip belong to the screen.
 class WeekStrip extends StatefulWidget {
   const WeekStrip({
     required this.today,
@@ -21,6 +40,23 @@ class WeekStrip extends StatefulWidget {
   final ValueChanged<DateTime> onSelected;
   final double todayFraction;
   final DateTime? selectedDate;
+
+  static const double _cell = PantasSize.weekDay;
+  static const double _gapMax = PantasSpace.s10;
+  static const double _gapMin = PantasSpace.s4;
+
+  /// The 34 px ring around Today's disc (`.wd__ring`).
+  static const double _ring = PantasSize.avatarLg - PantasSpace.s10;
+
+  /// Today's disc: 26 on wide screens, 28 on the phone.
+  static double _disc(bool phone) => phone ? PantasSpace.s28 : PantasSize.task;
+
+  /// The gap between day columns for a strip [width] wide: 10 when the strip
+  /// has room, down to 4 as it narrows.
+  static double gapFor(double width) {
+    final room = (width - _cell * 7) / 6;
+    return room.clamp(_gapMin, _gapMax);
+  }
 
   /// How far the last day's visible mark ends before the strip's right edge.
   ///
@@ -38,52 +74,44 @@ class WeekStrip extends StatefulWidget {
     double todayFraction = 0,
   }) {
     final scale = MediaQuery.textScalerOf(context);
-    final cell = _cellWidth(scale, width);
-    final size = _markSize(scale);
+    final phone = !context.wideWeb;
+    final gap = gapFor(width);
+    final content = _cell * 7 + gap * 6;
     final lastIsToday = states.last == WeekDayState.today;
     final double visible;
     if (lastIsToday) {
-      visible = todayFraction > 0 ? size : size - 6;
+      visible = todayFraction > 0 ? _ring : _disc(phone);
     } else {
       final start = PantasDates.weekStart(today);
       final last = DateTime(start.year, start.month, start.day + 6);
       final painter = TextPainter(
         text: TextSpan(
           text: '${last.day}',
-          style: _digitStyle(context, today: false),
+          style: _digitStyle(today: false),
         ),
         textDirection: TextDirection.ltr,
         textScaler: scale,
-      )..layout(maxWidth: size); // The cell lets the number use `size`.
+      )..layout(maxWidth: _cell);
       visible = painter.width;
       painter.dispose();
     }
-    final maxScroll = (cell * 7 - width).clamp(0.0, double.infinity);
-    final startScroll = (today.weekday % 7 * cell).clamp(0.0, maxScroll);
-    final cutOff = cell * 7 - width - startScroll;
-    final inset = (cell - visible) / 2 - cutOff;
-    return inset < 0 ? 0 : inset;
+    final inset = (_cell - visible) / 2;
+    if (content <= width) return inset + (width - content);
+    final maxScroll = content - width;
+    final startScroll = (today.weekday % 7 * (_cell + gap)).clamp(
+      0.0,
+      maxScroll,
+    );
+    final cutOff = content - width - startScroll;
+    final cut = inset - cutOff;
+    return cut < 0 ? 0 : cut;
   }
 
-  static double _cellWidth(TextScaler scale, double maxWidth) =>
-      (maxWidth / 7).clamp(scale.scale(10) * 3.5, double.infinity);
-
-  static double _markSize(TextScaler scale) {
-    final markSize = scale.scale(15) * 1.35 + 4;
-    return markSize > 34 ? markSize : 34.0;
-  }
-
-  static TextStyle _digitStyle(
-    BuildContext context, {
-    required bool today,
-    Color? color,
-  }) =>
-      context.type.body.copyWith(
-        fontSize: today ? 14 : 15,
-        fontWeight: today ? FontWeight.w700 : FontWeight.w500,
-        letterSpacing: 0,
-        color: color,
-      );
+  static TextStyle _digitStyle({required bool today}) => today
+      ? PantasType.webLabel.copyWith(fontWeight: FontWeight.w700)
+      : PantasType.webNav.copyWith(
+          fontFeatures: const [FontFeature.tabularFigures()],
+        );
 
   @override
   State<WeekStrip> createState() => _WeekStripState();
@@ -91,158 +119,245 @@ class WeekStrip extends StatefulWidget {
 
 class _WeekStripState extends State<WeekStrip> {
   ScrollController? _scroll;
+  final List<GlobalKey<TooltipState>> _tips =
+      List.generate(7, (_) => GlobalKey<TooltipState>());
+
   @override
   void dispose() {
     _scroll?.dispose();
     super.dispose();
   }
 
+  /// The status a day's tooltip states, or null for a day with none.
+  String? _status(int i, DateTime date) => switch (widget.states[i]) {
+        WeekDayState.today => 'Today',
+        WeekDayState.done => 'Done',
+        WeekDayState.partial => 'Partly done',
+        WeekDayState.missed => 'No study',
+        WeekDayState.plain => date.isAfter(widget.today) ? 'Planned' : null,
+        WeekDayState.dayOff => null,
+      };
+
   @override
   Widget build(BuildContext context) {
     final start = PantasDates.weekStart(widget.today);
-    final c = context.colors;
-    // The board's pale gray vanishes into the dark page, so it would show an
-    // off-day as bright as a study day. Dark uses the dimmed gray that the
-    // wide web strip uses (6U-6).
-    final off = Theme.of(context).brightness == Brightness.dark
-        ? c.tertiaryLabel
-        : c.inactiveDateLabel;
-    final scale = MediaQuery.textScalerOf(context);
-    final size = WeekStrip._markSize(scale);
+    final phone = !context.wideWeb;
     return LayoutBuilder(
       builder: (context, constraints) {
-        final width = WeekStrip._cellWidth(scale, constraints.maxWidth);
+        final gap = WeekStrip.gapFor(constraints.maxWidth);
+        final content = WeekStrip._cell * 7 + gap * 6;
+        final scrolls =
+            constraints.hasBoundedWidth && content > constraints.maxWidth;
         _scroll ??= ScrollController(
-          initialScrollOffset: (widget.today.weekday % 7) * width,
+          initialScrollOffset:
+              (widget.today.weekday % 7) * (WeekStrip._cell + gap),
         );
-        return SizedBox(
-          // Board: the strip is 59.4 px tall, so the card is 75.4 px.
-          height: scale.scale(10) * 1.35 + size + 11.5,
+        final row = Row(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            for (var i = 0; i < 7; i++) ...[
+              if (i > 0) SizedBox(width: gap),
+              _day(
+                context,
+                i,
+                DateTime(start.year, start.month, start.day + i),
+                phone: phone,
+              ),
+            ],
+          ],
+        );
+        return Align(
+          alignment: Alignment.centerLeft,
           child: SingleChildScrollView(
             controller: _scroll,
             scrollDirection: Axis.horizontal,
-            child: Row(
-              children: List.generate(7, (i) {
-                final date = DateTime(start.year, start.month, start.day + i);
-                final state = widget.states[i];
-                final today = state == WeekDayState.today;
-                final dayOff = state == WeekDayState.dayOff;
-                final color = dayOff
-                    ? off
-                    : today
-                        ? c.accent
-                        : c.secondaryLabel;
-                final selected = widget.selectedDate == date;
-                final digit = Text(
-                  '${date.day}',
-                  style: WeekStrip._digitStyle(
-                    context,
-                    today: today,
-                    color: dayOff
-                        ? off
-                        : today
-                            ? (c.onAccent)
-                            : c.label,
-                  ),
-                );
-                return SizedBox(
-                  width: width,
-                  child: Semantics(
-                    label: PantasDates.heading(date),
-                    selected: selected,
-                    child: Material(
-                      color: context.colors.transparent,
-                      child: InkWell(
-                        key: ValueKey('week-day-$i'),
-                        onTap: () => widget.onSelected(date),
-                        borderRadius: BorderRadius.circular(8),
-                        child: Column(
-                          children: [
-                            Text(
-                              const [
-                                'Sun',
-                                'Mon',
-                                'Tue',
-                                'Wed',
-                                'Thu',
-                                'Fri',
-                                'Sat',
-                              ][i],
-                              style: context.type.captionStrong.copyWith(
-                                fontWeight:
-                                    today ? FontWeight.w700 : FontWeight.w600,
-                                color: color,
-                              ),
-                            ),
-                            const SizedBox(height: 2),
-                            SizedBox.square(
-                              dimension: size,
-                              child: today && widget.todayFraction > 0
-                                  ? ProgressRing(
-                                      size: size,
-                                      fraction: widget.todayFraction,
-                                      showCheck: false,
-                                      child: Container(
-                                        width: size - 6,
-                                        height: size - 6,
-                                        decoration: BoxDecoration(
-                                          color: c.accentFill,
-                                          shape: BoxShape.circle,
-                                        ),
-                                        alignment: Alignment.center,
-                                        child: digit,
-                                      ),
-                                    )
-                                  : today
-                                      ? Center(
-                                          child: Container(
-                                            width: size - 6,
-                                            height: size - 6,
-                                            decoration: BoxDecoration(
-                                              color: c.accentFill,
-                                              shape: BoxShape.circle,
-                                            ),
-                                            alignment: Alignment.center,
-                                            child: digit,
-                                          ),
-                                        )
-                                      : Center(child: digit),
-                            ),
-                            const SizedBox(height: 2),
-                            SizedBox(
-                              height: 6,
-                              child: state == WeekDayState.done ||
-                                      state == WeekDayState.partial
-                                  ? ClipRect(
-                                      child: Align(
-                                        alignment: Alignment.centerLeft,
-                                        widthFactor:
-                                            state == WeekDayState.partial
-                                                ? .5
-                                                : 1,
-                                        child: Container(
-                                          width: 5,
-                                          height: 5,
-                                          decoration: BoxDecoration(
-                                            color: c.accent,
-                                            shape: BoxShape.circle,
-                                          ),
-                                        ),
-                                      ),
-                                    )
-                                  : null,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                );
-              }),
-            ),
+            // Focus rings reach 4 px outside a day: they may leave the box
+            // only while nothing scrolls.
+            clipBehavior: scrolls ? Clip.hardEdge : Clip.none,
+            physics: scrolls ? null : const NeverScrollableScrollPhysics(),
+            child: row,
           ),
         );
       },
+    );
+  }
+
+  Widget _day(
+    BuildContext context,
+    int i,
+    DateTime date, {
+    required bool phone,
+  }) {
+    final c = context.colors;
+    final state = widget.states[i];
+    final today = state == WeekDayState.today;
+    final off = state == WeekDayState.dayOff || state == WeekDayState.missed;
+    final selected = widget.selectedDate == date;
+    final status = _status(i, date);
+    final radius = BorderRadius.circular(
+      phone ? PantasRadius.sm : PantasRadius.md,
+    );
+    final disc = WeekStrip._disc(phone);
+    final digit = Text(
+      '${date.day}',
+      style: WeekStrip._digitStyle(today: today).copyWith(
+        color: today
+            ? c.onAccent
+            : off
+                ? c.textSecondary
+                : c.textPrimary,
+        fontWeight: off && !today ? FontWeight.w400 : null,
+      ),
+    );
+    final weekday = Text(
+      const ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][i],
+      style: (phone ? PantasType.phoneCaptionSmall : PantasType.webKeyHintSm)
+          .copyWith(
+        color: today ? c.accent : c.textSecondary,
+        fontWeight: today
+            ? FontWeight.w700
+            : off
+                ? FontWeight.w400
+                : null,
+      ),
+    );
+    Widget mark;
+    if (today) {
+      final fill = DecoratedBox(
+        decoration: BoxDecoration(color: c.accentFill, shape: BoxShape.circle),
+        child: SizedBox.square(
+          dimension: disc,
+          child: Center(child: digit),
+        ),
+      );
+      mark = widget.todayFraction > 0
+          ? ProgressRing(
+              size: WeekStrip._ring,
+              fraction: widget.todayFraction,
+              showCheck: false,
+              child: fill,
+            )
+          : fill;
+    } else {
+      mark = digit;
+    }
+    final dot = switch (state) {
+      WeekDayState.done => c.accent,
+      _ => null,
+    };
+    final half = state == WeekDayState.partial;
+    final label = status == null
+        ? PantasDates.heading(date)
+        : '${PantasDates.heading(date)}, ${status.toLowerCase()}';
+    final ringed = OffsetFocusRing(
+      borderRadius: radius,
+      color: selected ? c.textPrimary : null,
+      child: PressScale(
+        scale: .97,
+        child: Material(
+          type: MaterialType.transparency,
+          child: InkWell(
+            key: ValueKey('week-day-$i'),
+            onTap: () => widget.onSelected(date),
+            onFocusChange: (focused) {
+              if (focused &&
+                  webKeyboardFocus({WidgetState.focused}) &&
+                  status != null) {
+                _tips[i].currentState?.ensureTooltipVisible();
+              }
+            },
+            borderRadius: radius,
+            hoverColor: c.surfaceHover,
+            focusColor: Colors.transparent,
+            highlightColor: Colors.transparent,
+            splashColor: Colors.transparent,
+            child: Container(
+              width: WeekStrip._cell,
+              padding: const EdgeInsets.symmetric(vertical: PantasSpace.s4),
+              foregroundDecoration: selected
+                  ? BoxDecoration(
+                      borderRadius: radius,
+                      border: Border.all(
+                        color: c.accent,
+                        width: PantasBorder.ringSelected,
+                      ),
+                    )
+                  : null,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  weekday,
+                  const SizedBox(height: PantasSpace.s2),
+                  ConstrainedBox(
+                    constraints: BoxConstraints(
+                      minHeight: math.max<double>(
+                        PantasSize.tileDay / 2 - PantasSpace.s8,
+                        WeekStrip._ring,
+                      ),
+                    ),
+                    child: Center(child: mark),
+                  ),
+                  const SizedBox(height: PantasSpace.s2),
+                  SizedBox.square(
+                    dimension: PantasSize.accuracyBar,
+                    child: half
+                        ? DecoratedBox(
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              gradient: LinearGradient(
+                                stops: const [.5, .5],
+                                colors: [c.accent, c.dividerStrong],
+                              ),
+                            ),
+                          )
+                        : dot == null
+                            ? null
+                            : DecoratedBox(
+                                decoration: BoxDecoration(
+                                  color: dot,
+                                  shape: BoxShape.circle,
+                                ),
+                              ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+    Widget cell = ringed;
+    if (status != null) {
+      cell = Tooltip(
+        key: _tips[i],
+        message: status,
+        excludeFromSemantics: true,
+        waitDuration: PantasDurations.tooltip,
+        triggerMode: TooltipTriggerMode.manual,
+        preferBelow: false,
+        verticalOffset: WeekStrip._cell / 2 + PantasSpace.s16,
+        constraints: const BoxConstraints(maxWidth: PantasSize.tooltipMax),
+        padding: const EdgeInsets.symmetric(
+          horizontal: PantasSpace.s8,
+          vertical: PantasSpace.s4,
+        ),
+        decoration: BoxDecoration(
+          color: c.toastBg,
+          borderRadius: BorderRadius.circular(PantasRadius.sm),
+          boxShadow: context.shadows.toast,
+        ),
+        textStyle: PantasType.webCaption.copyWith(color: c.toastText),
+        child: ringed,
+      );
+    }
+    return Semantics(
+      label: label,
+      selected: selected,
+      button: true,
+      excludeSemantics: true,
+      onTap: () => widget.onSelected(date),
+      child: cell,
     );
   }
 }

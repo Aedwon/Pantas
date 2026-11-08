@@ -328,7 +328,8 @@ void main() {
     );
     expect(keep.variant, PantasButtonVariant.primary);
     expect(keep.fullWidth, isTrue);
-    expect(keep.height, 52);
+    // No height override: the phone default, `btn--phone` 52 (Button README).
+    expect(keep.height, isNull);
     final surface = tester.getRect(
       find.byKey(const ValueKey('leave-dialog-surface')),
     );
@@ -336,6 +337,7 @@ void main() {
       find.widgetWithText(PantasButton, 'Keep Going'),
     );
     final leave = find.text('Leave');
+    expect(keepRect.height, 52);
     expect(keepRect.width, closeTo(surface.width - 40, .5));
     expect(tester.getTopLeft(leave).dy, greaterThan(keepRect.bottom));
     final style = tester.widget<Text>(leave).style!;

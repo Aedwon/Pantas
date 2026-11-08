@@ -4,6 +4,8 @@ import 'package:pantas/core/ui/components/floating_bar.dart';
 import 'package:pantas/core/ui/components/new_design/question_grid_sheet.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/scope_picker.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
 
 import '../../../helpers/accessibility.dart';
 
@@ -104,7 +106,8 @@ void main() {
       const Color(0xFF1D1D1F),
     );
   });
-  testWidgets('primary button follows CSS press at 70 and 140ms',
+  testWidgets(
+      'primary button follows the Button README press: 120ms down, 180ms back',
       (tester) async {
     await pumpAccessibilitySurface(
       tester,
@@ -120,7 +123,8 @@ void main() {
     );
     expect(
       tester.widget<ScaleTransition>(scale).scale.value,
-      closeTo(.975928, .0002),
+      // Button README, Pressed: .97 over dur-short-1 (120ms), ease-move.
+      closeTo(1 - .03 * PantasCurves.move.transform(70 / 120), .0002),
     );
     await tester.pump(const Duration(milliseconds: 70));
     expect(
@@ -129,7 +133,8 @@ void main() {
     );
     await gesture.up();
     await tester.pump();
-    await tester.pump(const Duration(milliseconds: 140));
+    // Back over dur-short-3 (180ms).
+    await tester.pump(PantasDurations.short3);
     expect(tester.widget<ScaleTransition>(scale).scale.value, 1);
   });
   testWidgets('grid numbers fit at 200 percent without wrapping or clipping',

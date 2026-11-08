@@ -3,12 +3,14 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:pantas/core/ui/components/pantas_shadows.dart';
 import 'package:pantas/core/ui/components/tab_bar_visibility.dart';
 import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
-import 'package:pantas/core/ui/theme/pantas_shape.dart';
-import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 
 /// Owns the sheet surface and the page behind it. The caller supplies contents.
@@ -121,23 +123,17 @@ class _PantasSheetState extends State<PantasSheet>
   Widget build(BuildContext context) {
     final still = MediaQuery.disableAnimationsOf(context);
     final bookmarks = widget.bookmarks;
-    final slideSheet = bookmarks || widget.readerContents;
+    // One recipe for every sheet: 450ms in and 400ms out on `motion-slide`,
+    // the scrim over 350ms on `motion-fade`.
     final duration = still
         ? Duration.zero
-        : Duration(
-            milliseconds: slideSheet
-                ? widget.open
-                    ? 450
-                    : 400
-                : widget.open
-                    ? 420
-                    : 320,
-          );
+        : widget.open
+            ? PantasDurations.long1
+            : PantasDurations.drawerClose;
     final endpoint = widget.open ? 1.0 : 0.0;
-    final curve = slideSheet ? PantasCurves.slide : PantasCurves.house;
-    final washDuration =
-        still ? Duration.zero : Duration(milliseconds: slideSheet ? 350 : 300);
-    final washCurve = slideSheet ? PantasCurves.fade : PantasCurves.linear;
+    const curve = PantasCurves.slide;
+    final washDuration = still ? Duration.zero : PantasDurations.switchDuration;
+    const washCurve = PantasCurves.fade;
     // On wide web the sheet sits in the page's column, but its scrim covers the
     // window, the sidebar included, as every dialog does. A scrim drawn inside
     // the column was a gray box with hard edges (5S-4).
@@ -240,9 +236,16 @@ class _PantasSheetState extends State<PantasSheet>
     );
   }
 
+  /// The sheet starts just past its own height, as the slide recipe draws it.
+  static const double _travel = 1.05;
+
+  Widget get _body => widget.scrollable
+      ? SingleChildScrollView(child: widget.child)
+      : widget.child;
+
   Widget _wash(double wash) => ModalBarrier(
-        color: PantasColors.dark.background.withValues(
-          alpha: (widget.readerContents ? .32 : .34) * wash,
+        color: context.colors.scrim.withValues(
+          alpha: context.colors.scrim.a * wash,
         ),
         onDismiss: widget.onDismiss,
         semanticsLabel: 'Close ${widget.label}',
@@ -250,14 +253,14 @@ class _PantasSheetState extends State<PantasSheet>
 
   Widget _panel(BoxConstraints constraints, double sheetProgress) {
     final bookmarks = widget.bookmarks;
-    final slideSheet = bookmarks || widget.readerContents;
+    final colors = context.colors;
+    const topRadius = BorderRadius.vertical(
+      top: Radius.circular(PantasRadius.lg),
+    );
     return Align(
       alignment: Alignment.bottomCenter,
       child: FractionalTranslation(
-        translation: Offset(
-          0,
-          (slideSheet ? 1.05 : 1) * (1 - sheetProgress),
-        ),
+        translation: Offset(0, _travel * (1 - sheetProgress)),
         child: CallbackShortcuts(
           bindings: {
             const SingleActivator(LogicalKeyboardKey.escape): widget.onDismiss,
@@ -284,27 +287,12 @@ class _PantasSheetState extends State<PantasSheet>
                   child: DecoratedBox(
                     key: const ValueKey('pantas-sheet-surface'),
                     decoration: BoxDecoration(
-                      color: context.colors.surface,
-                      borderRadius: const BorderRadius.vertical(
-                        top: Radius.circular(
-                          PantasShape.floatingRadius,
-                        ),
-                      ),
-                      boxShadow: [
-                        BoxShadow(
-                          color: PantasColors.dark.background
-                              .withValues(alpha: .08),
-                          blurRadius: 30,
-                          offset: const Offset(0, -8),
-                        ),
-                      ],
+                      color: colors.surfaceModal,
+                      borderRadius: topRadius,
+                      boxShadow: context.shadows.sheet,
                     ),
                     child: ClipRRect(
-                      borderRadius: const BorderRadius.vertical(
-                        top: Radius.circular(
-                          PantasShape.floatingRadius,
-                        ),
-                      ),
+                      borderRadius: topRadius,
                       child: ConstrainedBox(
                         constraints: BoxConstraints(
                           maxHeight: math.max(
@@ -344,11 +332,17 @@ class _PantasSheetState extends State<PantasSheet>
                             // text gets the yellow-underline style.
                             child: Material(
                               type: MaterialType.transparency,
-                              child: widget.scrollable
-                                  ? SingleChildScrollView(
-                                      child: widget.child,
-                                    )
-                                  : widget.child,
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                crossAxisAlignment: CrossAxisAlignment.stretch,
+                                children: [
+                                  const _Grabber(),
+                                  if (bookmarks)
+                                    Expanded(child: _body)
+                                  else
+                                    Flexible(child: _body),
+                                ],
+                              ),
                             ),
                           ),
                         ),
@@ -413,4 +407,30 @@ class _SheetWindowLayer extends StatelessWidget {
       ),
     );
   }
+}
+
+/// The 36 by 5 drag handle: decorative, `divider-strong`, with 8 above it.
+class _Grabber extends StatelessWidget {
+  const _Grabber();
+
+  /// `.sheet__grab` is 36 wide and 5 high.
+  static const double _width = PantasSpace.s32 + PantasSpace.s4;
+  static const double _height = PantasSpace.s4 + 1;
+
+  @override
+  Widget build(BuildContext context) => ExcludeSemantics(
+        child: Padding(
+          padding: const EdgeInsets.only(top: PantasSpace.s8),
+          child: Center(
+            child: DecoratedBox(
+              key: const ValueKey('pantas-sheet-grabber'),
+              decoration: BoxDecoration(
+                color: context.colors.dividerStrong,
+                borderRadius: BorderRadius.circular(PantasRadius.full),
+              ),
+              child: const SizedBox(width: _width, height: _height),
+            ),
+          ),
+        ),
+      );
 }

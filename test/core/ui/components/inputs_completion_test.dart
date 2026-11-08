@@ -61,7 +61,7 @@ void main() {
       expect(invalid.style!.fontSize, 20);
       final selectedText = tester.widget<Text>(find.text('10'));
       expect(selectedText.style!.fontWeight, FontWeight.w500);
-      expect(selectedText.style!.height, 1.35);
+      expect(selectedText.style!.height, 1);
       expectContrast(
         selectedText.style!.color!,
         brightness == Brightness.light ? const Color(0xFFF5F5F7) : Colors.black,
@@ -235,7 +235,7 @@ void main() {
       );
       expect(
         tester.getSize(find.byKey(const ValueKey('search-fill'))).height,
-        38,
+        44,
       );
       await tester.tap(find.byType(TextField));
       await tester.pump();
@@ -272,7 +272,10 @@ void main() {
         await pumpAccessibilitySurface(tester, avatar, brightness: brightness);
         expect(tester.getSize(find.byType(Avatar)), const Size(58, 58));
         if (name == 'Ada') {
-          expect(tester.widget<Text>(find.text('A')).style!.fontSize, 25);
+          expect(
+            tester.widget<Text>(find.text('A')).style!.fontSize,
+            closeTo(20 * 58 / 44, .01),
+          );
         }
         if (name.startsWith('👩')) expect(find.text('👩🏽‍🔬'), findsOneWidget);
         if (name.isEmpty) expect(find.byType(Icon), findsOneWidget);

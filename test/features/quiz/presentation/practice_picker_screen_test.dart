@@ -18,6 +18,7 @@ import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/components/value_wheel.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
 import 'package:pantas/features/quiz/data/repos/practice_preferences_repository.dart';
 import 'package:pantas/features/quiz/domain/picker/practice_index.dart';
 import 'package:pantas/features/quiz/domain/picker/practice_selection.dart';
@@ -322,6 +323,8 @@ void main() {
           find.text('You set the questions. Time follows.'),
           findsOneWidget,
         );
+        await tester.ensureVisible(find.text('Total time'));
+        await tester.pumpAndSettle();
         await tester.tap(find.text('Total time'));
         await tester.pumpAndSettle();
         expect(
@@ -444,6 +447,8 @@ void main() {
     await tester.pumpAndSettle();
     await tester.tap(find.byTooltip('Increase Linear equations'));
     await tester.pumpAndSettle();
+    await tester.ensureVisible(find.text('Questions per lesson'));
+    await tester.pumpAndSettle();
     await tester.tap(find.text('Questions per lesson'));
     await tester.pumpAndSettle();
     final saved = await prefs.read('e');
@@ -520,7 +525,7 @@ void main() {
     await tester.tap(find.byKey(const ValueKey('practice-size')));
     await tester.pumpAndSettle();
     final segment = tester.widget<Text>(find.text('Questions per lesson'));
-    expect(segment.style!.fontWeight, FontWeight.w600);
+    expect(segment.style!.fontWeight, FontWeight.w500);
     await tester.tap(find.text('Adjust'));
     await tester.pumpAndSettle();
     for (final verb in ['Increase', 'Decrease']) {
@@ -707,6 +712,8 @@ void main() {
     final wheel = tester.widget<ValueWheel>(find.byType(ValueWheel));
     expect(wheel.values[wheel.selectedIndex], '10');
     expect((await prefs.read('e')).adjustments, {'lesson:a': 7, 'lesson:b': 5});
+    await tester.ensureVisible(find.text('Total time'));
+    await tester.pumpAndSettle();
     await tester.tap(find.text('Total time'));
     await tester.pumpAndSettle();
     expect((await prefs.read('e')).value, 10);
@@ -1061,9 +1068,13 @@ void main() {
     await tester.tap(find.byKey(const ValueKey('practice-size')));
     await tester.pumpAndSettle();
     for (var i = 0; i < 4; i++) {
+      await tester.ensureVisible(find.text('Total time'));
+      await tester.pumpAndSettle();
       await tester.tap(find.text('Total time'));
       await tester.pumpAndSettle();
       expect((await prefs.read('e')).value, 50);
+      await tester.ensureVisible(find.text('Questions per lesson'));
+      await tester.pumpAndSettle();
       await tester.tap(find.text('Questions per lesson'));
       await tester.pumpAndSettle();
       expect((await prefs.read('e')).value, 10);
@@ -1078,9 +1089,13 @@ void main() {
     );
     await tester.tap(find.byKey(const ValueKey('practice-size')));
     await tester.pumpAndSettle();
+    await tester.ensureVisible(find.text('Total time'));
+    await tester.pumpAndSettle();
     await tester.tap(find.text('Total time'));
     await tester.pumpAndSettle();
     expect((await prefs.read('e')).value, 25);
+    await tester.ensureVisible(find.text('Questions per lesson'));
+    await tester.pumpAndSettle();
     await tester.tap(find.text('Questions per lesson'));
     await tester.pumpAndSettle();
     expect((await prefs.read('e')).value, 10);
@@ -1101,9 +1116,13 @@ void main() {
     await tester.pumpAndSettle();
     final converted = <int>[];
     for (var i = 0; i < 2; i++) {
+      await tester.ensureVisible(find.text('Total time'));
+      await tester.pumpAndSettle();
       await tester.tap(find.text('Total time'));
       await tester.pumpAndSettle();
       converted.add((await prefs.read('e')).value);
+      await tester.ensureVisible(find.text('Questions per lesson'));
+      await tester.pumpAndSettle();
       await tester.tap(find.text('Questions per lesson'));
       await tester.pumpAndSettle();
       converted.add((await prefs.read('e')).value);
@@ -1126,6 +1145,8 @@ void main() {
       loadIndex: loadIndex,
     );
     await tester.tap(find.byKey(const ValueKey('practice-size')));
+    await tester.pumpAndSettle();
+    await tester.ensureVisible(find.text('Total time'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Total time'));
     await tester.pumpAndSettle();
@@ -1151,6 +1172,8 @@ void main() {
     await tester.sendKeyEvent(LogicalKeyboardKey.arrowLeft);
     await tester.pumpAndSettle();
     expect((await prefs.read('e')).value, 40);
+    await tester.ensureVisible(find.text('Questions per lesson'));
+    await tester.pumpAndSettle();
     await tester.tap(find.text('Questions per lesson'));
     await tester.pumpAndSettle();
     expect((await prefs.read('e')).value, 11);
@@ -1159,13 +1182,19 @@ void main() {
   testWidgets('manual allocation starts a new conversion target',
       (tester) async {
     final prefs = await cappedConversion(tester);
+    await tester.ensureVisible(find.text('Questions per lesson'));
+    await tester.pumpAndSettle();
     await tester.tap(find.text('Questions per lesson'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Adjust'));
     await tester.pumpAndSettle();
     await tester.tap(find.byTooltip('Decrease Topic'));
     await tester.pumpAndSettle();
+    await tester.ensureVisible(find.text('Total time'));
+    await tester.pumpAndSettle();
     await tester.tap(find.text('Total time'));
+    await tester.pumpAndSettle();
+    await tester.ensureVisible(find.text('Questions per lesson'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Questions per lesson'));
     await tester.pumpAndSettle();
@@ -1178,6 +1207,8 @@ void main() {
     await tester.tap(find.text('Adjust'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Reset'));
+    await tester.pumpAndSettle();
+    await tester.ensureVisible(find.text('Questions per lesson'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Questions per lesson'));
     await tester.pumpAndSettle();
@@ -1195,6 +1226,8 @@ void main() {
     ProviderScope.containerOf(tester.element(find.byType(PracticePickerScreen)))
         .invalidate(practiceIndexProvider('e'));
     await tester.pumpAndSettle();
+    await tester.ensureVisible(find.text('Questions per lesson'));
+    await tester.pumpAndSettle();
     await tester.tap(find.text('Questions per lesson'));
     await tester.pumpAndSettle();
     expect((await prefs.read('e')).value, 13);
@@ -1208,6 +1241,8 @@ void main() {
     ProviderScope.containerOf(tester.element(find.byType(PracticePickerScreen)))
         .invalidate(practicePaceProvider('e'));
     await tester.pumpAndSettle();
+    await tester.ensureVisible(find.text('Questions per lesson'));
+    await tester.pumpAndSettle();
     await tester.tap(find.text('Questions per lesson'));
     await tester.pumpAndSettle();
     expect((await prefs.read('e')).value, 18);
@@ -1216,6 +1251,8 @@ void main() {
   testWidgets('changed selection starts a new conversion target',
       (tester) async {
     final prefs = await cappedConversion(tester);
+    await tester.ensureVisible(find.text('Questions per lesson'));
+    await tester.pumpAndSettle();
     await tester.tap(find.text('Questions per lesson'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Done'));
@@ -1225,6 +1262,8 @@ void main() {
     await tester.tap(find.byKey(const ValueKey('scope-select-2')));
     await tester.pumpAndSettle();
     await tester.tap(find.byKey(const ValueKey('practice-size')));
+    await tester.pumpAndSettle();
+    await tester.ensureVisible(find.text('Total time'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Total time'));
     await tester.pumpAndSettle();
@@ -1241,6 +1280,8 @@ void main() {
     await tester.tap(find.byTooltip('Increase Linear equations'));
     await tester.pumpAndSettle();
     expect((await prefs.read('e')).adjustments, {'lesson:a': 11});
+    await tester.ensureVisible(find.text('Total time'));
+    await tester.pumpAndSettle();
     await tester.tap(find.text('Total time'));
     await tester.pumpAndSettle();
     final saved = await prefs.read('e');
@@ -1312,7 +1353,7 @@ void main() {
     );
     expect(
       (mark.decoration! as BoxDecoration).borderRadius,
-      BorderRadius.circular(99),
+      BorderRadius.circular(PantasRadius.full),
     );
   });
 

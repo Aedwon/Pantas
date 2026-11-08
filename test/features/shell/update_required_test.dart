@@ -202,8 +202,17 @@ void main() {
       );
       expect(tester.getBottomLeft(find.byType(PantasButton)).dy, 814);
       final action = tester.widget<PantasButton>(find.byType(PantasButton));
-      expect(action.height, 52);
-      expect(action.radius, 14);
+      // No overrides: the phone default, `btn--phone` 52 with `radius-lg` 14
+      // (Button README, Anatomy).
+      expect(action.height, isNull);
+      expect(action.radius, isNull);
+      expect(tester.getSize(find.byType(PantasButton)).height, 52);
+      final shape = tester
+          .widget<TextButton>(find.byType(TextButton))
+          .style!
+          .shape!
+          .resolve(<WidgetState>{})! as RoundedRectangleBorder;
+      expect(shape.borderRadius, BorderRadius.circular(14));
       expect(tester.getSize(find.byType(PantasButton)).width, 358);
       final context = tester.element(find.byType(UpdateRequiredPage));
       final scaffold = tester.widget<Scaffold>(

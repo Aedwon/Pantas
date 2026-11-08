@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/pantas_switch.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 
 import '../../../helpers/accessibility.dart';
 
@@ -28,6 +30,7 @@ void main() {
         final decoration =
             tester.widget<DecoratedBox>(knob).decoration as BoxDecoration;
         expect(decoration.color, const Color(0xFFFFFFFF));
+        expect(decoration.boxShadow, hasLength(1));
         await tester.sendKeyEvent(LogicalKeyboardKey.tab);
         await tester.sendKeyEvent(LogicalKeyboardKey.space);
         expect(result, !value);
@@ -100,10 +103,15 @@ void main() {
             find.byKey(const ValueKey('pantas-switch-track')),
           )
           .decoration as BoxDecoration;
-      // CSS ease at .5 is .8024. Literal channels rounded to the nearest byte.
-      final expected = brightness == Brightness.light
-          ? const Color(0xFF368F81)
-          : const Color(0xFF167364);
+      // The track runs from `switch-off` to `accent-fill` on motion-fade.
+      final colors = brightness == Brightness.light
+          ? PantasColors.light
+          : PantasColors.dark;
+      final expected = Color.lerp(
+        colors.switchOff,
+        colors.accentFill,
+        PantasCurves.fade.transform(.5),
+      )!;
       expect(box.color!.r, closeTo(expected.r, .005));
       expect(box.color!.g, closeTo(expected.g, .005));
       expect(box.color!.b, closeTo(expected.b, .005));

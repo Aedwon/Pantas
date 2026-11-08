@@ -41,8 +41,8 @@ void main() {
           findsOneWidget,
         );
         final month = tester.widget<Text>(find.text('Nov'));
-        expect(month.style!.fontSize, 17);
-        expect(month.style!.fontWeight, FontWeight.w600);
+        expect(month.style!.fontSize, 15);
+        expect(month.style!.fontWeight, FontWeight.w700);
         expectContrast(month.style!.color!, colors.accentFill);
         final day = find.byKey(const ValueKey('date-day-11'));
         await tester.ensureVisible(day);
@@ -52,7 +52,7 @@ void main() {
               find.descendant(of: day, matching: find.byType(Text)),
             )
             .first;
-        expect(weekday.style!.fontSize, 12);
+        expect(weekday.style!.fontSize, 11);
         expectContrast(weekday.style!.color!, colors.accentFill);
         await tester.tap(find.byKey(const ValueKey('date-month-12')));
         await tester.pumpAndSettle();

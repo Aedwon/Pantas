@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 
 @immutable
 class LoadingShape {
   const LoadingShape({
     required this.widthFraction,
     required this.height,
-    this.radius = 6,
+    this.radius,
   });
   final double widthFraction;
   final double height;
-  final double radius;
+
+  /// Null takes the Skeleton default: `radius-xs` for a line.
+  final double? radius;
 }
 
 /// A short stack of pulsing lines for a section whose loaded layout has no
@@ -37,7 +40,7 @@ class LoadingShapes extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             for (var i = 0; i < shapes.length; i++) ...[
-              if (i > 0) const SizedBox(height: 10),
+              if (i > 0) const SizedBox(height: PantasSpace.s10),
               FractionallySizedBox(
                 widthFactor: shapes[i].widthFraction,
                 alignment: Alignment.centerLeft,

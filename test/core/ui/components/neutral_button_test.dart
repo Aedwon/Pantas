@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/pantas_button_parts.dart';
 import 'package:pantas/core/ui/theme/legacy_theme_shim.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 
@@ -27,14 +28,10 @@ void main() {
         (
           PantasButtonVariant.secondary,
           colors.accentTint,
-          brightness == Brightness.dark ? colors.accentTintText : colors.accent
+          colors.accentTintText
         ),
         (PantasButtonVariant.tertiary, colors.transparent, colors.accent),
-        (
-          PantasButtonVariant.destructive,
-          colors.destructive,
-          colors.onDestructive
-        ),
+        (PantasButtonVariant.destructive, colors.dangerFill, colors.onDanger),
       ];
       for (final pair in pairs) {
         await pumpAccessibilitySurface(
@@ -140,7 +137,7 @@ void main() {
       ),
       disableAnimations: true,
     );
-    expect(find.byType(CircularProgressIndicator), findsOneWidget);
+    expect(find.byType(PantasSpinner), findsOneWidget);
     expect(
       tester.widget<TextButton>(find.byType(TextButton)).onPressed,
       isNull,

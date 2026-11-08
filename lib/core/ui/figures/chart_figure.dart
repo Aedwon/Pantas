@@ -2,7 +2,13 @@ import 'dart:math' as math;
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:pantas/core/ui/components/data_table.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_border.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 
 /// A compact chart drawn only from values supplied by lesson content.
 class ChartFigure extends StatelessWidget {
@@ -167,36 +173,179 @@ class ChartFigure extends StatelessWidget {
     );
   }
 
+  /// The plot's inset from the left and from the right (`_ChartPainter`).
+  static const double _plotLeft = PantasSpace.s40;
+  static const double _plotRight = PantasSpace.s16;
+
+  bool get _hasColumns =>
+      (type == 'bar' || type == 'line') &&
+      !(compareZero ?? false) &&
+      labels.isNotEmpty;
+
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
-    return Semantics(
-      label: 'A $type chart.',
-      child: SizedBox(
-        height: 210,
-        child: CustomPaint(
-          size: Size.infinite,
-          painter: _ChartPainter(
-            type: type,
-            labels: labels,
-            values: values,
-            yAxis: yAxis,
-            yMin: yMin,
-            compareZero: compareZero,
-            plots: plots,
-            trend: trend,
-            xLabel: xLabel,
-            yLabel: yLabel,
-            points: points,
-            ink: colors.label,
-            faint: colors.fill,
-            background: colors.background,
-            labelStyle: context.type.subhead.copyWith(
-              color: colors.secondaryLabel,
+    final scaler = MediaQuery.textScalerOf(context);
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        // A column is at least `size-chart-col` (2.75rem) wide at the scaled
+        // text. When the plot is narrower than that, the chart keeps only
+        // the most recent points that fit, and a visible "Show Table" button
+        // opens every value (D190 item 16).
+        var keep = labels.length;
+        if (_hasColumns && constraints.hasBoundedWidth) {
+          final minColumn = scaler.scale(PantasSize.chartCol);
+          final room = constraints.maxWidth - _plotLeft - _plotRight;
+          keep = math.max(1, math.min(labels.length, room ~/ minColumn));
+        }
+        final clipped = keep < labels.length;
+        final shownLabels =
+            clipped ? labels.sublist(labels.length - keep) : labels;
+        final shownValues =
+            clipped ? values.sublist(values.length - keep) : values;
+        final chart = Semantics(
+          label: 'A $type chart.',
+          child: SizedBox(
+            height: PantasSize.chartH,
+            child: CustomPaint(
+              size: Size.infinite,
+              painter: _ChartPainter(
+                type: type,
+                labels: shownLabels,
+                values: shownValues,
+                yAxis: yAxis,
+                yMin: yMin,
+                compareZero: compareZero,
+                plots: plots,
+                trend: trend,
+                xLabel: xLabel,
+                yLabel: yLabel,
+                points: points,
+                ink: colors.textPrimary,
+                faint: colors.divider,
+                background: colors.bgPage,
+                accent: colors.accent,
+                card: colors.surfaceCard,
+                ramp: [
+                  colors.chart1,
+                  colors.chart2,
+                  colors.chart3,
+                  colors.chart4,
+                  colors.chart5,
+                ],
+                scaler: scaler,
+                labelStyle: PantasType.webCaption.copyWith(
+                  color: colors.textSecondary,
+                ),
+                valueStyle: PantasType.webTag.copyWith(
+                  color: colors.textPrimary,
+                  fontFeatures: const [FontFeature.tabularFigures()],
+                ),
+                latestStyle: PantasType.webCaption.copyWith(
+                  color: colors.textPrimary,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ),
+          ),
+        );
+        if (!clipped) return chart;
+        return Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            chart,
+            const SizedBox(height: PantasSpace.s8),
+            _ClippedNote(
+              shown: keep,
+              labels: labels,
+              values: values,
+              columnLabel: yAxis != null && yAxis!['label'] is String
+                  ? yAxis!['label']! as String
+                  : 'Value',
+            ),
+          ],
+        );
+      },
+    );
+  }
+}
+
+/// The note under a chart that hides its oldest columns, with the tertiary
+/// "Show Table" button that opens every value.
+class _ClippedNote extends StatefulWidget {
+  const _ClippedNote({
+    required this.shown,
+    required this.labels,
+    required this.values,
+    required this.columnLabel,
+  });
+
+  final int shown;
+  final List<String> labels;
+  final List<double> values;
+  final String columnLabel;
+
+  @override
+  State<_ClippedNote> createState() => _ClippedNoteState();
+}
+
+class _ClippedNoteState extends State<_ClippedNote> {
+  bool _open = false;
+
+  static String _text(double value) => value == value.roundToDouble()
+      ? value.toInt().toString()
+      : value.toString();
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = context.colors;
+    final total = widget.labels.length;
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Text(
+          'Showing the last ${widget.shown}. The table has all $total.',
+          style: PantasType.webCaption.copyWith(color: colors.textSecondary),
+        ),
+        Align(
+          alignment: AlignmentDirectional.centerEnd,
+          child: Semantics(
+            button: true,
+            expanded: _open,
+            child: TextButton(
+              key: const ValueKey('chart-table-toggle'),
+              onPressed: () => setState(() => _open = !_open),
+              style: TextButton.styleFrom(
+                minimumSize: const Size(
+                  PantasSize.targetTouch,
+                  PantasSize.targetTouch,
+                ),
+                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                foregroundColor: colors.textSecondary,
+                textStyle: PantasType.webLabel,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(PantasRadius.sm),
+                ),
+              ),
+              child: Text(_open ? 'Hide Table' : 'Show Table'),
             ),
           ),
         ),
-      ),
+        if (_open)
+          PantasDataTable(
+            key: const ValueKey('chart-table'),
+            columns: [
+              const PantasTableColumn('Label'),
+              PantasTableColumn(widget.columnLabel, numeric: true),
+            ],
+            rows: [
+              for (var i = 0; i < total; i++)
+                [widget.labels[i], _text(widget.values[i])],
+            ],
+          ),
+      ],
     );
   }
 }
@@ -210,6 +359,12 @@ class _ChartPainter extends CustomPainter {
     required this.faint,
     required this.background,
     required this.labelStyle,
+    required this.valueStyle,
+    required this.latestStyle,
+    required this.accent,
+    required this.card,
+    required this.ramp,
+    required this.scaler,
     this.yAxis,
     this.yMin,
     this.compareZero,
@@ -236,6 +391,12 @@ class _ChartPainter extends CustomPainter {
   final Color faint;
   final Color background;
   final TextStyle labelStyle;
+  final TextStyle valueStyle;
+  final TextStyle latestStyle;
+  final Color accent;
+  final Color card;
+  final List<Color> ramp;
+  final TextScaler scaler;
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -254,26 +415,24 @@ class _ChartPainter extends CustomPainter {
       return;
     }
 
-    final plot = Rect.fromLTRB(40, 16, size.width - 16, size.height - 36);
-    final stroke = Paint()
-      ..color = ink
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = 1.2;
-    final faintStroke = Paint()
+    // The labels under the plot are text at the scaled size, never painted at
+    // a fixed one: the bottom margin follows the scaled caption line.
+    final labelHeight = scaler.scale(labelStyle.fontSize!) * labelStyle.height!;
+    final plot = Rect.fromLTRB(
+      ChartFigure._plotLeft,
+      PantasSpace.s16 + valueStyle.fontSize!,
+      size.width - ChartFigure._plotRight,
+      size.height - PantasSpace.s8 * 2 - labelHeight,
+    );
+    final gridline = Paint()
       ..color = faint
       ..style = PaintingStyle.stroke
-      ..strokeWidth = 1;
+      ..strokeWidth = PantasBorder.ring;
 
-    canvas
-      ..drawLine(plot.bottomLeft, plot.topLeft, stroke)
-      ..drawLine(plot.bottomLeft, plot.bottomRight, stroke);
-    for (var i = 1; i < 4; i++) {
+    // Gridlines every 25%, plus the top and the baseline (`divider`).
+    for (var i = 0; i <= 4; i++) {
       final y = plot.top + plot.height * i / 4;
-      canvas.drawLine(
-        Offset(plot.left, y),
-        Offset(plot.right, y),
-        faintStroke,
-      );
+      canvas.drawLine(Offset(plot.left, y), Offset(plot.right, y), gridline);
     }
 
     final minimum = yMin ??
@@ -289,44 +448,78 @@ class _ChartPainter extends CustomPainter {
     final slot = values.isNotEmpty ? plot.width / values.length : plot.width;
 
     if (type == 'bar') {
+      // Bars: `accent`, up to 28 wide (60% of the column), radius 5 at the
+      // top, at least 5 high so a low value shows.
+      final barWidth = math.min(slot * .6, PantasSpace.s28);
+      final fill = Paint()..color = accent;
       for (var i = 0; i < values.length; i++) {
-        final x = plot.left + slot * (i + 0.18);
-        final y = yFor(values[i]);
-        canvas.drawRect(
-          Rect.fromLTRB(x, y, x + slot * 0.64, yFor(minimum)),
-          stroke,
+        final x = plot.left + slot * (i + .5) - barWidth / 2;
+        final base = yFor(minimum);
+        final top = math.min(yFor(values[i]), base - PantasSize.accuracyBar);
+        canvas.drawRRect(
+          RRect.fromRectAndCorners(
+            Rect.fromLTRB(x, top, x + barWidth, base),
+            topLeft: const Radius.circular(PantasRadius.xs),
+            topRight: const Radius.circular(PantasRadius.xs),
+          ),
+          fill,
         );
         final valText = values[i] == values[i].roundToDouble()
             ? values[i].toInt().toString()
             : values[i].toString();
-        _drawText(canvas, valText, Offset(x + slot * 0.1, y - 14));
+        _drawCentered(
+          canvas,
+          valText,
+          valueStyle,
+          Offset(plot.left + slot * (i + .5), top - PantasSpace.s8),
+          slot,
+          above: true,
+        );
       }
     } else {
-      final path = Path();
-      for (var i = 0; i < values.length; i++) {
-        final point = Offset(plot.left + slot * (i + 0.5), yFor(values[i]));
-        if (i == 0) {
-          path.moveTo(point.dx, point.dy);
-        } else {
-          path.lineTo(point.dx, point.dy);
-        }
-        canvas.drawCircle(point, 2.5, stroke);
+      // Line: a 2 px `accent` segment between points, and 8 px `accent`
+      // discs with a 2 px `surface-card` edge above it.
+      final line = Paint()
+        ..color = accent
+        ..style = PaintingStyle.stroke
+        ..strokeWidth = PantasBorder.ringSelected
+        ..strokeCap = StrokeCap.round;
+      final points = [
+        for (var i = 0; i < values.length; i++)
+          Offset(plot.left + slot * (i + .5), yFor(values[i])),
+      ];
+      for (var i = 0; i + 1 < points.length; i++) {
+        canvas.drawLine(points[i], points[i + 1], line);
       }
-      canvas.drawPath(path, stroke);
+      for (var i = 0; i < points.length; i++) {
+        canvas
+          ..drawCircle(
+            points[i],
+            PantasSpace.s4 + PantasBorder.ringSelected,
+            Paint()..color = card,
+          )
+          ..drawCircle(points[i], PantasSpace.s4, Paint()..color = accent);
+        final valText = values[i] == values[i].roundToDouble()
+            ? values[i].toInt().toString()
+            : values[i].toString();
+        _drawCentered(
+          canvas,
+          valText,
+          valueStyle,
+          points[i] - const Offset(0, PantasSpace.s8 + PantasSpace.s4),
+          slot,
+          above: true,
+        );
+      }
     }
 
     for (var i = 0; i < labels.length; i++) {
-      final painter = TextPainter(
-        text: TextSpan(text: labels[i], style: labelStyle),
-        textAlign: TextAlign.center,
-        textDirection: TextDirection.ltr,
-      )..layout(maxWidth: slot + 8);
-      painter.paint(
+      _drawCentered(
         canvas,
-        Offset(
-          plot.left + slot * (i + 0.5) - painter.width / 2,
-          plot.bottom + 8,
-        ),
+        labels[i],
+        i == labels.length - 1 ? latestStyle : labelStyle,
+        Offset(plot.left + slot * (i + .5), plot.bottom + PantasSpace.s8),
+        slot + PantasSpace.s8,
       );
     }
 
@@ -397,10 +590,23 @@ class _ChartPainter extends CustomPainter {
       ..style = PaintingStyle.stroke
       ..strokeWidth = 1.2;
 
-    canvas.drawCircle(center, radius, stroke);
-
     final total = values.fold<double>(0, (sum, val) => sum + val);
     var startAngle = -math.pi / 2;
+    // Slices take the five chart steps in order; the outline and the legend
+    // names carry the meaning, so hue is never the only cue.
+    for (var i = 0; i < values.length; i++) {
+      final sweep = (values[i] / (total == 0 ? 1 : total)) * 2 * math.pi;
+      canvas.drawArc(
+        Rect.fromCircle(center: center, radius: radius),
+        startAngle,
+        sweep,
+        true,
+        Paint()..color = ramp[i % ramp.length],
+      );
+      startAngle += sweep;
+    }
+    canvas.drawCircle(center, radius, stroke);
+    startAngle = -math.pi / 2;
 
     for (var i = 0; i < values.length; i++) {
       final sweep = (values[i] / (total == 0 ? 1 : total)) * 2 * math.pi;
@@ -414,7 +620,12 @@ class _ChartPainter extends CustomPainter {
     final legendLeft = size.width * 0.7;
     for (var i = 0; i < labels.length; i++) {
       final y = size.height / 2 - (labels.length * 12) + i * 24;
-      canvas.drawRect(Rect.fromLTWH(legendLeft, y, 10, 10), stroke);
+      canvas
+        ..drawRect(
+          Rect.fromLTWH(legendLeft, y, 10, 10),
+          Paint()..color = ramp[i % ramp.length],
+        )
+        ..drawRect(Rect.fromLTWH(legendLeft, y, 10, 10), stroke);
       _drawText(canvas, labels[i], Offset(legendLeft + 16, y - 2));
     }
   }
@@ -494,10 +705,38 @@ class _ChartPainter extends CustomPainter {
     );
   }
 
+  /// Draws [text] centered on [anchor].dx: below [anchor].dy, or with its
+  /// bottom edge on it when [above].
+  void _drawCentered(
+    Canvas canvas,
+    String text,
+    TextStyle style,
+    Offset anchor,
+    double maxWidth, {
+    bool above = false,
+  }) {
+    final painter = TextPainter(
+      text: TextSpan(text: text, style: style),
+      textAlign: TextAlign.center,
+      textDirection: TextDirection.ltr,
+      textScaler: scaler,
+    )..layout(maxWidth: maxWidth);
+    painter
+      ..paint(
+        canvas,
+        Offset(
+          anchor.dx - painter.width / 2,
+          above ? anchor.dy - painter.height : anchor.dy,
+        ),
+      )
+      ..dispose();
+  }
+
   void _drawText(Canvas canvas, String text, Offset offset) {
     TextPainter(
       text: TextSpan(text: text, style: labelStyle),
       textDirection: TextDirection.ltr,
+      textScaler: scaler,
     )
       ..layout()
       ..paint(canvas, offset);
@@ -517,6 +756,11 @@ class _ChartPainter extends CustomPainter {
       oldDelegate.yLabel != yLabel ||
       !listEquals(oldDelegate.points, points) ||
       oldDelegate.ink != ink ||
+      oldDelegate.accent != accent ||
+      oldDelegate.card != card ||
+      !listEquals(oldDelegate.ramp, ramp) ||
+      oldDelegate.scaler != scaler ||
+      oldDelegate.labelStyle != labelStyle ||
       oldDelegate.faint != faint ||
       oldDelegate.background != background;
 }

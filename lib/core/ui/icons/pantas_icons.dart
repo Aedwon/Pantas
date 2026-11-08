@@ -2,6 +2,37 @@ import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/icons/own/own_icons.dart';
 
 abstract final class PantasIcons {
+  // Constants, never built from a variable codepoint, so the web build can
+  // still tree shake the icon fonts.
+  static const IconData flagFill = IconData(0xe244, fontFamily: 'PhosphorFill');
+  static const IconData bookmarkFill =
+      IconData(0xe0ea, fontFamily: 'PhosphorFill');
+  static const IconData backBold = IconData(0xe138, fontFamily: 'PhosphorBold');
+  static const IconData nextBold = IconData(0xe13a, fontFamily: 'PhosphorBold');
+  static const IconData counterBold =
+      IconData(0xe136, fontFamily: 'PhosphorBold');
+  static const IconData arrowRightBold =
+      IconData(0xe06c, fontFamily: 'PhosphorBold');
+
+  /// The Fill weight of a Regular glyph: the on state of a toggled
+  /// IconButton or Flag button (D190 item 10). A glyph with no Fill constant
+  /// above stays Regular.
+  static IconData fill(IconData regular) => switch (regular.codePoint) {
+        0xe244 => flagFill,
+        0xe0ea => bookmarkFill,
+        _ => regular,
+      };
+
+  /// The Bold weight of a Regular glyph: 14 to 16px chevrons and arrows. A
+  /// glyph with no Bold constant above stays Regular.
+  static IconData bold(IconData regular) => switch (regular.codePoint) {
+        0xe138 => backBold,
+        0xe13a => nextBold,
+        0xe136 => counterBold,
+        0xe06c => arrowRightBold,
+        _ => regular,
+      };
+
   static IconData get unlimitedMocks =>
       const IconData(0xe634, fontFamily: 'Phosphor');
   static IconData get answerNotes =>

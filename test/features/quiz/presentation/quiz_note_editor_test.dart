@@ -201,10 +201,12 @@ void main() {
       matching: find.byKey(const ValueKey('selection-scale')),
     );
     double scale() => tester.widget<Transform>(mark).transform.storage[0];
-    expect(scale(), closeTo(.5, .001));
-    await tester.pump(const Duration(milliseconds: 110));
-    expect(scale(), closeTo(.5 + .5 * PantasCurves.popB.transform(.5), .001));
-    await tester.pump(const Duration(milliseconds: 110));
+    // Radio README: the check pops over `dur-medium-3` (420 ms) from scale
+    // .4 (bundle.css `pn-pop` 0%) on `motion-enter`.
+    expect(scale(), closeTo(.4, .001));
+    await tester.pump(const Duration(milliseconds: 210));
+    expect(scale(), closeTo(.4 + .6 * PantasCurves.enter.transform(.5), .001));
+    await tester.pump(const Duration(milliseconds: 210));
     expect(scale(), closeTo(1, .001));
   });
 

@@ -478,8 +478,6 @@ class _AccountPageState extends ConsumerState<AccountPage> {
       builder: (context) => CenteredDialog(
         title: 'Sign out?',
         inlineActions: true,
-        horizontalInset: 24,
-        actionGap: 10,
         message: 'Your progress is saved to your account. '
             'It comes back when you sign in again.',
         primaryLabel: 'Sign Out',

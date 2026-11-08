@@ -362,7 +362,7 @@ class HomeTodayChecklist extends StatelessWidget {
                       child: Center(
                         child: WebTextLink(
                           label: 'View full plan',
-                          onPressed: onPlan!,
+                          onPressed: onPlan,
                           arrow: false,
                         ),
                       ),
@@ -579,7 +579,7 @@ class HomeTodayHeader extends StatelessWidget {
                       child: Center(
                         child: WebTextLink(
                           label: 'View full plan',
-                          onPressed: onPlan!,
+                          onPressed: onPlan,
                           arrow: false,
                         ),
                       ),

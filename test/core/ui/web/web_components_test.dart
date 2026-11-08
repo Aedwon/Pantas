@@ -2,7 +2,10 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/ui/components/pantas_button_parts.dart';
+import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 
 Future<void> mount(
@@ -21,6 +24,9 @@ Future<void> mount(
     ),
   );
 }
+
+/// Phosphor `arrow-right` (Regular), whose Bold weight the text link draws.
+const arrowRight = IconData(0xe06c, fontFamily: 'Phosphor');
 
 void main() {
   testWidgets('dark keyboard and bottom-bar hints use secondary text',
@@ -60,7 +66,7 @@ void main() {
       button.style!.backgroundColor!.resolve({WidgetState.disabled}),
       const Color(0xFF0B7A68),
     );
-    expect(find.byType(CircularProgressIndicator), findsOneWidget);
+    expect(find.byType(PantasSpinner), findsOneWidget);
     await tester.tap(find.byType(TextButton));
     expect(calls, 0);
   });
@@ -116,10 +122,21 @@ void main() {
       button.style!.backgroundColor!.resolve({WidgetState.hovered}),
       const Color(0xFF086A5A),
     );
-    // A click-focused control shows no ring; a key press brings it.
-    expect(button.style!.side!.resolve({WidgetState.focused})!.width, 1);
+    // A click-focused control shows no ring; a key press brings it, 2 px
+    // outside the button (`border-focus`, offset 2).
+    const ring = ValueKey('focus-ring');
+    expect(find.byKey(ring), findsNothing);
     await tester.sendKeyEvent(LogicalKeyboardKey.tab);
-    expect(button.style!.side!.resolve({WidgetState.focused})!.width, 2);
+    await tester.pump();
+    expect(find.byKey(ring), findsOneWidget);
+    final box = tester.widget<DecoratedBox>(find.byKey(ring)).decoration
+        as BoxDecoration;
+    expect(box.border!.top.width, 2);
+    expect(box.border!.top.color, PantasColors.light.accent);
+    final outer = tester.getRect(find.byKey(ring));
+    final inner = tester.getRect(find.byType(TextButton));
+    expect(inner.left - outer.left, 4);
+    expect(inner.top - outer.top, 4);
     await mouse.removePointer();
   });
   testWidgets('top bar uses 64px with leading title and trailing actions',
@@ -194,19 +211,22 @@ void main() {
           .color,
       const Color(0xFF4A4A4A),
     );
-    expect(
-      buttons[2].style!.backgroundColor!.resolve({}),
-      const Color(0xFFB2423E),
-    );
+    const dark = PantasColors.dark;
+    expect(buttons[2].style!.backgroundColor!.resolve({}), dark.dangerFill);
     expect(
       buttons[2].style!.backgroundColor!.resolve({WidgetState.hovered}),
-      const Color(0xFFA33C38),
+      dark.dangerFillHover,
     );
+    expect(buttons[2].style!.foregroundColor!.resolve({}), dark.onDanger);
+    // Secondary critical: a transparent button, a 1.5 px `danger` ring and a
+    // `danger-text` label.
     expect(
-      buttons[3].style!.foregroundColor!.resolve({}),
-      const Color(0xFFE0706B),
+      buttons[3].style!.backgroundColor!.resolve({}),
+      Colors.transparent,
     );
-    expect(buttons[3].style!.side!.resolve({})!.color, const Color(0xFFC44A46));
+    expect(buttons[3].style!.foregroundColor!.resolve({}), dark.dangerText);
+    expect(buttons[3].style!.side!.resolve({})!.color, dark.danger);
+    expect(buttons[3].style!.side!.resolve({})!.width, 1.5);
   });
   testWidgets('rows have hover, selected and dimmed states', (tester) async {
     await mount(
@@ -332,16 +352,64 @@ void main() {
       WebTextLink(label: 'See all questions', onPressed: () {}),
       reduced: true,
     );
-    final arrow = find.text('→');
+    final arrow = find.byIcon(PantasIcons.bold(arrowRight));
     final before = tester.getTopLeft(arrow);
     final mouse = await tester.createGesture(kind: PointerDeviceKind.mouse);
     await mouse.addPointer(location: Offset.zero);
     await mouse.moveTo(tester.getCenter(find.byType(WebTextLink)));
     await tester.pump();
-    expect(tester.getTopLeft(arrow).dx, before.dx + 4);
+    // Reduced motion: the arrow does not move; the color change stays.
+    expect(tester.getTopLeft(arrow).dx, before.dx);
     expect(
       tester.widget<AnimatedContainer>(find.byType(AnimatedContainer)).duration,
       Duration.zero,
+    );
+    await mouse.removePointer();
+  });
+  testWidgets('text link nudges its arrow 4px over 200 ms and turns hover',
+      (tester) async {
+    await mount(
+      tester,
+      WebTextLink(label: 'See all questions', onPressed: () {}),
+    );
+    final arrow = find.byIcon(PantasIcons.bold(arrowRight));
+    final before = tester.getTopLeft(arrow);
+    const colors = PantasColors.light;
+    expect(tester.widget<Icon>(arrow).size, 16);
+    final mouse = await tester.createGesture(kind: PointerDeviceKind.mouse);
+    await mouse.addPointer(location: Offset.zero);
+    await mouse.moveTo(tester.getCenter(find.byType(WebTextLink)));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 200));
+    expect(tester.getTopLeft(arrow).dx, before.dx + 4);
+    expect(tester.widget<Icon>(arrow).color, colors.accentHover);
+    expect(
+      tester
+          .widget<TextButton>(find.byType(TextButton))
+          .style!
+          .foregroundColor!
+          .resolve({}),
+      colors.accentHover,
+    );
+    await mouse.removePointer();
+  });
+  testWidgets('a disabled text link has no hover, no ring and a gray label',
+      (tester) async {
+    await mount(
+      tester,
+      const WebTextLink(label: 'See all questions', onPressed: null),
+    );
+    expect(
+      tester.widget<Icon>(find.byType(Icon)).color,
+      PantasColors.light.textDisabled,
+    );
+    final mouse = await tester.createGesture(kind: PointerDeviceKind.mouse);
+    await mouse.addPointer(location: Offset.zero);
+    await mouse.moveTo(tester.getCenter(find.byType(WebTextLink)));
+    await tester.pump(const Duration(milliseconds: 200));
+    expect(
+      tester.widget<Icon>(find.byType(Icon)).color,
+      PantasColors.light.textDisabled,
     );
     await mouse.removePointer();
   });
@@ -394,7 +462,9 @@ void main() {
         ),
       ),
     );
-    expect(tester.getSize(find.byType(WebSegmentedControl)).height, 38);
+    // The tests run as Android: the segments are 44 high on touch and the
+    // drawn well stays 38.
+    expect(tester.getSize(find.byType(WebSegmentedControl)).height, 44);
     await tester.tap(find.text('Topics'));
     expect(value, 1);
   });

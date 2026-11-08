@@ -182,14 +182,20 @@ void main() {
         const ProTag(),
         brightness: brightness,
       );
-      expect(tester.getSize(find.byType(ProTag)).height, 20);
+      // 11px text at 1.3 plus 1 above and below.
+      expect(tester.getSize(find.byType(ProTag)).height, closeTo(16, 1));
+      final colors = brightness == Brightness.light
+          ? PantasColors.light
+          : PantasColors.dark;
       final text = tester.widget<Text>(find.text('Pro'));
-      expect(text.style!.fontSize, 12);
+      expect(text.style!.fontSize, 11);
       expect(text.style!.fontWeight, FontWeight.w700);
       final box = tester
           .widget<Container>(find.byKey(const ValueKey('pro-tag-surface')));
       final decoration = box.decoration! as BoxDecoration;
-      expect(decoration.borderRadius, BorderRadius.circular(6));
+      expect(decoration.borderRadius, BorderRadius.circular(5));
+      expect(decoration.color, colors.pro);
+      expect(text.style!.color, colors.onPro);
       expectContrast(text.style!.color!, decoration.color!);
       await expectSurvivesTextScale(
         tester,

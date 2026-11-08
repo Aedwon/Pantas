@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/centered_dialog.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_shadow.dart';
 
 import '../../../helpers/accessibility.dart';
 
@@ -55,25 +58,39 @@ void main() {
       semantics.dispose();
     }
   });
-  testWidgets('confirmation shadow uses QV_Leave CSS', (tester) async {
-    await pumpAccessibilitySurface(
-      tester,
-      CenteredDialog(
-        title: 'Leave?',
-        message: 'Your answers stay.',
-        primaryLabel: 'Keep going',
-        secondaryLabel: 'Cancel',
-        onConfirm: () {},
-        onCancel: () {},
-      ),
-    );
-    final box = tester
-        .widget<DecoratedBox>(
-          find.byKey(const ValueKey('centered-dialog-surface')),
-        )
-        .decoration as BoxDecoration;
-    expect(box.boxShadow!.single.blurRadius, 40);
-    expect(box.boxShadow!.single.offset, const Offset(0, 10));
-    expect(box.boxShadow!.single.color.a, closeTo(.2, .001));
-  });
+  for (final brightness in Brightness.values) {
+    testWidgets('dialog surface is surface-modal with elev-modal $brightness',
+        (tester) async {
+      await pumpAccessibilitySurface(
+        tester,
+        CenteredDialog(
+          title: 'Leave?',
+          message: 'Your answers stay.',
+          primaryLabel: 'Keep going',
+          secondaryLabel: 'Cancel',
+          onConfirm: () {},
+          onCancel: () {},
+        ),
+        brightness: brightness,
+      );
+      final box = tester
+          .widget<DecoratedBox>(
+            find.byKey(const ValueKey('centered-dialog-surface')),
+          )
+          .decoration as BoxDecoration;
+      final dark = brightness == Brightness.dark;
+      expect(
+        box.color,
+        (dark ? PantasColors.dark : PantasColors.light).surfaceModal,
+      );
+      expect(
+        box.boxShadow,
+        (dark ? PantasShadow.dark : PantasShadow.light).modal,
+      );
+      expect(
+        box.borderRadius,
+        BorderRadius.circular(PantasRadius.r2xl),
+      );
+    });
+  }
 }

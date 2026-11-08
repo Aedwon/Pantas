@@ -142,7 +142,8 @@ void main() {
     await tester.pump(const Duration(milliseconds: 100));
     final ring = find.byKey(const ValueKey('progress-ring-paint'));
     expect(ring, paints..circle(strokeWidth: 2));
-    await tester.pump(const Duration(milliseconds: 350));
+    // 300 ms of wait, then half of the 900 ms fill.
+    await tester.pump(const Duration(milliseconds: 750));
     expect(
       ring,
       paints

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/centered_dialog.dart';
+import 'package:pantas/core/ui/components/pantas_button_parts.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 import 'package:pantas/features/settings/presentation/pages/delete_account_page.dart';
@@ -66,11 +67,7 @@ void main() {
       _expectWhiteOnRed(tester, 'Delete My Data');
       expect(find.text('Deleting...'), findsOneWidget);
       expect(
-        tester
-            .widget<CircularProgressIndicator>(
-              find.byType(CircularProgressIndicator),
-            )
-            .color,
+        tester.widget<PantasSpinner>(find.byType(PantasSpinner)).inlineColor,
         Colors.white,
       );
       pending.complete();

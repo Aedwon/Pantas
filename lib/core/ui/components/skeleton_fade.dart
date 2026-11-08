@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_motion_recipes.dart';
 
 /// Hands loading shapes over to the loaded content with a cross-fade, as
 /// approved on the Splash Hand-off canvas (Web_B_Still, Phone_B_Fade).
@@ -36,9 +36,14 @@ class SkeletonFade extends StatefulWidget {
   @visibleForTesting
   static const contentFadeKey = ValueKey<String>('skeleton-fade-content');
 
-  static const _total = Duration(milliseconds: 360);
-  static const _shapesEnd = 200 / 360;
-  static const _contentStart = 60 / 360;
+  /// `skeleton-out` (200ms) and `skeleton-in` (300ms after 60ms): the whole
+  /// hand-off lasts until the later of the two ends (360ms).
+  static const _out = PantasMotionRecipes.skeletonOut;
+  static const _in = PantasMotionRecipes.skeletonIn;
+  static final _total = _in.delay + _in.duration;
+  static final _shapesEnd =
+      _out.duration.inMicroseconds / _total.inMicroseconds;
+  static final _contentStart = _in.delay.inMicroseconds / _total.inMicroseconds;
 
   @override
   State<SkeletonFade> createState() => _SkeletonFadeState();
@@ -61,19 +66,19 @@ class _SkeletonFadeState extends State<SkeletonFade>
     _shapes = Tween<double>(begin: 1, end: 0).animate(
       CurvedAnimation(
         parent: _controller,
-        curve: const Interval(
+        curve: Interval(
           0,
           SkeletonFade._shapesEnd,
-          curve: PantasCurves.fade,
+          curve: SkeletonFade._out.curve,
         ),
       ),
     );
     _content = CurvedAnimation(
       parent: _controller,
-      curve: const Interval(
+      curve: Interval(
         SkeletonFade._contentStart,
         1,
-        curve: PantasCurves.fade,
+        curve: SkeletonFade._in.curve,
       ),
     );
   }

@@ -1,26 +1,40 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:pantas/core/ui/components/pantas_shadows.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_border.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 
 /// Opens the iPhone "Show Me How" sheet: three steps to add Pantas to the
 /// Home Screen (PWA install board, option A).
 Future<void> showInstallSheet(BuildContext context) {
-  final dark = Theme.of(context).brightness == Brightness.dark;
   return showModalBottomSheet<void>(
     context: context,
     isScrollControlled: true,
     backgroundColor: Colors.transparent,
     elevation: 0,
-    barrierColor: dark ? const Color(0x8C000000) : const Color(0x521D1D1F),
+    barrierColor: context.colors.scrim,
     barrierLabel: 'Close',
-    constraints: const BoxConstraints(maxWidth: 640),
+    constraints: const BoxConstraints(maxWidth: PantasLayout.search),
     builder: (context) => const InstallSheet(),
   );
 }
 
 class InstallSheet extends StatelessWidget {
   const InstallSheet({super.key});
+
+  /// The sheet clears the home indicator: 34 below the last control.
+  /// The grabber is 36 wide and 5 high.
+  static const double _grabberWidth = PantasSpace.s32 + PantasSpace.s4;
+  static const double _grabberHeight = PantasSpace.s4 + 1;
+
+  static const double _bottom = PantasSpace.s32 + PantasSpace.s2;
 
   static const _steps = <(String, String)>[
     ('Tap Share', 'It is in the Safari toolbar at the bottom.'),
@@ -39,18 +53,18 @@ class InstallSheet extends StatelessWidget {
       label: 'Add Pantas to your Home Screen',
       child: Container(
         decoration: BoxDecoration(
-          color: c.surface,
-          borderRadius: const BorderRadius.vertical(top: Radius.circular(22)),
-          border: t.dark ? Border.all(color: t.cardEdge) : null,
-          boxShadow: const [
-            BoxShadow(
-              color: Color(0x40000000),
-              blurRadius: 60,
-              offset: Offset(0, -20),
-            ),
-          ],
+          color: c.surfaceModal,
+          borderRadius: const BorderRadius.vertical(
+            top: Radius.circular(PantasRadius.lg),
+          ),
+          boxShadow: context.shadows.sheet,
         ),
-        padding: const EdgeInsets.fromLTRB(20, 10, 20, 34),
+        padding: const EdgeInsets.fromLTRB(
+          PantasSpace.s20,
+          PantasSpace.s8,
+          PantasSpace.s20,
+          _bottom,
+        ),
         child: SingleChildScrollView(
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -58,39 +72,40 @@ class InstallSheet extends StatelessWidget {
             children: [
               Center(
                 child: Container(
-                  width: 40,
-                  height: 5,
+                  key: const ValueKey('install-sheet-grabber'),
+                  width: _grabberWidth,
+                  height: _grabberHeight,
                   decoration: BoxDecoration(
-                    color: c.separator,
-                    borderRadius: BorderRadius.circular(99),
+                    color: c.dividerStrong,
+                    borderRadius: BorderRadius.circular(PantasRadius.full),
                   ),
                 ),
               ),
-              const SizedBox(height: 16),
+              const SizedBox(height: PantasSpace.s16),
               Semantics(
                 header: true,
                 child: Text(
                   'Add Pantas to your Home Screen',
-                  style: t.h2.copyWith(fontSize: 22, letterSpacing: -.396),
+                  style: PantasType.phoneTitle3.copyWith(color: c.textPrimary),
                 ),
               ),
-              const SizedBox(height: 6),
+              const SizedBox(height: PantasSpace.s6),
               Text(
                 'Then it opens like any app. Your progress stays the same.',
                 style: t.sub,
               ),
-              const SizedBox(height: 18),
+              const SizedBox(height: PantasSpace.s18),
               for (var i = 0; i < _steps.length; i++) ...[
-                if (i > 0) const SizedBox(height: 14),
+                if (i > 0) const SizedBox(height: PantasSpace.s14),
                 _Step(
                   number: i + 1,
                   title: _steps[i].$1,
                   detail: _steps[i].$2,
                 ),
               ],
-              const SizedBox(height: 14),
+              const SizedBox(height: PantasSpace.s14),
               const _SafariBar(),
-              const SizedBox(height: 16),
+              const SizedBox(height: PantasSpace.s16),
               Align(
                 alignment: Alignment.centerRight,
                 child: WebButton(
@@ -124,25 +139,26 @@ class _Step extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
-          width: 30,
-          height: 30,
+          width: PantasSize.avatar,
+          height: PantasSize.avatar,
           alignment: Alignment.center,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            border: Border.all(color: t.colors.separator, width: 1.5),
+            border: Border.all(
+              color: t.colors.divider,
+              width: PantasBorder.ringStrong,
+            ),
           ),
           child: ExcludeSemantics(
             child: Text(
               '$number',
-              style: t.style(
-                14,
-                weight: FontWeight.w600,
-                color: t.colors.secondaryLabel,
+              style: PantasType.webLabel.copyWith(
+                color: t.colors.textSecondary,
               ),
             ),
           ),
         ),
-        const SizedBox(width: 14),
+        const SizedBox(width: PantasSpace.s14),
         Expanded(
           child: Semantics(
             label: 'Step $number. $title. $detail',
@@ -150,10 +166,17 @@ class _Step extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(title, style: t.style(16, weight: FontWeight.w600)),
+                Text(
+                  title,
+                  style: PantasType.webTitleSm.copyWith(
+                    color: t.colors.textPrimary,
+                  ),
+                ),
                 Text(
                   detail,
-                  style: t.style(14, color: t.colors.secondaryLabel),
+                  style: PantasType.webRowSub.copyWith(
+                    color: t.colors.textSecondary,
+                  ),
                 ),
               ],
             ),
@@ -184,7 +207,7 @@ class _SafariBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = context.webTokens;
-    final muted = t.colors.tertiaryLabel;
+    final muted = t.colors.iconMuted;
     Widget icon(String shapes, Color color) => SvgPicture.string(
           _icon(shapes, color),
           width: 22,
@@ -192,10 +215,13 @@ class _SafariBar extends StatelessWidget {
         );
     return ExcludeSemantics(
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
+        padding: const EdgeInsets.symmetric(
+          horizontal: PantasSpace.s18,
+          vertical: PantasSpace.s10,
+        ),
         decoration: BoxDecoration(
           color: t.colors.fill,
-          borderRadius: BorderRadius.circular(14),
+          borderRadius: BorderRadius.circular(PantasRadius.lg),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -214,8 +240,11 @@ class _SafariBar extends StatelessWidget {
                   height: 36,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(color: t.colors.accent, width: 2),
+                    borderRadius: BorderRadius.circular(PantasRadius.md),
+                    border: Border.all(
+                      color: t.colors.accent,
+                      width: PantasBorder.ringSelected,
+                    ),
                   ),
                   child: icon(_sharePaths, t.colors.accent),
                 ),

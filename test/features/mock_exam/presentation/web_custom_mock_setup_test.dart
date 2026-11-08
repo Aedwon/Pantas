@@ -104,6 +104,10 @@ void main() {
       final openY = tester.getTopLeft(save).dy;
       await tester.pump(const Duration(milliseconds: 100));
       expect(tester.getTopLeft(save).dy, openY);
+      // The switch track still fades 150 ms under reduced motion (Switch
+      // README, Motion); the breakdown itself does not animate.
+      await tester.pump(const Duration(milliseconds: 150));
+      expect(tester.getTopLeft(save).dy, openY);
       expect(tester.hasRunningAnimations, isFalse);
     });
     testWidgets('CM_Setup and inline CM_Wheel dark=$dark', (tester) async {

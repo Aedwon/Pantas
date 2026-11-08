@@ -1,9 +1,16 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
+import 'package:pantas/core/ui/components/pantas_shadows.dart';
 import 'package:pantas/core/ui/motion/selection_motion.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_opacity.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 
@@ -37,6 +44,16 @@ class SegmentedSwitch extends StatelessWidget {
   final int selected;
   final ValueChanged<int> onChanged;
 
+  /// The label of a segment: `web-label` 14, 600 selected and 500 not.
+  static TextStyle _label(Color color, {required bool selected}) =>
+      PantasType.webLabel.copyWith(
+        fontWeight: selected ? FontWeight.w600 : FontWeight.w500,
+        color: color,
+      );
+
+  static List<BoxShadow> _segmentShadow(BuildContext context) =>
+      context.shadows.segment;
+
   @override
   Widget build(BuildContext context) {
     if (bookmarks) return _bookmarks(context);
@@ -49,142 +66,184 @@ class SegmentedSwitch extends StatelessWidget {
     }
     final colors = context.colors;
     final textScaler = MediaQuery.textScalerOf(context);
-    final large = textScaler.scale(14) > 20;
-    // The thumb is as tall as a segment's label box: 32 px, or the scaled
-    // line plus its padding. It sits in the middle of the 44 px target.
+    final fontSize = PantasType.webLabel.fontSize!;
+    final lineHeight = PantasType.webLabel.height!;
+    final large = textScaler.scale(fontSize) > PantasSpace.s20;
+    // The thumb is as tall as a segment's label box: 32 px (`icon-btn-sm`),
+    // or the scaled line plus its padding. It sits in the middle of the 44 px
+    // touch target, so the hit area is real and the drawn segment is smaller.
     final box = math.max<double>(
-      32,
-      textScaler.scale(14) * 1.35 + (large ? 12 : 0),
+      PantasSize.iconBtnSm,
+      textScaler.scale(fontSize) * lineHeight +
+          (large ? PantasSpace.s12 : PantasSpace.s0),
     );
-    final inset = math.max<double>(0, (44 - box) / 2);
-    final dark = Theme.of(context).brightness == Brightness.dark;
-    return Stack(
-      children: [
-        Positioned.fill(
-          top: 6,
-          bottom: 6,
-          child: DecoratedBox(
-            key: const ValueKey('segmented-switch-track'),
-            decoration: BoxDecoration(
-              color: colors.fill,
-              borderRadius: BorderRadius.circular(10),
-            ),
-          ),
+    final inset = math.max<double>(0, (PantasSize.targetTouch - box) / 2);
+    final radius = BorderRadius.circular(PantasRadius.sm);
+    // Every label stays on one line; the track is as wide as the widest label
+    // needs, and scrolls when the labels do not fit the row (ruling 1).
+    double natural(String label) {
+      final painter = TextPainter(
+        text: TextSpan(
+          text: label,
+          style: _label(colors.textOnFill, selected: true),
         ),
-        Padding(
-          padding: const EdgeInsets.all(2),
-          child: LayoutBuilder(
-            builder: (context, constraints) {
-              final cell = constraints.maxWidth / labels.length;
-              return Stack(
-                children: [
-                  // One thumb slides under the labels (item 17, demo 7): 240 ms
-                  // on the shared ease. Only a translation changes.
-                  Positioned.fill(
-                    child: ExcludeSemantics(
-                      child: IgnorePointer(
-                        child: SlidingMarker(
-                          key: const ValueKey('segmented-switch-thumb'),
-                          offsets: [
-                            for (var i = 0; i < labels.length; i++) i * cell,
-                          ],
-                          lengths: List.filled(labels.length, cell),
-                          index: selected,
-                          child: Padding(
-                            padding: EdgeInsets.symmetric(vertical: inset),
-                            child: DecoratedBox(
-                              key: const ValueKey('segment-thumb'),
-                              decoration: BoxDecoration(
-                                color: dark ? colors.segmentOn : colors.surface,
-                                borderRadius: BorderRadius.circular(8),
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: colors.segmentedShadow,
-                                    blurRadius: 3,
-                                    offset: const Offset(0, 1),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Row(
+        textDirection: Directionality.of(context),
+        textScaler: textScaler,
+        maxLines: 1,
+      )..layout();
+      final width = painter.width;
+      painter.dispose();
+      return width;
+    }
+
+    final widest = labels.map(natural).reduce(math.max) + PantasSpace.s24;
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final need = widest * labels.length + PantasSpace.s4;
+        final scrolls =
+            constraints.hasBoundedWidth && need > constraints.maxWidth;
+        final track = Stack(
+          children: [
+            Positioned.fill(
+              top: PantasSpace.s6,
+              bottom: PantasSpace.s6,
+              child: DecoratedBox(
+                key: const ValueKey('segmented-switch-track'),
+                decoration: BoxDecoration(
+                  color: colors.fill,
+                  borderRadius: radius,
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(PantasSpace.s2),
+              child: LayoutBuilder(
+                builder: (context, constraints) {
+                  final cell = constraints.maxWidth / labels.length;
+                  return Stack(
                     children: [
-                      for (var i = 0; i < labels.length; i++)
-                        Expanded(
-                          child: Semantics(
-                            selected: i == selected,
-                            child: Material(
-                              type: MaterialType.transparency,
-                              child: InkWell(
-                                onTap: () => onChanged(i),
-                                borderRadius: BorderRadius.circular(8),
-                                child: ConstrainedBox(
-                                  constraints: const BoxConstraints(
-                                    minHeight: 44,
-                                  ),
-                                  child: Center(
-                                    heightFactor: 1,
-                                    child: ConstrainedBox(
-                                      key: ValueKey('segment-$i'),
-                                      constraints: const BoxConstraints(
-                                        minHeight: 32,
-                                      ),
-                                      child: Padding(
-                                        padding: EdgeInsets.symmetric(
-                                          horizontal: 4,
-                                          vertical: large ? 6 : 0,
-                                        ),
-                                        child: Center(
-                                          heightFactor: 1,
-                                          // Every label has one weight, so the
-                                          // text cannot jump while it fades.
-                                          child: FadingColor(
-                                            color: i == selected
-                                                ? colors.label
-                                                : colors.secondaryLabel,
-                                            builder: (context, color, _) =>
-                                                Text(
-                                              labels[i],
-                                              textAlign: TextAlign.center,
-                                              style:
-                                                  context.type.subhead.copyWith(
-                                                fontSize: 14,
-                                                fontWeight: FontWeight.w600,
-                                                color: color,
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
+                      // One thumb slides under the labels (item 17, demo 7):
+                      // 240 ms on the shared ease. Only a translation changes.
+                      Positioned.fill(
+                        child: ExcludeSemantics(
+                          child: IgnorePointer(
+                            child: SlidingMarker(
+                              key: const ValueKey('segmented-switch-thumb'),
+                              offsets: [
+                                for (var i = 0; i < labels.length; i++)
+                                  i * cell,
+                              ],
+                              lengths: List.filled(labels.length, cell),
+                              index: selected,
+                              child: Padding(
+                                padding: EdgeInsets.symmetric(vertical: inset),
+                                child: DecoratedBox(
+                                  key: const ValueKey('segment-thumb'),
+                                  decoration: BoxDecoration(
+                                    color: colors.surfaceSegmentOn,
+                                    borderRadius: radius,
+                                    boxShadow: _segmentShadow(context),
                                   ),
                                 ),
                               ),
                             ),
                           ),
                         ),
+                      ),
+                      Row(
+                        children: [
+                          for (var i = 0; i < labels.length; i++)
+                            Expanded(
+                              child: _segment(context, i, large, radius),
+                            ),
+                        ],
+                      ),
                     ],
+                  );
+                },
+              ),
+            ),
+          ],
+        );
+        if (!scrolls) return track;
+        return SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: SizedBox(width: need, child: track),
+        );
+      },
+    );
+  }
+
+  Widget _segment(
+    BuildContext context,
+    int i,
+    bool large,
+    BorderRadius radius,
+  ) {
+    final colors = context.colors;
+    return Semantics(
+      selected: i == selected,
+      inMutuallyExclusiveGroup: true,
+      button: true,
+      child: WebKeyboardRing(
+        borderRadius: radius,
+        child: Material(
+          type: MaterialType.transparency,
+          child: InkWell(
+            onTap: () => onChanged(i),
+            borderRadius: radius,
+            hoverColor: i == selected
+                ? Colors.transparent
+                : colors.textPrimary.withValues(alpha: PantasOpacity.hover),
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(
+                minHeight: PantasSize.targetTouch,
+              ),
+              child: Center(
+                heightFactor: 1,
+                child: ConstrainedBox(
+                  key: ValueKey('segment-$i'),
+                  constraints: const BoxConstraints(
+                    minHeight: PantasSize.iconBtnSm,
                   ),
-                ],
-              );
-            },
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: PantasSpace.s4,
+                      vertical: large ? PantasSpace.s6 : PantasSpace.s0,
+                    ),
+                    child: Center(
+                      heightFactor: 1,
+                      child: FadingColor(
+                        color: i == selected
+                            ? colors.textPrimary
+                            : colors.textOnFill,
+                        builder: (context, color, _) => Text(
+                          labels[i],
+                          maxLines: 1,
+                          softWrap: false,
+                          textAlign: TextAlign.center,
+                          style: _label(color, selected: i == selected),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
           ),
         ),
-      ],
+      ),
     );
   }
 
   Widget _bookmarks(BuildContext context) {
     final c = context.colors;
     final still = MediaQuery.disableAnimationsOf(context);
+    final radius = BorderRadius.circular(PantasRadius.sm);
     return AnimatedOpacity(
-      duration: still ? Duration.zero : const Duration(milliseconds: 250),
+      duration: still ? Duration.zero : PantasDurations.fade,
       curve: PantasCurves.house,
-      opacity: enabled ? 1 : .4,
+      opacity: enabled ? 1 : PantasOpacity.disabled,
       child: ExcludeFocus(
         excluding: !enabled,
         child: IgnorePointer(
@@ -194,30 +253,28 @@ class SegmentedSwitch extends StatelessWidget {
             child: Stack(
               children: [
                 Positioned.fill(
-                  top: 6,
-                  bottom: 6,
+                  top: PantasSpace.s6,
+                  bottom: PantasSpace.s6,
                   child: DecoratedBox(
                     key: const ValueKey('segmented-switch-track'),
                     decoration: BoxDecoration(
                       color: c.fill,
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: radius,
                     ),
                   ),
                 ),
                 Positioned.fill(
-                  left: 2,
-                  right: 2,
-                  top: 8,
-                  bottom: 8,
+                  left: PantasSpace.s2,
+                  right: PantasSpace.s2,
+                  top: PantasSpace.s8,
+                  bottom: PantasSpace.s8,
                   child: AnimatedAlign(
                     key: const ValueKey('bookmark-sort-position'),
                     alignment: Alignment(
                       -1 + 2 * selected / (labels.length - 1),
                       0,
                     ),
-                    duration: still
-                        ? Duration.zero
-                        : const Duration(milliseconds: 300),
+                    duration: still ? Duration.zero : PantasDurations.flip,
                     curve: PantasCurves.house,
                     child: FractionallySizedBox(
                       widthFactor: 1 / labels.length,
@@ -225,49 +282,47 @@ class SegmentedSwitch extends StatelessWidget {
                       child: DecoratedBox(
                         key: const ValueKey('bookmark-sort-pill'),
                         decoration: BoxDecoration(
-                          color: c.surface,
-                          borderRadius: BorderRadius.circular(8),
-                          boxShadow: [
-                            BoxShadow(
-                              color: c.segmentedShadow,
-                              blurRadius: 3,
-                              offset: const Offset(0, 1),
-                            ),
-                          ],
+                          color: c.surfaceSegmentOn,
+                          borderRadius: radius,
+                          boxShadow: _segmentShadow(context),
                         ),
                       ),
                     ),
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(2),
+                  padding: const EdgeInsets.all(PantasSpace.s2),
                   child: Row(
                     children: [
                       for (var i = 0; i < labels.length; i++)
                         Expanded(
                           child: Semantics(
                             selected: i == selected,
-                            child: Material(
-                              type: MaterialType.transparency,
-                              child: InkWell(
-                                onTap: enabled ? () => onChanged(i) : null,
-                                child: ConstrainedBox(
-                                  constraints: const BoxConstraints(
-                                    minHeight: 44,
-                                  ),
-                                  child: Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                      horizontal: 4,
-                                      vertical: 6,
+                            child: WebKeyboardRing(
+                              borderRadius: radius,
+                              child: Material(
+                                type: MaterialType.transparency,
+                                child: InkWell(
+                                  onTap: enabled ? () => onChanged(i) : null,
+                                  borderRadius: radius,
+                                  child: ConstrainedBox(
+                                    constraints: const BoxConstraints(
+                                      minHeight: PantasSize.targetTouch,
                                     ),
-                                    child: Center(
-                                      heightFactor: 1,
-                                      child: Text(
-                                        labels[i],
-                                        textAlign: TextAlign.center,
-                                        style: context.type.footnote.copyWith(
-                                          fontWeight: FontWeight.w600,
-                                          color: c.label,
+                                    child: Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                        horizontal: PantasSpace.s4,
+                                        vertical: PantasSpace.s6,
+                                      ),
+                                      child: Center(
+                                        heightFactor: 1,
+                                        child: Text(
+                                          labels[i],
+                                          textAlign: TextAlign.center,
+                                          style: _label(
+                                            c.textPrimary,
+                                            selected: true,
+                                          ),
                                         ),
                                       ),
                                     ),

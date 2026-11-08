@@ -45,13 +45,22 @@ void main() {
     );
   }
 
-  double fill(WidgetTester tester) => tester
-      .widget<FractionallySizedBox>(find.byType(FractionallySizedBox))
-      .widthFactor!;
+  // The fill's share of the 5 high track.
+  double fill(WidgetTester tester) =>
+      tester.getSize(find.byKey(const ValueKey('accuracy-bar-fill'))).width /
+      tester
+          .getSize(
+            find.descendant(
+              of: find.byType(ScoreBreakdownRow),
+              matching: find.byType(ClipRRect),
+            ),
+          )
+          .width;
 
   testWidgets('the wide bar fills over 600 ms on houseOut', (tester) async {
     await mount(tester);
-    expect(fill(tester), 0);
+    // A bar never shrinks below its own height, so 0 still shows 5 px.
+    expect(fill(tester), closeTo(0, .02));
     await tester.pump(const Duration(milliseconds: 150));
     expect(fill(tester), closeTo(.75 * previewBezier(.3, .9, .3, 1, .25), .01));
     expect(fill(tester), inExclusiveRange(0, .75));

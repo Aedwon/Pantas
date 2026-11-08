@@ -8,6 +8,8 @@ import 'package:pantas/core/ui/components/notice_strip.dart';
 import 'package:pantas/core/ui/components/toast.dart';
 import 'package:pantas/core/ui/theme/legacy_theme_shim.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 
 import '../../../helpers/accessibility.dart';
 import 'w2_test_support.dart';
@@ -41,7 +43,7 @@ void main() {
               .widget<Text>(find.text('Your answers stay here.'))
               .style!
               .height,
-          1.45,
+          PantasType.phoneExplanation.height,
         );
         await tester.sendKeyEvent(LogicalKeyboardKey.tab);
         await tester.sendKeyEvent(LogicalKeyboardKey.enter);
@@ -66,7 +68,8 @@ void main() {
           tester.widget<Transform>(find.byKey(const ValueKey('toast-rise')));
       expect(
         transform.transform.storage[13],
-        closeTo(0.6926965297805845, .002),
+        // 16 rise on `motion-house`, halfway through the 250ms fade.
+        closeTo(16 * (1 - PantasCurves.house.transform(.5)), .002),
       );
       await tester.pump(const Duration(milliseconds: 125));
       final text = tester.widget<Text>(find.text('Flagged.'));

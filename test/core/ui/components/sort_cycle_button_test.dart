@@ -2,8 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/sort_cycle_button.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
 
 import '../../../helpers/accessibility.dart';
+import '../../../helpers/ds_matrix.dart';
 
 void main() {
   for (final brightness in Brightness.values) {
@@ -32,7 +36,6 @@ void main() {
         final alphabet = tester.widget<Text>(find.text('A–Z'));
         expect(alphabet.style!.fontSize, 13);
         expect(alphabet.style!.fontWeight, FontWeight.w700);
-        expect(alphabet.style!.letterSpacing, -.26);
         expect(alphabet.style!.height, 1.35);
         final luminances = [
           alphabet.style!.color!.computeLuminance(),
@@ -115,4 +118,64 @@ void main() {
       expect(tester.takeException(), isNull);
     });
   }
+
+  dsMatrix(
+    'the sort button is a 44 px target on a 36 px square, radius-sm',
+    (context) => SortCycleButton(
+      value: SortCycleOrder.weakest,
+      onChanged: (_) {},
+    ),
+    check: (tester, cell) async {
+      final colors = cell.dark ? PantasColors.dark : PantasColors.light;
+      expect(
+        tester.getSize(find.byKey(const ValueKey('sort-square'))),
+        const Size(36, 36),
+      );
+      expect(
+        tester.getSize(find.byType(SortCycleButton)).height,
+        greaterThanOrEqualTo(44),
+      );
+      final box = tester
+          .widget<DecoratedBox>(find.byKey(const ValueKey('sort-square')))
+          .decoration as BoxDecoration;
+      expect(box.color, colors.fill);
+      expect(box.borderRadius, BorderRadius.circular(8));
+    },
+  );
+
+  testWidgets('keyboard focus rings the sort button, pressing scales it',
+      (tester) async {
+    resetWebKeyboardFocus();
+    await pumpDs(
+      tester,
+      dsCells[4],
+      SortCycleButton(value: SortCycleOrder.weakest, onChanged: (_) {}),
+    );
+    expect(find.byKey(const ValueKey('focus-ring')), findsNothing);
+    await tester.sendKeyEvent(LogicalKeyboardKey.tab);
+    await tester.pump();
+    expect(find.byKey(const ValueKey('focus-ring')), findsOneWidget);
+    final press = await tester.startGesture(
+      tester.getCenter(find.byKey(const ValueKey('sort-square'))),
+    );
+    await tester.pump();
+    await tester.pump(PantasDurations.short1 * 2);
+    // The shared PressScale shrinks it to .97 (Button README, Pressed).
+    expect(
+      tester
+          .widget<Transform>(
+            find
+                .ancestor(
+                  of: find.byKey(const ValueKey('sort-square')),
+                  matching: find.byType(Transform),
+                )
+                .first,
+          )
+          .transform
+          .storage[0],
+      closeTo(.97, .001),
+    );
+    await press.up();
+    await tester.pumpAndSettle();
+  });
 }

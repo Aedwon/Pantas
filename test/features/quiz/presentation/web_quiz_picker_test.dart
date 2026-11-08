@@ -108,6 +108,8 @@ void main() {
         tester.getTopRight(find.textContaining('~')).dx,
         closeTo(1440 - 44 - 22, 1.5),
       );
+      await tester.ensureVisible(find.text('Total time'));
+      await tester.pumpAndSettle();
       await tester.tap(find.text('Total time'));
       await tester.pumpAndSettle();
       expect(find.text('You set the time. Questions follow.'), findsOneWidget);

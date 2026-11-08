@@ -4,7 +4,22 @@ import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 
+/// Which icon color a notice takes. Red is never a notice tone: data loss
+/// uses a neutral notice with an icon.
+enum NoticeTone { info, success, warning }
+
+/// One message that needs a decision or attention, with a dismiss control
+/// (design system: Notice). Surface `surface-card`, radius `radius-lg`, a 1px
+/// `divider` ring. The head toggles the detail; the actions sit at the right
+/// end on wide screens and side by side on the phone.
 class NoticeStrip extends StatelessWidget {
   const NoticeStrip({
     required this.title,
@@ -19,6 +34,7 @@ class NoticeStrip extends StatelessWidget {
     this.onSecondary,
     this.icon,
     this.iconColor,
+    this.tone = NoticeTone.info,
     this.editor,
     super.key,
   });
@@ -34,20 +50,42 @@ class NoticeStrip extends StatelessWidget {
   final VoidCallback? onSecondary;
   final IconData? icon;
   final Color? iconColor;
+  final NoticeTone tone;
   final Widget? editor;
+
+  /// The head is at least this high; the title wraps and grows it.
+  static const double _headMin = PantasSpace.s44 + PantasSpace.s8;
+
+  /// The dismiss control keeps a 44 point target around its 40 point button.
+  static const double _closeTarget = PantasSize.targetTouch;
+
   @override
   Widget build(BuildContext context) {
+    final colors = context.colors;
+    final wide = context.wideWeb;
     final duration = MediaQuery.disableAnimationsOf(context)
         ? Duration.zero
-        : const Duration(milliseconds: 350);
-    // The board draws the 1 px outline inside the 52 px strip, so it is a
-    // foreground layer that takes no space.
+        : PantasDurations.switchDuration;
+    final toneIcon = switch (tone) {
+      NoticeTone.info => icon ?? PantasIcons.addDate,
+      NoticeTone.success => icon ?? PantasIcons.check,
+      NoticeTone.warning => icon ?? PantasIcons.addDate,
+    };
+    final toneColor = iconColor ??
+        switch (tone) {
+          NoticeTone.info || NoticeTone.success => colors.accent,
+          NoticeTone.warning => colors.warningText,
+        };
+    final bodyStyle = (wide ? PantasType.webSub : PantasType.phoneFootnote)
+        .copyWith(color: colors.textSecondary);
+    final radius = BorderRadius.circular(PantasRadius.lg);
+    // The 1px ring is a foreground layer that takes no space.
     final content = Container(
-      // Board: the strip is filled with the page color.
-      color: context.colors.background,
+      decoration:
+          BoxDecoration(color: colors.surfaceCard, borderRadius: radius),
       foregroundDecoration: BoxDecoration(
-        border: Border.all(color: context.colors.separator),
-        borderRadius: BorderRadius.circular(14),
+        border: Border.all(color: colors.divider),
+        borderRadius: radius,
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -60,40 +98,40 @@ class NoticeStrip extends StatelessWidget {
                 child: TextButton(
                   onPressed: onToggle,
                   style: TextButton.styleFrom(
-                    minimumSize: const Size(44, 52),
+                    minimumSize: const Size(_closeTarget, _headMin),
                     alignment: Alignment.centerLeft,
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 14,
-                      vertical: 14,
+                    padding: const EdgeInsets.only(
+                      left: PantasSpace.s18,
+                      top: PantasSpace.s8,
+                      bottom: PantasSpace.s8,
                     ),
+                    shape: RoundedRectangleBorder(borderRadius: radius),
                   ),
                   child: Row(
                     children: [
                       Icon(
-                        icon ?? PantasIcons.addDate,
-                        size: 18,
-                        color: iconColor ?? context.colors.secondaryLabel,
+                        toneIcon,
+                        size: PantasSize.icon,
+                        color: toneColor,
                       ),
-                      const SizedBox(width: 10),
+                      const SizedBox(width: PantasSpace.s12),
                       Expanded(
                         child: Text(
                           title,
-                          style: context.type.subhead.copyWith(
-                            fontWeight: FontWeight.w500,
-                            height: 1.3,
-                          ),
+                          style: PantasType.webTitleSm
+                              .copyWith(color: colors.textPrimary),
                         ),
                       ),
                       if (detail != null) ...[
-                        const SizedBox(width: 8),
+                        const SizedBox(width: PantasSpace.s8),
                         AnimatedRotation(
                           turns: expanded ? .25 : 0,
                           duration: duration,
                           curve: PantasCurves.house,
                           child: Icon(
                             PantasIcons.next,
-                            size: 15,
-                            color: context.colors.chevron,
+                            size: PantasSize.icon,
+                            color: colors.iconChevron,
                           ),
                         ),
                       ],
@@ -103,18 +141,20 @@ class NoticeStrip extends StatelessWidget {
               ),
               SizedBox(
                 key: const ValueKey('notice-close'),
-                width: 44,
-                height: 44,
+                width: _closeTarget,
+                height: _closeTarget,
                 child: IconButton(
                   onPressed: onClose,
                   tooltip: 'Dismiss',
+                  padding: EdgeInsets.zero,
                   icon: Icon(
                     PantasIcons.close,
-                    size: 14,
-                    color: context.colors.secondaryLabel,
+                    size: PantasSize.icon,
+                    color: colors.textSecondary,
                   ),
                 ),
               ),
+              const SizedBox(width: PantasSpace.s4),
             ],
           ),
           TweenAnimationBuilder<double>(
@@ -137,40 +177,60 @@ class NoticeStrip extends StatelessWidget {
               ),
             ),
             child: Padding(
-              padding: const EdgeInsets.fromLTRB(14, 0, 14, 14),
+              padding: const EdgeInsets.fromLTRB(
+                PantasSpace.s18,
+                PantasSpace.s0,
+                PantasSpace.s18,
+                PantasSpace.s16,
+              ),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  if (detail != null)
-                    Text(
-                      detail!,
-                      style: context.type.footnote.copyWith(height: 1.4),
-                    ),
+                  if (detail != null) Text(detail!, style: bodyStyle),
                   if (editor != null) ...[
-                    const SizedBox(height: 12),
+                    const SizedBox(height: PantasSpace.s12),
                     editor!,
                   ],
                   if (primaryLabel != null && secondaryLabel != null) ...[
-                    const SizedBox(height: 12),
-                    ButtonPair(
-                      primary: PantasButton(
-                        label: primaryLabel!,
-                        variant: PantasButtonVariant.secondary,
-                        onPressed: onPrimary,
-                        height: 44,
-                        fontSize: 15,
-                        radius: 12,
+                    const SizedBox(height: PantasSpace.s12),
+                    if (wide)
+                      Wrap(
+                        alignment: WrapAlignment.end,
+                        crossAxisAlignment: WrapCrossAlignment.center,
+                        spacing: PantasSpace.s8,
+                        runSpacing: PantasSpace.s8,
+                        children: [
+                          WebButton(
+                            label: secondaryLabel!,
+                            variant: WebButtonVariant.tertiary,
+                            onPressed: onSecondary,
+                          ),
+                          WebButton(
+                            label: primaryLabel!,
+                            variant: WebButtonVariant.secondary,
+                            onPressed: onPrimary,
+                          ),
+                        ],
+                      )
+                    else
+                      ButtonPair(
+                        gap: PantasSpace.s8,
+                        primary: PantasButton(
+                          label: primaryLabel!,
+                          variant: PantasButtonVariant.secondary,
+                          onPressed: onPrimary,
+                          height: PantasSize.btn,
+                          fontSize: PantasType.webLink.fontSize,
+                        ),
+                        secondary: PantasButton(
+                          label: secondaryLabel!,
+                          variant: PantasButtonVariant.tertiary,
+                          onPressed: onSecondary,
+                          height: PantasSize.btn,
+                          fontSize: PantasType.webLink.fontSize,
+                        ),
                       ),
-                      secondary: PantasButton(
-                        label: secondaryLabel!,
-                        variant: PantasButtonVariant.tertiary,
-                        onPressed: onSecondary,
-                        height: 44,
-                        fontSize: 15,
-                        radius: 12,
-                      ),
-                    ),
                   ],
                 ],
               ),

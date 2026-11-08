@@ -107,6 +107,8 @@ void main() {
       await tester.tap(find.text('A to Z'));
       await tester.pumpAndSettle();
       expect(find.textContaining('A TO Z'), findsOneWidget);
+      await tester.ensureVisible(find.text('Lessons'));
+      await tester.pumpAndSettle();
       await tester.tap(find.text('Lessons'));
       await tester.pumpAndSettle();
       expect(find.text('Circles'), findsOneWidget);

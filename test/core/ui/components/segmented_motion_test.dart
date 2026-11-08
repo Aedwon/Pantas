@@ -93,33 +93,32 @@ void main() {
     testWidgets('the label color fades 160 ms on the ease', (tester) async {
       const colors = PantasColors.light;
       await tester.pumpWidget(_phone(0));
-      expect(_label(tester, 'Day'), colors.label);
-      expect(_label(tester, 'Week'), colors.secondaryLabel);
+      // Selected is `text-primary`; unselected is `text-on-fill`.
+      expect(_label(tester, 'Day'), colors.textPrimary);
+      expect(_label(tester, 'Week'), colors.textOnFill);
       await tester.pumpWidget(_phone(1));
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 80));
       final p = previewEase(.5);
-      final week = Color.lerp(colors.secondaryLabel, colors.label, p)!;
+      final week = Color.lerp(colors.textOnFill, colors.textPrimary, p)!;
       expect(_label(tester, 'Week').r, closeTo(week.r, .02));
-      final day = Color.lerp(colors.label, colors.secondaryLabel, p)!;
+      final day = Color.lerp(colors.textPrimary, colors.textOnFill, p)!;
       expect(_label(tester, 'Day').r, closeTo(day.r, .02));
       await tester.pump(const Duration(milliseconds: 80));
-      expect(_label(tester, 'Week'), colors.label);
-      expect(_label(tester, 'Day'), colors.secondaryLabel);
+      expect(_label(tester, 'Week'), colors.textPrimary);
+      expect(_label(tester, 'Day'), colors.textOnFill);
     });
 
-    testWidgets('every label keeps one weight, so the text does not jump',
+    testWidgets('the selected label is 600 and the others 500 (D133)',
         (tester) async {
       await tester.pumpWidget(_phone(0));
       await tester.pumpWidget(_phone(1));
-      for (var i = 0; i < 4; i++) {
-        await tester.pump(const Duration(milliseconds: 60));
-        for (final l in ['Day', 'Week', 'Month']) {
-          expect(
-            tester.widget<Text>(find.text(l)).style!.fontWeight,
-            FontWeight.w600,
-          );
-        }
+      await tester.pumpAndSettle();
+      for (final l in ['Day', 'Week', 'Month']) {
+        expect(
+          tester.widget<Text>(find.text(l)).style!.fontWeight,
+          l == 'Week' ? FontWeight.w600 : FontWeight.w500,
+        );
       }
     });
 
@@ -182,12 +181,12 @@ void main() {
       expect(tester.hasRunningAnimations, isFalse);
     });
 
-    testWidgets('the control keeps its 38 px height and its taps',
+    testWidgets('the control keeps its 38 px well and its taps with a pointer',
         (tester) async {
       var value = 0;
       await tester.pumpWidget(
         MaterialApp(
-          theme: _webTheme,
+          theme: _webTheme.copyWith(platform: TargetPlatform.macOS),
           home: Scaffold(
             body: SizedBox(
               width: 300,
@@ -201,6 +200,35 @@ void main() {
         ),
       );
       expect(tester.getSize(find.byType(WebSegmentedControl)).height, 38);
+      await tester.tap(find.text('Topics'));
+      expect(value, 1);
+    });
+
+    testWidgets('on touch the segments are 44 high and the well stays 38',
+        (tester) async {
+      var value = 0;
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: _webTheme.copyWith(platform: TargetPlatform.android),
+          home: Scaffold(
+            body: SizedBox(
+              width: 300,
+              child: WebSegmentedControl(
+                labels: const ['Subjects', 'Topics'],
+                selected: 0,
+                onChanged: (i) => value = i,
+              ),
+            ),
+          ),
+        ),
+      );
+      expect(tester.getSize(find.byType(WebSegmentedControl)).height, 44);
+      expect(
+        tester
+            .getSize(find.byKey(const ValueKey('segmented-control-track')))
+            .height,
+        38,
+      );
       await tester.tap(find.text('Topics'));
       expect(value, 1);
     });

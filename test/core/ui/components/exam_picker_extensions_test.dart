@@ -47,7 +47,10 @@ void main() {
         expect(label.style!.fontWeight, FontWeight.w600);
         expect(
           tester.getSize(find.byType(PantasButton)).height,
-          scale == 1 ? 32 : 38,
+          // The chip is one `web-label` line (14/600, line height 1.3) with a
+          // 32 floor and no vertical padding (system README, type scale):
+          // 28 * 1.3 = 36 at 200% text.
+          scale == 1 ? 32 : 36,
         );
         // The chip's fill is its own layer (it fades, item 17), so read it
         // there and not from the button, which paints nothing.
@@ -74,7 +77,8 @@ void main() {
           paints
             ..path(
               color: colors.onAccent,
-              strokeWidth: 2,
+              strokeWidth:
+                  1.8666666746139526, // 3.2 * 14 / 24 as a 32-bit float
               style: PaintingStyle.stroke,
             ),
         );

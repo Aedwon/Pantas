@@ -3,6 +3,13 @@ import 'package:pantas/core/ui/components/pantas_switch.dart';
 import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_border.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
+import 'package:pantas/core/ui/web/web_keyboard_focus.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 
 enum _ValueFit { beside, split, stacked }
@@ -35,13 +42,13 @@ class ListRow extends StatelessWidget {
     this.footer,
     this.leading,
     this.titleColor,
-    this.verticalPadding = 11,
+    this.verticalPadding,
     this.richSubtitle,
     this.valueStyle,
     this.wrapTitle = false,
-    this.minimumHeight = 44,
+    this.minimumHeight = PantasSize.rowMinPhone,
     this.contentPadding,
-    this.leadingGap = 12,
+    this.leadingGap = PantasSpace.s12,
     this.valueWidget,
     this.trailingWidget,
     this.mutuallyExclusive = false,
@@ -84,16 +91,16 @@ class ListRow extends StatelessWidget {
         richTitle = null,
         footer = null,
         leading = null,
-        verticalPadding = 11,
+        verticalPadding = null,
         richSubtitle = null,
         valueStyle = null,
         wrapTitle = false,
         valueWidget = null,
         trailingWidget = null,
         titleWidget = null,
-        minimumHeight = 44,
+        minimumHeight = PantasSize.rowMinPhone,
         contentPadding = null,
-        leadingGap = 12;
+        leadingGap = PantasSpace.s12;
   const ListRow.exam({
     required this.title,
     required this.subtitle,
@@ -122,16 +129,16 @@ class ListRow extends StatelessWidget {
         richTitle = null,
         footer = null,
         leading = null,
-        verticalPadding = 11,
+        verticalPadding = null,
         richSubtitle = null,
         valueStyle = null,
         wrapTitle = false,
         valueWidget = null,
         trailingWidget = null,
         titleWidget = null,
-        minimumHeight = 44,
+        minimumHeight = PantasSize.rowMinPhone,
         contentPadding = null,
-        leadingGap = 12;
+        leadingGap = PantasSpace.s12;
   final bool _exam;
   final bool comingSoon;
   final bool settingsMode;
@@ -171,7 +178,10 @@ class ListRow extends StatelessWidget {
   final Widget? footer;
   final Widget? leading;
   final Color? titleColor;
-  final double verticalPadding;
+
+  /// Space above and below the content. Null takes the system's 13 on wide
+  /// screens (`layout-row-pad-y`) and the phone board's 11.
+  final double? verticalPadding;
   final InlineSpan? richSubtitle;
   final TextStyle? valueStyle;
   final bool wrapTitle;
@@ -204,13 +214,37 @@ class ListRow extends StatelessWidget {
 
     final start = natural(title, titleStyle);
     final end = natural(value!, valueStyle);
-    if (start + 8 + end <= width) return _ValueFit.beside;
-    return start <= (width - 8) / 2 ? _ValueFit.split : _ValueFit.stacked;
+    const gap = PantasSpace.s8;
+    if (start + gap + end <= width) return _ValueFit.beside;
+    // Ruling 12: the title keeps at least 6em of its own text before the
+    // value stacks under it.
+    final sixEm =
+        MediaQuery.textScalerOf(context).scale(titleStyle.fontSize!) * 6;
+    if (width - gap - end < (start < sixEm ? start : sixEm)) {
+      return _ValueFit.stacked;
+    }
+    return start <= (width - gap) / 2 ? _ValueFit.split : _ValueFit.stacked;
   }
 
   @override
   Widget build(BuildContext context) {
     final c = context.colors;
+    final wide = context.wideWeb;
+    final titleBase =
+        (wide ? PantasType.webRowTitle : PantasType.phoneBody).copyWith(
+      color: c.textPrimary,
+    );
+    final subBase =
+        (wide ? PantasType.webRowSub : PantasType.phoneFootnote).copyWith(
+      color: c.textSecondary,
+    );
+    final valueBase =
+        (wide ? PantasType.webRowValue : PantasType.phoneBody).copyWith(
+      color: c.textSecondary,
+    );
+    final padY = verticalPadding ??
+        (wide ? PantasLayout.rowPadY : PantasLayout.rowPadY - PantasSpace.s2);
+    final padX = wide ? PantasLayout.rowInset : PantasSpace.s16;
     if (_exam && settingsMode && !context.wideWeb) {
       // ST_ExamPick: a plain 62 px row, the check at the right, and a gray
       // "Coming soon" for an exam that is not out yet.
@@ -224,20 +258,22 @@ class ListRow extends StatelessWidget {
             enabled: !comingSoon,
             label: '$title, $subtitle${comingSoon ? ', coming soon' : ''}',
             excludeSemantics: true,
-            child: Opacity(
-              opacity: comingSoon ? .45 : 1,
+            child: ColoredBox(
+              color: Colors.transparent,
               child: TextButton(
                 onPressed: comingSoon ? null : onTap,
                 style: TextButton.styleFrom(
                   alignment: Alignment.centerLeft,
                   minimumSize: Size.zero,
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: PantasSpace.s16,
+                    vertical: PantasSpace.s10,
+                  ),
                   shape: const RoundedRectangleBorder(),
                   tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                   visualDensity: VisualDensity.standard,
-                  foregroundColor: c.label,
-                  disabledForegroundColor: c.label,
+                  foregroundColor: c.textPrimary,
+                  disabledForegroundColor: c.textDisabled,
                 ),
                 child: Row(
                   children: [
@@ -245,12 +281,21 @@ class ListRow extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(title, style: context.type.body),
+                          Text(
+                            title,
+                            style: titleBase.copyWith(
+                              color:
+                                  comingSoon ? c.textDisabled : c.textPrimary,
+                            ),
+                          ),
                           // Board "f A": beside "Coming soon" the organization
                           // stays on one line and ends in an ellipsis.
                           Text(
                             subtitle ?? '',
-                            style: context.type.footnote,
+                            style: subBase.copyWith(
+                              color:
+                                  comingSoon ? c.textDisabled : c.textSecondary,
+                            ),
                             maxLines: comingSoon ? 1 : null,
                             overflow: comingSoon ? TextOverflow.ellipsis : null,
                           ),
@@ -260,13 +305,17 @@ class ListRow extends StatelessWidget {
                     if (comingSoon)
                       Text(
                         'Coming soon',
-                        style: context.type.footnote.copyWith(
+                        style: subBase.copyWith(
                           fontWeight: FontWeight.w500,
-                          color: c.tertiaryLabel,
+                          color: c.textDisabled,
                         ),
                       )
                     else if (selected)
-                      Icon(PantasIcons.check, size: 18, color: c.accent),
+                      Icon(
+                        PantasIcons.check,
+                        size: PantasSize.icon,
+                        color: c.accent,
+                      ),
                   ],
                 ),
               ),
@@ -276,10 +325,13 @@ class ListRow extends StatelessWidget {
             DecoratedBox(
               decoration: BoxDecoration(
                 border: Border(
-                  bottom: BorderSide(color: c.separator, width: .5),
+                  bottom: BorderSide(
+                    color: c.divider,
+                    width: PantasBorder.hairline,
+                  ),
                 ),
               ),
-              child: const SizedBox(height: .5),
+              child: const SizedBox(height: PantasBorder.hairline),
             ),
         ],
       );
@@ -303,12 +355,9 @@ class ListRow extends StatelessWidget {
                   Text.rich(
                     richTitle ?? TextSpan(text: title),
                     style: _checkbox
-                        ? context.type.body.copyWith(
-                            fontSize: 16,
-                            height: 1.4,
-                            letterSpacing: 0,
-                          )
-                        : context.type.body,
+                        ? PantasType.webRowTitleSettings
+                            .copyWith(color: c.textPrimary)
+                        : titleBase,
                     maxLines: _checkbox || wrapTitle ? null : 1,
                     overflow:
                         _checkbox || wrapTitle ? null : TextOverflow.ellipsis,
@@ -316,7 +365,7 @@ class ListRow extends StatelessWidget {
               if (subtitle != null)
                 Text(
                   subtitle!,
-                  style: context.type.footnote,
+                  style: subBase,
                   // Board "f A": beside "Coming soon" the organization stays on
                   // one line and ends in an ellipsis. When the label moves
                   // under it (large text), the line has the full width.
@@ -329,17 +378,17 @@ class ListRow extends StatelessWidget {
               if (stackComingSoon)
                 Text(
                   'Coming soon',
-                  style: context.type.footnote.copyWith(
+                  style: subBase.copyWith(
                     fontWeight: FontWeight.w500,
-                    color: c.secondaryLabel,
+                    color: c.textSecondary,
                   ),
                 ),
             ],
           );
       final padding = contentPadding ??
           EdgeInsets.symmetric(
-            horizontal: 16,
-            vertical: _checkbox ? 14 : verticalPadding,
+            horizontal: PantasSpace.s16,
+            vertical: _checkbox ? PantasSpace.s14 : padY,
           );
       final action = comingSoon ? null : onTap;
       final row = radio
@@ -353,12 +402,15 @@ class ListRow extends StatelessWidget {
               // 8 px after the text, in medium-weight tertiary gray.
               trailing: comingSoon && !stackComingSoon
                   ? Padding(
-                      padding: const EdgeInsets.only(left: 8, right: 16),
+                      padding: const EdgeInsets.only(
+                        left: PantasSpace.s8,
+                        right: PantasSpace.s16,
+                      ),
                       child: Text(
                         'Coming soon',
-                        style: context.type.footnote.copyWith(
+                        style: subBase.copyWith(
                           fontWeight: FontWeight.w500,
-                          color: c.tertiaryLabel,
+                          color: c.textDisabled,
                         ),
                       ),
                     )
@@ -379,26 +431,36 @@ class ListRow extends StatelessWidget {
           row,
           if (divider)
             Padding(
-              padding: EdgeInsets.only(left: _exam && !settingsMode ? 16 : 0),
+              padding: EdgeInsets.only(
+                left: _exam && !settingsMode ? PantasSpace.s16 : PantasSpace.s0,
+              ),
               child: DecoratedBox(
                 key: _exam ? const ValueKey('exam-row-divider') : null,
                 decoration: BoxDecoration(
                   border: Border(
-                    bottom: BorderSide(color: c.separator, width: .5),
+                    bottom: BorderSide(
+                      color: c.divider,
+                      width: PantasBorder.hairline,
+                    ),
                   ),
                 ),
-                child: const SizedBox(height: .5),
+                child: const SizedBox(height: PantasBorder.hairline),
               ),
             ),
         ],
       );
     }
     final stack = MediaQuery.textScalerOf(context).scale(17) > 25.5;
-    final labelStyle = context.type.body.copyWith(
+    final tinted = selected &&
+        (variant == ListRowVariant.navigation ||
+            variant == ListRowVariant.value);
+    final labelStyle = titleBase.copyWith(
       color: variant == ListRowVariant.destructive
-          ? c.wrongText
-          : titleColor ?? c.label,
+          ? c.dangerText
+          : titleColor ?? c.textPrimary,
     );
+    final subStyle =
+        tinted ? subBase.copyWith(color: c.textOnTintSecondary) : subBase;
     final label = Text.rich(
       richTitle ?? TextSpan(text: title),
       maxLines: wrapTitle ? null : 1,
@@ -409,8 +471,7 @@ class ListRow extends StatelessWidget {
     // room it needs when the title and value fit on one line ("Practice" and
     // "10 questions" at 320 px). When the title would be cut, the value goes
     // under the title, as it does at large text sizes.
-    final measureValue = !stack &&
-        value != null &&
+    final measureValue = value != null &&
         valueWidget == null &&
         !naturalValue &&
         !wrapTitle &&
@@ -422,14 +483,20 @@ class ListRow extends StatelessWidget {
             ? null
             : Text(
                 value!,
-                style: valueStyle ?? context.type.rowValue,
+                style: valueStyle ??
+                    (tinted
+                        ? valueBase.copyWith(color: c.textOnTintSecondary)
+                        : valueBase),
                 textAlign: align,
               ));
     final detail = detailAligned(stack ? TextAlign.start : TextAlign.end);
     final trailing = trailingWidget ??
         switch (variant) {
-          ListRowVariant.navigation =>
-            Icon(PantasIcons.next, size: 16, color: c.chevron),
+          ListRowVariant.navigation => Icon(
+              PantasIcons.bold(PantasIcons.next),
+              size: PantasSpace.s16,
+              color: tinted ? c.accentTintText : c.iconChevron,
+            ),
           ListRowVariant.switchControl => ExcludeSemantics(
               child: ExcludeFocus(
                 child: context.wideWeb
@@ -441,10 +508,10 @@ class ListRow extends StatelessWidget {
                     // Phone boards: the row is 53 px, the switch 31. The whole
                     // row is the tap target, so the switch need not be 44.
                     : SizedBox(
-                        width: 51,
-                        height: 31,
+                        width: PantasSize.switchW,
+                        height: PantasSize.switchH,
                         child: OverflowBox(
-                          maxHeight: 44,
+                          maxHeight: PantasSize.targetTouch,
                           child: PantasSwitch(
                             value: selected,
                             label: title,
@@ -455,9 +522,9 @@ class ListRow extends StatelessWidget {
               ),
             ),
           ListRowVariant.inlineEditor => Icon(
-              expanded ? PantasIcons.close : PantasIcons.next,
-              size: 16,
-              color: expanded ? c.accent : c.chevron,
+              expanded ? PantasIcons.close : PantasIcons.bold(PantasIcons.next),
+              size: PantasSpace.s16,
+              color: expanded ? c.accent : c.iconChevron,
             ),
           _ => const SizedBox.shrink(),
         };
@@ -469,7 +536,7 @@ class ListRow extends StatelessWidget {
               if (subtitleGap > 0) SizedBox(height: subtitleGap),
               Text.rich(
                 richSubtitle ?? TextSpan(text: subtitle),
-                style: context.type.footnote,
+                style: subStyle,
                 maxLines: subtitleMaxLines,
                 overflow:
                     subtitleMaxLines == null ? null : TextOverflow.ellipsis,
@@ -491,101 +558,126 @@ class ListRow extends StatelessWidget {
             toggled: variant == ListRowVariant.switchControl ? selected : null,
             inMutuallyExclusiveGroup:
                 mutuallyExclusive || variant == ListRowVariant.radio,
+            // Hover and press show the `surface-hover` well, a selected row the
+            // `accent-tint` fill (both fade over 150ms), and the keyboard ring
+            // sits inside the row.
             child: Material(
-              color: context.colors.transparent,
-              child: InkWell(
-                onTap: onTap,
-                child: Container(
-                  constraints: BoxConstraints(minHeight: minimumHeight),
-                  padding: contentPadding ??
-                      EdgeInsets.symmetric(
-                        horizontal: 16,
-                        vertical: verticalPadding,
-                      ),
-                  decoration: BoxDecoration(
-                    border: divider && dividerInset == 0
-                        ? Border(
-                            bottom: BorderSide(color: c.separator, width: .5),
-                          )
-                        : null,
-                  ),
-                  child: Row(
-                    children: [
-                      if (leading != null) ...[
-                        leading!,
-                        SizedBox(width: leadingGap),
-                      ] else if (icon != null) ...[
-                        Icon(icon, size: 22, color: iconColor ?? c.accent),
-                        const SizedBox(width: 14),
-                      ],
-                      if (measureValue)
-                        Expanded(
-                          child: LayoutBuilder(
-                            builder: (context, box) {
-                              final fit = _valueFit(
-                                context,
-                                box.maxWidth,
-                                labelStyle,
-                                valueStyle ?? context.type.rowValue,
-                              );
-                              if (fit == _ValueFit.stacked) {
-                                return titleColumn(
-                                  stackedDetail: detailAligned(TextAlign.start),
-                                );
-                              }
-                              final titleBlock = titleColumn();
-                              return Row(
-                                children: [
-                                  Expanded(child: titleBlock),
-                                  const SizedBox(width: 8),
-                                  if (fit == _ValueFit.beside)
-                                    detail!
-                                  else
-                                    Flexible(
-                                      child: Align(
-                                        alignment: Alignment.centerRight,
-                                        heightFactor: 1,
-                                        child: detail,
-                                      ),
-                                    ),
-                                ],
-                              );
-                            },
-                          ),
-                        )
-                      else ...[
-                        Expanded(
-                          child: titleColumn(
-                            stackedDetail: stack ? detail : null,
-                          ),
+              color: tinted ? c.accentTint : Colors.transparent,
+              animationDuration: MediaQuery.disableAnimationsOf(context)
+                  ? Duration.zero
+                  : PantasDurations.short2,
+              child: WebKeyboardRing(
+                child: InkWell(
+                  onTap: onTap,
+                  hoverColor: tinted ? Colors.transparent : c.surfaceHover,
+                  highlightColor: tinted ? Colors.transparent : c.surfaceHover,
+                  splashColor: Colors.transparent,
+                  splashFactory: NoSplash.splashFactory,
+                  focusColor: Colors.transparent,
+                  child: Container(
+                    constraints: BoxConstraints(minHeight: minimumHeight),
+                    padding: contentPadding ??
+                        EdgeInsets.symmetric(
+                          horizontal: padX,
+                          vertical: padY,
                         ),
-                        if (!stack && detail != null) ...[
-                          SizedBox(width: naturalValue ? 10 : 8),
-                          if (naturalValue)
-                            ConstrainedBox(
-                              constraints: const BoxConstraints(maxWidth: 140),
-                              child: detail,
-                            )
-                          else
-                            // Without the Align a short value shrinks to its
-                            // own width and sits mid-row, not at the row's end.
-                            Flexible(
-                              child: Align(
-                                alignment: Alignment.centerRight,
-                                heightFactor: 1,
-                                child: detail,
+                    decoration: BoxDecoration(
+                      border: divider && dividerInset == 0
+                          ? Border(
+                              bottom: BorderSide(
+                                color: c.divider,
+                                width: PantasBorder.hairline,
                               ),
+                            )
+                          : null,
+                    ),
+                    child: Row(
+                      children: [
+                        if (leading != null) ...[
+                          leading!,
+                          SizedBox(width: leadingGap),
+                        ] else if (icon != null) ...[
+                          Icon(icon, size: 22, color: iconColor ?? c.accent),
+                          SizedBox(
+                            width: wide ? PantasSpace.s16 : PantasSpace.s14,
+                          ),
+                        ],
+                        if (measureValue)
+                          Expanded(
+                            child: LayoutBuilder(
+                              builder: (context, box) {
+                                final fit = _valueFit(
+                                  context,
+                                  box.maxWidth,
+                                  labelStyle,
+                                  valueStyle ?? valueBase,
+                                );
+                                if (fit == _ValueFit.stacked) {
+                                  return titleColumn(
+                                    stackedDetail:
+                                        detailAligned(TextAlign.start),
+                                  );
+                                }
+                                final titleBlock = titleColumn();
+                                return Row(
+                                  children: [
+                                    Expanded(child: titleBlock),
+                                    const SizedBox(width: PantasSpace.s8),
+                                    if (fit == _ValueFit.beside)
+                                      detail!
+                                    else
+                                      Flexible(
+                                        child: Align(
+                                          alignment: Alignment.centerRight,
+                                          heightFactor: 1,
+                                          child: detail,
+                                        ),
+                                      ),
+                                  ],
+                                );
+                              },
                             ),
+                          )
+                        else ...[
+                          Expanded(
+                            child: titleColumn(
+                              stackedDetail: stack ? detail : null,
+                            ),
+                          ),
+                          if (!stack && detail != null) ...[
+                            SizedBox(
+                              width: naturalValue
+                                  ? PantasSpace.s10
+                                  : PantasSpace.s8,
+                            ),
+                            if (naturalValue)
+                              ConstrainedBox(
+                                constraints:
+                                    const BoxConstraints(maxWidth: 140),
+                                child: detail,
+                              )
+                            else
+                              // Without the Align a short value shrinks to
+                              // its own width and sits mid-row.
+                              Flexible(
+                                child: Align(
+                                  alignment: Alignment.centerRight,
+                                  heightFactor: 1,
+                                  child: detail,
+                                ),
+                              ),
+                          ],
+                        ],
+                        if (!hideTrailing &&
+                            (trailingWidget != null ||
+                                (variant != ListRowVariant.value &&
+                                    variant !=
+                                        ListRowVariant.destructive))) ...[
+                          const SizedBox(width: PantasSpace.s8),
+                          trailing,
                         ],
                       ],
-                      if (!hideTrailing &&
-                          (trailingWidget != null ||
-                              (variant != ListRowVariant.value &&
-                                  variant != ListRowVariant.destructive))) ...[
-                        const SizedBox(width: 8),
-                        trailing,
-                      ],
-                    ],
+                    ),
                   ),
                 ),
               ),
@@ -595,16 +687,25 @@ class ListRow extends StatelessWidget {
         if (divider && dividerInset > 0)
           Padding(
             padding: EdgeInsets.only(left: dividerInset),
-            child: Divider(height: .5, thickness: .5, color: c.separator),
+            child: Divider(
+              height: PantasBorder.hairline,
+              thickness: PantasBorder.hairline,
+              color: c.divider,
+            ),
           ),
         if (variant == ListRowVariant.inlineEditor)
           AnimatedSize(
             duration: MediaQuery.disableAnimationsOf(context)
                 ? Duration.zero
-                : const Duration(milliseconds: 300),
+                : PantasDurations.flip,
             child: expanded
                 ? Padding(
-                    padding: const EdgeInsets.fromLTRB(16, 4, 16, 12),
+                    padding: const EdgeInsets.fromLTRB(
+                      PantasSpace.s16,
+                      PantasSpace.s4,
+                      PantasSpace.s16,
+                      PantasSpace.s12,
+                    ),
                     child: editor,
                   )
                 : const SizedBox.shrink(),

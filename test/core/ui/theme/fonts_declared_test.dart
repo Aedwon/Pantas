@@ -13,6 +13,8 @@ void main() {
     'Geist': [400, 500, 600, 700],
     'Source Serif 4': [400],
     'Phosphor': [400],
+    'PhosphorFill': [400],
+    'PhosphorBold': [400],
   }.entries) {
     test('${entry.key} bundles every required weight for offline use', () {
       final declarations = families.cast<YamlMap>().where(
@@ -34,7 +36,13 @@ void main() {
   test('only current type and icon families are bundled', () {
     expect(
       families.cast<YamlMap>().map((family) => family['family']),
-      unorderedEquals(['Geist', 'Source Serif 4', 'Phosphor']),
+      unorderedEquals([
+        'Geist',
+        'Source Serif 4',
+        'Phosphor',
+        'PhosphorFill',
+        'PhosphorBold',
+      ]),
     );
   });
   test('bundled regular icon font is unchanged from package 2.1.0', () {

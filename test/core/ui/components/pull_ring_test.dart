@@ -59,7 +59,8 @@ void main() {
             ? const ProgressRing.study(fraction: .5)
             : const ProgressRing(fraction: .5),
       );
-      await tester.pump(Duration(milliseconds: study ? 350 : 300));
+      // 300 ms of wait, then half of the 900 ms fill.
+      await tester.pump(const Duration(milliseconds: 750));
       final paint = find.byKey(const ValueKey('progress-ring-paint'));
       expect(tester.getSize(paint), const Size(24, 24));
       expect(

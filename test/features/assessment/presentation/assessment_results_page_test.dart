@@ -267,14 +267,15 @@ void main() {
     expect(find.text('No results yet.'), findsOneWidget);
     expect(
       tester.getSize(find.byKey(const ValueKey('state-mark'))),
-      const Size(60, 60),
+      const Size(40, 40),
     );
     final button = find.widgetWithText(PantasButton, 'Back to Home');
     expect(button, findsOneWidget);
     final pill = tester.widget<PantasButton>(button);
     expect(pill.variant, PantasButtonVariant.secondary);
     expect(pill.height, 44);
-    expect(tester.getSize(button).width, lessThanOrEqualTo(220));
+    // The action keeps its natural width, under the 360 text measure.
+    expect(tester.getSize(button).width, lessThanOrEqualTo(360));
 
     await tester.tap(button);
     await tester.pumpAndSettle();

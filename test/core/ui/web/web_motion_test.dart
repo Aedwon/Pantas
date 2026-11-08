@@ -48,13 +48,13 @@ void main() {
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 40));
       final middle = _scale(tester);
-      expect(middle, inExclusiveRange(.96, 1));
+      expect(middle, inExclusiveRange(.97, 1));
       await tester.pump(const Duration(milliseconds: 200));
-      expect(_scale(tester), closeTo(.96, .001));
+      expect(_scale(tester), closeTo(.97, .001));
       await press.up();
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 60));
-      expect(_scale(tester), inExclusiveRange(.96, 1));
+      expect(_scale(tester), inExclusiveRange(.97, 1));
       await tester.pumpAndSettle();
       expect(_scale(tester), 1);
     });
@@ -492,6 +492,9 @@ void main() {
     double top(WidgetTester tester, String text) =>
         tester.getTopLeft(find.text(text)).dy;
 
+    // A row is the scaled 17 px line (1.3) plus 16, and rows sit 2 px apart.
+    const pitch = 17 * 1.3 + 16 + 2;
+
     testWidgets('rows slide a row to the new value over 240 ms',
         (tester) async {
       await tester.pumpWidget(column(10));
@@ -500,11 +503,11 @@ void main() {
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 100));
       // v11 was one row below the middle and v10 is leaving it upward.
-      expect(top(tester, 'v10'), inExclusiveRange(settled - 40, settled));
+      expect(top(tester, 'v10'), inExclusiveRange(settled - pitch, settled));
       expect(top(tester, 'v11'), greaterThan(settled));
       await tester.pump(const Duration(milliseconds: 150));
       expect(top(tester, 'v11'), settled);
-      expect(top(tester, 'v10'), settled - 40);
+      expect(top(tester, 'v10'), closeTo(settled - pitch, .001));
       expect(find.text('v8'), findsNothing);
       await tester.pumpAndSettle();
       expect(tester.hasRunningAnimations, isFalse);
@@ -518,7 +521,7 @@ void main() {
         await tester.pumpWidget(column(i));
         await tester.pump(const Duration(milliseconds: 16));
         // The row now chosen is within one row of the middle.
-        expect(top(tester, 'v$i') - middle, lessThanOrEqualTo(40.001));
+        expect(top(tester, 'v$i') - middle, lessThanOrEqualTo(pitch + .001));
       }
       await tester.pumpAndSettle();
       expect(top(tester, 'v20'), middle);

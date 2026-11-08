@@ -4,6 +4,10 @@ import 'package:pantas/core/ui/components/content_renderer.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 
 import '../../../helpers/accessibility.dart';
 
@@ -25,19 +29,28 @@ void main() {
         );
         final message =
             tester.widget<Text>(find.text('Could not load your topics.'));
-        expect(message.style!.fontSize, 20);
+        expect(message.style!.fontSize, PantasType.phoneTitle3.fontSize);
         expect(message.style!.fontWeight, FontWeight.w700);
-        expect(message.style!.height, 1.35);
-        expect(message.style!.letterSpacing, -.2);
+        expect(message.style!.height, PantasType.phoneTitle3.height);
+        expect(
+          message.style!.letterSpacing,
+          PantasType.phoneTitle3.letterSpacing,
+        );
         expect(
           tester.getSize(find.byKey(const ValueKey('state-mark'))),
           const Size(40, 40),
         );
         final button = tester.widget<PantasButton>(find.byType(PantasButton));
-        expect(button.height, 44);
-        expect(button.radius, 99);
-        expect(button.horizontalPadding, 22);
-        expect(button.fullWidth, isFalse);
+        // ErrorState: Try Again is a 44 high tonal pill that fills the phone's
+        // width up to the text measure.
+        expect(button.height, PantasSize.btn);
+        expect(button.radius, PantasRadius.full);
+        expect(button.variant, PantasButtonVariant.secondary);
+        expect(button.fullWidth, isTrue);
+        expect(
+          tester.getSize(find.byType(PantasButton)).width,
+          lessThanOrEqualTo(PantasLayout.colListMax),
+        );
         expect(tester.takeException(), isNull);
       });
 

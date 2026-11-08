@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 
@@ -72,7 +73,9 @@ void main() {
 
   testWidgets('the arrow stays 6 px left of the page edge', (tester) async {
     await pump(tester);
-    final arrow = tester.getRect(find.byIcon(Icons.chevron_left));
+    final arrow = tester.getRect(
+      find.byIcon(PantasIcons.bold(PantasIcons.back)),
+    );
     expect(arrow.left, 94);
   });
 

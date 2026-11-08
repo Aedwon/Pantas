@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 
 Future<void> _mount(WidgetTester tester) async {
@@ -33,15 +34,16 @@ Future<void> _mount(WidgetTester tester) async {
   );
 }
 
+/// The button's keyboard ring: `border-focus` in `accent`, drawn 2 px outside
+/// the button (design system 4.0). A width of 0 when none is drawn.
 BorderSide _side(WidgetTester tester, String label) {
-  final button = find.ancestor(
-    of: find.text(label),
-    matching: find.byType(TextButton),
+  final ring = find.descendant(
+    of: find.ancestor(of: find.text(label), matching: find.byType(WebButton)),
+    matching: find.byKey(const ValueKey('focus-ring')),
   );
-  final material = tester.widget<Material>(
-    find.descendant(of: button, matching: find.byType(Material)).first,
-  );
-  return (material.shape! as OutlinedBorder).side;
+  if (ring.evaluate().isEmpty) return BorderSide.none;
+  final box = tester.widget<DecoratedBox>(ring).decoration as BoxDecoration;
+  return box.border!.top;
 }
 
 /// The row's ring is its own rounded layer inside the row (3K-6): its width,
@@ -94,7 +96,7 @@ void main() {
     await tester.pump();
     final first = _side(tester, 'First');
     expect(first.width, 2);
-    expect(first.color, const Color(0xFF0B7A68));
+    expect(first.color, PantasColors.light.accent);
     expect(_side(tester, 'Second').width, isNot(2));
     await tester.sendKeyEvent(LogicalKeyboardKey.tab);
     await tester.sendKeyEvent(LogicalKeyboardKey.tab);
@@ -166,6 +168,21 @@ void main() {
       ),
     );
     BorderSide sideOf(Finder f) {
+      // A system button or link draws its ring outside (OffsetFocusRing); a
+      // plain Material button keeps the theme's ring on its own shape.
+      final outside = find.descendant(
+        of: find.ancestor(of: f, matching: find.byType(WebTextLink)),
+        matching: find.byKey(const ValueKey('focus-ring')),
+      );
+      if (find
+          .ancestor(of: f, matching: find.byType(WebTextLink))
+          .evaluate()
+          .isNotEmpty) {
+        if (outside.evaluate().isEmpty) return BorderSide.none;
+        final box =
+            tester.widget<DecoratedBox>(outside).decoration as BoxDecoration;
+        return box.border!.top;
+      }
       final button = find.ancestor(of: f, matching: find.byType(TextButton));
       final material = tester.widget<Material>(
         find.descendant(of: button, matching: find.byType(Material)).first,
@@ -203,7 +220,7 @@ void main() {
       }
       expect(backRing, findsNothing);
       expect(sideOf(stop).width, 2, reason: 'ring on $stop');
-      expect(sideOf(stop).color, const Color(0xFF0B7A68));
+      expect(sideOf(stop).color, PantasColors.light.accent);
     }
     // The next stop is the bare tap target, which the ring widget draws.
     await tester.sendKeyEvent(LogicalKeyboardKey.tab);

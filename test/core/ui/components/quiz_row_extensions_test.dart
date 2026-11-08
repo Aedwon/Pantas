@@ -42,7 +42,8 @@ void main() {
     await tester.pump(const Duration(milliseconds: 500));
     paint.paint(canvas, const Size(24, 24));
     expect(canvas.sweeps, isEmpty);
-    await tester.pump(const Duration(milliseconds: 700));
+    // The row's 500 ms delay is followed by the system's `dur-wait` (300).
+    await tester.pump(const Duration(milliseconds: 1000));
     paint.paint(canvas, const Size(24, 24));
     expect(canvas.sweeps.single, closeTo(3.14159265, .0001));
   });

@@ -4,6 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 
 import '../../../helpers/accessibility.dart';
 import 'w2_test_support.dart';
@@ -29,19 +30,13 @@ void main() {
         viewportSize: const Size(390, 844),
         disableAnimations: true,
       );
-      final circle = tester
-          .widget<Container>(find.byKey(const ValueKey('state-mark-circle')));
-      final fill = (circle.decoration! as BoxDecoration).color!;
       final context = tester.element(find.byType(StateView));
-      expect(
-        tester.getSize(find.byKey(const ValueKey('state-mark-circle'))),
-        const Size(72, 72),
-      );
-      expect(fill, context.colors.fill);
+      // The system draws no tile behind the icon.
+      expect(find.byKey(const ValueKey('state-mark-circle')), findsNothing);
       final mark = tester
           .widget<IconTheme>(find.byKey(const ValueKey('state-icon-theme')));
-      expect(mark.data.size, 36);
-      expect(mark.data.color, context.colors.secondaryLabel);
+      expect(mark.data.size, 40);
+      expect(mark.data.color, context.colors.iconMuted);
       final icon = tester.widget<Icon>(
         find.descendant(
           of: find.byKey(const ValueKey('state-mark')),
@@ -53,35 +48,27 @@ void main() {
       final title = tester.widget<Text>(find.text('Something went wrong.'));
       final detail =
           tester.widget<Text>(find.text("Nothing you've done is lost."));
-      expect(title.style!.fontSize, 24);
+      expect(title.style!.fontSize, PantasType.phoneTitle3.fontSize);
       expect(title.style!.fontWeight, FontWeight.w700);
-      expect(title.style!.height, 1.25);
-      expect(title.style!.letterSpacing, -.288);
-      expect(detail.style!.fontSize, 16);
+      expect(title.style!.height, PantasType.phoneTitle3.height);
+      expect(detail.style!.fontSize, PantasType.phoneCallout.fontSize);
       expect(detail.style!.fontWeight, FontWeight.w400);
-      expect(detail.style!.height, 1.45);
+      expect(detail.style!.height, PantasType.phoneCallout.height);
+      final mark40 = find.byKey(const ValueKey('state-mark'));
       expect(
         tester.getTopLeft(find.text('Something went wrong.')).dy -
-            tester
-                .getBottomLeft(
-                  find.byKey(const ValueKey('state-mark-circle')),
-                )
-                .dy,
-        14,
+            tester.getBottomLeft(mark40).dy,
+        12,
       );
       expect(
         tester.getTopLeft(find.text("Nothing you've done is lost.")).dy -
             tester.getBottomLeft(find.text('Something went wrong.')).dy,
-        14,
-      );
-      expect(
-        tester.getTopLeft(find.byKey(const ValueKey('state-mark-circle'))).dy,
-        closeTo(289.4, 1),
+        12,
       );
       expect(tester.getSize(find.byType(PantasButton)), const Size(358, 52));
       expect(
-        tester.getTopLeft(find.byType(PantasButton)),
-        const Offset(16, 762),
+        tester.getTopLeft(find.byType(PantasButton)).dx,
+        16,
       );
       expect(find.byType(BottomNavigationBar), findsNothing);
       expect(

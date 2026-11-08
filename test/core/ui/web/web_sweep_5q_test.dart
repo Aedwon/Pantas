@@ -208,10 +208,11 @@ void main() {
       await tester.sendKeyEvent(LogicalKeyboardKey.tab);
       await tester.pumpAndSettle();
       expect(stadium, findsOneWidget);
-      // The ring covers the whole link, 14 px left of where the page clips.
+      // The ring hugs the whole link, 2 px outside it with its 2 px width,
+      // and reaches past where the page clips.
       final link = tester.getRect(find.byType(TextButton));
       final ring = tester.getRect(stadium);
-      expect(ring, link);
+      expect(ring, link.inflate(4));
       expect(ring.left, lessThan(100));
       // A click takes it away.
       await tester.tapAt(const Offset(700, 400));

@@ -188,18 +188,15 @@ void main() {
           ? PantasColors.light.surface
           : PantasColors.dark.surface;
       // Aedwon, Nov 2: light mode asserts the board ring color; dark keeps 3:1.
-      if (brightness == Brightness.light) {
-        expect(
-          (outline.border! as Border).top.color,
-          PantasColors.light.chevron,
-        );
-      } else {
-        expectContrast(
-          (outline.border! as Border).top.color,
-          surface,
-          minimum: 3,
-        );
-      }
+      final roles = brightness == Brightness.light
+          ? PantasColors.light
+          : PantasColors.dark;
+      expect((outline.border! as Border).top.color, roles.borderControl);
+      expectContrast(
+        (outline.border! as Border).top.color,
+        surface,
+        minimum: 3,
+      );
       await pumpAccessibilitySurface(
         tester,
         ScopePicker(
@@ -217,18 +214,15 @@ void main() {
       final circle = tester
           .widget<Container>(find.byKey(const ValueKey('selection-mark')))
           .decoration! as BoxDecoration;
-      if (brightness == Brightness.light) {
-        expect(
-          (circle.border! as Border).top.color,
-          PantasColors.light.chevron,
-        );
-      } else {
-        expectContrast(
-          (circle.border! as Border).top.color,
-          surface,
-          minimum: 3,
-        );
-      }
+      final roles2 = brightness == Brightness.light
+          ? PantasColors.light
+          : PantasColors.dark;
+      expect((circle.border! as Border).top.color, roles2.borderControl);
+      expectContrast(
+        (circle.border! as Border).top.color,
+        surface,
+        minimum: 3,
+      );
       await pumpAccessibilitySurface(
         tester,
         ContentRenderer(
@@ -298,7 +292,7 @@ void main() {
     ];
     for (final path in paths) {
       expect(
-        RegExp(r'\bColor\(0x|\bColors\.').hasMatch(
+        RegExp(r'\bColor\(0x|\bColors\.(?!transparent\b)').hasMatch(
           File('lib/core/ui/components/$path.dart').readAsStringSync(),
         ),
         isFalse,

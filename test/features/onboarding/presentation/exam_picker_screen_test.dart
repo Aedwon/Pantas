@@ -12,6 +12,7 @@ import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/onboarding/presentation/exam_picker_screen.dart';
 
@@ -320,13 +321,21 @@ void main() {
           find.descendant(of: row, matching: find.byType(TextButton)),
         );
         expect(button.onPressed, isNull);
+        // ListRow README: a row that is not available uses `text-disabled`,
+        // never opacity (lines 57 and 70).
+        final colors = tester.element(row).colors;
         expect(
           tester
-              .widget<Opacity>(
-                find.descendant(of: row, matching: find.byType(Opacity)).first,
+              .widget<Text>(
+                find.descendant(of: row, matching: find.text('PSHS-NCE')),
               )
-              .opacity,
-          .45,
+              .style!
+              .color,
+          colors.textDisabled,
+        );
+        expect(
+          find.descendant(of: row, matching: find.byType(Opacity)),
+          findsNothing,
         );
         expect(tester.takeException(), isNull);
       });

@@ -56,13 +56,26 @@ void main() {
       };
       expect(heights, hasLength(1), reason: '$heights');
       expect(centers, hasLength(1), reason: '$centers');
-      // Every label fits inside the control, and none overlaps its neighbor.
+      // A label never shrinks or wraps. When the cells do not fit, the track
+      // scrolls inside itself; otherwise every label fits inside the control.
+      // None overlaps its neighbor.
+      final scrolls = find
+          .descendant(
+            of: find.byType(WebSegmentedControl),
+            matching: find.byType(SingleChildScrollView),
+          )
+          .evaluate()
+          .isNotEmpty;
+      // 340: the columns follow the labels' own widths and still fit.
+      expect(scrolls, width < 340, reason: 'scrolls only when cells overflow');
       final box = tester.getRect(find.byType(WebSegmentedControl));
       var previous = box.left;
       for (final label in labels) {
         final rect = tester.getRect(find.text(label));
         expect(rect.left, greaterThanOrEqualTo(previous), reason: label);
-        expect(rect.right, lessThanOrEqualTo(box.right), reason: label);
+        if (!scrolls) {
+          expect(rect.right, lessThanOrEqualTo(box.right), reason: label);
+        }
         previous = rect.right;
       }
       expect(tester.takeException(), isNull);
@@ -89,12 +102,12 @@ void main() {
   testWidgets('a narrow control keeps the labels at the board size',
       (tester) async {
     await mount(tester, 340, 1);
-    // 14 px semibold on a 1.2 line: 17 px tall. A shrunk label
-    // (the old behavior for "By subject") would be shorter.
+    // 14 px (`web-label`) on a 1.3 line: 18.2 px tall. A shrunk label would
+    // be shorter.
     for (final label in labels) {
-      expect(tester.getSize(find.text(label)).height, closeTo(17, .3));
+      expect(tester.getSize(find.text(label)).height, closeTo(18.2, .3));
     }
-    // The selected thumb sits under "By subject", which has the wider cell.
+    // The selected thumb sits under "By subject".
     final thumb = tester.getRect(
       find.descendant(
         of: find.byKey(const ValueKey('segmented-control-thumb')),

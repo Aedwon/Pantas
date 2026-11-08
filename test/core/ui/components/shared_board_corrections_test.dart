@@ -3,6 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/floating_bar.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/pantas_button_parts.dart';
 import 'package:pantas/core/ui/components/pro_tag.dart';
 
 import '../../../helpers/accessibility.dart';
@@ -16,14 +17,18 @@ void main() {
       PantasButton(label: 'Saving', busy: true, onPressed: () {}),
       disableAnimations: true,
     );
-    expect(
-      tester
-          .widget<CircularProgressIndicator>(
-            find.byType(CircularProgressIndicator),
-          )
-          .value,
-      1,
-    );
+    // The spinner stops under reduced motion: the arc does not turn.
+    final turns = tester
+        .widget<RotationTransition>(
+          find.descendant(
+            of: find.byType(PantasSpinner),
+            matching: find.byType(RotationTransition),
+          ),
+        )
+        .turns;
+    final before = turns.value;
+    await tester.pump(const Duration(milliseconds: 300));
+    expect(turns.value, before);
   });
   testWidgets('wrong floating surface follows QV_MissPro', (tester) async {
     await pumpAccessibilitySurface(

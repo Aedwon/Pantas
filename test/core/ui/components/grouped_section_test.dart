@@ -54,7 +54,7 @@ void main() {
       final footer = tester
           .widget<Text>(find.text('How many questions in one quiz session.'));
       expect(footer.style!.fontSize, 13);
-      expect(footer.style!.height, 1.4);
+      expect(footer.style!.height, 1.45);
       final background = brightness == Brightness.light
           ? const Color(0xFFF5F5F7)
           : const Color(0xFF151515);

@@ -45,7 +45,7 @@ void main() {
       for (final variant in PantasButtonVariant.values) {
         expect(
           await foreground(PantasButton(label: 'Check', variant: variant)),
-          colors.tertiaryLabel,
+          colors.textDisabled,
         );
         expect(
           await foreground(

@@ -33,20 +33,20 @@ class WebOverlayMotion {
 
   /// A drawer from the right edge: the phone's list sheet, turned sideways.
   static const drawer = WebOverlayMotion(
-    open: Duration(milliseconds: 450),
-    close: Duration(milliseconds: 400),
+    open: PantasDurations.long1,
+    close: PantasDurations.drawerClose,
     curve: PantasCurves.slide,
-    scrim: Duration(milliseconds: 350),
+    scrim: PantasDurations.switchDuration,
     scrimCurve: PantasCurves.fade,
     slide: Offset(1.05, 0),
   );
 
   /// A centered dialog: the phone's form sheet.
   static const dialog = WebOverlayMotion(
-    open: Duration(milliseconds: 420),
-    close: Duration(milliseconds: 320),
+    open: PantasDurations.medium3,
+    close: PantasDurations.medium2,
     curve: PantasCurves.house,
-    scrim: Duration(milliseconds: 300),
+    scrim: PantasDurations.flip,
     scrimCurve: PantasCurves.linear,
     rise: 24,
     fade: true,
@@ -69,7 +69,7 @@ class WebOverlayMotion {
     open: PantasDurations.medium2,
     close: PantasDurations.medium2,
     curve: PantasCurves.move,
-    scrim: Duration(milliseconds: 350),
+    scrim: PantasDurations.switchDuration,
     scrimCurve: PantasCurves.fade,
     rise: 24,
     fade: true,

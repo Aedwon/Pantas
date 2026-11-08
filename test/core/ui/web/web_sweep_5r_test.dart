@@ -3,6 +3,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/score_breakdown_row.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 
@@ -164,7 +165,8 @@ void main() {
       });
     }
 
-    testWidgets('in light its edge is a solid gray that shows on white (N-4)',
+    testWidgets(
+        'in light its edge is the system edge-bar (D-system card--floating)',
         (tester) async {
       wide(tester);
       await mount(
@@ -182,8 +184,10 @@ void main() {
           )
           .decoration! as BoxDecoration;
       final edge = (box.border! as Border).top.color;
-      expect(edge.a, 1, reason: 'a 6 percent black edge was lost on white');
-      expect(edge, const Color(0xFFD1D1D6));
+      // The system's floating card takes `edge-bar` (6 percent black in
+      // light) and the `elev-bar` shadow, which carries the card on white.
+      expect(edge, PantasColors.light.edgeBar);
+      expect(box.boxShadow, isNotEmpty);
     });
 
     testWidgets('a plain card in light has neither', (tester) async {

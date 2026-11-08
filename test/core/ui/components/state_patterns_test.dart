@@ -5,6 +5,10 @@ import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 
 import '../../../helpers/accessibility.dart';
 import 'w2_test_support.dart';
@@ -31,30 +35,32 @@ void main() {
         disableAnimations: true,
       );
       final title = tester.widget<Text>(find.text('Choose your exam'));
-      expect(title.style!.fontSize, 20);
+      // `.state`: the title is phone-title-3, the line phone-callout.
+      expect(title.style!.fontSize, PantasType.phoneTitle3.fontSize);
       expect(title.style!.fontWeight, FontWeight.w700);
-      expect(title.style!.height, 1.35);
-      expect(title.style!.letterSpacing, -.2);
+      expect(title.style!.height, PantasType.phoneTitle3.height);
+      expect(title.style!.letterSpacing, PantasType.phoneTitle3.letterSpacing);
       final detail = tester
           .widget<Text>(find.text('Pick the exam you are reviewing for.'));
-      expect(detail.style!.fontSize, 15);
+      expect(detail.style!.fontSize, PantasType.phoneCallout.fontSize);
       expect(detail.style!.fontWeight, FontWeight.w400);
-      expect(detail.style!.height, 1.45);
+      expect(detail.style!.height, PantasType.phoneCallout.height);
       expect(
         tester.getSize(find.byKey(const ValueKey('state-mark'))),
         const Size(40, 40),
       );
+      // Gap 12 between the parts, and the action 8 lower.
       expect(
         tester.getTopLeft(find.text('Choose your exam')).dy -
             tester.getBottomLeft(find.byKey(const ValueKey('state-mark'))).dy,
-        6,
+        12,
       );
       expect(
         tester
                 .getTopLeft(find.text('Pick the exam you are reviewing for.'))
                 .dy -
             tester.getBottomLeft(find.text('Choose your exam')).dy,
-        6,
+        12,
       );
       expect(
         tester.getTopLeft(find.byType(PantasButton)).dy -
@@ -63,32 +69,29 @@ void main() {
                   find.text('Pick the exam you are reviewing for.'),
                 )
                 .dy,
-        6,
+        20,
       );
       final action = tester.widget<PantasButton>(find.byType(PantasButton));
       expect(action.variant, PantasButtonVariant.primary);
-      expect(action.height, 48);
-      expect(tester.getSize(find.byType(PantasButton)).height, 48);
-      expect(action.radius, 14);
-      final button = tester.widget<TextButton>(find.byType(TextButton));
-      expect(button.style!.padding!.resolve({})!.horizontal, 52);
+      // The action is 44 high and keeps its natural width.
+      expect(action.height, PantasSize.btn);
+      expect(action.radius, PantasRadius.full);
       expect(
         tester.getSize(find.byType(PantasButton)).width,
-        closeTo(tester.getSize(find.text('Choose Exam')).width + 52, .01),
+        lessThan(390 - 48),
       );
       final padding = tester
           .widget<Padding>(find.byKey(const ValueKey('state-primary-content')));
-      expect(padding.padding, const EdgeInsets.fromLTRB(36, 0, 36, 150));
+      expect(
+        padding.padding,
+        const EdgeInsets.fromLTRB(24, 0, 24, PantasLayout.reserveBar),
+      );
       final mark = tester
           .widget<IconTheme>(find.byKey(const ValueKey('state-icon-theme')));
       final context = tester.element(find.byType(StateView));
-      expect(mark.data.color, context.colors.chevron);
-      expectContrast(title.style!.color!, context.colors.background);
-      expectContrast(detail.style!.color!, context.colors.background);
-      expectContrast(
-        tester.widget<Text>(find.text('Choose Exam')).style!.color!,
-        button.style!.backgroundColor!.resolve({})!,
-      );
+      expect(mark.data.color, context.colors.iconMuted);
+      expectContrast(title.style!.color!, context.colors.bgPage);
+      expectContrast(detail.style!.color!, context.colors.bgPage);
       await tester.sendKeyEvent(LogicalKeyboardKey.tab);
       await tester.sendKeyEvent(LogicalKeyboardKey.enter);
       expect(picks, 1);

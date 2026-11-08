@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/pantas_sheet.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_shadow.dart';
 
 import '../../../helpers/accessibility.dart';
 
@@ -120,13 +123,32 @@ void main() {
         final sheet = find.byKey(const ValueKey('pantas-sheet-surface'));
         expect(
           tester.getSize(sheet).height,
-          bookmarks ? closeTo(624.56, .01) : 200,
+          // 200 of content plus the grabber: 8 above and 5 high.
+          bookmarks ? closeTo(624.56, .01) : 213,
         );
         final decoration =
             tester.widget<DecoratedBox>(sheet).decoration as BoxDecoration;
         expect(
           decoration.borderRadius,
-          const BorderRadius.vertical(top: Radius.circular(22)),
+          const BorderRadius.vertical(top: Radius.circular(PantasRadius.lg)),
+        );
+        expect(
+          decoration.color,
+          (brightness == Brightness.dark
+                  ? PantasColors.dark
+                  : PantasColors.light)
+              .surfaceModal,
+        );
+        expect(
+          decoration.boxShadow,
+          (brightness == Brightness.dark
+                  ? PantasShadow.dark
+                  : PantasShadow.light)
+              .sheet,
+        );
+        expect(
+          tester.getSize(find.byKey(const ValueKey('pantas-sheet-grabber'))),
+          const Size(36, 5),
         );
         final pageScale = tester.widget<Transform>(
           find.byKey(const ValueKey('pantas-sheet-page-scale')),

@@ -149,7 +149,7 @@ void main() {
       await pumpAccessibilitySurface(tester, picker, brightness: brightness);
       await tester.tap(find.byKey(const ValueKey('scope-select-t')));
       await tester.pump();
-      await tester.pump(const Duration(milliseconds: 110));
+      await tester.pump(const Duration(milliseconds: 105));
       final scale = tester.widget<Transform>(
         find.descendant(
           of: find.byKey(const ValueKey('scope-select-t')),
@@ -164,10 +164,13 @@ void main() {
       );
       expect(
         scale.transform.storage[0],
-        closeTo(.5 + .5 * PantasCurves.popB.transform(.5), .002),
+        closeTo(.4 + .6 * PantasCurves.enter.transform(105 / 420), .002),
       );
-      expect(opacity.opacity, 1);
-      await tester.pump(const Duration(milliseconds: 110));
+      expect(
+        opacity.opacity,
+        closeTo(PantasCurves.enter.transform(105 / 420), .002),
+      );
+      await tester.pump(const Duration(milliseconds: 315));
       expect(
         tester
             .widget<Transform>(

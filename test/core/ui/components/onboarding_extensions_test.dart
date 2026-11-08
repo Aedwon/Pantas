@@ -9,6 +9,7 @@ import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/components/value_wheel.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 
 import '../../../helpers/accessibility.dart';
 import 'w2_test_support.dart';
@@ -80,13 +81,14 @@ void main() {
       final mark = find.byKey(const ValueKey('selection-mark'));
       final transform =
           find.descendant(of: mark, matching: find.byType(Transform));
-      expect(tester.widget<Transform>(transform).transform.storage[0], .5);
+      expect(tester.widget<Transform>(transform).transform.storage[0], .4);
       await tester.pump(const Duration(milliseconds: 110));
+      // dur-medium-3 (420ms) on motion-enter; the mark grows from .4 to 1.
       expect(
         tester.widget<Transform>(transform).transform.storage[0],
-        closeTo(.5 + .5 * PantasCurves.popB.transform(.5), .002),
+        closeTo(.4 + .6 * PantasCurves.enter.transform(110 / 420), .002),
       );
-      await tester.pump(const Duration(milliseconds: 200));
+      await tester.pump(const Duration(milliseconds: 320));
       expect(tester.widget<Transform>(transform).transform.storage[0], 1);
     } finally {
       semantics.dispose();
@@ -133,7 +135,8 @@ void main() {
       paints
         ..path(
           color: colors.onAccent,
-          strokeWidth: 2,
+          // The system's 3.2 stroke in a 24 unit mask drawn at 14.
+          strokeWidth: 1.8666666746139526, // 3.2 * 14 / 24 as a 32-bit float
           style: PaintingStyle.stroke,
         ),
     );
@@ -145,7 +148,7 @@ void main() {
           matching: find.byType(CustomPaint),
         ),
       ),
-      const Size(16, 16),
+      const Size(14, 14),
     );
   });
 
@@ -276,26 +279,23 @@ void main() {
           const Size(24, 24),
         );
         final decoration = mark.decoration! as BoxDecoration;
-        expect(decoration.borderRadius, BorderRadius.circular(7));
+        expect(decoration.borderRadius, BorderRadius.circular(8));
         expect((decoration.border! as Border).top.width, 1.5);
         final colors = tester.element(find.byType(ListRow)).colors;
         // Aedwon, Nov 2: light mode asserts the O_Consent board ring color;
         // dark mode keeps the 3:1 guard.
-        if (brightness == Brightness.light) {
-          expect((decoration.border! as Border).top.color, colors.chevron);
-        } else {
-          expectContrast(
-            (decoration.border! as Border).top.color,
-            colors.surface,
-            minimum: 3,
-          );
-        }
+        expect((decoration.border! as Border).top.color, colors.borderControl);
+        expectContrast(
+          (decoration.border! as Border).top.color,
+          colors.surface,
+          minimum: 3,
+        );
         final label = tester.widget<Text>(
           find.text('Help improve Pantas by sharing usage data'),
         );
         expect(label.maxLines, isNull);
         expect(label.style!.fontSize, 16);
-        expect(label.style!.height, 1.4);
+        expect(label.style!.height, 1.3);
         expect(tester.takeException(), isNull);
       });
 
@@ -314,16 +314,17 @@ void main() {
         );
         final title =
             tester.widget<Text>(find.text("Pantas isn't available yet"));
-        expect(title.style!.fontSize, 26);
+        // StateView draws the system `.state`: phone-title-3 and phone-callout.
+        expect(title.style!.fontSize, PantasType.phoneTitle3.fontSize);
         expect(title.style!.fontWeight, FontWeight.w700);
-        expect(title.style!.height, 1.35);
+        expect(title.style!.height, PantasType.phoneTitle3.height);
         final detail = tester.widget<Text>(
           find.text("Sorry, this app isn't available for users under 13."),
         );
-        expect(detail.style!.fontSize, 17);
+        expect(detail.style!.fontSize, PantasType.phoneCallout.fontSize);
         expect(
           tester.getSize(find.byKey(const ValueKey('state-mark'))),
-          const Size(72, 72),
+          const Size(40, 40),
         );
         expect(tester.takeException(), isNull);
       });

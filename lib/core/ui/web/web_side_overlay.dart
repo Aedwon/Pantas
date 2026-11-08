@@ -3,8 +3,16 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:pantas/core/ui/components/check_mark.dart';
+import 'package:pantas/core/ui/components/pantas_shadows.dart';
 import 'package:pantas/core/ui/components/progress_ring.dart';
+import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 
@@ -17,7 +25,7 @@ class HomeWebOverlay extends StatefulWidget {
     required this.onDismiss,
     required this.label,
     this.drawer = false,
-    this.dialogWidth = 560,
+    this.dialogWidth = PantasLayout.modalWide,
     super.key,
   });
   final Widget page;
@@ -103,6 +111,9 @@ class _HomeWebOverlayState extends State<HomeWebOverlay>
     }
   }
 
+  /// Space the dialog keeps from the window edge, top and bottom together.
+  static const double _dialogMargin = PantasSpace.s24 * 2;
+
   @override
   Widget build(BuildContext context) => PopScope(
         canPop: !widget.open,
@@ -120,9 +131,25 @@ class _HomeWebOverlayState extends State<HomeWebOverlay>
         ),
       );
 
+  /// The Close control: a 44 point target around the 20 point glyph.
+  Widget _closeButton(PantasColors colors) => IconButton(
+        tooltip: 'Close',
+        onPressed: widget.onDismiss,
+        style: IconButton.styleFrom(
+          fixedSize: const Size.square(PantasSize.iconBtn),
+          visualDensity: VisualDensity.standard,
+        ),
+        icon: Icon(
+          PantasIcons.close,
+          size: PantasSize.icon,
+          color: colors.textSecondary,
+        ),
+      );
+
   Widget _overlay(BuildContext context) {
     final held = _held;
     final style = _style;
+    final colors = context.webTokens.colors;
     return Positioned.fill(
       child: Stack(
         children: [
@@ -130,8 +157,8 @@ class _HomeWebOverlayState extends State<HomeWebOverlay>
             color:
                 _motion.drive(CurveTween(curve: style.routeScrimCurve)).drive(
                       ColorTween(
-                        begin: Colors.black.withValues(alpha: 0),
-                        end: Colors.black.withValues(alpha: .28),
+                        begin: colors.scrim.withValues(alpha: 0),
+                        end: colors.scrim,
                       ),
                     ),
             dismissible: widget.open,
@@ -158,66 +185,62 @@ class _HomeWebOverlayState extends State<HomeWebOverlay>
                         explicitChildNodes: true,
                         namesRoute: true,
                         label: held.label,
-                        child: Material(
-                          key: ValueKey(
-                            held.drawer ? 'home-web-drawer' : 'home-web-dialog',
+                        child: DecoratedBox(
+                          decoration: BoxDecoration(
+                            borderRadius: held.drawer
+                                ? null
+                                : BorderRadius.circular(PantasRadius.r2xl),
+                            boxShadow: held.drawer
+                                ? context.shadows.drawer
+                                : context.shadows.modal,
                           ),
-                          color: held.drawer
-                              ? context.webTokens.colors.background
-                              : context.webTokens.colors.surface,
-                          borderRadius:
-                              held.drawer ? null : BorderRadius.circular(22),
-                          clipBehavior: Clip.antiAlias,
-                          child: SizedBox(
-                            width: held.drawer ? 440 : held.dialogWidth,
-                            child: ConstrainedBox(
-                              constraints: BoxConstraints(
-                                maxHeight: MediaQuery.sizeOf(context).height -
-                                    (held.drawer ? 0 : 48),
+                          child: Material(
+                            key: ValueKey(
+                              held.drawer
+                                  ? 'home-web-drawer'
+                                  : 'home-web-dialog',
+                            ),
+                            color: held.drawer
+                                ? colors.bgPage
+                                : colors.surfaceModal,
+                            borderRadius: held.drawer
+                                ? null
+                                : BorderRadius.circular(PantasRadius.r2xl),
+                            clipBehavior: Clip.antiAlias,
+                            child: SizedBox(
+                              width: held.drawer
+                                  ? PantasLayout.drawer
+                                  : held.dialogWidth,
+                              child: ConstrainedBox(
+                                constraints: BoxConstraints(
+                                  maxHeight: MediaQuery.sizeOf(context).height -
+                                      (held.drawer ? 0 : _dialogMargin),
+                                ),
+                                child: held.drawer
+                                    ? Stack(
+                                        fit: StackFit.expand,
+                                        children: [
+                                          held.child,
+                                          // Board `.ib`: 44 px, centred on
+                                          // the header's title block.
+                                          Positioned(
+                                            top: 26.5,
+                                            right: 16,
+                                            child: _closeButton(colors),
+                                          ),
+                                        ],
+                                      )
+                                    : Stack(
+                                        children: [
+                                          held.child,
+                                          Positioned(
+                                            top: 14,
+                                            right: 16,
+                                            child: _closeButton(colors),
+                                          ),
+                                        ],
+                                      ),
                               ),
-                              child: held.drawer
-                                  ? Stack(
-                                      fit: StackFit.expand,
-                                      children: [
-                                        held.child,
-                                        // Board `.ib`: 44 px, centred on
-                                        // the header's title block.
-                                        Positioned(
-                                          top: 26.5,
-                                          right: 16,
-                                          child: IconButton(
-                                            tooltip: 'Close',
-                                            onPressed: widget.onDismiss,
-                                            style: IconButton.styleFrom(
-                                              fixedSize: const Size(44, 44),
-                                              visualDensity:
-                                                  VisualDensity.standard,
-                                            ),
-                                            icon: const Icon(
-                                              Icons.close,
-                                              size: 18,
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    )
-                                  : Stack(
-                                      children: [
-                                        held.child,
-                                        Positioned(
-                                          top: 14,
-                                          right: 16,
-                                          child: IconButton(
-                                            tooltip: 'Close',
-                                            onPressed: widget.onDismiss,
-                                            icon: const Icon(
-                                              Icons.close,
-                                              size: 18,
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
                             ),
                           ),
                         ),
@@ -240,9 +263,12 @@ class HomeDrawerRing extends StatelessWidget {
   final double fraction;
   final bool done;
 
+  /// The 22 point box that holds the 20 point ring or the check.
+  static const double _box = PantasSize.icon + PantasSpace.s2;
+
   @override
   Widget build(BuildContext context) => SizedBox.square(
-        dimension: 22,
+        dimension: _box,
         child: done
             ? const FittedBox(child: CheckMark())
             : Center(
@@ -254,7 +280,7 @@ class HomeDrawerRing extends StatelessWidget {
                         emptyStrokeWidth: 2,
                         emptyTrackColor: context.webTokens.dark
                             ? null
-                            : const Color(0xFFD1D1D6),
+                            : context.webTokens.colors.dividerStrong,
                       ),
               ),
       );
@@ -279,7 +305,10 @@ class HomeDrawerQuestionRow extends StatelessWidget {
   Widget build(BuildContext context) => WebRow(
         title: title,
         wrapTitle: true,
-        titleStyle: context.webTokens.style(16, height: 1.3),
+        titleStyle: PantasType.webBody.copyWith(
+          height: 1.3,
+          color: context.webTokens.colors.textPrimary,
+        ),
         boardMetrics: true,
         divider: !last,
         value: '$total',
@@ -311,6 +340,10 @@ class HomeWebQuestionsSheet extends StatelessWidget {
   final VoidCallback? onStart;
   final bool busy;
   final Widget? failure;
+
+  /// Space above the title: 22.
+  static const double _headTop = PantasSpace.s20 + PantasSpace.s2;
+
   @override
   Widget build(BuildContext context) => CallbackShortcuts(
         bindings: {
@@ -327,7 +360,12 @@ class HomeWebQuestionsSheet extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Padding(
-                padding: const EdgeInsets.fromLTRB(24, 22, 16, 14),
+                padding: const EdgeInsets.fromLTRB(
+                  PantasSpace.s24,
+                  _headTop,
+                  PantasSpace.s16,
+                  PantasSpace.s14,
+                ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -341,9 +379,10 @@ class HomeWebQuestionsSheet extends StatelessWidget {
               ),
               Expanded(
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: PantasSpace.s16),
                   child: SingleChildScrollView(
-                    padding: const EdgeInsets.only(bottom: 16),
+                    padding: const EdgeInsets.only(bottom: PantasSpace.s16),
                     child: title == 'Lessons'
                         ? Column(mainAxisSize: MainAxisSize.min, children: rows)
                         : WebCard(
@@ -358,11 +397,16 @@ class HomeWebQuestionsSheet extends StatelessWidget {
               if (failure != null) failure!,
               if (onStart != null)
                 Container(
-                  padding: const EdgeInsets.fromLTRB(16, 14, 16, 18),
+                  padding: const EdgeInsets.fromLTRB(
+                    PantasSpace.s16,
+                    PantasSpace.s14,
+                    PantasSpace.s16,
+                    PantasSpace.s18,
+                  ),
                   decoration: BoxDecoration(
                     border: Border(
                       top: BorderSide(
-                        color: context.webTokens.colors.separator,
+                        color: context.webTokens.colors.divider,
                         width: webHairline(context),
                       ),
                     ),

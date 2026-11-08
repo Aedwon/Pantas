@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:pantas/core/platform/install/install_platform.dart';
 import 'package:pantas/core/ui/components/pantas_logo.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 
@@ -55,9 +58,10 @@ class InstallCard extends StatelessWidget {
           variant: WebButtonVariant.tertiary,
           onPressed: onNotNow,
         );
-        final titleStyle =
-            wide ? t.h3 : t.h3.copyWith(fontSize: 18, letterSpacing: -.216);
-        final bodyStyle = wide ? t.sub : t.sub.copyWith(fontSize: 14);
+        final titleStyle = (wide ? PantasType.webH3 : PantasType.phoneTitle3)
+            .copyWith(color: t.colors.textPrimary);
+        final bodyStyle = (wide ? PantasType.webSub : PantasType.webRowSub)
+            .copyWith(color: t.colors.textSecondary);
         final text = Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -65,43 +69,46 @@ class InstallCard extends StatelessWidget {
               header: true,
               child: Text(title, style: titleStyle),
             ),
-            const SizedBox(height: 4),
+            const SizedBox(height: PantasSpace.s4),
             Text(body, style: bodyStyle),
           ],
         );
         if (wide) {
           return WebCard(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
+            padding: const EdgeInsets.symmetric(
+              horizontal: PantasSpace.s20,
+              vertical: PantasSpace.s18,
+            ),
             child: Row(
               children: [
-                const PantasLogo(size: 44),
-                const SizedBox(width: 18),
+                const PantasLogo(size: PantasSize.avatarLg),
+                const SizedBox(width: PantasSpace.s18),
                 Expanded(child: text),
-                const SizedBox(width: 18),
+                const SizedBox(width: PantasSpace.s18),
                 notNow,
-                const SizedBox(width: 10),
+                const SizedBox(width: PantasSpace.s10),
                 primary,
               ],
             ),
           );
         }
         return WebCard(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.all(PantasSpace.s16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const PantasLogo(size: 40),
-                  const SizedBox(width: 14),
+                  const PantasLogo(size: PantasSpace.s40),
+                  const SizedBox(width: PantasSpace.s14),
                   Expanded(child: text),
                 ],
               ),
-              const SizedBox(height: 14),
+              const SizedBox(height: PantasSpace.s14),
               Wrap(
-                spacing: 10,
-                runSpacing: 10,
+                spacing: PantasSpace.s10,
+                runSpacing: PantasSpace.s10,
                 crossAxisAlignment: WrapCrossAlignment.center,
                 children: [primary, notNow],
               ),

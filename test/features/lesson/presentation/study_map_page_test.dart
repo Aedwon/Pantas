@@ -111,6 +111,13 @@ void main() {
   });
 
   testWidgets('a populated map displays subjects and topics', (tester) async {
+    // The list builds lazily and the bookmarks error state (no bookmarks
+    // override here) is taller now, so the view is tall enough for the
+    // subject to be built.
+    tester.view.physicalSize = const Size(390, 2400);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
     const map = StudyMap(
       examShortName: 'UPCAT',
       subjects: [

@@ -278,7 +278,9 @@ void main() {
     );
     expect(
       transform.transform.storage[0],
-      closeTo(.5 + .5 * PantasCurves.popB.transform(.5), .001),
+      // Radio README: the check pops over `dur-medium-3` (420 ms) from scale
+      // .4 on `motion-enter` (bundle.css `pn-pop`).
+      closeTo(.4 + .6 * PantasCurves.enter.transform(110 / 420), .001),
     );
     await tester.pumpAndSettle();
   });

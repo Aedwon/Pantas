@@ -5,6 +5,7 @@ import 'package:pantas/core/ui/components/button_pair.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 
 import '../../../helpers/accessibility.dart';
 import 'w2_test_support.dart';
@@ -119,9 +120,10 @@ void main() {
       );
       expect(
         tester.widget<Text>(find.text('Save')).style!.color,
+        // A disabled label is the `text-disabled` role (design system 4.0).
         brightness == Brightness.light
-            ? const Color(0xFF6E6E73)
-            : const Color(0xFFA3A3A3),
+            ? PantasColors.light.textDisabled
+            : PantasColors.dark.textDisabled,
       );
       for (final stacked in [true, false]) {
         await pumpAccessibilitySurface(

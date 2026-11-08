@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
-import 'package:pantas/core/ui/web/web_tokens.dart';
 
 /// What a start says when another quiz is paused. Starting never discards a
 /// paused quiz, so the student resumes it or discards it, the same two
-/// choices the Quiz tab's paused card offers.
+/// choices the Quiz tab's paused card offers. It follows the Notice pattern:
+/// one sentence in `text-secondary`, then the actions.
 class PausedQuizNotice extends StatelessWidget {
   const PausedQuizNotice({
     required this.onResume,
@@ -23,14 +26,19 @@ class PausedQuizNotice extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final wide = context.wideWeb;
-    final line = wide
-        ? context.webTokens.sub
-        : context.type.subhead.copyWith(color: context.colors.secondaryLabel);
+    final colors = context.colors;
+    final line = (wide ? PantasType.webSub : PantasType.phoneExplanation)
+        .copyWith(color: colors.textSecondary);
     return Semantics(
       liveRegion: true,
       child: Padding(
-        // The wide panel pads its rows by 16 px; the phone sheet pads itself.
-        padding: EdgeInsets.fromLTRB(wide ? 16 : 0, 4, wide ? 16 : 0, 14),
+        // The wide panel pads its rows by 16; the phone sheet pads itself.
+        padding: EdgeInsets.fromLTRB(
+          wide ? PantasSpace.s16 : PantasSpace.s0,
+          PantasSpace.s4,
+          wide ? PantasSpace.s16 : PantasSpace.s0,
+          PantasSpace.s14,
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
@@ -39,10 +47,10 @@ class PausedQuizNotice extends StatelessWidget {
               'questions.',
               style: line,
             ),
-            const SizedBox(height: 12),
+            const SizedBox(height: PantasSpace.s12),
             if (wide) ...[
               WebButton(label: 'Resume', expand: true, onPressed: onResume),
-              const SizedBox(height: 6),
+              const SizedBox(height: PantasSpace.s6),
               WebButton(
                 label: 'Discard this session',
                 variant: WebButtonVariant.tertiary,
@@ -51,13 +59,18 @@ class PausedQuizNotice extends StatelessWidget {
               ),
             ] else ...[
               PantasButton(label: 'Resume', onPressed: onResume),
-              const SizedBox(height: 6),
+              const SizedBox(height: PantasSpace.s6),
               TextButton(
                 onPressed: onDiscard,
+                style: TextButton.styleFrom(
+                  minimumSize: const Size(
+                    PantasSize.targetTouch,
+                    PantasSize.targetTouch,
+                  ),
+                ),
                 child: Text(
                   'Discard this session',
-                  style: context.type.subheadStrong
-                      .copyWith(color: context.colors.accent),
+                  style: PantasType.webLink.copyWith(color: colors.accent),
                 ),
               ),
             ],

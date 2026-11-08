@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_opacity.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 
 class ValueWheel extends StatefulWidget {
   const ValueWheel({
@@ -9,6 +15,8 @@ class ValueWheel extends StatefulWidget {
     required this.onSelected,
     required this.label,
     this.invalidIndices = const {},
+    this.shortValues,
+    this.groupShare = .5,
     super.key,
   })  : horizontal = false,
         birthYear = false;
@@ -20,6 +28,8 @@ class ValueWheel extends StatefulWidget {
     super.key,
   })  : horizontal = false,
         birthYear = true,
+        shortValues = null,
+        groupShare = 1,
         invalidIndices = const {};
   const ValueWheel.horizontal({
     required this.values,
@@ -29,6 +39,8 @@ class ValueWheel extends StatefulWidget {
     this.invalidIndices = const {},
     super.key,
   })  : horizontal = true,
+        shortValues = null,
+        groupShare = 1,
         birthYear = false;
   final bool horizontal;
   final bool birthYear;
@@ -37,16 +49,27 @@ class ValueWheel extends StatefulWidget {
   final ValueChanged<int> onSelected;
   final String label;
   final Set<int> invalidIndices;
+
+  /// A shorter text for each value (Jan, Feb for January, February). The
+  /// wheel draws it when its column is narrow (the group is under
+  /// `layout-wheel-full`, 21rem, wide); the full value stays the accessible
+  /// name (D190 item 6).
+  final List<String>? shortValues;
+
+  /// The share of the wheel group this wheel's column takes, for the width
+  /// test above (the month wheel of a month, day, year group is about half).
+  final double groupShare;
   @override
   State<ValueWheel> createState() => _ValueWheelState();
 }
 
 class _ValueWheelState extends State<ValueWheel> {
+  static const double _cellBase = PantasSpace.s56;
   late final FixedExtentScrollController _scroll =
       FixedExtentScrollController(initialItem: widget.selectedIndex);
   late final ScrollController _horizontalScroll =
-      ScrollController(initialScrollOffset: widget.selectedIndex * 56);
-  double _cellWidth = 56;
+      ScrollController(initialScrollOffset: widget.selectedIndex * _cellBase);
+  double _cellWidth = _cellBase;
   bool _jumping = false;
 
   void jumpHorizontal(double offset) {
@@ -110,12 +133,21 @@ class _ValueWheelState extends State<ValueWheel> {
   @override
   Widget build(BuildContext context) {
     if (widget.values.isEmpty) return const SizedBox.shrink();
-    final extent =
-        MediaQuery.textScalerOf(context).scale(widget.birthYear ? 22 : 20) *
-                1.35 +
-            (widget.birthYear ? 14 : 6);
-    final minimum = widget.birthYear ? 44.0 : 36.0;
-    final row = extent > minimum ? extent : minimum;
+    final scaler = MediaQuery.textScalerOf(context);
+    final colors = context.colors;
+    // The row height follows the scaled line (D190): the larger of 36 and the
+    // wheel line plus 16 (the birth year wheel: its 22 px line plus 14, 44 at
+    // least). The viewport, the snap spacing and the band share it.
+    final line = widget.birthYear
+        ? scaler.scale(PantasType.phoneTitle2.fontSize!) *
+                PantasType.phoneTitle2.height! +
+            PantasSpace.s14
+        : scaler.scale(PantasType.phoneWheel.fontSize!) *
+                PantasType.phoneWheel.height! +
+            PantasSpace.s16;
+    final minimum =
+        widget.birthYear ? PantasSize.targetTouch : PantasSize.wheelRow;
+    final row = line > minimum ? line : minimum;
     return Semantics(
       label: widget.label,
       value: widget.values[widget.selectedIndex],
@@ -148,17 +180,18 @@ class _ValueWheelState extends State<ValueWheel> {
                     alignment: Alignment.center,
                     children: [
                       Positioned(
-                        left: widget.birthYear ? 0 : 12,
-                        right: widget.birthYear ? 0 : 12,
+                        left: widget.birthYear ? 0 : PantasSpace.s12,
+                        right: widget.birthYear ? 0 : PantasSpace.s12,
                         child: Container(
                           key: const ValueKey('wheel-selection'),
                           height: row,
                           decoration: BoxDecoration(
-                            color: widget.birthYear
-                                ? context.colors.fill
-                                : context.colors.background,
+                            color:
+                                widget.birthYear ? colors.fill : colors.bgPage,
                             borderRadius: BorderRadius.circular(
-                              widget.birthYear ? 10 : 9,
+                              widget.birthYear
+                                  ? PantasRadius.md
+                                  : PantasRadius.sm,
                             ),
                           ),
                         ),
@@ -177,37 +210,46 @@ class _ValueWheelState extends State<ValueWheel> {
                         childDelegate: ListWheelChildBuilderDelegate(
                           childCount: widget.values.length,
                           builder: (context, i) => Center(
-                            child: Text(
-                              widget.values[i],
-                              style: context.type.body.copyWith(
-                                fontFeatures: widget.birthYear
-                                    ? const [FontFeature.tabularFigures()]
-                                    : null,
-                                fontSize: widget.birthYear
-                                    ? (i == widget.selectedIndex ? 22 : 19)
-                                    : 20,
-                                letterSpacing: widget.birthYear
-                                    ? (i == widget.selectedIndex
-                                        ? -.264
-                                        : -.228)
-                                    : -.24,
-                                fontWeight: i == widget.selectedIndex
-                                    ? (widget.birthYear
-                                        ? FontWeight.w600
-                                        : FontWeight.w500)
-                                    : FontWeight.w400,
-                                color: i == widget.selectedIndex ||
-                                        (widget.birthYear &&
-                                            (i - widget.selectedIndex).abs() ==
-                                                1)
-                                    ? context.colors.label
-                                    : widget.birthYear
-                                        ? context.colors.secondaryLabel
-                                        : context.colors.tertiaryLabel,
-                                decoration: widget.invalidIndices.contains(i)
-                                    ? TextDecoration.lineThrough
-                                    : null,
-                              ),
+                            child: LayoutBuilder(
+                              builder: (context, box) {
+                                final compact = widget.shortValues != null &&
+                                    box.maxWidth < _compactBelow(scaler);
+                                final selected = i == widget.selectedIndex;
+                                final base = widget.birthYear
+                                    ? (selected
+                                        ? PantasType.phoneTitle2.copyWith(
+                                            fontWeight: FontWeight.w600,
+                                          )
+                                        : PantasType.webSearchInput)
+                                    : PantasType.phoneWheel.copyWith(
+                                        fontWeight: selected
+                                            ? FontWeight.w500
+                                            : FontWeight.w400,
+                                      );
+                                return Text(
+                                  compact
+                                      ? widget.shortValues![i]
+                                      : widget.values[i],
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: base.copyWith(
+                                    fontFeatures: widget.birthYear
+                                        ? const [FontFeature.tabularFigures()]
+                                        : null,
+                                    color: selected ||
+                                            (widget.birthYear &&
+                                                (i - widget.selectedIndex)
+                                                        .abs() ==
+                                                    1)
+                                        ? colors.textPrimary
+                                        : colors.textSecondary,
+                                    decoration:
+                                        widget.invalidIndices.contains(i)
+                                            ? TextDecoration.lineThrough
+                                            : null,
+                                  ),
+                                );
+                              },
                             ),
                           ),
                         ),
@@ -220,10 +262,21 @@ class _ValueWheelState extends State<ValueWheel> {
     );
   }
 
+  /// The column width under which the short values show: the group's
+  /// `layout-wheel-full` (21rem at the scaled text), times this column's share.
+  double _compactBelow(TextScaler scaler) =>
+      PantasLayout.wheelFull *
+      scaler.scale(PantasSpace.s16) /
+      PantasSpace.s16 *
+      widget.groupShare;
+
   Widget horizontalWheel(BuildContext context) {
-    final scale = MediaQuery.textScalerOf(context).scale(19) / 19;
-    final widthChanged = _cellWidth != 56 * scale;
-    _cellWidth = 56 * scale;
+    final colors = context.colors;
+    final scale = MediaQuery.textScalerOf(context)
+            .scale(PantasType.webSearchInput.fontSize!) /
+        PantasType.webSearchInput.fontSize!;
+    final widthChanged = _cellWidth != _cellBase * scale;
+    _cellWidth = _cellBase * scale;
     if (widthChanged) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         if (mounted && _horizontalScroll.hasClients) {
@@ -231,88 +284,93 @@ class _ValueWheelState extends State<ValueWheel> {
         }
       });
     }
-    final height = 48 * scale;
+    final height = PantasSize.field * scale;
     return LayoutBuilder(
-      builder: (context, constraints) => SizedBox(
-        height: height,
-        child: Stack(
-          alignment: Alignment.center,
-          children: [
-            Container(
-              width: _cellWidth,
-              height: 40 * scale,
-              decoration: BoxDecoration(
-                color: context.colors.accentTint,
-                borderRadius: BorderRadius.circular(10),
+      builder: (context, constraints) {
+        final sidePad = (constraints.maxWidth - _cellWidth) / 2;
+        return SizedBox(
+          height: height,
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+              Container(
+                width: _cellWidth,
+                height: PantasSpace.s40 * scale,
+                decoration: BoxDecoration(
+                  color: colors.accentTint,
+                  borderRadius: BorderRadius.circular(PantasRadius.md),
+                ),
               ),
-            ),
-            NotificationListener<ScrollEndNotification>(
-              onNotification: (notification) {
-                if (_jumping) return false;
-                final raw = (_horizontalScroll.offset / _cellWidth).round();
-                final valid = [
-                  for (var i = 0; i < widget.values.length; i++)
-                    if (!widget.invalidIndices.contains(i)) i,
-                ];
-                if (valid.isEmpty) return false;
-                valid
-                    .sort((a, b) => (a - raw).abs().compareTo((b - raw).abs()));
-                final next = valid.first;
-                if (next != widget.selectedIndex) widget.onSelected(next);
-                final target = next * _cellWidth;
-                if ((_horizontalScroll.offset - target).abs() > .1) {
-                  jumpHorizontal(target);
-                }
-                return false;
-              },
-              child: ShaderMask(
-                blendMode: BlendMode.dstIn,
-                shaderCallback: (bounds) => LinearGradient(
-                  colors: [
-                    context.colors.transparent,
-                    context.colors.label,
-                    context.colors.label,
-                    context.colors.transparent,
-                  ],
-                  stops: const [0, .22, .78, 1],
-                ).createShader(bounds),
-                child: ListView.builder(
-                  controller: _horizontalScroll,
-                  scrollDirection: Axis.horizontal,
-                  itemExtent: _cellWidth,
-                  padding: EdgeInsets.symmetric(
-                    horizontal: (constraints.maxWidth - _cellWidth) / 2,
-                  ),
-                  itemCount: widget.values.length,
-                  itemBuilder: (context, i) => Opacity(
-                    opacity: widget.invalidIndices.contains(i) ? .3 : 1,
-                    child: Center(
-                      key: ValueKey('wheel-cell-$i'),
-                      child: Text(
-                        widget.values[i],
-                        style: context.type.body.copyWith(
-                          fontSize: i == widget.selectedIndex ? 19 : 16,
-                          fontWeight: i == widget.selectedIndex
-                              ? FontWeight.w700
-                              : FontWeight.w500,
-                          height: 1.35,
-                          letterSpacing: i == widget.selectedIndex ? -.228 : 0,
-                          color: i == widget.selectedIndex
-                              ? context.colors.label
-                              : context.colors.secondaryLabel,
-                          decoration: widget.invalidIndices.contains(i)
-                              ? TextDecoration.lineThrough
-                              : null,
+              NotificationListener<ScrollEndNotification>(
+                onNotification: (notification) {
+                  if (_jumping) return false;
+                  final raw = (_horizontalScroll.offset / _cellWidth).round();
+                  final valid = [
+                    for (var i = 0; i < widget.values.length; i++)
+                      if (!widget.invalidIndices.contains(i)) i,
+                  ];
+                  if (valid.isEmpty) return false;
+                  valid.sort(
+                    (a, b) => (a - raw).abs().compareTo((b - raw).abs()),
+                  );
+                  final next = valid.first;
+                  if (next != widget.selectedIndex) widget.onSelected(next);
+                  final target = next * _cellWidth;
+                  if ((_horizontalScroll.offset - target).abs() > .1) {
+                    jumpHorizontal(target);
+                  }
+                  return false;
+                },
+                child: ShaderMask(
+                  blendMode: BlendMode.dstIn,
+                  shaderCallback: (bounds) => LinearGradient(
+                    colors: [
+                      Colors.transparent,
+                      colors.textPrimary,
+                      colors.textPrimary,
+                      Colors.transparent,
+                    ],
+                    stops: const [0, .22, .78, 1],
+                  ).createShader(bounds),
+                  child: ListView.builder(
+                    controller: _horizontalScroll,
+                    scrollDirection: Axis.horizontal,
+                    itemExtent: _cellWidth,
+                    padding: EdgeInsets.symmetric(horizontal: sidePad),
+                    itemCount: widget.values.length,
+                    itemBuilder: (context, i) => Opacity(
+                      opacity: widget.invalidIndices.contains(i)
+                          ? PantasOpacity.disabled
+                          : 1,
+                      child: Center(
+                        key: ValueKey('wheel-cell-$i'),
+                        child: Text(
+                          widget.values[i],
+                          style: (i == widget.selectedIndex
+                                  ? PantasType.webSearchInput
+                                  : PantasType.webBody)
+                              .copyWith(
+                            fontWeight: i == widget.selectedIndex
+                                ? FontWeight.w700
+                                : FontWeight.w500,
+                            height: PantasType.webBody.height,
+                            color: i == widget.selectedIndex
+                                ? colors.textPrimary
+                                : colors.textSecondary,
+                            decoration: widget.invalidIndices.contains(i)
+                                ? TextDecoration.lineThrough
+                                : null,
+                          ),
                         ),
                       ),
                     ),
                   ),
                 ),
               ),
-            ),
-          ],
-        ),
-      ),
+            ],
+          ),
+        );
+      },
     );
   }
 }

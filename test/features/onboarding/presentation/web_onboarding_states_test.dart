@@ -119,7 +119,8 @@ void main() {
       final box = tester.widget<Container>(termsBox);
       expect(
         (box.decoration! as BoxDecoration).borderRadius,
-        BorderRadius.circular(7),
+        // Checkbox README: radius `radius-sm` (8), changed from 7 in 2.0.
+        BorderRadius.circular(8),
       );
       await tester.tap(termsBox);
       await tester.pump();

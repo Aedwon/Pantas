@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -8,6 +10,7 @@ import 'package:pantas/core/ui/components/today_questions.dart';
 import 'package:pantas/core/ui/components/week_strip.dart';
 import 'package:pantas/core/ui/theme/legacy_theme_shim.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 
 import '../../../helpers/accessibility.dart';
 import 'w2_test_support.dart';
@@ -100,7 +103,9 @@ void main() {
           ..circle(radius: 10.5)
           ..something((method, args) {
             if (method != #drawArc) return false;
-            expect(args[2] as double, closeTo(3.1184549092656737, .002));
+            // The arc waits 300 ms, then grows over 900 on `motion-house`.
+            final eased = PantasCurves.house.transform((450 - 300) / 900);
+            expect(args[2] as double, closeTo(math.pi * eased, .002));
             return true;
           }),
       );
@@ -165,10 +170,11 @@ void main() {
         tester.getTopLeft(find.text('Sun')).dx,
         lessThan(tester.getTopLeft(find.text('Sat')).dx),
       );
-      expect(
-        tester.getCenter(find.byKey(const ValueKey('week-day-3'))).dx,
-        closeTo(195, 1),
-      );
+      // Day columns are 44 wide; the gap shrinks from 10 toward 4.
+      final wed = tester.getRect(find.byKey(const ValueKey('week-day-3')));
+      final thu = tester.getRect(find.byKey(const ValueKey('week-day-4')));
+      expect(wed.width, 44);
+      expect(thu.left - wed.right, inInclusiveRange(4, 10));
       // A past or future off-day is `text-secondary` in both themes (the old
       // pale gray folded into it in design system 4.0).
       final off = brightness == Brightness.light

@@ -2,10 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
-import 'package:pantas/core/ui/web/web_tokens.dart';
 
+/// Explains why a list is empty or that loading failed, and offers the next
+/// step (design system: EmptyState, ErrorState). One centered `.state`
+/// column: a 40 point `icon-muted` icon, the title (`web-h3` on wide screens,
+/// `phone-title-3` on the phone), one line in `text-secondary` at most 360
+/// wide, then at most one action 8 lower. Never red: the icon, the title and
+/// the line say what happened.
 class StateView extends StatelessWidget {
   const StateView({
     required this.message,
@@ -17,7 +27,7 @@ class StateView extends StatelessWidget {
     this.primaryAction = false,
     this.boardLayout = false,
     this.bookmarkLayout = false,
-    this.bookmarkTop = 70,
+    this.bookmarkTop = _bookmarkTop,
     this.plainMessage = false,
     super.key,
   })  : fullScreen = false,
@@ -28,7 +38,7 @@ class StateView extends StatelessWidget {
     required this.icon,
     super.key,
   })  : bookmarkLayout = false,
-        bookmarkTop = 70,
+        bookmarkTop = _bookmarkTop,
         fullScreen = false,
         onboardingBlocked = true,
         onRetry = null,
@@ -39,7 +49,7 @@ class StateView extends StatelessWidget {
         boardLayout = false;
   const StateView.fullScreen({required this.onRetry, this.error, super.key})
       : bookmarkLayout = false,
-        bookmarkTop = 70,
+        bookmarkTop = _bookmarkTop,
         onboardingBlocked = false,
         message = 'Something went wrong.',
         fullScreen = true,
@@ -49,6 +59,10 @@ class StateView extends StatelessWidget {
         primaryAction = true,
         plainMessage = false,
         boardLayout = false;
+
+  /// The phone sets the bookmark block 70 down.
+  static const double _bookmarkTop = PantasSpace.s56 + PantasSpace.s14;
+
   final bool boardLayout;
 
   /// Board RD_Error: a 17 px regular message and a 28 px gray mark.
@@ -68,6 +82,19 @@ class StateView extends StatelessWidget {
   final String? detail;
   final String actionLabel;
   final bool primaryAction;
+
+  /// The label of the retry action of an error state.
+  static const String _retryLabel = 'Try Again';
+
+  /// The icon is a square of this size.
+  static const double _markSize = PantasSpace.s40;
+
+  /// The line under the title is at most this wide.
+  static const double _textMax = PantasLayout.colListMax;
+
+  /// Room the floating bar takes at the bottom of a centered state.
+  static const double _barReserve = PantasLayout.reserveBar;
+
   @override
   Widget build(BuildContext context) {
     if (fullScreen && context.wideWeb) {
@@ -78,47 +105,24 @@ class StateView extends StatelessWidget {
         onPressed: onRetry,
       );
     }
+    final colors = context.colors;
+    final wide = context.wideWeb;
     final primary = !fullScreen && primaryAction;
     final compact = primary || boardLayout;
-    final gap = onboardingBlocked
-        ? 12.0
-        : bookmarkLayout
-            ? 8.0
-            : compact
-                ? 6.0
-                : 14.0;
+    final titleStyle = (wide ? PantasType.webH3 : PantasType.phoneTitle3)
+        .copyWith(color: colors.textPrimary);
+    final lineStyle = (wide ? PantasType.webSub : PantasType.phoneCallout)
+        .copyWith(color: colors.textSecondary);
+    // The retry action marks an error state. Any other action belongs to an
+    // empty list and keeps its natural width.
+    final isError = icon == null && actionLabel == _retryLabel;
     final mark = ExcludeSemantics(
       child: IconTheme(
         key: const ValueKey('state-icon-theme'),
-        data: IconThemeData(
-          size: plainMessage
-              ? 28
-              : bookmarkLayout
-                  ? 34
-                  : fullScreen
-                      ? 36
-                      : compact
-                          ? 40
-                          : 60,
-          color: fullScreen
-              ? context.colors.secondaryLabel
-              : plainMessage
-                  ? context.webTokens.colors.secondaryLabel
-                  : context.colors.chevron,
-        ),
+        data: IconThemeData(size: _markSize, color: colors.iconMuted),
         child: SizedBox.square(
           key: const ValueKey('state-mark'),
-          dimension: plainMessage
-              ? 28
-              : onboardingBlocked
-                  ? 72
-                  : bookmarkLayout
-                      ? 34
-                      : fullScreen
-                          ? 36
-                          : compact
-                              ? 40
-                              : 60,
+          dimension: _markSize,
           child: icon ??
               (fullScreen
                   ? Icon(PantasIcons.appError)
@@ -126,108 +130,50 @@ class StateView extends StatelessWidget {
         ),
       ),
     );
+    final line = fullScreen ? "Nothing you've done is lost." : detail;
+    final Widget? action;
+    if (fullScreen) {
+      action = null;
+    } else if (onRetry == null) {
+      action = null;
+    } else {
+      // Natural width, centered under the text. An error fills the phone's
+      // width up to the text measure.
+      final button = PantasButton(
+        label: actionLabel,
+        variant: primary
+            ? PantasButtonVariant.primary
+            : PantasButtonVariant.secondary,
+        height: PantasSize.btn,
+        fontSize: PantasType.webLink.fontSize,
+        radius: PantasRadius.full,
+        fullWidth: isError && !wide && !primary,
+        horizontalPadding: PantasSpace.s24,
+        onPressed: onRetry,
+      );
+      action = isError && !wide && !primary
+          ? ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: _textMax),
+              child: button,
+            )
+          : button;
+    }
     final content = Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        if (fullScreen)
-          Container(
-            key: const ValueKey('state-mark-circle'),
-            width: 72,
-            height: 72,
-            decoration: BoxDecoration(
-              color: context.colors.fill,
-              shape: BoxShape.circle,
-            ),
-            alignment: Alignment.center,
-            child: mark,
-          )
-        else
-          mark,
-        // Board (O_Age): the title sits 12 px lower than the plain gap.
-        // Board (BM_Empty): 14 px under the mark, 9 px between the lines.
-        SizedBox(
-          height: onboardingBlocked
-              ? gap + 12
-              : bookmarkLayout
-                  ? 14
-                  : gap,
-        ),
-        Text(
-          message,
-          textAlign: TextAlign.center,
-          style: (plainMessage
-                  ? context.webTokens.style(17, height: 1.35)
-                  : context.type.sectionHero)
-              .copyWith(
-            fontSize: plainMessage
-                ? 17
-                : onboardingBlocked
-                    ? 26
-                    : bookmarkLayout
-                        ? 18
-                        : fullScreen
-                            ? 24
-                            : 20,
-            height: fullScreen ? 1.25 : 1.35,
-            letterSpacing: onboardingBlocked
-                ? -.312
-                : bookmarkLayout
-                    ? -.216
-                    : fullScreen
-                        ? -.288
-                        : -.2,
+        mark,
+        const SizedBox(height: PantasSpace.s12),
+        Text(message, textAlign: TextAlign.center, style: titleStyle),
+        if (line != null) ...[
+          const SizedBox(height: PantasSpace.s12),
+          ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: _textMax),
+            child: Text(line, textAlign: TextAlign.center, style: lineStyle),
           ),
-        ),
-        if (fullScreen) ...[
-          const SizedBox(height: 14),
-          Text(
-            "Nothing you've done is lost.",
-            textAlign: TextAlign.center,
-            style: context.type.subhead.copyWith(
-              fontSize: 16,
-              color: context.colors.secondaryLabel,
-              height: 1.45,
-            ),
-          ),
-        ] else ...[
-          if (detail != null) ...[
-            SizedBox(height: bookmarkLayout ? 9 : gap),
-            Text(
-              detail!,
-              textAlign: TextAlign.center,
-              style: context.type.subhead.copyWith(
-                color: context.colors.secondaryLabel,
-                fontSize: onboardingBlocked ? 17 : 15,
-                letterSpacing: onboardingBlocked ? -.204 : 0,
-                height: onboardingBlocked || bookmarkLayout ? 1.35 : 1.45,
-              ),
-            ),
-          ],
-          if (primary && onRetry != null) ...[
-            const SizedBox(height: 6),
-            PantasButton(
-              label: actionLabel,
-              onPressed: onRetry,
-              height: 48,
-              fullWidth: false,
-              horizontalPadding: 26,
-            ),
-          ] else if (onRetry != null) ...[
-            SizedBox(height: boardLayout ? 6 : 20),
-            ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 220),
-              child: PantasButton(
-                label: actionLabel,
-                variant: PantasButtonVariant.secondary,
-                height: 44,
-                fontSize: 15,
-                radius: 99,
-                fullWidth: !boardLayout,
-                horizontalPadding: boardLayout ? 22 : 16,
-                onPressed: onRetry,
-              ),
-            ),
-          ],
+        ],
+        if (action != null) ...[
+          const SizedBox(height: PantasSpace.s12 + PantasSpace.s8),
+          action,
         ],
       ],
     );
@@ -244,7 +190,12 @@ class StateView extends StatelessWidget {
               ),
               child: Padding(
                 key: const ValueKey('state-primary-content'),
-                padding: const EdgeInsets.fromLTRB(36, 0, 36, 150),
+                padding: const EdgeInsets.fromLTRB(
+                  PantasSpace.s24,
+                  PantasSpace.s0,
+                  PantasSpace.s24,
+                  _barReserve,
+                ),
                 child: Center(child: content),
               ),
             ),
@@ -256,7 +207,12 @@ class StateView extends StatelessWidget {
       return Semantics(
         liveRegion: true,
         child: Padding(
-          padding: EdgeInsets.fromLTRB(36, bookmarkTop, 36, 0),
+          padding: EdgeInsets.fromLTRB(
+            PantasSpace.s24,
+            bookmarkTop,
+            PantasSpace.s24,
+            PantasSpace.s0,
+          ),
           child: content,
         ),
       );
@@ -265,13 +221,16 @@ class StateView extends StatelessWidget {
       return Semantics(
         liveRegion: true,
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 36),
+          padding: const EdgeInsets.symmetric(
+            horizontal: PantasSpace.s24,
+            vertical: PantasSpace.s56,
+          ),
           child: content,
         ),
       );
     }
     return Scaffold(
-      backgroundColor: context.colors.background,
+      backgroundColor: colors.bgPage,
       body: SafeArea(
         child: Stack(
           fit: StackFit.expand,
@@ -281,7 +240,12 @@ class StateView extends StatelessWidget {
                 child: ConstrainedBox(
                   constraints: BoxConstraints(minHeight: constraints.maxHeight),
                   child: Padding(
-                    padding: const EdgeInsets.fromLTRB(36, 8, 36, 120),
+                    padding: const EdgeInsets.fromLTRB(
+                      PantasSpace.s24,
+                      PantasSpace.s8,
+                      PantasSpace.s24,
+                      _barReserve,
+                    ),
                     child: Center(
                       child: Semantics(liveRegion: true, child: content),
                     ),
@@ -294,15 +258,17 @@ class StateView extends StatelessWidget {
               right: 0,
               bottom: 0,
               child: Container(
-                padding: const EdgeInsets.fromLTRB(16, 14, 16, 30),
+                padding: const EdgeInsets.fromLTRB(
+                  PantasSpace.s16,
+                  PantasSpace.s14,
+                  PantasSpace.s16,
+                  PantasSpace.s32,
+                ),
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
-                    colors: [
-                      context.colors.background.withValues(alpha: 0),
-                      context.colors.background,
-                    ],
+                    colors: [colors.bgPage.withValues(alpha: 0), colors.bgPage],
                     stops: const [0, .26],
                   ),
                 ),

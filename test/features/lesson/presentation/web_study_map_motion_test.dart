@@ -152,10 +152,13 @@ void main() {
       await pumpApp(tester, study(map: _map()));
       await tester.pump();
       expect(find.byKey(const ValueKey('study-ring-t1')), findsOneWidget);
-      // Subject one arrives at 520 ms and its ring fills 300 ms after that.
+      // Subject one arrives at 520 ms and its ring starts 300 ms after that
+      // (820 ms), then waits `dur-wait` (300 ms) and grows over `dur-long-3`
+      // (900 ms), so it is part-way round at 1400 ms (ProgressRing README,
+      // Motion).
       await after(tester, 700);
       expect(find.byType(CircularProgressIndicator), findsNothing);
-      await after(tester, 400);
+      await after(tester, 700);
       final mid = sweep(tester, 't1');
       expect(mid, greaterThan(0));
       expect(mid, lessThan(math.pi));
