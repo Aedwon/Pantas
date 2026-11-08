@@ -1,8 +1,9 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
-import 'package:pantas/core/ui/theme/legacy_theme_shim.dart';
+import 'package:pantas/core/ui/theme/theme_names.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/features/beta_feedback/presentation/fb_kit.dart';
@@ -114,7 +115,7 @@ class SurveySent extends StatelessWidget {
           const SizedBox(height: PantasSpace.s20),
           FbRise(
             dy: 14,
-            duration: const Duration(milliseconds: 450),
+            duration: PantasDurations.long1,
             delay: const Duration(milliseconds: 300),
             child: Semantics(
               header: true,
@@ -127,7 +128,7 @@ class SurveySent extends StatelessWidget {
           ),
           FbRise(
             dy: 14,
-            duration: const Duration(milliseconds: 450),
+            duration: PantasDurations.long1,
             delay: const Duration(milliseconds: 380),
             child: Padding(
               padding: const EdgeInsets.only(top: PantasSpace.s8),
@@ -145,7 +146,7 @@ class SurveySent extends StatelessWidget {
           const SizedBox(height: PantasSpace.s24),
           FbRise(
             dy: 14,
-            duration: const Duration(milliseconds: 450),
+            duration: PantasDurations.long1,
             delay: const Duration(milliseconds: 460),
             child: FbButton(
               onPressed: onBack,
@@ -176,7 +177,7 @@ class _Ripple extends StatelessWidget {
         delay: Duration(milliseconds: delay),
         builder: (context, t, _) {
           // Reduced motion lands on t = 1: the ripple is already gone.
-          final e = LegacyCurves.easeOut.transform(t);
+          final e = PantasBoardCurves.easeOut.transform(t);
           return DecoratedBox(
             decoration: BoxDecoration(
               shape: BoxShape.circle,

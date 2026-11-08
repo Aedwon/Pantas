@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter_test/flutter_test.dart';
 
 import '../../../tool/checks/design_token_literals.dart';
@@ -94,5 +96,68 @@ void main() {
       const {},
     ).single;
     expect(v.where, 'lib/features/x/a.dart:2');
+  });
+
+  test('the allowlist file has no entry', () {
+    final text =
+        File('tool/checks/design_token_allowlist.txt').readAsStringSync();
+    expect(parseAllowlist(text), isEmpty);
+  });
+
+  test('the check fails when the allowlist has an entry', () {
+    final root = Directory.systemTemp.createTempSync('ds_allow');
+    addTearDown(() => root.deleteSync(recursive: true));
+    Directory('${root.path}/lib').createSync();
+    Directory('${root.path}/tool/checks').createSync(recursive: true);
+    File('${root.path}/lib/a.dart').writeAsStringSync('final a = 1;\n');
+    File('${root.path}/tool/checks/design_token_allowlist.txt')
+        .writeAsStringSync('lib/a.dart\n');
+    final result = const DesignTokenLiteralsCheck().run(root.path);
+    expect(result, hasLength(1));
+    expect(result.single.message, contains('must stay empty'));
+  });
+
+  group('ds-geometry marker', () {
+    test('a marker with a reason exempts a radius or a curve on its line', () {
+      for (final code in [
+        'final r = Radius.circular(8); // ds-geometry: arc of the logo',
+        'final r = BorderRadius.circular(8); // ds-geometry: path math',
+        'const c = Cubic(.2, .9, .3, 1); // ds-geometry: data-file curve',
+      ]) {
+        expect(found(code), isEmpty, reason: code);
+      }
+    });
+
+    test('a marker with no reason fails', () {
+      for (final code in [
+        'final r = Radius.circular(8); // ds-geometry:',
+        'final r = Radius.circular(8); // ds-geometry:   ',
+        'const c = Cubic(.2, .9, .3, 1); // ds-geometry',
+      ]) {
+        expect(found(code), hasLength(1), reason: code);
+      }
+    });
+
+    test('a marker does not exempt the next line', () {
+      const code = 'final a = 1; // ds-geometry: only this line\n'
+          'final r = Radius.circular(8);\n';
+      expect(found(code), hasLength(1));
+    });
+
+    test('a marker on a line with a color still fails for the color', () {
+      const code = 'final r = Radius.circular(8); final c = Color(0xFF112233); '
+          '// ds-geometry: arc';
+      expect(found(code), ['Color(0x...) literal: use a PantasColors role']);
+    });
+
+    test('a marker does not exempt a size, spacing or font size', () {
+      for (final code in [
+        'final b = SizedBox(width: 12); // ds-geometry: nope',
+        'final p = EdgeInsets.all(16); // ds-geometry: nope',
+        'final s = TextStyle(fontSize: 17); // ds-geometry: nope',
+      ]) {
+        expect(found(code), hasLength(1), reason: code);
+      }
+    });
   });
 }

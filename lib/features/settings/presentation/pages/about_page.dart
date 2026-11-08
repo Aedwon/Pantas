@@ -177,7 +177,7 @@ class AboutPage extends ConsumerWidget {
               selected: settings.helpImproveApp,
               divider: true,
               // ST_About: the divider starts at the text.
-              dividerInset: context.wideWeb ? 0 : 16,
+              dividerInset: context.wideWeb ? PantasSpace.s0 : PantasSpace.s16,
               onTap: () => unawaited(
                 ref
                     .read(settingsActionsProvider)

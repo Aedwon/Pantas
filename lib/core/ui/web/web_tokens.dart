@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 
-// LEGACY: remove in family M. Lets callers of `webTokens.colors` see the old
-// field names.
-export 'package:pantas/core/ui/theme/legacy_theme_shim.dart';
+// Lets callers of `webTokens.colors` read the screen-facing color names.
+export 'package:pantas/core/ui/theme/theme_names.dart';
 
 /// Desktop canvas roles. One palette serves every width: the getters below
 /// forward to the design system roles and styles (D50, D51, D112, D123, D124

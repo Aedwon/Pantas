@@ -5,7 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/content_renderer.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/scope_picker.dart';
-import 'package:pantas/core/ui/theme/legacy_theme_shim.dart';
+import 'package:pantas/core/ui/theme/theme_names.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 
 import '../../../helpers/accessibility.dart';

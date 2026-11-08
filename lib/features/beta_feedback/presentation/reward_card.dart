@@ -3,8 +3,9 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:pantas/core/ui/theme/legacy_theme_shim.dart';
+import 'package:pantas/core/ui/theme/theme_names.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
@@ -92,7 +93,7 @@ class _RewardCardState extends ConsumerState<RewardCard>
     final t = ((_clock.value * _clockMs - 550) / 1300).clamp(0.0, 1.0);
     for (var i = 0; i < stops.length - 1; i++) {
       if (t <= stops[i + 1]) {
-        final u = LegacyCurves.shake
+        final u = PantasBoardCurves.shake
             .transform((t - stops[i]) / (stops[i + 1] - stops[i]));
         return (degrees[i] + (degrees[i + 1] - degrees[i]) * u) * math.pi / 180;
       }
@@ -187,7 +188,7 @@ class _RewardCardState extends ConsumerState<RewardCard>
         final titleRow = Row(
           children: [
             crown,
-            SizedBox(width: wide ? 10 : 8),
+            SizedBox(width: wide ? PantasSpace.s10 : PantasSpace.s8),
             Expanded(child: title),
           ],
         );
@@ -258,7 +259,7 @@ class _RewardCardState extends ConsumerState<RewardCard>
         if (wide) {
           card = FbRise(
             dy: 14,
-            duration: const Duration(milliseconds: 450),
+            duration: PantasDurations.long1,
             child: FbCard(
               padding: const EdgeInsets.fromLTRB(
                 PantasSpace.s20,
@@ -349,7 +350,7 @@ class _MonthStrip extends StatelessWidget {
   Widget build(BuildContext context) {
     final wide = context.fbWide;
     final c = context.fb;
-    final gap = wide ? 6.0 : 4.0;
+    final gap = wide ? PantasSpace.s6 : PantasSpace.s4;
     final cells = <Widget>[];
     for (var j = 0; j < 12; j++) {
       final start = 120.0 + 45 * j;
@@ -363,7 +364,7 @@ class _MonthStrip extends StatelessWidget {
               child: ColoredBox(
                 color: c.fill,
                 child: SizedBox(
-                  height: wide ? 8 : 6,
+                  height: wide ? PantasSpace.s8 : PantasSpace.s6,
                   width: double.infinity,
                   child: Transform(
                     key: ValueKey('month-fill-$j'),

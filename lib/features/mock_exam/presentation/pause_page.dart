@@ -281,7 +281,7 @@ class _PausePageState extends State<PausePage> with TickerProviderStateMixin {
         _blink.value < .5 ? _blink.value * 2 : 2 - _blink.value * 2;
     final blink = (_still ?? false) || _leaving
         ? 1.0
-        : 1 - .7 * LegacyCurves.easeInOut.transform(blinkPhase);
+        : 1 - .7 * PantasBoardCurves.easeInOut.transform(blinkPhase);
     final paperOpacity = _leaving
         ? Curves.ease.transform(((exit - 1650) / 500).clamp(0, 1))
         : 1 - Curves.ease.transform((entry / 550).clamp(0, 1));

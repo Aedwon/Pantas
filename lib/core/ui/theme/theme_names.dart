@@ -1,116 +1,88 @@
-// LEGACY: remove in family M. This file keeps the old field names compiling
-// while screens move onto the generated token classes. Nothing new reads it.
+// Screen-facing names for the design system: the color names screens read
+// through `context.colors`, the phone type bundle behind `context.type`, the
+// tabular figures switch, and the board easing curves that have no system
+// token. Every value comes from the generated contract in `tokens/`.
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_shadow.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 
-/// Old `PantasColors` field names, mapped to the system role of the same
-/// meaning. Names that are also system roles (`accent`, `fill`, `pro`, ...)
-/// need no entry: they read the system value directly.
-extension LegacyPantasColors on PantasColors {
-  bool get _legacyDark => bgPage.computeLuminance() < 0.5;
-
-  // LEGACY: remove in family M
+/// Screen-facing `PantasColors` names, each mapped to the system role of the
+/// same meaning. Names that are also system roles (`accent`, `fill`, `pro`,
+/// ...) need no entry: they read the system value directly.
+extension PantasColorNames on PantasColors {
   Color get background => bgPage;
 
-  // LEGACY: remove in family M
   Color get surface => surfaceCard;
 
-  // LEGACY: remove in family M
   Color get segmentOn => surfaceSegmentOn;
 
-  // LEGACY: remove in family M
   Color get cardEdge => edgeCard;
 
-  // LEGACY: remove in family M
   Color get label => textPrimary;
 
-  // LEGACY: remove in family M
   Color get secondaryLabel => textSecondary;
 
-  // LEGACY: remove in family M
   Color get tertiaryLabel => textSecondary;
 
-  // LEGACY: remove in family M
   Color get disabledActionLabel => textDisabled;
 
-  // LEGACY: remove in family M
   Color get separator => divider;
 
-  // LEGACY: remove in family M
   Color get onFillLabel => textOnFill;
 
-  // LEGACY: remove in family M
   Color get skeleton => fillSkeleton;
 
-  // LEGACY: remove in family M
   Color get chevron => iconChevron;
 
-  // LEGACY: remove in family M
   Color get destructive => danger;
 
-  // LEGACY: remove in family M
   Color get wrongTint => dangerTint;
 
-  // LEGACY: remove in family M
   Color get wrongText => dangerText;
 
-  // LEGACY: remove in family M
   Color get controlOutline => borderControl;
 
-  // LEGACY: remove in family M
   Color get pickerBackground => surfaceInset;
 
-  // LEGACY: remove in family M
-  Color get choiceOutline => borderControl;
-
-  // LEGACY: remove in family M
   Color get toastBackground => toastBg;
 
-  // LEGACY: remove in family M
   Color get onToast => toastText;
 
-  // LEGACY: remove in family M
   Color get onDestructive => onDanger;
 
-  // LEGACY: remove in family M
   Color get figureBackground => figureBg;
 
-  // LEGACY: remove in family M
   Color get readerFigureBackground => figureReaderBg;
 
-  // LEGACY: remove in family M
   Color get figureViewerBackground => figureViewerBg;
 
-  // LEGACY: remove in family M
   Color get onFigureViewer => figureOnViewer;
 
-  // LEGACY: remove in family M
   Color get floatingRight => accentBar;
 
-  // LEGACY: remove in family M
   Color get floatingWrong => dangerBar;
 
-  // LEGACY: remove in family M
-  Color get inactiveDateLabel => textSecondary;
-
-  // LEGACY: remove in family M
-  Color get searchPlaceholder => textSecondary;
-
-  // LEGACY: remove in family M
   Color get pendingMark => dividerStrong;
 
-  // LEGACY: remove in family M
   Color get readerWarn => readerMistake;
 
-  // LEGACY: remove in family M
   Color get readerWarnTint => readerMistakeTint;
 
-  // LEGACY: remove in family M
   Color get readerWarnText => readerMistakeText;
 
-  /// LEGACY: remove in family M. Board accuracy colors, clamped below 40% and
+  /// No role: a literal black for shadows and scrims.
+  Color get shadow => const Color(0xFF000000);
+
+  Color get transparent => const Color(0x00000000);
+
+  Color get choiceOutline => borderControl;
+
+  Color get inactiveDateLabel => textSecondary;
+
+  Color get searchPlaceholder => textSecondary;
+
+  /// Board accuracy colors, clamped below 40% and
   /// above 80%. No system role: a computed ramp.
   Color accuracyTint(double accuracy) {
     final t = ((accuracy - .4) / .4).clamp(0.0, 1.0);
@@ -122,29 +94,22 @@ extension LegacyPantasColors on PantasColors {
     );
   }
 
-  // LEGACY: remove in family M. No role: a literal black for shadows.
-  Color get shadow => const Color(0xFF000000);
-
-  // LEGACY: remove in family M
-  Color get transparent => const Color(0x00000000);
-
-  // LEGACY: remove in family M. Now `PantasShadow.knob`.
+  /// The knob shadow, `PantasShadow.knob`.
   Color get switchThumbShadow =>
-      (_legacyDark ? PantasShadow.dark : PantasShadow.light).knob.first.color;
+      (_isDark ? PantasShadow.dark : PantasShadow.light).knob.first.color;
 
-  // LEGACY: remove in family M. Now `PantasShadow.segment`.
+  /// The segment shadow, `PantasShadow.segment`.
   Color get segmentedShadow =>
-      (_legacyDark ? PantasShadow.dark : PantasShadow.light)
-          .segment
-          .first
-          .color;
+      (_isDark ? PantasShadow.dark : PantasShadow.light).segment.first.color;
+
+  bool get _isDark => bgPage.computeLuminance() < 0.5;
 }
 
-/// LEGACY: remove in family M. The old `context.type` bundle: the 15 phone
-/// styles with their color applied, each built from the system styles.
+/// The `context.type` bundle: the 15 phone styles with their color applied,
+/// each built from the system styles.
 @immutable
-class LegacyType extends ThemeExtension<LegacyType> {
-  const LegacyType({
+class PantasTypeBundle extends ThemeExtension<PantasTypeBundle> {
+  const PantasTypeBundle({
     required this.largeTitle,
     required this.pageTitle,
     required this.pageTitleCompact,
@@ -162,13 +127,13 @@ class LegacyType extends ThemeExtension<LegacyType> {
     required this.mathSerif,
   });
 
-  factory LegacyType.create({PantasColors colors = PantasColors.light}) {
+  factory PantasTypeBundle.create({PantasColors colors = PantasColors.light}) {
     final primary = colors.textPrimary;
     final secondary = colors.textSecondary;
     // The old styles always carried a letter spacing (0 when none).
     TextStyle flat(TextStyle s) =>
         s.letterSpacing == null ? s.copyWith(letterSpacing: 0) : s;
-    return LegacyType(
+    return PantasTypeBundle(
       largeTitle: PantasType.phoneLargeTitle.copyWith(color: primary),
       pageTitle: PantasType.phoneTitle1.copyWith(color: primary),
       pageTitleCompact: PantasType.phoneTitle1.copyWith(color: primary),
@@ -219,7 +184,7 @@ class LegacyType extends ThemeExtension<LegacyType> {
   final TextStyle mathSerif;
 
   @override
-  LegacyType copyWith({
+  PantasTypeBundle copyWith({
     TextStyle? largeTitle,
     TextStyle? pageTitle,
     TextStyle? pageTitleCompact,
@@ -236,7 +201,7 @@ class LegacyType extends ThemeExtension<LegacyType> {
     TextStyle? captionStrong,
     TextStyle? mathSerif,
   }) =>
-      LegacyType(
+      PantasTypeBundle(
         largeTitle: largeTitle ?? this.largeTitle,
         pageTitle: pageTitle ?? this.pageTitle,
         pageTitleCompact: pageTitleCompact ?? this.pageTitleCompact,
@@ -255,9 +220,9 @@ class LegacyType extends ThemeExtension<LegacyType> {
       );
 
   @override
-  LegacyType lerp(LegacyType? other, double t) {
+  PantasTypeBundle lerp(PantasTypeBundle? other, double t) {
     if (other == null) return this;
-    return LegacyType(
+    return PantasTypeBundle(
       largeTitle: TextStyle.lerp(largeTitle, other.largeTitle, t)!,
       pageTitle: TextStyle.lerp(pageTitle, other.pageTitle, t)!,
       pageTitleCompact:
@@ -278,7 +243,7 @@ class LegacyType extends ThemeExtension<LegacyType> {
   }
 }
 
-/// LEGACY: remove in family M.
+/// Switches a style to tabular figures.
 extension PantasTabularType on TextStyle {
   TextStyle get tabular => copyWith(
         fontFeatures: <FontFeature>{
@@ -288,9 +253,9 @@ extension PantasTabularType on TextStyle {
       );
 }
 
-/// LEGACY: remove in family M. The four curves with no system token
-/// (`popA`, `shake`, `easeOut`, `easeInOut`) and the step curve.
-abstract final class LegacyCurves {
+/// The four board curves with no system token (`popA`, `shake`, `easeOut`,
+/// `easeInOut`) and the step curve.
+abstract final class PantasBoardCurves {
   static const popA = Cubic(0.3, 1.4, 0.5, 1);
   static const shake = Cubic(0.36, 0.07, 0.19, 0.97);
   static const easeOut = Cubic(0, 0, 0.58, 1);

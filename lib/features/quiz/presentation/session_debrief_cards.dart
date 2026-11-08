@@ -257,7 +257,7 @@ class SessionDebriefCards extends StatelessWidget {
             children: [
               if (leading != null) ...[
                 leading,
-                SizedBox(width: wide ? 16 : 12),
+                SizedBox(width: wide ? PantasSpace.s16 : PantasSpace.s12),
               ],
               Expanded(child: child),
               const SizedBox(width: PantasSpace.s12),

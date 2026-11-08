@@ -6,7 +6,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/figures/earth_science_diagram_figure.dart';
 import 'package:pantas/core/ui/figures/figure_registry.dart';
 import 'package:pantas/core/ui/figures/physics_energy_diagram_figure.dart';
-import 'package:pantas/core/ui/theme/legacy_theme_shim.dart';
+import 'package:pantas/core/ui/theme/theme_names.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 
 void main() {
@@ -585,7 +585,7 @@ Future<void> _pumpFigure(
   await tester.pumpWidget(
     MaterialApp(
       theme: ThemeData(
-        extensions: [palette, LegacyType.create()],
+        extensions: [palette, PantasTypeBundle.create()],
       ),
       home: Scaffold(
         body: SizedBox(
@@ -607,7 +607,7 @@ Future<_RenderedFigure> _renderFigure(
   await tester.pumpWidget(
     MaterialApp(
       theme: ThemeData(
-        extensions: [palette, LegacyType.create()],
+        extensions: [palette, PantasTypeBundle.create()],
       ),
       home: Align(
         alignment: Alignment.topCenter,

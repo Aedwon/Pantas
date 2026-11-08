@@ -101,7 +101,7 @@ class _HomeExamDateSheetState extends State<HomeExamDateSheet> {
                 : PantasType.phoneTitle2
                     .copyWith(color: context.colors.textPrimary),
           ),
-          SizedBox(height: wide ? 0 : 4),
+          SizedBox(height: wide ? PantasSpace.s0 : PantasSpace.s4),
           Text(
             wide && widget.requireDay
                 ? 'Pick a day in $monthLabel.'

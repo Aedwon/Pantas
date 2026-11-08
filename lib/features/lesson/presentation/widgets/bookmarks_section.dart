@@ -114,7 +114,9 @@ class BookmarksSection extends ConsumerWidget {
                                       PantasSpace.s16,
                                       PantasSpace.s12,
                                     ),
-                              subtitleGap: context.wideWeb ? 0 : 2,
+                              subtitleGap: context.wideWeb
+                                  ? PantasSpace.s0
+                                  : PantasSpace.s2,
                               divider: index < rows.take(3).length - 1,
                               dividerInset: 52,
                               onTap: () => context.push(

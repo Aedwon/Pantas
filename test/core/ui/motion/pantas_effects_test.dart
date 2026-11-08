@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/motion/pantas_effects.dart';
-import 'package:pantas/core/ui/theme/legacy_theme_shim.dart';
+import 'package:pantas/core/ui/theme/theme_names.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 
 void main() {
@@ -45,7 +45,10 @@ void main() {
     double offset() =>
         tester.widget<Transform>(find.byType(Transform)).transform.entry(0, 3);
     await tester.pump(const Duration(milliseconds: 90));
-    expect(offset(), closeTo(-9 * LegacyCurves.shake.transform(0.5), 0.000001));
+    expect(
+      offset(),
+      closeTo(-9 * PantasBoardCurves.shake.transform(0.5), 0.000001),
+    );
     await tester.pump(const Duration(milliseconds: 90));
     expect(offset(), closeTo(-9, 0.000001));
     for (final value in [8.0, -5.0, 3.0]) {

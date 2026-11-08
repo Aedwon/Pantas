@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
 import 'package:pantas/features/assessment/application/assessment_leave_guard.dart';
 import 'package:pantas/features/assessment/assessment.dart';
 import 'package:pantas/features/onboarding/onboarding.dart';
@@ -42,8 +43,8 @@ List<RouteBase> onboardingRoutes(Ref ref, {bool web = kIsWeb}) => [
             // their own entrance. No slide, no blank screen between them.
             pageBuilder: (_, state) => CustomTransitionPage<void>(
               key: state.pageKey,
-              transitionDuration: const Duration(milliseconds: 240),
-              reverseTransitionDuration: const Duration(milliseconds: 240),
+              transitionDuration: PantasDurations.medium1,
+              reverseTransitionDuration: PantasDurations.medium1,
               transitionsBuilder: (context, animation, _, child) =>
                   MediaQuery.disableAnimationsOf(context)
                       ? child

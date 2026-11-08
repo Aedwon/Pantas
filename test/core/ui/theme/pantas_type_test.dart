@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:pantas/core/ui/theme/legacy_theme_shim.dart';
+import 'package:pantas/core/ui/theme/theme_names.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 
@@ -45,8 +45,8 @@ void main() {
     });
   });
 
-  group('LegacyType maps the old names to system styles', () {
-    final type = LegacyType.create();
+  group('PantasTypeBundle maps the old names to system styles', () {
+    final type = PantasTypeBundle.create();
     final cases = <String, (TextStyle, double, FontWeight, double?)>{
       'largeTitle': (type.largeTitle, 34, FontWeight.w700, -0.748),
       'pageTitle': (type.pageTitle, 28, FontWeight.w700, -0.616),
@@ -89,7 +89,7 @@ void main() {
     test('row value follows the palette secondary text', () {
       expect(type.rowValue.color, PantasColors.light.textSecondary);
       expect(
-        LegacyType.create(colors: PantasColors.dark).rowValue.color,
+        PantasTypeBundle.create(colors: PantasColors.dark).rowValue.color,
         PantasColors.dark.textSecondary,
       );
     });

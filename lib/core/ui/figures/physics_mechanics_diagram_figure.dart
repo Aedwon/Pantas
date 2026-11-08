@@ -204,7 +204,7 @@ class _PhysicsMechanicsPainter extends CustomPainter {
           ..drawRRect(
             RRect.fromRectAndRadius(
               handPalm,
-              const Radius.circular(7),
+              const Radius.circular(7), // ds-geometry: figure corner
             ),
             handPaint,
           );
@@ -889,7 +889,10 @@ class _PhysicsMechanicsPainter extends CustomPainter {
         _stroke,
       )
       ..drawRRect(
-        RRect.fromRectAndRadius(palm, const Radius.circular(5)),
+        RRect.fromRectAndRadius(
+          palm,
+          const Radius.circular(5), // ds-geometry: figure corner
+        ),
         _stroke,
       );
     for (var finger = 0; finger < 4; finger++) {

@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/check_mark.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/pantas_sheet.dart';
 import 'package:pantas/core/ui/components/progress_ring.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 
 /// Home and Quiz use the same measured Today row.
 class TodayQuestionRow extends StatelessWidget {
@@ -33,7 +36,7 @@ class TodayQuestionRow extends StatelessWidget {
         divider: divider,
         naturalValue: true,
         dividerInset: 52,
-        verticalPadding: 12,
+        verticalPadding: PantasSpace.s12,
         titleColor:
             total > 0 && done == total ? context.colors.secondaryLabel : null,
         valueStyle: context.type.subhead.copyWith(
@@ -79,32 +82,29 @@ class TodayQuestionsSheet extends StatelessWidget {
         constraints:
             BoxConstraints(maxHeight: MediaQuery.sizeOf(context).height),
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(20, 8, 20, 34),
+          // The sheet spec pads the bottom 34; the nearest step is 32.
+          padding: const EdgeInsets.fromLTRB(
+            PantasSpace.s20,
+            PantasSpace.s0,
+            PantasSpace.s20,
+            PantasSpace.s32,
+          ),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Center(
-                child: Container(
-                  width: 36,
-                  height: 5,
-                  decoration: BoxDecoration(
-                    color: context.colors.controlOutline,
-                    borderRadius: BorderRadius.circular(9),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 10),
+              const PantasSheetGrabber(),
+              const SizedBox(height: PantasSpace.s10),
               Wrap(
                 alignment: WrapAlignment.spaceBetween,
                 crossAxisAlignment: WrapCrossAlignment.center,
-                spacing: 12,
-                runSpacing: 4,
+                spacing: PantasSpace.s12,
+                runSpacing: PantasSpace.s4,
                 children: [
                   Text(
                     title,
-                    style: context.type.emphasized
-                        .copyWith(fontSize: 20, fontWeight: FontWeight.w700),
+                    style: PantasType.phoneTitle3
+                        .copyWith(color: context.colors.textPrimary),
                   ),
                   Text(
                     '$done of $total',
@@ -116,7 +116,7 @@ class TodayQuestionsSheet extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(height: 10),
+              const SizedBox(height: PantasSpace.s10),
               Flexible(
                 child: SingleChildScrollView(
                   child: Column(
@@ -127,7 +127,7 @@ class TodayQuestionsSheet extends StatelessWidget {
               ),
               if (failure != null) failure!,
               if (onStart != null) ...[
-                const SizedBox(height: 10),
+                const SizedBox(height: PantasSpace.s10),
                 PantasButton(label: startLabel, onPressed: onStart, busy: busy),
               ],
             ],

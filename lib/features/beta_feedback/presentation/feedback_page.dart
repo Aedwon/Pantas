@@ -28,7 +28,6 @@ class _FeedbackPageState extends ConsumerState<FeedbackPage> {
 
   @override
   Widget build(BuildContext context) {
-    final wide = context.fbWide;
     final reward = ref.watch(betaRewardProvider);
     final now = ref.watch(betaFeedbackClockProvider)();
     var sent = ref.watch(sentFeedbackProvider).valueOrNull ?? const [];
@@ -73,7 +72,7 @@ class _FeedbackPageState extends ConsumerState<FeedbackPage> {
       onBack: () => leavePage(context, fallback: '/settings'),
       children: [
         top,
-        SizedBox(height: wide ? 24 : 24),
+        const SizedBox(height: PantasSpace.s24),
         const FbSectionHeader('SEND FEEDBACK'),
         FeedbackCompose(onSent: (s) => setState(() => _justSent = s)),
         SentSection(items: sent),

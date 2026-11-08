@@ -1,14 +1,13 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/motion/web_page_transitions.dart';
-import 'package:pantas/core/ui/theme/legacy_theme_shim.dart';
 import 'package:pantas/core/ui/theme/pantas_shape.dart';
+import 'package:pantas/core/ui/theme/theme_names.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 import 'package:pantas/core/ui/web/web_keyboard_focus.dart';
 
-// LEGACY: remove in family M. Lets every `context.colors` caller see the
-// old field names.
-export 'package:pantas/core/ui/theme/legacy_theme_shim.dart';
+// Lets every `context.colors` caller read the screen-facing color names.
+export 'package:pantas/core/ui/theme/theme_names.dart';
 
 ThemeData buildLightTheme({bool web = kIsWeb}) => _buildTheme(
       PantasColors.light,
@@ -43,7 +42,7 @@ ThemeData _buildTheme(
     outlineVariant: colors.fill,
     surfaceTint: Colors.transparent,
   );
-  final type = LegacyType.create(colors: colors);
+  final type = PantasTypeBundle.create(colors: colors);
   final overlay = WidgetStateProperty.resolveWith<Color?>((states) {
     if (states.contains(WidgetState.pressed)) return Colors.transparent;
     if (states.contains(WidgetState.hovered)) {
@@ -134,7 +133,7 @@ extension AppThemeContext on BuildContext {
     return theme.extension<PantasColors>()!;
   }
 
-  LegacyType get type =>
-      Theme.of(this).extension<LegacyType>() ??
-      LegacyType.create(colors: colors);
+  PantasTypeBundle get type =>
+      Theme.of(this).extension<PantasTypeBundle>() ??
+      PantasTypeBundle.create(colors: colors);
 }

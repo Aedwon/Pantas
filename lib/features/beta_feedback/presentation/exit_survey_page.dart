@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/leave_page.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/features/beta_feedback/application/beta_feedback_providers.dart';
 import 'package:pantas/features/beta_feedback/domain/beta_feedback_models.dart';
@@ -337,14 +338,14 @@ class _ExitSurveyPageState extends ConsumerState<ExitSurveyPage> {
     return frame(
       wide ? [_rise(body)] : body,
       subline: subline,
-      gap: wide ? 16 : 24,
+      gap: wide ? PantasSpace.s16 : PantasSpace.s24,
     );
   }
 
   /// The wide form rises in as one block when the page opens.
   Widget _rise(List<Widget> body) => FbRise(
         dy: 14,
-        duration: const Duration(milliseconds: 450),
+        duration: PantasDurations.long1,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: body,

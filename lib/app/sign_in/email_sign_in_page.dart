@@ -626,7 +626,7 @@ class _EmailSignInPageState extends ConsumerState<EmailSignInPage> {
 
   Widget _header(SignInStyle style) {
     final wide = style.wide;
-    final gap = wide ? 12.0 : 10.0;
+    final gap = wide ? PantasSpace.s12 : PantasSpace.s10;
     final side = wide ? 0.0 : (_step == _Step.email ? 20.0 : 24.0);
     final Widget title;
     final Widget subtitle;

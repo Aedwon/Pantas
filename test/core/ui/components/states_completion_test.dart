@@ -5,7 +5,7 @@ import 'package:pantas/core/ui/components/loading_shapes.dart';
 import 'package:pantas/core/ui/components/pro_tag.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/components/steps_screen.dart';
-import 'package:pantas/core/ui/theme/legacy_theme_shim.dart';
+import 'package:pantas/core/ui/theme/theme_names.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 
 import '../../../helpers/accessibility.dart';

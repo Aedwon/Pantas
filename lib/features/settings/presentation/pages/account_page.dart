@@ -144,7 +144,8 @@ class _AccountPageState extends ConsumerState<AccountPage> {
                 title: 'Name',
                 value: settings.name ?? 'Add your name',
                 divider: true,
-                dividerInset: context.wideWeb ? 0 : 16,
+                dividerInset:
+                    context.wideWeb ? PantasSpace.s0 : PantasSpace.s16,
                 onTap: () => push('/settings/account/name'),
               ),
               if (user != null)
@@ -153,7 +154,8 @@ class _AccountPageState extends ConsumerState<AccountPage> {
                   value: web ? user.email : 'Google',
                   variant: ListRowVariant.value,
                   divider: true,
-                  dividerInset: context.wideWeb ? 0 : 16,
+                  dividerInset:
+                      context.wideWeb ? PantasSpace.s0 : PantasSpace.s16,
                 ),
               SettingsRow(
                 title: 'Pantas ID',
@@ -378,7 +380,8 @@ class _AccountPageState extends ConsumerState<AccountPage> {
                   value: pro ? backup : 'This phone only',
                   variant: ListRowVariant.value,
                   divider: true,
-                  dividerInset: context.wideWeb ? 0 : 16,
+                  dividerInset:
+                      context.wideWeb ? PantasSpace.s0 : PantasSpace.s16,
                 ),
                 if (pro)
                   SettingsRow(

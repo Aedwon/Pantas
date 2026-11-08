@@ -36,7 +36,7 @@ class _MockPanelGlyphPainter extends CustomPainter {
         ..drawRRect(
           RRect.fromRectAndRadius(
             Rect.fromLTWH(3.5 * k, 5.5 * k, 17 * k, 13 * k),
-            Radius.circular(3 * k),
+            Radius.circular(3 * k), // ds-geometry: glyph corner
           ),
           paint,
         )
@@ -51,7 +51,7 @@ class _MockPanelGlyphPainter extends CustomPainter {
       ..drawRRect(
         RRect.fromRectAndRadius(
           Rect.fromLTWH(3.5 * k, 4.5 * k, 17 * k, 15 * k),
-          Radius.circular(2.5 * k),
+          Radius.circular(2.5 * k), // ds-geometry: glyph corner
         ),
         paint,
       )

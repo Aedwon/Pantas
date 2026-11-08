@@ -144,7 +144,7 @@ class SignInScroll extends StatelessWidget {
 class SignInRise extends StatefulWidget {
   const SignInRise({
     required this.child,
-    this.duration = const Duration(milliseconds: 450),
+    this.duration = PantasDurations.long1,
     this.delay = Duration.zero,
     this.distance = 12,
     this.curve = PantasCurves.enter,
@@ -339,7 +339,7 @@ class StepSwitcher extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final still = MediaQuery.disableAnimationsOf(context);
-    const rise = Duration(milliseconds: 450);
+    const rise = PantasDurations.long1;
     final total = delay + rise;
     return SmoothSize(
       child: AnimatedSwitcher(

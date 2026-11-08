@@ -1,7 +1,7 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
-import 'package:pantas/core/ui/theme/legacy_theme_shim.dart';
+import 'package:pantas/core/ui/theme/theme_names.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 
 /// Each builder receives progress for a board-specific ring, path or particles.
@@ -36,7 +36,7 @@ abstract final class PantasEffects {
     required ValueWidgetBuilder<double> builder,
     Widget? child,
   }) =>
-      _effect('shake', duration, LegacyCurves.shake, builder, child);
+      _effect('shake', duration, PantasBoardCurves.shake, builder, child);
   static Widget press({
     required Duration duration,
     required ValueWidgetBuilder<double> builder,
@@ -48,7 +48,7 @@ abstract final class PantasEffects {
     required ValueWidgetBuilder<double> builder,
     Widget? child,
   }) =>
-      _effect('ring', duration, LegacyCurves.easeOut, builder, child);
+      _effect('ring', duration, PantasBoardCurves.easeOut, builder, child);
   static Widget burst({
     required Duration duration,
     required ValueWidgetBuilder<double> builder,
@@ -155,14 +155,14 @@ abstract final class PantasEffects {
         t,
         const [0, 0.18, 0.38, 0.56, 0.74, 1],
         const [0, 11, -8, 5, -2.5, 0],
-        LegacyCurves.shake,
+        PantasBoardCurves.shake,
       );
 
   static double _shake(double t) => _keyframes(
         t,
         const [0, 0.18, 0.36, 0.54, 0.72, 1],
         const [0, -9, 8, -5, 3, 0],
-        LegacyCurves.shake,
+        PantasBoardCurves.shake,
       );
 
   static double _keyframes(

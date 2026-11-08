@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
-import 'package:pantas/core/ui/theme/legacy_theme_shim.dart';
+import 'package:pantas/core/ui/theme/theme_names.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 import 'package:pantas/features/lesson/application/lesson_search_providers.dart';
 import 'package:pantas/features/lesson/domain/models/lesson_search_hit.dart';
@@ -42,7 +42,7 @@ void main() {
             child: MaterialApp(
               theme: ThemeData(
                 scaffoldBackgroundColor: colors.background,
-                extensions: [colors, LegacyType.create(colors: colors)],
+                extensions: [colors, PantasTypeBundle.create(colors: colors)],
               ),
               home: MediaQuery(
                 data: MediaQueryData(

@@ -95,7 +95,7 @@ class _ScopePickerState extends State<ScopePicker>
     ])
       TweenSequenceItem(
         tween: Tween(begin: pair.$1, end: pair.$2)
-            .chain(CurveTween(curve: LegacyCurves.easeOut)),
+            .chain(CurveTween(curve: PantasBoardCurves.easeOut)),
         weight: 1,
       ),
   ]).animate(_shake);

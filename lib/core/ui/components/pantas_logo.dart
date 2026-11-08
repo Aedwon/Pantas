@@ -84,22 +84,22 @@ class _PantasLogoPainter extends CustomPainter {
           ..lineTo(614.06, 374.19)
           ..arcToPoint(
             const Offset(639.94, 374.19),
-            radius: const Radius.circular(30),
+            radius: const Radius.circular(30), // ds-geometry: logo arc
           )
           ..lineTo(890.03, 493.76)
           ..arcToPoint(
             const Offset(890.03, 526.24),
-            radius: const Radius.circular(18),
+            radius: const Radius.circular(18), // ds-geometry: logo arc
           )
           ..lineTo(639.94, 645.81)
           ..arcToPoint(
             const Offset(614.06, 645.81),
-            radius: const Radius.circular(30),
+            radius: const Radius.circular(30), // ds-geometry: logo arc
           )
           ..lineTo(363.97, 526.24)
           ..arcToPoint(
             const Offset(363.97, 493.76),
-            radius: const Radius.circular(18),
+            radius: const Radius.circular(18), // ds-geometry: logo arc
           )
           ..close(),
         paint,
@@ -110,22 +110,22 @@ class _PantasLogoPainter extends CustomPainter {
           ..lineTo(519.45, 629.40)
           ..arcToPoint(
             const Offset(524, 636.62),
-            radius: const Radius.circular(8),
+            radius: const Radius.circular(8), // ds-geometry: logo arc
           )
           ..lineTo(524, 878)
           ..arcToPoint(
             const Offset(512, 890),
-            radius: const Radius.circular(12),
+            radius: const Radius.circular(12), // ds-geometry: logo arc
           )
           ..lineTo(478, 890)
           ..arcToPoint(
             const Offset(432, 844),
-            radius: const Radius.circular(46),
+            radius: const Radius.circular(46), // ds-geometry: logo arc
           )
           ..lineTo(432, 600.28)
           ..arcToPoint(
             const Offset(443.45, 593.06),
-            radius: const Radius.circular(8),
+            radius: const Radius.circular(8), // ds-geometry: logo arc
           )
           ..close(),
         paint,
@@ -139,22 +139,22 @@ class _PantasLogoPainter extends CustomPainter {
           ..lineTo(820, 696)
           ..arcToPoint(
             const Offset(670, 846),
-            radius: const Radius.circular(150),
+            radius: const Radius.circular(150), // ds-geometry: logo arc
           )
           ..lineTo(584, 846)
           ..arcToPoint(
             const Offset(572, 834),
-            radius: const Radius.circular(12),
+            radius: const Radius.circular(12), // ds-geometry: logo arc
           )
           ..lineTo(572, 766)
           ..arcToPoint(
             const Offset(584, 754),
-            radius: const Radius.circular(12),
+            radius: const Radius.circular(12), // ds-geometry: logo arc
           )
           ..lineTo(670, 754)
           ..arcToPoint(
             const Offset(728, 696),
-            radius: const Radius.circular(58),
+            radius: const Radius.circular(58), // ds-geometry: logo arc
             clockwise: false,
           )
           ..close(),

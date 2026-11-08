@@ -199,9 +199,10 @@ class _PartTransitionPageState extends State<PartTransitionPage>
                         child: AnimatedBuilder(
                           animation: _motion,
                           builder: (context, _) {
-                            final pop = segment(1400, 220, LegacyCurves.popA);
+                            final pop =
+                                segment(1400, 220, PantasBoardCurves.popA);
                             final settle =
-                                segment(1620, 160, LegacyCurves.popA);
+                                segment(1620, 160, PantasBoardCurves.popA);
                             final scale = _motion.value * _duration < 1620
                                 ? .5 + .65 * pop
                                 : 1.15 - .15 * settle;
@@ -555,8 +556,8 @@ class _PartTransitionPageState extends State<PartTransitionPage>
   Widget _wideClosedCheck(WebTokens t) => AnimatedBuilder(
         animation: _motion,
         builder: (context, _) {
-          final pop = segment(1400, 220, LegacyCurves.popA);
-          final settle = segment(1620, 160, LegacyCurves.popA);
+          final pop = segment(1400, 220, PantasBoardCurves.popA);
+          final settle = segment(1620, 160, PantasBoardCurves.popA);
           final scale = _motion.value * _duration < 1620
               ? .5 + .65 * pop
               : 1.15 - .15 * settle;

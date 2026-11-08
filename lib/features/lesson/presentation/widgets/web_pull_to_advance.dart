@@ -3,7 +3,7 @@ import 'dart:math' as math;
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:pantas/core/ui/theme/legacy_theme_shim.dart';
+import 'package:pantas/core/ui/theme/theme_names.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 
 // Pull up for the next lesson with a mouse wheel or trackpad, on wide web.
@@ -546,8 +546,8 @@ class WebPullCircle extends StatelessWidget {
       builder: (context, circle) {
         final t = pull.pop * webPullPop.inMilliseconds;
         final scale = t <= 90
-            ? 1 + .2 * LegacyCurves.easeOut.transform(t / 90)
-            : 1.2 - .2 * LegacyCurves.easeOut.transform((t - 90) / 170);
+            ? 1 + .2 * PantasBoardCurves.easeOut.transform(t / 90)
+            : 1.2 - .2 * PantasBoardCurves.easeOut.transform((t - 90) / 170);
         return Transform.scale(
           scale: scale,
           child: SizedBox.square(

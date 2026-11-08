@@ -17,9 +17,9 @@ void main() {
               expect(context.colors, tokens);
               expect(context.type.body.fontFamily, 'Geist');
               expect(theme.extension<PantasColors>(), tokens);
-              expect(theme.extension<LegacyType>(), isNotNull);
+              expect(theme.extension<PantasTypeBundle>(), isNotNull);
               expect(
-                theme.extension<LegacyType>()!.mathSerif.fontFamily,
+                theme.extension<PantasTypeBundle>()!.mathSerif.fontFamily,
                 'packages/flutter_math_fork/KaTeX_Main',
               );
               expect(severityFor(0.4, context.colors), tokens.destructive);

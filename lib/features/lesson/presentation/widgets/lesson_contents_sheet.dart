@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/time/pantas_dates.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
+import 'package:pantas/core/ui/components/pantas_sheet.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -13,10 +14,6 @@ import 'package:pantas/features/home/domain/lesson_day_context.dart';
 import 'package:pantas/features/lesson/application/reader_providers.dart';
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
 import 'package:pantas/features/lesson/domain/models/study_map.dart';
-
-/// The sheet's drag handle (Sheet: 36 by 5, no token).
-const double _grabberWidth = 36;
-const double _grabberHeight = 5;
 
 class LessonContentsSheet extends ConsumerWidget {
   const LessonContentsSheet({
@@ -120,8 +117,8 @@ class LessonContentsSheet extends ConsumerWidget {
         children: [
           Center(
             child: Container(
-              width: _grabberWidth,
-              height: _grabberHeight,
+              width: PantasSheetGrabber.width,
+              height: PantasSheetGrabber.height,
               decoration: BoxDecoration(
                 color: context.colors.dividerStrong,
                 borderRadius: BorderRadius.circular(PantasRadius.full),

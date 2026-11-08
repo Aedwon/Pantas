@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pantas/core/ui/components/pantas_shadows.dart';
+import 'package:pantas/core/ui/components/pantas_sheet.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_border.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
@@ -30,10 +31,6 @@ class InstallSheet extends StatelessWidget {
   const InstallSheet({super.key});
 
   /// The sheet clears the home indicator: 34 below the last control.
-  /// The grabber is 36 wide and 5 high.
-  static const double _grabberWidth = PantasSpace.s32 + PantasSpace.s4;
-  static const double _grabberHeight = PantasSpace.s4 + 1;
-
   static const double _bottom = PantasSpace.s32 + PantasSpace.s2;
 
   static const _steps = <(String, String)>[
@@ -73,8 +70,8 @@ class InstallSheet extends StatelessWidget {
               Center(
                 child: Container(
                   key: const ValueKey('install-sheet-grabber'),
-                  width: _grabberWidth,
-                  height: _grabberHeight,
+                  width: PantasSheetGrabber.width,
+                  height: PantasSheetGrabber.height,
                   decoration: BoxDecoration(
                     color: c.dividerStrong,
                     borderRadius: BorderRadius.circular(PantasRadius.full),

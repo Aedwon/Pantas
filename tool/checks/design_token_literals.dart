@@ -7,8 +7,13 @@
 // `BorderRadius.circular(` or `Radius.circular(`, and `Cubic(`.
 //
 // A folder that has not moved onto the tokens yet is listed in
-// `tool/checks/design_token_allowlist.txt`. Each family of the design system
-// build removes its folders from that file; it is empty at the end.
+// `tool/checks/design_token_allowlist.txt`. That file is empty and stays empty.
+//
+// Pure drawing geometry (arc radii, path math, logo and icon construction, a
+// curve in a data file) is not a design value. A trailing comment
+// `// ds-geometry: <reason>` exempts that one line from the radius and `Cubic`
+// rules, and only when the reason is not empty. It never exempts a color, a
+// font size, a size or a spacing.
 import 'dart:io';
 
 import 'check.dart';
@@ -19,9 +24,12 @@ const _allowlistPath = 'tool/checks/design_token_allowlist.txt';
 const _exemptPrefixes = ['lib/core/ui/theme/', 'lib/core/ui/motion/'];
 
 class _Rule {
-  const _Rule(this.pattern, this.message);
+  const _Rule(this.pattern, this.message, {this.geometry = false});
   final String pattern;
   final String message;
+
+  /// Whether a `ds-geometry` marker on the line exempts this rule.
+  final bool geometry;
 }
 
 const _rules = [
@@ -45,9 +53,16 @@ const _rules = [
   _Rule(
     r'\b(?:BorderRadius|Radius)\.circular\(\s*-?\d',
     'numeric radius: use PantasRadius',
+    geometry: true,
   ),
-  _Rule(r'\bCubic\(', 'Cubic(...) literal: use PantasCurves'),
+  _Rule(
+    r'\bCubic\(',
+    'Cubic(...) literal: use PantasCurves',
+    geometry: true,
+  ),
 ];
+
+final _geometryMarker = RegExp(r'//\s*ds-geometry:\s*\S');
 
 final _edgeInsetsOpen = RegExp(r'\bEdgeInsets(?:Directional)?\.\w+\(');
 final _number = RegExp(r'(?<![\w.])\d+(?:\.\d+)?');
@@ -73,15 +88,14 @@ class DesignTokenLiteralsCheck extends Check {
     return [
       ...findTokenLiterals(libSources(root), allowlist),
       for (final entry in allowlist)
-        if (!_entryExists(root, entry))
-          Violation(_allowlistPath, 'lists $entry, which does not exist'),
+        Violation(
+          _allowlistPath,
+          'lists $entry: the allowlist must stay empty; move the values onto '
+          'the tokens',
+        ),
     ];
   }
 }
-
-bool _entryExists(String root, String entry) => entry.endsWith('/')
-    ? Directory('$root/$entry').existsSync()
-    : File('$root/$entry').existsSync();
 
 /// One path per line: a folder ends with `/`, anything else is one file.
 /// Blank lines and `#` comments are ignored.
@@ -141,11 +155,14 @@ List<Violation> findTokenLiterals(
       continue;
     }
     final code = _code(entry.value);
+    final rawLines = entry.value.split('\n');
+    bool marked(int line) =>
+        line <= rawLines.length && _geometryMarker.hasMatch(rawLines[line - 1]);
     for (final rule in _rules) {
       for (final match in RegExp(rule.pattern).allMatches(code)) {
-        found.add(
-          Violation('$path:${lineAt(code, match.start)}', rule.message),
-        );
+        final line = lineAt(code, match.start);
+        if (rule.geometry && marked(line)) continue;
+        found.add(Violation('$path:$line', rule.message));
       }
     }
     for (final match in _edgeInsetsOpen.allMatches(code)) {

@@ -13,7 +13,7 @@ import 'package:pantas/core/auth/auth.dart';
 import 'package:pantas/core/auth/beta_access.dart';
 import 'package:pantas/core/ui/components/pantas_logo.dart';
 import 'package:pantas/core/ui/motion/pantas_effects.dart';
-import 'package:pantas/core/ui/theme/legacy_theme_shim.dart';
+import 'package:pantas/core/ui/theme/theme_names.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 
 class _AuthGateway extends Mock implements AuthGateway {}

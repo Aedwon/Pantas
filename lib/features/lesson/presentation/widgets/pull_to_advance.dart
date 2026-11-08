@@ -300,10 +300,13 @@ class _PullToAdvanceState extends State<PullToAdvance>
                         builder: (_, __) {
                           final t = _arrow.value * 260;
                           final scale = t <= 90
-                              ? 1 + .2 * LegacyCurves.easeOut.transform(t / 90)
+                              ? 1 +
+                                  .2 *
+                                      PantasBoardCurves.easeOut
+                                          .transform(t / 90)
                               : 1.2 -
                                   .2 *
-                                      LegacyCurves.easeOut
+                                      PantasBoardCurves.easeOut
                                           .transform((t - 90) / 170);
                           return Transform.scale(
                             scale: scale,
@@ -314,7 +317,7 @@ class _PullToAdvanceState extends State<PullToAdvance>
                                   arrowColor,
                                   colors.accent,
                                   _armed
-                                      ? LegacyCurves.easeOut
+                                      ? PantasBoardCurves.easeOut
                                           .transform((t / 90).clamp(0.0, 1.0))
                                       : 0,
                                 )!,

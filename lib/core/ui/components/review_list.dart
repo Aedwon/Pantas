@@ -7,6 +7,9 @@ import 'package:pantas/core/ui/components/new_design/answer_reveal.dart';
 import 'package:pantas/core/ui/components/new_design/passage_card.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_border.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 
 enum ReviewFilter { all, wrong, flagged }
 
@@ -166,16 +169,20 @@ class _ReviewListState extends State<ReviewList> {
         children: [
           if (widget.grouped && subjectName != null) ...[
             Padding(
-              padding: const EdgeInsets.only(top: 16, bottom: 8),
+              padding: const EdgeInsets.only(
+                top: PantasSpace.s16,
+                bottom: PantasSpace.s8,
+              ),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.baseline,
                 textBaseline: TextBaseline.alphabetic,
                 children: [
                   Text(
                     subjectName,
-                    style: styles.emphasized.copyWith(fontSize: 14),
+                    style: PantasType.phoneSectionHeader
+                        .copyWith(color: colors.label),
                   ),
-                  const SizedBox(width: 8),
+                  const SizedBox(width: PantasSpace.s8),
                   Text(
                     '${entriesInGroup.length}',
                     style: styles.subhead.copyWith(
@@ -186,7 +193,7 @@ class _ReviewListState extends State<ReviewList> {
                 ],
               ),
             ),
-            Container(height: 0.5, color: colors.separator),
+            Container(height: PantasBorder.hairline, color: colors.separator),
           ],
           for (var i = 0; i < entriesInGroup.length; i++) ...[
             // A passage prints once above the run of questions that share it.
@@ -208,7 +215,7 @@ class _ReviewListState extends State<ReviewList> {
               onToggleExpanded: () => _toggleExpanded(entriesInGroup[i].number),
               onToggleFlag: widget.onToggleFlag,
             ),
-            Container(height: 0.5, color: colors.fill),
+            Container(height: PantasBorder.hairline, color: colors.fill),
           ],
         ],
       );
@@ -224,7 +231,7 @@ class _ReviewListState extends State<ReviewList> {
         children: [
           if (widget.header != null) ...[
             widget.header!,
-            const SizedBox(height: 16),
+            const SizedBox(height: PantasSpace.s16),
           ],
           if (widget.showFilters) ...[
             _FilterRow(
@@ -236,7 +243,7 @@ class _ReviewListState extends State<ReviewList> {
                 });
               },
             ),
-            const SizedBox(height: 12),
+            const SizedBox(height: PantasSpace.s12),
           ],
           if (widget.grouped && groupedMap != null) ...[
             for (final entry in groupedMap.entries)
@@ -245,7 +252,7 @@ class _ReviewListState extends State<ReviewList> {
             buildGroup(null, filteredEntries),
           ],
           if (widget.footer != null) ...[
-            const SizedBox(height: 24),
+            const SizedBox(height: PantasSpace.s24),
             widget.footer!,
           ],
         ],
@@ -286,9 +293,9 @@ class _FilterRow extends StatelessWidget {
         for (var i = 0; i < ReviewFilter.values.length; i++) ...[
           if (i > 0)
             Container(
-              width: 0.5,
-              height: 12,
-              margin: const EdgeInsets.symmetric(horizontal: 9),
+              width: PantasBorder.hairline,
+              height: PantasSpace.s12,
+              margin: const EdgeInsets.symmetric(horizontal: PantasSpace.s8),
               color: colors.separator,
             ),
           InkWell(
@@ -343,10 +350,9 @@ class ReviewRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
-    final styles = context.type;
 
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8),
+      padding: const EdgeInsets.symmetric(vertical: PantasSpace.s8),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -376,11 +382,10 @@ class ReviewRow extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           SizedBox(
-                            width: 28,
+                            width: PantasSpace.s28,
                             child: Text(
                               '${entry.number}',
-                              style: styles.emphasized.copyWith(
-                                fontSize: 14,
+                              style: PantasType.phoneSectionHeader.copyWith(
                                 color: colors.secondaryLabel,
                                 fontFeatures: const [
                                   FontFeature.tabularFigures(),
@@ -402,7 +407,7 @@ class ReviewRow extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(width: 8),
+              const SizedBox(width: PantasSpace.s8),
               Semantics(
                 label: '${entry.isFlagged ? 'Unflag' : 'Flag'} '
                     'question ${entry.number}',
@@ -431,7 +436,7 @@ class ReviewRow extends StatelessWidget {
           ),
           if (isExpanded)
             Padding(
-              padding: const EdgeInsets.only(top: 12),
+              padding: const EdgeInsets.only(top: PantasSpace.s12),
               child: AnswerReveal(
                 correctLetter: entry.question.correctChoice.label,
                 explanation: entry.question.explanation,
@@ -465,7 +470,7 @@ class _OutcomeMark extends StatelessWidget {
 
     if (!entry.isAnswered) {
       return SizedBox(
-        width: 16,
+        width: PantasSpace.s16,
         child: Text(
           '–',
           style: styles.subhead.copyWith(color: colors.secondaryLabel),
@@ -474,7 +479,7 @@ class _OutcomeMark extends StatelessWidget {
     }
     if (entry.isCorrect) {
       return SizedBox(
-        width: 16,
+        width: PantasSpace.s16,
         child: Text(
           '✓',
           style: styles.subhead.copyWith(
@@ -485,7 +490,7 @@ class _OutcomeMark extends StatelessWidget {
       );
     }
     return SizedBox(
-      width: 16,
+      width: PantasSpace.s16,
       child: Text(
         '✕',
         style: styles.subhead.copyWith(

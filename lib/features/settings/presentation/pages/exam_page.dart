@@ -272,7 +272,7 @@ class _ExamPageState extends ConsumerState<ExamPage>
                           end: p.$2,
                         ).chain(
                           CurveTween(
-                            curve: LegacyCurves.easeOut,
+                            curve: PantasBoardCurves.easeOut,
                           ),
                         ),
                         weight: 1,
@@ -518,7 +518,7 @@ class _ExamPageState extends ConsumerState<ExamPage>
               title: 'Exam',
               value: ref.watch(activeExamShortNameProvider),
               divider: true,
-              dividerInset: context.wideWeb ? 0 : 16,
+              dividerInset: context.wideWeb ? PantasSpace.s0 : PantasSpace.s16,
               onTap: () => unawaited(_changeExam()),
             ),
             SettingsRow(
@@ -576,7 +576,7 @@ class _ExamPageState extends ConsumerState<ExamPage>
               hideChevron: true,
               // ST_ExamDate: a line under the row while the picker is open too.
               divider: true,
-              dividerInset: context.wideWeb ? 0 : 16,
+              dividerInset: context.wideWeb ? PantasSpace.s0 : PantasSpace.s16,
               expanded: _dateOpen,
               onTap: () => setState(() => _dateOpen = !_dateOpen),
               editor: Column(

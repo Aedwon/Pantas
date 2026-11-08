@@ -1335,7 +1335,7 @@ class _ExampleCardState extends State<_ExampleCard> {
                 : math.max(widget.stemTail, 18),
           ),
           if (region != null) region,
-          SizedBox(height: wide ? 8 : 4),
+          SizedBox(height: wide ? PantasSpace.s8 : PantasSpace.s4),
         ],
       ),
     );

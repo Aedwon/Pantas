@@ -15,6 +15,7 @@ import 'package:pantas/core/ui/theme/lesson_text_scale.dart';
 import 'package:pantas/core/ui/theme/reader_full_width.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_border.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
@@ -74,7 +75,7 @@ abstract final class WebReaderMetrics {
 /// The lesson list drops 24 px into place and fades, on the phone's contents
 /// sheet numbers: 450 ms in, 400 ms out, `slideC`.
 const _contentsMotion = WebOverlayMotion(
-  open: Duration(milliseconds: 450),
+  open: PantasDurations.long1,
   close: Duration(milliseconds: 400),
   curve: PantasCurves.slide,
   scrim: Duration(milliseconds: 350),

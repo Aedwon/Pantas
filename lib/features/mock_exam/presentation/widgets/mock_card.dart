@@ -6,6 +6,7 @@ import 'package:pantas/core/ui/components/pro_paused_line.dart';
 import 'package:pantas/core/ui/motion/press_scale.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
@@ -388,7 +389,7 @@ class _MockActionButton extends StatelessWidget {
       style: ButtonStyle(
         animationDuration: MediaQuery.disableAnimationsOf(context)
             ? Duration.zero
-            : const Duration(milliseconds: 150),
+            : PantasDurations.short2,
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
         visualDensity: VisualDensity.standard,
         minimumSize: const WidgetStatePropertyAll(Size(double.infinity, 48)),
@@ -706,7 +707,7 @@ class _CreateAccountButton extends StatelessWidget {
         style: ButtonStyle(
           animationDuration: MediaQuery.disableAnimationsOf(context)
               ? Duration.zero
-              : const Duration(milliseconds: 150),
+              : PantasDurations.short2,
           tapTargetSize: MaterialTapTargetSize.shrinkWrap,
           visualDensity: VisualDensity.standard,
           minimumSize: const WidgetStatePropertyAll(Size(double.infinity, 50)),

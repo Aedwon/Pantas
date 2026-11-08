@@ -6,7 +6,7 @@ import 'package:pantas/core/ui/components/floating_bar.dart';
 import 'package:pantas/core/ui/components/new_design/question_grid_sheet.dart';
 import 'package:pantas/core/ui/components/notice_strip.dart';
 import 'package:pantas/core/ui/components/toast.dart';
-import 'package:pantas/core/ui/theme/legacy_theme_shim.dart';
+import 'package:pantas/core/ui/theme/theme_names.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';

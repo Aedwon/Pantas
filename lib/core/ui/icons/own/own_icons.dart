@@ -107,12 +107,12 @@ class ReportBoardPainter extends OwnIconPainter {
           ..lineTo(18.5, 4)
           ..arcToPoint(
             const Offset(20, 5.5),
-            radius: const Radius.circular(1.5),
+            radius: const Radius.circular(1.5), // ds-geometry: icon arc
           )
           ..lineTo(20, 14.5)
           ..arcToPoint(
             const Offset(18.5, 16),
-            radius: const Radius.circular(1.5),
+            radius: const Radius.circular(1.5), // ds-geometry: icon arc
           )
           ..lineTo(10, 16)
           ..lineTo(6, 20)
@@ -120,10 +120,13 @@ class ReportBoardPainter extends OwnIconPainter {
           ..lineTo(5.5, 16)
           ..arcToPoint(
             const Offset(4, 14.5),
-            radius: const Radius.circular(1.5),
+            radius: const Radius.circular(1.5), // ds-geometry: icon arc
           )
           ..lineTo(4, 5.5)
-          ..arcToPoint(const Offset(5.5, 4), radius: const Radius.circular(1.5))
+          ..arcToPoint(
+            const Offset(5.5, 4),
+            radius: const Radius.circular(1.5), // ds-geometry: icon arc
+          )
           ..close(),
         stroke,
       )
@@ -232,7 +235,7 @@ class ReportPainter extends OwnIconPainter {
       ..drawRRect(
         RRect.fromRectAndRadius(
           const Rect.fromLTWH(120, 76, 16, 64),
-          const Radius.circular(8),
+          const Radius.circular(8), // ds-geometry: icon arc
         ),
         fill,
       )

@@ -13528,10 +13528,10 @@ const webFinaleTracks = <String, List<WebFinaleStop>>{
     a = stop;
   }
   final c = a.$10;
+  final ease = Cubic(c.$1, c.$2, c.$3, c.$4); // ds-geometry: easing data
   final t = b.$1 == a.$1
       ? 0.0
-      : Cubic(c.$1, c.$2, c.$3, c.$4)
-          .transform(((milliseconds - a.$1) / (b.$1 - a.$1)).clamp(0, 1));
+      : ease.transform(((milliseconds - a.$1) / (b.$1 - a.$1)).clamp(0, 1));
   double mix(double x, double y) => x + (y - x) * t;
   return (
     offset: Offset(

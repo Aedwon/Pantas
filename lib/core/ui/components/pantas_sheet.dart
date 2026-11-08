@@ -336,7 +336,7 @@ class _PantasSheetState extends State<PantasSheet>
                                 mainAxisSize: MainAxisSize.min,
                                 crossAxisAlignment: CrossAxisAlignment.stretch,
                                 children: [
-                                  const _Grabber(),
+                                  const PantasSheetGrabber(),
                                   if (bookmarks)
                                     Expanded(child: _body)
                                   else
@@ -410,12 +410,14 @@ class _SheetWindowLayer extends StatelessWidget {
 }
 
 /// The 36 by 5 drag handle: decorative, `divider-strong`, with 8 above it.
-class _Grabber extends StatelessWidget {
-  const _Grabber();
+/// A sheet laid out by hand uses it too.
+class PantasSheetGrabber extends StatelessWidget {
+  const PantasSheetGrabber({super.key});
 
-  /// `.sheet__grab` is 36 wide and 5 high.
-  static const double _width = PantasSpace.s32 + PantasSpace.s4;
-  static const double _height = PantasSpace.s4 + 1;
+  /// `.sheet__grab` is 36 wide and 5 high. The system sets no token for it, so
+  /// this is the one place that states it; hand-laid sheets read it here.
+  static const double width = PantasSpace.s32 + PantasSpace.s4;
+  static const double height = PantasSpace.s4 + 1;
 
   @override
   Widget build(BuildContext context) => ExcludeSemantics(
@@ -428,7 +430,7 @@ class _Grabber extends StatelessWidget {
                 color: context.colors.dividerStrong,
                 borderRadius: BorderRadius.circular(PantasRadius.full),
               ),
-              child: const SizedBox(width: _width, height: _height),
+              child: const SizedBox(width: width, height: height),
             ),
           ),
         ),

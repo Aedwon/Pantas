@@ -454,7 +454,7 @@ class _ReaderBookmarkControlState extends State<_ReaderBookmarkControl>
     _press.animateTo(
       target,
       duration: const Duration(milliseconds: 100),
-      curve: LegacyCurves.easeOut,
+      curve: PantasBoardCurves.easeOut,
     );
   }
 
