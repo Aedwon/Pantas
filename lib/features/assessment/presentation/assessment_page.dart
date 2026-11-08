@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/app/telemetry_providers.dart';
@@ -29,6 +28,10 @@ import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/figures/question_figure.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
@@ -317,15 +320,12 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
     _leaveOpen = true;
     final leave = await showDialog<bool>(
       context: context,
-      builder: (context) => context.wideWeb
-          ? WebAssessmentLeaveDialog(
-              onKeepGoing: () => Navigator.of(context).pop(false),
-              onLeave: () => Navigator.of(context).pop(true),
-            )
-          : _LeaveDialog(
-              onKeepGoing: () => Navigator.of(context).pop(false),
-              onLeave: () => Navigator.of(context).pop(true),
-            ),
+      // An alertdialog does not close on a scrim click.
+      barrierDismissible: false,
+      builder: (context) => WebAssessmentLeaveDialog(
+        onKeepGoing: () => Navigator.of(context).pop(false),
+        onLeave: () => Navigator.of(context).pop(true),
+      ),
     );
     _leaveOpen = false;
     if ((leave ?? false) && mounted) {
@@ -379,7 +379,12 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
           : const SkeletonQuestionPage();
     } else {
       body = SingleChildScrollView(
-        padding: const EdgeInsets.fromLTRB(16, 20, 16, 120),
+        padding: const EdgeInsets.fromLTRB(
+          PantasSpace.s16,
+          PantasSpace.s20,
+          PantasSpace.s16,
+          PantasLayout.reserveBarPhone,
+        ),
         child: Column(
           children: [
             QuestionCard(
@@ -444,8 +449,8 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
                         data: IconThemeData(
                           color: _reported.contains(question.id)
                               ? context.webTokens.colors.accent
-                              : context.webTokens.colors.tertiaryLabel,
-                          size: 21,
+                              : context.webTokens.colors.textSecondary,
+                          size: PantasSpace.s20,
                         ),
                         child: PantasIcons.report,
                       ),
@@ -491,17 +496,22 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
                 children: [
                   // AS_Question: the board's top row starts 6 px down.
                   SizedBox(
-                    height: 50,
+                    height: PantasSize.btnLg,
                     child: Padding(
-                      padding: const EdgeInsets.fromLTRB(8, 6, 8, 0),
+                      padding: const EdgeInsets.fromLTRB(
+                        PantasSpace.s8,
+                        PantasSpace.s6,
+                        PantasSpace.s8,
+                        PantasSpace.s0,
+                      ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           IconButton(
                             tooltip: 'Leave assessment',
                             constraints: const BoxConstraints.tightFor(
-                              width: 44,
-                              height: 44,
+                              width: PantasSize.iconBtn,
+                              height: PantasSize.iconBtn,
                             ),
                             padding: EdgeInsets.zero,
                             style: IconButton.styleFrom(
@@ -510,17 +520,16 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
                             onPressed: _completing ? null : _leave,
                             icon: Icon(
                               PantasIcons.close,
-                              // Board (AS_Question): the X is #8E8E93.
-                              color: context.colors.controlOutline,
-                              size: 22,
+                              color: context.colors.iconMuted,
+                              size: PantasSize.icon,
                             ),
                           ),
                           if (question != null)
                             IconButton(
                               tooltip: 'Report',
                               constraints: const BoxConstraints.tightFor(
-                                width: 44,
-                                height: 44,
+                                width: PantasSize.iconBtn,
+                                height: PantasSize.iconBtn,
                               ),
                               padding: EdgeInsets.zero,
                               style: IconButton.styleFrom(
@@ -548,8 +557,8 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
                                 data: IconThemeData(
                                   color: _reported.contains(question.id)
                                       ? context.colors.accent
-                                      : context.colors.tertiaryLabel,
-                                  size: 21,
+                                      : context.colors.textSecondary,
+                                  size: PantasSpace.s20,
                                 ),
                                 child: PantasIcons.report,
                               ),
@@ -563,14 +572,16 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
               ),
               if (session != null && !_failed)
                 Positioned(
-                  left: 16,
-                  right: 16,
-                  bottom: 26,
+                  left: PantasLayout.gutterPhone,
+                  right: PantasLayout.gutterPhone,
+                  bottom: PantasLayout.barBottomPhone,
                   child: FloatingBar.content(
                     child: Row(
                       children: [
                         Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 14),
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: PantasSpace.s14,
+                          ),
                           child: Text(
                             '${_index + 1} of ${session.questions.length}',
                             style: context.type.subheadStrong,
@@ -581,11 +592,10 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
                           label: _index + 1 == session.questions.length
                               ? 'Finish'
                               : 'Next',
-                          height: 44,
-                          radius: 99,
-                          fontSize: 16,
+                          height: PantasSize.btn,
+                          radius: PantasRadius.full,
                           fullWidth: false,
-                          horizontalPadding: 20,
+                          horizontalPadding: PantasSpace.s20,
                           busy: _savingSlow,
                           onPressed: _picked == null ? null : _next,
                         ),
@@ -594,85 +604,6 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
                   ),
                 ),
             ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-/// AS_Leave: a full-width teal Keep Going stacked above red Leave text. The
-/// shared centered dialog only draws paired pills, so this one is local.
-class _LeaveDialog extends StatelessWidget {
-  const _LeaveDialog({required this.onKeepGoing, required this.onLeave});
-  final VoidCallback onKeepGoing;
-  final VoidCallback onLeave;
-
-  @override
-  Widget build(BuildContext context) {
-    final c = context.colors;
-    return CallbackShortcuts(
-      bindings: {const SingleActivator(LogicalKeyboardKey.escape): onKeepGoing},
-      child: Dialog(
-        backgroundColor: c.transparent,
-        elevation: 0,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-        insetPadding: const EdgeInsets.symmetric(horizontal: 28, vertical: 24),
-        child: DecoratedBox(
-          key: const ValueKey('leave-dialog-surface'),
-          decoration: BoxDecoration(
-            color: c.surface,
-            borderRadius: BorderRadius.circular(20),
-            boxShadow: [
-              BoxShadow(
-                color: c.shadow.withValues(alpha: .2),
-                blurRadius: 40,
-                offset: const Offset(0, 10),
-              ),
-            ],
-          ),
-          child: SingleChildScrollView(
-            padding: const EdgeInsets.fromLTRB(20, 22, 20, 18),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Text(
-                  'Leave the assessment?',
-                  style: context.type.emphasized.copyWith(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w700,
-                    letterSpacing: -.24,
-                  ),
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  "Your answers so far won't be kept. "
-                  'You can start again from Home.',
-                  style: context.type.subhead
-                      .copyWith(color: c.secondaryLabel, height: 1.45),
-                ),
-                const SizedBox(height: 18),
-                PantasButton(label: 'Keep Going', onPressed: onKeepGoing),
-                const SizedBox(height: 8),
-                TextButton(
-                  onPressed: onLeave,
-                  style: TextButton.styleFrom(
-                    minimumSize: const Size(double.infinity, 44),
-                    foregroundColor: c.destructive,
-                  ),
-                  child: Text(
-                    'Leave',
-                    style: context.type.emphasized.copyWith(
-                      fontSize: 17,
-                      fontWeight: FontWeight.w600,
-                      letterSpacing: -.204,
-                      color: c.destructive,
-                    ),
-                  ),
-                ),
-              ],
-            ),
           ),
         ),
       ),

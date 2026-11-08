@@ -13,6 +13,7 @@ import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/month_first_date_picker.dart';
 import 'package:pantas/core/ui/components/pantas_button_parts.dart';
 import 'package:pantas/core/ui/components/search_field.dart';
+import 'package:pantas/core/ui/components/selectable_tile.dart';
 import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/components/steps_screen.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -199,14 +200,14 @@ void main() {
           onChanged: (_) {},
         ),
       );
-      // The 56 px box is measured in the browser with Geist (vertical
-      // padding 19); test fonts have taller lines, so check the padding.
+      // The Field well is 48 high (`size-field`) with 14 side padding; test
+      // fonts have taller lines, so check the padding.
       expect(
         tester
             .widget<TextField>(find.byType(TextField))
             .decoration!
             .contentPadding,
-        const EdgeInsets.symmetric(horizontal: 18, vertical: 19),
+        const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
       );
       expect(
         tester.widget<TextField>(find.byType(TextField)).decoration!.labelText,
@@ -214,7 +215,7 @@ void main() {
       );
       expect(
         tester.widget<TextField>(find.byType(TextField)).style!.fontSize,
-        19,
+        16,
       );
     });
 
@@ -242,7 +243,7 @@ void main() {
         find.byWidgetPredicate((w) => w is CheckboxRow && w.title == label),
       );
       expect(row.selected, isTrue);
-      expect(tester.getTopLeft(find.text('Terms and Privacy')).dy, 168);
+      expect(tester.getTopLeft(find.text('Terms and Privacy')).dy, 172);
       // The test font wraps the label to two lines; the hover test checks the
       // one-line board height of exactly 56.
       expect(
@@ -255,41 +256,19 @@ void main() {
     testWidgets('custom subject controls match board sizing $dark',
         (tester) async {
       await pump(tester, const CustomTrackSubjectsStep(name: 'My Exam'));
-      final tiles = find.byType(CheckboxRow);
-      expect(tester.getSize(tiles.first).height, greaterThanOrEqualTo(56));
+      final tiles = find.byType(SelectableTile);
+      expect(tester.getSize(tiles.first).height, greaterThanOrEqualTo(64));
       expect(
-        tester
-            .getSize(
-              find
-                  .ancestor(
-                    of: tiles.first,
-                    matching: find.byType(Expanded),
-                  )
-                  .first,
-            )
-            .width,
+        tester.getSize(tiles.first).width,
         285,
       );
-      final checkbox = find.descendant(
-        of: tiles.first,
-        matching: find.byKey(const ValueKey('selection-mark')),
-      );
-      expect(tester.getSize(checkbox), const Size(24, 24));
-      final center = tester.getCenter(checkbox);
-      expect(center.dx - 12 - tester.getTopLeft(tiles.first).dx, 16);
       expect(
-        tester.getTopLeft(find.text('Mathematics')).dx - center.dx - 12,
-        14,
-      );
-      expect(
-        tester.widget<Text>(
-          find.text(tester.widget<CheckboxRow>(tiles.first).title),
-        ),
+        tester.widget<Text>(find.text('Mathematics')),
         isA<Text>().having((text) => text.style?.fontSize, 'font size', 16),
       );
       await tester.tap(find.text('Mathematics'));
       await tester.pump();
-      expect(tester.widget<CheckboxRow>(tiles.first).selected, isTrue);
+      expect(tester.widget<SelectableTile>(tiles.first).selected, isTrue);
       expect(tester.takeException(), isNull);
     });
     testWidgets('restore loading keeps heading above progress card $dark',
@@ -330,7 +309,7 @@ void main() {
         const Size.square(16),
       );
       expect(find.text('Continue'), findsNothing);
-      expect(tester.getSize(find.byType(WebCard)).width, 520);
+      expect(tester.getSize(find.byType(WebCard)).width, 560);
       expect(tester.takeException(), isNull);
     });
     testWidgets('sign in keeps account visible while busy $dark',

@@ -9,9 +9,11 @@ import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
-import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/guardian/application/guardian_providers.dart';
 import 'package:pantas/features/guardian/domain/guardian_consent.dart';
 import 'package:pantas/features/guardian/domain/guardian_copy.dart';
@@ -140,20 +142,20 @@ class _GuardianConfirmPageState extends ConsumerState<GuardianConfirmPage> {
   Widget _form(BuildContext context) {
     final wide = context.wideWeb;
     final textStyle = wide
-        ? context.webTokens.style(17, height: 1.5)
-        : context.type.body.copyWith(height: 1.4);
+        ? PantasType.webLead.copyWith(color: context.colors.textPrimary)
+        : context.type.body;
     final accent = context.colors.accent;
     Widget link(String label, String path) => TextButton(
           onPressed: () => _open(path),
           style: TextButton.styleFrom(
             padding: EdgeInsets.zero,
-            minimumSize: const Size(0, 44),
+            minimumSize: const Size(0, PantasSize.targetTouch),
             tapTargetSize: MaterialTapTargetSize.shrinkWrap,
           ),
           child: Text(label, style: textStyle.copyWith(color: accent)),
         );
     final card = Padding(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(PantasSpace.s16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -165,9 +167,9 @@ class _GuardianConfirmPageState extends ConsumerState<GuardianConfirmPage> {
             'authorize a charge. Checkout does not check who is paying.',
             style: textStyle,
           ),
-          const SizedBox(height: 8),
+          const SizedBox(height: PantasSpace.s8),
           Wrap(
-            spacing: 20,
+            spacing: PantasSpace.s20,
             children: [
               link('Terms of Service', '/legal/terms'),
               link('Privacy Policy', '/legal/privacy'),
@@ -180,7 +182,7 @@ class _GuardianConfirmPageState extends ConsumerState<GuardianConfirmPage> {
     final agreement = CheckboxRow(
       title: "I'm their parent or guardian, and I agree to these terms.",
       selected: _agreed,
-      gap: 14,
+      gap: PantasSpace.s14,
       standardDensity: true,
       squareEdges: wide,
       onTap: _busy ? null : () => setState(() => _agreed = !_agreed),
@@ -189,9 +191,8 @@ class _GuardianConfirmPageState extends ConsumerState<GuardianConfirmPage> {
         style: textStyle,
       ),
     );
-    Widget group(Widget child) => wide
-        ? WebCard(radius: 16, child: child)
-        : GroupedSection(children: [child]);
+    Widget group(Widget child) =>
+        wide ? WebCard(child: child) : GroupedSection(children: [child]);
     return GuardianScreen(
       title: "Confirm your child's account",
       detail: "You're confirming as their parent or guardian.",
@@ -206,13 +207,13 @@ class _GuardianConfirmPageState extends ConsumerState<GuardianConfirmPage> {
         TextButton(
           onPressed: _busy ? null : () => _answer(confirm: false),
           style: TextButton.styleFrom(
-            foregroundColor: context.colors.destructive,
-            minimumSize: const Size(0, 48),
+            foregroundColor: context.colors.dangerText,
+            minimumSize: const Size(0, PantasSize.field),
           ),
           child: Text(
             "I Don't Agree",
             style: textStyle.copyWith(
-              color: context.colors.destructive,
+              color: context.colors.dangerText,
               fontWeight: FontWeight.w600,
             ),
           ),
@@ -220,7 +221,7 @@ class _GuardianConfirmPageState extends ConsumerState<GuardianConfirmPage> {
       ],
       children: [
         group(card),
-        const SizedBox(height: 12),
+        const SizedBox(height: PantasSpace.s12),
         group(agreement),
       ],
     );

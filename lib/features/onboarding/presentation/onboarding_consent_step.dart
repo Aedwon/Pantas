@@ -8,6 +8,9 @@ import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_border.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
@@ -97,18 +100,24 @@ class _OnboardingConsentStepState extends ConsumerState<OnboardingConsentStep> {
       selected: value,
       onTap: _saving ? null : onChanged,
       content: child,
-      minHeight: 56,
+      minHeight: PantasSpace.s56,
       standardDensity: true,
       squareEdges: true,
-      padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 14),
+      padding: const EdgeInsets.symmetric(
+        horizontal: PantasSpace.s18,
+        vertical: PantasSpace.s14,
+      ),
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    final textStyle =
-        context.type.body.copyWith(fontSize: 16, letterSpacing: 0, height: 1.4);
-    final boardText = textStyle.copyWith(height: 1.45);
+    final textStyle = PantasType.webBody.copyWith(
+      color: context.colors.textPrimary,
+    );
+    final boardText = PantasType.phoneCallout.copyWith(
+      color: context.colors.textPrimary,
+    );
     Widget plain(String text) => ExcludeSemantics(
           child: Text(
             text,
@@ -141,7 +150,6 @@ class _OnboardingConsentStepState extends ConsumerState<OnboardingConsentStep> {
       children: [
         if (context.wideWeb)
           WebCard(
-            radius: 16,
             child: Material(
               color: Colors.transparent,
               child: Column(
@@ -157,8 +165,8 @@ class _OnboardingConsentStepState extends ConsumerState<OnboardingConsentStep> {
                     ),
                   ),
                   Divider(
-                    height: .5,
-                    thickness: .5,
+                    height: PantasBorder.hairline,
+                    thickness: PantasBorder.hairline,
                     color: context.webTokens.colors.separator,
                   ),
                   _webConsentRow(
@@ -189,9 +197,7 @@ class _OnboardingConsentStepState extends ConsumerState<OnboardingConsentStep> {
               CheckboxRow(
                 title: 'Help improve Pantas by sharing usage data',
                 selected: _acceptedUsage,
-                gap: 14,
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 16, vertical: 13.5),
+                gap: PantasSpace.s14,
                 standardDensity: true,
                 onTap: _saving
                     ? null
@@ -202,16 +208,14 @@ class _OnboardingConsentStepState extends ConsumerState<OnboardingConsentStep> {
                 ),
               ),
               Divider(
-                height: .5,
-                thickness: .5,
+                height: PantasBorder.hairline,
+                thickness: PantasBorder.hairline,
                 color: context.colors.separator,
               ),
               CheckboxRow(
                 title: 'I agree to the Terms of Service and Privacy Policy.',
                 selected: _acceptedTerms,
-                gap: 14,
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 16, vertical: 13.5),
+                gap: PantasSpace.s14,
                 standardDensity: true,
                 interactiveContent: true,
                 onTap: _saving

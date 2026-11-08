@@ -110,12 +110,17 @@ Future<void> pumpFramedStep(
   bool dark = false,
   GlobalKey? boundary,
   void Function(String)? onPicked,
+  double? width,
+  double scale = 1,
 }) async {
   driftRuntimeOptions.dontWarnAboutMultipleDatabases = true;
   debugWebPlatformOverride = wide ? true : null;
   addTearDown(() => debugWebPlatformOverride = null);
-  tester.view.physicalSize =
-      wide ? const Size(1440, 900) : const Size(390, 844);
+  tester.view.physicalSize = width != null
+      ? Size(width, wide ? 900 : 844)
+      : wide
+          ? const Size(1440, 900)
+          : const Size(390, 844);
   tester.view.devicePixelRatio = 1;
   addTearDown(tester.view.resetPhysicalSize);
   addTearDown(tester.view.resetDevicePixelRatio);
@@ -197,6 +202,7 @@ Future<void> pumpFramedStep(
         home: MediaQuery(
           data: MediaQueryData(
             size: tester.view.physicalSize,
+            textScaler: TextScaler.linear(scale),
             disableAnimations: true,
           ),
           child: RepaintBoundary(

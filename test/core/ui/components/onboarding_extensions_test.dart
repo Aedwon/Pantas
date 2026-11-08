@@ -175,17 +175,17 @@ void main() {
         expect(title.style!.height, 1.2);
         expect(title.style!.letterSpacing, closeTo(-.616, .000001));
         expect(tester.getTopLeft(find.text('When were you born?')).dx, 20);
-        expect(tester.getTopLeft(find.text('When were you born?')).dy, 64);
+        expect(tester.getTopLeft(find.text('When were you born?')).dy, 65);
         final segments = find.byKey(
           const ValueKey('onboarding-segment'),
           skipOffstage: false,
         );
         expect(segments, findsNWidgets(6));
-        expect(tester.getSize(segments.first).height, 4);
+        expect(tester.getSize(segments.first).height, 5);
         final boxes = tester.widgetList<DecoratedBox>(segments).toList();
         final first = boxes.first.decoration as BoxDecoration;
         final second = boxes[1].decoration as BoxDecoration;
-        expect(first.borderRadius, BorderRadius.circular(9));
+        expect(first.borderRadius, BorderRadius.circular(9999));
         final bg = tester
             .widget<Scaffold>(find.byType(Scaffold).last)
             .backgroundColor!;

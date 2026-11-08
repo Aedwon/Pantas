@@ -5,26 +5,20 @@
 # are the token definitions and are never listed.
 lib/app/routes/deferred_route.dart
 lib/app/routes/settings_routes_native.dart
-lib/features/assessment/
 lib/features/beta_feedback/
-lib/features/guardian/
 lib/features/legal/
 lib/features/metrics/
 lib/features/mock_exam/
 lib/features/notifications/
-lib/features/onboarding/
 lib/features/paywall/
 lib/features/review_prompt/
 lib/features/roadmap/
 lib/features/settings/
 lib/features/wrapped/
-lib/core/ui/components/onboarding_frame.dart
 lib/core/ui/components/pantas_logo.dart
 lib/core/ui/components/pantas_page.dart
 lib/core/ui/components/report_form.dart
 lib/core/ui/components/review_list.dart
-lib/core/ui/components/scope_picker.dart
-lib/core/ui/components/steps_screen.dart
 lib/core/ui/components/today_questions.dart
 lib/core/ui/figures/biology_diagram_figure.dart
 lib/core/ui/figures/chart_figure.dart

@@ -48,7 +48,7 @@ void main() {
       );
       expect(
         tester.getSize(find.byKey(const ValueKey('step-done-0'))),
-        const Size(22, 22),
+        const Size(24, 24),
       );
     });
     testWidgets('loading delay and CSS opacity at keyframes $brightness',
@@ -130,9 +130,9 @@ void main() {
         disableAnimations: true,
       );
       final title = tester.widget<Text>(find.text('Restoring purchases'));
-      expect(title.style!.fontSize, 26);
+      expect(title.style!.fontSize, 28);
       expect(title.style!.fontWeight, FontWeight.w700);
-      expect(title.style!.height, 1.35);
+      expect(title.style!.height, 1.2);
       expect(
         tester.widget<Text>(find.text('Find purchases')).style!.fontSize,
         17,

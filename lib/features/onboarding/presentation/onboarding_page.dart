@@ -14,6 +14,7 @@ import 'package:pantas/core/storage/track_scope.dart';
 import 'package:pantas/core/telemetry/telemetry.dart';
 import 'package:pantas/core/ui/components/onboarding_frame.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/home/application/study_delivery.dart';
 import 'package:pantas/features/home/application/study_remote_providers.dart';
@@ -267,9 +268,9 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
             ),
             duration: disableAnimations
                 ? Duration.zero
-                : Duration(
-                    milliseconds: _step == OnboardingStep.welcome ? 300 : 380,
-                  ),
+                : _step == OnboardingStep.welcome
+                    ? PantasDurations.flip
+                    : PantasDurations.slide,
             reverseDuration: Duration.zero,
             transitionBuilder: (child, animation) {
               // Only the screens before the framed steps fade. Every framed

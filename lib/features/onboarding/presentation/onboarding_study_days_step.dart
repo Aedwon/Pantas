@@ -10,13 +10,24 @@ import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/time/study_days.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/selectable_tile.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_web_page.dart';
 import 'package:pantas/features/settings/application/settings_providers.dart';
 import 'package:pantas/features/settings/data/settings_repository.dart';
 import 'package:pantas/features/settings/domain/user_settings.dart';
+
+/// Wide web: the status block under the day row keeps this height, so the
+/// buttons below do not move when the text changes (board OB_Days).
+const double _statusMinHeight = 96;
 
 class OnboardingStudyDaysStep extends ConsumerStatefulWidget {
   const OnboardingStudyDaysStep({
@@ -117,7 +128,6 @@ class _OnboardingStudyDaysStepState
   @override
   Widget build(BuildContext context) {
     final c = context.colors;
-    final scale = MediaQuery.textScalerOf(context);
     final date = _settings?.examDate;
     final dateDescription = date == null
         ? ''
@@ -139,7 +149,7 @@ class _OnboardingStudyDaysStepState
     // seven days fit the 580 column that every onboarding step uses.
     return OnboardingWebPage(
       title: 'Which days will you study?',
-      bottomGap: 28,
+      bottomGap: PantasSpace.s28,
       detail: 'Your plan only puts work on these days. '
           // A no-break space keeps "Settings." from wrapping alone on the 580
           // column.
@@ -157,7 +167,7 @@ class _OnboardingStudyDaysStepState
             busy: _saving,
             onPressed: _saving || !_valid ? null : _save,
           ),
-          const SizedBox(height: 6),
+          const SizedBox(height: PantasSpace.s6),
           OnboardingButton(
             label: 'Every Day',
             variant: PantasButtonVariant.tertiary,
@@ -172,163 +182,89 @@ class _OnboardingStudyDaysStepState
           : [
               LayoutBuilder(
                 builder: (context, constraints) {
-                  final regular = context.wideWeb
-                      ? 56.0
-                      : scale.scale(15) > 22
-                          ? 60.0
-                          : 42.0;
-                  // On a 320 px phone seven 42 px circles do not fit. They
-                  // shrink a little (down to 36) so the week stays one row; at
-                  // large text sizes the circles stay big and wrap.
-                  final size = !context.wideWeb && regular == 42
-                      ? ((constraints.maxWidth - 6 * 4) / 7)
-                          .floorToDouble()
-                          .clamp(36.0, regular)
-                      : regular;
-                  final children = [
-                    for (final day in [7, 1, 2, 3, 4, 5, 6])
-                      Semantics(
-                        label: DateFormat('EEEE', 'en_US')
-                            .format(DateTime(2026, 6, day)),
+                  // Seven day tiles in weekday order (D190): each at least 44
+                  // wide, the gap shrinks from 10 toward 4, and a row too
+                  // narrow for that scrolls sideways.
+                  const columns = 7;
+                  const minRow = columns * PantasSize.targetTouch +
+                      (columns - 1) * PantasSpace.s4;
+                  final scrolls = constraints.maxWidth < minRow;
+                  final gap = scrolls
+                      ? PantasSpace.s4
+                      : ((constraints.maxWidth -
+                                  columns * PantasSize.targetTouch) /
+                              (columns - 1))
+                          .clamp(PantasSpace.s4, PantasSpace.s10);
+                  const names = [
+                    'Monday',
+                    'Tuesday',
+                    'Wednesday',
+                    'Thursday',
+                    'Friday',
+                    'Saturday',
+                    'Sunday',
+                  ];
+                  const weekdays = [
+                    'Mon',
+                    'Tue',
+                    'Wed',
+                    'Thu',
+                    'Fri',
+                    'Sat',
+                    'Sun',
+                  ];
+                  const letters = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
+                  // The tile's own text ("Mon", "M") would be read after the
+                  // day's name, so the day carries the whole label.
+                  Widget tile(int day) => Semantics(
+                        label: names[day - 1],
                         selected: _days.contains(day),
                         button: true,
                         excludeSemantics: true,
-                        child: context.wideWeb
-                            ? SizedBox(
-                                width: (constraints.maxWidth - 48) / 7,
-                                height: 76,
-                                child: TextButton(
-                                  key: ValueKey('study-day-$day'),
-                                  onPressed: _saving
-                                      ? null
-                                      : () => setState(() {
-                                            if (!_days.add(day)) {
-                                              _days.remove(day);
-                                            }
-                                          }),
-                                  style: TextButton.styleFrom(
-                                    padding: EdgeInsets.zero,
-                                    backgroundColor: _days.contains(day)
-                                        ? c.accentFill
-                                        : c.surface,
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(16),
-                                    ),
-                                  ),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      Text(
-                                        [
-                                          'Mon',
-                                          'Tue',
-                                          'Wed',
-                                          'Thu',
-                                          'Fri',
-                                          'Sat',
-                                          'Sun',
-                                        ][day - 1],
-                                        style: context.webTokens.style(
-                                          12,
-                                          weight: FontWeight.w600,
-                                          color: _days.contains(day)
-                                              ? Colors.white
-                                                  .withValues(alpha: .8)
-                                              : c.tertiaryLabel,
-                                        ),
-                                      ),
-                                      const SizedBox(height: 2),
-                                      Text(
-                                        [
-                                          'M',
-                                          'T',
-                                          'W',
-                                          'T',
-                                          'F',
-                                          'S',
-                                          'S',
-                                        ][day - 1],
-                                        style: context.webTokens.style(
-                                          20,
-                                          weight: FontWeight.w700,
-                                          color: _days.contains(day)
-                                              ? Colors.white
-                                              : c.label,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              )
-                            : SizedBox(
-                                width: size,
-                                height: size,
-                                child: TextButton(
-                                  key: ValueKey('study-day-$day'),
-                                  onPressed: _saving
-                                      ? null
-                                      : () => setState(() {
-                                            if (!_days.add(day)) {
-                                              _days.remove(day);
-                                            }
-                                          }),
-                                  style: TextButton.styleFrom(
-                                    padding: EdgeInsets.zero,
-                                    backgroundColor: _days.contains(day)
-                                        ? c.accentFill
-                                        : c.surface,
-                                    shape: CircleBorder(
-                                      side: BorderSide(
-                                        color: _days.contains(day)
-                                            ? c.accentFill
-                                            : Theme.of(context).brightness ==
-                                                    Brightness.light
-                                                ? c.separator
-                                                : c.controlOutline,
-                                        width: 1.5,
-                                      ),
-                                    ),
-                                  ),
-                                  child: Text(
-                                    [
-                                      'M',
-                                      'T',
-                                      'W',
-                                      'T',
-                                      'F',
-                                      'S',
-                                      'S',
-                                    ][day - 1],
-                                    style: context.type.subheadStrong.copyWith(
-                                      color: _days.contains(day)
-                                          ? c.onAccent
-                                          : c.label,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                      ),
-                  ];
-                  return constraints.maxWidth < 7 * size + 6 * 4
-                      ? Wrap(spacing: 6, runSpacing: 8, children: children)
-                      : Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: children,
-                        );
+                        child: SelectableTile.day(
+                          key: ValueKey('study-day-$day'),
+                          weekday: weekdays[day - 1],
+                          name: letters[day - 1],
+                          selected: _days.contains(day),
+                          onTap: _saving
+                              ? null
+                              : () => setState(() {
+                                    if (!_days.add(day)) _days.remove(day);
+                                  }),
+                        ),
+                      );
+                  const order = [7, 1, 2, 3, 4, 5, 6];
+                  if (scrolls) {
+                    return _ScrollingDays(
+                      order: order,
+                      selected: _days,
+                      gap: gap,
+                      tile: tile,
+                    );
+                  }
+                  return Row(
+                    children: [
+                      for (final (i, day) in order.indexed) ...[
+                        if (i > 0) SizedBox(width: gap),
+                        Expanded(child: tile(day)),
+                      ],
+                    ],
+                  );
                 },
               ),
-              const SizedBox(height: 28),
+              const SizedBox(height: PantasSpace.s28),
               Container(
                 key: const ValueKey('study-days-status'),
                 constraints: BoxConstraints(
-                  minHeight: context.wideWeb ? 96 : 0,
+                  minHeight: context.wideWeb ? _statusMinHeight : 0,
                 ),
                 child: _days.isEmpty
                     ? Padding(
                         // Wide web: flush with the title, as in OB_DaysNone
                         // (7W-4). The phone keeps its 4 px.
                         padding: EdgeInsets.symmetric(
-                          horizontal: context.wideWeb ? 0 : 4,
+                          horizontal:
+                              context.wideWeb ? PantasSpace.s0 : PantasSpace.s4,
                         ),
                         child: Text(
                           'Pick at least one day to continue.',
@@ -340,15 +276,17 @@ class _OnboardingStudyDaysStepState
                         padding: context.wideWeb && !invalid
                             ? EdgeInsets.zero
                             : EdgeInsets.symmetric(
-                                horizontal: 18,
-                                vertical: context.wideWeb ? 16 : 18,
+                                horizontal: PantasSpace.s18,
+                                vertical: context.wideWeb
+                                    ? PantasSpace.s14
+                                    : PantasSpace.s18,
                               ),
                         decoration: BoxDecoration(
                           color: context.wideWeb && !invalid
                               ? Colors.transparent
-                              : c.surface,
+                              : c.surfaceCard,
                           borderRadius: BorderRadius.circular(
-                            context.wideWeb ? 16 : 20,
+                            PantasRadius.xl,
                           ),
                         ),
                         child: _TooLateRow(
@@ -360,10 +298,8 @@ class _OnboardingStudyDaysStepState
                                 Text(
                                   'None of these fall before your exam',
                                   style: context.wideWeb
-                                      ? context.webTokens.style(
-                                          16,
-                                          weight: FontWeight.w600,
-                                          height: 1,
+                                      ? PantasType.webTitleSm.copyWith(
+                                          color: c.textPrimary,
                                         )
                                       : context.type.emphasized,
                                 )
@@ -374,10 +310,8 @@ class _OnboardingStudyDaysStepState
                                       TextSpan(
                                         text: '${_days.length}',
                                         style: context.wideWeb
-                                            ? context.webTokens.style(
-                                                34,
-                                                weight: FontWeight.w700,
-                                                height: 1,
+                                            ? PantasType.webBigNumeral.copyWith(
+                                                color: c.textPrimary,
                                               )
                                             : context.type.largeTitle,
                                       ),
@@ -392,7 +326,9 @@ class _OnboardingStudyDaysStepState
                                   ),
                                 ),
                               SizedBox(
-                                height: context.wideWeb && invalid ? 3 : 6,
+                                height: context.wideWeb && invalid
+                                    ? PantasSpace.s2
+                                    : PantasSpace.s6,
                               ),
                               Text(
                                 invalid
@@ -408,14 +344,10 @@ class _OnboardingStudyDaysStepState
                                             'wait for your next '
                                             'study day.',
                                 style: context.wideWeb
-                                    ? context.webTokens.style(
-                                        15,
-                                        color: c.secondaryLabel,
-                                        height: 1.45,
-                                      )
+                                    ? PantasType.webSub
+                                        .copyWith(color: c.textSecondary)
                                     : context.type.subhead.copyWith(
-                                        color: c.secondaryLabel,
-                                        height: 1.4,
+                                        color: c.textSecondary,
                                       ),
                               ),
                             ],
@@ -440,22 +372,94 @@ class _TooLateRow extends StatelessWidget {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Padding(
-          padding: const EdgeInsets.only(top: 1),
-          child: SvgPicture.string(
-            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" '
-            'stroke-width="1.8" stroke-linecap="round" '
-            'stroke-linejoin="round"> '
-            '<rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/> '
-            '<path d="M3.5 9.5h17M8 3v4M16 3v4"/></svg>',
-            width: 22,
-            height: 22,
-            colorFilter: ColorFilter.mode(t.colors.label, BlendMode.srcIn),
-          ),
+        SvgPicture.string(
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" '
+          'stroke-width="1.8" stroke-linecap="round" '
+          'stroke-linejoin="round"> '
+          '<rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/> '
+          '<path d="M3.5 9.5h17M8 3v4M16 3v4"/></svg>',
+          width: PantasSize.icon,
+          height: PantasSize.icon,
+          colorFilter: ColorFilter.mode(t.colors.textPrimary, BlendMode.srcIn),
         ),
-        const SizedBox(width: 14),
+        const SizedBox(width: PantasSpace.s14),
         Expanded(child: child),
       ],
     );
   }
+}
+
+/// The day row when it is too narrow for seven 44 tiles: it scrolls sideways
+/// and brings the selected day into view when it first builds and when the
+/// selection changes (SelectableTile README, D190).
+class _ScrollingDays extends StatefulWidget {
+  const _ScrollingDays({
+    required this.order,
+    required this.selected,
+    required this.gap,
+    required this.tile,
+  });
+  final List<int> order;
+  final Set<int> selected;
+  final double gap;
+  final Widget Function(int day) tile;
+
+  @override
+  State<_ScrollingDays> createState() => _ScrollingDaysState();
+}
+
+class _ScrollingDaysState extends State<_ScrollingDays> {
+  final _keys = {for (var day = 1; day <= 7; day++) day: GlobalKey()};
+  Set<int> _seen = {};
+
+  @override
+  void initState() {
+    super.initState();
+    _reveal();
+  }
+
+  @override
+  void didUpdateWidget(_ScrollingDays oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    _reveal();
+  }
+
+  /// The day just turned on, else the first selected day in row order.
+  void _reveal() {
+    final now = {...widget.selected};
+    final added = now.difference(_seen);
+    _seen = now;
+    final day = added.isNotEmpty
+        ? widget.order.firstWhere(added.contains)
+        : widget.order.where(now.contains).firstOrNull;
+    if (day == null) return;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final target = _keys[day]!.currentContext;
+      if (!mounted || target == null) return;
+      Scrollable.ensureVisible(
+        target,
+        duration: MediaQuery.disableAnimationsOf(context)
+            ? Duration.zero
+            : PantasDurations.short3,
+        curve: PantasCurves.scroll,
+      );
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) => SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(
+          children: [
+            for (final (i, day) in widget.order.indexed) ...[
+              if (i > 0) SizedBox(width: widget.gap),
+              SizedBox(
+                key: _keys[day],
+                width: PantasSize.targetTouch,
+                child: widget.tile(day),
+              ),
+            ],
+          ],
+        ),
+      );
 }

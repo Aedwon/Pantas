@@ -119,14 +119,16 @@ void main() {
       expect(find.byType(WebAssessmentLeaveDialog), findsOneWidget);
       final leave = tester.getRect(find.text('Leave'));
       final keep = tester.getRect(find.text('Keep Going'));
-      expect(leave.left, lessThan(keep.left));
+      expect(keep.left, lessThan(leave.left));
       expect(leave.center.dy, closeTo(keep.center.dy, 1));
-      final color = tester
-          .widget<TextButton>(find.widgetWithText(TextButton, 'Leave'))
-          .style!
-          .foregroundColor!
-          .resolve({});
-      expect(color, dark ? const Color(0xFFE0706B) : const Color(0xFFD70015));
+      // A destructive confirm: Keep Going is the safe tertiary, Leave the
+      // critical main action.
+      expect(
+        tester
+            .widget<WebButton>(find.widgetWithText(WebButton, 'Leave'))
+            .variant,
+        WebButtonVariant.danger,
+      );
       await tester.sendKeyEvent(LogicalKeyboardKey.escape);
       await tester.pumpAndSettle();
       expect(find.byType(WebAssessmentLeaveDialog), findsNothing);

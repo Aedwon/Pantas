@@ -9,18 +9,30 @@ import 'package:pantas/core/dev/local_onboarding_presets.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/onboarding_frame.dart';
-import 'package:pantas/core/ui/components/pantas_logo.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/components/value_wheel.dart';
 import 'package:pantas/core/ui/motion/pantas_effects.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
-import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_border.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/onboarding/application/onboarding_flow.dart';
 import 'package:pantas/features/onboarding/domain/age_policy.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_web_page.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_welcome_step.dart';
+
+/// Wide web: the blocked page keeps this much below its block, so the block
+/// sits above the center (board OB_Age_Blocked).
+const double _blockedBottom = 120;
+
+/// Wide web: the year field is this wide (board OB_Age).
+const double _yearFieldWidth = 240;
 
 class OnboardingAgeGateStep extends ConsumerStatefulWidget {
   const OnboardingAgeGateStep({
@@ -180,10 +192,15 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
       final t = context.webTokens;
       // Board: 40 top, 120 bottom, so the block sits above center.
       final block = Padding(
-        padding: const EdgeInsets.fromLTRB(40, 40, 40, 120),
+        padding: const EdgeInsets.fromLTRB(
+          PantasSpace.s40,
+          PantasSpace.s40,
+          PantasSpace.s40,
+          _blockedBottom,
+        ),
         child: Center(
           child: SizedBox(
-            width: 460,
+            width: PantasLayout.modal,
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -194,44 +211,32 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
                   '<rect x="5" y="10.5" width="14" height="10" '
                   'rx="2"/> '
                   '<path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg>',
-                  width: 44,
-                  height: 44,
+                  width: PantasSize.avatarLg,
+                  height: PantasSize.avatarLg,
                   colorFilter: ColorFilter.mode(
-                    t.colors.tertiaryLabel,
+                    t.colors.textSecondary,
                     BlendMode.srcIn,
                   ),
                 ),
-                const SizedBox(height: 22),
+                const SizedBox(height: PantasSpace.s20),
                 Text(
                   "Pantas isn't available yet",
                   textAlign: TextAlign.center,
-                  style: t
-                      .style(
-                        34,
-                        weight: FontWeight.w700,
-                        height: 1.15,
-                      )
-                      .copyWith(letterSpacing: -.748),
+                  style: t.h1,
                 ),
-                const SizedBox(height: 8),
+                const SizedBox(height: PantasSpace.s8),
                 Text(
                   _blockedDetail,
                   textAlign: TextAlign.center,
-                  style: t.style(
-                    17,
-                    height: 1.45,
-                    color: t.colors.secondaryLabel,
-                  ),
+                  style: PantasType.webLead
+                      .copyWith(color: t.colors.textSecondary),
                 ),
-                const SizedBox(height: 22),
+                const SizedBox(height: PantasSpace.s20),
                 Text(
                   _blockedHelp,
                   textAlign: TextAlign.center,
-                  style: t.style(
-                    15,
-                    height: 1.45,
-                    color: t.colors.secondaryLabel,
-                  ),
+                  style:
+                      PantasType.webSub.copyWith(color: t.colors.textSecondary),
                 ),
               ],
             ),
@@ -240,7 +245,7 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
       );
       // The phone's blocked page fades in over 300 ms; so does this block.
       final fading = PantasEffects.fade(
-        duration: const Duration(milliseconds: 300),
+        duration: PantasDurations.flip,
         builder: (_, progress, child) => IgnorePointer(
           ignoring: progress == 0,
           child: ExcludeFocus(excluding: progress == 0, child: child!),
@@ -261,13 +266,7 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
         color: t.colors.background,
         child: Column(
           children: [
-            const WebTopBar(
-              leading: PantasLogo(size: 28),
-              title: Text(
-                'Pantas',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
-              ),
-            ),
+            const OnboardingTopBar(logoInset: false),
             Expanded(child: fading),
           ],
         ),
@@ -280,7 +279,7 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
           detail: _blockedDetail,
           icon: const OnboardingLogo(size: 72),
         ),
-        const SizedBox(height: 22),
+        const SizedBox(height: PantasSpace.s20),
         Text(
           _blockedHelp,
           textAlign: TextAlign.center,
@@ -302,10 +301,15 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
               onBack: null,
               child: LayoutBuilder(
                 builder: (context, constraints) => SingleChildScrollView(
-                  padding: const EdgeInsets.fromLTRB(16, 4, 16, 32),
+                  padding: const EdgeInsets.fromLTRB(
+                    PantasSpace.s16,
+                    PantasSpace.s4,
+                    PantasSpace.s16,
+                    PantasSpace.s32,
+                  ),
                   child: ConstrainedBox(
                     constraints: BoxConstraints(
-                      minHeight: (constraints.maxHeight - 36)
+                      minHeight: (constraints.maxHeight - PantasSpace.s32)
                           .clamp(0, double.infinity),
                     ),
                     child: Column(
@@ -326,7 +330,7 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
               children: blocked,
             );
       return PantasEffects.fade(
-        duration: const Duration(milliseconds: 300),
+        duration: PantasDurations.flip,
         builder: (_, progress, child) => IgnorePointer(
           ignoring: progress == 0,
           child: ExcludeFocus(excluding: progress == 0, child: child!),
@@ -352,15 +356,15 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
         if (context.wideWeb) ...[
           // Board (OB_Age, OB_Name): the label sits 4 px in from the field.
           Padding(
-            padding: const EdgeInsets.only(left: 4),
+            padding: const EdgeInsets.only(left: PantasSpace.s4),
             child: Text('YEAR', style: context.webTokens.eb),
           ),
-          const SizedBox(height: 8),
+          const SizedBox(height: PantasSpace.s8),
           Align(
             alignment: Alignment.centerLeft,
             child: SizedBox(
-              width: 240,
-              height: 64,
+              width: _yearFieldWidth,
+              height: PantasSize.optMin,
               child: OnboardingShortcuts(
                 bindings: {
                   const SingleActivator(LogicalKeyboardKey.arrowUp): () =>
@@ -376,7 +380,8 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
                     FilteringTextInputFormatter.digitsOnly,
                     LengthLimitingTextInputFormatter(4),
                   ],
-                  style: context.webTokens.style(28, weight: FontWeight.w600),
+                  style: PantasType.webQuestion
+                      .copyWith(color: context.webTokens.colors.textPrimary),
                   onChanged: (text) => setState(
                     () => _selectedYear =
                         int.tryParse(text) ?? widget.currentYear,
@@ -388,56 +393,56 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
                   },
                   decoration: InputDecoration(
                     filled: true,
-                    fillColor: context.webTokens.colors.surface,
+                    fillColor: context.webTokens.colors.surfaceCard,
                     contentPadding: const EdgeInsets.symmetric(
-                      horizontal: 18,
-                      vertical: 14,
+                      horizontal: PantasSpace.s18,
+                      vertical: PantasSpace.s14,
                     ),
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(14),
+                      borderRadius: BorderRadius.circular(PantasRadius.lg),
                       borderSide: BorderSide(
                         color: context.webTokens.colors.accent,
-                        width: 2,
+                        width: PantasBorder.ringSelected,
                       ),
                     ),
                     enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(14),
+                      borderRadius: BorderRadius.circular(PantasRadius.lg),
                       borderSide: BorderSide(
                         color: context.webTokens.colors.accent,
-                        width: 2,
+                        width: PantasBorder.ringSelected,
                       ),
                     ),
                     focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(14),
+                      borderRadius: BorderRadius.circular(PantasRadius.lg),
                       borderSide: BorderSide(
                         color: context.webTokens.colors.accent,
-                        width: 2,
+                        width: PantasBorder.ringSelected,
                       ),
                     ),
                     suffixIcon: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         SizedBox(
-                          height: 24,
+                          height: PantasSpace.s24,
                           child: IconButton(
                             padding: EdgeInsets.zero,
                             tooltip: 'Next year',
                             onPressed: () => _changeYear(1),
                             icon: const Icon(
                               Icons.keyboard_arrow_up,
-                              size: 14,
+                              size: PantasSpace.s14,
                             ),
                           ),
                         ),
                         SizedBox(
-                          height: 24,
+                          height: PantasSpace.s24,
                           child: IconButton(
                             padding: EdgeInsets.zero,
                             tooltip: 'Earlier year',
                             onPressed: () => _changeYear(-1),
                             icon: const Icon(
                               Icons.keyboard_arrow_down,
-                              size: 14,
+                              size: PantasSpace.s14,
                             ),
                           ),
                         ),
@@ -448,14 +453,17 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
               ),
             ),
           ),
-          const SizedBox(height: 8),
+          const SizedBox(height: PantasSpace.s8),
           Text('Type it, or use ↑ and ↓.', style: context.webTokens.sm),
-          const SizedBox(height: 6),
+          const SizedBox(height: PantasSpace.s6),
           // The hint always has its line, so Continue keeps its place when the
           // hint appears and goes (Aedwon: a stable frame). The line is the
           // hint's own height: 13 px type at 1.45, scaled with the text size.
           SizedBox(
-            height: MediaQuery.textScalerOf(context).scale(13) * 1.45,
+            height: MediaQuery.textScalerOf(context).scale(
+                  PantasType.webSmall.fontSize!,
+                ) *
+                PantasType.webSmall.height!,
             child: _rangeHint == null
                 ? null
                 : Semantics(
@@ -463,17 +471,17 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
                     child: Text(
                       _rangeHint!,
                       style: context.webTokens.sm.copyWith(
-                        color: context.webTokens.colors.destructive,
+                        color: context.webTokens.colors.dangerText,
                       ),
                     ),
                   ),
           ),
         ] else
           Container(
-            padding: const EdgeInsets.all(10),
+            padding: const EdgeInsets.all(PantasSpace.s10),
             decoration: BoxDecoration(
-              color: context.colors.surface,
-              borderRadius: BorderRadius.circular(20),
+              color: context.colors.surfaceCard,
+              borderRadius: BorderRadius.circular(PantasRadius.xl),
             ),
             child: ValueWheel.birthYear(
               values: [for (final year in _years) '$year'],

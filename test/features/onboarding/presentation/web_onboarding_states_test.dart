@@ -8,6 +8,8 @@ import 'package:pantas/core/content/data/exam_catalog_repository.dart';
 import 'package:pantas/core/storage/domain/exam_date.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/ui/components/pantas_field.dart';
+import 'package:pantas/core/ui/components/selectable_tile.dart';
 import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/components/steps_screen.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -132,13 +134,25 @@ void main() {
     });
     testWidgets('name and custom name $dark', (tester) async {
       await pump(tester, OnboardingNameStep(onCompleted: () {}), dark: dark);
-      expect(find.text('NAME'), findsOneWidget);
+      expect(
+        find.descendant(
+          of: find.byType(PantasFieldLabel),
+          matching: find.text('Name'),
+        ),
+        findsOneWidget,
+      );
       expect(button(tester, 'Done').onPressed, isNull);
       await tester.enterText(find.byType(TextField), 'Aedwon');
       await tester.pump();
       expect(button(tester, 'Done').onPressed, isNotNull);
       await pump(tester, const CustomTrackNameStep(), dark: dark);
-      expect(find.text('EXAM NAME'), findsOneWidget);
+      expect(
+        find.descendant(
+          of: find.byType(PantasFieldLabel),
+          matching: find.text('Exam name'),
+        ),
+        findsOneWidget,
+      );
       expect(find.text("Give it a name you'll recognize."), findsOneWidget);
       expect(button(tester, 'Continue').onPressed, isNull);
       await tester.enterText(find.byType(TextField), 'Bar Exam');
@@ -154,7 +168,7 @@ void main() {
       );
       expect(find.text('What does it cover?'), findsOneWidget);
       expect(button(tester, 'Continue').onPressed, isNull);
-      final boxes = find.byType(CheckboxRow);
+      final boxes = find.byType(SelectableTile);
       expect(boxes, findsNWidgets(2));
       expect(
         tester.getTopLeft(boxes.first).dy,
@@ -187,11 +201,14 @@ void main() {
         find.text('CSE Professional · Civil Service Commission'),
         findsNothing,
       );
-      final pickedCard = find.ancestor(
-        of: find.byKey(const ValueKey('exam-exam_cse_pro')),
-        matching: find.byType(WebCard),
+      expect(
+        tester
+            .widget<SelectableTile>(
+              find.byKey(const ValueKey('exam-exam_cse_pro')),
+            )
+            .selected,
+        isTrue,
       );
-      expect(tester.widget<WebCard>(pickedCard).selected, isTrue);
       await tester.sendKeyEvent(LogicalKeyboardKey.enter);
       await tester.pumpAndSettle();
       expect(picked, 1);

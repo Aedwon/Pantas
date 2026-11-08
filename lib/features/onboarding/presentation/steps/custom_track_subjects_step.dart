@@ -13,12 +13,10 @@ import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/storage/track_scope.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
-import 'package:pantas/core/ui/components/selection_row.dart';
+import 'package:pantas/core/ui/components/selectable_tile.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
-import 'package:pantas/core/ui/motion/press_scale.dart';
-import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
-import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_web_page.dart';
 
 final corpusSubjectsWithTopicsProvider =
@@ -147,7 +145,7 @@ class _CustomTrackSubjectsStepState
       detail: 'Tick the subjects your exam covers. '
           'You can choose exact topics later.',
       progress: 3,
-      bodyGap: 24,
+      bodyGap: PantasSpace.s24,
       onBack: () {
         if (_creating) return;
         _generation++;
@@ -182,16 +180,20 @@ class _CustomTrackSubjectsStepState
               ? Column(
                   children: [
                     for (var i = 0; i < map.length; i += 2) ...[
-                      if (i > 0) const SizedBox(height: 10),
+                      if (i > 0) const SizedBox(height: PantasSpace.s10),
                       IntrinsicHeight(
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
                             for (var j = i; j < i + 2; j++) ...[
-                              if (j > i) const SizedBox(width: 10),
+                              if (j > i) const SizedBox(width: PantasSpace.s10),
                               Expanded(
                                 child: j < map.length
-                                    ? _SubjectTile(
+                                    ? SelectableTile(
+                                        key: ValueKey(
+                                          'subject-tile-'
+                                          '${map.keys.elementAt(j)}',
+                                        ),
                                         name: map.keys.elementAt(j),
                                         selected: _selected.contains(
                                           map.keys.elementAt(j),
@@ -233,76 +235,6 @@ class _CustomTrackSubjectsStepState
                 ),
         ),
       ],
-    );
-  }
-}
-
-/// Board `.sb` subject row: 56 px minimum, white, inset ring on hover.
-class _SubjectTile extends StatefulWidget {
-  const _SubjectTile({
-    required this.name,
-    required this.selected,
-    required this.onTap,
-  });
-  final String name;
-  final bool selected;
-  final VoidCallback? onTap;
-  @override
-  State<_SubjectTile> createState() => _SubjectTileState();
-}
-
-class _SubjectTileState extends State<_SubjectTile> {
-  bool _hovered = false;
-  @override
-  Widget build(BuildContext context) {
-    final t = context.webTokens;
-    return MouseRegion(
-      onEnter: (_) => setState(() => _hovered = true),
-      onExit: (_) => setState(() => _hovered = false),
-      child: PressScale(
-        child: Container(
-          clipBehavior: Clip.antiAlias,
-          decoration: BoxDecoration(
-            color: t.colors.surface,
-            borderRadius: BorderRadius.circular(14),
-          ),
-          // Both are drawn on top and take up no room, so a row is the same
-          // size in dark and light (6T-11).
-          foregroundDecoration: _hovered && widget.onTap != null
-              ? BoxDecoration(
-                  borderRadius: BorderRadius.circular(14),
-                  border: Border.all(color: t.strongDivider, width: 1.5),
-                )
-              : t.dark
-                  ? BoxDecoration(
-                      borderRadius: BorderRadius.circular(14),
-                      border: Border.all(color: t.cardEdge),
-                    )
-                  : null,
-          child: Material(
-            color: Colors.transparent,
-            // Desktop's compact density would take 8 px off the 56 minimum.
-            child: Theme(
-              data: Theme.of(context)
-                  .copyWith(visualDensity: VisualDensity.standard),
-              child: CheckboxRow(
-                title: widget.name,
-                content: Text(
-                  widget.name,
-                  style: context.type.body.copyWith(fontSize: 16),
-                ),
-                selected: widget.selected,
-                onTap: widget.onTap,
-                gap: 14,
-                minHeight: 56,
-                hoverFill: false,
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-              ),
-            ),
-          ),
-        ),
-      ),
     );
   }
 }

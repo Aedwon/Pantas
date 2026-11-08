@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:pantas/core/ui/components/pantas_field.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_border.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
-import 'package:pantas/core/ui/web/web_tokens.dart';
 
 /// The Name and custom-exam input drawn by O_Name and O_Custom.
 class OnboardingNameField extends StatelessWidget {
@@ -16,7 +21,6 @@ class OnboardingNameField extends StatelessWidget {
     this.textInputAction = TextInputAction.done,
     this.maxLength = 40,
     this.autofillHints,
-    this.restingBorder = false,
     this.focusNode,
     super.key,
   });
@@ -35,11 +39,6 @@ class OnboardingNameField extends StatelessWidget {
   final int maxLength;
   final Iterable<String>? autofillHints;
 
-  /// Board O_Name draws its one field in the accent color. With several
-  /// fields on a step that reads as all of them focused, so those steps rest
-  /// in the neutral outline and show the accent only on focus.
-  final bool restingBorder;
-
   /// Lets the step keep this field focused. The field is drawn in the accent
   /// color at rest, as the active input, so it must be the one holding focus.
   final FocusNode? focusNode;
@@ -56,44 +55,35 @@ class OnboardingNameField extends StatelessWidget {
       textAlignVertical: TextAlignVertical.center,
       onChanged: onChanged,
       onSubmitted: onSubmitted,
-      style: context.type.body.copyWith(
-        fontSize: 19,
-        fontWeight: FontWeight.w500,
-        letterSpacing: -.228,
-      ),
+      style: PantasType.webRowTitleSettings
+          .copyWith(color: context.colors.textPrimary),
+      cursorColor: context.colors.accent,
       decoration: InputDecoration(
         hintText: hint ?? label,
         floatingLabelBehavior: FloatingLabelBehavior.never,
         counterText: '',
-        // A TextField ignores a SizedBox height; the board field is 52 px.
-        constraints:
-            context.wideWeb ? null : const BoxConstraints.tightFor(height: 52),
+        // A TextField ignores a SizedBox height, so the 48 well is a minimum.
+        constraints: context.wideWeb
+            ? null
+            : const BoxConstraints(minHeight: PantasSize.field),
         filled: true,
-        fillColor: context.colors.surface,
-        hoverColor: context.wideWeb ? context.colors.surface : null,
-        hintStyle: context.type.body.copyWith(
-          fontSize: 19,
-          fontWeight: FontWeight.w500,
-          color: context.colors.tertiaryLabel,
-        ),
+        fillColor: context.colors.surfaceCard,
+        hoverColor: context.colors.surfaceCard,
+        hintStyle: PantasType.webRowTitleSettings
+            .copyWith(color: context.colors.textSecondary),
         contentPadding: EdgeInsets.symmetric(
-          horizontal: context.wideWeb ? 18 : 16,
-          vertical: context.wideWeb ? 19 : 0,
+          horizontal: PantasSpace.s14,
+          vertical: context.wideWeb ? PantasSpace.s12 : PantasSpace.s0,
         ),
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(14),
-          borderSide: BorderSide(
-            color: restingBorder
-                ? context.colors.controlOutline
-                : context.colors.accent,
-            width: context.wideWeb ? 2 : 1.5,
-          ),
+          borderRadius: BorderRadius.circular(PantasRadius.md),
+          borderSide: BorderSide(color: context.colors.borderControl),
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(14),
+          borderRadius: BorderRadius.circular(PantasRadius.md),
           borderSide: BorderSide(
             color: context.colors.accent,
-            width: context.wideWeb ? 2 : 1.5,
+            width: PantasBorder.ringSelected,
           ),
         ),
       ),
@@ -102,12 +92,8 @@ class OnboardingNameField extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Padding(
-          padding: const EdgeInsets.only(left: 4),
-          child: Text(label.toUpperCase(), style: context.webTokens.eb),
-        ),
-        // Board gap is 8; the label's taller line box takes 2 of it here.
-        const SizedBox(height: 6),
+        PantasFieldLabel(label),
+        const SizedBox(height: PantasSpace.s6),
         field,
       ],
     );

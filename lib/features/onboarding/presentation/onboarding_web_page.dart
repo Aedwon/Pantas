@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pantas/core/ui/components/onboarding_frame.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
-import 'package:pantas/core/ui/components/pantas_logo.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_key_focus.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 
 /// Space between Back and the title on every wide step.
-const double titleTopGap = 28;
+const double titleTopGap = PantasSpace.s28;
 
 /// The setup rail belongs to onboarding, outside the signed-in sidebar shell.
 class OnboardingWebPage extends StatelessWidget {
@@ -22,13 +22,13 @@ class OnboardingWebPage extends StatelessWidget {
     this.detail,
     this.progress,
     this.bottom,
-    this.bodyGap = 28,
-    this.gap = 28,
-    this.bottomGap = 40,
+    this.bodyGap = PantasSpace.s28,
+    this.gap = PantasSpace.s28,
+    this.bottomGap = PantasSpace.s40,
     this.centerBody = false,
     this.surfaceBackground = false,
     this.detailLineHeight = 1.4,
-    this.topPadding = 4,
+    this.topPadding = PantasSpace.s4,
     this.focusTarget,
     super.key,
   });
@@ -113,35 +113,30 @@ class OnboardingWebPage extends StatelessWidget {
         color: t.colors.background,
         child: Column(
           children: [
-            const WebTopBar(
-              leading: PantasLogo(size: 28),
-              title: Text(
-                'Pantas',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
-              ),
-            ),
+            const OnboardingTopBar(logoInset: false),
             Expanded(
               child: SingleChildScrollView(
                 padding: const EdgeInsets.fromLTRB(
-                  40,
-                  40,
-                  40,
+                  PantasSpace.s40,
+                  PantasSpace.s40,
+                  PantasSpace.s40,
                   onboardingActionsMargin,
                 ),
                 child: Center(
                   child: SizedBox(
-                    width: onboardingColumnWidth + 280,
+                    width: onboardingFrameWidth,
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         SizedBox(
-                          width: 200,
+                          width: onboardingRailWidth,
                           child: Padding(
-                            padding: const EdgeInsets.only(top: 56),
+                            padding:
+                                const EdgeInsets.only(top: PantasSpace.s56),
                             child: OnboardingRail(progress: progress),
                           ),
                         ),
-                        const SizedBox(width: 80),
+                        const SizedBox(width: onboardingRailGap),
                         Expanded(child: column),
                       ],
                     ),
@@ -163,49 +158,22 @@ class OnboardingWebPage extends StatelessWidget {
       children: [
         Align(
           alignment: Alignment.centerLeft,
-          child: TextButton.icon(
-            onPressed: onBack,
-            icon: SvgPicture.string(
-              '<svg viewBox="0 0 24 24" fill="none" '
-              'stroke="currentColor" stroke-width="2.2" '
-              'stroke-linecap="round" '
-              'stroke-linejoin="round"> '
-              '<path d="M15 4.5 7.5 12l7.5 7.5"/></svg>',
-              width: 20,
-              height: 20,
-              colorFilter: ColorFilter.mode(
-                t.colors.accent,
-                BlendMode.srcIn,
-              ),
-            ),
-            label: const Text('Back'),
-            style: TextButton.styleFrom(
-              foregroundColor: t.colors.accent,
-              minimumSize: const Size(0, 36),
-              visualDensity: VisualDensity.standard,
-              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-              iconAlignment: IconAlignment.start,
-              padding: EdgeInsets.zero,
-              textStyle: t.style(16),
-            ),
+          child: WebBackLink(
+            label: 'Back',
+            onPressed: onBack ?? () {},
+            nudge: false,
           ),
         ),
         const SizedBox(height: titleTopGap),
         Text(
           title,
-          style: t
-              .style(36, weight: FontWeight.w700, height: 1.12)
-              .copyWith(letterSpacing: -.864),
+          style: t.h1,
         ),
         if (detail != null) ...[
-          const SizedBox(height: 8),
+          const SizedBox(height: PantasSpace.s8),
           Text(
             detail!,
-            style: t.style(
-              17,
-              height: 1.45,
-              color: t.colors.secondaryLabel,
-            ),
+            style: PantasType.webLead.copyWith(color: t.colors.textSecondary),
           ),
         ],
         SizedBox(height: gap),
@@ -294,11 +262,15 @@ class OnboardingActions extends StatelessWidget {
                 .where((b) => b.variant != PantasButtonVariant.primary))
               if (leading == null &&
                   button.variant != PantasButtonVariant.neutral)
-                Transform.translate(offset: const Offset(-16, 0), child: button)
+                Transform.translate(
+                  offset: const Offset(-PantasSpace.s16, 0),
+                  child: button,
+                )
               else
                 button,
             if (leading == null) const Spacer(),
-            if (leading != null && buttons.length > 1) const SizedBox(width: 8),
+            if (leading != null && buttons.length > 1)
+              const SizedBox(width: PantasSpace.s8),
             for (final button in buttons
                 .where((b) => b.variant == PantasButtonVariant.primary))
               button,

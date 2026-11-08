@@ -12,6 +12,10 @@ import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/month_first_date_picker.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_border.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/onboarding/application/onboarding_flow.dart';
@@ -19,6 +23,12 @@ import 'package:pantas/features/onboarding/presentation/exam_picker_screen.dart'
 import 'package:pantas/features/onboarding/presentation/onboarding_web_calendar.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_web_page.dart';
 import 'package:pantas/features/settings/application/settings_providers.dart';
+
+/// The calendar tile of the date card: wide, and on the phone (boards
+/// OB_DateKnown, O_DateKnown).
+const double _tileWide = 84;
+const double _tilePhoneWidth = 64;
+const double _tilePhoneHeight = 68;
 
 class OnboardingExamDateStep extends ConsumerStatefulWidget {
   const OnboardingExamDateStep({
@@ -139,11 +149,11 @@ class _OnboardingExamDateStepState
             : ExamDate.onDay(DateTime(value.year, value.month!, value.day!));
     return OnboardingWebPage(
       title: 'When is your exam?',
-      gap: known == null ? 24 : 28,
-      bottomGap: known == null ? 40 : 32,
+      gap: known == null ? PantasSpace.s24 : PantasSpace.s28,
+      bottomGap: known == null ? PantasSpace.s40 : PantasSpace.s32,
       progress: 4,
       onBack: _back,
-      bodyGap: known == null ? 18 : 22,
+      bodyGap: known == null ? PantasSpace.s18 : PantasSpace.s20,
       detail: known == null
           ? 'Pick the month. Add the day if you know it.'
           : "Here's the date we have for this year's ${entry!.shortName}.",
@@ -152,7 +162,8 @@ class _OnboardingExamDateStepState
             ? null
             : Text(
                 'Is this your exam day?',
-                style: context.webTokens.style(17, weight: FontWeight.w600),
+                style: PantasType.webTitleSm
+                    .copyWith(color: context.webTokens.colors.textPrimary),
               ),
         children: [
           if (_failed) saveFailureLine(() => _save(_retryDate)),
@@ -163,7 +174,7 @@ class _OnboardingExamDateStepState
                 ? null
                 : () => _save(known == null ? date : ExamDate.onDay(known)),
           ),
-          const SizedBox(height: 6),
+          const SizedBox(height: PantasSpace.s6),
           OnboardingButton(
             label: known == null ? "I don't know" : 'Different Date',
             variant: context.wideWeb && known != null
@@ -185,45 +196,53 @@ class _OnboardingExamDateStepState
           loadingFor(const AsyncLoading<void>())
         else if (known != null) ...[
           Container(
-            padding: EdgeInsets.all(context.wideWeb ? 28 : 18),
+            padding: EdgeInsets.all(
+              context.wideWeb ? PantasSpace.s28 : PantasSpace.s18,
+            ),
             decoration: BoxDecoration(
-              color: context.colors.surface,
-              borderRadius: BorderRadius.circular(20),
+              color: context.colors.surfaceCard,
+              borderRadius: BorderRadius.circular(PantasRadius.xl),
             ),
             child: Row(
               children: [
                 Container(
-                  width: context.wideWeb ? 84 : 64,
-                  height: context.wideWeb ? 84 : 68,
+                  // The tile grows with the text instead of clipping it.
+                  alignment: Alignment.center,
+                  constraints: BoxConstraints(
+                    minWidth: context.wideWeb ? _tileWide : _tilePhoneWidth,
+                    minHeight: context.wideWeb ? _tileWide : _tilePhoneHeight,
+                  ),
                   decoration: BoxDecoration(
-                    border: Border.all(color: context.colors.label, width: 2),
-                    borderRadius: BorderRadius.circular(14),
+                    border: Border.all(
+                      color: context.colors.textPrimary,
+                      width: PantasBorder.ringSelected,
+                    ),
+                    borderRadius: BorderRadius.circular(PantasRadius.lg),
                   ),
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
                         DateFormat('MMM', 'en_US').format(known).toUpperCase(),
-                        style: context.type.caption.copyWith(
-                          fontSize: context.wideWeb ? 13 : null,
-                          fontWeight: FontWeight.w700,
-                          color: context.wideWeb
-                              ? context.webTokens.colors.secondaryLabel
-                              : null,
-                          letterSpacing: context.wideWeb ? .78 : null,
-                        ),
+                        style: context.wideWeb
+                            ? PantasType.webChipName.copyWith(
+                                color: context.colors.textSecondary,
+                              )
+                            : context.type.caption.copyWith(
+                                fontWeight: FontWeight.w700,
+                              ),
                       ),
                       Text(
                         '${known.day}',
-                        style: context.type.emphasized.copyWith(
-                          fontSize: 26,
-                          fontWeight: FontWeight.w700,
-                        ),
+                        style: PantasType.webH2
+                            .copyWith(color: context.colors.textPrimary),
                       ),
                     ],
                   ),
                 ),
-                SizedBox(width: context.wideWeb ? 24 : 16),
+                SizedBox(
+                  width: context.wideWeb ? PantasSpace.s24 : PantasSpace.s16,
+                ),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -233,8 +252,10 @@ class _OnboardingExamDateStepState
                         DateFormat('EEEE, MMMM d,\u00A0y', 'en_US')
                             .format(known),
                         style: context.wideWeb
-                            ? context.webTokens
-                                .style(21, weight: FontWeight.w600)
+                            ? PantasType.webH3.copyWith(
+                                fontWeight: FontWeight.w600,
+                                color: context.colors.textPrimary,
+                              )
                             : context.type.emphasized,
                       ),
                       Text(
@@ -248,12 +269,12 @@ class _OnboardingExamDateStepState
               ],
             ),
           ),
-          if (!context.wideWeb) const SizedBox(height: 22),
+          if (!context.wideWeb) const SizedBox(height: PantasSpace.s20),
           // The page pads the title and the subtitle 4 px inside the card's
           // edge; the caption starts at their edge too.
           if (!context.wideWeb)
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 4),
+              padding: const EdgeInsets.symmetric(horizontal: PantasSpace.s4),
               child: Text(
                 'Is this your exam day?',
                 style: context.type.footnote

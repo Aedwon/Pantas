@@ -5,6 +5,12 @@ import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/motion/pantas_effects.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_border.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
@@ -19,7 +25,8 @@ class WorkStep {
   final String? detail;
 }
 
-// L_Restore's decorative pending dot.
+/// Phone: the title starts this far down the page (board L_Restore).
+const double _phoneTitleTop = 96;
 
 class StepsScreen extends StatelessWidget {
   const StepsScreen({
@@ -39,33 +46,33 @@ class StepsScreen extends StatelessWidget {
     final c = context.colors;
     return switch (steps[index].state) {
       WorkStepState.pending => Container(
-          width: 8,
-          height: 8,
+          width: PantasSpace.s8,
+          height: PantasSpace.s8,
           decoration: BoxDecoration(
             color: c.pendingMark,
             shape: BoxShape.circle,
           ),
         ),
       WorkStepState.active => SizedBox.square(
-          dimension: loadingRestore ? 16 : 18,
+          dimension: loadingRestore ? PantasSpace.s16 : PantasSpace.s18,
           child: CircularProgressIndicator(
-            strokeWidth: 2,
+            strokeWidth: PantasBorder.ringSelected,
             color: c.accent,
             value: MediaQuery.disableAnimationsOf(context) ? 1 : null,
           ),
         ),
       WorkStepState.done => PantasEffects.pop(
-          duration: const Duration(milliseconds: 400),
+          duration: PantasDurations.drawerClose,
           builder: (context, value, child) => child!,
           child: Container(
             key: ValueKey('step-done-$index'),
-            width: loadingRestore ? 26 : 22,
-            height: loadingRestore ? 26 : 22,
+            width: loadingRestore ? PantasSize.task : PantasSpace.s24,
+            height: loadingRestore ? PantasSize.task : PantasSpace.s24,
             decoration:
                 BoxDecoration(color: c.accentFill, shape: BoxShape.circle),
             child: Icon(
               PantasIcons.check,
-              size: 12,
+              size: PantasSpace.s12,
               color: c.onAccent,
             ),
           ),
@@ -83,14 +90,17 @@ class StepsScreen extends StatelessWidget {
       rows.add(
         Container(
           padding: context.wideWeb
-              ? const EdgeInsets.symmetric(vertical: 12)
-              : const EdgeInsets.symmetric(horizontal: 16, vertical: 13),
+              ? const EdgeInsets.symmetric(vertical: PantasSpace.s12)
+              : const EdgeInsets.symmetric(
+                  horizontal: PantasSpace.s16,
+                  vertical: PantasSpace.s12,
+                ),
           decoration: BoxDecoration(
             border: i < steps.length - 1
                 ? Border(
                     bottom: BorderSide(
                       color: context.colors.separator,
-                      width: .5,
+                      width: PantasBorder.hairline,
                     ),
                   )
                 : null,
@@ -98,10 +108,10 @@ class StepsScreen extends StatelessWidget {
           child: Row(
             children: [
               SizedBox.square(
-                dimension: 24,
+                dimension: PantasSpace.s24,
                 child: Center(child: mark(context, i)),
               ),
-              const SizedBox(width: 14),
+              const SizedBox(width: PantasSpace.s14),
               Expanded(
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
@@ -125,26 +135,23 @@ class StepsScreen extends StatelessWidget {
           backgroundColor: t.colors.background,
           body: Center(
             child: SingleChildScrollView(
-              padding: const EdgeInsets.all(40),
+              padding: const EdgeInsets.all(PantasSpace.s40),
               child: SizedBox(
-                width: 520,
+                width: PantasLayout.modalWide,
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     Text(title, style: t.h2),
                     if (subtitle != null) ...[
-                      const SizedBox(height: 4),
+                      const SizedBox(height: PantasSpace.s4),
                       Text(
                         subtitle!,
-                        style: t.style(
-                          17,
-                          height: 1.45,
-                          color: t.colors.secondaryLabel,
-                        ),
+                        style: PantasType.webLead
+                            .copyWith(color: t.colors.textSecondary),
                       ),
                     ],
-                    const SizedBox(height: 20),
+                    const SizedBox(height: PantasSpace.s20),
                     WebCard(
                       child: Column(
                         children: [
@@ -153,7 +160,7 @@ class StepsScreen extends StatelessWidget {
                               title: steps[i].label,
                               subtitle: steps[i].detail,
                               leading: SizedBox.square(
-                                dimension: 26,
+                                dimension: PantasSize.task,
                                 child: Center(
                                   child: mark(context, i, loadingRestore: true),
                                 ),
@@ -175,36 +182,34 @@ class StepsScreen extends StatelessWidget {
         backgroundColor: t.colors.background,
         body: Center(
           child: SingleChildScrollView(
-            padding: const EdgeInsets.all(40),
+            padding: const EdgeInsets.all(PantasSpace.s40),
             child: ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 552),
+              constraints:
+                  const BoxConstraints(maxWidth: PantasLayout.modalWide),
               child: WebCard(
-                padding: const EdgeInsets.fromLTRB(36, 36, 36, 32),
+                padding: const EdgeInsets.all(PantasSpace.s32),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    Text(title, style: t.style(28, weight: FontWeight.w700)),
+                    Text(title, style: t.h2),
                     if (subtitle != null) ...[
-                      const SizedBox(height: 4),
+                      const SizedBox(height: PantasSpace.s4),
                       Text(
                         subtitle!,
-                        style: t.style(
-                          17,
-                          height: 1.45,
-                          color: t.colors.secondaryLabel,
-                        ),
+                        style: PantasType.webLead
+                            .copyWith(color: t.colors.textSecondary),
                       ),
                     ],
                     if (rows.isNotEmpty) ...[
-                      const SizedBox(height: 26),
+                      const SizedBox(height: PantasSpace.s24),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: rows,
                       ),
                     ],
                     if (buttonLabel != null) ...[
-                      const SizedBox(height: 26),
+                      const SizedBox(height: PantasSpace.s24),
                       CallbackShortcuts(
                         bindings: {
                           if (onContinue != null)
@@ -224,7 +229,8 @@ class StepsScreen extends StatelessWidget {
                                 Expanded(
                                   child: Text(
                                     'Everything is back.',
-                                    style: t.style(17, weight: FontWeight.w600),
+                                    style: PantasType.webTitleSm
+                                        .copyWith(color: t.colors.textPrimary),
                                   ),
                                 )
                               else
@@ -253,7 +259,12 @@ class StepsScreen extends StatelessWidget {
           ? null
           : SafeArea(
               child: Padding(
-                padding: const EdgeInsets.fromLTRB(16, 14, 16, 30),
+                padding: const EdgeInsets.fromLTRB(
+                  PantasSpace.s16,
+                  PantasSpace.s14,
+                  PantasSpace.s16,
+                  PantasSpace.s28,
+                ),
                 child: PantasButton(
                   label: buttonLabel!,
                   onPressed: onContinue,
@@ -262,7 +273,12 @@ class StepsScreen extends StatelessWidget {
             ),
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: const EdgeInsets.fromLTRB(16, 96, 16, 24),
+          padding: const EdgeInsets.fromLTRB(
+            PantasSpace.s16,
+            _phoneTitleTop,
+            PantasSpace.s16,
+            PantasSpace.s24,
+          ),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -270,21 +286,18 @@ class StepsScreen extends StatelessWidget {
               Text(
                 title,
                 textAlign: TextAlign.center,
-                style: context.type.sectionHero
-                    .copyWith(fontSize: 26, letterSpacing: -.312),
+                style: context.type.pageTitle,
               ),
               if (subtitle != null) ...[
-                const SizedBox(height: 8),
+                const SizedBox(height: PantasSpace.s8),
                 Text(
                   subtitle!,
                   textAlign: TextAlign.center,
-                  style: context.type.subhead.copyWith(
-                    color: context.colors.secondaryLabel,
-                    height: 1.4,
-                  ),
+                  style: context.type.subhead
+                      .copyWith(color: context.colors.textSecondary),
                 ),
               ],
-              const SizedBox(height: 22),
+              const SizedBox(height: PantasSpace.s20),
               GroupedSection(children: rows),
             ],
           ),

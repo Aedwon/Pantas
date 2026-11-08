@@ -8,8 +8,6 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
   const tiles = {
     'lib/features/settings/presentation/pages/appearance_page.dart': 2,
-    'lib/features/onboarding/presentation/steps/custom_track_subjects_step.dart':
-        1,
     'lib/features/onboarding/presentation/exam_picker_screen.dart': 1,
     'lib/core/ui/components/pantas_button.dart': 1,
   };

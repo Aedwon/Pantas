@@ -5,6 +5,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/onboarding_frame.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_logo.dart';
+import 'package:pantas/core/ui/components/selectable_tile.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/features/onboarding/presentation/exam_picker_screen.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_web_page.dart';
@@ -56,7 +58,7 @@ void main() {
       for (final step in framedOnboardingSteps) {
         await pumpFramedStep(tester, step, wide: true);
         final heading = find.byWidgetPredicate(
-          (w) => w is Text && w.style?.fontSize == 36,
+          (w) => w is Text && w.style?.fontSize == PantasType.webH1.fontSize,
         );
         expect(heading, findsOneWidget, reason: step);
         final now = tester.getTopLeft(heading).dy;
@@ -135,14 +137,27 @@ void main() {
         await tester.pump();
         expect(tester.takeException(), isNull, reason: id);
         final rect = tester.getRect(key);
-        for (final text in tester.widgetList<Text>(
-          find.descendant(of: key, matching: find.byType(Text)),
-        )) {
-          expect(text.data, isNotEmpty);
+        // A status tag sits on the tile's top edge, by design, so it is not a
+        // line of the tile's own text.
+        final lines = find.descendant(
+          of: key,
+          matching: find.byType(Text),
+        );
+        final own = lines.evaluate().where(
+              (e) => find
+                  .ancestor(
+                    of: find.byWidget(e.widget),
+                    matching: find.byKey(const ValueKey('selectable-tile-tag')),
+                  )
+                  .evaluate()
+                  .isEmpty,
+            );
+        for (final element in own) {
+          expect((element.widget as Text).data, isNotEmpty);
         }
-        for (final render in tester.renderObjectList<RenderBox>(
-          find.descendant(of: key, matching: find.byType(Text)),
-        )) {
+        for (final render in [
+          for (final element in own) element.renderObject! as RenderBox,
+        ]) {
           final box = render.localToGlobal(Offset.zero) & render.size;
           expect(rect.contains(box.topLeft), isTrue, reason: id);
           expect(box.right, lessThanOrEqualTo(rect.right), reason: id);
@@ -168,11 +183,14 @@ void main() {
       await tester.tap(find.byKey(const ValueKey('exam-exam_cse_pro')));
       await tester.pump();
       // The pick shows only as the row's selected state.
-      final card = find.ancestor(
-        of: find.byKey(const ValueKey('exam-exam_cse_pro')),
-        matching: find.byType(WebCard),
+      expect(
+        tester
+            .widget<SelectableTile>(
+              find.byKey(const ValueKey('exam-exam_cse_pro')),
+            )
+            .selected,
+        isTrue,
       );
-      expect(tester.widget<WebCard>(card).selected, isTrue);
       expect(tester.widget<WebButton>(continueBtn).onPressed, isNotNull);
       await tester.sendKeyEvent(LogicalKeyboardKey.enter);
       await tester.pumpAndSettle();

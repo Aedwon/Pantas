@@ -18,8 +18,9 @@ import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
+import 'package:pantas/core/ui/components/pantas_tag.dart';
 import 'package:pantas/core/ui/components/search_field.dart';
-import 'package:pantas/core/ui/components/selection_row.dart';
+import 'package:pantas/core/ui/components/selectable_tile.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
@@ -27,6 +28,11 @@ import 'package:pantas/core/ui/motion/press_scale.dart';
 import 'package:pantas/core/ui/motion/selection_motion.dart';
 import 'package:pantas/core/ui/motion/view_swap.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_opacity.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_key_focus.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -157,17 +163,20 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
     return Semantics(
       liveRegion: true,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 44),
+        padding: const EdgeInsets.symmetric(
+          horizontal: PantasSpace.s24,
+          vertical: PantasSpace.s44,
+        ),
         child: Column(
           children: [
             Text(
               'Nothing matched “$_typed”',
               textAlign: TextAlign.center,
               style: wide
-                  ? t.style(17, weight: FontWeight.w600, height: 22 / 17)
+                  ? PantasType.webTitleSm.copyWith(color: t.colors.textPrimary)
                   : context.type.emphasized,
             ),
-            const SizedBox(height: 12),
+            const SizedBox(height: PantasSpace.s12),
             Text(
               'Try a shorter word, or part of one.',
               textAlign: TextAlign.center,
@@ -290,13 +299,13 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
   }) {
     final enabled = widget.selectable(entry);
     return Opacity(
-      opacity: enabled ? 1 : .45,
+      opacity: enabled ? 1 : PantasOpacity.disabled,
       child: Semantics(
         inMutuallyExclusiveGroup: true,
         selected: chosen,
-        // The chosen tint fades 160 ms on the ease (item 17, demo 4) and the
-        // label keeps one weight. It is a layer behind: Material does not
-        // animate a button's own fill.
+        // The chosen tint fades on the ease and the label keeps one weight.
+        // It is a layer behind: Material does not animate a button's own
+        // fill.
         child: FadingColor(
           color: chosen
               ? t.colors.accentTint
@@ -304,7 +313,7 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
           builder: (context, fill, child) => DecoratedBox(
             decoration: BoxDecoration(
               color: fill,
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(PantasRadius.md),
             ),
             child: child,
           ),
@@ -312,10 +321,14 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
             key: ValueKey('exam-${entry.id}'),
             onPressed: onTap,
             style: ButtonStyle(
-              minimumSize:
-                  const WidgetStatePropertyAll(Size(double.infinity, 55)),
+              minimumSize: const WidgetStatePropertyAll(
+                Size(double.infinity, PantasSize.targetTouch),
+              ),
               padding: const WidgetStatePropertyAll(
-                EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                EdgeInsets.symmetric(
+                  horizontal: PantasSpace.s12,
+                  vertical: PantasSpace.s8,
+                ),
               ),
               tapTargetSize: MaterialTapTargetSize.shrinkWrap,
               visualDensity: VisualDensity.standard,
@@ -326,7 +339,9 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
                     : Colors.transparent,
               ),
               shape: WidgetStatePropertyAll(
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(PantasRadius.md),
+                ),
               ),
             ),
             child: Row(
@@ -337,42 +352,25 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
                     children: [
                       Text(
                         entry.shortName,
-                        style: t.style(16, height: 1.3),
+                        style: PantasType.webRowTitleSettings
+                            .copyWith(color: t.colors.textPrimary),
                       ),
                       Text(
                         _organizations[entry.id] ?? entry.name,
-                        style: t.style(
-                          14,
-                          height: 1.3,
-                          color: t.colors.secondaryLabel,
-                        ),
+                        style: PantasType.webRowSub
+                            .copyWith(color: t.colors.textSecondary),
                       ),
                     ],
                   ),
                 ),
                 if (!enabled)
-                  DecoratedBox(
-                    decoration: BoxDecoration(
-                      color: t.disabledBackground,
-                      borderRadius: BorderRadius.circular(99),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 8,
-                        vertical: 2,
-                      ),
-                      child: Text(
-                        'Coming soon',
-                        style: t.style(
-                          12,
-                          weight: FontWeight.w600,
-                          color: t.colors.secondaryLabel,
-                        ),
-                      ),
-                    ),
-                  )
+                  const PantasTag('Coming soon', tone: PantasTagTone.gray)
                 else if (chosen)
-                  Icon(PantasIcons.check, size: 16, color: t.colors.accent),
+                  Icon(
+                    PantasIcons.check,
+                    size: PantasSpace.s16,
+                    color: t.colors.accent,
+                  ),
               ],
             ),
           ),
@@ -384,68 +382,27 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
   /// One exam row of the onboarding picker: the shared selection row in a
   /// card that shows the picked state. Long names wrap instead of clipping.
   Widget _webExamRow(
-    WebTokens t,
+    BuildContext context,
     ExamCatalogEntry entry,
     bool chosen,
     String? active,
   ) {
     final enabled = widget.selectable(entry);
-    return PressScale(
-      enabled: !_saving && enabled,
-      child: WebCard(
-        radius: 14,
-        minHeight: 64,
-        selected: chosen,
-        child: RadioRow(
-          key: ValueKey('exam-${entry.id}'),
-          title: entry.shortName,
-          showMark: false,
-          selected: chosen,
-          onTap: _saving || !enabled ? null : () => _pick(entry, active),
-          padding: const EdgeInsets.fromLTRB(16, 11, 14, 11),
-          content: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                entry.shortName,
-                style: t.style(16, weight: FontWeight.w600),
-              ),
-              Text(
-                _organizations[entry.id] ?? entry.name,
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-                style: t.sm,
-              ),
-            ],
-          ),
-          trailing: enabled
-              ? null
-              : Padding(
-                  padding: const EdgeInsets.only(right: 14),
-                  child: DecoratedBox(
-                    decoration: BoxDecoration(
-                      color: t.disabledBackground,
-                      borderRadius: BorderRadius.circular(99),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 7,
-                        vertical: 2,
-                      ),
-                      child: Text(
-                        'Coming soon',
-                        style: t.style(
-                          11,
-                          weight: FontWeight.w600,
-                          color: t.colors.secondaryLabel,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-        ),
-      ),
+    final tile = SelectableTile(
+      key: ValueKey('exam-${entry.id}'),
+      name: entry.shortName,
+      sub: _organizations[entry.id] ?? entry.name,
+      selected: chosen,
+      single: true,
+      tag: enabled ? null : 'Coming soon',
+      tagTone: PantasTagTone.gray,
+      onTap: _saving || !enabled ? null : () => _pick(entry, active),
     );
+    // A tag hangs half its height above its tile, so the row makes room.
+    final halfTag = SelectableTile.tagHeight(context) / 2;
+    return enabled
+        ? tile
+        : Padding(padding: EdgeInsets.only(top: halfTag), child: tile);
   }
 
   @override
@@ -466,7 +423,7 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
         title: 'Which exam are you taking?',
         detail: 'You can change this later in Settings.',
         progress: 3,
-        gap: 24,
+        gap: PantasSpace.s24,
         onBack: _back,
         bottom: emptyCatalog
             ? null
@@ -485,14 +442,15 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
             loading: () =>
                 ExamPickerWebSkeleton(customCard: widget.customExams),
             error: (error, stack) => Padding(
-              padding: const EdgeInsets.symmetric(vertical: 80),
+              padding: const EdgeInsets.symmetric(vertical: PantasSpace.s56),
               child: Column(
                 children: [
                   Text(
                     'Could not load exams.',
-                    style: t.style(17, color: t.colors.secondaryLabel),
+                    style: PantasType.webLead
+                        .copyWith(color: t.colors.textSecondary),
                   ),
-                  const SizedBox(height: 16),
+                  const SizedBox(height: PantasSpace.s16),
                   WebButton(
                     label: 'Retry',
                     variant: WebButtonVariant.secondary,
@@ -508,14 +466,15 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
               final all = _orderedEntries(catalogEntries);
               if (all.isEmpty) {
                 return Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 80),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: PantasSpace.s56),
                   child: Column(
                     children: [
                       Text(
                         'No exams available right now.',
-                        style: t.style(20, weight: FontWeight.w600),
+                        style: t.h3,
                       ),
-                      const SizedBox(height: 6),
+                      const SizedBox(height: PantasSpace.s6),
                       Text(
                         widget.customExams
                             ? 'Check back soon, or set up your own exam.'
@@ -523,7 +482,7 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
                         style: t.sub,
                       ),
                       if (widget.customExams) ...[
-                        const SizedBox(height: 20),
+                        const SizedBox(height: PantasSpace.s20),
                         WebButton(
                           label: 'Set Up My Own Exam',
                           onPressed: _saving ? null : _custom,
@@ -551,10 +510,10 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
                     hint: 'Search exams',
                     onChanged: _search,
                   ),
-                  const SizedBox(height: 16),
+                  const SizedBox(height: PantasSpace.s16),
                   Wrap(
-                    spacing: 6,
-                    runSpacing: 6,
+                    spacing: PantasSpace.s6,
+                    runSpacing: PantasSpace.s6,
                     children: [
                       for (final group in [
                         (null, 'All'),
@@ -567,7 +526,7 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
                         ),
                     ],
                   ),
-                  const SizedBox(height: 24),
+                  const SizedBox(height: PantasSpace.s24),
                   if (widget.customExams) ...[
                     WebCard(
                       child: WebRow(
@@ -580,8 +539,8 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
                           'stroke-linecap="round"> '
                           '<circle cx="12" cy="12" r="8.5"/> '
                           '<path d="M12 8.5v7M8.5 12h7"/></svg>',
-                          width: 22,
-                          height: 22,
+                          width: PantasSize.icon,
+                          height: PantasSize.icon,
                           colorFilter: ColorFilter.mode(
                             t.colors.accent,
                             BlendMode.srcIn,
@@ -592,7 +551,7 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
                         divider: false,
                       ),
                     ),
-                    const SizedBox(height: 24),
+                    const SizedBox(height: PantasSpace.s24),
                   ],
                   // Picking a chip swaps the list with the approved view
                   // swap. Typing in the search changes the same view.
@@ -607,19 +566,20 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
                           if (visible
                               .any((entry) => entry.group == group.$1)) ...[
                             Text(group.$3.toUpperCase(), style: t.eb),
-                            const SizedBox(height: 8),
+                            const SizedBox(height: PantasSpace.s8),
                             for (final (index, entry) in visible
                                 .where((entry) => entry.group == group.$1)
                                 .indexed) ...[
-                              if (index > 0) const SizedBox(height: 10),
+                              if (index > 0)
+                                const SizedBox(height: PantasSpace.s10),
                               _webExamRow(
-                                t,
+                                context,
                                 entry,
                                 selected == entry.id,
                                 active,
                               ),
                             ],
-                            const SizedBox(height: 24),
+                            const SizedBox(height: PantasSpace.s24),
                           ],
                       ],
                     ),
@@ -640,14 +600,19 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
         child: KeyFocusKeeper(
           child: Material(
             color: t.colors.surface,
-            borderRadius: BorderRadius.circular(22),
+            borderRadius: BorderRadius.circular(PantasRadius.r2xl),
             clipBehavior: Clip.antiAlias,
             child: Column(
               key: const ValueKey('settings-picker-content'),
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(20, 18, 20, 14),
+                  padding: const EdgeInsets.fromLTRB(
+                    PantasSpace.s20,
+                    PantasSpace.s18,
+                    PantasSpace.s20,
+                    PantasSpace.s14,
+                  ),
                   child: Row(
                     children: [
                       Expanded(child: Text('Exam', style: t.h3)),
@@ -655,14 +620,19 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
                       IconButton(
                         onPressed: _saving ? null : _back,
                         tooltip: 'Close',
-                        color: t.colors.secondaryLabel,
-                        icon: const Icon(Icons.close, size: 18),
+                        color: t.colors.textSecondary,
+                        icon: const Icon(Icons.close, size: PantasSpace.s18),
                       ),
                     ],
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(20, 0, 20, 14),
+                  padding: const EdgeInsets.fromLTRB(
+                    PantasSpace.s20,
+                    PantasSpace.s0,
+                    PantasSpace.s20,
+                    PantasSpace.s14,
+                  ),
                   child: SearchField(
                     outlined: true,
                     hint: 'Search exams',
@@ -671,10 +641,15 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
                 ),
                 Expanded(
                   child: SingleChildScrollView(
-                    padding: const EdgeInsets.fromLTRB(8, 4, 8, 0),
+                    padding: const EdgeInsets.fromLTRB(
+                      PantasSpace.s8,
+                      PantasSpace.s4,
+                      PantasSpace.s8,
+                      PantasSpace.s0,
+                    ),
                     child: catalog.when(
                       loading: () => const SkeletonGroups(
-                        rowHeight: 66,
+                        rowHeight: PantasSize.optMin,
                         headerWidth: 110,
                       ),
                       error: (error, _) => errorFor(
@@ -714,8 +689,8 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
                         }
                         return LayoutBuilder(
                           builder: (context, constraints) => Wrap(
-                            spacing: 8,
-                            runSpacing: 14,
+                            spacing: PantasSpace.s8,
+                            runSpacing: PantasSpace.s14,
                             children: [
                               for (final group in _orderedGroups(visible))
                                 if (visible.any(
@@ -729,10 +704,10 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
                                       children: [
                                         Padding(
                                           padding: const EdgeInsets.fromLTRB(
-                                            12,
-                                            0,
-                                            12,
-                                            4,
+                                            PantasSpace.s12,
+                                            PantasSpace.s0,
+                                            PantasSpace.s12,
+                                            PantasSpace.s4,
                                           ),
                                           child: Text(
                                             group.$3.toUpperCase(),
@@ -763,18 +738,23 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
                 ),
                 if (_saving)
                   const Padding(
-                    padding: EdgeInsets.all(20),
+                    padding: EdgeInsets.all(PantasSpace.s20),
                     child: WebButton(label: 'Rebuilding your plan', busy: true),
                   ),
                 if (_failed) saveFailureLine(_save),
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(20, 16, 20, 18),
+                  padding: const EdgeInsets.fromLTRB(
+                    PantasSpace.s20,
+                    PantasSpace.s16,
+                    PantasSpace.s20,
+                    PantasSpace.s18,
+                  ),
                   child: Wrap(
                     alignment: widget.customExams
                         ? WrapAlignment.spaceBetween
                         : WrapAlignment.end,
-                    spacing: 16,
-                    runSpacing: 12,
+                    spacing: PantasSpace.s16,
+                    runSpacing: PantasSpace.s12,
                     crossAxisAlignment: WrapCrossAlignment.center,
                     children: [
                       if (widget.customExams)
@@ -783,7 +763,7 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
                           onPressed: _saving ? () {} : _custom,
                         ),
                       SizedBox(
-                        width: 380,
+                        width: _settingsNoteWidth,
                         child: Text(
                           "Exams not out yet are gray and can't be picked.",
                           textAlign: TextAlign.right,
@@ -815,7 +795,7 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
         hint: 'Search exams',
         onChanged: _search,
       ),
-      SizedBox(height: _settings ? 22 : 12),
+      SizedBox(height: _settings ? PantasSpace.s20 : PantasSpace.s12),
       if (!_settings) ...[
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
@@ -828,7 +808,7 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
               ),
               for (final group
                   in _orderedGroups(catalog.valueOrNull ?? const [])) ...[
-                const SizedBox(width: 8),
+                const SizedBox(width: PantasSpace.s8),
                 PantasButton.filterChip(
                   label: group.$2,
                   selected: _group == group.$1,
@@ -838,15 +818,15 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
             ],
           ),
         ),
-        const SizedBox(height: 24),
+        const SizedBox(height: PantasSpace.s24),
       ],
       if (widget.customExams) ...[
         custom,
-        const SizedBox(height: 24),
+        const SizedBox(height: PantasSpace.s24),
       ],
       catalog.when(
         loading: () => const SkeletonGroups(
-          rowHeight: 66,
+          rowHeight: PantasSize.optMin,
           headerWidth: 110,
         ),
         error: (error, _) => errorFor(
@@ -902,7 +882,7 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
                       selected,
                       active,
                     ),
-                    const SizedBox(height: 24),
+                    const SizedBox(height: PantasSpace.s24),
                   ],
               ],
             ),
@@ -916,7 +896,7 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
             title: 'Which exam are you taking?',
             detail: 'You can change this later in Settings.',
             progress: 3,
-            bodyGap: 24,
+            bodyGap: PantasSpace.s24,
             detailLineHeight: 1.35,
             pinBottom: true,
             onBack: _back,
@@ -943,6 +923,13 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
   }
 }
 
+/// The settings picker's closing note keeps this width so it wraps as the
+/// board does (board ST_ExamPick).
+const double _settingsNoteWidth = 380;
+
+/// A pressed group chip shrinks to this share of its size.
+const double _chipPressScale = .96;
+
 /// A filter chip label that always takes the width of its heaviest (selected)
 /// weight, so no chip moves or wraps when another is picked.
 /// A group chip on the wide picker. It keeps its wide look and takes the
@@ -964,8 +951,8 @@ class _WideGroupChip extends StatelessWidget {
     final ink = selected ? t.colors.surface : t.colors.label;
     // Material does not animate a button's own fill, so the chip paints it
     // behind a transparent button.
-    return PressScale(
-      scale: .96,
+    final chip = PressScale(
+      scale: _chipPressScale,
       child: FadingColor(
         color: fill,
         builder: (context, fill, child) => DecoratedBox(
@@ -980,15 +967,12 @@ class _WideGroupChip extends StatelessWidget {
           onPressed: onPressed,
           style: TextButton.styleFrom(
             foregroundColor: ink,
-            textStyle: t.style(
-              14,
-              weight: selected ? FontWeight.w600 : FontWeight.w500,
-            ),
+            textStyle: selected ? PantasType.webLabel : PantasType.webNav,
             shape: const StadiumBorder(),
-            minimumSize: const Size(0, 34),
+            minimumSize: const Size(0, PantasSize.btnXs),
             // The fill is painted around the button, so no hit padding.
             tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-            padding: const EdgeInsets.symmetric(horizontal: 14),
+            padding: const EdgeInsets.symmetric(horizontal: PantasSpace.s14),
           ),
           child: FadingColor(
             color: ink,
@@ -998,10 +982,20 @@ class _WideGroupChip extends StatelessWidget {
             ),
             child: _ChipLabel(
               label: label,
-              style: t.style(14, weight: FontWeight.w600),
+              style: PantasType.webLabel,
             ),
           ),
         ),
+      ),
+    );
+    // The painted chip stays 36 high; the hit area is 44 (`size-target-touch`)
+    // and opaque, so a tap just above or below still selects it.
+    return GestureDetector(
+      behavior: HitTestBehavior.opaque,
+      onTap: onPressed,
+      child: SizedBox(
+        height: PantasSize.targetTouch,
+        child: Center(widthFactor: 1, heightFactor: 1, child: chip),
       ),
     );
   }

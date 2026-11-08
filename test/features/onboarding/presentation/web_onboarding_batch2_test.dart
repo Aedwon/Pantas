@@ -39,7 +39,7 @@ void main() {
       await tester.pump(const Duration(milliseconds: 500));
     }
 
-    testWidgets('name field uses the 56 px box padding and a 2 px border $dark',
+    testWidgets('name field uses the Field well padding and a 1 px ring $dark',
         (tester) async {
       final controller = TextEditingController();
       addTearDown(controller.dispose);
@@ -51,20 +51,20 @@ void main() {
           onChanged: (_) {},
         ),
       );
-      // The 56 px box is measured in the browser with Geist (vertical
-      // padding 19); test fonts have taller lines, so check the padding.
+      // The Field well is 48 high (`size-field`) with 14 side padding; test
+      // fonts have taller lines, so check the padding.
       expect(
         tester
             .widget<TextField>(find.byType(TextField))
             .decoration!
             .contentPadding,
-        const EdgeInsets.symmetric(horizontal: 18, vertical: 19),
+        const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
       );
       final border = tester
           .widget<TextField>(find.byType(TextField))
           .decoration!
           .enabledBorder! as OutlineInputBorder;
-      expect(border.borderSide.width, 2);
+      expect(border.borderSide.width, 1);
     });
 
     testWidgets('onboarding buttons are 48 tall $dark', (tester) async {
@@ -142,7 +142,7 @@ void main() {
       await tester.tap(find.text('Continue'));
       await tester.pump(const Duration(milliseconds: 500));
       final title = tester.widget<Text>(find.text('Pantas').first);
-      expect(title.style!.fontSize, 18);
+      expect(title.style!.fontSize, 20);
       expect(title.style!.fontWeight, FontWeight.w700);
       expect(find.text('Try a Different Year'), findsNothing);
       expect(

@@ -15,6 +15,7 @@ import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/web/web_debrief_loading.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/assessment/application/assessment_result_providers.dart';
@@ -402,7 +403,7 @@ class _ResultsBodyState extends State<_ResultsBody>
           ),
         ),
         if (elapsed != null) ...[
-          const SizedBox(height: 8),
+          const SizedBox(height: PantasSpace.s8),
           Text(
             switch (elapsed.inMinutes) {
               0 => 'in under a minute',
@@ -419,7 +420,12 @@ class _ResultsBodyState extends State<_ResultsBody>
         children: [
           Expanded(
             child: SingleChildScrollView(
-              padding: const EdgeInsets.fromLTRB(16, 57, 16, 24),
+              padding: const EdgeInsets.fromLTRB(
+                PantasSpace.s16,
+                PantasSpace.s56,
+                PantasSpace.s16,
+                PantasSpace.s24,
+              ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
@@ -431,7 +437,7 @@ class _ResultsBodyState extends State<_ResultsBody>
                       style: context.type.pageTitleCompact,
                     ),
                   ),
-                  const SizedBox(height: 6),
+                  const SizedBox(height: PantasSpace.s6),
                   ResultsReveal(
                     animation: _sequence.subtitle,
                     child: Text(
@@ -441,12 +447,12 @@ class _ResultsBodyState extends State<_ResultsBody>
                           .copyWith(color: c.secondaryLabel),
                     ),
                   ),
-                  const SizedBox(height: 23),
+                  const SizedBox(height: PantasSpace.s24),
                   ResultsReveal(animation: _sequence.score, child: gauge),
-                  const SizedBox(height: 22),
+                  const SizedBox(height: PantasSpace.s20),
                   ResultsReveal(animation: _sequence.subjects, child: subjects),
                   if (weakest != null) ...[
-                    const SizedBox(height: 22),
+                    const SizedBox(height: PantasSpace.s20),
                     ResultsReveal(
                       animation: _sequence.plan,
                       child: GroupedSection(
@@ -455,8 +461,8 @@ class _ResultsBodyState extends State<_ResultsBody>
                         children: [
                           Padding(
                             padding: const EdgeInsets.symmetric(
-                              horizontal: 16,
-                              vertical: 14,
+                              horizontal: PantasSpace.s16,
+                              vertical: PantasSpace.s14,
                             ),
                             child: Row(
                               children: [
@@ -490,7 +496,12 @@ class _ResultsBodyState extends State<_ResultsBody>
             ),
           ),
           Padding(
-            padding: const EdgeInsets.fromLTRB(16, 14, 16, 30),
+            padding: const EdgeInsets.fromLTRB(
+              PantasSpace.s16,
+              PantasSpace.s14,
+              PantasSpace.s16,
+              PantasSpace.s28,
+            ),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [

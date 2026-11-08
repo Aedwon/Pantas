@@ -187,7 +187,7 @@ class _GuardianWaitingPageState extends ConsumerState<GuardianWaitingPage> {
               _notice ?? '\u00A0',
               textAlign: TextAlign.center,
               style: context.type.subhead
-                  .copyWith(color: context.colors.secondaryLabel),
+                  .copyWith(color: context.colors.textSecondary),
             ),
           ),
         ),

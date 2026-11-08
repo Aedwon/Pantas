@@ -53,7 +53,7 @@ void main() {
       final padding = tester.widget<Padding>(
         find.descendant(of: lesson, matching: find.byType(Padding)).first,
       );
-      expect((padding.padding as EdgeInsets).left, 42);
+      expect((padding.padding as EdgeInsets).left, 40);
       final material = tester.widget<Material>(
         find.ancestor(of: lesson, matching: find.byType(Material)).first,
       );

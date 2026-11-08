@@ -118,6 +118,19 @@ void main() {
     expect(ink(tester, 'Civil service'), isNot(midInk));
   });
 
+  testWidgets('a tap 3 px above the painted chip still selects it',
+      (tester) async {
+    await pumpPicker(tester);
+    final painted = chip('Civil service');
+    expect(tester.getSize(painted).height, 36);
+    final off = fill(tester, 'Civil service');
+    final top = tester.getTopLeft(painted);
+    await tester.tapAt(Offset(top.dx + 20, top.dy - 3));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 300));
+    expect(fill(tester, 'Civil service'), isNot(off));
+  });
+
   testWidgets('a press shrinks the chip to 96%, then springs back',
       (tester) async {
     await pumpPicker(tester);

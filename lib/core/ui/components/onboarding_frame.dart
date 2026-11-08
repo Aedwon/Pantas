@@ -6,13 +6,37 @@ import 'package:flutter/scheduler.dart';
 import 'package:pantas/core/ui/components/pantas_logo.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_border.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 
 /// Wide web: the width of every step's content column.
 const double onboardingColumnWidth = 580;
+
+/// Wide web: the steps list column to the left of the content column.
+const double onboardingRailWidth = 200;
+
+/// Wide web: the gap between the steps list and the content column.
+const double onboardingRailGap = 80;
+
+/// Wide web: the rail, its gap and the content column together.
+const double onboardingFrameWidth =
+    onboardingColumnWidth + onboardingRailWidth + onboardingRailGap;
+
+/// Wide web: the steps list starts this far below the top bar, level with the
+/// first step's title (board OB_*).
+const double onboardingRailTop = 96;
+
+/// Phone: the settings exam picker's Back row, one shorter than the onboarding
+/// one (board ST_ExamPick).
+const double onboardingBackBarCompact = 49;
 
 /// Wide web: space below the action row, in the window and at the end of the
 /// list, so the row rests where it was pinned.
@@ -160,7 +184,7 @@ class _OnboardingFrameState extends State<OnboardingFrame>
   final ScrollController _scroll = ScrollController();
   late final AnimationController _presence = AnimationController(
     vsync: this,
-    duration: const Duration(milliseconds: 300),
+    duration: PantasDurations.flip,
   );
   late final Animation<double> _fade =
       CurvedAnimation(parent: _presence, curve: PantasCurves.fade);
@@ -234,7 +258,7 @@ class _OnboardingFrameState extends State<OnboardingFrame>
               FadeTransition(
                 opacity: _fade,
                 child: spec.hideBack
-                    ? const SizedBox(height: 56)
+                    ? const SizedBox(height: PantasSpace.s56)
                     : OnboardingBackBar(
                         onBack: () => widget.controller.onBack?.call(),
                       ),
@@ -246,7 +270,8 @@ class _OnboardingFrameState extends State<OnboardingFrame>
                 ),
               // Aedwon, Nov 6, 2026, over the boards' 4 px: the step title
               // needs more room below the progress bar on a phone.
-              if (spec.progress != null) const SizedBox(height: 16),
+              if (spec.progress != null)
+                const SizedBox(height: PantasSpace.s16),
               Expanded(child: child),
             ],
           ),
@@ -266,16 +291,7 @@ class _OnboardingFrameState extends State<OnboardingFrame>
             opacity: _fade,
             // The boards set the logo 28 px in from the edge; the bar's own
             // 20 px inset leaves it 10 px short once the mark's margin counts.
-            child: const Padding(
-              padding: EdgeInsets.only(left: 10),
-              child: WebTopBar(
-                leading: PantasLogo(size: 28),
-                title: Text(
-                  'Pantas',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
-                ),
-              ),
-            ),
+            child: const OnboardingTopBar(),
           ),
           Expanded(
             child: spec.bare
@@ -285,19 +301,19 @@ class _OnboardingFrameState extends State<OnboardingFrame>
                       SingleChildScrollView(
                         controller: _scroll,
                         padding: const EdgeInsets.fromLTRB(
-                          40,
-                          40,
-                          40,
+                          PantasSpace.s40,
+                          PantasSpace.s40,
+                          PantasSpace.s40,
                           onboardingActionsMargin,
                         ),
                         child: Center(
                           child: SizedBox(
-                            width: onboardingColumnWidth + 280,
+                            width: onboardingFrameWidth,
                             child: Row(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                const SizedBox(width: 200),
-                                const SizedBox(width: 80),
+                                const SizedBox(width: onboardingRailWidth),
+                                const SizedBox(width: onboardingRailGap),
                                 Expanded(child: child),
                               ],
                             ),
@@ -309,17 +325,22 @@ class _OnboardingFrameState extends State<OnboardingFrame>
                       Positioned.fill(
                         child: IgnorePointer(
                           child: Padding(
-                            padding: const EdgeInsets.fromLTRB(40, 96, 40, 0),
+                            padding: const EdgeInsets.fromLTRB(
+                              PantasSpace.s40,
+                              onboardingRailTop,
+                              PantasSpace.s40,
+                              PantasSpace.s0,
+                            ),
                             child: Align(
                               alignment: Alignment.topCenter,
                               child: SizedBox(
-                                width: onboardingColumnWidth + 280,
+                                width: onboardingFrameWidth,
                                 child: Align(
                                   alignment: Alignment.topLeft,
                                   child: FadeTransition(
                                     opacity: _fade,
                                     child: SizedBox(
-                                      width: 200,
+                                      width: onboardingRailWidth,
                                       child: OnboardingRail(
                                         progress: spec.progress,
                                       ),
@@ -338,6 +359,26 @@ class _OnboardingFrameState extends State<OnboardingFrame>
       ),
     );
   }
+}
+
+/// Wide web: the top bar of every onboarding page. The logo sits 28 in from
+/// the edge: the bar's own 20 inset leaves it 10 short once the mark's margin
+/// counts (boards).
+class OnboardingTopBar extends StatelessWidget {
+  const OnboardingTopBar({this.logoInset = true, super.key});
+
+  /// False for a page whose bar already sits on the page margin.
+  final bool logoInset;
+
+  @override
+  Widget build(BuildContext context) => Padding(
+        padding:
+            EdgeInsets.only(left: logoInset ? PantasSpace.s10 : PantasSpace.s0),
+        child: const WebTopBar(
+          leading: PantasLogo(size: PantasSpace.s28),
+          title: Text('Pantas', style: PantasType.webH3),
+        ),
+      );
 }
 
 /// Wide web: the six setup steps beside the content (board `OB_*`).
@@ -360,7 +401,7 @@ class OnboardingRail extends StatelessWidget {
     final current = progress ?? 1;
     final duration = MediaQuery.disableAnimationsOf(context)
         ? Duration.zero
-        : const Duration(milliseconds: 220);
+        : PantasDurations.nudge;
     return Semantics(
       label: 'Setup steps',
       container: true,
@@ -369,13 +410,13 @@ class OnboardingRail extends StatelessWidget {
         children: [
           for (final (i, label) in labels.indexed)
             SizedBox(
-              height: 40,
+              height: PantasSpace.s40,
               child: Row(
                 children: [
                   AnimatedContainer(
                     duration: duration,
-                    width: 22,
-                    height: 22,
+                    width: PantasSpace.s24,
+                    height: PantasSpace.s24,
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       color: i + 1 < current ? t.colors.accentFill : null,
@@ -383,16 +424,22 @@ class OnboardingRail extends StatelessWidget {
                         color: i + 1 <= current
                             ? t.colors.accent
                             : t.strongDivider,
-                        width: i + 1 == progress ? 2 : 1.5,
+                        width: i + 1 == progress
+                            ? PantasBorder.ringSelected
+                            : PantasBorder.ringStrong,
                       ),
                     ),
                     alignment: Alignment.center,
                     child: i + 1 < current
-                        ? const Icon(Icons.check, size: 12, color: Colors.white)
+                        ? Icon(
+                            Icons.check,
+                            size: PantasSpace.s12,
+                            color: t.colors.onAccent,
+                          )
                         : i + 1 == progress
                             ? Container(
-                                width: 8,
-                                height: 8,
+                                width: PantasSpace.s8,
+                                height: PantasSpace.s8,
                                 decoration: BoxDecoration(
                                   shape: BoxShape.circle,
                                   color: t.colors.accent,
@@ -400,18 +447,17 @@ class OnboardingRail extends StatelessWidget {
                               )
                             : null,
                   ),
-                  const SizedBox(width: 12),
+                  const SizedBox(width: PantasSpace.s12),
                   AnimatedDefaultTextStyle(
                     duration: duration,
-                    style: t.style(
-                      15,
-                      weight:
+                    // One line height for every step, so the list never shifts
+                    // when the current step's weight changes.
+                    style: PantasType.webSub.copyWith(
+                      fontWeight:
                           i + 1 == progress ? FontWeight.w600 : FontWeight.w400,
                       color: i + 1 == progress
-                          ? t.colors.label
-                          : i + 1 < current
-                              ? t.colors.secondaryLabel
-                              : t.colors.tertiaryLabel,
+                          ? t.colors.textPrimary
+                          : t.colors.textSecondary,
                     ),
                     child: Text(label),
                   ),
@@ -441,28 +487,43 @@ class OnboardingBackBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) => SizedBox(
         // Boards: back label at y 21, progress bar at y 56.
-        height: compact ? 49 : 56,
+        height: compact ? onboardingBackBarCompact : PantasSpace.s56,
         child: Padding(
           padding: compact
-              ? const EdgeInsets.fromLTRB(4, 4, 8, 0)
-              : const EdgeInsets.fromLTRB(8, 5, 8, 0),
+              ? const EdgeInsets.fromLTRB(
+                  PantasSpace.s4,
+                  PantasSpace.s4,
+                  PantasSpace.s8,
+                  PantasSpace.s0,
+                )
+              : const EdgeInsets.fromLTRB(
+                  PantasSpace.s8,
+                  PantasSpace.s4,
+                  PantasSpace.s8,
+                  PantasSpace.s0,
+                ),
           child: Align(
             alignment: Alignment.centerLeft,
             child: TextButton(
               onPressed: onBack,
               style: TextButton.styleFrom(
-                minimumSize: const Size(44, 44),
-                padding: const EdgeInsets.fromLTRB(4, 0, 8, 0),
+                minimumSize: const Size.square(PantasSize.targetTouch),
+                padding: const EdgeInsets.fromLTRB(
+                  PantasSpace.s4,
+                  PantasSpace.s0,
+                  PantasSpace.s8,
+                  PantasSpace.s0,
+                ),
               ),
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Icon(
                     PantasIcons.back,
-                    size: 24,
+                    size: PantasSpace.s24,
                     color: context.colors.accent,
                   ),
-                  const SizedBox(width: 2),
+                  const SizedBox(width: PantasSpace.s2),
                   Text(
                     label,
                     style: context.type.body
@@ -485,16 +546,16 @@ class OnboardingProgressBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final duration = MediaQuery.disableAnimationsOf(context)
         ? Duration.zero
-        : const Duration(milliseconds: 380);
+        : PantasDurations.slide;
     return Semantics(
       label: 'Step $progress of 6',
       excludeSemantics: true,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
+        padding: const EdgeInsets.symmetric(horizontal: PantasSpace.s20),
         child: Row(
           children: [
             for (var index = 0; index < 6; index++) ...[
-              if (index > 0) const SizedBox(width: 6),
+              if (index > 0) const SizedBox(width: PantasSpace.s6),
               Expanded(
                 child: TweenAnimationBuilder<Color?>(
                   tween: ColorTween(
@@ -507,10 +568,10 @@ class OnboardingProgressBar extends StatelessWidget {
                   builder: (context, color, _) => DecoratedBox(
                     key: const ValueKey('onboarding-segment'),
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(9),
+                      borderRadius: BorderRadius.circular(PantasRadius.full),
                       color: color,
                     ),
-                    child: const SizedBox(height: 4),
+                    child: const SizedBox(height: PantasSize.accuracyBar),
                   ),
                 ),
               ),
@@ -572,7 +633,7 @@ class _RenderSticky extends RenderProxyBox {
         _clearance = clearance,
         _position = position;
 
-  static const double _bandPadding = 16;
+  static const double _bandPadding = PantasSpace.s16;
 
   Color _background;
   Color _separator;
@@ -657,7 +718,7 @@ class _RenderSticky extends RenderProxyBox {
       // Content shows beneath the band while it runs past the band's top.
       if (offset.dy - _clearance > top) {
         canvas.drawRect(
-          Rect.fromLTWH(band.left, top, band.width, .5),
+          Rect.fromLTWH(band.left, top, band.width, PantasBorder.hairline),
           Paint()..color = _separator,
         );
       }

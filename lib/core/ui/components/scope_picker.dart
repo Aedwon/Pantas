@@ -4,7 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_border.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 
@@ -77,7 +83,7 @@ class _ScopePickerState extends State<ScopePicker>
   String? _shaking;
   late final AnimationController _shake = AnimationController(
     vsync: this,
-    duration: const Duration(milliseconds: 300),
+    duration: PantasDurations.flip,
   );
   late final Animation<double> _offset = TweenSequence<double>([
     for (final pair in [
@@ -97,6 +103,17 @@ class _ScopePickerState extends State<ScopePicker>
   void dispose() {
     _shake.dispose();
     super.dispose();
+  }
+
+  /// Where a row's text starts: the rules under a row start here. It is the
+  /// row's left padding, the check and the gap, so a rule always lines up with
+  /// the text above it.
+  static double _textStart({required bool board, required bool lesson}) {
+    final inset = board
+        ? (lesson ? PantasSpace.s56 : PantasSpace.s20)
+        : (lesson ? PantasSpace.s40 : PantasSpace.s16);
+    final mark = board && lesson ? PantasSize.icon : PantasSize.check;
+    return inset + mark + (board ? PantasSpace.s16 : PantasSpace.s12);
   }
 
   void toggle(String id, Set<String> ids) {
@@ -131,6 +148,8 @@ class _ScopePickerState extends State<ScopePicker>
     final partial = count > 0 && !checked;
     final board = widget.settingsRows && context.wideWeb;
     final web = context.webTokens;
+    final markSize = board && lesson ? PantasSize.icon : PantasSize.check;
+    final gap = board ? PantasSpace.s16 : PantasSpace.s12;
     return AnimatedBuilder(
       animation: _offset,
       builder: (context, child) => Transform.translate(
@@ -146,22 +165,19 @@ class _ScopePickerState extends State<ScopePicker>
           title: title,
           padding: board
               ? EdgeInsets.fromLTRB(
-                  lesson ? 56 : 20,
-                  lesson ? 12 : 15,
-                  expand == null ? 20 : 0,
-                  lesson ? 12 : 15,
+                  lesson ? PantasSpace.s56 : PantasSpace.s20,
+                  lesson ? PantasSpace.s12 : PantasSpace.s14,
+                  expand == null ? PantasSpace.s20 : PantasSpace.s0,
+                  lesson ? PantasSpace.s12 : PantasSpace.s14,
                 )
-              : EdgeInsets.fromLTRB(lesson ? 42 : 16, 10, 12, 10),
-          gap: board ? 16 : 12,
-          minHeight: board
-              ? (lesson ? 45 : 62)
-              // ST_Included on a phone: 47.5 px rows.
-              : (widget.settingsRows && !lesson
-                  ? 47.5
-                  : widget.phoneBoardRows
-                      ? (lesson ? 46.5 : 47.5)
-                      : 44),
-          markSize: board && lesson ? 20 : (context.wideWeb ? 24 : 22),
+              : EdgeInsets.fromLTRB(
+                  lesson ? PantasSpace.s40 : PantasSpace.s16,
+                  PantasSpace.s10,
+                  PantasSpace.s12,
+                  PantasSpace.s10,
+                ),
+          gap: gap,
+          markSize: markSize,
           round: true,
           standardDensity: board || widget.phoneBoardRows,
           selected: checked,
@@ -191,12 +207,15 @@ class _ScopePickerState extends State<ScopePicker>
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       style: board
-                          ? web.style(lesson ? 16 : 17)
+                          ? (lesson
+                                  ? PantasType.webRowTitleSettings
+                                  : PantasType.webRowTitle)
+                              .copyWith(color: c.textPrimary)
                           : context.type.body,
                     ),
                   ),
                   if (tag != null) ...[
-                    const SizedBox(width: 8),
+                    const SizedBox(width: PantasSpace.s8),
                     ConstrainedBox(
                       constraints: BoxConstraints(maxWidth: box.maxWidth * .5),
                       child: tag,
@@ -209,18 +228,22 @@ class _ScopePickerState extends State<ScopePicker>
           trailing: expand == null
               ? null
               : Padding(
-                  padding: EdgeInsets.only(right: board ? 20 : 0),
+                  padding: EdgeInsets.only(
+                    right: board ? PantasSpace.s20 : PantasSpace.s0,
+                  ),
                   child: IconButton(
                     key: ValueKey('scope-expand-$id'),
                     onPressed: expand,
                     style: board
                         ? IconButton.styleFrom(
-                            fixedSize: const Size.square(32),
-                            minimumSize: const Size.square(32),
+                            fixedSize: const Size.square(PantasSize.iconBtnSm),
+                            minimumSize:
+                                const Size.square(PantasSize.iconBtnSm),
                             padding: EdgeInsets.zero,
                             tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                             shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(12),
+                              borderRadius:
+                                  BorderRadius.circular(PantasRadius.md),
                             ),
                           )
                         : !context.wideWeb &&
@@ -230,7 +253,10 @@ class _ScopePickerState extends State<ScopePicker>
                             // Phone boards: the button is as tall as the
                             // 47.5 px row, so it never makes the row taller.
                             ? IconButton.styleFrom(
-                                fixedSize: const Size(48, 47.5),
+                                fixedSize: const Size(
+                                  PantasSize.field,
+                                  PantasSize.rowMinPhone,
+                                ),
                                 tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                               )
                             : null,
@@ -243,19 +269,19 @@ class _ScopePickerState extends State<ScopePicker>
                       curve: PantasCurves.house,
                       duration: MediaQuery.disableAnimationsOf(context)
                           ? Duration.zero
-                          : const Duration(milliseconds: 300),
+                          : PantasDurations.flip,
                       child: Transform.rotate(
                         key: ValueKey('scope-caret-base-$id'),
                         angle: math.pi / 2,
                         child: Icon(
                           PantasIcons.next,
-                          size: 16,
+                          size: PantasSpace.s16,
                           // The board's chevron gray (#8A8A8E light, the
                           // dark boards' #949494). The web dark outline gray
                           // is for checkbox rims and left this at 1.4:1 on
                           // the card (5Q-3).
                           color: context.wideWeb
-                              ? web.colors.tertiaryLabel
+                              ? web.colors.textSecondary
                               : c.controlOutline,
                         ),
                       ),
@@ -284,13 +310,18 @@ class _ScopePickerState extends State<ScopePicker>
                 Padding(
                   padding: EdgeInsets.only(
                     left: widget.settingsRows && context.wideWeb
-                        ? 92
+                        ? _textStart(board: true, lesson: true)
                         : widget.phoneBoardRows && !context.wideWeb
-                            ? 76
-                            : 0,
-                    right: widget.settingsRows && context.wideWeb ? 20 : 0,
+                            ? _textStart(board: false, lesson: true)
+                            : PantasSpace.s0,
+                    right: widget.settingsRows && context.wideWeb
+                        ? PantasSpace.s20
+                        : PantasSpace.s0,
                   ),
-                  child: Container(height: .5, color: context.colors.separator),
+                  child: Container(
+                    height: PantasBorder.hairline,
+                    color: context.colors.separator,
+                  ),
                 ),
             ],
           ],
@@ -304,14 +335,21 @@ class _ScopePickerState extends State<ScopePicker>
         children: [
           for (final subject in widget.subjects) ...[
             Padding(
-              padding: const EdgeInsets.fromLTRB(16, 0, 16, 7),
+              padding: const EdgeInsets.fromLTRB(
+                PantasSpace.s16,
+                PantasSpace.s0,
+                PantasSpace.s16,
+                PantasSpace.s6,
+              ),
               child: Text(
                 subject.title.toUpperCase(),
                 style: context.type.sectionHeader,
               ),
             ),
             ClipRRect(
-              borderRadius: BorderRadius.circular(context.wideWeb ? 16 : 14),
+              borderRadius: BorderRadius.circular(
+                context.wideWeb ? PantasRadius.xl : PantasRadius.lg,
+              ),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -342,7 +380,7 @@ class _ScopePickerState extends State<ScopePicker>
                     else
                       AnimatedSize(
                         key: ValueKey('scope-lessons-${topic.id}'),
-                        duration: const Duration(milliseconds: 600),
+                        duration: PantasDurations.long2,
                         curve: PantasCurves.house,
                         child: lessons(topic),
                       ),
@@ -350,16 +388,20 @@ class _ScopePickerState extends State<ScopePicker>
                       Padding(
                         padding: EdgeInsets.only(
                           left: widget.settingsRows
-                              ? (context.wideWeb ? 60 : 50)
+                              ? _textStart(
+                                  board: context.wideWeb,
+                                  lesson: false,
+                                )
                               : widget.phoneBoardRows && !context.wideWeb
-                                  ? 50
-                                  : 0,
-                          right:
-                              widget.settingsRows && context.wideWeb ? 20 : 0,
+                                  ? _textStart(board: false, lesson: false)
+                                  : PantasSpace.s0,
+                          right: widget.settingsRows && context.wideWeb
+                              ? PantasSpace.s20
+                              : PantasSpace.s0,
                         ),
                         child: Container(
                           key: ValueKey('scope-rule-${topic.id}'),
-                          height: .5,
+                          height: PantasBorder.hairline,
                           color: context.colors.separator,
                         ),
                       ),
@@ -367,13 +409,14 @@ class _ScopePickerState extends State<ScopePicker>
                 ],
               ),
             ),
-            const SizedBox(height: 24),
+            const SizedBox(height: PantasSpace.s24),
           ],
           if (_shaking != null && widget.minimumSelectionMessage != null)
             Semantics(
               liveRegion: true,
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: PantasSpace.s16),
                 child: Text(
                   widget.minimumSelectionMessage!,
                   // ST_IncludedLast: red 13 px on the wide layout.

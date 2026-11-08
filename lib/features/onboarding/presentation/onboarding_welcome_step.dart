@@ -5,11 +5,26 @@ import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_logo.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_key_focus.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_web_page.dart';
+
+/// The Cover mark's size on the wide welcome and on the phone welcome (boards
+/// OB_Welcome, O_Welcome).
+const double _logoWide = 120;
+const double _logoPhone = 104;
+
+/// Wide web: the Get Started button's width, as the HTML welcome has it.
+const double _buttonWidth = 260;
+
+/// Phone: space above the mark, which sets the title at the board's height.
+const double _phoneLogoTop = 180;
 
 class OnboardingWelcomeStep extends StatelessWidget {
   const OnboardingWelcomeStep({
@@ -55,32 +70,28 @@ class OnboardingWelcomeStep extends StatelessWidget {
                 children: [
                   const _WelcomePop(
                     key: ValueKey('welcome-logo-pop'),
-                    child: OnboardingLogo(size: 120),
+                    child: OnboardingLogo(size: _logoWide),
                   ),
-                  const SizedBox(height: 32),
+                  const SizedBox(height: PantasSpace.s32),
                   _WelcomePop(
                     key: const ValueKey('welcome-title-pop'),
                     child: Text(
                       'Welcome to Pantas',
-                      style: t
-                          .style(48, weight: FontWeight.w700, height: 1.08)
-                          .copyWith(letterSpacing: -1.44),
+                      style: PantasType.webDisplay
+                          .copyWith(color: t.colors.textPrimary),
                     ),
                   ),
-                  const SizedBox(height: 12),
+                  const SizedBox(height: PantasSpace.s12),
                   Text(
                     'Your personal review companion for Philippine exams.',
-                    style: t.style(
-                      19,
-                      height: 1.45,
-                      color: t.colors.secondaryLabel,
-                    ),
+                    style: PantasType.webLead
+                        .copyWith(color: t.colors.textSecondary),
                   ),
-                  const SizedBox(height: 44),
+                  const SizedBox(height: PantasSpace.s44),
                   // The HTML welcome the first visit shows has a 260 px button
                   // (OB_Welcome). This step, shown after Back, matches it.
                   SizedBox(
-                    width: 260,
+                    width: _buttonWidth,
                     child: WebButton(
                       label: 'Get Started',
                       large: true,
@@ -104,17 +115,23 @@ class OnboardingWelcomeStep extends StatelessWidget {
         child: Align(
           alignment: Alignment.topCenter,
           child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 640),
+            constraints:
+                const BoxConstraints(maxWidth: PantasLayout.tabletColumn),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Expanded(
                   child: SingleChildScrollView(
-                    padding: const EdgeInsets.fromLTRB(20, 180, 20, 24),
+                    padding: const EdgeInsets.fromLTRB(
+                      PantasSpace.s20,
+                      _phoneLogoTop,
+                      PantasSpace.s20,
+                      PantasSpace.s24,
+                    ),
                     child: Column(
                       children: [
-                        const OnboardingLogo(size: 104),
-                        const SizedBox(height: 28),
+                        const OnboardingLogo(size: _logoPhone),
+                        const SizedBox(height: PantasSpace.s28),
                         Semantics(
                           header: true,
                           liveRegion: true,
@@ -124,14 +141,13 @@ class OnboardingWelcomeStep extends StatelessWidget {
                             style: context.type.largeTitle,
                           ),
                         ),
-                        const SizedBox(height: 10),
+                        const SizedBox(height: PantasSpace.s10),
                         Text(
                           'Your personal review companion\n'
                           'for Philippine exams.',
                           textAlign: TextAlign.center,
-                          style: context.type.body.copyWith(
-                            color: context.colors.secondaryLabel,
-                            height: 1.45,
+                          style: PantasType.webLead.copyWith(
+                            color: context.colors.textSecondary,
                           ),
                         ),
                       ],
@@ -139,7 +155,12 @@ class OnboardingWelcomeStep extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(20, 12, 20, 34),
+                  padding: const EdgeInsets.fromLTRB(
+                    PantasSpace.s20,
+                    PantasSpace.s12,
+                    PantasSpace.s20,
+                    PantasSpace.s32,
+                  ),
                   child:
                       PantasButton(label: 'Get Started', onPressed: onAdvance),
                 ),
@@ -188,8 +209,7 @@ class _AfterSplashState extends State<_AfterSplash> {
         child: AnimatedOpacity(
           key: const ValueKey('welcome-after-splash'),
           opacity: _covered ? 0 : 1,
-          duration:
-              _covered ? Duration.zero : const Duration(milliseconds: 300),
+          duration: _covered ? Duration.zero : PantasDurations.flip,
           curve: PantasCurves.fade,
           child: widget.child,
         ),

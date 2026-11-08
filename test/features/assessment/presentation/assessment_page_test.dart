@@ -18,8 +18,6 @@ import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/sync/engine/sync_active_context_store.dart';
 import 'package:pantas/core/telemetry/telemetry.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
-import 'package:pantas/core/ui/theme/legacy_theme_shim.dart';
-import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 import 'package:pantas/features/assessment/application/assessment_result_providers.dart';
 import 'package:pantas/features/assessment/presentation/assessment_page.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
@@ -309,7 +307,7 @@ void main() {
     expect(find.text('Stay'), findsNothing);
   });
 
-  testWidgets('leave dialog stacks a teal Keep Going above red Leave text',
+  testWidgets('leave dialog is a destructive pill pair, Leave the critical',
       (tester) async {
     await tester.pumpAppWithRouter(
       _buildRouter('e1'),
@@ -321,31 +319,24 @@ void main() {
     unawaited(navigator.maybePop());
     await tester.pumpAndSettle();
 
-    final colors = Theme.of(tester.element(find.text('Keep Going')))
-        .extension<PantasColors>()!;
     final keep = tester.widget<PantasButton>(
       find.widgetWithText(PantasButton, 'Keep Going'),
     );
-    expect(keep.variant, PantasButtonVariant.primary);
-    expect(keep.fullWidth, isTrue);
-    // No height override: the phone default, `btn--phone` 52 (Button README).
-    expect(keep.height, isNull);
-    final surface = tester.getRect(
-      find.byKey(const ValueKey('leave-dialog-surface')),
+    expect(keep.variant, PantasButtonVariant.neutral);
+    final leave = tester.widget<PantasButton>(
+      find.widgetWithText(PantasButton, 'Leave'),
     );
+    expect(leave.variant, PantasButtonVariant.destructive);
+    // The pair sits side by side, secondary then main, 46 high (btn--dialog).
     final keepRect = tester.getRect(
       find.widgetWithText(PantasButton, 'Keep Going'),
     );
-    final leave = find.text('Leave');
-    expect(keepRect.height, 52);
-    expect(keepRect.width, closeTo(surface.width - 40, .5));
-    expect(tester.getTopLeft(leave).dy, greaterThan(keepRect.bottom));
-    final style = tester.widget<Text>(leave).style!;
-    expect(style.color, colors.destructive);
-    expect(style.fontSize, 17);
-    expect(style.fontWeight, FontWeight.w600);
-    // Leave is plain text, not a second filled button.
-    expect(find.widgetWithText(PantasButton, 'Leave'), findsNothing);
+    final leaveRect = tester.getRect(
+      find.widgetWithText(PantasButton, 'Leave'),
+    );
+    expect(keepRect.height, greaterThanOrEqualTo(46));
+    expect(keepRect.right, lessThan(leaveRect.left));
+    expect(leaveRect.center.dy, closeTo(keepRect.center.dy, 1));
   });
 
   testWidgets('Keep Going closes the dialog and Leave goes Home',

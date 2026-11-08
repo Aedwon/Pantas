@@ -2,6 +2,7 @@ import 'dart:ui' show Tristate;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/dev/local_onboarding_presets.dart';
 import 'package:pantas/core/storage/domain/exam_date.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/time/study_days.dart';
@@ -103,15 +104,47 @@ void main() {
           tester.getTopLeft(find.byKey(ValueKey('study-day-$day'))).dy,
       };
       expect(tops, hasLength(1), reason: 'one row at $width');
+      // Under 360 the row is narrower than seven 44 tiles and their 4 gaps,
+      // so it scrolls sideways (SelectableTile, D190) instead of shrinking.
+      final scrolls = width < 360;
       for (var day = 1; day <= 7; day++) {
         final box = tester.getRect(find.byKey(ValueKey('study-day-$day')));
         expect(box.left, greaterThanOrEqualTo(0));
-        expect(box.right, lessThanOrEqualTo(width));
-        expect(box.width, greaterThanOrEqualTo(36));
+        if (!scrolls) expect(box.right, lessThanOrEqualTo(width));
+        expect(box.width, greaterThanOrEqualTo(44));
       }
       expect(tester.takeException(), isNull);
     });
   }
+
+  testWidgets('at 320 a late selected day is scrolled into view',
+      (tester) async {
+    allowLocalPresetSeedForTest(allowed: true);
+    addTearDown(() {
+      allowLocalPresetSeedForTest(allowed: false);
+      localPresetSeed.value = null;
+    });
+    localPresetSeed.value = const LocalPresetSeed(studyDays: {6});
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    await pumpAccessibilitySurface(
+      tester,
+      ProviderScope(
+        overrides: [appDatabaseProvider.overrideWithValue(db)],
+        child: OnboardingStudyDaysStep(
+          now: DateTime(2026, 10, 3),
+          onCompleted: () {},
+        ),
+      ),
+      disableAnimations: true,
+      viewportSize: const Size(320, 844),
+    );
+    await tester.pumpAndSettle();
+    final saturday = tester.getRect(find.byKey(const ValueKey('study-day-6')));
+    expect(saturday.left, greaterThanOrEqualTo(0));
+    expect(saturday.right, lessThanOrEqualTo(320));
+    expect(tester.takeException(), isNull);
+  });
 
   testWidgets('no selected day before exam blocks Continue; today permits one',
       (tester) async {

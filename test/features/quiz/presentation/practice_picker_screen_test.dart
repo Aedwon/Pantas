@@ -1346,7 +1346,7 @@ void main() {
     );
     expect(
       tester.getSize(find.byKey(const ValueKey('selection-mark')).first),
-      const Size(22, 22),
+      const Size(24, 24),
     );
     final mark = tester.widget<Container>(
       find.byKey(const ValueKey('selection-mark')).first,

@@ -1,7 +1,14 @@
+import 'dart:ui' show SemanticsRole;
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:pantas/core/storage/domain/passage.dart';
 import 'package:pantas/core/storage/domain/question.dart';
+import 'package:pantas/core/ui/components/centered_dialog.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_key_focus.dart';
 import 'package:pantas/core/ui/web/web_question.dart';
@@ -87,20 +94,25 @@ class WebAssessmentLayout extends StatelessWidget {
                         onPressed: onLeave,
                         icon: Icon(
                           Icons.close,
-                          size: 22,
-                          color: t.colors.tertiaryLabel,
+                          size: PantasSize.icon,
+                          color: t.colors.textSecondary,
                         ),
                       ),
-                      const SizedBox(width: 10),
+                      const SizedBox(width: PantasSpace.s10),
                       const WebKeyHint('Esc'),
                     ],
                   ),
                   // The existing Report action remains available on web.
-                  trailing: report ?? const SizedBox(width: 44),
+                  trailing: report ?? const SizedBox(width: PantasSpace.s44),
                 ),
                 Expanded(
                   child: SingleChildScrollView(
-                    padding: const EdgeInsets.fromLTRB(40, 56, 40, 140),
+                    padding: const EdgeInsets.fromLTRB(
+                      PantasSpace.s40,
+                      PantasSpace.s56,
+                      PantasSpace.s40,
+                      PantasLayout.reserveBar,
+                    ),
                     child: WebQuizQuestion(
                       question: question,
                       subject: subject,
@@ -113,9 +125,9 @@ class WebAssessmentLayout extends StatelessWidget {
               ],
             ),
             Positioned(
-              left: 24,
-              right: 24,
-              bottom: 28,
+              left: PantasSpace.s24,
+              right: PantasSpace.s24,
+              bottom: PantasLayout.barBottom,
               child: Center(
                 child: WebBottomBar(
                   compact: true,
@@ -137,7 +149,8 @@ class WebAssessmentLayout extends StatelessWidget {
   }
 }
 
-/// AS_Leave uses the shared surface and natural-width actions.
+/// AS_Leave: the system Dialog. Keep Going is the main action and the safe
+/// one: Esc and Enter both choose it, and Leave needs a click or Tab.
 class WebAssessmentLeaveDialog extends StatelessWidget {
   const WebAssessmentLeaveDialog({
     required this.onKeepGoing,
@@ -156,46 +169,20 @@ class WebAssessmentLeaveDialog extends StatelessWidget {
           // Enter is Keep Going, as in the quiz's Leave dialog, unless a
           // button in it holds focus, which then runs itself.
           onKeyEvent: enterKeyHandler(onKeepGoing),
-          child: Dialog(
-            backgroundColor: Colors.transparent,
-            elevation: 0,
-            child: SizedBox(
-              width: 440,
-              child: WebCard(
-                radius: 22,
-                padding: const EdgeInsets.all(26),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text('Leave the assessment?', style: context.webTokens.h3),
-                    const SizedBox(height: 18),
-                    Text(
-                      "Your answers so far won't be kept. "
-                      'You can start again from Home.',
-                      style: context.webTokens.sub.copyWith(fontSize: 16),
-                    ),
-                    const SizedBox(height: 18),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        TextButton(
-                          onPressed: onLeave,
-                          style: TextButton.styleFrom(
-                            foregroundColor: context.webTokens.colors.wrongText,
-                            minimumSize: const Size(0, 44),
-                            textStyle: context.webTokens
-                                .style(16, weight: FontWeight.w600),
-                          ),
-                          child: const Text('Leave'),
-                        ),
-                        const SizedBox(width: 8),
-                        WebButton(label: 'Keep Going', onPressed: onKeepGoing),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
+          // Leaving loses the answers, so this is a destructive confirm: the
+          // safe Keep Going first, the critical Leave last, an alertdialog.
+          child: Semantics(
+            role: SemanticsRole.alertDialog,
+            child: CenteredDialog(
+              title: 'Leave the assessment?',
+              message: "Your answers so far won't be kept. "
+                  'You can start again from Home.',
+              primaryLabel: 'Leave',
+              secondaryLabel: 'Keep Going',
+              destructive: true,
+              allowEscape: false,
+              onConfirm: onLeave,
+              onCancel: onKeepGoing,
             ),
           ),
         ),
@@ -263,10 +250,14 @@ class WebAssessmentResults extends StatelessWidget {
       child: KeyFocusKeeper(
         focusNode: focusNode,
         child: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 56),
+          padding: const EdgeInsets.symmetric(
+            horizontal: PantasSpace.s40,
+            vertical: PantasSpace.s56,
+          ),
           child: Center(
             child: ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 1000),
+              constraints:
+                  const BoxConstraints(maxWidth: PantasLayout.contentMax),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
@@ -278,34 +269,34 @@ class WebAssessmentResults extends StatelessWidget {
                       style: t.h1,
                     ),
                   ),
-                  const SizedBox(height: 4),
+                  const SizedBox(height: PantasSpace.s4),
                   reveal(
                     sequence?.subtitle,
                     Text(
                       '$examName · $total questions',
                       textAlign: TextAlign.center,
-                      style: t.style(
-                        17,
-                        height: 1.45,
-                        color: t.colors.secondaryLabel,
-                      ),
+                      style: PantasType.webLead
+                          .copyWith(color: t.colors.textSecondary),
                     ),
                   ),
-                  const SizedBox(height: 36),
+                  const SizedBox(height: PantasSpace.s32),
                   reveal(
                     sequence?.score,
                     // The mock results' score card: the half ring and score
                     // beside the subject breakdown.
                     WebCard(
                       key: const ValueKey('web-assessment-score'),
-                      radius: 20,
                       child: Row(
                         children: [
                           Expanded(
                             flex: 10,
                             child: Padding(
-                              padding:
-                                  const EdgeInsets.fromLTRB(24, 36, 24, 30),
+                              padding: const EdgeInsets.fromLTRB(
+                                PantasSpace.s24,
+                                PantasSpace.s32,
+                                PantasSpace.s24,
+                                PantasSpace.s28,
+                              ),
                               child: Column(
                                 children: [
                                   AssessmentScoreGauge(
@@ -315,7 +306,7 @@ class WebAssessmentResults extends StatelessWidget {
                                     web: true,
                                   ),
                                   if (elapsed != null) ...[
-                                    const SizedBox(height: 12),
+                                    const SizedBox(height: PantasSpace.s12),
                                     Text(
                                       switch (elapsed!.inMinutes) {
                                         0 => 'in under a minute',
@@ -332,13 +323,19 @@ class WebAssessmentResults extends StatelessWidget {
                           Expanded(
                             flex: 13,
                             child: Padding(
-                              padding:
-                                  const EdgeInsets.fromLTRB(30, 14, 30, 20),
+                              padding: const EdgeInsets.fromLTRB(
+                                PantasSpace.s28,
+                                PantasSpace.s14,
+                                PantasSpace.s28,
+                                PantasSpace.s20,
+                              ),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsets.only(top: 14),
+                                    padding: const EdgeInsets.only(
+                                      top: PantasSpace.s14,
+                                    ),
                                     child: Text(
                                       'BY SUBJECT · WEAKEST FIRST',
                                       style: t.eb,
@@ -360,14 +357,14 @@ class WebAssessmentResults extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 36),
+                  const SizedBox(height: PantasSpace.s32),
                   if (weakestTopic != null)
                     reveal(
                       sequence?.plan,
                       WebCard(
                         padding: const EdgeInsets.symmetric(
-                          horizontal: 24,
-                          vertical: 20,
+                          horizontal: PantasSpace.s24,
+                          vertical: PantasSpace.s20,
                         ),
                         child: Row(
                           children: [
@@ -376,7 +373,7 @@ class WebAssessmentResults extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text('WEAKEST TOPIC', style: t.eb),
-                                  const SizedBox(height: 4),
+                                  const SizedBox(height: PantasSpace.s4),
                                   // No "Today" tag: the plan does not start
                                   // with this topic (it ranks by overall
                                   // accuracy), so the tag would claim it.
@@ -390,7 +387,7 @@ class WebAssessmentResults extends StatelessWidget {
                                 ],
                               ),
                             ),
-                            const SizedBox(width: 18),
+                            const SizedBox(width: PantasSpace.s18),
                             button,
                           ],
                         ),

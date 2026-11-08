@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 
 /// The wide exam picker before the catalog loads: the search field, the group
@@ -23,9 +24,9 @@ class ExamPickerWebSkeleton extends StatelessWidget {
                 child: SkeletonBlock(width: 110, height: 12),
               ),
             ),
-            const SizedBox(height: 8),
+            const SizedBox(height: PantasSpace.s8),
             for (var i = 0; i < cards; i++) ...[
-              if (i > 0) const SizedBox(height: 10),
+              if (i > 0) const SizedBox(height: PantasSpace.s10),
               const SkeletonBlock(height: 64, radius: 14, section: true),
             ],
           ],
@@ -35,10 +36,10 @@ class ExamPickerWebSkeleton extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           const SkeletonBlock(height: 44, radius: 12),
-          const SizedBox(height: 16),
+          const SizedBox(height: PantasSpace.s16),
           const Wrap(
-            spacing: 6,
-            runSpacing: 6,
+            spacing: PantasSpace.s6,
+            runSpacing: PantasSpace.s6,
             children: [
               SkeletonBlock(width: 52, height: 34, radius: 17),
               SkeletonBlock(width: 84, height: 34, radius: 17),
@@ -46,13 +47,13 @@ class ExamPickerWebSkeleton extends StatelessWidget {
               SkeletonBlock(width: 72, height: 34, radius: 17),
             ],
           ),
-          const SizedBox(height: 24),
+          const SizedBox(height: PantasSpace.s24),
           if (customCard) ...[
             const SkeletonCard(height: 70),
-            const SizedBox(height: 24),
+            const SizedBox(height: PantasSpace.s24),
           ],
           group(3),
-          const SizedBox(height: 24),
+          const SizedBox(height: PantasSpace.s24),
           group(6),
         ],
       ),

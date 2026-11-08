@@ -39,7 +39,7 @@ void main() {
       await tester.pump();
       expect(find.text('Restoring your progress'), findsOneWidget);
       expect(find.byType(WebCard), findsOneWidget);
-      expect(tester.getSize(find.byType(WebCard)).width, 520);
+      expect(tester.getSize(find.byType(WebCard)).width, 560);
       expect(find.byKey(const ValueKey('step-done-0')), findsOneWidget);
       expect(find.byKey(const ValueKey('step-done-1')), findsOneWidget);
       expect(find.byType(CircularProgressIndicator), findsOneWidget);

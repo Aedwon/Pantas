@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:pantas/core/ui/components/pantas_logo.dart';
+import 'package:pantas/core/ui/components/onboarding_frame.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
-import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
+
+/// Wide web: space under the column, so it sits above the center (boards
+/// G_*).
+const double _bottomReserve = 120;
 
 /// The full-screen frame for the guardian screens: no tab bar, no back link.
 /// Phone uses the app's page type. Wide web uses the web onboarding frame, a
@@ -37,34 +43,29 @@ class GuardianScreen extends StatelessWidget {
           child: BalancedText(
             title,
             textAlign: TextAlign.center,
-            style: wide
-                ? t
-                    .style(34, weight: FontWeight.w700, height: 1.15)
-                    .copyWith(letterSpacing: -.748)
-                : context.type.pageTitle,
+            style: wide ? t.h1 : context.type.pageTitle,
           ),
         ),
         if (detail != null) ...[
-          const SizedBox(height: 8),
+          const SizedBox(height: PantasSpace.s8),
           Text(
             detail!,
             textAlign: TextAlign.center,
             style: wide
-                ? t.style(17, height: 1.45, color: t.colors.secondaryLabel)
+                ? PantasType.webLead.copyWith(color: t.colors.textSecondary)
                 : context.type.body.copyWith(
-                    color: context.colors.secondaryLabel,
-                    height: 1.4,
+                    color: context.colors.textSecondary,
                   ),
           ),
         ],
         if (children.isNotEmpty) ...[
-          const SizedBox(height: 24),
+          const SizedBox(height: PantasSpace.s24),
           ...children,
         ],
         if (actions.isNotEmpty) ...[
-          const SizedBox(height: 28),
+          const SizedBox(height: PantasSpace.s28),
           for (final (i, action) in actions.indexed) ...[
-            if (i > 0) const SizedBox(height: 4),
+            if (i > 0) const SizedBox(height: PantasSpace.s4),
             // Wide web buttons hug their label; center them under the text.
             if (wide) Center(child: action) else action,
           ],
@@ -76,23 +77,18 @@ class GuardianScreen extends StatelessWidget {
         color: t.colors.background,
         child: Column(
           children: [
-            // The same bar as the onboarding steps: the boards set the logo 28
-            // px in, and the bar's own 20 px leaves it 10 px short.
-            const Padding(
-              padding: EdgeInsets.only(left: 10),
-              child: WebTopBar(
-                leading: PantasLogo(size: 28),
-                title: Text(
-                  'Pantas',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
-                ),
-              ),
-            ),
+            // The same bar as the onboarding steps.
+            const OnboardingTopBar(),
             Expanded(
               child: Center(
                 child: SingleChildScrollView(
-                  padding: const EdgeInsets.fromLTRB(40, 40, 40, 120),
-                  child: SizedBox(width: 460, child: column),
+                  padding: const EdgeInsets.fromLTRB(
+                    PantasSpace.s40,
+                    PantasSpace.s40,
+                    PantasSpace.s40,
+                    _bottomReserve,
+                  ),
+                  child: SizedBox(width: PantasLayout.modal, child: column),
                 ),
               ),
             ),
@@ -105,7 +101,12 @@ class GuardianScreen extends StatelessWidget {
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
-            padding: const EdgeInsets.fromLTRB(20, 24, 20, 32),
+            padding: const EdgeInsets.fromLTRB(
+              PantasSpace.s20,
+              PantasSpace.s24,
+              PantasSpace.s20,
+              PantasSpace.s32,
+            ),
             child: column,
           ),
         ),

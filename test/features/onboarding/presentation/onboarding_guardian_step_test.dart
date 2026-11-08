@@ -243,7 +243,7 @@ void main() {
     debugWebPlatformOverride = true;
     addTearDown(() => debugWebPlatformOverride = null);
     await pump(tester, size: const Size(1440, 900));
-    expect(find.text("PARENT OR GUARDIAN'S NAME"), findsOneWidget);
+    expect(find.text("Parent or guardian's name"), findsOneWidget);
     final hints = [
       for (final field in tester.widgetList<TextField>(find.byType(TextField)))
         field.decoration?.hintText,
