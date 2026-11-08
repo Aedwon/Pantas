@@ -5,6 +5,7 @@ import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
 import 'package:pantas/features/lesson/domain/models/lesson_ending.dart';
 import 'package:pantas/features/lesson/domain/models/study_map.dart';
@@ -39,7 +40,7 @@ class TopicEndingPage extends ConsumerWidget {
       body: asyncMap.when(
         loading: () => const SafeArea(
           child: Padding(
-            padding: EdgeInsets.all(20),
+            padding: EdgeInsets.all(PantasSpace.s20),
             child: SkeletonGroups(groups: 1, rows: 4, rowHeight: 63),
           ),
         ),

@@ -57,7 +57,7 @@ void main() {
         final today = tester.widget<Text>(find.text('Today'));
         expect(today.style!.fontSize, 12);
         expect(today.style!.fontWeight, FontWeight.w600);
-        expect(today.style!.height, 1.35);
+        expect(today.style!.height, 1.3);
         final tag = tester
             .widget<Container>(find.byKey(const ValueKey('study-today-tag')));
         final background = (tag.decoration! as BoxDecoration).color!;
@@ -67,7 +67,7 @@ void main() {
         );
         expect(
           tester.getSize(find.byKey(const ValueKey('study-today-tag'))).height,
-          scale == 1 ? 22 : closeTo(32.4, .5),
+          scale == 1 ? 22 : closeTo(31, .5),
         );
         expect(tag.padding, const EdgeInsets.symmetric(horizontal: 8));
         final title = tester.widget<Text>(find.text('Circles'));

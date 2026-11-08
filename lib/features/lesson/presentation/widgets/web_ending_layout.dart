@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:pantas/core/ui/components/pantas_shadows.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/lesson/domain/models/lesson_ending.dart';
@@ -56,18 +60,18 @@ class WebEndingLayout extends StatelessWidget {
                       CircleAvatar(
                         radius: 32,
                         backgroundColor: t.colors.accentFill,
-                        child: const Icon(
+                        child: Icon(
                           Icons.check,
                           size: 32,
-                          color: Colors.white,
+                          color: t.colors.onAccent,
                         ),
                       ),
-                      const SizedBox(height: 22),
+                      const SizedBox(height: PantasSpace.s20),
                       Text(
                         'That’s enough for today.',
                         style: t.h1,
                       ),
-                      const SizedBox(height: 22),
+                      const SizedBox(height: PantasSpace.s20),
                       WebButton(
                         label: 'Back to Home',
                         keyHint: 'Enter',
@@ -113,7 +117,12 @@ class WebEndingLayout extends StatelessWidget {
         child: ConstrainedBox(
           constraints: BoxConstraints(minHeight: constraints.maxHeight),
           child: Padding(
-            padding: const EdgeInsets.fromLTRB(40, 30, 40, 60),
+            padding: const EdgeInsets.fromLTRB(
+              PantasSpace.s40,
+              PantasSpace.s28,
+              PantasSpace.s40,
+              PantasSpace.s56,
+            ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -126,23 +135,17 @@ class WebEndingLayout extends StatelessWidget {
                     width: 360,
                     height: 450,
                     padding: const EdgeInsets.symmetric(
-                      horizontal: 30,
-                      vertical: 32,
+                      horizontal: PantasSpace.s28,
+                      vertical: PantasSpace.s32,
                     ),
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(22),
-                      gradient: const LinearGradient(
+                      borderRadius: BorderRadius.circular(PantasRadius.r2xl),
+                      gradient: LinearGradient(
                         begin: Alignment.topLeft,
                         end: Alignment.bottomRight,
-                        colors: [Color(0xFF0E8B76), Color(0xFF075C4E)],
+                        colors: [t.colors.heroStart, t.colors.topicDoneEnd],
                       ),
-                      boxShadow: [
-                        BoxShadow(
-                          color: const Color(0xFF075C4E).withValues(alpha: .28),
-                          blurRadius: 60,
-                          offset: const Offset(0, 30),
-                        ),
-                      ],
+                      boxShadow: context.shadows.modal,
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -150,11 +153,9 @@ class WebEndingLayout extends StatelessWidget {
                       children: [
                         Text(
                           exam.toUpperCase(),
-                          style: t.style(
-                            13,
-                            weight: FontWeight.w700,
-                            spacing: .78,
-                            color: Colors.white.withValues(alpha: .75),
+                          style: PantasType.webEyebrow.copyWith(
+                            fontWeight: FontWeight.w700,
+                            color: t.colors.onHeroSecondary,
                           ),
                         ),
                         Column(
@@ -162,36 +163,29 @@ class WebEndingLayout extends StatelessWidget {
                           children: [
                             Text(
                               name,
-                              style: t.style(
-                                44,
-                                weight: FontWeight.w700,
-                                spacing: -1.32,
-                                height: 1.05,
-                                color: Colors.white,
+                              style: PantasType.phoneDisplayS.copyWith(
+                                color: t.colors.onHero,
                               ),
                             ),
-                            const SizedBox(height: 10),
+                            const SizedBox(height: PantasSpace.s10),
                             Text(
                               footing,
-                              style: t.style(
-                                17,
-                                color: Colors.white.withValues(alpha: .9),
-                              ),
+                              style: PantasType.webLead
+                                  .copyWith(color: t.colors.onHero),
                             ),
                           ],
                         ),
                         Text(
                           date,
-                          style: t.style(
-                            14,
-                            color: Colors.white.withValues(alpha: .75),
+                          style: PantasType.webRowSub.copyWith(
+                            color: t.colors.onHeroSecondary,
                           ),
                         ),
                       ],
                     ),
                   ),
                 ),
-                const SizedBox(width: 56),
+                const SizedBox(width: PantasSpace.s56),
                 Flexible(
                   // The phone reveals the unread list 500 ms in, over 450 ms.
                   child: EndingReveal(
@@ -209,7 +203,7 @@ class WebEndingLayout extends StatelessWidget {
                               'STILL UNREAD',
                               style: t.eb.copyWith(height: 22 / 13),
                             ),
-                            const SizedBox(height: 4),
+                            const SizedBox(height: PantasSpace.s4),
                             WebCard(
                               child: Column(
                                 children: [
@@ -227,7 +221,7 @@ class WebEndingLayout extends StatelessWidget {
                                 ],
                               ),
                             ),
-                            const SizedBox(height: 20),
+                            const SizedBox(height: PantasSpace.s20),
                           ],
                           if (next != null && next.lessons.isNotEmpty)
                             WebReaderNext(

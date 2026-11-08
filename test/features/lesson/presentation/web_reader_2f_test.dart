@@ -5,6 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/domain/lesson.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/lesson/application/reader_providers.dart';
 import 'package:pantas/features/lesson/domain/models/study_map.dart';
@@ -148,15 +149,16 @@ void main() {
       .offset;
 
   group('the title block (2F-1, 2F-23)', () {
-    testWidgets('matches the design: 46 px title, 8 px and 36 px of space',
+    testWidgets(
+        'matches the system: 38 px title (web-h1), 8 px and 32 px of space',
         (tester) async {
       await pumpReader(tester);
       // The bar holds the same title, faded out, after the lesson's own.
       final title = find.text('Layers of the Earth').first;
       final style = tester.widget<Text>(title).style!;
-      expect(style.fontSize, 46);
-      expect(style.height, 1.08);
-      expect(style.letterSpacing, -.9);
+      expect(style.fontSize, 38);
+      expect(style.height, 1.1);
+      expect(style.letterSpacing, PantasType.webH1.letterSpacing);
       final meta = find.text('Earth Science · 11 min');
       expect(
         tester.getTopLeft(title).dy - tester.getBottomLeft(meta).dy,
@@ -165,13 +167,13 @@ void main() {
       expect(
         tester.getTopLeft(find.text('Core Concept').last).dy -
             tester.getBottomLeft(title).dy,
-        closeTo(36, .01),
+        closeTo(32, .01),
       );
     });
   });
 
   group('the outline (2F-3, 2F-8)', () {
-    testWidgets('rows are 32 px apart and the heading is 38 px above',
+    testWidgets('rows are 30 px apart and the heading is 37 px above',
         (tester) async {
       await pumpReader(tester);
       final rows = [
@@ -185,10 +187,10 @@ void main() {
                 .first,
           ),
       ];
-      expect(rows[1].dy - rows[0].dy, closeTo(32, .01));
-      expect(rows[2].dy - rows[1].dy, closeTo(32, .01));
+      expect(rows[1].dy - rows[0].dy, closeTo(30, .01));
+      expect(rows[2].dy - rows[1].dy, closeTo(30, .01));
       final heading = tester.getTopLeft(find.text('IN THIS LESSON'));
-      expect(rows[0].dy - heading.dy, closeTo(38, .5));
+      expect(rows[0].dy - heading.dy, closeTo(37, .5));
     });
 
     Finder outlineRow(String name) => find
@@ -210,7 +212,7 @@ void main() {
       expect(end, greaterThan(middle), reason: 'it was not there yet');
       // The heading lands under the bar, 5 percent into the room below it.
       final heading = tester.getTopLeft(find.text('Traps to Watch For').last);
-      expect(heading.dy, closeTo(60 + .05 * 840, 2));
+      expect(heading.dy, closeTo(64 + .05 * 836, 2));
     });
 
     testWidgets('with reduced motion the page is there at once',
@@ -268,24 +270,24 @@ void main() {
       Rect window() => tester.getRect(
             find.byKey(const ValueKey('web-reader-viewport')),
           );
-      expect(window().top, 60);
+      expect(window().top, 64);
       scroll.jumpTo(600);
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 100));
-      expect(window().top, lessThan(60), reason: 'it is growing up');
+      expect(window().top, lessThan(64), reason: 'it is growing up');
       await tester.pumpAndSettle();
       expect(slide(tester), const Offset(0, -1));
       expect(window().top, 0);
       // The text did not move while the window grew: scrolled by 600, the
-      // first heading is still 60 + 48 - 600 + 0 above where it began.
+      // first heading is still 64 + 44 - 600 + 0 above where it began.
       expect(
         tester.getTopLeft(find.text('Layers of the Earth').first).dy,
-        closeTo(60 + 48 + 15 * 1.45 + 8 - 600, 1),
+        closeTo(64 + 44 + 15 * 1.45 + 8 - 600, 1),
       );
       scroll.jumpTo(500);
       await tester.pumpAndSettle();
       expect(slide(tester), Offset.zero);
-      expect(window().top, 60);
+      expect(window().top, 64);
     });
 
     testWidgets('opening a solution does not bring the bar back',

@@ -866,8 +866,12 @@ void main() {
     final rail = tester.element(find.byType(ReaderRail));
     // Watch the active loader and lesson continuity during every frame.
     final body = tester.getRect(find.byType(PullToAdvance));
+    // A drag that starts mid-body, over the lesson text, in small steps as a
+    // finger moves. (One big jump over the pull handle is not a real drag.)
     final gesture = await tester.startGesture(body.center);
-    await gesture.moveBy(const Offset(0, -140));
+    for (var i = 0; i < 5; i++) {
+      await gesture.moveBy(const Offset(0, -30));
+    }
     await tester.pump();
     await gesture.up();
 

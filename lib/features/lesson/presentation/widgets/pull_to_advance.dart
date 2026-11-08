@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/progress_ring.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 
 class PullToAdvance extends StatefulWidget {
   const PullToAdvance({
@@ -18,7 +19,12 @@ class PullToAdvance extends StatefulWidget {
     this.requireIncoming = false,
     this.enabled = true,
     this.finishDay = false,
-    this.footerPadding = const EdgeInsets.fromLTRB(0, 36, 0, 60),
+    this.footerPadding = const EdgeInsets.fromLTRB(
+      PantasSpace.s0,
+      PantasSpace.s32,
+      PantasSpace.s0,
+      PantasSpace.s56,
+    ),
     this.onTransition,
     this.onCommit,
     super.key,
@@ -234,9 +240,7 @@ class _PullToAdvanceState extends State<PullToAdvance>
   Widget _footer(BuildContext context) {
     if (!_hasDestination) return const SizedBox(width: double.infinity);
     final colors = context.colors;
-    final arrowColor = Theme.of(context).brightness == Brightness.dark
-        ? colors.controlOutline
-        : const Color(0xFF8E8E93);
+    final arrowColor = context.colors.iconMuted;
     final duration = _still ? Duration.zero : const Duration(milliseconds: 150);
     Widget label({required bool armed}) => Column(
           mainAxisSize: MainAxisSize.min,
@@ -254,7 +258,7 @@ class _PullToAdvanceState extends State<PullToAdvance>
                   context.type.subhead.copyWith(color: colors.secondaryLabel),
             ),
             if (!widget.finishDay) ...[
-              const SizedBox(height: 2),
+              const SizedBox(height: PantasSpace.s2),
               Text(
                 widget.nextTitle!,
                 textAlign: TextAlign.center,
@@ -324,7 +328,7 @@ class _PullToAdvanceState extends State<PullToAdvance>
                 ),
               ),
             ),
-            const SizedBox(height: 12),
+            const SizedBox(height: PantasSpace.s12),
             Stack(
               alignment: Alignment.topCenter,
               children: [

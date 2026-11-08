@@ -446,9 +446,9 @@ class _MathWithMark extends StatelessWidget {
       );
 }
 
-/// Inline maths is set this much larger than the sentence around it, to match
-/// the optical size of Geist. See [inlineMathSpan].
-const inlineMathSizeFactor = 1.1;
+/// Inline maths is set this much larger than the sentence around it: 1.12em
+/// (design system, ReaderBlock). See [inlineMathSpan].
+const inlineMathSizeFactor = 1.12;
 
 /// Maths set on the surrounding line rather than under it.
 ///

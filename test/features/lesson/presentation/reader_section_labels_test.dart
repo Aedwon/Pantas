@@ -5,6 +5,7 @@ import 'package:pantas/core/storage/domain/lesson.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/content_renderer.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/lesson/application/reader_providers.dart';
 import 'package:pantas/features/lesson/presentation/widgets/web_reader_layout.dart';
@@ -84,10 +85,10 @@ void main() {
     final core = styleOf(tester, 'Core Concept');
     final examples = styleOf(tester, 'Examples');
     final traps = styleOf(tester, 'Traps to Watch For');
-    expect(core.fontSize, 32);
+    expect(core.fontSize, 26);
     expect(core.fontWeight, FontWeight.w700);
-    expect(core.letterSpacing, -.65);
-    expect(core.height, 1.18);
+    expect(core.letterSpacing, PantasType.webH2.letterSpacing);
+    expect(core.height, 1.2);
     for (final other in [examples, traps]) {
       expect(core.fontSize, other.fontSize);
       expect(core.fontWeight, other.fontWeight);
@@ -111,8 +112,12 @@ void main() {
     for (final label in ['Core Concept', 'Examples', 'Traps to Watch For']) {
       final style = styleOf(tester, label);
       expect(style.fontSize, 26, reason: label);
-      expect(style.height, 1.18, reason: label);
-      expect(style.letterSpacing, -.42, reason: label);
+      expect(style.height, 1.2, reason: label);
+      expect(
+        style.letterSpacing,
+        PantasType.webH2.letterSpacing,
+        reason: label,
+      );
     }
   });
 
@@ -182,7 +187,7 @@ void main() {
     final last = tester.getBottomLeft(
       rich('Paragraph 0.13 of the lesson text.').last,
     );
-    expect(tester.getTopLeft(rich('Examples').last).dy - last.dy, 104);
+    expect(tester.getTopLeft(rich('Examples').last).dy - last.dy, 40);
     final outlineEntry = find
         .ancestor(
           of: find.text('Traps to Watch For').first,

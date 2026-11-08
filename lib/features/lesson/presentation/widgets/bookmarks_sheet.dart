@@ -20,6 +20,10 @@ import 'package:pantas/core/ui/components/toast.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/lesson/application/bookmark_providers.dart';
@@ -361,9 +365,9 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
                     ? const Size(0, 36)
                     : const Size(44, 44),
             padding: compact
-                ? const EdgeInsets.symmetric(horizontal: 8)
+                ? const EdgeInsets.symmetric(horizontal: PantasSpace.s8)
                 : wide
-                    ? const EdgeInsets.symmetric(horizontal: 14)
+                    ? const EdgeInsets.symmetric(horizontal: PantasSpace.s14)
                     : EdgeInsets.zero,
             tapTargetSize: MaterialTapTargetSize.shrinkWrap,
           ),
@@ -406,12 +410,16 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
         compact: compact,
       );
 
+  /// The end padding of a row: tighter while the drag grip is showing.
+  double get _rowEndPad =>
+      _editing && _shown.length > 1 ? PantasSpace.s10 : PantasSpace.s16;
+
   Widget _header(bool valid) {
     if (widget.wide) {
       return SizedBox(
-        height: 68,
+        height: PantasLayout.focusHead,
         child: Padding(
-          padding: const EdgeInsets.only(left: 20),
+          padding: const EdgeInsets.only(left: PantasSpace.s20),
           child: Row(
             children: [
               Expanded(
@@ -442,8 +450,7 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
     }
     final title = Text(
       'Bookmarks',
-      style:
-          context.type.sectionHero.copyWith(fontSize: 20, letterSpacing: -.24),
+      style: PantasType.phoneTitle3.copyWith(color: context.colors.label),
     );
     final action = _action(
       _editing ? 'Done' : 'Edit',
@@ -459,7 +466,12 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
     );
     if (MediaQuery.textScalerOf(context).scale(17) > 25.5) {
       return Padding(
-        padding: const EdgeInsets.fromLTRB(20, 14, 20, 12),
+        padding: const EdgeInsets.fromLTRB(
+          PantasSpace.s20,
+          PantasSpace.s14,
+          PantasSpace.s20,
+          PantasSpace.s12,
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
@@ -472,7 +484,12 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
     return Stack(
       children: [
         Padding(
-          padding: const EdgeInsets.fromLTRB(20, 14, 20, 12),
+          padding: const EdgeInsets.fromLTRB(
+            PantasSpace.s20,
+            PantasSpace.s14,
+            PantasSpace.s20,
+            PantasSpace.s12,
+          ),
           child: title,
         ),
         Positioned(
@@ -555,7 +572,12 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
                         ),
                         child: CheckboxRow(
                           round: true,
-                          padding: const EdgeInsets.fromLTRB(20, 9, 11, 9),
+                          padding: const EdgeInsets.fromLTRB(
+                            PantasSpace.s20,
+                            PantasSpace.s8,
+                            PantasSpace.s10,
+                            PantasSpace.s8,
+                          ),
                           title: row.title,
                           selected: checked,
                           onTap: activate,
@@ -642,10 +664,10 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
                             minimumHeight: 62,
                             divider: divider,
                             contentPadding: EdgeInsets.fromLTRB(
-                              20,
-                              9,
-                              _editing && _shown.length > 1 ? 11 : 16,
-                              divider ? 8.5 : 9,
+                              PantasSpace.s20,
+                              PantasSpace.s8,
+                              _rowEndPad,
+                              PantasSpace.s8,
                             ),
                             leadingGap: 12 * value,
                             trailingWidget: (_editing || widget.wide)
@@ -704,7 +726,7 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
       child: _RowHover(
         child: CheckboxRow(
           hoverFill: false,
-          padding: const EdgeInsets.symmetric(horizontal: 20),
+          padding: const EdgeInsets.symmetric(horizontal: PantasSpace.s20),
           gap: 16,
           minHeight: 70,
           standardDensity: true,
@@ -790,10 +812,13 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
           child: Container(
             key: const ValueKey('bookmark-remove-outline'),
             constraints: const BoxConstraints(minHeight: 34),
-            padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
+            padding: const EdgeInsets.symmetric(
+              horizontal: PantasSpace.s14,
+              vertical: PantasSpace.s6,
+            ),
             decoration: BoxDecoration(
               border: Border.all(color: context.colors.wrongText),
-              borderRadius: BorderRadius.circular(99),
+              borderRadius: BorderRadius.circular(PantasRadius.full),
             ),
             child: Text(
               'Remove',
@@ -813,7 +838,12 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
     if (widget.wide) {
       final t = context.webTokens;
       return Container(
-        padding: const EdgeInsets.fromLTRB(20, 16, 20, 18),
+        padding: const EdgeInsets.fromLTRB(
+          PantasSpace.s20,
+          PantasSpace.s16,
+          PantasSpace.s20,
+          PantasSpace.s18,
+        ),
         decoration: BoxDecoration(
           color: context.colors.surface,
           border: Border(top: BorderSide(color: t.colors.separator)),
@@ -854,7 +884,12 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
     }
     return Container(
       constraints: const BoxConstraints(minHeight: 74),
-      padding: const EdgeInsets.fromLTRB(20, 0, 20, 16),
+      padding: const EdgeInsets.fromLTRB(
+        PantasSpace.s20,
+        PantasSpace.s0,
+        PantasSpace.s20,
+        PantasSpace.s16,
+      ),
       child: MediaQuery.textScalerOf(context).scale(15) > 22.5
           ? Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -908,13 +943,15 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Padding(
-              padding: const EdgeInsets.fromLTRB(20, 14, 20, 4),
+              padding: const EdgeInsets.fromLTRB(
+                PantasSpace.s20,
+                PantasSpace.s14,
+                PantasSpace.s20,
+                PantasSpace.s4,
+              ),
               child: Text(
                 item.subjectName.toUpperCase(),
-                style: context.type.sectionHeader.copyWith(
-                  fontSize: 12,
-                  letterSpacing: .48,
-                ),
+                style: context.type.sectionHeader,
               ),
             ),
             row,
@@ -965,14 +1002,14 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           if (!widget.wide) ...[
-            const SizedBox(height: 8),
+            const SizedBox(height: PantasSpace.s8),
             Center(
               child: Container(
                 width: 36,
                 height: 5,
                 decoration: BoxDecoration(
                   color: context.colors.pendingMark,
-                  borderRadius: BorderRadius.circular(9),
+                  borderRadius: BorderRadius.circular(PantasRadius.sm),
                 ),
               ),
             ),
@@ -995,14 +1032,19 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
                     color: context.colors.accent,
                   ),
                 ),
-                const SizedBox(width: 12),
+                const SizedBox(width: PantasSpace.s12),
               ],
             )
           else
             _header(!value.hasError && rows != null),
           if (_shown.length > 1)
             Padding(
-              padding: EdgeInsets.fromLTRB(20, 0, 20, widget.wide ? 14 : 3),
+              padding: EdgeInsets.fromLTRB(
+                PantasSpace.s20,
+                PantasSpace.s0,
+                PantasSpace.s20,
+                widget.wide ? PantasSpace.s14 : PantasSpace.s2,
+              ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
@@ -1038,7 +1080,8 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
                           open: current == BookmarkOrder.custom,
                           horizontal: true,
                           child: Padding(
-                            padding: const EdgeInsets.only(left: 8),
+                            padding:
+                                const EdgeInsets.only(left: PantasSpace.s8),
                             child: _resetOrder(compact: true),
                           ),
                         ),
@@ -1101,7 +1144,8 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
                             // top (3K-7).
                             builder: (context, constraints) =>
                                 SingleChildScrollView(
-                              padding: const EdgeInsets.only(top: 4),
+                              padding:
+                                  const EdgeInsets.only(top: PantasSpace.s4),
                               child: ConstrainedBox(
                                 constraints: BoxConstraints(
                                   minHeight: widget.wide
@@ -1129,7 +1173,9 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
                             child: Padding(
                               key: ValueKey(_shownOrder.storageValue),
                               padding: widget.wide
-                                  ? const EdgeInsets.symmetric(horizontal: 16)
+                                  ? const EdgeInsets.symmetric(
+                                      horizontal: PantasSpace.s16,
+                                    )
                                   : EdgeInsets.zero,
                               child: widget.wide
                                   ? Align(
@@ -1143,8 +1189,13 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
           if (_removed != null)
             Padding(
               padding: widget.wide
-                  ? const EdgeInsets.only(bottom: 17)
-                  : const EdgeInsets.fromLTRB(12, 0, 12, 12),
+                  ? const EdgeInsets.only(bottom: PantasSpace.s16)
+                  : const EdgeInsets.fromLTRB(
+                      PantasSpace.s12,
+                      PantasSpace.s0,
+                      PantasSpace.s12,
+                      PantasSpace.s12,
+                    ),
               child: Center(
                 child: Toast(
                   message: '$removalCount '

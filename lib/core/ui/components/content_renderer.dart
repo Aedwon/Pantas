@@ -18,6 +18,10 @@ import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 
@@ -25,6 +29,9 @@ import 'package:pantas/core/ui/web/web_tokens.dart';
 
 /// Sent up the tree once a reader example has finished opening, so the page
 /// can measure its new length. See `_ExampleCard`.
+/// The height a reader figure holds while it loads (board value, no token).
+const double _figurePlaceholderHeight = 223;
+
 class ReaderResizedNotification extends Notification {
   const ReaderResizedNotification();
 }
@@ -208,11 +215,11 @@ class ContentRenderer extends StatelessWidget {
       ? value.whereType<Map<String, Object?>>().toList()
       : const [];
   Widget fallback(BuildContext context) => Container(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(PantasSpace.s16),
         decoration: BoxDecoration(
           color: context.colors.fill,
           border: Border.all(color: context.colors.separator),
-          borderRadius: BorderRadius.circular(14),
+          borderRadius: BorderRadius.circular(PantasRadius.lg),
         ),
         child: Text(
           readerFigures
@@ -226,35 +233,22 @@ class ContentRenderer extends StatelessWidget {
   /// dimmer than bold. Only the reader uses it; the rest of the app keeps its
   /// own body color.
   TextStyle readerBody(BuildContext context) {
-    final wide = context.wideWeb;
-    return (style ?? context.type.body).copyWith(
-      fontSize: wide ? 18 : 16,
-      height: wide ? 1.7 : 1.6,
-      letterSpacing: -.08,
+    return (style ??
+            (context.wideWeb
+                ? PantasType.webReaderBody
+                : PantasType.phoneReaderBody))
+        .copyWith(
       fontWeight: FontWeight.w400,
       color: context.colors.readerBody,
     );
   }
 
   TextStyle _readerH2(BuildContext context) {
-    final wide = context.wideWeb;
-    return context.type.sectionHero.copyWith(
-      fontSize: wide ? 32 : 26,
-      height: 1.18,
-      letterSpacing: wide ? -.65 : -.42,
-      fontWeight: FontWeight.w700,
-      color: context.colors.label,
-    );
+    return PantasType.webH2.copyWith(color: context.colors.label);
   }
 
-  TextStyle _readerH3(BuildContext context, {double? size}) =>
-      context.type.emphasized.copyWith(
-        fontSize: size ?? (context.wideWeb ? 21 : 18),
-        height: 1.28,
-        letterSpacing: -.3,
-        fontWeight: FontWeight.w600,
-        color: context.colors.label,
-      );
+  TextStyle _readerH3(BuildContext context) =>
+      PantasType.webH3.copyWith(color: context.colors.label);
 
   /// The text runs of [runs] as spans, with the spoken form of any math.
   ({List<InlineSpan> spans, String spoken, bool hasMath, bool validSpeech})
@@ -392,11 +386,9 @@ class ContentRenderer extends StatelessWidget {
     final phoneType = switch (name) {
       'h1' => context.type.pageTitle.copyWith(height: 1.15),
       'h2' when readerFigures => _readerH2(context),
-      'h2' => context.type.sectionHero
-          .copyWith(fontSize: 22, height: 1.25, letterSpacing: -.264),
+      'h2' => context.type.sectionHero,
       'h3' when readerFigures => _readerH3(context),
-      'h3' || 'h4' || 'h5' || 'h6' => context.type.emphasized
-          .copyWith(fontSize: 18, height: 1.3, letterSpacing: -.216),
+      'h3' || 'h4' || 'h5' || 'h6' => context.type.emphasized,
       // The design's paragraph rule beats its note rule, so a note keeps the
       // body line height instead of a tighter one.
       'blockquote' when readerFigures => base.copyWith(
@@ -432,7 +424,7 @@ class ContentRenderer extends StatelessWidget {
               fontFeatures: const [FontFeature.tabularFigures()],
             ),
           ),
-          const SizedBox(width: 8),
+          const SizedBox(width: PantasSpace.s8),
           Expanded(
             child: _spoken(
               Text.rich(TextSpan(children: inline.spans), style: type),
@@ -460,8 +452,9 @@ class ContentRenderer extends StatelessWidget {
         fontFeatures: step ? const [FontFeature.tabularFigures()] : null,
         height: step ? type.height : null,
       );
+      final indent = (level - 1).clamp(0, 4) * PantasSpace.s16;
       body = Padding(
-        padding: EdgeInsets.only(left: ((level - 1).clamp(0, 4)) * 16.0),
+        padding: EdgeInsets.only(left: indent),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -489,7 +482,12 @@ class ContentRenderer extends StatelessWidget {
           ),
         ),
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(16, 2, 0, 2),
+          padding: const EdgeInsets.fromLTRB(
+            PantasSpace.s16,
+            PantasSpace.s2,
+            PantasSpace.s0,
+            PantasSpace.s2,
+          ),
           child: body,
         ),
       );
@@ -509,25 +507,26 @@ class ContentRenderer extends StatelessWidget {
       _ => null,
     };
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 16),
+      padding: const EdgeInsets.symmetric(
+        horizontal: PantasSpace.s18,
+        vertical: PantasSpace.s16,
+      ),
       decoration: BoxDecoration(
         color: warn ? c.readerWarnTint : c.accentTint,
-        borderRadius: BorderRadius.circular(14),
+        borderRadius: BorderRadius.circular(PantasRadius.lg),
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           if (label != null) ...[
-            caps(
+            Text(
               label,
-              context.type.sectionHeader.copyWith(
-                fontSize: 12,
-                letterSpacing: .48,
-                color: warn ? c.readerWarn : c.accent,
+              style: PantasType.webLink.copyWith(
+                color: warn ? c.readerMistakeText : c.readerNoteText,
               ),
             ),
-            const SizedBox(height: 6),
+            const SizedBox(height: PantasSpace.s6),
           ],
           body,
         ],
@@ -587,8 +586,8 @@ class ContentRenderer extends StatelessWidget {
                       for (var c = 0; c < rows[i].length; c++)
                         Padding(
                           padding: const EdgeInsets.symmetric(
-                            horizontal: 16,
-                            vertical: 10,
+                            horizontal: PantasSpace.s16,
+                            vertical: PantasSpace.s10,
                           ),
                           child: _cell(
                             context,
@@ -656,20 +655,22 @@ class ContentRenderer extends StatelessWidget {
         children: [
           Text(
             string(block['title']),
-            style: context.type.emphasized
-                .copyWith(fontSize: 18, height: 1.3, letterSpacing: -.216),
+            style: context.type.emphasized,
           ),
-          const SizedBox(height: 10),
+          const SizedBox(height: PantasSpace.s10),
           MathText(
             string(block['body']),
             style: context.type.body.copyWith(height: 1.55),
           ),
-          const SizedBox(height: 10),
+          const SizedBox(height: PantasSpace.s10),
           Container(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+            padding: const EdgeInsets.symmetric(
+              horizontal: PantasSpace.s16,
+              vertical: PantasSpace.s14,
+            ),
             decoration: BoxDecoration(
               color: context.colors.background,
-              borderRadius: BorderRadius.circular(14),
+              borderRadius: BorderRadius.circular(PantasRadius.lg),
             ),
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -677,10 +678,10 @@ class ContentRenderer extends StatelessWidget {
               children: [
                 Text(
                   'SOLUTION',
-                  style: context.type.sectionHeader
-                      .copyWith(fontSize: 12, letterSpacing: .48),
+                  style: PantasType.webEyebrow
+                      .copyWith(color: context.colors.textSecondary),
                 ),
-                const SizedBox(height: 10),
+                const SizedBox(height: PantasSpace.s10),
                 MathText(
                   string(block['solution']),
                   style: context.type.body.copyWith(height: 1.55),
@@ -717,7 +718,7 @@ class ContentRenderer extends StatelessWidget {
           // Display maths takes the bold color, one step above the text.
           style: readerFigures
               ? readerBody(context).copyWith(
-                  fontSize: 19,
+                  fontSize: PantasType.mathDisplay.fontSize,
                   color: context.colors.readerStrong,
                 )
               : style,
@@ -774,7 +775,7 @@ class ContentRenderer extends StatelessWidget {
 
   /// The space above a section heading in the reader. The first section of a
   /// lesson has none, so the sections are told apart by space alone.
-  static double sectionGap(BuildContext context) => context.wideWeb ? 104 : 72;
+  static double sectionGap(BuildContext context) => PantasSpace.s40;
 
   /// The number a numbered list starts at once a paragraph has ended the list
   /// before it. The source says it: a solution that goes "1.", a formula, a
@@ -804,7 +805,7 @@ class ContentRenderer extends StatelessWidget {
       if (i > 0) {
         final prev = slots[i - 1];
         final gap = prev.list && slots[i].list
-            ? 8.0
+            ? PantasSpace.s8
             : math.max(prev.below, slots[i].above);
         if (gap > 0) children.add(SizedBox(height: gap));
       }
@@ -819,7 +820,6 @@ class ContentRenderer extends StatelessWidget {
     bool solution = false,
     bool choices = false,
   }) {
-    final wide = context.wideWeb;
     final slots = <_Slot>[];
     final counters = <int, int>{};
     for (var index = 0; index < items.length; index++) {
@@ -843,10 +843,13 @@ class ContentRenderer extends StatelessWidget {
         slots.add(
           _Slot(
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+              padding: const EdgeInsets.symmetric(
+                horizontal: PantasSpace.s16,
+                vertical: PantasSpace.s14,
+              ),
               decoration: BoxDecoration(
                 color: context.colors.readerDeep,
-                borderRadius: BorderRadius.circular(14),
+                borderRadius: BorderRadius.circular(PantasRadius.lg),
               ),
               child: _solutionBody(
                 context,
@@ -917,15 +920,14 @@ class ContentRenderer extends StatelessWidget {
       }
       final style = isBlock ? string(block['style']) : '';
       final (above, below) = switch (style) {
-        'h2' => (sectionGap(context), wide ? 20.0 : 16.0),
-        'h3' => (wide ? 40.0 : 30.0, wide ? 12.0 : 10.0),
-        'blockquote' => (
-            0.0,
-            plain.section == ReaderSection.traps ? 16.0 : 18.0
-          ),
-        _ when block['_type'] == 'latex' => (6.0, 22.0),
-        _ when list.isNotEmpty && solution => (0.0, 8.0),
-        _ => (0.0, 18.0),
+        // ReaderLayout rhythm: 16 between blocks, h2 40 above and 12 under,
+        // h3 28 above and 8 under. Display math has no value in the system
+        // and takes the h3 rhythm.
+        'h2' => (PantasSpace.s40, PantasSpace.s12),
+        'h3' => (PantasSpace.s28, PantasSpace.s8),
+        _ when block['_type'] == 'latex' => (PantasSpace.s28, PantasSpace.s8),
+        _ when list.isNotEmpty && solution => (PantasSpace.s0, PantasSpace.s8),
+        _ => (PantasSpace.s0, PantasSpace.s16),
       };
       slots.add(
         _Slot(
@@ -971,9 +973,9 @@ class ContentRenderer extends StatelessWidget {
       children: [
         caps(
           'Solution',
-          context.type.sectionHeader.copyWith(fontSize: 12, letterSpacing: .48),
+          PantasType.webEyebrow.copyWith(color: context.colors.textSecondary),
         ),
-        const SizedBox(height: 10),
+        const SizedBox(height: PantasSpace.s10),
         ...stack.children,
         // The last margin stays inside the panel, so a solution ending in a
         // paragraph has more room under it than one ending in a step.
@@ -997,7 +999,7 @@ class ContentRenderer extends StatelessWidget {
         for (final choice in choices)
           Container(
             key: ValueKey('reader-choice-${choice.letter}'),
-            padding: const EdgeInsets.symmetric(vertical: 9),
+            padding: const EdgeInsets.symmetric(vertical: PantasSpace.s8),
             decoration: BoxDecoration(
               border: Border(top: BorderSide(color: c.separator)),
             ),
@@ -1025,7 +1027,7 @@ class ContentRenderer extends StatelessWidget {
               alignment: PlaceholderAlignment.baseline,
               baseline: TextBaseline.alphabetic,
               child: SizedBox(
-                width: 26,
+                width: PantasSpace.s28,
                 child: Text('${choice.letter})', style: letter),
               ),
             ),
@@ -1041,7 +1043,7 @@ class ContentRenderer extends StatelessWidget {
 
   Widget _exampleCard(BuildContext context, ReaderExample example) {
     final title = _numbered(maps(example.title['children']));
-    final titleStyle = _readerH3(context, size: 19);
+    final titleStyle = _readerH3(context);
     final inline = _inline(context, title.runs, titleStyle);
     final stem = _stack(
       _readerSlots(
@@ -1092,7 +1094,7 @@ class ContentRenderer extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           for (var i = 0; i < segments.length; i++) ...[
-            if (i > 0) const SizedBox(height: 14),
+            if (i > 0) const SizedBox(height: PantasSpace.s14),
             if (segments[i].rows case final rows?)
               table(context, {'rows': rows})
             else
@@ -1225,7 +1227,7 @@ class _ExampleCardState extends State<_ExampleCard> {
   Widget build(BuildContext context) {
     final c = context.colors;
     final wide = widget.wide;
-    final side = wide ? 24.0 : 16.0;
+    final side = wide ? PantasSpace.s24 : PantasSpace.s16;
     final still = MediaQuery.disableAnimationsOf(context);
     final solution = widget.solution;
     Widget? region;
@@ -1237,9 +1239,9 @@ class _ExampleCardState extends State<_ExampleCard> {
             key: const ValueKey('reader-solution-panel'),
             padding: EdgeInsets.fromLTRB(
               side,
-              wide ? 18 : 16,
+              wide ? PantasSpace.s18 : PantasSpace.s16,
               side,
-              wide ? 14 : 10,
+              wide ? PantasSpace.s14 : PantasSpace.s10,
             ),
             decoration: BoxDecoration(
               color: c.readerDeep,
@@ -1259,7 +1261,8 @@ class _ExampleCardState extends State<_ExampleCard> {
               );
       } else {
         region = Padding(
-          padding: EdgeInsets.fromLTRB(side, 0, side, 18),
+          padding:
+              EdgeInsets.fromLTRB(side, PantasSpace.s0, side, PantasSpace.s18),
           child: TextButton(
             key: const ValueKey('reader-solution-button'),
             focusNode: _button,
@@ -1268,15 +1271,12 @@ class _ExampleCardState extends State<_ExampleCard> {
               backgroundColor: c.accentTint,
               foregroundColor: c.accent,
               minimumSize: const Size.fromHeight(48),
-              padding: const EdgeInsets.symmetric(horizontal: 16),
+              padding: const EdgeInsets.symmetric(horizontal: PantasSpace.s16),
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12),
+                borderRadius: BorderRadius.circular(PantasRadius.md),
               ),
               tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-              textStyle: context.type.emphasized.copyWith(
-                fontSize: 16,
-                letterSpacing: 0,
-              ),
+              textStyle: PantasType.webButton,
             ),
             child: const Text('Show solution'),
           ),
@@ -1299,31 +1299,31 @@ class _ExampleCardState extends State<_ExampleCard> {
       decoration: BoxDecoration(
         color: c.surface,
         border: Border.all(color: c.separator),
-        borderRadius: BorderRadius.circular(18),
+        borderRadius: BorderRadius.circular(PantasRadius.xl),
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Padding(
-            padding: EdgeInsets.fromLTRB(side, wide ? 22 : 18, side, 0),
+            padding: EdgeInsets.fromLTRB(
+              side,
+              wide ? PantasSpace.s20 : PantasSpace.s18,
+              side,
+              PantasSpace.s0,
+            ),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Text(
                   widget.label,
-                  style: context.type.sectionHeader.copyWith(
-                    fontSize: 13,
-                    height: 1.28,
-                    letterSpacing: .26,
-                    color: c.accent,
-                  ),
+                  style: PantasType.webEyebrow.copyWith(color: c.accent),
                 ),
-                const SizedBox(height: 4),
+                const SizedBox(height: PantasSpace.s4),
                 widget.title,
                 if (widget.stem.isNotEmpty) ...[
-                  const SizedBox(height: 12),
+                  const SizedBox(height: PantasSpace.s12),
                   ...widget.stem,
                 ],
               ],
@@ -1406,7 +1406,7 @@ class _FigureFrame extends StatelessWidget {
   });
 
   /// Height of the strip above a phone figure that holds the expand button.
-  static const _expandStrip = 40.0;
+  static const _expandStrip = PantasSpace.s40;
 
   final bool reader;
   final bool imageSemantics;
@@ -1425,7 +1425,7 @@ class _FigureFrame extends StatelessWidget {
   Future<void> expand(BuildContext context) {
     final still = MediaQuery.disableAnimationsOf(context);
     final frame = context.findRenderObject() as RenderBox?;
-    final inset = reader && context.wideWeb ? 44.0 : 0.0;
+    final inset = reader && context.wideWeb ? PantasSpace.s44 : PantasSpace.s0;
     final figureWidth = frame != null && frame.hasSize
         ? math.max(frame.size.width - inset, 1).toDouble()
         : MediaQuery.sizeOf(context).width;
@@ -1488,16 +1488,15 @@ class _FigureFrame extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           ClipRRect(
-            borderRadius: BorderRadius.circular(14),
+            borderRadius: BorderRadius.circular(PantasRadius.md),
             child: Container(
               key: reader ? const ValueKey('reader-figure-frame') : null,
               foregroundDecoration: reader
                   ? BoxDecoration(
                       border: Border.all(
                         color: context.colors.separator,
-                        width: .5,
                       ),
-                      borderRadius: BorderRadius.circular(14),
+                      borderRadius: BorderRadius.circular(PantasRadius.md),
                     )
                   : null,
               child: Stack(
@@ -1509,7 +1508,7 @@ class _FigureFrame extends StatelessWidget {
                     // frame has none, so the button gets a strip of its own
                     // and never lands on a label of the figure.
                     padding: reader && context.wideWeb
-                        ? const EdgeInsets.all(22)
+                        ? const EdgeInsets.all(PantasSpace.s20)
                         : expandable
                             ? const EdgeInsets.only(top: _expandStrip)
                             : null,
@@ -1547,14 +1546,14 @@ class _FigureFrame extends StatelessWidget {
                           onPressed: () => expand(context),
                           padding: EdgeInsets.zero,
                           icon: Container(
-                            width: 30,
-                            height: 30,
+                            width: PantasSize.iconBtnSm,
+                            height: PantasSize.iconBtnSm,
                             decoration: BoxDecoration(
                               shape: context.wideWeb
                                   ? BoxShape.rectangle
                                   : BoxShape.circle,
                               borderRadius: context.wideWeb
-                                  ? BorderRadius.circular(9)
+                                  ? BorderRadius.circular(PantasRadius.sm)
                                   : null,
                               color: context.wideWeb
                                   ? context.colors.background
@@ -1577,7 +1576,7 @@ class _FigureFrame extends StatelessWidget {
             ),
           ),
           if (credit.isNotEmpty) ...[
-            const SizedBox(height: 6),
+            const SizedBox(height: PantasSpace.s6),
             Text(
               credit,
               style: context.type.caption.copyWith(
@@ -1744,10 +1743,8 @@ class _FigureViewerState extends State<_FigureViewer> {
                   child: card,
                   builder: (context, child) => Transform.scale(
                     key: const ValueKey('reader-viewer-scale'),
-                    scale: .92 +
-                        .08 *
-                            const Cubic(.25, .9, .3, 1)
-                                .transform(arrival.value),
+                    scale:
+                        .92 + .08 * PantasCurves.enter.transform(arrival.value),
                     child: child,
                   ),
                 ),
@@ -1775,13 +1772,18 @@ class _FigureViewerState extends State<_FigureViewer> {
                   ),
                   child: _zoomWindow(
                     context,
-                    margin: const EdgeInsets.fromLTRB(48, 72, 48, 72),
+                    margin: const EdgeInsets.fromLTRB(
+                      PantasSpace.s44,
+                      PantasSpace.s56,
+                      PantasSpace.s44,
+                      PantasSpace.s56,
+                    ),
                     card: Container(
                       key: const ValueKey('web-figure-card'),
-                      padding: const EdgeInsets.all(40),
+                      padding: const EdgeInsets.all(PantasSpace.s40),
                       decoration: BoxDecoration(
                         color: _figureBackground(context),
-                        borderRadius: BorderRadius.circular(18),
+                        borderRadius: BorderRadius.circular(PantasRadius.xl),
                         border: Border.all(color: context.webTokens.cardEdge),
                       ),
                       child: _FittedFigure(
@@ -1802,19 +1804,18 @@ class _FigureViewerState extends State<_FigureViewer> {
                     child: DecoratedBox(
                       decoration: BoxDecoration(
                         color: context.webTokens.figureScrim,
-                        borderRadius: BorderRadius.circular(9),
+                        borderRadius: BorderRadius.circular(PantasRadius.sm),
                       ),
                       child: Padding(
                         padding: const EdgeInsets.symmetric(
-                          horizontal: 12,
-                          vertical: 6,
+                          horizontal: PantasSpace.s12,
+                          vertical: PantasSpace.s6,
                         ),
                         child: Text(
                           '${credit.isEmpty ? '' : '$credit · '}'
                           'Scroll or + − to zoom · Esc to close',
                           textAlign: TextAlign.center,
-                          style: context.webTokens.style(
-                            14,
+                          style: PantasType.webRowSub.copyWith(
                             color: context.webTokens.figureCaption,
                           ),
                         ),
@@ -1853,8 +1854,8 @@ class _FigureViewerState extends State<_FigureViewer> {
                 child: _zoomWindow(
                   context,
                   margin: EdgeInsets.only(
-                    top: 56,
-                    bottom: credit.isEmpty ? 16 : 48,
+                    top: PantasSpace.s56,
+                    bottom: credit.isEmpty ? PantasSpace.s16 : PantasSpace.s44,
                   ),
                   card: ColoredBox(
                     color: _figureBackground(context),
@@ -1895,8 +1896,7 @@ class _FigureViewerState extends State<_FigureViewer> {
                     child: Text(
                       credit,
                       textAlign: TextAlign.center,
-                      style: context.type.caption.copyWith(
-                        fontSize: 11,
+                      style: PantasType.webKeyHintSm.copyWith(
                         fontWeight: FontWeight.w400,
                         color:
                             context.colors.onFigureViewer.withValues(alpha: .6),
@@ -2093,7 +2093,8 @@ class _ContentImageState extends State<_ContentImage> {
             key: ValueKey((widget.url, _retry)),
             semanticsLabel: widget.label,
             excludeFromSemantics: widget.label.isEmpty,
-            placeholderBuilder: (context) => const SizedBox(height: 223),
+            placeholderBuilder: (context) =>
+                const SizedBox(height: _figurePlaceholderHeight),
             errorBuilder: (context, error, stackTrace) => failure,
           ),
         );
@@ -2112,7 +2113,7 @@ class _ContentImageState extends State<_ContentImage> {
           credit: widget.credit,
           expandable: false,
           imageSemantics: false,
-          figure: const SizedBox(height: 223),
+          figure: const SizedBox(height: _figurePlaceholderHeight),
         ),
         errorBuilder: (context, error, stackTrace) => failure,
         imageBuilder: (context, child) => _FigureFrame(
@@ -2158,7 +2159,7 @@ class _ContentImageState extends State<_ContentImage> {
                 imageSemantics: false,
                 expandable: frame != null || synchronous,
                 figure: frame == null && !synchronous
-                    ? SizedBox(height: 223, child: child)
+                    ? SizedBox(height: _figurePlaceholderHeight, child: child)
                     : child,
               )
           : null,
@@ -2186,11 +2187,13 @@ class _ImageFailure extends StatelessWidget {
         liveRegion: true,
         child: Container(
           key: reader ? const ValueKey('reader-image-failure') : null,
-          constraints: reader ? const BoxConstraints(minHeight: 223) : null,
-          padding: const EdgeInsets.all(24),
+          constraints: reader
+              ? const BoxConstraints(minHeight: _figurePlaceholderHeight)
+              : null,
+          padding: const EdgeInsets.all(PantasSpace.s24),
           decoration: BoxDecoration(
             color: reader ? context.colors.background : context.colors.fill,
-            borderRadius: BorderRadius.circular(14),
+            borderRadius: BorderRadius.circular(PantasRadius.lg),
             border: reader
                 ? Border.all(color: context.colors.separator, width: .5)
                 : null,
@@ -2214,7 +2217,7 @@ class _ImageFailure extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: reader ? context.type.footnote : context.type.subhead,
               ),
-              if (reader) const SizedBox(height: 6),
+              if (reader) const SizedBox(height: PantasSpace.s6),
               if (!reader || onRetry != null)
                 TextButton(
                   onPressed: onRetry,

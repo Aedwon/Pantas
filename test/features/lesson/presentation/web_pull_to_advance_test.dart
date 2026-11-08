@@ -55,7 +55,7 @@ ReaderContext _reader({required int paragraphs}) => ReaderContext(
     );
 
 /// A wheel event the way the browser reports it: a delta in logical pixels.
-PointerScrollEvent _wheel(double dy, {Offset at = const Offset(720, 450)}) =>
+PointerScrollEvent _wheel(double dy, {Offset at = const Offset(720, 300)}) =>
     PointerScrollEvent(position: at, scrollDelta: Offset(0, dy));
 
 /// The wheel step that moves the pull by [share] of a full pull.

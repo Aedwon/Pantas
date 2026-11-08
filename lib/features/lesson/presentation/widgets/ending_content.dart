@@ -3,6 +3,10 @@ import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/lesson/domain/models/lesson_ending.dart';
 import 'package:pantas/features/lesson/domain/models/study_map.dart';
@@ -51,7 +55,12 @@ class EndingContent extends StatelessWidget {
           Expanded(
             child: Center(
               child: Padding(
-                padding: const EdgeInsets.fromLTRB(32, 0, 32, 120),
+                padding: const EdgeInsets.fromLTRB(
+                  PantasSpace.s32,
+                  PantasSpace.s0,
+                  PantasSpace.s32,
+                  PantasLayout.reserveBar,
+                ),
                 child: EndingReveal(
                   held: held,
                   delay: 200,
@@ -59,24 +68,26 @@ class EndingContent extends StatelessWidget {
                   child: Text(
                     "That's enough for today.",
                     textAlign: TextAlign.center,
-                    style: context.type.pageTitle.copyWith(
-                      fontSize: 26,
-                      height: 1.35,
-                      letterSpacing: -.312,
-                    ),
+                    style: PantasType.phoneTitle1
+                        .copyWith(color: context.colors.label),
                   ),
                 ),
               ),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.fromLTRB(16, 0, 16, 30),
+            padding: const EdgeInsets.fromLTRB(
+              PantasSpace.s16,
+              PantasSpace.s0,
+              PantasSpace.s16,
+              PantasSpace.s28,
+            ),
             child: TextButton(
               key: const ValueKey('ending-exit'),
               onPressed: onHome,
               style: TextButton.styleFrom(
                 minimumSize: const Size(double.infinity, 53),
-                padding: const EdgeInsets.symmetric(vertical: 15),
+                padding: const EdgeInsets.symmetric(vertical: PantasSpace.s14),
                 foregroundColor: context.colors.accent,
               ),
               child: Text('Back to Home', style: context.type.emphasized),
@@ -106,7 +117,12 @@ class EndingContent extends StatelessWidget {
     };
     final colors = context.colors;
     return SingleChildScrollView(
-      padding: const EdgeInsets.fromLTRB(16, 40, 16, 0),
+      padding: const EdgeInsets.fromLTRB(
+        PantasSpace.s16,
+        PantasSpace.s40,
+        PantasSpace.s16,
+        PantasSpace.s0,
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -116,10 +132,13 @@ class EndingContent extends StatelessWidget {
             duration: 500,
             child: Container(
               key: const ValueKey('ending-plate'),
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 26),
+              padding: const EdgeInsets.symmetric(
+                horizontal: PantasSpace.s20,
+                vertical: PantasSpace.s24,
+              ),
               decoration: BoxDecoration(
                 color: colors.surface,
-                borderRadius: BorderRadius.circular(18),
+                borderRadius: BorderRadius.circular(PantasRadius.xl),
                 border: Border.all(color: colors.separator, width: .5),
               ),
               child: Column(
@@ -128,13 +147,9 @@ class EndingContent extends StatelessWidget {
                   Text(
                     name,
                     textAlign: TextAlign.center,
-                    style: context.type.pageTitle.copyWith(
-                      fontSize: 31,
-                      height: 1.12,
-                      letterSpacing: -.682,
-                    ),
+                    style: PantasType.phoneTitle1.copyWith(color: colors.label),
                   ),
-                  const SizedBox(height: 6),
+                  const SizedBox(height: PantasSpace.s6),
                   Text(
                     exam,
                     textAlign: TextAlign.center,
@@ -143,9 +158,9 @@ class EndingContent extends StatelessWidget {
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-                  const SizedBox(height: 14),
+                  const SizedBox(height: PantasSpace.s14),
                   Container(height: .5, color: colors.separator),
-                  const SizedBox(height: 14),
+                  const SizedBox(height: PantasSpace.s14),
                   Text(
                     footing,
                     textAlign: TextAlign.center,
@@ -155,7 +170,7 @@ class EndingContent extends StatelessWidget {
                       color: colors.label,
                     ),
                   ),
-                  const SizedBox(height: 2),
+                  const SizedBox(height: PantasSpace.s2),
                   Text(
                     date,
                     textAlign: TextAlign.center,
@@ -167,7 +182,7 @@ class EndingContent extends StatelessWidget {
             ),
           ),
           if (unread.isNotEmpty) ...[
-            const SizedBox(height: 28),
+            const SizedBox(height: PantasSpace.s28),
             EndingReveal(
               held: held,
               delay: 500,
@@ -179,8 +194,9 @@ class EndingContent extends StatelessWidget {
                     ListRow(
                       title: lesson.title,
                       value: '${lesson.estimatedMinutes} min',
-                      leading: const SizedBox(width: 24),
-                      contentPadding: const EdgeInsets.only(right: 16),
+                      leading: const SizedBox(width: PantasSpace.s24),
+                      contentPadding:
+                          const EdgeInsets.only(right: PantasSpace.s16),
                       verticalPadding: 12,
                       onTap: () => onLesson(lesson.id),
                     ),

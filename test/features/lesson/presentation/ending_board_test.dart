@@ -87,7 +87,7 @@ void main() {
           expect((decoration.border! as Border).top.color, colors.separator);
           expect(
             card.padding,
-            const EdgeInsets.symmetric(horizontal: 20, vertical: 26),
+            const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
           );
           if (!complete) {
             expect(find.text('STILL UNREAD'), findsOneWidget);

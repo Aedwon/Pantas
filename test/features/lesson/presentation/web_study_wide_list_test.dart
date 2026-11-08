@@ -288,15 +288,16 @@ void main() {
         );
         // Resume is centered on the card's height.
         expect(button.center.dy, closeTo(card.center.dy, 0.01));
-        // Title lines at 24 px, topic at 20 px, eyebrow at 17 px.
-        expect(tester.getSize(find.text('LAST OPENED')).height, 17);
-        expect(tester.getSize(find.text(_longTitle)).height, 24);
-        expect(tester.getSize(topic).height, 20);
-        // 22 px between the card and the first subject, 18 when Bookmarks
+        // Title lines at 22 px, topic at 18 px, eyebrow at 18 px (system
+        // styles).
+        expect(tester.getSize(find.text('LAST OPENED')).height, 18);
+        expect(tester.getSize(find.text(_longTitle)).height, 22);
+        expect(tester.getSize(topic).height, 18);
+        // 20 px between the card and the first subject, 18 when Bookmarks
         // is hidden is not added.
         expect(
           tester.getTopLeft(find.text('REASONING')).dy - card.bottom,
-          closeTo(22, 0.01),
+          closeTo(20, 0.01),
         );
         expect(find.text('BOOKMARKS'), findsNothing);
         expect(tester.takeException(), isNull);
@@ -320,7 +321,7 @@ void main() {
           // The board's rule is an inset shadow, so the dark card's real 1 px
           // edge comes out of the padding: 96 px tall and the text 18 px in,
           // as in light.
-          expect(card.height, 96);
+          expect(card.height, 92);
           final label = tester.getTopLeft(find.text('LAST OPENED'));
           expect(label.dx, card.left + 18);
           expect(label.dy, card.top + 16);
@@ -329,10 +330,10 @@ void main() {
             card.right - 18,
           );
           // The first subject label is the same distance under the card in
-          // both themes: 22 px.
+          // both themes: 20 px.
           expect(
             tester.getTopLeft(find.text('REASONING')).dy - card.bottom,
-            closeTo(22, 0.01),
+            closeTo(20, 0.01),
           );
         });
       }
@@ -352,13 +353,13 @@ void main() {
         final label = tester.getRect(find.text('BOOKMARKS'));
         // The header is 30 px tall, 22 px under the card, with the 15 px
         // label centered in it; the label inset is 12.
-        expect(label.top - card.bottom, closeTo(22 + 7.5, 0.01));
+        expect(label.top - card.bottom, closeTo(20 + 6, 0.01));
         expect(label.left, card.left + 12);
-        expect(tester.getSize(find.text('BOOKMARKS')).height, 15);
+        expect(tester.getSize(find.text('BOOKMARKS')).height, 18);
         // See all ends 12 px inside the right edge, on the label's line.
         final seeAll = tester.getRect(find.text('See all'));
         expect(seeAll.right, closeTo(card.right - 12, 0.01));
-        expect(tester.getSize(find.text('See all')).height, 30);
+        expect(tester.getSize(find.text('See all')).height, 18);
         // Rows 4 px under the header, side by side, 24 px apart.
         final left = find
             .ancestor(
@@ -376,7 +377,12 @@ void main() {
         expect(tester.getSize(right), Size(column, 36));
         expect(tester.getTopLeft(right).dx - tester.getTopRight(left).dx, 24);
         expect(tester.getTopLeft(right).dy, tester.getTopLeft(left).dy);
-        final header = tester.getRect(find.text('See all'));
+        final header = tester.getRect(
+          find.ancestor(
+            of: find.text('See all'),
+            matching: find.byType(TextButton),
+          ),
+        );
         expect(
           tester.getTopLeft(left).dy - header.bottom,
           closeTo(4, 0.01),
@@ -436,7 +442,7 @@ void main() {
         expect(
           tester.getTopLeft(find.text('REASONING').first).dy -
               tester.getBottomLeft(card).dy,
-          closeTo(22, 0.01),
+          closeTo(20, 0.01),
         );
         expect(find.text('BOOKMARKS'), findsNothing);
       });
@@ -544,12 +550,12 @@ void main() {
           }
           // Both texts wrap in this column.
           expect(tester.getSize(title).height, greaterThan(24));
-          expect(tester.getSize(topic).height, greaterThan(18));
-          // Eyebrow, 3 px, title, topic.
+          expect(tester.getSize(topic).height, greaterThanOrEqualTo(18));
+          // Eyebrow, 2 px, title, topic.
           expect(
             tester.getTopLeft(title).dy -
                 tester.getBottomLeft(find.text('LAST OPENED')).dy,
-            closeTo(3, 0.01),
+            closeTo(2, 0.01),
           );
           expect(
             tester.getTopLeft(topic).dy,

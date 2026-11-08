@@ -462,10 +462,11 @@ void main() {
     expect(find.byType(Image), findsOneWidget);
     expect(find.text('Content unavailable. Update the app.'), findsNothing);
   });
-  // The figure frame is the only ClipRRect with this radius in a figure.
+  // The figure frame (`radius-md`) is the only ClipRRect with this radius in a
+  // figure.
   final frameFinder = find.byWidgetPredicate(
     (widget) =>
-        widget is ClipRRect && widget.borderRadius == BorderRadius.circular(14),
+        widget is ClipRRect && widget.borderRadius == BorderRadius.circular(12),
   );
   for (final (name, url) in [
     ('PNG', 'data:image/png;base64,AAAA'),

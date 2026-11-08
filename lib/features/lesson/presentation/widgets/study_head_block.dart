@@ -5,6 +5,7 @@ import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
 import 'package:pantas/features/lesson/domain/use_cases/build_study_map.dart';
 import 'package:pantas/features/lesson/presentation/widgets/study_map_entry.dart';
@@ -32,32 +33,36 @@ class StudyHeadBlock extends ConsumerWidget {
           }
         }
         return Padding(
-          padding: const EdgeInsets.only(bottom: 24),
+          padding: const EdgeInsets.only(bottom: PantasSpace.s24),
           child: StudyMapEntry(
             delay: const Duration(milliseconds: 180),
             child: GroupedSection(
               children: [
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(16, 14, 16, 16),
+                  padding: const EdgeInsets.fromLTRB(
+                    PantasSpace.s16,
+                    PantasSpace.s14,
+                    PantasSpace.s16,
+                    PantasSpace.s16,
+                  ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       Text('LAST OPENED', style: context.type.sectionHeader),
-                      const SizedBox(height: 5),
+                      const SizedBox(height: PantasSpace.s4),
                       Text(
                         lesson.title,
-                        style: context.type.sectionHero
-                            .copyWith(fontSize: 22, letterSpacing: -.264),
+                        style: context.type.sectionHero,
                       ),
                       if (topicName != null) ...[
-                        const SizedBox(height: 3),
+                        const SizedBox(height: PantasSpace.s2),
                         Text(
                           topicName,
                           style: context.type.subhead
                               .copyWith(color: context.colors.secondaryLabel),
                         ),
                       ],
-                      const SizedBox(height: 12),
+                      const SizedBox(height: PantasSpace.s12),
                       PantasButton(
                         label: 'Resume',
                         onPressed: () => context.push(

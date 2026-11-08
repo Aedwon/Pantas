@@ -6,7 +6,7 @@ import 'package:pantas/features/lesson/presentation/widgets/pinned_topic_bar.dar
 import '../../../helpers/pump_app.dart';
 
 void main() {
-  testWidgets('pinned row is 47px, has no count and closes from the keyboard',
+  testWidgets('pinned row is 48px, has no count and closes from the keyboard',
       (tester) async {
     var closed = 0;
     await tester.pumpApp(
@@ -29,7 +29,7 @@ void main() {
       tester
           .getSize(find.byKey(const ValueKey('pinned-topic-collapse')))
           .height,
-      47,
+      48,
     );
     await tester.sendKeyEvent(LogicalKeyboardKey.tab);
     await tester.sendKeyEvent(LogicalKeyboardKey.enter);

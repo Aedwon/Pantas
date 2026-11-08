@@ -13,8 +13,14 @@ import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/motion/pane_transition.dart';
 import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
@@ -27,6 +33,9 @@ import 'package:pantas/features/lesson/presentation/widgets/reader_bar.dart';
 import 'package:pantas/features/lesson/presentation/widgets/study_map_entry.dart';
 import 'package:pantas/features/lesson/presentation/widgets/web_lesson_search.dart';
 import 'package:pantas/features/quiz/application/quiz_starts.dart';
+
+/// The width of the study list skeleton (board value, no token).
+const double _skeletonWidth = 340;
 
 class WebStudyLayout extends ConsumerStatefulWidget {
   const WebStudyLayout({
@@ -86,13 +95,13 @@ class _WebStudyLayoutState extends ConsumerState<WebStudyLayout> {
     setState(() => _bookmarksOpen = true);
     await showWebOverlay<void>(
       context: context,
-      motion: WebOverlayMotion.drawerOf(480),
+      motion: WebOverlayMotion.drawerOf(PantasLayout.drawer),
       barrierLabel: MaterialLocalizations.of(context).modalBarrierDismissLabel,
-      barrierColor: Colors.black.withValues(alpha: .28),
+      barrierColor: context.colors.scrim,
       builder: (context) => Align(
         alignment: Alignment.centerRight,
         child: SizedBox(
-          width: 480,
+          width: PantasLayout.drawer,
           height: double.infinity,
           child: Material(
             child: BookmarksSheet(
@@ -146,10 +155,10 @@ class _WebStudyLayoutState extends ConsumerState<WebStudyLayout> {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 4),
+          padding: EdgeInsets.symmetric(horizontal: PantasSpace.s4),
           child: WebText('Study', kind: WebTextKind.h1),
         ),
-        const SizedBox(height: 26),
+        const SizedBox(height: PantasSpace.s24),
         Expanded(
           child: value.when(
             loading: () => const WebStudyLoading(),
@@ -489,7 +498,7 @@ class _WebStudyMapState extends State<WebStudyMap>
         List<Widget> head() => <Widget>[
               if (hasCard) ...[
                 lastCard(strip: false),
-                const SizedBox(height: 22),
+                const SizedBox(height: PantasSpace.s20),
               ],
               if (bookmarks.isNotEmpty)
                 _enter(
@@ -522,7 +531,7 @@ class _WebStudyMapState extends State<WebStudyMap>
           layout = mapList([
             if (hasCard) ...[
               lastCard(strip: true),
-              const SizedBox(height: 22),
+              const SizedBox(height: PantasSpace.s20),
             ],
             if (bookmarks.isNotEmpty) ...[
               _enter(
@@ -530,7 +539,7 @@ class _WebStudyMapState extends State<WebStudyMap>
                 260,
                 _wideBookmarks(context, bookmarks),
               ),
-              const SizedBox(height: 18),
+              const SizedBox(height: PantasSpace.s18),
             ],
             _subjectColumns(context, map.subjects),
           ]);
@@ -550,7 +559,7 @@ class _WebStudyMapState extends State<WebStudyMap>
                   ]),
                 ),
               ),
-              const SizedBox(width: 24),
+              const SizedBox(width: PantasSpace.s24),
               Expanded(
                 child: FocusTraversalGroup(
                   child: SingleChildScrollView(
@@ -560,12 +569,22 @@ class _WebStudyMapState extends State<WebStudyMap>
                     child: _TopicSwap(
                       topicId: card.topic.id,
                       child: WebCard(
-                        padding: const EdgeInsets.fromLTRB(12, 30, 12, 18),
+                        padding: const EdgeInsets.fromLTRB(
+                          PantasSpace.s12,
+                          PantasSpace.s28,
+                          PantasSpace.s12,
+                          PantasSpace.s18,
+                        ),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
                             Padding(
-                              padding: const EdgeInsets.fromLTRB(20, 0, 20, 18),
+                              padding: const EdgeInsets.fromLTRB(
+                                PantasSpace.s20,
+                                PantasSpace.s0,
+                                PantasSpace.s20,
+                                PantasSpace.s18,
+                              ),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
@@ -575,12 +594,8 @@ class _WebStudyMapState extends State<WebStudyMap>
                                   ),
                                   Text(
                                     card.topic.name,
-                                    style: t.style(
-                                      30,
-                                      weight: FontWeight.w700,
-                                      height: 1.2,
-                                      spacing: -.6,
-                                    ),
+                                    style: PantasType.webH2
+                                        .copyWith(color: t.colors.textPrimary),
                                   ),
                                 ],
                               ),
@@ -656,7 +671,7 @@ class _WebStudyMapState extends State<WebStudyMap>
           children: [
             for (final subject in group) ...[
               _subjectBlock(context, subject, subjects.indexOf(subject)),
-              const SizedBox(height: 18),
+              const SizedBox(height: PantasSpace.s18),
             ],
           ],
         );
@@ -670,7 +685,7 @@ class _WebStudyMapState extends State<WebStudyMap>
             child: stack(subjects.take(split).toList()),
           ),
         ),
-        const SizedBox(width: 24),
+        const SizedBox(width: PantasSpace.s24),
         Expanded(
           child: FocusTraversalGroup(
             child: stack(subjects.skip(split).toList()),
@@ -704,13 +719,18 @@ class _WebStudyMapState extends State<WebStudyMap>
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Padding(
-          padding: const EdgeInsets.fromLTRB(12, 0, 12, 4),
+          padding: const EdgeInsets.fromLTRB(
+            PantasSpace.s12,
+            PantasSpace.s0,
+            PantasSpace.s12,
+            PantasSpace.s4,
+          ),
           child: Row(
             children: [
               Expanded(
                 child: Text(
                   'BOOKMARKS',
-                  style: t.eb.copyWith(fontSize: 12, height: 15 / 12),
+                  style: t.eb,
                 ),
               ),
               TextButton(
@@ -722,12 +742,7 @@ class _WebStudyMapState extends State<WebStudyMap>
                 ),
                 child: Text(
                   'See all',
-                  style: t.style(
-                    14,
-                    color: t.colors.accent,
-                    weight: FontWeight.w600,
-                    height: 30 / 14,
-                  ),
+                  style: PantasType.webLabel.copyWith(color: t.colors.accent),
                 ),
               ),
             ],
@@ -738,7 +753,7 @@ class _WebStudyMapState extends State<WebStudyMap>
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               cell(shown[i]),
-              const SizedBox(width: 24),
+              const SizedBox(width: PantasSpace.s24),
               cell(i + 1 < shown.length ? shown[i + 1] : null),
             ],
           ),
@@ -759,11 +774,7 @@ class _WebStudyMapState extends State<WebStudyMap>
             onPressed: widget.onBookmarks,
             child: Text(
               'See all',
-              style: t.style(
-                14,
-                color: t.colors.accent,
-                weight: FontWeight.w600,
-              ),
+              style: PantasType.webLabel.copyWith(color: t.colors.accent),
             ),
           ),
         ],
@@ -837,8 +848,13 @@ class _WebStudyMapState extends State<WebStudyMap>
   }
 
   Widget _label(BuildContext context, String label) => Padding(
-        padding: const EdgeInsets.fromLTRB(12, 0, 12, 6),
-        child: Text(label, style: context.webTokens.eb.copyWith(fontSize: 12)),
+        padding: const EdgeInsets.fromLTRB(
+          PantasSpace.s12,
+          PantasSpace.s0,
+          PantasSpace.s12,
+          PantasSpace.s6,
+        ),
+        child: Text(label, style: context.webTokens.eb),
       );
   Widget _mapRow(
     BuildContext context,
@@ -851,25 +867,30 @@ class _WebStudyMapState extends State<WebStudyMap>
     return TextButton(
       onPressed: onPressed,
       style: TextButton.styleFrom(
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 7),
+        padding: const EdgeInsets.symmetric(
+          horizontal: PantasSpace.s12,
+          vertical: PantasSpace.s6,
+        ),
         minimumSize: const Size(0, 36),
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
         visualDensity: VisualDensity.standard,
         backgroundColor: selected ? t.colors.surface : null,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(9)),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(PantasRadius.sm),
+        ),
       ),
       child: Row(
         children: [
           leading,
-          const SizedBox(width: 10),
+          const SizedBox(width: PantasSpace.s10),
           Expanded(
             // A long topic name wraps to a second line instead of ending in
             // dots (3K-24, Aedwon's Nov 3 complaint about cut titles).
             child: Text(
               title,
-              style: t.style(
-                15,
-                weight: selected ? FontWeight.w600 : FontWeight.w500,
+              style: PantasType.webSub.copyWith(
+                fontWeight: selected ? FontWeight.w600 : FontWeight.w500,
+                color: t.colors.textPrimary,
               ),
             ),
           ),
@@ -1026,17 +1047,20 @@ class WebLastOpenedCard extends StatelessWidget {
       children: [
         Text(
           'LAST OPENED',
-          style: t.eb.copyWith(fontSize: 12, height: 17 / 12),
+          style: t.eb,
         ),
-        const SizedBox(height: 3),
+        const SizedBox(height: PantasSpace.s2),
         Text(
           title,
-          style: t.style(17, weight: FontWeight.w600, height: 24 / 17),
+          style: PantasType.webRowTitle.copyWith(
+            fontWeight: FontWeight.w600,
+            color: t.colors.textPrimary,
+          ),
         ),
         if (topic != null)
           Text(
             topic!,
-            style: t.style(14, color: t.colors.secondaryLabel, height: 20 / 14),
+            style: PantasType.webRowSub.copyWith(color: t.colors.textSecondary),
           ),
       ],
     );
@@ -1050,18 +1074,28 @@ class WebLastOpenedCard extends StatelessWidget {
     // themes (4N-2).
     if (strip) {
       return WebCard(
-        padding: const EdgeInsets.fromLTRB(18, 16, 18, 16),
+        padding: const EdgeInsets.fromLTRB(
+          PantasSpace.s18,
+          PantasSpace.s16,
+          PantasSpace.s18,
+          PantasSpace.s16,
+        ),
         child: Row(
           children: [
             Expanded(child: text),
-            const SizedBox(width: 24),
+            const SizedBox(width: PantasSpace.s24),
             resume,
           ],
         ),
       );
     }
     return WebCard(
-      padding: const EdgeInsets.fromLTRB(18, 16, 16, 16),
+      padding: const EdgeInsets.fromLTRB(
+        PantasSpace.s18,
+        PantasSpace.s16,
+        PantasSpace.s16,
+        PantasSpace.s16,
+      ),
       // Resume sits under the text at its natural width, so a long title and
       // topic wrap in full (preview study-reader, section 2 Option A).
       child: Column(
@@ -1069,7 +1103,7 @@ class WebLastOpenedCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(width: double.infinity, child: text),
-          const SizedBox(height: 12),
+          const SizedBox(height: PantasSpace.s12),
           resume,
         ],
       ),
@@ -1113,6 +1147,12 @@ class _WideStudyLessonRowState extends State<_WideStudyLessonRow> {
       textScaler: MediaQuery.textScalerOf(context),
     )..layout();
     final valueWidth = valuePainter.width;
+    // Row padding, chevron, two gaps and the value's own width.
+    final bookmarkRight = PantasSpace.s20 +
+        PantasSpace.s16 +
+        PantasSpace.s12 +
+        valueWidth +
+        PantasSpace.s8;
     valuePainter.dispose();
     return ConstrainedBox(
       constraints: const BoxConstraints(minHeight: 50),
@@ -1144,20 +1184,17 @@ class _WideStudyLessonRowState extends State<_WideStudyLessonRow> {
                 titleSuffix: widget.today
                     ? Container(
                         padding: const EdgeInsets.symmetric(
-                          horizontal: 8,
-                          vertical: 2,
+                          horizontal: PantasSpace.s8,
+                          vertical: PantasSpace.s2,
                         ),
                         decoration: BoxDecoration(
                           color: t.colors.accentTint,
-                          borderRadius: BorderRadius.circular(99),
+                          borderRadius:
+                              BorderRadius.circular(PantasRadius.full),
                         ),
                         child: Text(
                           'Today',
-                          style: t.style(
-                            12,
-                            weight: FontWeight.w600,
-                            color: t.tintText,
-                          ),
+                          style: PantasType.webTag.copyWith(color: t.tintText),
                         ),
                       )
                     : null,
@@ -1173,8 +1210,7 @@ class _WideStudyLessonRowState extends State<_WideStudyLessonRow> {
                 Padding(
                   // Sits left of the minutes: row padding, chevron, gaps and
                   // the value's own width, so the board's row stays as drawn.
-                  padding:
-                      EdgeInsets.only(right: 20 + 16 + 12 + valueWidth + 8),
+                  padding: EdgeInsets.only(right: bookmarkRight),
                   child: Opacity(
                     opacity: _hover || _focus || lesson.isBookmarked ? 1 : 0,
                     child: Tooltip(
@@ -1195,10 +1231,8 @@ class _WideStudyLessonRowState extends State<_WideStudyLessonRow> {
                               size: 18,
                               color: lesson.isBookmarked
                                   ? t.colors.accent
-                                  // W_Study: lesson-row bookmark is #8A8A8E.
-                                  : t.dark
-                                      ? t.colors.tertiaryLabel
-                                      : const Color(0xFF8A8A8E),
+                                  // The muted icon role in both themes.
+                                  : t.colors.iconMuted,
                             ),
                           ),
                         ),
@@ -1232,10 +1266,13 @@ class WebStudyState extends StatelessWidget {
   Widget build(BuildContext context) => SingleChildScrollView(
         padding: EdgeInsets.only(bottom: context.webPageBottomInset),
         child: WebCard(
-          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 140),
+          padding: const EdgeInsets.symmetric(
+            horizontal: PantasSpace.s24,
+            vertical: PantasSpace.s56,
+          ),
           child: Center(
             child: SizedBox(
-              width: 400,
+              width: PantasLayout.modal,
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -1252,16 +1289,18 @@ class WebStudyState extends StatelessWidget {
                             : 30,
                     color: context.webTokens.colors.tertiaryLabel,
                   ),
-                  const SizedBox(height: 18),
+                  const SizedBox(height: PantasSpace.s18),
                   Text(
                     title,
                     style: isError
-                        ? context.webTokens.style(17)
+                        ? PantasType.webLead.copyWith(
+                            color: context.colors.textPrimary,
+                          )
                         : context.webTokens.h3,
                     textAlign: TextAlign.center,
                   ),
                   if (detail != null) ...[
-                    const SizedBox(height: 8),
+                    const SizedBox(height: PantasSpace.s8),
                     Text(
                       detail!,
                       style: context.webTokens.sub,
@@ -1269,7 +1308,7 @@ class WebStudyState extends StatelessWidget {
                     ),
                   ],
                   if (action != null) ...[
-                    const SizedBox(height: 20),
+                    const SizedBox(height: PantasSpace.s20),
                     WebButton(
                       label: action!,
                       onPressed: onAction,
@@ -1293,10 +1332,15 @@ class WebStudyLoading extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final line = skeletonLineHeight(
-      context.webTokens.eb.copyWith(fontSize: 12),
+      context.webTokens.eb,
     );
     Widget label(double width) => Padding(
-          padding: const EdgeInsets.fromLTRB(12, 0, 12, 6),
+          padding: const EdgeInsets.fromLTRB(
+            PantasSpace.s12,
+            PantasSpace.s0,
+            PantasSpace.s12,
+            PantasSpace.s6,
+          ),
           child: SizedBox(
             height: line,
             child: Align(
@@ -1306,13 +1350,17 @@ class WebStudyLoading extends StatelessWidget {
           ),
         );
     Widget row() => const SizedBox(
-          height: 36,
+          height: PantasSize.navItem,
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 12),
+            padding: EdgeInsets.symmetric(horizontal: PantasSpace.s12),
             child: Row(
               children: [
-                SkeletonBlock(width: 18, height: 18, radius: 9),
-                SizedBox(width: 10),
+                SkeletonBlock(
+                  width: PantasSpace.s18,
+                  height: PantasSpace.s18,
+                  radius: 9,
+                ),
+                SizedBox(width: PantasSpace.s10),
                 SkeletonBlock(width: 170, height: 13),
               ],
             ),
@@ -1323,17 +1371,20 @@ class WebStudyLoading extends StatelessWidget {
       child: Align(
         alignment: Alignment.topLeft,
         child: SizedBox(
-          width: 340,
+          width: _skeletonWidth,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               label(90),
               const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                child: SkeletonBlock(width: 220, height: 14),
+                padding: EdgeInsets.symmetric(
+                  horizontal: PantasSpace.s12,
+                  vertical: PantasSpace.s6,
+                ),
+                child: SkeletonBlock(width: 220, height: PantasSpace.s14),
               ),
               for (var subject = 0; subject < 2; subject++) ...[
-                const SizedBox(height: 18),
+                const SizedBox(height: PantasSpace.s18),
                 label(120),
                 for (var topic = 0; topic < 4; topic++) row(),
               ],

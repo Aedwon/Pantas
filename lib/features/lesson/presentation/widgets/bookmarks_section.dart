@@ -6,6 +6,8 @@ import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/lesson/application/bookmark_providers.dart';
 import 'package:pantas/features/lesson/presentation/widgets/study_skeletons.dart';
@@ -24,14 +26,19 @@ class BookmarksSection extends ConsumerWidget {
         error: error,
       ),
       data: (rows) => Padding(
-        padding: const EdgeInsets.only(bottom: 24),
+        padding: const EdgeInsets.only(bottom: PantasSpace.s24),
         child: Stack(
           children: [
             Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(16, 0, 16, 7),
+                  padding: const EdgeInsets.fromLTRB(
+                    PantasSpace.s16,
+                    PantasSpace.s0,
+                    PantasSpace.s16,
+                    PantasSpace.s6,
+                  ),
                   child: SizedBox(
                     height: rows.isEmpty
                         ? null
@@ -52,8 +59,8 @@ class BookmarksSection extends ConsumerWidget {
                             liveRegion: true,
                             child: Padding(
                               padding: const EdgeInsets.symmetric(
-                                horizontal: 24,
-                                vertical: 22,
+                                horizontal: PantasSpace.s24,
+                                vertical: PantasSpace.s20,
                               ),
                               child: Column(
                                 children: [
@@ -64,7 +71,7 @@ class BookmarksSection extends ConsumerWidget {
                                       color: context.colors.tertiaryLabel,
                                     ),
                                   ),
-                                  const SizedBox(height: 8),
+                                  const SizedBox(height: PantasSpace.s8),
                                   Text(
                                     'Bookmark a lesson to keep it here.',
                                     textAlign: TextAlign.center,
@@ -101,7 +108,12 @@ class BookmarksSection extends ConsumerWidget {
                               verticalPadding: 12.5,
                               contentPadding: context.wideWeb
                                   ? null
-                                  : const EdgeInsets.fromLTRB(16, 11, 16, 12),
+                                  : const EdgeInsets.fromLTRB(
+                                      PantasSpace.s16,
+                                      PantasSpace.s10,
+                                      PantasSpace.s16,
+                                      PantasSpace.s12,
+                                    ),
                               subtitleGap: context.wideWeb ? 0 : 2,
                               divider: index < rows.take(3).length - 1,
                               dividerInset: 52,
@@ -128,7 +140,7 @@ class BookmarksSection extends ConsumerWidget {
                     label: 'See all bookmarks',
                     excludeSemantics: true,
                     child: SizedBox(
-                      height: 44,
+                      height: PantasSize.targetTouch,
                       child: Align(
                         alignment: Alignment.topCenter,
                         child: Text(

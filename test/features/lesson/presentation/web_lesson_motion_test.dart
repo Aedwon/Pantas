@@ -8,6 +8,7 @@ import 'package:pantas/core/storage/domain/lesson.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/lesson/application/lesson_search_providers.dart';
 import 'package:pantas/features/lesson/application/reader_providers.dart';
@@ -431,19 +432,19 @@ void main() {
         await tester.pump();
         final sheet = find.byType(BookmarksSheet);
         if (reduced) {
-          expect(tester.getTopLeft(sheet).dx, 960);
+          expect(tester.getTopLeft(sheet).dx, 1000);
           expect(tester.hasRunningAnimations, isFalse);
         } else {
           expect(tester.getTopLeft(sheet).dx, greaterThan(1440));
           await after(tester, 100);
-          expect(tester.getTopLeft(sheet).dx, greaterThan(960));
+          expect(tester.getTopLeft(sheet).dx, greaterThan(1000));
           expect(tester.getTopLeft(sheet).dx, lessThan(1440 * 2));
           await tester.pumpAndSettle();
         }
-        expect(tester.getTopLeft(sheet).dx, 960);
+        expect(tester.getTopLeft(sheet).dx, 1000);
         expect(
           tester.widget<ModalBarrier>(find.byType(ModalBarrier).last).color,
-          Colors.black.withValues(alpha: .28),
+          PantasColors.light.scrim,
         );
         await tester.sendKeyEvent(LogicalKeyboardKey.escape);
         await tester.pump();
@@ -453,7 +454,7 @@ void main() {
         } else {
           // 400 ms out: still on its way at 100 ms.
           expect(sheet, findsOneWidget);
-          expect(tester.getTopLeft(sheet).dx, greaterThan(960));
+          expect(tester.getTopLeft(sheet).dx, greaterThan(1000));
           await tester.pumpAndSettle();
         }
         expect(sheet, findsNothing);

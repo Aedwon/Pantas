@@ -6,6 +6,7 @@ import 'package:pantas/core/ui/components/content_renderer.dart';
 import 'package:pantas/core/ui/components/math_text.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 
 import 'w2_test_support.dart';
@@ -191,8 +192,8 @@ void main() {
         await _pump(tester, _lesson(), config: config);
         final body = _rich(tester, 'Under the subhead.').text.style!;
         expect(body.color, c.readerBody);
-        expect(body.fontSize, config.wide ? 18 : 16);
-        expect(body.height, config.wide ? 1.7 : 1.6);
+        expect(body.fontSize, config.wide ? 18 : 17);
+        expect(body.height, config.wide ? 1.7 : 1.55);
         expect(body.fontWeight, FontWeight.w400);
         final paragraph = tester
             .widget<RichText>(
@@ -222,39 +223,38 @@ void main() {
       testWidgets('section headings separate by space alone', (tester) async {
         await _pump(tester, _lesson(), config: config);
         final h2 = _rich(tester, 'Mnemonics & Memory Aids').text.style!;
-        expect(h2.fontSize, config.wide ? 32 : 26);
+        expect(h2.fontSize, 26);
         expect(h2.fontWeight, FontWeight.w700);
-        expect(h2.letterSpacing, config.wide ? -.65 : -.42);
+        expect(h2.letterSpacing, PantasType.webH2.letterSpacing);
         expect(find.textContaining(' of 5'), findsNothing);
         // The first section has no space above it.
         expect(
           tester.getTopLeft(_richAt('Core Concept')).dy,
           tester.getTopLeft(find.byType(ContentRenderer)).dy,
         );
-        // A later section: 104 (phone 72) above the heading, 20 (16) below.
+        // A later section: 40 above the heading, 12 below (ReaderLayout).
         final card = tester.getBottomLeft(
           _notes(c).first,
         );
         final head = tester.getTopLeft(_richAt('Mnemonics & Memory Aids'));
-        expect(head.dy - card.dy, config.wide ? 104 : 72);
+        expect(head.dy - card.dy, 40);
         final headBottom =
             tester.getBottomLeft(_richAt('Mnemonics & Memory Aids')).dy;
         final next = tester.getTopLeft(_notes(c).at(1)).dy;
-        expect(next - headBottom, config.wide ? 20 : 16);
+        expect(next - headBottom, 12);
       });
 
-      testWidgets('subheads sit 40 above and 12 below, 30 and 10 on a phone',
-          (tester) async {
+      testWidgets('subheads sit 28 above and 8 below', (tester) async {
         await _pump(tester, _lesson(), config: config);
         final h3 = _rich(tester, 'A subhead').text.style!;
-        expect(h3.fontSize, config.wide ? 21 : 18);
-        expect(h3.fontWeight, FontWeight.w600);
+        expect(h3.fontSize, 20);
+        expect(h3.fontWeight, FontWeight.w700);
         final maths = tester.getBottomLeft(_display).dy;
         final top = tester.getTopLeft(_richAt('A subhead')).dy;
-        expect(top - maths, closeTo(config.wide ? 40 : 30, .01));
+        expect(top - maths, closeTo(28, .01));
         final bottom = tester.getBottomLeft(_richAt('A subhead')).dy;
         final under = tester.getTopLeft(_richAt('Under the subhead.')).dy;
-        expect(under - bottom, config.wide ? 12 : 10);
+        expect(under - bottom, 8);
       });
 
       testWidgets('notes: Remember, Watch out, and plain', (tester) async {
@@ -275,7 +275,7 @@ void main() {
         );
         // Mnemonics: labelled Remember.
         expect(
-          find.descendant(of: notes.at(1), matching: find.text('REMEMBER')),
+          find.descendant(of: notes.at(1), matching: find.text('Remember')),
           findsOneWidget,
         );
         final text = tester.widget<RichText>(
@@ -297,11 +297,11 @@ void main() {
           c.readerWarnTint,
         );
         expect(
-          find.descendant(of: warn, matching: find.text('WATCH OUT')),
+          find.descendant(of: warn, matching: find.text('Watch out')),
           findsOneWidget,
         );
-        final label = tester.widget<Text>(find.text('WATCH OUT'));
-        expect(label.style!.color, c.readerWarn);
+        final label = tester.widget<Text>(find.text('Watch out'));
+        expect(label.style!.color, c.readerMistakeText);
         final warnText = tester.widget<RichText>(
           find.descendant(
             of: warn,
@@ -350,7 +350,7 @@ void main() {
         expect(
           tester.getTopLeft(find.text('Example 1')).dy -
               tester.getTopLeft(cards.first).dy,
-          (config.wide ? 22 : 18) + 1,
+          (config.wide ? 20 : 18) + 1,
         );
       });
 
@@ -382,7 +382,7 @@ void main() {
           (first.decoration! as BoxDecoration).border,
           Border(top: BorderSide(color: c.separator)),
         );
-        expect(first.padding, const EdgeInsets.symmetric(vertical: 9));
+        expect(first.padding, const EdgeInsets.symmetric(vertical: 8));
         expect(
           find.byWidgetPredicate(
             (w) =>
@@ -572,7 +572,7 @@ void main() {
     // A quote in an unknown section is the unlabeled accent card.
     expect(_notes(PantasColors.dark), findsOneWidget);
     expect(find.text('REMEMBER'), findsNothing);
-    expect(find.text('WATCH OUT'), findsNothing);
+    expect(find.text('Watch out'), findsNothing);
   });
 
   testWidgets('worked-example headings and odd blocks never throw',

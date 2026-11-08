@@ -3,6 +3,7 @@ import 'package:pantas/core/ui/components/check_mark.dart';
 import 'package:pantas/core/ui/components/progress_ring.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/features/lesson/domain/use_cases/build_study_map.dart';
 
 class PinnedTopicBar extends StatelessWidget {
@@ -22,8 +23,10 @@ class PinnedTopicBar extends StatelessWidget {
             child: ConstrainedBox(
               constraints: const BoxConstraints(minHeight: 47),
               child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 16, vertical: 11.5),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: PantasSpace.s16,
+                  vertical: PantasSpace.s12,
+                ),
                 child: Row(
                   children: [
                     if (topic.isComplete)
@@ -34,14 +37,14 @@ class PinnedTopicBar extends StatelessWidget {
                             ? 0
                             : topic.readCount / topic.totalCount,
                       ),
-                    const SizedBox(width: 12),
+                    const SizedBox(width: PantasSpace.s12),
                     Expanded(
                       child: Text(
                         topic.name,
                         style: context.type.emphasized,
                       ),
                     ),
-                    const SizedBox(width: 8),
+                    const SizedBox(width: PantasSpace.s8),
                     RotatedBox(
                       quarterTurns: 1,
                       child: Icon(

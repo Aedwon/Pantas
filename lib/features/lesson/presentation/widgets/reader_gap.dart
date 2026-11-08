@@ -4,6 +4,8 @@ import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
@@ -54,7 +56,7 @@ class ReaderGap extends ConsumerWidget {
           size: const Size(18, 18),
           painter: _ReadCheckPainter(colors.accent),
         ),
-        const SizedBox(width: 8),
+        const SizedBox(width: PantasSpace.s8),
         Text(
           'Read',
           style: context.type.subhead.copyWith(
@@ -67,8 +69,8 @@ class ReaderGap extends ConsumerWidget {
     if (context.wideWeb) {
       final t = context.webTokens;
       return Container(
-        margin: const EdgeInsets.only(top: 36),
-        padding: const EdgeInsets.only(top: 28),
+        margin: const EdgeInsets.only(top: PantasSpace.s32),
+        padding: const EdgeInsets.only(top: PantasSpace.s28),
         decoration: BoxDecoration(
           border: Border(
             top: BorderSide(
@@ -93,12 +95,12 @@ class ReaderGap extends ConsumerWidget {
                         shape: BoxShape.circle,
                         color: t.colors.accentFill,
                       ),
-                      child: const CustomPaint(
-                        size: Size(15, 15),
-                        painter: _ReadCheckPainter(Colors.white, width: 3),
+                      child: CustomPaint(
+                        size: const Size(15, 15),
+                        painter: _ReadCheckPainter(t.colors.onAccent, width: 3),
                       ),
                     ),
-                    const SizedBox(width: 10),
+                    const SizedBox(width: PantasSpace.s10),
                     Text('Read', style: t.style(17, weight: FontWeight.w600)),
                   ],
                 ),
@@ -108,13 +110,14 @@ class ReaderGap extends ConsumerWidget {
               TextButton(
                 style: TextButton.styleFrom(
                   minimumSize: const Size(0, 40),
-                  padding: const EdgeInsets.symmetric(horizontal: 14),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: PantasSpace.s14),
                   tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                   visualDensity: VisualDensity.standard,
                   backgroundColor: t.disabledBackground,
                   foregroundColor: t.colors.label,
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(11),
+                    borderRadius: BorderRadius.circular(PantasRadius.back),
                   ),
                   textStyle: t.style(15, weight: FontWeight.w600),
                 ),
@@ -134,7 +137,7 @@ class ReaderGap extends ConsumerWidget {
         else
           SizedBox(height: MediaQuery.textScalerOf(context).scale(15) * 1.35),
         if (canQuiz) ...[
-          const SizedBox(height: 18),
+          const SizedBox(height: PantasSpace.s18),
           if (context.wideWeb)
             Align(
               alignment: Alignment.centerLeft,

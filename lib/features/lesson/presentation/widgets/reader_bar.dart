@@ -4,6 +4,8 @@ import 'package:go_router/go_router.dart';
 import 'package:pantas/core/ui/components/contents_glyph.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/features/home/domain/lesson_day_context.dart';
 
 enum ReaderOrigin {
@@ -111,7 +113,12 @@ class ReaderBar extends StatelessWidget {
           ConstrainedBox(
             constraints: const BoxConstraints(minHeight: 50),
             child: Padding(
-              padding: const EdgeInsets.fromLTRB(4, 6, 8, 0),
+              padding: const EdgeInsets.fromLTRB(
+                PantasSpace.s4,
+                PantasSpace.s6,
+                PantasSpace.s8,
+                PantasSpace.s0,
+              ),
               child: LayoutBuilder(
                 builder: (context, constraints) => Row(
                   children: [
@@ -126,8 +133,8 @@ class ReaderBar extends StatelessWidget {
                             behavior: HitTestBehavior.opaque,
                             child: ConstrainedBox(
                               constraints: const BoxConstraints(
-                                minWidth: 44,
-                                minHeight: 44,
+                                minWidth: PantasSize.targetTouch,
+                                minHeight: PantasSize.targetTouch,
                               ),
                               child: Row(
                                 mainAxisSize: MainAxisSize.min,
@@ -138,7 +145,7 @@ class ReaderBar extends StatelessWidget {
                                       color: colors.accent,
                                     ),
                                   ),
-                                  const SizedBox(width: 2),
+                                  const SizedBox(width: PantasSpace.s2),
                                   Flexible(
                                     child: Text(
                                       originWord,
@@ -168,28 +175,25 @@ class ReaderBar extends StatelessWidget {
                             behavior: HitTestBehavior.opaque,
                             child: dayLabel == null
                                 ? SizedBox.square(
-                                    dimension: 44,
+                                    dimension: PantasSize.targetTouch,
                                     child: Center(
                                       child: ContentsGlyph(
                                         size: 23,
                                         strokeWidth: 1.8,
-                                        color: Theme.of(context).brightness ==
-                                                Brightness.dark
-                                            ? colors.controlOutline
-                                            : const Color(0xFF8E8E93),
+                                        color: context.colors.iconMuted,
                                       ),
                                     ),
                                   )
                                 : ConstrainedBox(
                                     constraints: BoxConstraints(
-                                      minHeight: 44,
-                                      minWidth: 44,
+                                      minHeight: PantasSize.targetTouch,
+                                      minWidth: PantasSize.targetTouch,
                                       maxWidth: (constraints.maxWidth - 88)
                                           .clamp(44.0, double.infinity),
                                     ),
                                     child: Padding(
                                       padding: const EdgeInsets.symmetric(
-                                        horizontal: 10,
+                                        horizontal: PantasSpace.s10,
                                       ),
                                       child: Center(
                                         widthFactor: 1,
@@ -218,7 +222,7 @@ class ReaderBar extends StatelessWidget {
                         child: ExcludeSemantics(
                           child: SizedBox.square(
                             key: const ValueKey('reader-bookmark-control'),
-                            dimension: 44,
+                            dimension: PantasSize.targetTouch,
                             child: _ReaderBookmarkControl(
                               key: ValueKey(lessonId ?? title),
                               isBookmarked: isBookmarked,
@@ -256,7 +260,9 @@ class ReaderBar extends StatelessWidget {
                               (1 - (raw * 480 / 150).clamp(0.0, 1.0)),
                           child: Container(
                             alignment: Alignment.center,
-                            padding: const EdgeInsets.symmetric(horizontal: 60),
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: PantasSpace.s56,
+                            ),
                             child: Text(
                               title,
                               maxLines: 1,
@@ -479,9 +485,7 @@ class _ReaderBookmarkControlState extends State<_ReaderBookmarkControl>
                       size: const Size.square(22),
                       painter: _ReaderBookmarkPainter(
                         filled: false,
-                        color: Theme.of(context).brightness == Brightness.dark
-                            ? context.colors.controlOutline
-                            : const Color(0xFF8E8E93),
+                        color: context.colors.iconMuted,
                       ),
                     ),
                   ),
@@ -497,9 +501,7 @@ class _ReaderBookmarkControlState extends State<_ReaderBookmarkControl>
                       filled: widget.isBookmarked,
                       color: widget.isBookmarked
                           ? context.colors.accent
-                          : Theme.of(context).brightness == Brightness.dark
-                              ? context.colors.controlOutline
-                              : const Color(0xFF8E8E93),
+                          : context.colors.iconMuted,
                     ),
                   ),
                 ),

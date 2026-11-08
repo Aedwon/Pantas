@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
 import 'package:pantas/features/home/domain/lesson_day_context.dart';
 
 /// Scroll progress stays per lesson; the visible day line spans its real order.
@@ -16,7 +17,7 @@ class ReaderRail extends StatelessWidget {
         day == null ? fraction : (day.index + fraction) / day.lessonIds.length;
     final colors = context.colors;
     return SizedBox(
-      height: 3,
+      height: PantasSize.thread,
       child: LayoutBuilder(
         builder: (context, constraints) => Stack(
           clipBehavior: Clip.none,

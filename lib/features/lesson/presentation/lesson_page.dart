@@ -28,6 +28,8 @@ import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/lesson_text_scale.dart';
 import 'package:pantas/core/ui/theme/reader_full_width.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
@@ -596,9 +598,10 @@ class _ReaderFallback extends ConsumerWidget {
               children: [
                 // The same bar the lesson draws, in the same place.
                 SizedBox(
-                  height: 60,
+                  height: PantasLayout.focusHead,
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 24),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: PantasSpace.s24),
                     child: Align(
                       alignment: Alignment.centerLeft,
                       child: WebReaderBackControl(
@@ -642,8 +645,8 @@ class _ReaderFallback extends ConsumerWidget {
                       minimumSize: const Size(44, 44),
                       tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                       padding: const EdgeInsets.symmetric(
-                        horizontal: 4,
-                        vertical: 6,
+                        horizontal: PantasSpace.s4,
+                        vertical: PantasSpace.s6,
                       ),
                     ),
                     onPressed: onClose ?? () => origin.leave(context),
@@ -655,7 +658,7 @@ class _ReaderFallback extends ConsumerWidget {
                           size: 24,
                           color: context.colors.accent,
                         ),
-                        const SizedBox(width: 2),
+                        const SizedBox(width: PantasSpace.s2),
                         Text(
                           origin.backLabel(context),
                           style: context.type.body
@@ -1213,15 +1216,20 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody>
               Expanded(
                 child: SingleChildScrollView(
                   controller: _scrollController,
-                  padding: const EdgeInsets.fromLTRB(56, 36, 56, 24),
+                  padding: const EdgeInsets.fromLTRB(
+                    PantasSpace.s56,
+                    PantasSpace.s32,
+                    PantasSpace.s56,
+                    PantasSpace.s24,
+                  ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       Text(
                         reader.lesson.title,
-                        style: t.h2.copyWith(fontSize: 32),
+                        style: t.h1,
                       ),
-                      const SizedBox(height: 18),
+                      const SizedBox(height: PantasSpace.s18),
                       ContentRenderer(
                         blocks: reader.lesson.bodyJson,
                         readerFigures: true,
@@ -1237,7 +1245,12 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody>
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.fromLTRB(24, 16, 24, 20),
+                padding: const EdgeInsets.fromLTRB(
+                  PantasSpace.s24,
+                  PantasSpace.s16,
+                  PantasSpace.s24,
+                  PantasSpace.s20,
+                ),
                 child: Row(
                   children: [
                     Expanded(
@@ -1483,8 +1496,13 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody>
                           )
                         : null,
                 footerPadding: ending != null
-                    ? const EdgeInsets.only(bottom: 48)
-                    : const EdgeInsets.fromLTRB(0, 36, 0, 60),
+                    ? const EdgeInsets.only(bottom: PantasSpace.s44)
+                    : const EdgeInsets.fromLTRB(
+                        PantasSpace.s0,
+                        PantasSpace.s32,
+                        PantasSpace.s0,
+                        PantasSpace.s56,
+                      ),
                 contentBuilder: ending == null
                     ? (footer) => lesson(
                           reader,
@@ -1600,7 +1618,12 @@ class _LessonContent extends StatelessWidget {
   Widget build(BuildContext context) => SingleChildScrollView(
         controller: controller,
         primary: false,
-        padding: const EdgeInsets.fromLTRB(24, 18, 24, 24),
+        padding: const EdgeInsets.fromLTRB(
+          PantasSpace.s24,
+          PantasSpace.s18,
+          PantasSpace.s24,
+          PantasSpace.s24,
+        ),
         // A scroll view repaints its whole child on every scroll frame unless
         // the child has a layer of its own. Without this, each frame re-drew
         // every paragraph and formula in the lesson, on screen or not.
@@ -1621,7 +1644,7 @@ class _LessonContent extends StatelessWidget {
                         color: context.colors.secondaryLabel,
                       ),
                     ),
-                    const SizedBox(height: 8),
+                    const SizedBox(height: PantasSpace.s8),
                     Text(
                       reader.lesson.title,
                       style: context.type.pageTitle.copyWith(
@@ -1629,7 +1652,7 @@ class _LessonContent extends StatelessWidget {
                         letterSpacing: -.5,
                       ),
                     ),
-                    const SizedBox(height: 24),
+                    const SizedBox(height: PantasSpace.s24),
                     ContentRenderer(
                       blocks: reader.lesson.bodyJson,
                       readerFigures: true,
@@ -1637,7 +1660,7 @@ class _LessonContent extends StatelessWidget {
                   ],
                 ),
               ),
-              const SizedBox(height: 24),
+              const SizedBox(height: PantasSpace.s24),
               if (resumeFailed) errorFor('reading position', onResume),
               if (positionFailed) saveFailureLine(onSave),
               if (activityFailed) saveFailureLine(onRetryActivity),

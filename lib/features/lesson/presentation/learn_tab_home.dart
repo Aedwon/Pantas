@@ -14,6 +14,7 @@ import 'package:pantas/core/ui/components/tab_bar_visibility.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
 import 'package:pantas/features/lesson/domain/use_cases/build_study_map.dart';
@@ -183,22 +184,24 @@ class _StudyTabHomeState extends ConsumerState<StudyTabHome> {
             children: [
               if (loading)
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: PantasSpace.s16),
                   child: SearchFieldBar(onCancel: () {}),
                 )
               else
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: PantasSpace.s20),
                   child: Text('Study', style: context.type.largeTitle),
                 ),
-              if (loading) const SizedBox(height: 24),
+              if (loading) const SizedBox(height: PantasSpace.s24),
               Expanded(
                 child: loading
                     ? SingleChildScrollView(
                         padding: EdgeInsets.fromLTRB(
-                          16,
-                          0,
-                          16,
+                          PantasSpace.s16,
+                          PantasSpace.s0,
+                          PantasSpace.s16,
                           FloatingTabBarScope.clearance(context),
                         ),
                         child: state,
@@ -291,7 +294,12 @@ class _StudyTabHomeState extends ConsumerState<StudyTabHome> {
           onDismiss: () => _setBookmarksOpen(open: false),
           page: PantasPage.content(
             // Board ST_Map: the Study title starts 6 px below the top.
-            padding: const EdgeInsets.fromLTRB(16, 6, 16, 0),
+            padding: const EdgeInsets.fromLTRB(
+              PantasSpace.s16,
+              PantasSpace.s6,
+              PantasSpace.s16,
+              PantasSpace.s0,
+            ),
             body: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

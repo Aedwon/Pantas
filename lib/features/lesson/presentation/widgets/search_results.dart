@@ -8,6 +8,9 @@ import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/features/lesson/application/lesson_search_providers.dart';
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
 import 'package:pantas/features/lesson/domain/models/lesson_search_hit.dart';
@@ -97,20 +100,22 @@ class SearchResults extends ConsumerWidget {
                 child: ConstrainedBox(
                   constraints: BoxConstraints(minHeight: constraints.maxHeight),
                   child: Padding(
-                    padding: const EdgeInsets.fromLTRB(24, 0, 24, 150),
+                    padding: const EdgeInsets.fromLTRB(
+                      PantasSpace.s24,
+                      PantasSpace.s0,
+                      PantasSpace.s24,
+                      PantasLayout.reserveBar,
+                    ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
                           'Nothing matched “$query”',
                           textAlign: TextAlign.center,
-                          style: context.type.emphasized.copyWith(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w700,
-                            letterSpacing: -.24,
-                          ),
+                          style: PantasType.phoneTitle3
+                              .copyWith(color: context.colors.label),
                         ),
-                        const SizedBox(height: 6),
+                        const SizedBox(height: PantasSpace.s6),
                         Text(
                           'Try a shorter word, or part of one.',
                           textAlign: TextAlign.center,
@@ -161,11 +166,12 @@ class _ResultGroup extends StatelessWidget {
                 Semantics(
                   liveRegion: true,
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: PantasSpace.s16),
                     child: Text(label, style: context.type.sectionHeader),
                   ),
                 ),
-                const SizedBox(height: 7),
+                const SizedBox(height: PantasSpace.s6),
                 GroupedSection(children: children),
               ],
             ),

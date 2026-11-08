@@ -84,7 +84,7 @@ void main() {
     final glyph = tester.widget<ContentsGlyph>(find.byType(ContentsGlyph));
     expect(glyph.size, 23);
     expect(glyph.strokeWidth, 1.8);
-    expect(glyph.color, const Color(0xFF8E8E93));
+    expect(glyph.color, PantasColors.light.iconMuted);
   });
 
   testWidgets('reader back shape uses24px and2.2 accent stroke',
@@ -340,7 +340,10 @@ void main() {
       expect(
         find.bySemanticsLabel('Remove lesson bookmark'),
         paints
-          ..path(color: const Color(0xFF8E8E93), style: PaintingStyle.stroke)
+          ..path(
+            color: PantasColors.light.iconMuted,
+            style: PaintingStyle.stroke,
+          )
           ..path(color: PantasColors.light.accent, style: PaintingStyle.fill),
       );
     } finally {
@@ -362,7 +365,7 @@ void main() {
         paint,
         paints
           ..path(
-            color: const Color(0xFF8E8E93),
+            color: PantasColors.light.iconMuted,
             style: PaintingStyle.stroke,
           ),
       );

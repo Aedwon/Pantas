@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/figures/figure_registry.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 
 /// A question's diagram, drawn from the spec in its own content file.
 ///
@@ -45,7 +46,7 @@ class QuestionFigure extends StatelessWidget {
     if (figure == null) return _MissingFigure(reason: 'no painter for $kind');
 
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 12),
+      padding: const EdgeInsets.symmetric(vertical: PantasSpace.s12),
       child: figure,
     );
   }
@@ -62,8 +63,11 @@ class _MissingFigure extends StatelessWidget {
     final colors = context.colors;
     final styles = context.type;
     return Container(
-      margin: const EdgeInsets.symmetric(vertical: 12),
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
+      margin: const EdgeInsets.symmetric(vertical: PantasSpace.s12),
+      padding: const EdgeInsets.symmetric(
+        horizontal: PantasSpace.s12,
+        vertical: PantasSpace.s16,
+      ),
       decoration: BoxDecoration(border: Border.all(color: colors.fill)),
       child: Text(
         'This question needs a diagram that has not been drawn yet.',

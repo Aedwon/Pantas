@@ -344,7 +344,7 @@ void main() {
       await tester.tapAt(figureRect(tester).center);
       await tester.pumpAndSettle();
       expect(viewer(), findsOneWidget);
-      await tester.tapAt(Offset(screen.width / 2, screen.height - 60));
+      await tester.tapAt(Offset(screen.width / 2, screen.height - 24));
       await tester.pumpAndSettle();
       expect(viewer(), findsNothing);
     });

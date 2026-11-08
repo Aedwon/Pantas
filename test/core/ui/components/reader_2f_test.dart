@@ -172,7 +172,7 @@ void main() {
             .style!
             .height!;
         expect(height('Remember this.'), height('Body text.'));
-        expect(height('Remember this.'), wide ? 1.7 : 1.6);
+        expect(height('Remember this.'), wide ? 1.7 : 1.55);
       });
     }
   });

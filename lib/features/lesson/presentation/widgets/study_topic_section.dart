@@ -11,6 +11,9 @@ import 'package:pantas/core/ui/components/progress_ring.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
 import 'package:pantas/features/lesson/domain/use_cases/build_study_map.dart';
@@ -33,7 +36,7 @@ class StudySubjectSection extends ConsumerWidget {
     final today =
         ref.watch(studyTodayLessonIdsProvider).valueOrNull ?? const <String>{};
     return Padding(
-      padding: const EdgeInsets.only(bottom: 24),
+      padding: const EdgeInsets.only(bottom: PantasSpace.s24),
       child: GroupedSection(
         header: subject.name,
         children: [
@@ -204,10 +207,10 @@ class StudyLessonRow extends StatelessWidget {
         // Boards (ST_TopicOpen): lessons sit 18 px in from their topic's
         // text, and the dividers start at the lesson title.
         contentPadding: EdgeInsets.fromLTRB(
-          34,
-          context.wideWeb ? 12 : 11.75,
-          16,
-          context.wideWeb ? 12 : 11.75,
+          PantasSpace.s32,
+          context.wideWeb ? PantasSpace.s12 : PantasSpace.s12,
+          PantasSpace.s16,
+          context.wideWeb ? PantasSpace.s12 : PantasSpace.s12,
         ),
         naturalValue: !context.wideWeb,
         divider: divider,
@@ -221,19 +224,19 @@ class StudyLessonRow extends StatelessWidget {
                     Container(
                       key: const ValueKey('study-today-tag'),
                       constraints: const BoxConstraints(minHeight: 22),
-                      padding: const EdgeInsets.symmetric(horizontal: 8),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: PantasSpace.s8,
+                      ),
                       decoration: BoxDecoration(
                         color: context.colors.fill,
-                        borderRadius: BorderRadius.circular(99),
+                        borderRadius: BorderRadius.circular(PantasRadius.full),
                       ),
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Text(
                             'Today',
-                            style: context.type.captionStrong.copyWith(
-                              fontSize: 12,
-                              height: 1.35,
+                            style: PantasType.webTag.copyWith(
                               color: context.colors.onFillLabel,
                             ),
                           ),

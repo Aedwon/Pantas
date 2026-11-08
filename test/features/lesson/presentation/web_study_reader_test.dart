@@ -532,7 +532,7 @@ void main() {
               find.byType(LinearProgressIndicator),
             )
             .minHeight,
-        2,
+        3,
       );
       expect(tester.takeException(), isNull);
       await tester.pumpWidget(const SizedBox());
@@ -773,12 +773,8 @@ void main() {
             )
             .first,
       );
-      expect(
-        (surface.shape! as RoundedRectangleBorder).side.color,
-        brightness == Brightness.dark
-            ? const Color(0xFF2A2A2A)
-            : Colors.transparent,
-      );
+      // The edge is part of the panel's shadow (`elev-modal`), not a border.
+      expect((surface.shape! as RoundedRectangleBorder).side, BorderSide.none);
       await tester.enterText(find.byType(TextField), 'plate');
       await tester.pumpAndSettle();
       expect(find.text('2 LESSONS'), findsOneWidget);

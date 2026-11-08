@@ -345,7 +345,7 @@ void main() {
       final h = tester.widget<Text>(find.text('How fractions work'));
       expect(h.style!.fontSize, 22);
       expect(h.style!.fontWeight, FontWeight.w700);
-      expect(h.style!.height, 1.25);
+      expect(h.style!.height, 1.35);
       expect(
         tester.widget<Text>(find.text('A clear paragraph.')).style!.height,
         1.55,

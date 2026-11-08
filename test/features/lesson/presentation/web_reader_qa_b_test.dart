@@ -8,6 +8,7 @@ import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/domain/lesson.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/lesson/application/lesson_search_providers.dart';
 import 'package:pantas/features/lesson/application/reader_providers.dart';
@@ -155,10 +156,10 @@ void main() {
     testWidgets('it hangs from the page centre line (B-11)', (tester) async {
       await openMenu(tester);
       // RD_FocusOpen: the menu's left edge is on the centre line, 720 at 1440.
-      // Its heading sits 8 px of padding and 12 px of indent inside.
+      // Its heading sits 6 px of padding and 12 px of indent inside.
       expect(
         tester.getTopLeft(find.text(_longTopic.toUpperCase())).dx,
-        closeTo(720 + 8 + 12, 1),
+        closeTo(720 + 6 + 12, 1),
       );
     });
   });
@@ -303,8 +304,8 @@ void main() {
       final route = ModalRoute.of(
         tester.element(find.byType(WebLessonSearch)),
       )!;
-      // The board's gray is lighter than a dark page, so it would lighten it.
-      expect(route.barrierColor, Colors.black.withValues(alpha: .28));
+      // The system's search scrim (`scrim-search`) in the dark theme.
+      expect(route.barrierColor, PantasColors.dark.scrimSearch);
       await tester.sendKeyEvent(LogicalKeyboardKey.escape);
       await tester.pumpAndSettle();
     });

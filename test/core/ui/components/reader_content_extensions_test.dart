@@ -1,10 +1,13 @@
 import 'dart:async';
 import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/content_renderer.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
+
 import '../../../helpers/accessibility.dart';
 import 'w2_test_support.dart';
 
@@ -121,7 +124,7 @@ void main() {
     expect(find.text('2.'), findsOneWidget);
     expect(
       tester.widget<Text>(find.text('SOLUTION')).style!.letterSpacing,
-      .48,
+      PantasType.webEyebrow.letterSpacing,
     );
   });
 
@@ -185,8 +188,8 @@ void main() {
           find.byKey(const ValueKey('reader-figure-frame')),
         );
         final decoration = frame.foregroundDecoration! as BoxDecoration;
-        expect((decoration.border! as Border).top.width, .5);
-        expect((decoration.borderRadius! as BorderRadius).topLeft.x, 14);
+        expect((decoration.border! as Border).top.width, 1);
+        expect((decoration.borderRadius! as BorderRadius).topLeft.x, 12);
         final credit = tester.widget<Text>(find.text('Published source'));
         expect(credit.style!.fontSize, 11);
         expect(credit.style!.fontWeight, FontWeight.w400);
@@ -244,8 +247,7 @@ void main() {
           .opacity,
       closeTo(PantasCurves.fade.transform(.5), .001),
     );
-    final expected =
-        .92 + .08 * const Cubic(.25, .9, .3, 1).transform(140 / 380);
+    final expected = .92 + .08 * PantasCurves.enter.transform(140 / 380);
     expect(
       tester
           .widget<Transform>(

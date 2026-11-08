@@ -2,9 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/core/ui/components/pantas_shadows.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_border.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/lesson/application/lesson_search_providers.dart';
@@ -19,9 +27,7 @@ Future<void> showWebLessonSearch(BuildContext context) => showWebOverlay<void>(
       barrierLabel: MaterialLocalizations.of(context).modalBarrierDismissLabel,
       // The board's gray would lighten a dark page, so dark takes black, as
       // the other wide dialogs do.
-      barrierColor: context.webTokens.dark
-          ? Colors.black.withValues(alpha: .28)
-          : const Color(0x381D1D1F),
+      barrierColor: context.colors.scrimSearch,
       builder: (_) => const WebLessonSearch(),
     );
 
@@ -121,138 +127,146 @@ class _WebLessonSearchState extends ConsumerState<WebLessonSearch> {
       child: Align(
         alignment: Alignment.topCenter,
         child: Padding(
-          padding: const EdgeInsets.only(top: 110),
-          child: SizedBox(
-            width: 640,
-            child: Material(
-              color: t.colors.surface,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(18),
-                side: BorderSide(color: t.cardEdge),
-              ),
-              clipBehavior: Clip.antiAlias,
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Container(
-                    height: 60,
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 18,
-                    ),
-                    decoration: BoxDecoration(
-                      border: Border(
-                        bottom: BorderSide(
-                          color: t.colors.separator,
-                        ),
-                      ),
-                    ),
-                    child: Row(
-                      children: [
-                        Icon(
-                          PantasIcons.search,
-                          size: 18,
-                          color: t.colors.tertiaryLabel,
-                        ),
-                        const SizedBox(width: 12),
-                        Expanded(
-                          child: TextField(
-                            controller: _controller,
-                            autofocus: true,
-                            style: t.style(19),
-                            decoration: InputDecoration.collapsed(
-                              hintText: 'Search lessons and topics',
-                              hintStyle: t.style(
-                                19,
-                                color: t.colors.tertiaryLabel,
-                              ),
-                            ),
-                            onChanged: (query) {
-                              setState(() {
-                                _selected = 0;
-                                _query = query.trim();
-                              });
-                              ref
-                                  .read(
-                                    searchQueryProvider.notifier,
-                                  )
-                                  .state = query;
-                            },
-                          ),
-                        ),
-                        const WebKeyHint('Esc'),
-                      ],
-                    ),
-                  ),
-                  if (error)
-                    Padding(
-                      padding: const EdgeInsets.all(28),
-                      child: WebButton(
-                        label: 'Try Again',
-                        onPressed: () => ref.invalidate(
-                          _query.isEmpty
-                              ? recentlyOpenedLessonsProvider
-                              : searchResultsProvider,
-                        ),
-                      ),
-                    )
-                  else if (loading)
-                    const Padding(
-                      padding: EdgeInsets.all(12),
-                      child: SkeletonGroups(
-                        groups: 1,
-                        rows: 4,
-                        rowHeight: 63,
-                        header: false,
-                      ),
-                    )
-                  else if (_query.isNotEmpty && results.isEmpty)
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 24,
-                        vertical: 44,
-                      ),
-                      child: Column(
-                        children: [
-                          Text(
-                            'Nothing matched “$_query”',
-                            style: t.style(
-                              17,
-                              weight: FontWeight.w600,
-                              height: 22 / 17,
-                            ),
-                          ),
-                          const SizedBox(height: 12),
-                          Text(
-                            'Try a shorter word, or part of one.',
-                            style: t.sub,
-                          ),
-                        ],
-                      ),
-                    )
-                  else if (results.isNotEmpty)
-                    _resultList(t, results, selected, groupLabel),
-                  // The board's "nothing matched" panel has no key footer, and
-                  // neither has an empty list: nothing to move through (2G-5).
-                  if (results.isNotEmpty)
+          padding: const EdgeInsets.only(top: PantasLayout.searchTop),
+          child: DecoratedBox(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(PantasRadius.xl),
+              boxShadow: context.shadows.modal,
+            ),
+            child: SizedBox(
+              width: PantasLayout.search,
+              child: Material(
+                color: t.colors.surfaceModal,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(PantasRadius.xl),
+                ),
+                clipBehavior: Clip.antiAlias,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
                     Container(
+                      height: PantasSize.searchField,
                       padding: const EdgeInsets.symmetric(
-                        horizontal: 18,
-                        vertical: 10,
+                        horizontal: PantasSpace.s18,
                       ),
                       decoration: BoxDecoration(
                         border: Border(
-                          top: BorderSide(
-                            color: t.colors.separator,
+                          bottom: BorderSide(
+                            color: t.colors.divider,
+                            width: PantasBorder.hairline,
                           ),
                         ),
                       ),
-                      child: Text(
-                        '↑ ↓ to move · Enter to open',
-                        style: t.sm,
+                      child: Row(
+                        children: [
+                          Icon(
+                            PantasIcons.search,
+                            size: 18,
+                            color: t.colors.iconMuted,
+                          ),
+                          const SizedBox(width: PantasSpace.s12),
+                          Expanded(
+                            child: TextField(
+                              controller: _controller,
+                              autofocus: true,
+                              style: PantasType.webSearchInput.copyWith(
+                                color: t.colors.textPrimary,
+                              ),
+                              decoration: InputDecoration.collapsed(
+                                hintText: 'Search lessons and topics',
+                                hintStyle: PantasType.webSearchInput.copyWith(
+                                  color: t.colors.textSecondary,
+                                ),
+                              ),
+                              onChanged: (query) {
+                                setState(() {
+                                  _selected = 0;
+                                  _query = query.trim();
+                                });
+                                ref
+                                    .read(
+                                      searchQueryProvider.notifier,
+                                    )
+                                    .state = query;
+                              },
+                            ),
+                          ),
+                          const WebKeyHint('Esc'),
+                        ],
                       ),
                     ),
-                ],
+                    if (error)
+                      Padding(
+                        padding: const EdgeInsets.all(PantasSpace.s28),
+                        child: WebButton(
+                          label: 'Try Again',
+                          onPressed: () => ref.invalidate(
+                            _query.isEmpty
+                                ? recentlyOpenedLessonsProvider
+                                : searchResultsProvider,
+                          ),
+                        ),
+                      )
+                    else if (loading)
+                      const Padding(
+                        padding: EdgeInsets.all(PantasSpace.s12),
+                        child: SkeletonGroups(
+                          groups: 1,
+                          rows: 4,
+                          rowHeight: 63,
+                          header: false,
+                        ),
+                      )
+                    else if (_query.isNotEmpty && results.isEmpty)
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: PantasSpace.s24,
+                          vertical: PantasSpace.s44,
+                        ),
+                        child: Column(
+                          children: [
+                            Text(
+                              'Nothing matched “$_query”',
+                              style: PantasType.webTitleSm.copyWith(
+                                color: t.colors.textPrimary,
+                              ),
+                            ),
+                            const SizedBox(height: PantasSpace.s12),
+                            Text(
+                              'Try a shorter word, or part of one.',
+                              style: t.sub,
+                            ),
+                          ],
+                        ),
+                      )
+                    else if (results.isNotEmpty)
+                      _resultList(t, results, selected, groupLabel),
+                    // The board's "nothing matched" panel has no key footer,
+                    // and neither has an empty list: nothing to move through
+                    // (2G-5).
+                    if (results.isNotEmpty)
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: PantasSpace.s18,
+                          vertical: PantasSpace.s10,
+                        ),
+                        decoration: BoxDecoration(
+                          color: t.colors.surfaceInset,
+                          border: Border(
+                            top: BorderSide(
+                              color: t.colors.divider,
+                              width: PantasBorder.hairline,
+                            ),
+                          ),
+                        ),
+                        child: Text(
+                          '↑ ↓ to move · Enter to open',
+                          style: t.sm,
+                        ),
+                      ),
+                  ],
+                ),
               ),
             ),
           ),
@@ -282,24 +296,22 @@ class _WebLessonSearchState extends ConsumerState<WebLessonSearch> {
             controller: _scroll,
             shrinkWrap: true,
             padding: const EdgeInsets.fromLTRB(
-              8,
-              10,
-              8,
-              8,
+              PantasSpace.s8,
+              PantasSpace.s10,
+              PantasSpace.s8,
+              PantasSpace.s8,
             ),
             children: [
               Padding(
                 padding: const EdgeInsets.fromLTRB(
-                  12,
-                  6,
-                  12,
-                  6,
+                  PantasSpace.s12,
+                  PantasSpace.s6,
+                  PantasSpace.s12,
+                  PantasSpace.s6,
                 ),
                 child: Text(
                   groupLabel,
-                  style: t.eb.copyWith(
-                    fontSize: 12,
-                  ),
+                  style: t.eb,
                 ),
               ),
               for (var i = 0; i < results.length; i++)
@@ -311,11 +323,9 @@ class _WebLessonSearchState extends ConsumerState<WebLessonSearch> {
                   child: DecoratedBox(
                     decoration: BoxDecoration(
                       color: i == selected
-                          ? t.colors.accentTint
+                          ? t.colors.surfaceModalHover
                           : Colors.transparent,
-                      borderRadius: BorderRadius.circular(
-                        10,
-                      ),
+                      borderRadius: BorderRadius.circular(PantasRadius.md),
                     ),
                     child: TextButton(
                       onPressed: () => _open(
@@ -327,8 +337,8 @@ class _WebLessonSearchState extends ConsumerState<WebLessonSearch> {
                         visualDensity: VisualDensity.standard,
                         alignment: Alignment.centerLeft,
                         padding: const EdgeInsets.symmetric(
-                          horizontal: 12,
-                          vertical: 10,
+                          horizontal: PantasSpace.s12,
+                          vertical: PantasSpace.s10,
                         ),
                       ),
                       child: Row(
@@ -343,7 +353,8 @@ class _WebLessonSearchState extends ConsumerState<WebLessonSearch> {
                                   _highlight(
                                     results[i].titleMatch,
                                     results[i].title,
-                                    t.style(17, height: 22 / 17),
+                                    PantasType.webTitleSm
+                                        .copyWith(color: t.colors.textPrimary),
                                     context,
                                   ),
                                   maxLines: 2,
@@ -368,15 +379,17 @@ class _WebLessonSearchState extends ConsumerState<WebLessonSearch> {
                             ),
                           ),
                           const SizedBox(
-                            width: 12,
+                            width: PantasSpace.s12,
                           ),
                           Text(
                             '${results[i].estimatedMinutes} min',
-                            style: t.sub,
+                            style: PantasType.webRowValue.copyWith(
+                              color: t.colors.textSecondary,
+                            ),
                           ),
                           if (i == selected) ...[
                             const SizedBox(
-                              width: 12,
+                              width: PantasSpace.s12,
                             ),
                             const WebKeyHint(
                               'Enter',
@@ -395,7 +408,7 @@ class _WebLessonSearchState extends ConsumerState<WebLessonSearch> {
   }
 
   TextStyle _small(WebTokens t) =>
-      t.style(14, height: 18 / 14, color: t.colors.secondaryLabel);
+      PantasType.webRowSub.copyWith(color: t.colors.textSecondary);
 
   TextSpan _highlight(
     SearchSnippet? match,
