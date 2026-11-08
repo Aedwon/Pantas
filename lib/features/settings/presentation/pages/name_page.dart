@@ -7,6 +7,12 @@ import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/ui/leave_page.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_border.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/settings/presentation/widgets/settings_pane_page.dart';
@@ -103,7 +109,7 @@ class _NamePageState extends ConsumerState<NamePage> {
 
   OutlineInputBorder _fieldBorder(BuildContext context, double width) =>
       OutlineInputBorder(
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(PantasRadius.md),
         borderSide: BorderSide(
           color: width > 1
               ? context.webTokens.colors.accent
@@ -135,29 +141,41 @@ class _NamePageState extends ConsumerState<NamePage> {
             Align(
               alignment: Alignment.centerLeft,
               child: ConstrainedBox(
-                constraints: const BoxConstraints(maxWidth: 460),
+                constraints: const BoxConstraints(maxWidth: PantasLayout.modal),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     // Board `.field.focus`: 48 px, white, 2 px accent edge.
                     SizedBox(
-                      height: 48,
+                      height: PantasSize.field,
                       child: Semantics(
                         label: 'Name',
                         child: TextField(
                           controller: _controller,
                           enabled: _loaded && !_saving,
-                          style: context.webTokens.style(16),
+                          style: PantasType.webRowTitleSettings
+                              .copyWith(color: context.colors.textPrimary),
                           textAlignVertical: TextAlignVertical.center,
                           decoration: InputDecoration(
                             filled: true,
                             fillColor: context.webTokens.colors.surface,
-                            contentPadding:
-                                const EdgeInsets.symmetric(horizontal: 14),
-                            border: _fieldBorder(context, 2),
-                            enabledBorder: _fieldBorder(context, 2),
-                            focusedBorder: _fieldBorder(context, 2),
-                            disabledBorder: _fieldBorder(context, 1),
+                            contentPadding: const EdgeInsets.symmetric(
+                              horizontal: PantasSpace.s14,
+                            ),
+                            border: _fieldBorder(
+                              context,
+                              PantasBorder.ringSelected,
+                            ),
+                            enabledBorder: _fieldBorder(
+                              context,
+                              PantasBorder.ringSelected,
+                            ),
+                            focusedBorder: _fieldBorder(
+                              context,
+                              PantasBorder.ringSelected,
+                            ),
+                            disabledBorder:
+                                _fieldBorder(context, PantasBorder.ring),
                           ),
                           textCapitalization: TextCapitalization.words,
                           onChanged: _typed,
@@ -165,7 +183,7 @@ class _NamePageState extends ConsumerState<NamePage> {
                         ),
                       ),
                     ),
-                    const SizedBox(height: 8),
+                    const SizedBox(height: PantasSpace.s8),
                     Text(
                       'Shown on Home and on your profile. '
                       'Clear it to remove your name. It saves as you type.',
@@ -182,13 +200,18 @@ class _NamePageState extends ConsumerState<NamePage> {
                 // ST_Name: a 48 px white field, 14 px corners, a 1.5 px
                 // accent edge and a clear button.
                 Container(
-                  height: 48,
-                  padding: const EdgeInsets.only(left: 16, right: 12),
+                  height: PantasSize.field,
+                  padding: const EdgeInsets.only(
+                    left: PantasSpace.s16,
+                    right: PantasSpace.s12,
+                  ),
                   decoration: BoxDecoration(
                     color: context.colors.surface,
-                    borderRadius: BorderRadius.circular(14),
-                    border:
-                        Border.all(color: context.colors.accent, width: 1.5),
+                    borderRadius: BorderRadius.circular(PantasRadius.lg),
+                    border: Border.all(
+                      color: context.colors.accent,
+                      width: PantasBorder.ringStrong,
+                    ),
                   ),
                   child: Row(
                     children: [
@@ -218,7 +241,9 @@ class _NamePageState extends ConsumerState<NamePage> {
                                   behavior: HitTestBehavior.opaque,
                                   onTap: _controller.clear,
                                   child: Padding(
-                                    padding: const EdgeInsets.only(left: 8),
+                                    padding: const EdgeInsets.only(
+                                      left: PantasSpace.s8,
+                                    ),
                                     child: SvgPicture.string(
                                       _clearGlyph,
                                       width: 20,
@@ -236,7 +261,12 @@ class _NamePageState extends ConsumerState<NamePage> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(16, 7, 16, 0),
+                  padding: const EdgeInsets.fromLTRB(
+                    PantasSpace.s16,
+                    PantasSpace.s6,
+                    PantasSpace.s16,
+                    PantasSpace.s0,
+                  ),
                   child: Text(
                     'Shown on Home and on your profile. Clear it to remove '
                     'your name.',

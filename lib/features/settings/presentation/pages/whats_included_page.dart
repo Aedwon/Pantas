@@ -17,6 +17,7 @@ import 'package:pantas/core/ui/components/scope_picker.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/leave_page.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/home/application/study_delivery.dart';
 import 'package:pantas/features/settings/presentation/widgets/settings_pane_page.dart';
@@ -161,7 +162,7 @@ class _WhatsIncludedPageState extends ConsumerState<WhatsIncludedPage> {
       description: focus.valueOrNull?.exam?.shortName,
       compactTitle: true,
       titleLineHeight: 1.2,
-      titleGap: 6,
+      titleGap: PantasSpace.s6,
       backLabel: 'Your exam',
       onBack: () => leavePage(context, fallback: '/settings/exam'),
       children: [
@@ -192,14 +193,14 @@ class _WhatsIncludedPageState extends ConsumerState<WhatsIncludedPage> {
                 children: [
                   if (!context.wideWeb) ...[
                     Padding(
-                      padding: const EdgeInsets.only(left: 4),
+                      padding: const EdgeInsets.only(left: PantasSpace.s4),
                       child: Text(
                         scope.exam.shortName,
                         style: context.type.body
                             .copyWith(color: context.colors.secondaryLabel),
                       ),
                     ),
-                    const SizedBox(height: 22),
+                    const SizedBox(height: PantasSpace.s20),
                   ],
                   IgnorePointer(
                     ignoring: _saving,
@@ -216,7 +217,12 @@ class _WhatsIncludedPageState extends ConsumerState<WhatsIncludedPage> {
                   Padding(
                     padding: context.wideWeb
                         ? EdgeInsets.zero
-                        : const EdgeInsets.fromLTRB(16, 7, 16, 0),
+                        : const EdgeInsets.fromLTRB(
+                            PantasSpace.s16,
+                            PantasSpace.s6,
+                            PantasSpace.s16,
+                            PantasSpace.s0,
+                          ),
                     child: Text(
                       "Untick what you don't need. "
                       'It gets removed from your plan, '
@@ -246,7 +252,7 @@ class WhatsIncludedSkeleton extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             SkeletonBlock(width: 120, height: 22),
-            SizedBox(height: 24),
+            SizedBox(height: PantasSpace.s24),
             SkeletonGroups(rows: 4, rowHeight: 47, headerWidth: 110),
           ],
         ),

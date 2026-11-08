@@ -2,6 +2,10 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
+
+/// Height of the drawing. The design system sets no height for diagrams.
+const double _figureHeight = 250;
 
 /// Original lesson diagrams for electricity, optics, heat, and sound.
 class PhysicsEnergyDiagramFigure extends StatelessWidget {
@@ -163,7 +167,7 @@ class PhysicsEnergyDiagramFigure extends StatelessWidget {
   Widget build(BuildContext context) {
     final colors = context.colors;
     return SizedBox(
-      height: 250,
+      height: _figureHeight,
       child: CustomPaint(
         size: Size.infinite,
         painter: _PhysicsEnergyPainter(
@@ -175,7 +179,7 @@ class PhysicsEnergyDiagramFigure extends StatelessWidget {
           labelStyle: context.type.subhead.copyWith(color: colors.label),
           smallStyle: context.type.subhead.copyWith(
             color: colors.secondaryLabel,
-            fontSize: 11,
+            fontSize: PantasType.phoneCaption.fontSize,
           ),
         ),
       ),

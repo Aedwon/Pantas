@@ -15,6 +15,9 @@ import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/beta_feedback/application/beta_feedback_providers.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
@@ -45,14 +48,10 @@ class SettingsBetaMark extends StatelessWidget {
   @override
   Widget build(BuildContext context) => ExcludeSemantics(
         child: Padding(
-          padding: EdgeInsets.only(top: top, left: 4),
+          padding: EdgeInsets.only(top: top, left: PantasSpace.s4),
           child: Text(
             'BETA',
-            style: TextStyle(
-              fontFamily: 'Geist',
-              fontSize: 9,
-              fontWeight: FontWeight.w700,
-              letterSpacing: .72,
+            style: PantasType.webPro.copyWith(
               height: 1,
               color: context.colors.accent,
             ),
@@ -186,14 +185,18 @@ class FeedbackSettingsRow extends ConsumerWidget {
         style: context.type.rowValue,
       ),
       leading: SizedBox(
-        width: 30,
+        width: PantasSpace.s28,
         height: 30,
         child: Center(
           child: SettingsFeedbackGlyph(size: 24, color: c.accent),
         ),
       ),
-      contentPadding: const EdgeInsets.fromLTRB(14, 0, 16, 0),
-      minimumHeight: 45,
+      contentPadding: const EdgeInsets.fromLTRB(
+        PantasSpace.s14,
+        PantasSpace.s0,
+        PantasSpace.s16,
+        PantasSpace.s0,
+      ),
       onTap: onTap,
     );
   }
@@ -221,12 +224,12 @@ class SettingsHomePage extends ConsumerWidget {
     // ST_RootPro: a 24 px glyph in a 30 px box, 14 px from the card edge and
     // 12 px before the text. The row dividers start at the text (56 px).
     Widget glyph(IconData data, Color color) => SizedBox(
-          width: 30,
+          width: PantasSpace.s28,
           height: 30,
           child: Center(child: Icon(data, size: 24, color: color)),
         );
     Widget ownGlyph(Widget icon, Color color) => SizedBox(
-          width: 30,
+          width: PantasSpace.s28,
           height: 30,
           child: Center(
             child: IconTheme(
@@ -235,13 +238,23 @@ class SettingsHomePage extends ConsumerWidget {
             ),
           ),
         );
-    const rowPadding = EdgeInsets.fromLTRB(14, 0, 16, 0);
+    const rowPadding = EdgeInsets.fromLTRB(
+      PantasSpace.s14,
+      PantasSpace.s0,
+      PantasSpace.s16,
+      PantasSpace.s0,
+    );
 
     return PantasPage(
       title: 'Settings',
       // ST_RootPro: the title and the first card sit 12 and 21 px lower.
-      titlePadding: const EdgeInsets.fromLTRB(4, 18, 4, 24),
-      bottomInset: 104,
+      titlePadding: const EdgeInsets.fromLTRB(
+        PantasSpace.s4,
+        PantasSpace.s18,
+        PantasSpace.s4,
+        PantasSpace.s24,
+      ),
+      bottomInset: PantasLayout.reserveTabbar,
       children: [
         GroupedSection(
           children: [
@@ -261,14 +274,15 @@ class SettingsHomePage extends ConsumerWidget {
                 settings.name?.trim().isNotEmpty ?? false
                     ? settings.name!
                     : 'Add your name',
-                style: context.type.emphasized.copyWith(fontSize: 22),
+                style: PantasType.phoneTitle2
+                    .copyWith(color: context.colors.label),
               ),
               verticalPadding: 14,
               onTap: () => push('/settings/account'),
             ),
           ],
         ),
-        const SizedBox(height: 24),
+        const SizedBox(height: PantasSpace.s24),
         if (tester) ...[
           // FbSettingsB: Feedback and the Beta switch share the first card.
           GroupedSection(
@@ -280,23 +294,22 @@ class SettingsHomePage extends ConsumerWidget {
             ],
           ),
           const BetaProNote(),
-          const SizedBox(height: 24),
+          const SizedBox(height: PantasSpace.s24),
         ],
         GroupedSection(
           children: [
             ListRow(
               title: 'Pantas Pro',
               value: ref.watch(proRowValueProvider),
-              leading: glyph(PantasIcons.proSettings, const Color(0xFFD9A400)),
+              leading: glyph(PantasIcons.proSettings, context.colors.pro),
               contentPadding: rowPadding,
-              minimumHeight: 45,
               onTap: () => push('/settings/pro'),
             ),
             if (!tester) const BetaProRow(),
           ],
         ),
         if (!tester) const BetaProNote(),
-        const SizedBox(height: 24),
+        const SizedBox(height: PantasSpace.s24),
         GroupedSection(
           children: [
             ListRow(
@@ -304,7 +317,6 @@ class SettingsHomePage extends ConsumerWidget {
               value: ref.watch(activeExamShortNameProvider),
               leading: glyph(PantasIcons.exam, context.colors.accent),
               contentPadding: rowPadding,
-              minimumHeight: 45,
               divider: true,
               dividerInset: 56,
               onTap: () => push('/settings/exam'),
@@ -312,9 +324,8 @@ class SettingsHomePage extends ConsumerWidget {
             ListRow(
               title: 'Practice',
               value: length < 0 ? 'All questions' : '$length questions',
-              leading: glyph(PantasIcons.practice, const Color(0xFF2F6FEB)),
+              leading: glyph(PantasIcons.practice, context.colors.accent),
               contentPadding: rowPadding,
-              minimumHeight: 45,
               divider: true,
               dividerInset: 56,
               onTap: () => push('/settings/practice'),
@@ -328,9 +339,8 @@ class SettingsHomePage extends ConsumerWidget {
                         hour: settings.dailyReminderTime!.hour,
                         minute: settings.dailyReminderTime!.minute,
                       ).format(context),
-                leading: glyph(PantasIcons.reminders, const Color(0xFFE8590C)),
+                leading: glyph(PantasIcons.reminders, context.colors.accent),
                 contentPadding: rowPadding,
-                minimumHeight: 45,
                 divider: true,
                 dividerInset: 56,
                 onTap: () => push('/settings/reminders'),
@@ -343,23 +353,22 @@ class SettingsHomePage extends ConsumerWidget {
                 ThemePreference.system => 'Automatic'
               },
               leading: ownGlyph(
-                const OwnIcon(OwnIconKind.appearance, fill: Color(0xFF1D1D1F)),
-                const Color(0xFF5F3DC4),
+                OwnIcon(OwnIconKind.appearance, fill: context.colors.label),
+                context.colors.textSecondary,
               ),
               contentPadding: rowPadding,
-              minimumHeight: 45,
               onTap: () => push('/settings/appearance'),
             ),
           ],
         ),
-        const SizedBox(height: 24),
+        const SizedBox(height: PantasSpace.s24),
         GroupedSection(
           children: [
             ListRow(
               title: 'About',
-              leading: ownGlyph(PantasIcons.about, const Color(0xFF6E6E73)),
+              leading:
+                  ownGlyph(PantasIcons.about, context.colors.textSecondary),
               contentPadding: rowPadding,
-              minimumHeight: 45,
               onTap: () => push('/settings/about'),
             ),
           ],

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:pantas/core/ui/web/web_tokens.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 
 class WebProHero extends StatelessWidget {
   const WebProHero({required this.heading, this.detail, super.key});
@@ -8,23 +11,27 @@ class WebProHero extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final t = context.webTokens;
+    final c = context.colors;
+    final dark = Theme.of(context).brightness == Brightness.dark;
+    final perkStyle = PantasType.webBody.copyWith(
+      color: c.textPrimary,
+      height: 1.3,
+    );
     final headingColumn = Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           'PANTAS PRO',
-          style: t.sm.copyWith(
-            color: t.colors.accent,
-            fontWeight: FontWeight.w700,
-            letterSpacing: .52,
-          ),
+          style: PantasType.webEyebrow.copyWith(color: c.accent),
         ),
-        const SizedBox(height: 8),
-        Text(heading, style: t.h2),
+        const SizedBox(height: PantasSpace.s8),
+        Text(heading, style: PantasType.webH2.copyWith(color: c.textPrimary)),
         if (detail != null) ...[
-          const SizedBox(height: 8),
-          Text(detail!, style: t.sub.copyWith(fontSize: 16, height: 1.45)),
+          const SizedBox(height: PantasSpace.s8),
+          Text(
+            detail!,
+            style: PantasType.webBody.copyWith(color: c.textSecondary),
+          ),
         ],
       ],
     );
@@ -36,20 +43,20 @@ class WebProHero extends StatelessWidget {
       'Results by topic and lesson',
     ];
     final features = Padding(
-      padding: const EdgeInsets.only(top: 4),
+      padding: const EdgeInsets.only(top: PantasSpace.s4),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           for (final (index, feature) in perks.indexed) ...[
-            if (index > 0) const SizedBox(height: 8),
+            if (index > 0) const SizedBox(height: PantasSpace.s8),
             Row(
               children: [
                 CustomPaint(
-                  size: const Size.square(14),
-                  painter: _CheckPainter(t.colors.accent),
+                  size: const Size.square(PantasSpace.s14),
+                  painter: _CheckPainter(c.accent),
                 ),
-                const SizedBox(width: 10),
-                Expanded(child: Text(feature, style: t.style(16, height: 1.3))),
+                const SizedBox(width: PantasSpace.s10),
+                Expanded(child: Text(feature, style: perkStyle)),
               ],
             ),
           ],
@@ -58,22 +65,27 @@ class WebProHero extends StatelessWidget {
     );
     return Container(
       key: const ValueKey('pro-hero'),
-      padding: const EdgeInsets.fromLTRB(26, 26, 26, 24),
+      padding: const EdgeInsets.fromLTRB(
+        PantasSpace.s28,
+        PantasSpace.s28,
+        PantasSpace.s28,
+        PantasSpace.s24,
+      ),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(PantasRadius.r2xl),
         gradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
-          colors: [t.colors.surface, t.colors.surface, t.colors.accentTint],
+          colors: [c.surfaceCard, c.surfaceCard, c.accentTint],
           stops: const [0, .55, 1],
         ),
       ),
       // The dark edge takes up no room: the card is the same size in both
       // themes (6T-11).
-      foregroundDecoration: t.dark
+      foregroundDecoration: dark
           ? BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-              border: Border.all(color: t.cardEdge),
+              borderRadius: BorderRadius.circular(PantasRadius.r2xl),
+              border: Border.all(color: c.edgeCard),
             )
           : null,
       child: LayoutBuilder(
@@ -85,7 +97,7 @@ class WebProHero extends StatelessWidget {
           var longest = 0.0;
           for (final perk in perks) {
             final painter = TextPainter(
-              text: TextSpan(text: perk, style: t.style(16, height: 1.3)),
+              text: TextSpan(text: perk, style: perkStyle),
               textDirection: Directionality.of(context),
               textScaler: scaler,
               maxLines: 1,
@@ -94,19 +106,24 @@ class WebProHero extends StatelessWidget {
             painter.dispose();
           }
           // Tick, its gap, and a hair for rounding.
-          final perksWidth = longest + 14 + 10 + 2;
-          final headingWidth = constraints.maxWidth - 24 - perksWidth;
+          final perksWidth = longest + PantasSpace.s14 + PantasSpace.s10 + 2;
+          final headingWidth =
+              constraints.maxWidth - PantasSpace.s24 - perksWidth;
           if (constraints.maxWidth < 544 || headingWidth < 200) {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [headingColumn, const SizedBox(height: 24), features],
+              children: [
+                headingColumn,
+                const SizedBox(height: PantasSpace.s24),
+                features,
+              ],
             );
           }
           return Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Expanded(child: headingColumn),
-              const SizedBox(width: 24),
+              const SizedBox(width: PantasSpace.s24),
               SizedBox(width: perksWidth, child: features),
             ],
           );

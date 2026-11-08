@@ -5,11 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/ui/theme/legacy_theme_shim.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/features/beta_feedback/application/beta_feedback_providers.dart';
 import 'package:pantas/features/beta_feedback/domain/beta_feedback_models.dart';
 import 'package:pantas/features/beta_feedback/presentation/fb_kit.dart';
-
-const _crown = Color(0xFFD9A400);
 
 /// The whole turn-on motion runs on one clock of this length (the crown's
 /// swing is the last thing to finish: 550 ms in, then 1.3 s).
@@ -116,12 +117,8 @@ class _RewardCardState extends ConsumerState<RewardCard>
     final endText = endsAt == null ? '' : monthDayYear(endsAt);
     final turnedOn = activatedAt == null ? '' : monthDayYear(activatedAt);
 
-    final titleStyle = context.fbText(
-      22,
-      weight: FontWeight.w700,
-      spacing: -.264,
-      height: 28 / 22,
-    );
+    final titleStyle = (wide ? PantasType.webH3Lg : PantasType.phoneTitle2)
+        .copyWith(color: c.textPrimary);
     final subline = on
         ? 'Thank you for testing Pantas.'
         : 'Thank you for testing Pantas. Turn it on whenever you are ready.';
@@ -143,14 +140,14 @@ class _RewardCardState extends ConsumerState<RewardCard>
           child: FbGlyph(
             FbGlyphKind.crown,
             size: wide ? 26 : 24,
-            color: _crown,
+            color: c.pro,
           ),
         );
         final pOld = on ? _seg(0, 360, PantasCurves.draw) : 0.0;
         final pNew = on ? _seg(80, 360, PantasCurves.enter) : 0.0;
         final pNewFade = on ? _seg(80, 360, PantasCurves.fade) : 0.0;
         final title = SizedBox(
-          height: 28,
+          height: PantasSpace.s28,
           child: ClipRect(
             child: Stack(
               children: [
@@ -159,7 +156,7 @@ class _RewardCardState extends ConsumerState<RewardCard>
                     key: const ValueKey('title-earned'),
                     opacity: 1 - (on ? _seg(0, 360, PantasCurves.fade) : 0.0),
                     child: Transform.translate(
-                      offset: Offset(0, -28 * pOld),
+                      offset: Offset(0, -PantasSpace.s28 * pOld),
                       child: Text(
                         'You earned 1 year of Pro',
                         maxLines: 1,
@@ -174,7 +171,7 @@ class _RewardCardState extends ConsumerState<RewardCard>
                       key: const ValueKey('title-on'),
                       opacity: pNewFade,
                       child: Transform.translate(
-                        offset: Offset(0, 28 * (1 - pNew)),
+                        offset: Offset(0, PantasSpace.s28 * (1 - pNew)),
                         child: Text(
                           'Pro is on until $endText',
                           maxLines: 1,
@@ -196,7 +193,7 @@ class _RewardCardState extends ConsumerState<RewardCard>
         );
         final sublineText = Text(
           subline,
-          style: context.fbText(15, height: 1.4, color: c.secondaryLabel),
+          style: context.fbSub,
         );
         final strip = _MonthStrip(
           firstMonth: firstMonth,
@@ -222,7 +219,6 @@ class _RewardCardState extends ConsumerState<RewardCard>
                       key: const ValueKey('activate-button'),
                       onPressed: _activate,
                       busy: _working,
-                      minWidth: 214,
                       child: _working
                           ? const FbSpinner()
                           : const Text('Activate 1 Year of Pro'),
@@ -246,11 +242,11 @@ class _RewardCardState extends ConsumerState<RewardCard>
                         stroke: 2.6,
                         progress: _seg(600, 350, PantasCurves.draw),
                       ),
-                      const SizedBox(width: 8),
+                      const SizedBox(width: PantasSpace.s8),
                       Expanded(
                         child: Text(
                           'Turned on $turnedOn. Every exam is included.',
-                          style: context.fbText(15, color: c.secondaryLabel),
+                          style: context.fbSub,
                         ),
                       ),
                     ],
@@ -264,18 +260,26 @@ class _RewardCardState extends ConsumerState<RewardCard>
             dy: 14,
             duration: const Duration(milliseconds: 450),
             child: FbCard(
-              padding: const EdgeInsets.fromLTRB(20, 22, 20, 20),
+              padding: const EdgeInsets.fromLTRB(
+                PantasSpace.s20,
+                PantasSpace.s20,
+                PantasSpace.s20,
+                PantasSpace.s20,
+              ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   titleRow,
                   Padding(
-                    padding: const EdgeInsets.only(left: 36, top: 6),
+                    padding: const EdgeInsets.only(
+                      left: PantasSpace.s32,
+                      top: PantasSpace.s6,
+                    ),
                     child: sublineText,
                   ),
-                  const SizedBox(height: 22),
+                  const SizedBox(height: PantasSpace.s20),
                   strip,
-                  const SizedBox(height: 22),
+                  const SizedBox(height: PantasSpace.s20),
                   button,
                   line,
                 ],
@@ -285,7 +289,12 @@ class _RewardCardState extends ConsumerState<RewardCard>
         } else {
           card = FbCard(
             radius: 18,
-            padding: const EdgeInsets.fromLTRB(18, 18, 18, 20),
+            padding: const EdgeInsets.fromLTRB(
+              PantasSpace.s18,
+              PantasSpace.s18,
+              PantasSpace.s18,
+              PantasSpace.s20,
+            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
@@ -294,15 +303,15 @@ class _RewardCardState extends ConsumerState<RewardCard>
                   delay: const Duration(milliseconds: 100),
                   child: titleRow,
                 ),
-                const SizedBox(height: 4),
+                const SizedBox(height: PantasSpace.s4),
                 FbRise(
                   duration: const Duration(milliseconds: 400),
                   delay: const Duration(milliseconds: 260),
                   child: sublineText,
                 ),
-                const SizedBox(height: 16),
+                const SizedBox(height: PantasSpace.s16),
                 strip,
-                const SizedBox(height: 18),
+                const SizedBox(height: PantasSpace.s18),
                 FbRise(
                   duration: const Duration(milliseconds: 400),
                   delay: const Duration(milliseconds: 320),
@@ -345,13 +354,12 @@ class _MonthStrip extends StatelessWidget {
     for (var j = 0; j < 12; j++) {
       final start = 120.0 + 45 * j;
       final fill = on ? seg(start, 420, PantasCurves.move) : 0.0;
-      final tone = on ? seg(start, 200, PantasCurves.fade) : 0.0;
       final name = monthAbbr(firstMonth + j);
       cells.add(
         Column(
           children: [
             ClipRRect(
-              borderRadius: BorderRadius.circular(99),
+              borderRadius: BorderRadius.circular(PantasRadius.full),
               child: ColoredBox(
                 color: c.fill,
                 child: SizedBox(
@@ -361,7 +369,7 @@ class _MonthStrip extends StatelessWidget {
                     key: ValueKey('month-fill-$j'),
                     alignment: Alignment.centerLeft,
                     transform: Matrix4.diagonal3Values(fill, 1, 1),
-                    child: const ColoredBox(color: _crown),
+                    child: ColoredBox(color: c.pro),
                   ),
                 ),
               ),
@@ -370,10 +378,11 @@ class _MonthStrip extends StatelessWidget {
             Text(
               wide ? name : name.substring(0, 1),
               key: ValueKey('month-label-$j'),
-              style: context.fbText(
-                wide ? 11 : 10,
-                weight: FontWeight.w500,
-                color: Color.lerp(c.tertiaryLabel, c.secondaryLabel, tone),
+              style: (wide
+                      ? PantasType.webKeyHintSm
+                      : PantasType.phoneCaptionSmall)
+                  .copyWith(
+                color: c.textSecondary,
               ),
             ),
           ],

@@ -4,6 +4,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 
+/// Height of the drawing. The design system sets no height for diagrams.
+const double _figureHeight = 96;
+
 /// A row of meshed gears, with an arrow on the first one.
 ///
 /// The spec:
@@ -110,7 +113,7 @@ class GearTrainFigure extends StatelessWidget {
     return Semantics(
       label: '$arrangement$direction',
       child: SizedBox(
-        height: 96,
+        height: _figureHeight,
         child: CustomPaint(
           painter: _GearTrainPainter(
             gears: gears,

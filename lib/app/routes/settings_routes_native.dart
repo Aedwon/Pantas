@@ -1,12 +1,10 @@
 // ignore_for_file: directives_ordering
 
-import 'package:pantas/app/routes/settings_account_deletion.dart';
-export 'package:pantas/app/routes/settings_account_deletion.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
+import 'package:pantas/app/routes/settings_account_deletion.dart';
 import 'package:pantas/core/auth/beta_access.dart';
 import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/notifications/notification_service.dart';
@@ -17,9 +15,10 @@ import 'package:pantas/core/sync/local_state_wiper.dart';
 import 'package:pantas/core/ui/components/centered_dialog.dart';
 import 'package:pantas/core/ui/leave_page.dart';
 import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
-import 'package:pantas/core/ui/web/web_tokens.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/beta_feedback/presentation/exit_survey_page.dart';
 import 'package:pantas/features/beta_feedback/presentation/feedback_page.dart';
 import 'package:pantas/features/beta_feedback/presentation/sent_feedback_page.dart';
@@ -46,6 +45,8 @@ import 'package:pantas/features/settings/presentation/pages/whats_included_page.
 import 'package:pantas/features/settings/presentation/settings_home_page.dart';
 import 'package:pantas/features/settings/presentation/widgets/settings_pane_page.dart';
 import 'package:pantas/features/settings/settings.dart';
+
+export 'package:pantas/app/routes/settings_account_deletion.dart';
 
 List<RouteBase> settingsRoutes(Ref ref) => [
       GoRoute(
@@ -285,6 +286,13 @@ Future<void> _deleteAccount(WidgetRef ref, {required bool isAnonymous}) async {
   );
 }
 
+/// The change-exam picker dialog on wide web: the board's width and tallest
+/// height. The system sets neither, so they stay here with the dialog inset
+/// they are measured from.
+const double _examPickerWidth = 820;
+const double _examPickerMaxHeight = 760;
+const double _examPickerInset = PantasSpace.s24;
+
 class ChangeExamPage extends ConsumerStatefulWidget {
   const ChangeExamPage({super.key});
   @override
@@ -399,12 +407,14 @@ class _ChangeExamPageState extends ConsumerState<ChangeExamPage> {
       onDismiss: () => _exit.close(leave),
       onBack: leave,
       modal: (modalContext) => Dialog(
-        insetPadding: const EdgeInsets.all(24),
+        insetPadding: const EdgeInsets.all(_examPickerInset),
         backgroundColor: Colors.transparent,
         elevation: 0,
         child: SizedBox(
-          width: 820,
-          height: (MediaQuery.sizeOf(modalContext).height - 48).clamp(0, 760),
+          width: _examPickerWidth,
+          height:
+              (MediaQuery.sizeOf(modalContext).height - _examPickerInset * 2)
+                  .clamp(0, _examPickerMaxHeight),
           child: picker,
         ),
       ),

@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/ui/components/loading_shapes.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_border.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/features/wrapped/application/wrapped_providers.dart';
 import 'package:pantas/features/wrapped/data/user_metrics_artifact_repository.dart';
 
@@ -19,7 +22,12 @@ class MySharedCardsPage extends ConsumerWidget {
       appBar: AppBar(title: const Text('My shared cards')),
       body: asyncCards.when(
         loading: () => ListView(
-          padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
+          padding: const EdgeInsets.fromLTRB(
+            PantasSpace.s20,
+            PantasSpace.s24,
+            PantasSpace.s20,
+            PantasSpace.s24,
+          ),
           children: const [LoadingShapes()],
         ),
         error: (_, __) => Center(
@@ -31,10 +39,15 @@ class MySharedCardsPage extends ConsumerWidget {
         data: (cards) {
           if (cards.isEmpty) {
             return ListView(
-              padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
+              padding: const EdgeInsets.fromLTRB(
+                PantasSpace.s20,
+                PantasSpace.s24,
+                PantasSpace.s20,
+                PantasSpace.s24,
+              ),
               children: [
                 Text('No shared cards yet', style: styles.sectionHero),
-                const SizedBox(height: 6),
+                const SizedBox(height: PantasSpace.s6),
                 Text(
                   'Share a Wrapped card to create a public pantas.study link.',
                   style: styles.subhead.copyWith(color: colors.secondaryLabel),
@@ -43,7 +56,12 @@ class MySharedCardsPage extends ConsumerWidget {
             );
           }
           return ListView(
-            padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
+            padding: const EdgeInsets.fromLTRB(
+              PantasSpace.s20,
+              PantasSpace.s24,
+              PantasSpace.s20,
+              PantasSpace.s24,
+            ),
             children: [
               for (final card in cards) _SharedCardRow(card: card),
             ],
@@ -64,14 +82,13 @@ class _SharedCardRow extends ConsumerWidget {
     final styles = context.type;
     final colors = context.colors;
     return Container(
-      constraints: const BoxConstraints(minHeight: 44),
-      padding: const EdgeInsets.symmetric(vertical: 8),
+      constraints: const BoxConstraints(minHeight: PantasSize.targetTouch),
+      padding: const EdgeInsets.symmetric(vertical: PantasSpace.s8),
       decoration: BoxDecoration(
         border: Border(
           bottom: BorderSide(
             color: colors.fill,
-            // ignore: avoid_redundant_argument_values
-            width: 0.5,
+            width: PantasBorder.hairline,
           ),
         ),
       ),
@@ -82,7 +99,7 @@ class _SharedCardRow extends ConsumerWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(card.title, style: styles.subhead),
-                const SizedBox(height: 1),
+                const SizedBox(height: PantasSpace.s2),
                 Text(
                   'pantas.study/wrapped/${card.shareId}',
                   style: styles.subhead.copyWith(color: colors.secondaryLabel),
@@ -90,12 +107,13 @@ class _SharedCardRow extends ConsumerWidget {
               ],
             ),
           ),
-          const SizedBox(width: 12),
+          const SizedBox(width: PantasSpace.s12),
           TextButton(
             onPressed: () => _revoke(ref),
             style: TextButton.styleFrom(
               foregroundColor: colors.destructive,
-              minimumSize: const Size(48, 48),
+              minimumSize:
+                  const Size(PantasSize.targetTouch, PantasSize.targetTouch),
               padding: EdgeInsets.zero,
             ),
             child: Text(

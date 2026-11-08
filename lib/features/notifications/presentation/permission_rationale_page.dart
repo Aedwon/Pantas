@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:pantas/core/notifications/notification_service.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/features/notifications/application/notifications_providers.dart';
 
 class PermissionRationalePage extends ConsumerStatefulWidget {
@@ -44,7 +45,12 @@ class _PermissionRationalePageState
                   child: ConstrainedBox(
                     constraints: const BoxConstraints(maxWidth: 420),
                     child: Padding(
-                      padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
+                      padding: const EdgeInsets.fromLTRB(
+                        PantasSpace.s20,
+                        PantasSpace.s24,
+                        PantasSpace.s20,
+                        PantasSpace.s24,
+                      ),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -53,21 +59,21 @@ class _PermissionRationalePageState
                             "I'll be your coach.",
                             style: styles.sectionHero,
                           ),
-                          const SizedBox(height: 16),
+                          const SizedBox(height: PantasSpace.s16),
                           Text(
                             'Get one daily study reminder and a streak-save '
                             'warning when you still have work left today.',
                             style: styles.body
                                 .copyWith(color: colors.secondaryLabel),
                           ),
-                          const SizedBox(height: 32),
+                          const SizedBox(height: PantasSpace.s32),
                           PantasButton(
                             label: 'Sounds good',
                             onPressed: _isSaving
                                 ? null
                                 : () => _continue(requestPermission: true),
                           ),
-                          const SizedBox(height: 8),
+                          const SizedBox(height: PantasSpace.s8),
                           PantasButton(
                             label: 'Not right now',
                             variant: PantasButtonVariant.tertiary,

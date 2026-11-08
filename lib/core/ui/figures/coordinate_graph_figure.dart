@@ -4,6 +4,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 
+/// Height of the drawing. The design system sets no height for diagrams.
+const double _figureHeight = 220;
+
 /// Axes and authored curves for algebra, calculus, projectile,
 /// and conic lessons.
 class CoordinateGraphFigure extends StatelessWidget {
@@ -283,7 +286,7 @@ class CoordinateGraphFigure extends StatelessWidget {
           ? 'A $type coordinate graph.'
           : 'A $type coordinate graph of $formula.',
       child: SizedBox(
-        height: 220,
+        height: _figureHeight,
         child: CustomPaint(
           size: Size.infinite,
           painter: _CoordinateGraphPainter(

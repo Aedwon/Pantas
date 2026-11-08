@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 
 class SharePrivacySelection {
   const SharePrivacySelection({
@@ -58,12 +59,17 @@ class SharePrivacySheet extends StatelessWidget {
               onChanged(selection.copyWith(includeScore: value)),
         ),
         Padding(
-          padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
+          padding: const EdgeInsets.fromLTRB(
+            PantasSpace.s16,
+            PantasSpace.s8,
+            PantasSpace.s16,
+            PantasSpace.s0,
+          ),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Icon(Icons.public, size: 16, color: colors.secondaryLabel),
-              const SizedBox(width: 8),
+              const SizedBox(width: PantasSpace.s8),
               Expanded(
                 child: Text(
                   hostingDisclosure,

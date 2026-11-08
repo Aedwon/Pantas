@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
@@ -28,11 +29,15 @@ class SettingsSection extends StatelessWidget {
       children: [
         if (header != null)
           Padding(
-            padding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
+            padding: const EdgeInsets.fromLTRB(
+              PantasSpace.s16,
+              PantasSpace.s0,
+              PantasSpace.s16,
+              PantasSpace.s8,
+            ),
             child: Text(header!.toUpperCase(), style: t.eb),
           ),
         WebCard(
-          radius: 16,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: children,
@@ -40,7 +45,12 @@ class SettingsSection extends StatelessWidget {
         ),
         if (footer != null)
           Padding(
-            padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
+            padding: const EdgeInsets.fromLTRB(
+              PantasSpace.s16,
+              PantasSpace.s8,
+              PantasSpace.s16,
+              PantasSpace.s0,
+            ),
             child: Text(footer!, style: t.sm),
           ),
       ],

@@ -98,7 +98,7 @@ void main() {
     expect(tester.takeException(), isNull);
   });
 
-  testWidgets('phone plan cards share one height, whatever each holds',
+  testWidgets('phone plan tiles stack one per row, each full width',
       (tester) async {
     await _pump(
       tester,
@@ -106,17 +106,20 @@ void main() {
       monthly: '\u20b1149.00',
       yearly: '\u20b11,199.00',
     );
-    double height(String label) => tester
-        .getSize(
+    Rect rect(String label) => tester.getRect(
           find
-              .ancestor(of: find.text(label), matching: find.byType(InkWell))
+              .ancestor(
+                of: find.text(label),
+                matching: find.byKey(const ValueKey('pro-plan-tile')),
+              )
               .first,
-        )
-        .height;
+        );
     // Yearly states its monthly price on a second line; the others do not.
     expect(find.textContaining(' a month'), findsOneWidget);
-    expect(height('Weekly'), height('Yearly'));
-    expect(height('Monthly'), height('Yearly'));
+    expect(rect('Weekly').width, rect('Monthly').width);
+    expect(rect('Monthly').width, rect('Yearly').width);
+    expect(rect('Weekly').bottom, lessThan(rect('Monthly').top));
+    expect(rect('Monthly').bottom, lessThan(rect('Yearly').top));
     expect(tester.takeException(), isNull);
   });
 }

@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/leave_page.dart';
-import 'package:pantas/core/ui/theme/legacy_theme_shim.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/features/beta_feedback/application/beta_feedback_providers.dart';
 import 'package:pantas/features/beta_feedback/presentation/exit_survey_page.dart';
 import 'package:pantas/features/beta_feedback/presentation/fb_kit.dart';
@@ -25,7 +26,6 @@ class SentFeedbackPage extends ConsumerWidget {
     final sent = ref.watch(sentFeedbackProvider);
     final item = sent.valueOrNull?.where((s) => s.id == id).firstOrNull;
     final wide = context.fbWide;
-    final c = context.fb;
     void back() => leavePage(context, fallback: feedbackPath);
 
     Widget shell(String title, List<Widget> children) => frame(
@@ -45,7 +45,7 @@ class SentFeedbackPage extends ConsumerWidget {
       return shell('', [
         Text(
           'This feedback is not available.',
-          style: context.fbText(15, color: c.secondaryLabel),
+          style: context.fbSub,
         ),
       ]);
     }
@@ -54,17 +54,19 @@ class SentFeedbackPage extends ConsumerWidget {
       if (hasText)
         FbCard(
           key: const ValueKey('sent-text-card'),
-          padding:
-              EdgeInsets.symmetric(horizontal: 16, vertical: wide ? 14 : 12),
+          padding: EdgeInsets.symmetric(
+            horizontal: PantasSpace.s16,
+            vertical: wide ? PantasSpace.s14 : PantasSpace.s12,
+          ),
           child: SelectableText(
             item.text.trim(),
-            style: wide
-                ? context.fbText(16, height: 1.4)
-                : context.fbText(17, height: 1.35, spacing: -.204),
+            style: context.fbBody,
           ),
         ),
       for (var i = 0; i < item.attachments.length; i++) ...[
-        SizedBox(height: hasText || i > 0 ? 10 : 0),
+        SizedBox(
+          height: hasText || i > 0 ? PantasSpace.s10 : PantasSpace.s0,
+        ),
         _SentImage(
           key: ValueKey('sent-image-$i'),
           path: item.attachments[i].path,
@@ -89,14 +91,14 @@ class _SentImage extends ConsumerWidget {
           child: ColoredBox(color: c.fill, child: child),
         );
     return ClipRRect(
-      borderRadius: BorderRadius.circular(10),
+      borderRadius: BorderRadius.circular(PantasRadius.md),
       child: url.when(
         loading: placeholder,
         error: (_, __) => placeholder(
           Center(
             child: Text(
               'Could not load this image.',
-              style: context.fbText(13, color: c.secondaryLabel),
+              style: context.fbSmall,
             ),
           ),
         ),
@@ -116,7 +118,7 @@ class _SentImage extends ConsumerWidget {
               Center(
                 child: Text(
                   'Could not load this image.',
-                  style: context.fbText(13, color: c.secondaryLabel),
+                  style: context.fbSmall,
                 ),
               ),
             ),
