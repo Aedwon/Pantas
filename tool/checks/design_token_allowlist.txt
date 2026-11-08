@@ -16,3 +16,4 @@ lib/core/ui/figures/chart_figure.dart
 lib/core/ui/figures/physics_mechanics_diagram_figure.dart
 lib/core/ui/icons/own/own_icons.dart
 lib/features/mock_exam/presentation/widgets/web_finale_tracks.dart
+lib/core/ui/icons/own/mock_panel_glyph.dart
