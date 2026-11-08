@@ -24,6 +24,7 @@ import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/paywall/application/paywall_providers.dart';
+import 'package:pantas/features/settings/presentation/pages/backup_page.dart';
 import 'package:pantas/features/settings/presentation/widgets/settings_pane_page.dart';
 import 'package:pantas/features/settings/presentation/widgets/settings_row.dart';
 import 'package:pantas/features/settings/presentation/widgets/settings_section.dart';
@@ -204,13 +205,12 @@ class _AccountPageState extends ConsumerState<AccountPage> {
               onPressed: () => push('/settings/account/delete'),
             ),
           ] else ...[
-            if (!web) ...[
+            ...[
               SettingsSection(
                 header: 'Backup',
                 footer: pro
                     ? "Pantas backs up on its own whenever you're online."
-                    : 'Your progress stays in this browser only. With Pro, '
-                        "it's backed up and syncs across your devices.",
+                    : webFreeBackupNote,
                 children: [
                   SettingsRow(
                     title: 'Backup',
@@ -360,17 +360,20 @@ class _AccountPageState extends ConsumerState<AccountPage> {
             textAlign: TextAlign.center,
           ),
         ] else ...[
-          if (!web) ...[
+          ...[
             SettingsSection(
               header: 'Backup',
               footer: pro
                   ? "Pantas backs up on its own whenever you're online."
-                  : "Your progress stays on this phone only. With Pro, it's "
-                      'backed up and syncs across your devices.',
+                  : web
+                      ? webFreeBackupNote
+                      : 'Your progress stays on this phone only. With Pro, '
+                          "it's backed up and syncs across your devices.",
               children: [
                 SettingsRow(
                   title: 'Backup',
-                  value: pro ? backup : 'This phone only',
+                  value:
+                      pro ? backup : 'This ${web ? 'browser' : 'phone'} only',
                   variant: ListRowVariant.value,
                   divider: true,
                   dividerInset: context.wideWeb ? 0 : 16,

@@ -13,6 +13,11 @@ import 'package:pantas/features/settings/presentation/widgets/settings_pane_page
 import 'package:pantas/features/settings/presentation/widgets/settings_row.dart';
 import 'package:pantas/features/settings/presentation/widgets/settings_section.dart';
 
+/// What the web build tells a student without Pro about where progress lives.
+const webFreeBackupNote = 'Your browser saves data on this device. Pantas also '
+    'keeps answers and study activity on its servers, including on Free. '
+    'Pro adds backup and syncing across your devices.';
+
 class BackupPage extends ConsumerStatefulWidget {
   const BackupPage({super.key});
   @override
@@ -46,26 +51,18 @@ class _BackupPageState extends ConsumerState<BackupPage> {
 
   @override
   Widget build(BuildContext context) {
-    if (ref.watch(paymentsOnWebProvider)) {
-      // Only a signed-in student with Pro has a backup. The Account page says
-      // the same to everyone else.
-      final saved = !(ref.watch(isAnonymousProvider).valueOrNull ?? true) &&
-          (ref.watch(entitlementProvider).valueOrNull?.proIsActive ?? false);
+    final web = ref.watch(paymentsOnWebProvider);
+    // Web without Pro has no backup to show, and the browser alone does not
+    // hold everything: answers also reach the server, on Free too.
+    final saved = !(ref.watch(isAnonymousProvider).valueOrNull ?? true) &&
+        (ref.watch(entitlementProvider).valueOrNull?.proIsActive ?? false);
+    if (web && !saved) {
       return SettingsPanePage(
         section: 'Account',
         title: 'Backup',
         backLabel: 'Account',
         onBack: () => leavePage(context, fallback: '/settings/account'),
-        children: [
-          Text(
-            saved
-                ? 'Your progress is saved to your account.'
-                : 'Your browser saves data on this device. Pantas also keeps '
-                    'answers and study activity on its servers, '
-                    'including on Free. '
-                    'Pro adds backup and syncing across your devices.',
-          ),
-        ],
+        children: const [Text(webFreeBackupNote)],
       );
     }
     final status = ref.watch(syncStatusProvider).valueOrNull;
@@ -120,7 +117,9 @@ class _BackupPageState extends ConsumerState<BackupPage> {
               : offline
                   ? "It backs up when you're back online."
                   : failed
-                      ? 'Your progress is safe on this phone.'
+                      ? web
+                          ? 'Your progress is safe in this browser.'
+                          : 'Your progress is safe on this phone.'
                       : "Pantas backs up on its own whenever you're online.",
           children: [
             SettingsRow(

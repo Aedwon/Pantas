@@ -18,22 +18,6 @@ class _Runtime extends FakeSyncEngine {
 }
 
 void main() {
-  testWidgets('web hides manual backup and unavailable status details',
-      (tester) async {
-    await tester.pumpAppWithProviders(
-      const BackupPage(),
-      overrides: [
-        paymentsOnWebProvider.overrideWithValue(true),
-        syncStatusProvider
-            .overrideWith((ref) => Stream.value(const SyncUpToDate())),
-      ],
-    );
-    await tester.pumpAndSettle();
-    expect(find.text('Back Up Now'), findsNothing);
-    expect(find.text('Saved'), findsNothing);
-    expect(find.text('Last backed up'), findsNothing);
-    expect(find.text('Waiting to back up'), findsNothing);
-  });
   testWidgets('web explains server study records on Free', (tester) async {
     await tester.pumpAppWithProviders(
       const BackupPage(),
@@ -53,7 +37,26 @@ void main() {
     );
     expect(find.text('Your progress is saved to your account.'), findsNothing);
   });
-  testWidgets('web says progress is saved to the account for signed-in Pro',
+  testWidgets('web shows live backup status for signed-in Pro', (tester) async {
+    await tester.pumpAppWithProviders(
+      const BackupPage(),
+      overrides: [
+        paymentsOnWebProvider.overrideWithValue(true),
+        isAnonymousProvider.overrideWith((ref) async => false),
+        entitlementProvider.overrideWith(
+          (ref) =>
+              Stream.value(const Entitlement(plan: EntitlementPlan.monthly)),
+        ),
+        syncStatusProvider
+            .overrideWith((ref) => Stream.value(const SyncUpToDate())),
+      ],
+    );
+    await tester.pumpAndSettle();
+    expect(find.text('Saved'), findsOneWidget);
+    expect(find.text('Back Up Now'), findsOneWidget);
+    expect(find.text(webFreeBackupNote), findsNothing);
+  });
+  testWidgets('web failure says progress is safe in this browser',
       (tester) async {
     await tester.pumpAppWithProviders(
       const BackupPage(),
@@ -64,14 +67,13 @@ void main() {
           (ref) =>
               Stream.value(const Entitlement(plan: EntitlementPlan.monthly)),
         ),
+        syncStatusProvider
+            .overrideWith((ref) => Stream.value(const SyncError())),
       ],
     );
     await tester.pumpAndSettle();
-    expect(
-      find.text('Your progress is saved to your account.'),
-      findsOneWidget,
-    );
-    expect(find.textContaining('stays in this browser'), findsNothing);
+    expect(find.text('Your progress is safe in this browser.'), findsOneWidget);
+    expect(find.textContaining('this phone'), findsNothing);
   });
   testWidgets('Back Up Now calls the current runtime and blocks duplicate taps',
       (tester) async {

@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/auth/auth.dart';
+import 'package:pantas/core/sync/providers.dart';
+import 'package:pantas/core/sync/sync_status.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
-import 'package:pantas/features/paywall/application/paywall_providers.dart';
+import 'package:pantas/features/paywall/paywall.dart';
 import 'package:pantas/features/settings/presentation/pages/account_page.dart';
+import 'package:pantas/features/settings/presentation/pages/backup_page.dart';
 
 void main() {
   testWidgets('user == null is local-only even without anonymous state',
@@ -58,6 +61,46 @@ void main() {
     // The account header and the Email row both show it.
     expect(find.text('tester@example.com'), findsWidgets);
     expect(find.text('Google'), findsNothing);
+  });
+
+  testWidgets('web shows Backup with the browser copy on Free', (tester) async {
+    await _pumpAccount(
+      tester,
+      repository: SequencedAuthRepository(const []),
+      user: const AuthUser(
+        uid: 'user-1',
+        email: 'reader@example.com',
+        displayName: 'Reader',
+      ),
+      web: true,
+    );
+    expect(find.text('This browser only'), findsOneWidget);
+    expect(find.text(webFreeBackupNote), findsOneWidget);
+    expect(find.text('Back Up with Pro'), findsOneWidget);
+    expect(find.textContaining('this phone'), findsNothing);
+  });
+
+  testWidgets('web shows Backup status and Details for Pro', (tester) async {
+    await _pumpAccount(
+      tester,
+      repository: SequencedAuthRepository(const []),
+      user: const AuthUser(
+        uid: 'user-1',
+        email: 'reader@example.com',
+        displayName: 'Reader',
+      ),
+      web: true,
+      extra: [
+        entitlementProvider.overrideWith(
+          (ref) =>
+              Stream.value(const Entitlement(plan: EntitlementPlan.monthly)),
+        ),
+        syncStatusProvider
+            .overrideWith((ref) => Stream.value(const SyncUpToDate())),
+      ],
+    );
+    expect(find.text('Saved'), findsOneWidget);
+    expect(find.text('Details'), findsOneWidget);
   });
 
   testWidgets('named Free account keeps local-only Pro-aware copy',
@@ -144,6 +187,7 @@ Future<void> _pumpAccount(
   required AuthRepository repository,
   required AuthUser? user,
   bool web = false,
+  List<Override> extra = const [],
 }) async {
   await tester.pumpWidget(
     ProviderScope(
@@ -151,6 +195,7 @@ Future<void> _pumpAccount(
         currentUserProvider.overrideWith((ref) => user),
         authRepositoryProvider.overrideWithValue(repository),
         if (web) paymentsOnWebProvider.overrideWithValue(true),
+        ...extra,
       ],
       child: MaterialApp(
         theme: buildLightTheme().copyWith(
