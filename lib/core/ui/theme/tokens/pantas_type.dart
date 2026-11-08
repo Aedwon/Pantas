@@ -64,6 +64,7 @@ abstract final class PantasType {
     fontSize: 16,
     fontWeight: FontWeight.w600,
     height: 1.3,
+    letterSpacing: 0,
   );
 
   /// Line under a page title. Secondary color. (17/400)
@@ -72,6 +73,7 @@ abstract final class PantasType {
     fontSize: 17,
     fontWeight: FontWeight.w400,
     height: 1.45,
+    letterSpacing: 0,
   );
 
   /// Default text. Primary color. (16/400)
@@ -80,6 +82,7 @@ abstract final class PantasType {
     fontSize: 16,
     fontWeight: FontWeight.w400,
     height: 1.45,
+    letterSpacing: 0,
   );
 
   /// Supporting text. Secondary color. (15/400)
@@ -88,6 +91,7 @@ abstract final class PantasType {
     fontSize: 15,
     fontWeight: FontWeight.w400,
     height: 1.45,
+    letterSpacing: 0,
   );
 
   /// Captions and fine print. Secondary color. (13/400)
@@ -96,6 +100,7 @@ abstract final class PantasType {
     fontSize: 13,
     fontWeight: FontWeight.w400,
     height: 1.45,
+    letterSpacing: 0,
   );
 
   /// Field label above a field (patterns 13/600). Also the question-chip
@@ -105,6 +110,7 @@ abstract final class PantasType {
     fontSize: 13,
     fontWeight: FontWeight.w600,
     height: 1.3,
+    letterSpacing: 0,
   );
 
   /// Sidebar account name (board 14/600) and segmented control label
@@ -114,6 +120,7 @@ abstract final class PantasType {
     fontSize: 14,
     fontWeight: FontWeight.w600,
     height: 1.3,
+    letterSpacing: 0,
   );
 
   /// Sidebar account plan line (board 12). Secondary color. New. (12/400)
@@ -122,6 +129,7 @@ abstract final class PantasType {
     fontSize: 12,
     fontWeight: FontWeight.w400,
     height: 1.35,
+    letterSpacing: 0,
   );
 
   /// Small label above a group. Uppercase, secondary color. Set
@@ -151,6 +159,7 @@ abstract final class PantasType {
     fontSize: 22,
     fontWeight: FontWeight.w600,
     height: 1,
+    letterSpacing: 0,
   );
 
   /// Question stem in focus mode. Scales with the lesson text scale
@@ -170,6 +179,7 @@ abstract final class PantasType {
     fontSize: 18,
     fontWeight: FontWeight.w400,
     height: 1.7,
+    letterSpacing: 0,
   );
 
   /// Text inside a reader block (note, common mistake, example). Scales
@@ -180,6 +190,7 @@ abstract final class PantasType {
     fontSize: 16,
     fontWeight: FontWeight.w400,
     height: 1.6,
+    letterSpacing: 0,
   );
 
   /// Explanation card body on wide screens (board 17/1.55). Color
@@ -190,6 +201,7 @@ abstract final class PantasType {
     fontSize: 17,
     fontWeight: FontWeight.w400,
     height: 1.55,
+    letterSpacing: 0,
   );
 
   /// Sidebar item. Active item is 600. (15/500)
@@ -198,6 +210,7 @@ abstract final class PantasType {
     fontSize: 15,
     fontWeight: FontWeight.w500,
     height: 1.25,
+    letterSpacing: 0,
   );
 
   /// Button label. Title Case. (16/600)
@@ -206,6 +219,7 @@ abstract final class PantasType {
     fontSize: 16,
     fontWeight: FontWeight.w600,
     height: 1.25,
+    letterSpacing: 0,
   );
 
   /// Large button label. (17/600)
@@ -214,6 +228,7 @@ abstract final class PantasType {
     fontSize: 17,
     fontWeight: FontWeight.w600,
     height: 1.25,
+    letterSpacing: 0,
   );
 
   /// Key hint on its own; week-day letter; date-picker weekday. (11/600)
@@ -222,6 +237,7 @@ abstract final class PantasType {
     fontSize: 11,
     fontWeight: FontWeight.w600,
     height: 1.2,
+    letterSpacing: 0,
   );
 
   /// Tag label and the key hint inside a primary button (web-key-hint
@@ -231,6 +247,7 @@ abstract final class PantasType {
     fontSize: 12,
     fontWeight: FontWeight.w600,
     height: 1.3,
+    letterSpacing: 0,
   );
 
   /// Pro mark. (11/700)
@@ -249,6 +266,7 @@ abstract final class PantasType {
     fontSize: 17,
     fontWeight: FontWeight.w400,
     height: 1.3,
+    letterSpacing: 0,
   );
 
   /// Settings row title and pane row value (boards 16). New. (16/400)
@@ -257,6 +275,7 @@ abstract final class PantasType {
     fontSize: 16,
     fontWeight: FontWeight.w400,
     height: 1.3,
+    letterSpacing: 0,
   );
 
   /// Row subtitle. Secondary color. (14/400)
@@ -265,6 +284,7 @@ abstract final class PantasType {
     fontSize: 14,
     fontWeight: FontWeight.w400,
     height: 1.3,
+    letterSpacing: 0,
   );
 
   /// Row value. Secondary color. (15/400)
@@ -273,6 +293,7 @@ abstract final class PantasType {
     fontSize: 15,
     fontWeight: FontWeight.w400,
     height: 1.3,
+    letterSpacing: 0,
   );
 
   /// StatRow value (16/600; empty is the 400 state). R3-O09. New. (16/600)
@@ -281,6 +302,7 @@ abstract final class PantasType {
     fontSize: 16,
     fontWeight: FontWeight.w600,
     height: 1.3,
+    letterSpacing: 0,
   );
 
   /// ExamChip exam name (13/700). R3-O09: was web-field-label with a 700
@@ -290,6 +312,7 @@ abstract final class PantasType {
     fontSize: 13,
     fontWeight: FontWeight.w700,
     height: 1.3,
+    letterSpacing: 0,
   );
 
   /// Single glyph or short number in a box: avatar initial, calendar day in
@@ -299,6 +322,7 @@ abstract final class PantasType {
     fontSize: 14,
     fontWeight: FontWeight.w700,
     height: 1,
+    letterSpacing: 0,
   );
 
   /// SearchOverlay query text (SD_Search draws 19px). Ruling 9. New.
@@ -308,6 +332,7 @@ abstract final class PantasType {
     fontSize: 19,
     fontWeight: FontWeight.w400,
     height: 1.3,
+    letterSpacing: 0,
   );
 
   /// Mock timer digits. Tabular figures. New (R2-O01). (17/700)
@@ -316,6 +341,7 @@ abstract final class PantasType {
     fontSize: 17,
     fontWeight: FontWeight.w700,
     height: 1.2,
+    letterSpacing: 0,
     fontFeatures: [FontFeature.tabularFigures()],
   );
 
@@ -326,6 +352,7 @@ abstract final class PantasType {
     fontSize: 18,
     fontWeight: FontWeight.w400,
     height: 1.4,
+    letterSpacing: 0,
   );
 
   /// Text link with an arrow. (15/600)
@@ -334,6 +361,7 @@ abstract final class PantasType {
     fontSize: 15,
     fontWeight: FontWeight.w600,
     height: 1.3,
+    letterSpacing: 0,
   );
 
   /// Tab root title. (34/700)
@@ -427,6 +455,7 @@ abstract final class PantasType {
     fontSize: 16,
     fontWeight: FontWeight.w400,
     height: 1.35,
+    letterSpacing: 0,
   );
 
   /// Card subtitle and secondary value (board 15/500). Code subhead is
@@ -436,6 +465,7 @@ abstract final class PantasType {
     fontSize: 15,
     fontWeight: FontWeight.w500,
     height: 1.35,
+    letterSpacing: 0,
   );
 
   /// Phone explanation text under the options (board 15/1.5). New. (15/400)
@@ -444,6 +474,7 @@ abstract final class PantasType {
     fontSize: 15,
     fontWeight: FontWeight.w400,
     height: 1.5,
+    letterSpacing: 0,
   );
 
   /// Row caption and section footer. Secondary color. (13/400)
@@ -452,6 +483,7 @@ abstract final class PantasType {
     fontSize: 13,
     fontWeight: FontWeight.w400,
     height: 1.35,
+    letterSpacing: 0,
   );
 
   /// Phone label above an explanation, emphasized caption (board 13/500).
@@ -461,6 +493,7 @@ abstract final class PantasType {
     fontSize: 13,
     fontWeight: FontWeight.w500,
     height: 1.35,
+    letterSpacing: 0,
   );
 
   /// Group header. Uppercase, secondary color. (13/600)
@@ -478,6 +511,7 @@ abstract final class PantasType {
     fontSize: 12,
     fontWeight: FontWeight.w400,
     height: 1.35,
+    letterSpacing: 0,
   );
 
   /// Tab label (active 600, inactive 500) and week day. (10/600)
@@ -486,6 +520,7 @@ abstract final class PantasType {
     fontSize: 10,
     fontWeight: FontWeight.w600,
     height: 1.35,
+    letterSpacing: 0,
   );
 
   /// TabBar label at rest (10/500); the current tab is the 600 state
@@ -496,6 +531,7 @@ abstract final class PantasType {
     fontSize: 10,
     fontWeight: FontWeight.w500,
     height: 1.35,
+    letterSpacing: 0,
   );
 
   /// Wheel picker row (20/400 in a 36px row; the selected row is the 500
@@ -506,6 +542,7 @@ abstract final class PantasType {
     fontSize: 20,
     fontWeight: FontWeight.w400,
     height: 1,
+    letterSpacing: 0,
   );
 
   /// Display numeral, small. (44/700)
@@ -547,5 +584,6 @@ abstract final class PantasType {
     fontSize: 28.8,
     fontWeight: FontWeight.w400,
     height: 1.4,
+    letterSpacing: 0,
   );
 }

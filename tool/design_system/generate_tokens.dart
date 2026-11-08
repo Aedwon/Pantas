@@ -290,6 +290,10 @@ class _Gen {
         if (ls != null) {
           final em = double.parse(ls.substring(0, ls.length - 2));
           b.writeln('    letterSpacing: ${_fmt(em * size)},');
+        } else {
+          // Explicit 0, so Material's own tracking (0.25 on body styles) never
+          // leaks into a style the system gives no tracking.
+          b.writeln('    letterSpacing: 0,');
         }
         if (tabular) {
           b.writeln('    fontFeatures: [FontFeature.tabularFigures()],');
