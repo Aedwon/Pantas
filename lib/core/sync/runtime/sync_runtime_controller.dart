@@ -12,6 +12,7 @@ import 'package:pantas/core/sync/engine/sync_held_generation.dart';
 import 'package:pantas/core/sync/engine/sync_meaningful_progress.dart';
 import 'package:pantas/core/sync/sync_coordinator.dart';
 import 'package:pantas/core/sync/sync_status.dart';
+import 'package:pantas/core/telemetry/client_report.dart';
 
 typedef GenerationRepositoryFactory = GenerationRepository Function(String uid);
 
@@ -613,6 +614,7 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
     final pending = await _db.select(_db.pendingSync).get();
     final failed = pending.where((row) => row.lastError != null).toList();
     if (failed.isNotEmpty) {
+      await _reportFailedRows(failed);
       return SyncError(message: failed.first.lastError);
     }
     final journal = await _db
@@ -646,6 +648,30 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
   }
 
   bool _isCurrent(int token) => token == _transitionToken;
+
+  /// Sends a short summary of rows that keep failing to the web error
+  /// report, so a stuck backup can be traced. Rows held for another account
+  /// or another backup cannot be pushed by this one, so they are counted
+  /// apart.
+  Future<void> _reportFailedRows(List<PendingSyncRow> failed) async {
+    final reporter = ClientReporter.active;
+    if (reporter == null) return;
+    final active = await _activeContextStore.readStable();
+    final summary = <String, int>{};
+    for (final row in failed) {
+      final own = active != null &&
+          row.uid == active.uid &&
+          row.generationId == active.generationId;
+      final key = '${own ? 'current' : 'other'} ${row.tableType} '
+          '${row.lastError}';
+      summary[key] = (summary[key] ?? 0) + 1;
+    }
+    final text = summary.entries.map((e) => '${e.key} x${e.value}').join('; ');
+    reporter.recordError(
+      StateError('Backup rows failing: $text'),
+      StackTrace.empty,
+    );
+  }
 
   void _emit(SyncStatus status) {
     _status = status;
