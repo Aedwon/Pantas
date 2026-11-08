@@ -77,6 +77,12 @@ app name. **Do not create products from the old list.** Full setup, in order, is
 - **Feedback: the Facebook group**,
   `https://www.facebook.com/groups/1760794271928040`, created 11 August 2026.
   This is where the "Send feedback" row goes. It is a moderation commitment.
+- **Beta feedback: not the Facebook group.** For the beta, the group does not
+  apply (Aedwon, 9 November 2026). Testers send feedback through the in-app
+  Settings page Feedback (Beta). Reports are stored in pantas-prod Firestore at
+  `users/{uid}/betaFeedback/{id}`, with images in Storage at
+  `betaFeedback/{uid}/{feedbackId}/`. Aedwon reads them in the Firebase console;
+  there is no admin screen.
 - **No postal address.** There is no office, and a placeholder under a privacy
   policy is worse than none. The Play Console asks for an address when a
   developer account is verified. That is the console's, not the app's.
