@@ -6,6 +6,7 @@ import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/time/pantas_dates.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/leave_page.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/web/web_debrief_loading.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/mock_exam/application/mock_results_providers.dart';
@@ -131,7 +132,7 @@ class _MockResultsRouteState extends ConsumerState<MockResultsRoute> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   const Text('Results not available'),
-                  const SizedBox(height: 16),
+                  const SizedBox(height: PantasSpace.s16),
                   PantasButton(
                     label: 'Back',
                     variant: PantasButtonVariant.tertiary,

@@ -22,7 +22,12 @@ void main() {
 
   Color redOf(WidgetTester tester) {
     final context = tester.element(find.byType(ProctorToast));
-    return context.colors.wrongText;
+    return context.colors.dangerText;
+  }
+
+  Color warningOf(WidgetTester tester) {
+    final context = tester.element(find.byType(ProctorToast));
+    return context.colors.warningText;
   }
 
   test('the copy says subject, not part, and pluralizes one minute', () {
@@ -40,11 +45,13 @@ void main() {
     expect(find.byType(Icon), findsNothing);
   });
 
-  testWidgets('the final call is red', (tester) async {
+  testWidgets('the final call keeps the warning color, never red',
+      (tester) async {
     await pumpToast(tester, minutes: 1);
     final text =
         tester.widget<Text>(find.text('1 minute left in this subject.'));
-    expect(text.style!.color, redOf(tester));
+    expect(text.style!.color, isNot(redOf(tester)));
+    expect(text.style!.color, warningOf(tester));
   });
 
   testWidgets('five-minute call uses warning text', (tester) async {

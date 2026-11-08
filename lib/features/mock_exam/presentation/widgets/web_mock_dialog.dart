@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/components/centered_dialog.dart';
 import 'package:pantas/core/ui/web/web_key_focus.dart';
-import 'package:pantas/core/ui/web/web_tokens.dart';
 
 /// Confirmation surface for pause, submit, end-part and discard.
 ///
@@ -32,81 +30,20 @@ class WebMockDialog extends StatelessWidget {
   final bool destructive;
   final Widget? content;
   @override
-  Widget build(BuildContext context) => CallbackShortcuts(
-        bindings: {const SingleActivator(LogicalKeyboardKey.escape): onCancel},
-        child: EnterShortcut(
-          onEnter: onCancel,
-          child: Focus(
-            autofocus: true,
-            skipTraversal: true,
-            child: _dialog(context),
-          ),
-        ),
-      );
-
-  Widget _dialog(BuildContext context) => Dialog(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        child: ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 440),
-          child: WebCard(
-            radius: 22,
-            padding: const EdgeInsets.all(26),
-            child: SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(title, style: context.webTokens.h3),
-                  const SizedBox(height: 18),
-                  Text(
-                    message,
-                    style: context.webTokens.sub.copyWith(fontSize: 15),
-                  ),
-                  if (content != null) ...[
-                    const SizedBox(height: 18),
-                    content!,
-                  ],
-                  const SizedBox(height: 18),
-                  // The boards right-align the pair. A destructive dialog
-                  // puts the safe choice first and the red action last;
-                  // every other dialog puts the action first, as plain
-                  // text, and the safe choice last, in teal.
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: Wrap(
-                      spacing: 8,
-                      runSpacing: 8,
-                      children: destructive
-                          ? [
-                              WebButton(
-                                label: secondaryLabel,
-                                variant: WebButtonVariant.tertiary,
-                                onPressed: onCancel,
-                              ),
-                              WebButton(
-                                label: primaryLabel,
-                                variant: WebButtonVariant.danger,
-                                onPressed: onConfirm,
-                              ),
-                            ]
-                          : [
-                              WebButton(
-                                label: primaryLabel,
-                                variant: WebButtonVariant.tertiary,
-                                onPressed: onConfirm,
-                              ),
-                              WebButton(
-                                label: secondaryLabel,
-                                onPressed: onCancel,
-                              ),
-                            ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
+  Widget build(BuildContext context) => EnterShortcut(
+        onEnter: onCancel,
+        // The surface is the system Dialog. This wrapper adds the mock's
+        // keys: Esc and Enter with no button focused both keep the student
+        // in the exam.
+        child: CenteredDialog(
+          title: title,
+          message: message,
+          primaryLabel: primaryLabel,
+          secondaryLabel: secondaryLabel,
+          onConfirm: onConfirm,
+          onCancel: onCancel,
+          destructive: destructive,
+          content: content,
         ),
       );
 }

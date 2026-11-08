@@ -9,6 +9,10 @@ import 'package:pantas/core/ui/components/row_tap_target.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/leave_page.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_key_focus.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -16,6 +20,10 @@ import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/mock_exam/application/mock_blueprint_providers.dart';
 import 'package:pantas/features/mock_exam/data/blueprint_section.dart';
 import 'package:pantas/features/mock_exam/domain/mock_title.dart';
+
+/// The width of the Items and Time columns of the setup table: the system's
+/// DataTable sets no token for it.
+const _figureColumn = 90.0;
 
 class MockSetupPage extends StatefulWidget {
   const MockSetupPage({
@@ -73,37 +81,38 @@ class _MockSetupPageState extends State<MockSetupPage> {
               children: [
                 // MK_SetupCSE: the link row is 44 px under 6 px of padding, so
                 // its text sits 6 px lower than a bare 44 px row.
-                SizedBox(
-                  height: 50,
-                  child: Padding(
-                    padding: const EdgeInsets.fromLTRB(4, 6, 8, 0),
-                    child: Align(
-                      alignment: Alignment.centerLeft,
-                      child: GestureDetector(
-                        behavior: HitTestBehavior.opaque,
-                        onTap: () => leavePage(context, fallback: '/quiz'),
-                        child: Semantics(
-                          button: true,
-                          label: 'Quiz',
-                          excludeSemantics: true,
-                          child: ConstrainedBox(
-                            constraints: const BoxConstraints(minHeight: 44),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Icon(
-                                  PantasIcons.back,
-                                  size: 24,
-                                  color: colors.accent,
-                                ),
-                                const SizedBox(width: 2),
-                                Text(
-                                  'Quiz',
-                                  style:
-                                      type.body.copyWith(color: colors.accent),
-                                ),
-                              ],
-                            ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(
+                    PantasSpace.s4,
+                    PantasSpace.s6,
+                    PantasSpace.s8,
+                    PantasSpace.s0,
+                  ),
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: GestureDetector(
+                      behavior: HitTestBehavior.opaque,
+                      onTap: () => leavePage(context, fallback: '/quiz'),
+                      child: Semantics(
+                        button: true,
+                        label: 'Quiz',
+                        excludeSemantics: true,
+                        child: ConstrainedBox(
+                          constraints: const BoxConstraints(minHeight: 44),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Icon(
+                                PantasIcons.back,
+                                size: 24,
+                                color: colors.accent,
+                              ),
+                              const SizedBox(width: PantasSpace.s2),
+                              Text(
+                                'Quiz',
+                                style: type.body.copyWith(color: colors.accent),
+                              ),
+                            ],
                           ),
                         ),
                       ),
@@ -112,10 +121,17 @@ class _MockSetupPageState extends State<MockSetupPage> {
                 ),
                 Expanded(
                   child: ListView(
-                    padding: const EdgeInsets.fromLTRB(16, 8, 16, 150),
+                    padding: const EdgeInsets.fromLTRB(
+                      PantasSpace.s16,
+                      PantasSpace.s8,
+                      PantasSpace.s16,
+                      PantasLayout.reserveBar,
+                    ),
                     children: [
                       Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 4),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: PantasSpace.s4,
+                        ),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -123,28 +139,32 @@ class _MockSetupPageState extends State<MockSetupPage> {
                               _simulationTitle(blueprint),
                               style: type.pageTitle,
                             ),
-                            const SizedBox(height: 4),
+                            const SizedBox(height: PantasSpace.s4),
                             Text(
                               '$plannedTotal total items · ${_duration(blueprint.durationMinutes)}',
-                              style: type.body.copyWith(
-                                fontSize: 16,
-                                color: colors.secondaryLabel,
+                              style: PantasType.phoneCallout.copyWith(
+                                color: colors.textSecondary,
                               ),
                             ),
                           ],
                         ),
                       ),
-                      const SizedBox(height: 22),
+                      const SizedBox(height: PantasSpace.s24),
                       Container(
                         decoration: BoxDecoration(
                           color: colors.surface,
-                          borderRadius: BorderRadius.circular(14),
+                          borderRadius: BorderRadius.circular(PantasRadius.lg),
                         ),
                         clipBehavior: Clip.antiAlias,
                         child: table.card(context),
                       ),
                       Padding(
-                        padding: const EdgeInsets.fromLTRB(16, 7, 16, 0),
+                        padding: const EdgeInsets.fromLTRB(
+                          PantasSpace.s16,
+                          PantasSpace.s8,
+                          PantasSpace.s16,
+                          PantasSpace.s0,
+                        ),
                         child: Text(
                           _paperRule(blueprint),
                           style: type.footnote.copyWith(
@@ -155,7 +175,12 @@ class _MockSetupPageState extends State<MockSetupPage> {
                       ),
                       if (blueprint.unscoredItems != null)
                         Padding(
-                          padding: const EdgeInsets.fromLTRB(16, 6, 16, 0),
+                          padding: const EdgeInsets.fromLTRB(
+                            PantasSpace.s16,
+                            PantasSpace.s6,
+                            PantasSpace.s16,
+                            PantasSpace.s0,
+                          ),
                           child: Text(
                             'The real exam also has ${blueprint.unscoredItems} '
                             'personal-information items. They are not scored, so this '
@@ -168,7 +193,12 @@ class _MockSetupPageState extends State<MockSetupPage> {
                         ),
                       if (actualTotal != null && actualTotal < plannedTotal)
                         Padding(
-                          padding: const EdgeInsets.fromLTRB(16, 6, 16, 0),
+                          padding: const EdgeInsets.fromLTRB(
+                            PantasSpace.s16,
+                            PantasSpace.s6,
+                            PantasSpace.s16,
+                            PantasSpace.s0,
+                          ),
                           child: Text(
                             'This mock has $actualTotal questions instead of $plannedTotal.',
                             style: type.footnote.copyWith(
@@ -177,17 +207,18 @@ class _MockSetupPageState extends State<MockSetupPage> {
                             ),
                           ),
                         ),
-                      const SizedBox(height: 22),
+                      const SizedBox(height: PantasSpace.s24),
                       RowTapTarget(
                         onTap: () => setState(() => _strictMode = !_strictMode),
                         child: Container(
                           padding: const EdgeInsets.symmetric(
-                            horizontal: 16,
-                            vertical: 12,
+                            horizontal: PantasSpace.s16,
+                            vertical: PantasSpace.s12,
                           ),
                           decoration: BoxDecoration(
                             color: colors.surface,
-                            borderRadius: BorderRadius.circular(14),
+                            borderRadius:
+                                BorderRadius.circular(PantasRadius.lg),
                           ),
                           child: Row(
                             children: [
@@ -196,7 +227,7 @@ class _MockSetupPageState extends State<MockSetupPage> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text('Strict mode', style: type.body),
-                                    const SizedBox(height: 2),
+                                    const SizedBox(height: PantasSpace.s2),
                                     Text(
                                       _strictMode
                                           ? 'No pausing and no ending a section early. Leaving the app '
@@ -212,7 +243,7 @@ class _MockSetupPageState extends State<MockSetupPage> {
                                   ],
                                 ),
                               ),
-                              const SizedBox(width: 12),
+                              const SizedBox(width: PantasSpace.s12),
                               PantasSwitch(
                                 value: _strictMode,
                                 label: 'Strict mode for this mock',
@@ -233,7 +264,12 @@ class _MockSetupPageState extends State<MockSetupPage> {
               right: 0,
               bottom: 0,
               child: Container(
-                padding: const EdgeInsets.fromLTRB(16, 14, 16, 30),
+                padding: const EdgeInsets.fromLTRB(
+                  PantasSpace.s16,
+                  PantasSpace.s14,
+                  PantasSpace.s16,
+                  PantasSpace.s32,
+                ),
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     begin: Alignment.topCenter,
@@ -252,7 +288,7 @@ class _MockSetupPageState extends State<MockSetupPage> {
                       label: 'Start the Mock Exam',
                       onPressed: () => widget.onStart(_strictMode),
                     ),
-                    const SizedBox(height: 8),
+                    const SizedBox(height: PantasSpace.s8),
                     Text(
                       'The clock starts when you tap.',
                       textAlign: TextAlign.center,
@@ -276,17 +312,20 @@ class _MockSetupPageState extends State<MockSetupPage> {
       child: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+            padding: const EdgeInsets.symmetric(
+              horizontal: PantasSpace.s20,
+              vertical: PantasSpace.s12,
+            ),
             child: Row(
               children: [
                 Expanded(child: Text('SECTION', style: t.eb)),
                 SizedBox(
-                  width: 90,
+                  width: _figureColumn,
                   child: Text('ITEMS', textAlign: TextAlign.right, style: t.eb),
                 ),
                 if (sectional)
                   SizedBox(
-                    width: 90,
+                    width: _figureColumn,
                     child:
                         Text('TIME', textAlign: TextAlign.right, style: t.eb),
                   ),
@@ -295,7 +334,10 @@ class _MockSetupPageState extends State<MockSetupPage> {
           ),
           for (final section in widget.parsedBlueprint.sections)
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
+              padding: const EdgeInsets.symmetric(
+                horizontal: PantasSpace.s20,
+                vertical: PantasSpace.s14,
+              ),
               decoration: BoxDecoration(
                 border: Border(
                   top: BorderSide(color: t.colors.separator, width: .5),
@@ -303,9 +345,15 @@ class _MockSetupPageState extends State<MockSetupPage> {
               ),
               child: Row(
                 children: [
-                  Expanded(child: Text(section.name, style: t.style(17))),
+                  Expanded(
+                    child: Text(
+                      section.name,
+                      style: PantasType.webLead
+                          .copyWith(color: t.colors.textPrimary),
+                    ),
+                  ),
                   SizedBox(
-                    width: 90,
+                    width: _figureColumn,
                     child: _SetupTable(
                       sections: const [],
                       isSectional: sectional,
@@ -319,7 +367,7 @@ class _MockSetupPageState extends State<MockSetupPage> {
                   ),
                   if (sectional)
                     SizedBox(
-                      width: 90,
+                      width: _figureColumn,
                       child: _SetupTable(
                         sections: const [],
                         isSectional: sectional,
@@ -342,11 +390,11 @@ class _MockSetupPageState extends State<MockSetupPage> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         table,
-        const SizedBox(height: 16),
+        const SizedBox(height: PantasSpace.s16),
         Text(_paperRule(blueprint), style: t.sub),
         if (blueprint.unscoredItems != null)
           Padding(
-            padding: const EdgeInsets.only(top: 10),
+            padding: const EdgeInsets.only(top: PantasSpace.s10),
             child: Text(
               'The real exam also has ${blueprint.unscoredItems} personal-information items. They are not scored, so this mock leaves them out.',
               style: t.sub,
@@ -355,7 +403,7 @@ class _MockSetupPageState extends State<MockSetupPage> {
         if (widget.actualQuestionCount != null &&
             widget.actualQuestionCount! < total)
           Padding(
-            padding: const EdgeInsets.only(top: 10),
+            padding: const EdgeInsets.only(top: PantasSpace.s10),
             child: Text(
               'This mock has ${widget.actualQuestionCount} questions instead of $total.',
               style: t.sub,
@@ -369,7 +417,7 @@ class _MockSetupPageState extends State<MockSetupPage> {
         RowTapTarget(
           onTap: () => setState(() => _strictMode = !_strictMode),
           child: WebCard(
-            padding: const EdgeInsets.all(20),
+            padding: const EdgeInsets.all(PantasSpace.s20),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -379,9 +427,12 @@ class _MockSetupPageState extends State<MockSetupPage> {
                     children: [
                       Text(
                         'Strict mode',
-                        style: t.style(17, weight: FontWeight.w700),
+                        style: PantasType.webLead.copyWith(
+                          color: t.colors.textPrimary,
+                          fontWeight: FontWeight.w700,
+                        ),
                       ),
-                      const SizedBox(height: 4),
+                      const SizedBox(height: PantasSpace.s4),
                       Text(
                         _strictMode
                             ? 'No pausing and no ending a section early. Leaving the app instantly ends and submits your answers, finished or not finished.'
@@ -391,7 +442,7 @@ class _MockSetupPageState extends State<MockSetupPage> {
                     ],
                   ),
                 ),
-                const SizedBox(width: 16),
+                const SizedBox(width: PantasSpace.s16),
                 PantasSwitch(
                   value: _strictMode,
                   label: 'Strict mode for this mock',
@@ -401,7 +452,7 @@ class _MockSetupPageState extends State<MockSetupPage> {
             ),
           ),
         ),
-        const SizedBox(height: 16),
+        const SizedBox(height: PantasSpace.s16),
         // MK_SetupCSE: the button fills the right column and the line under
         // it is centered.
         WebButton(
@@ -411,7 +462,7 @@ class _MockSetupPageState extends State<MockSetupPage> {
           keyHint: 'Enter',
           onPressed: () => widget.onStart(_strictMode),
         ),
-        const SizedBox(height: 8),
+        const SizedBox(height: PantasSpace.s8),
         Center(
           child: Text(
             'The clock starts when you click.',
@@ -442,27 +493,29 @@ class _MockSetupPageState extends State<MockSetupPage> {
                     overlayColor: Colors.transparent,
                     visualDensity: VisualDensity.standard,
                     tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                    textStyle: t.style(17),
+                    textStyle: PantasType.webLead
+                        .copyWith(color: t.colors.textPrimary),
                   ),
                   icon: const Icon(Icons.chevron_left, size: 20),
                   label: const Text('Quiz'),
                 ),
               ),
             ),
-            const SizedBox(height: 6),
+            const SizedBox(height: PantasSpace.s6),
             Text(_simulationTitle(blueprint), style: t.h1),
-            const SizedBox(height: 6),
+            const SizedBox(height: PantasSpace.s6),
             Text(
               '$total total items · ${_duration(blueprint.durationMinutes)}',
-              style: t.style(17, color: t.colors.secondaryLabel),
+              style:
+                  PantasType.webLead.copyWith(color: t.colors.secondaryLabel),
             ),
-            const SizedBox(height: 26),
+            const SizedBox(height: PantasSpace.s28),
             LayoutBuilder(
               builder: (context, constraints) => constraints.maxWidth < 820
                   ? Column(
                       children: [
                         rules,
-                        const SizedBox(height: 24),
+                        const SizedBox(height: PantasSpace.s24),
                         controls,
                       ],
                     )
@@ -470,7 +523,7 @@ class _MockSetupPageState extends State<MockSetupPage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Expanded(flex: 14, child: rules),
-                        const SizedBox(width: 24),
+                        const SizedBox(width: PantasSpace.s24),
                         Expanded(flex: 10, child: controls),
                       ],
                     ),
@@ -592,7 +645,6 @@ class _SetupTable extends StatelessWidget {
   /// The phone card: no Total row, 12 px caps header, 16 px rows (boards).
   Widget card(BuildContext context) {
     final colors = context.colors;
-    final type = context.type;
     Widget row(
       Widget section,
       Widget items,
@@ -612,23 +664,20 @@ class _SetupTable extends StatelessWidget {
           textBaseline: TextBaseline.alphabetic,
           children: [
             Expanded(child: section),
-            SizedBox(width: 56, child: items),
+            SizedBox(width: PantasSpace.s56, child: items),
             if (time != null) ...[
-              const SizedBox(width: 8),
-              SizedBox(width: 56, child: time),
+              const SizedBox(width: PantasSpace.s8),
+              SizedBox(width: PantasSpace.s56, child: time),
             ],
           ],
         ),
       );
     }
 
-    final caps = type.sectionHeader.copyWith(
-      color: colors.secondaryLabel,
-      fontSize: 12,
-      fontWeight: FontWeight.w600,
-      letterSpacing: .36,
+    final caps = PantasType.phoneSectionHeader.copyWith(
+      color: colors.textSecondary,
     );
-    final rowText = type.body.copyWith(fontSize: 16);
+    final rowText = PantasType.phoneCallout.copyWith(color: colors.textPrimary);
     return Column(
       children: [
         row(
@@ -637,7 +686,12 @@ class _SetupTable extends StatelessWidget {
           isSectional
               ? Text('TIME', textAlign: TextAlign.end, style: caps)
               : null,
-          const EdgeInsets.fromLTRB(16, 10, 16, 8),
+          const EdgeInsets.fromLTRB(
+            PantasSpace.s16,
+            PantasSpace.s10,
+            PantasSpace.s16,
+            PantasSpace.s8,
+          ),
           line: true,
         ),
         for (var i = 0; i < sections.length; i++)
@@ -663,7 +717,10 @@ class _SetupTable extends StatelessWidget {
                     suffix: ' min',
                   )
                 : null,
-            const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+            const EdgeInsets.symmetric(
+              horizontal: PantasSpace.s16,
+              vertical: PantasSpace.s12,
+            ),
             line: i < sections.length - 1,
           ),
       ],
@@ -736,10 +793,10 @@ class _TableRow extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Expanded(flex: 5, child: section),
-        const SizedBox(width: 10),
+        const SizedBox(width: PantasSpace.s10),
         Expanded(flex: 2, child: items),
         if (time != null) ...[
-          const SizedBox(width: 10),
+          const SizedBox(width: PantasSpace.s10),
           Expanded(flex: 2, child: time!),
         ],
       ],

@@ -10,10 +10,16 @@ import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/value_wheel.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/mock_exam/domain/corpus_ceiling.dart';
 import 'package:pantas/features/mock_exam/domain/custom_blueprint.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/web_custom_mock_setup.dart';
+
+/// The width of one value wheel (board width; the system sets no token).
+const _wheelWidth = 120.0;
 
 /// What the screen needs to know about the student's track.
 @immutable
@@ -139,13 +145,13 @@ class _CustomMockSetupPageState extends State<CustomMockSetupPage> {
       child: InkWell(
         key: key,
         onTap: onTap,
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: BorderRadius.circular(PantasRadius.sm),
         child: Container(
           constraints: const BoxConstraints(minHeight: 34),
-          padding: const EdgeInsets.symmetric(horizontal: 11),
+          padding: const EdgeInsets.symmetric(horizontal: PantasSpace.s12),
           decoration: BoxDecoration(
             color: c.fill,
-            borderRadius: BorderRadius.circular(8),
+            borderRadius: BorderRadius.circular(PantasRadius.sm),
           ),
           alignment: Alignment.center,
           child: Text(
@@ -174,7 +180,7 @@ class _CustomMockSetupPageState extends State<CustomMockSetupPage> {
     final index = current == null ? 0 : math.max(0, values.indexOf(current));
     return Center(
       child: SizedBox(
-        width: 120,
+        width: _wheelWidth,
         child: ValueWheel(
           key: ValueKey('wheel-$label'),
           values: [for (final value in values) format(value)],
@@ -280,7 +286,10 @@ class _CustomMockSetupPageState extends State<CustomMockSetupPage> {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Container(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 9),
+          padding: const EdgeInsets.symmetric(
+            horizontal: PantasSpace.s16,
+            vertical: PantasSpace.s10,
+          ),
           decoration: BoxDecoration(
             border: Border(bottom: BorderSide(color: c.separator, width: .5)),
           ),
@@ -289,7 +298,7 @@ class _CustomMockSetupPageState extends State<CustomMockSetupPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     label,
-                    const SizedBox(height: 8),
+                    const SizedBox(height: PantasSpace.s8),
                     Wrap(
                       spacing: 8,
                       runSpacing: 8,
@@ -302,7 +311,7 @@ class _CustomMockSetupPageState extends State<CustomMockSetupPage> {
                   children: [
                     Expanded(child: label),
                     for (final value in values) ...[
-                      const SizedBox(width: 8),
+                      const SizedBox(width: PantasSpace.s8),
                       value,
                     ],
                   ],
@@ -429,7 +438,12 @@ class _CustomMockSetupPageState extends State<CustomMockSetupPage> {
           ),
         ),
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(16, 14, 16, 30),
+          padding: const EdgeInsets.fromLTRB(
+            PantasSpace.s16,
+            PantasSpace.s14,
+            PantasSpace.s16,
+            PantasSpace.s32,
+          ),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -440,7 +454,7 @@ class _CustomMockSetupPageState extends State<CustomMockSetupPage> {
                   style: context.type.footnote
                       .copyWith(color: c.secondaryLabel, height: 1.4),
                 ),
-                const SizedBox(height: 8),
+                const SizedBox(height: PantasSpace.s8),
               ],
               PantasButton(label: 'Save', onPressed: canSave ? _save : null),
             ],
@@ -457,7 +471,8 @@ class _CustomMockSetupPageState extends State<CustomMockSetupPage> {
                 onPressed: back,
                 style: TextButton.styleFrom(
                   minimumSize: const Size(44, 44),
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: PantasSpace.s16),
                 ),
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
@@ -473,35 +488,39 @@ class _CustomMockSetupPageState extends State<CustomMockSetupPage> {
             ),
             Expanded(
               child: SingleChildScrollView(
-                padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
+                padding: const EdgeInsets.fromLTRB(
+                  PantasSpace.s16,
+                  PantasSpace.s8,
+                  PantasSpace.s16,
+                  PantasSpace.s24,
+                ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 4),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: PantasSpace.s4,
+                      ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
                             'Set up your mock',
-                            style: context.type.largeTitle.copyWith(
-                              fontSize: 28,
-                              height: 1.2,
-                            ),
+                            style: PantasType.phoneTitle1
+                                .copyWith(color: c.textPrimary),
                           ),
-                          const SizedBox(height: 6),
+                          const SizedBox(height: PantasSpace.s6),
                           Text(
                             "We'll build it from what you tell us.",
-                            style: context.type.subhead.copyWith(
-                              fontSize: 16,
+                            style: PantasType.phoneCallout.copyWith(
                               height: 1.45,
-                              color: c.secondaryLabel,
+                              color: c.textSecondary,
                             ),
                           ),
                         ],
                       ),
                     ),
-                    const SizedBox(height: 22),
+                    const SizedBox(height: PantasSpace.s24),
                     if (fit.fits)
                       totals
                     else
@@ -509,9 +528,11 @@ class _CustomMockSetupPageState extends State<CustomMockSetupPage> {
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
                           totals,
-                          const SizedBox(height: 8),
+                          const SizedBox(height: PantasSpace.s8),
                           Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 16),
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: PantasSpace.s16,
+                            ),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
@@ -525,7 +546,7 @@ class _CustomMockSetupPageState extends State<CustomMockSetupPage> {
                                     height: 1.4,
                                   ),
                                 ),
-                                const SizedBox(height: 4),
+                                const SizedBox(height: PantasSpace.s4),
                                 Semantics(
                                   button: true,
                                   label: 'Tick More Subjects',
@@ -554,7 +575,7 @@ class _CustomMockSetupPageState extends State<CustomMockSetupPage> {
                           ),
                         ],
                       ),
-                    const SizedBox(height: 22),
+                    const SizedBox(height: PantasSpace.s24),
                     GroupedSection(
                       footer: _breakdownOpen
                           ? null
@@ -581,7 +602,7 @@ class _CustomMockSetupPageState extends State<CustomMockSetupPage> {
                       ],
                     ),
                     if (_breakdownOpen) ...[
-                      const SizedBox(height: 22),
+                      const SizedBox(height: PantasSpace.s24),
                       GroupedSection(
                         header: 'Section breakdown',
                         footer: 'The totals above now add these up.',

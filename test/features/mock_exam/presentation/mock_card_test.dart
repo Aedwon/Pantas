@@ -187,8 +187,9 @@ void main() {
       final score = tester.widget<Text>(find.text('69'));
       expect(score.style!.fontSize, 28);
       expect(score.style!.fontWeight, FontWeight.w700);
-      expect(score.style!.height, 1.12);
-      expect(score.style!.letterSpacing, -.56);
+      // The system's phone title 1: 28/700, line 1.2, tracking -0.616.
+      expect(score.style!.height, 1.2);
+      expect(score.style!.letterSpacing, -.616);
       final button = find.byType(TextButton);
       expect(tester.getSize(button).height, 48);
       expect(tester.getSize(button).width, 326);

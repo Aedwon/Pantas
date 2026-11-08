@@ -4,6 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:pantas/core/ui/components/pantas_switch.dart';
 import 'package:pantas/core/ui/components/row_tap_target.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_key_focus.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -58,16 +62,26 @@ class WebCustomMockSetup extends StatelessWidget {
         children: [
           if (!breakdown)
             Padding(
-              padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
+              padding: const EdgeInsets.fromLTRB(
+                PantasSpace.s16,
+                PantasSpace.s8,
+                PantasSpace.s16,
+                PantasSpace.s0,
+              ),
               child: Text(
                 "You'll be timed, so exam day feels familiar.",
                 style: t.sm,
               ),
             ),
           if (breakdown) ...[
-            const SizedBox(height: 24),
+            const SizedBox(height: PantasSpace.s24),
             Padding(
-              padding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
+              padding: const EdgeInsets.fromLTRB(
+                PantasSpace.s16,
+                PantasSpace.s0,
+                PantasSpace.s16,
+                PantasSpace.s8,
+              ),
               child: Text('SECTION BREAKDOWN', style: t.eb),
             ),
             WebCard(
@@ -91,8 +105,8 @@ class WebCustomMockSetup extends StatelessWidget {
                     onTap: () => onTiming(!timedSeparately),
                     child: Padding(
                       padding: const EdgeInsets.symmetric(
-                        horizontal: 16,
-                        vertical: 6,
+                        horizontal: PantasSpace.s16,
+                        vertical: PantasSpace.s6,
                       ),
                       child: Row(
                         children: [
@@ -115,7 +129,12 @@ class WebCustomMockSetup extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
+              padding: const EdgeInsets.fromLTRB(
+                PantasSpace.s16,
+                PantasSpace.s8,
+                PantasSpace.s16,
+                PantasSpace.s0,
+              ),
               child: Text(
                 'The totals above now add these up.',
                 style: t.sm,
@@ -128,7 +147,7 @@ class WebCustomMockSetup extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = context.webTokens;
-    final rowStyle = t.style(16);
+    final rowStyle = PantasType.webBody.copyWith(color: t.colors.textPrimary);
     final questionHint = '${questionValues.first} to ${questionValues.last}, '
         'in fives. Arrow keys work too.';
     final ceilingMessage = 'Your subjects have $available questions. '
@@ -143,9 +162,9 @@ class WebCustomMockSetup extends StatelessWidget {
           // The page ends clear of the floating navigation on a landscape
           // tablet, as Mock setup does (3K-9).
           padding: EdgeInsets.fromLTRB(
-            44,
-            28,
-            44,
+            PantasSpace.s44,
+            PantasSpace.s28,
+            PantasSpace.s44,
             context.webPageBottomInset,
           ),
           child: Align(
@@ -161,7 +180,8 @@ class WebCustomMockSetup extends StatelessWidget {
                       padding: EdgeInsets.zero,
                       minimumSize: const Size(0, 40),
                       foregroundColor: t.colors.accent,
-                      textStyle: t.style(17),
+                      textStyle: PantasType.webLead
+                          .copyWith(color: t.colors.textPrimary),
                     ),
                     child: const Row(
                       mainAxisSize: MainAxisSize.min,
@@ -171,18 +191,15 @@ class WebCustomMockSetup extends StatelessWidget {
                       ],
                     ),
                   ),
-                  const SizedBox(height: 6),
+                  const SizedBox(height: PantasSpace.s6),
                   Text('Set up your mock', style: t.h1),
-                  const SizedBox(height: 6),
+                  const SizedBox(height: PantasSpace.s6),
                   Text(
                     "We'll build it from what you tell us.",
-                    style: t.style(
-                      17,
-                      height: 1.45,
-                      color: t.colors.secondaryLabel,
-                    ),
+                    style: PantasType.webLead
+                        .copyWith(color: t.colors.secondaryLabel, height: 1.45),
                   ),
-                  const SizedBox(height: 28),
+                  const SizedBox(height: PantasSpace.s28),
                   SizedBox(
                     key: const ValueKey('web-custom-fields'),
                     width: 640,
@@ -207,10 +224,10 @@ class WebCustomMockSetup extends StatelessWidget {
                               if (!fits)
                                 Padding(
                                   padding: const EdgeInsets.fromLTRB(
-                                    16,
-                                    0,
-                                    16,
-                                    14,
+                                    PantasSpace.s16,
+                                    PantasSpace.s0,
+                                    PantasSpace.s16,
+                                    PantasSpace.s14,
                                   ),
                                   child: Row(
                                     children: [
@@ -222,14 +239,14 @@ class WebCustomMockSetup extends StatelessWidget {
                                           ),
                                         ),
                                       ),
-                                      const SizedBox(width: 8),
+                                      const SizedBox(width: PantasSpace.s8),
                                       TextButton(
                                         onPressed: onTickMoreSubjects,
                                         style: TextButton.styleFrom(
                                           foregroundColor: t.colors.accent,
-                                          textStyle: t.style(
-                                            15,
-                                            weight: FontWeight.w600,
+                                          textStyle: PantasType.webSub.copyWith(
+                                            color: t.colors.textPrimary,
+                                            fontWeight: FontWeight.w600,
                                           ),
                                         ),
                                         child: const Text('Tick More Subjects'),
@@ -252,15 +269,15 @@ class WebCustomMockSetup extends StatelessWidget {
                             ],
                           ),
                         ),
-                        const SizedBox(height: 24),
+                        const SizedBox(height: PantasSpace.s24),
                         RowTapTarget(
                           onTap: () => onBreakdown(!breakdown),
                           child: WebCard(
                             radius: 16,
                             child: Padding(
                               padding: const EdgeInsets.symmetric(
-                                horizontal: 16,
-                                vertical: 6,
+                                horizontal: PantasSpace.s16,
+                                vertical: PantasSpace.s6,
                               ),
                               child: Row(
                                 children: [
@@ -286,13 +303,13 @@ class WebCustomMockSetup extends StatelessWidget {
                           context,
                           _breakdownContent(t, rowStyle),
                         ),
-                        const SizedBox(height: 24),
+                        const SizedBox(height: PantasSpace.s24),
                         if (unset) ...[
                           Text(
                             'Choose questions and minutes for every subject.',
                             style: t.sm,
                           ),
-                          const SizedBox(height: 8),
+                          const SizedBox(height: PantasSpace.s8),
                         ],
                         Align(
                           alignment: Alignment.centerRight,
@@ -356,10 +373,9 @@ class _WideNumberRowState extends State<_WideNumberRow> {
           value: widget.display,
           compact: true,
           horizontalPadding: 16,
-          titleStyle: t.style(16),
+          titleStyle: PantasType.webBody.copyWith(color: t.colors.textPrimary),
           divider: widget.divider,
-          valueStyle: t.style(
-            16,
+          valueStyle: PantasType.webBody.copyWith(
             color:
                 widget.refused ? t.colors.wrongText : t.colors.secondaryLabel,
           ),
@@ -371,7 +387,12 @@ class _WideNumberRowState extends State<_WideNumberRow> {
           context,
           _open && widget.editable
               ? Padding(
-                  padding: const EdgeInsets.fromLTRB(16, 4, 16, 16),
+                  padding: const EdgeInsets.fromLTRB(
+                    PantasSpace.s16,
+                    PantasSpace.s4,
+                    PantasSpace.s16,
+                    PantasSpace.s16,
+                  ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -382,7 +403,7 @@ class _WideNumberRowState extends State<_WideNumberRow> {
                         format: widget.format,
                         onChanged: widget.onChanged,
                       ),
-                      const SizedBox(height: 8),
+                      const SizedBox(height: PantasSpace.s8),
                       Text(widget.helper, style: t.sm),
                     ],
                   ),
@@ -393,6 +414,10 @@ class _WideNumberRowState extends State<_WideNumberRow> {
     );
   }
 }
+
+/// The width of a section's items or minutes field (board width; the system
+/// sets no token).
+const _fieldWidth = 64.0;
 
 class _WideSectionRow extends StatefulWidget {
   const _WideSectionRow({
@@ -419,8 +444,8 @@ class _WideSectionRowState extends State<_WideSectionRow> {
   Widget build(BuildContext context) {
     final t = context.webTokens;
     Widget field(int? value, {required bool minutes}) => SizedBox(
-          width: 64,
-          height: 36,
+          width: _fieldWidth,
+          height: PantasSize.btnXs,
           child: OutlinedButton(
             onPressed: () =>
                 setState(() => _minutes = _minutes == minutes ? null : minutes),
@@ -428,10 +453,13 @@ class _WideSectionRowState extends State<_WideSectionRow> {
               padding: EdgeInsets.zero,
               side: BorderSide(color: t.colors.separator),
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12),
+                borderRadius: BorderRadius.circular(PantasRadius.md),
               ),
             ),
-            child: Text(value == null ? 'Set' : '$value', style: t.style(16)),
+            child: Text(
+              value == null ? 'Set' : '$value',
+              style: PantasType.webBody.copyWith(color: t.colors.textPrimary),
+            ),
           ),
         );
     return Container(
@@ -439,19 +467,28 @@ class _WideSectionRowState extends State<_WideSectionRow> {
         border:
             Border(bottom: BorderSide(color: t.colors.separator, width: .5)),
       ),
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+      padding: const EdgeInsets.symmetric(
+        horizontal: PantasSpace.s16,
+        vertical: PantasSpace.s12,
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             children: [
-              Expanded(child: Text(widget.name, style: t.style(16))),
+              Expanded(
+                child: Text(
+                  widget.name,
+                  style:
+                      PantasType.webBody.copyWith(color: t.colors.textPrimary),
+                ),
+              ),
               field(widget.questions, minutes: false),
-              const SizedBox(width: 8),
+              const SizedBox(width: PantasSpace.s8),
               Text('items', style: t.sm),
-              const SizedBox(width: 8),
+              const SizedBox(width: PantasSpace.s8),
               field(widget.minutes, minutes: true),
-              const SizedBox(width: 8),
+              const SizedBox(width: PantasSpace.s8),
               Text('min', style: t.sm),
             ],
           ),
@@ -460,7 +497,7 @@ class _WideSectionRowState extends State<_WideSectionRow> {
             _minutes == null
                 ? null
                 : Padding(
-                    padding: const EdgeInsets.only(top: 12),
+                    padding: const EdgeInsets.only(top: PantasSpace.s12),
                     child: _InlineStepper(
                       label:
                           '${widget.name} ${_minutes! ? 'minutes' : 'items'}',
@@ -555,10 +592,10 @@ class _InlineStepperState extends State<_InlineStepper> {
       child: Focus(
         focusNode: _focus,
         child: Container(
-          padding: const EdgeInsets.all(3),
+          padding: const EdgeInsets.all(PantasSpace.s4),
           decoration: BoxDecoration(
             color: t.colors.background,
-            borderRadius: BorderRadius.circular(11),
+            borderRadius: BorderRadius.circular(PantasRadius.back),
           ),
           child: Row(
             mainAxisSize: MainAxisSize.min,
@@ -577,20 +614,27 @@ class _InlineStepperState extends State<_InlineStepper> {
               ),
               for (final v in values.skip(start).take(5))
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 2),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: PantasSpace.s2),
                   child: TextButton(
                     onPressed: () => onChanged(v),
                     style: TextButton.styleFrom(
                       minimumSize: const Size(54, 36),
-                      padding: const EdgeInsets.symmetric(horizontal: 8),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: PantasSpace.s8,
+                      ),
                       backgroundColor:
                           v == value ? t.colors.accentFill : Colors.transparent,
-                      foregroundColor:
-                          v == value ? Colors.white : t.colors.secondaryLabel,
+                      foregroundColor: v == value
+                          ? t.colors.onAccent
+                          : t.colors.textSecondary,
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(9),
+                        borderRadius: BorderRadius.circular(PantasRadius.sm),
                       ),
-                      textStyle: t.style(16, weight: FontWeight.w600),
+                      textStyle: PantasType.webBody.copyWith(
+                        color: t.colors.textPrimary,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
                     child: Text(format(v)),
                   ),

@@ -2,6 +2,11 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/mock_exam/domain/mock_session_state.dart';
 import 'package:pantas/features/mock_exam/presentation/widgets/cse_finale_motion.dart';
@@ -69,11 +74,11 @@ class _CseMockFinaleState extends State<CseMockFinale>
         )
       : LayoutBuilder(
           builder: (context, size) {
-            final scale = size.maxWidth / 390;
+            final scale = size.maxWidth / PantasLayout.phoneFrame;
             return FittedBox(
               fit: BoxFit.fill,
               child: SizedBox(
-                width: 390,
+                width: PantasLayout.phoneFrame,
                 height: size.maxHeight / scale,
                 child: AnimatedBuilder(
                   animation: _clock,
@@ -122,10 +127,10 @@ double cseFinaleGaugeTop(BuildContext context, String name, String date) {
   return 50 +
       height(
         name,
-        context.type.pageTitle.copyWith(fontSize: 22, height: 1.35),
+        PantasType.phoneTitle2.copyWith(height: 1.35),
       ) +
       2 +
-      height(date, context.type.subhead.copyWith(fontSize: 15, height: 1.35)) +
+      height(date, PantasType.phoneExplanation.copyWith(height: 1.35)) +
       10;
 }
 
@@ -171,7 +176,8 @@ class _CseScene extends CustomPainter {
     if (opacity <= 0) return;
     canvas.saveLayer(
       Offset.zero & const Size(390, 1800),
-      Paint()..color = Colors.white.withValues(alpha: opacity.clamp(0, 1)),
+      Paint()
+        ..color = PantasColors.gray0.withValues(alpha: opacity.clamp(0, 1)),
     );
     text.paint(canvas, at);
     canvas.restore();
@@ -202,7 +208,7 @@ class _CseScene extends CustomPainter {
       milliseconds,
       1007.5395,
       1462.4475,
-      const Cubic(.32, .72, 0, 1),
+      PantasCurves.move,
     );
     final fade = sampleCseFinaleEffect(531, milliseconds).opacity;
     final countA = _text(
@@ -234,7 +240,7 @@ class _CseScene extends CustomPainter {
           card.width,
           card.height + math.max(0, countHeight - 20) * (1 - opening),
         ),
-        const Radius.circular(14),
+        const Radius.circular(PantasRadius.lg),
       ),
       Paint()..color = colors.surface.withValues(alpha: fade),
     );
@@ -292,13 +298,16 @@ class _CseScene extends CustomPainter {
       final scan = Rect.fromLTWH(34, y, 322, 3);
       canvas
         ..drawRRect(
-          RRect.fromRectAndRadius(scan.inflate(5), const Radius.circular(7)),
+          RRect.fromRectAndRadius(
+            scan.inflate(5),
+            const Radius.circular(PantasRadius.sm),
+          ),
           Paint()
             ..color = colors.accent.withValues(alpha: alpha * .35)
             ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 8),
         )
         ..drawRRect(
-          RRect.fromRectAndRadius(scan, const Radius.circular(2)),
+          RRect.fromRectAndRadius(scan, const Radius.circular(PantasRadius.xs)),
           Paint()..color = colors.accent.withValues(alpha: alpha),
         );
     }

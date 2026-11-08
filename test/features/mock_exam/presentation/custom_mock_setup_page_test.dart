@@ -275,6 +275,8 @@ void main() {
     );
     expect(saveButton(tester).onPressed, isNull);
 
+    await tester.ensureVisible(find.text('Tick More Subjects'));
+    await tester.pump();
     await tester.tap(find.text('Tick More Subjects'));
     await tester.pump();
     expect(ticked, 1);

@@ -29,6 +29,7 @@ class PantasTimer extends StatefulWidget {
     this.warningLabel = '5 min left',
     this.pausedLabel = 'Paused',
     this.warningAnnouncement = 'Five minutes left.',
+    this.announceWarning = true,
     super.key,
   }) : assert(
           fractionLeft >= 0 && fractionLeft <= 1,
@@ -49,6 +50,10 @@ class PantasTimer extends StatefulWidget {
   final String pausedLabel;
   final String warningAnnouncement;
 
+  /// False when the page already announces the warning another way (the
+  /// mock's status-role proctor call), so it is spoken once.
+  final bool announceWarning;
+
   @override
   State<PantasTimer> createState() => _PantasTimerState();
 }
@@ -57,7 +62,8 @@ class _PantasTimerState extends State<PantasTimer> {
   @override
   void didUpdateWidget(PantasTimer oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (oldWidget.state != PantasTimerState.warning &&
+    if (widget.announceWarning &&
+        oldWidget.state != PantasTimerState.warning &&
         widget.state == PantasTimerState.warning) {
       unawaited(
         SemanticsService.sendAnnouncement(

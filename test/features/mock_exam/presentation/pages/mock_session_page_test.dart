@@ -67,7 +67,11 @@ void main() {
     // No title: the clock must never be hunted for. Mock Plan 3 gives the
     // pause control the trailing edge and nothing else joins it there.
     expect(find.text('1 of 70'), findsNothing);
-    expect(find.byType(IconButton), findsOneWidget);
+    final header = find.byKey(const ValueKey('mock-header'));
+    expect(
+      find.descendant(of: header, matching: find.byType(IconButton)),
+      findsOneWidget,
+    );
     expect(find.byKey(const ValueKey('mock-pause')), findsOneWidget);
   });
 
@@ -99,11 +103,25 @@ void main() {
 
     expect(find.byType(FloatingBar), findsOneWidget);
     expect(
-      tester.widget<InkWell>(find.byKey(const ValueKey('mock-next'))).onTap,
+      tester
+          .widget<IconButton>(
+            find.descendant(
+              of: find.byKey(const ValueKey('mock-next')),
+              matching: find.byType(IconButton),
+            ),
+          )
+          .onPressed,
       isNull,
     );
     expect(
-      tester.widget<InkWell>(find.byKey(const ValueKey('mock-prev'))).onTap,
+      tester
+          .widget<IconButton>(
+            find.descendant(
+              of: find.byKey(const ValueKey('mock-prev')),
+              matching: find.byType(IconButton),
+            ),
+          )
+          .onPressed,
       isNotNull,
     );
     expect(find.byKey(const ValueKey('mock-next')), findsOneWidget);

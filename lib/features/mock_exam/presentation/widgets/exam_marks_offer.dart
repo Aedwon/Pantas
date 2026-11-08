@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 
 class ExamMarksOffer extends StatelessWidget {
   const ExamMarksOffer({
@@ -24,10 +26,10 @@ class ExamMarksOffer extends StatelessWidget {
     final styles = context.type;
 
     return Container(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(PantasSpace.s16),
       decoration: BoxDecoration(
         border: Border.all(color: colors.separator),
-        borderRadius: BorderRadius.circular(4),
+        borderRadius: BorderRadius.circular(PantasRadius.xs),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -37,7 +39,7 @@ class ExamMarksOffer extends StatelessWidget {
             'running. Keep them to practice?',
             style: styles.subhead,
           ),
-          const SizedBox(height: 12),
+          const SizedBox(height: PantasSpace.s12),
           Row(
             children: [
               Expanded(
@@ -46,7 +48,7 @@ class ExamMarksOffer extends StatelessWidget {
                   onPressed: onKeepAll,
                 ),
               ),
-              const SizedBox(width: 8),
+              const SizedBox(width: PantasSpace.s8),
               Expanded(
                 child: PantasButton(
                   label: 'No thanks',

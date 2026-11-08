@@ -2,7 +2,12 @@ import 'dart:ui' show SemanticsRole;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:pantas/core/ui/components/pantas_shadows.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_border.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 
 String proctorCopyFor(int minutes) {
   final unit = minutes == 1 ? 'minute' : 'minutes';
@@ -40,11 +45,10 @@ class _ProctorToastState extends State<ProctorToast> {
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
-    final color = widget.minutes == 1
-        ? colors.wrongText
-        : widget.minutes == 5
-            ? colors.warningText
-            : colors.label;
+    // Red is for wrong answers; low time is `warning-text` (Timer README).
+    final color = widget.minutes == 1 || widget.minutes == 5
+        ? colors.warningText
+        : colors.textPrimary;
 
     final copy = proctorCopyFor(widget.minutes);
     return Semantics(
@@ -54,25 +58,22 @@ class _ProctorToastState extends State<ProctorToast> {
       excludeSemantics: true,
       child: Container(
         decoration: BoxDecoration(
-          color: colors.surface,
-          borderRadius: BorderRadius.circular(22),
-          border: Border.all(color: colors.shadow.withValues(alpha: .05)),
-          boxShadow: [
-            BoxShadow(
-              color: colors.shadow.withValues(alpha: .12),
-              blurRadius: 20,
-              offset: const Offset(0, 6),
-            ),
-          ],
+          color: colors.surfaceCard,
+          borderRadius: BorderRadius.circular(PantasRadius.r2xl),
+          border: Border.all(
+            color: colors.edgeCard,
+            width: PantasBorder.hairline,
+          ),
+          boxShadow: context.shadows.popover,
         ),
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+        padding: const EdgeInsets.symmetric(
+          horizontal: PantasSpace.s16,
+          vertical: PantasSpace.s10,
+        ),
         child: Text(
           copy,
           textAlign: TextAlign.center,
-          style: context.type.subheadStrong.copyWith(
-            fontSize: 14,
-            color: color,
-          ),
+          style: PantasType.webLabel.copyWith(color: color),
         ),
       ),
     );

@@ -194,14 +194,23 @@ void main() {
           .backgroundColor!
           .resolve({})!;
       const dark = PantasColors.dark;
-      expect(fill('1'), dark.segmentOn);
-      expect(fill('2'), dark.surface);
-      // Far enough from the page to read as a filled dot, not a smudge.
-      double luminance(Color c) => c.computeLuminance();
-      expect(
-        (luminance(fill('1')) + .05) / (luminance(dark.surface) + .05),
-        greaterThan(1.5),
-      );
+      // QuestionNavigator: answered is the `divider` fill with no ring;
+      // blank is the card with the 3:1 `border-control` ring. The ring is the
+      // shape cue, so the two never rest on the fill alone.
+      expect(fill('1'), dark.divider);
+      expect(fill('2'), dark.surfaceCard);
+      OutlinedBorder shape(String number) => tester
+          .widget<TextButton>(
+            find.ancestor(
+              of: find.text(number),
+              matching: find.byType(TextButton),
+            ),
+          )
+          .style!
+          .shape!
+          .resolve({})!;
+      expect(shape('1').side, BorderSide.none);
+      expect(shape('2').side.color, dark.borderControl);
     });
 
     testWidgets(
