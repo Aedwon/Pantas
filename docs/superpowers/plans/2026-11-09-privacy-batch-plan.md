@@ -15,7 +15,8 @@ task only.
 ### T1. Deletion core (functions)
 - Files: `functions/src/deleteAccount.ts`, new `functions/src/deleteUserData.ts`, tests.
 - Move the deletion body into `deleteUserData(db, auth, uid, reason)`. It writes
-  `guardianConsentEvidence/{uid}` `{accountDeletedAt, reason}` before deleting the tree.
+  `guardianConsentEvidence/{uid}` `{accountDeletedAt, reason}` and copies checkout
+  attestations into the evidence (spec choice 1) before deleting the tree.
   The callable keeps its recent-sign-in check and calls the core.
 - Verify: the existing deleteAccount tests pass unchanged, and a new test asserts the
   evidence marker and that responses survive.
@@ -47,7 +48,7 @@ task only.
 - Choices 5 and 6, scheduled daily at 04:00 Singapore time, with a cap of 200 deletions per
   run.
 - Verify: emulator tests with fixed clocks at 22, 23 and 24 months, a paid skip, a refreshed
-  account skip, an email-less anonymous account, and evidence at nine years.
+  account skip, an email-less anonymous account, and evidence at ten years.
 
 ### T5. Minor checkout (app, then functions)
 - Files: `lib/features/settings/presentation/pages/pro_page.dart`,
@@ -65,10 +66,18 @@ task only.
 - Verify: a unit test that the reporter sends nothing when off and drops its queue; a widget
   test of the row.
 
+### T6b. Age step, setup acceptance, "I'm 18 now" (app and functions)
+- Files: `lib/features/onboarding/presentation/onboarding_age_gate_step.dart`, the consent
+  step, `lib/features/settings/**`, `functions/src/guardianConsent.ts` (new `markAdult`).
+- Spec choices 11, 12 and 13.
+- Verify: widget tests for the age-step line and the Settings row's visibility; emulator
+  tests for `markAdult` (token revocation, single use, adult caller refused).
+
 ### T7. Legal texts and versions (app and functions)
 - Files: `lib/features/legal/domain/legal_document.dart`, `functions/src/guardianConsent.ts`.
 - Paste the final wording from `docs/legal/drafts/2026-11-09-legal-texts-review.md`, then
-  bump the three version stamps to the publish date (choice 10).
+  bump the three version stamps to the publish date (choice 10). Change `supportEmail` in
+  `lib/features/legal/domain/legal_contact.dart` from contact@ to support@pantas.study.
 - Verify: a test that the app and functions version maps are equal; an existing legal page
   test; a text diff against the review file shows no change.
 

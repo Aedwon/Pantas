@@ -40,10 +40,12 @@ review file. Remedy 6 lives in the founder app's "Owner inputs" tab.
    cancels the deletion. Accounts with paid access still running are never counted as
    inactive. Guest accounts with no email are deleted without a warning.
 4. **Guardian answer records have an end date.** They are kept while the account exists,
-   and after deletion until nine years after the guardian's answer. Reason: a student under
-   18 can be up to five years from turning 18. Civil Code Art. 1391 then gives four years from
-   reaching 18 to undo a contract made as a minor. Nine years covers that window for every
-   minor. Trial-use codes stay as they are, because they are keyed hashes.
+   and after deletion until ten years after the guardian's answer. Reason: the birth-year
+   check admits some 12-year-olds (those turning 13 that year), who can be up to six years from
+   turning 18. Civil Code Art. 1391 then gives four years from reaching 18 to undo a contract
+   made as a minor. Ten years covers that window for every admitted minor. (Approved list said
+   "the lead picks the period"; nine was the first pick, corrected to ten after the draft
+   review found the 12-year-old case.) Trial-use codes stay as they are, because they are keyed hashes.
 5. **Checkout on an under-18 account needs an adult's confirmation.** The Pro page shows a
    checkbox: "I am the parent or guardian and accept the Terms." The buy button stays
    disabled until it is ticked. The server refuses checkout without it and records when it
@@ -56,7 +58,23 @@ review file. Remedy 6 lives in the founder app's "Owner inputs" tab.
    Google's connection log entries for the report function on staging and prod. Those entries
    are what hold the IP address and the full browser string. The report's own log line never
    held either.
-8. **The legal texts go live with the batch:** the teen notice, the full adult Privacy Policy,
+8. **The age step asks permission for the age check (correction to remedy 2).** Remedy 2
+   framed the age check as legitimate-interest screening. The Codex review and the drafter
+   agree that this cannot hold: age is sensitive information, and Section 12(f) covers only
+   ordinary information. The age step therefore says, above the birth-year field, that Pantas
+   uses the birth year once on the device, sets the age group, and keeps only the group.
+   Choosing Continue gives permission for that check. Nothing else changes: the birth year
+   is still discarded at once.
+9. **Setup names study records in the acceptance.** The existing Terms and Privacy
+   acceptance at setup says it covers study records (answers, results, study times), so it
+   also serves as the specific permission the law needs for education information. The same
+   checkbox stays; only its wording and the recorded version change.
+10. **"I'm 18 now" in Settings.** An under-18 account can re-run the age check from
+    Settings. If the student is now 18 or older, the account becomes adult: the guardian page
+    link stops working, the guardian checkout box goes away, and the sharing choice moves to
+    the student. This also fixes the known Nov 2 gap of a student who turns 18 staying marked
+    as a minor.
+11. **The legal texts go live with the batch:** the teen notice, the full adult Privacy Policy,
    and the Terms "Subscriptions" and "Use of the app" sections. Guardians who confirmed
    before stay tied to the version they saw. New confirmations record the new version.
 
@@ -123,6 +141,9 @@ review file. Remedy 6 lives in the founder app's "Owner inputs" tab.
   ignores this consent by design (option A).
 - Deletion: `deleteAccount.ts` (callable, needs a recent sign-in). The anonymous cleanup is
   `cleanupOrphanAnons.ts` (scheduled).
+- Support address: every screen and server message uses support@pantas.study, but
+  `legal_contact.dart` line 28 sets `supportEmail: 'contact@pantas.study'`. The legal texts use
+  support@. Task T7 changes the constant.
 - Checkout: `createPaymongoCheckout` in `paymongoCheckout.ts`. The minor line is on
   `pro_page.dart` around line 697.
 
@@ -131,7 +152,9 @@ review file. Remedy 6 lives in the founder app's "Owner inputs" tab.
 1. **Shared deletion core.** Extract the body of `deleteAccount` into
    `deleteUserData(db, auth, uid, reason)`, used by the callable, the withdrawal and the
    inactivity job. Before the user tree is deleted, it writes
-   `guardianConsentEvidence/{uid}` `{accountDeletedAt, reason}` (merge). The callable keeps
+   `guardianConsentEvidence/{uid}` `{accountDeletedAt, reason}` (merge), and copies each
+   checkout attestation on the account (`attestedAt`, `termsVersion`, payment reference) into
+   `guardianConsentEvidence/{uid}/purchases/{checkoutId}`. The callable keeps
    its recent-sign-in check, and the server-side callers skip it.
 2. **Manage tokens.** `sendLink` mints two tokens: the confirm token (as today) and a manage
    token stored at `guardianTokens/{hash}` `{kind: 'manage', uid, state: 'open'}`, with no
@@ -165,7 +188,7 @@ review file. Remedy 6 lives in the founder app's "Owner inputs" tab.
    ("Open Pantas to keep your account"). Batch cap: 200 deletions per run.
 6. **Evidence purge.** Add to the daily job: delete `guardianConsentEvidence/{uid}` and its
    responses when `accountDeletedAt` exists and the newest response's `decidedAt` is more
-   than nine years ago (3,288 days, counted as 9 x 365 + 3).
+   than ten years ago (3,653 days, counted as 10 x 365 + 3).
 7. **Minor checkout.** On `pro_page.dart`, when `ageGroup == 'minor'`, show a DS4 checkbox with
    the exact label "I am the parent or guardian and accept the Terms." in place of the
    ask-guardian line. The buy button is disabled until it is ticked. The client sends
@@ -184,7 +207,23 @@ review file. Remedy 6 lives in the founder app's "Owner inputs" tab.
    Command, run at deploy with approval:
    `gcloud logging sinks update _Default --project=<p> --add-exclusion=name=drop-telemetry-request-logs,filter='<filter>'`.
    Verify with a `gcloud logging read` that returns no new entries.
-10. **Legal texts and versions.** Replace the `teens`, `privacy` and `terms` documents in
+11. **Age-step permission.** On the onboarding age step
+    (`lib/features/onboarding/presentation/onboarding_age_gate_step.dart`), add one
+    fine-print line above the field: "Pantas uses your birth year once, on this device, to set
+    your age group. We keep only the group." Continue is the permission. Store
+    `ageCheckNoticeVersion` locally with the age group, and send it with `sendLink` so the
+    guardian record holds it. This is copy in an approved layout (written rule 4), so it needs
+    no board.
+12. **Setup acceptance wording.** The consent step's acceptance names study records. Record
+    the acceptance version locally and, for named accounts, in `users/{uid}/server/acceptance`
+    `{version, acceptedAt}`.
+13. **"I'm 18 now".** A Settings, Account row shows only for `ageGroup == 'minor'`. It re-runs
+    the birth-year check with the same policy. If the result is adult, a callable `markAdult`
+    lets only a minor switch, at most once. It revokes all `kind: 'manage'` tokens for the
+    uid, sets the consent doc's `ageGroup` to `'adult'` with `adultSince`, and appends
+    evidence `{action: 'became_adult'}`. The device sets the age group to adult. Checkout then
+    needs no attestation, and the sharing switch becomes the student's.
+14. **Legal texts and versions.** Replace the `teens`, `privacy` and `terms` documents in
     `legal_document.dart` with the review file's final wording. Bump `guardianDocumentVersions`
     and `GUARDIAN_DOCUMENT_VERSIONS` plus `GUARDIAN_NOTICE_WORDING_VERSION` to the publish date
     in the same commit. The Terms version also feeds the checkout attestation.
@@ -195,10 +234,13 @@ review file. Remedy 6 lives in the founder app's "Owner inputs" tab.
   withdrawal disables the user, deletes the tree and keeps the evidence plus
   `accountDeletedAt`; sharing on and off recorded; the inactivity job warns at 23 months,
   skips paid and recently refreshed accounts, deletes at 24 months, deletes email-less
-  anonymous users without mail; the evidence purge deletes only after deletion plus nine
+  anonymous users without mail; the evidence purge deletes only after deletion plus ten
   years; checkout refuses a minor without the attestation and accepts one with it; the
   purge skips manage tokens.
-- Flutter: the minor Settings switch is disabled until the guardian allows sharing; the
+- Functions: `markAdult` revokes manage tokens, and refuses a second switch or an adult
+  caller.
+- Flutter: the age step shows its line and stores the notice version; the "I'm 18 now"
+  row appears only for minors; the minor Settings switch is disabled until the guardian allows sharing; the
   checkout button is disabled until the checkbox is ticked; the speed-report switch stops
   the reporter; the guardian confirm page sends `allowSharing`; the manage page shows its
   states.
@@ -209,13 +251,13 @@ review file. Remedy 6 lives in the founder app's "Owner inputs" tab.
 
 ### Order
 
-1. Deletion core and evidence marker.
+1. Deletion core, evidence marker and purchase evidence copy.
 2. Guardian manage tokens, callables, confirm-page sharing choice, then the manage page
    after its board.
 3. Minor sharing gate on the device.
 4. Inactivity job and evidence purge.
 5. Minor checkout checkbox after its board, then the server check.
-6. Speed-report switch.
+6. Speed-report switch, age-step line, setup acceptance wording, "I'm 18 now".
 7. Legal texts and version bumps.
 8. Staging deploy and the log exclusion, after approval; then prod with the real mail key.
 
