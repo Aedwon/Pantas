@@ -2796,3 +2796,5 @@ Asked by the manager thread on Aedwon's "for the rest of items, please finish th
     4. The privacy app batch, after the redesign ships
     5. The CET content finish
     6. The founder app, including the Owner inputs tab
+
+- SSOT updated 9 November 2026, 18:35 PHT, sections touched: Home "Current status" (new 9 November status; 3 November status marked SUPERSEDED); Production Readiness Assessment (new top checkpoint for 9 November, 3 November checkpoint renamed SUPERSEDED, 9 November catch-up at the end); Internal Beta Testing Program (9 November status note; one 3 November sentence marked SUPERSEDED). Counts only, no tester data.
