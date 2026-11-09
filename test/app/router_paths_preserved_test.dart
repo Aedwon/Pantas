@@ -13,6 +13,7 @@ void main() {
       '/onboarding/custom/name',
       '/onboarding/custom/subjects',
       '/guardian',
+      '/guardian/manage',
       '/guardian/waiting',
       '/guardian/contact',
       '/plan',

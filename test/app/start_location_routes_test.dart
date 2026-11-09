@@ -40,6 +40,7 @@ const _honored = <String>{
   '/assessment/:examId/results',
   '/onboarding',
   '/guardian',
+  '/guardian/manage',
   '/guardian/waiting',
   '/update-required',
   '/pro',
