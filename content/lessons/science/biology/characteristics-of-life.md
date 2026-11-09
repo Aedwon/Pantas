@@ -53,7 +53,7 @@ To infer means to reach a conclusion from the evidence you have plus facts you a
 
 A dry seed does not grow, move, or react for a long time. It can still be alive.
 
-A living seed that has not sprouted is **dormant**, which means its life processes have slowed to a very low level. It still has living cells.
+A living seed that is dry or resting is **dormant**, which means its life processes have slowed to a very low level. It still has living cells.
 
 Many seeds sprout when they get enough water and warmth. Some also need a cold period, light, or a cracked seed coat first. A seed that has died, for example one that is cooked, never grows.
 
@@ -63,7 +63,7 @@ So a property that is missing right now does not by itself mean something is not
 
 A virus is a tiny particle made of genetic material inside a protein coat. **Genetic material** is the DNA or RNA that carries instructions.
 
-A virus is **acellular**, which means it has no cells. It cannot make copies of itself alone. It must enter a host cell and use that cell's machinery.
+A virus is **acellular**, which means it has no cells. It cannot make copies of itself alone. It must get its genetic material into a host cell and use that cell's machinery.
 
 Viruses do have genetic material, and virus populations evolve. Introductory biology usually does not count them as living organisms, because they lack cells and cannot carry out their own metabolism. Some scientists still debate where to draw the line.
 
@@ -95,7 +95,7 @@ A mushroom absorbs nutrients from decaying wood, grows, releases spores, and cha
 **Solution:**
 
 1. Taking in and using nutrients shows energy processing (metabolism).
-2. Getting bigger and changing form shows growth and development.
+2. The question says the mushroom grows, which shows growth and development.
 3. Releasing spores shows reproduction.
 4. Changing growth because of the surroundings shows response to stimuli.
 5. Cellular organization is not described. We infer it, because we know a mushroom is a fungus and fungi are made of cells.
@@ -145,7 +145,7 @@ A dry bean seed sits in a jar for months. It does not grow or move. Can it still
 
 ### #6: Adaptation in a Population
 
-A farmer sprays an insecticide on a field. Most of the insects die. A few that carry an inherited resistance survive and breed. After many generations, most insects in the field are resistant. Did each insect adapt by trying to resist?
+A farmer sprays an insecticide on a field, and most of the insects die. A few that carry an inherited resistance survive and breed, and after many generations most insects in the field are resistant. Did each insect adapt by trying to resist?
 
 **Solution:**
 
@@ -175,7 +175,9 @@ For viruses, remember two groups. They evolve and carry genetic material. They a
 
 When a description is incomplete, say which property is shown and which is only inferred. An organism that shows little activity may be dormant, not dead.
 
-To order the levels, ask "is this built from the one before it?" A tissue is made of cells. An organ is made of tissues. A community is made of populations.
+To order the levels, ask "is this built from the one before it?" A tissue is made of cells.
+
+An organ is made of tissues. A community is made of populations.
 
 The ecosystem is the exception. It is a community plus the nonliving surroundings.
 

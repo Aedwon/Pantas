@@ -9,7 +9,9 @@ isActive: true
 ---
 ## Core Concept
 
-Meiosis is the division that makes gametes in animals and spores in plants and fungi. It halves the number of chromosome sets. A haploid cell has $n$ chromosomes and a diploid cell has $2n$. Meiosis can give each product a different mix of alleles.
+Meiosis is the division that makes gametes in animals and spores in plants and fungi. It halves the number of chromosome sets. A haploid cell has $n$ chromosomes and a diploid cell has $2n$.
+
+Meiosis can give each product a different mix of alleles.
 
 This lesson needs the lesson Cellular Reproduction (Chromosomes, Cell Cycle, Mitosis). Read it first for chromosomes, sister chromatids, homologs, haploid and diploid, and for mitosis and cytokinesis.
 
@@ -201,7 +203,9 @@ Remember meiosis as **one copying, two divisions**. Homologs separate in meiosis
 
 For variation, name two mechanisms: **crossing over** in prophase I and **independent assortment** at metaphase I.
 
-$2^n$ counts chromosome combinations that many cells can make together, where $n$ is the number of pairs. If you count allele combinations of genes on non-sex chromosomes instead, a homozygous gene adds no choice and a heterozygous gene adds one. So $AaBB$ on two pairs has $4$ chromosome combinations but only $2$ allele combinations, $AB$ and $aB$. A gene on a male's X is a special case: half his gametes carry the X, and half carry the Y.
+$2^n$ counts chromosome combinations that many cells can make together, where $n$ is the number of pairs. If you count allele combinations instead, for genes on non-sex chromosomes that sit on different pairs, a homozygous gene adds no choice and each heterozygous gene doubles the number of choices. So $AaBB$ on two pairs has $4$ chromosome combinations but only $2$ allele combinations, $AB$ and $aB$.
+
+A gene on a male's X is a special case: half his gametes carry the X, and half carry the Y.
 
 For genes on different chromosome pairs, crossing over adds no new allele combinations. It matters for genes on the same chromosome, as in Example #7.
 

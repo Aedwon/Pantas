@@ -15,7 +15,7 @@ A **gene** is a section of DNA that helps control a trait. An **allele** is one 
 
 A **chromosome** is a long strand of DNA that carries many genes. A **genotype** is the set of alleles an individual carries for a gene.
 
-Most genes lie on chromosomes that are not sex chromosomes, and they come as a pair, one allele from each parent. In humans, a male has only one allele for a gene on the X chromosome. A haploid organism, such as a bacterium, has one copy of each gene.
+In a diploid organism made by sexual reproduction, most genes lie on chromosomes that are not sex chromosomes, and they come as a pair, one allele from each parent. In humans, a male has only one allele for a gene on the X chromosome. A haploid organism, such as a bacterium, has one copy of each gene.
 
 A **phenotype** is the trait you can see or measure, such as green or brown color. A **population** is a group of the same kind of organism living in one place and able to breed with each other.
 
@@ -79,13 +79,15 @@ If differences are not heritable, selection changes nothing in the next generati
 
 ### Comparing the Four Causes
 
-Mutation adds new alleles by chance. Drift changes frequencies by chance. Gene flow moves alleles between populations. Selection is the only one of the four that regularly improves how well a population fits its environment.
+Mutation adds new alleles by chance. Drift changes frequencies by chance. Gene flow moves alleles between populations.
 
-Selection is the cause that builds adaptations. Drift and gene flow can change frequencies without helping the organism.
+Selection is the only one of the four that regularly improves how well a population fits its environment. It is the cause that builds adaptations. Drift and gene flow can change frequencies without helping the organism.
 
 ### Speciation
 
-A **species** is a kind of organism. Scientists use several definitions. The **biological species concept** says a species is a group of populations that can breed with each other in nature and produce fertile offspring, but do not usually breed with other groups. **Fertile** means able to have offspring. **Sterile** means unable to have offspring. This concept is used mainly for organisms that reproduce sexually.
+A **species** is a kind of organism. Scientists use several definitions. The **biological species concept** says a species is a group of populations that can breed with each other in nature and produce fertile offspring, but do not usually breed with other groups.
+
+**Fertile** means able to have offspring. **Sterile** means unable to have offspring. This concept is used mainly for organisms that reproduce sexually.
 
 **Speciation** is the formation of a new species. It happens when **reproductive isolation** evolves. This means two groups can no longer, or hardly ever, exchange alleles through breeding.
 
@@ -93,9 +95,9 @@ Reproductive isolation can take different forms. The groups may breed in differe
 
 A mule, from a horse and a donkey, is almost always sterile.
 
-In **allopatric speciation**, a physical barrier such as a rising sea or a mountain range splits one population into two. Gene flow stops. Each group then changes through its own mutations, drift and selection. If reproductive isolation evolves, they usually stay separate species even when they meet again.
+In **allopatric speciation**, a physical barrier such as a rising sea or a mountain range splits one population into two, and gene flow stops. Each group then changes through its own mutations, drift and selection. If reproductive isolation evolves, they usually stay separate species even when they meet again.
 
-In **sympatric speciation**, a new species forms without a physical barrier. In plants, **polyploidy** is a common route. A polyploid has extra whole sets of chromosomes. A polyploid plant may be unable to breed with its parent species at once.
+In **sympatric speciation**, a new species forms without a physical barrier. In plants, **polyploidy** is a common route: a polyploid has extra whole sets of chromosomes. A polyploid plant may be unable to breed with its parent species at once.
 
 **Adaptive radiation** is when one ancestor species gives rise to many species that fit different ways of living. Darwin's finches on the Galapagos Islands are an example.
 
@@ -111,7 +113,7 @@ A beetle population has $50$ individuals. Together they carry $100$ copies of a 
 
 **Solution:**
 
-1. This gene is on a non-sex chromosome, so each individual has two copies. Then $50$ individuals carry $100$ copies.
+1. The question gives the total: the $50$ individuals carry $100$ copies of the gene.
 2. Divide the copies of the brown allele by all copies.
 
 $$\dfrac{30}{100} = 0.30$$
@@ -136,7 +138,7 @@ A student says, "An animal built a useful body change by using it often, so its 
 **Solution:**
 
 1. Natural selection needs heritable variation, which means variation in alleles that parents pass to offspring.
-2. A change gained in a lifetime, such as larger muscles from exercise, does not change the alleles that parents pass on.
+2. A body change gained by use, such as larger muscles from exercise, does not change the alleles that parents pass on.
 3. Offspring therefore do not inherit it.
 4. A population changes when heritable variants differ in reproductive success across generations.
 
@@ -189,7 +191,9 @@ A plant species grows in one meadow. A mutation doubles the whole chromosome set
 
 ## Exam Strategies
 
-For a natural selection question, look for three things: variation, heritability, and different reproductive success. If any of the three is missing, it is not selection. When selection favors one extreme, the trait shifts across generations. Under stabilizing selection, it stays about the same.
+For a natural selection question, look for three things: variation, heritability, and different reproductive success. If any of the three is missing, it is not selection.
+
+When selection favors one extreme, the trait shifts across generations. Under stabilizing selection, it stays about the same.
 
 For a question on causes of evolution, ask what changed the frequency.
 
