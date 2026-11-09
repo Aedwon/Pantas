@@ -4,9 +4,13 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_opacity.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/features/home/application/how_you_work_provider.dart';
 import 'package:pantas/features/home/presentation/tendencies_page.dart';
 import 'package:pantas/features/metrics/domain/tendency_confidence.dart';
+
+import '../../../helpers/ds_matrix.dart';
 
 void main() {
   setUpAll(() async {
@@ -417,20 +421,49 @@ void main() {
         'locked findings are rounded cards like the Pro one, '
         '$brightness (4N-15)', (tester) async {
       await pumpFresh(tester, pro: false, brightness: brightness);
-      final cards = find.byWidgetPredicate(
-        (w) =>
-            w is Container &&
-            w.decoration is BoxDecoration &&
-            (w.decoration! as BoxDecoration).borderRadius ==
-                BorderRadius.circular(18),
-      );
+      // Each locked finding is the system Card (radius-xl 18).
+      final cards = find.byType(WebCard);
       expect(cards, findsNWidgets(3));
+      expect(tester.widget<WebCard>(cards.first).radius, PantasRadius.xl);
       // 20 px of padding from the card's outer edge, in both themes.
       final first = tester.getRect(cards.first);
       expect(
         tester.getTopLeft(find.text('UNDER PRESSURE')).dx - first.left,
         closeTo(20 + 17 + 8, .5),
       );
+    });
+  }
+
+  for (final cell in dsCells.where((c) => c.width == 390)) {
+    testWidgets('locked findings are system Cards without overflow ($cell)',
+        (tester) async {
+      tester.view
+        ..physicalSize = Size(cell.width, 900)
+        ..devicePixelRatio = 1;
+      addTearDown(tester.view.reset);
+      await tester.pumpWidget(
+        MediaQuery(
+          data: MediaQueryData(
+            size: Size(cell.width, 900),
+            textScaler: TextScaler.linear(cell.scale),
+            disableAnimations: true,
+          ),
+          child: MaterialApp(
+            theme: cell.dark ? buildDarkTheme() : buildLightTheme(),
+            home: TendenciesPage(
+              data: work,
+              pro: false,
+              paused: false,
+              onBack: () {},
+              onName: () {},
+              onPro: () {},
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+      expect(tester.takeException(), isNull);
+      expect(find.byType(WebCard), findsOneWidget);
     });
   }
 }

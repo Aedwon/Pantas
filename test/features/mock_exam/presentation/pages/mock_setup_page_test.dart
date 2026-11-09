@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/content/domain/mock_blueprint.dart';
+import 'package:pantas/core/ui/components/data_table.dart';
 import 'package:pantas/core/ui/components/pantas_switch.dart';
 import 'package:pantas/core/ui/components/placeholder_figure.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -129,6 +130,8 @@ void main() {
 
     expect(find.text('UPCAT simulation'), findsOneWidget);
     expect(find.text('250 total items · 3 hr 50 min'), findsOneWidget);
+    // The section table is the system DataTable.
+    expect(find.byType(PantasDataTable), findsOneWidget);
     expect(find.text('SECTION'), findsOneWidget);
     expect(find.text('ITEMS'), findsOneWidget);
     expect(find.text('TIME'), findsOneWidget);
@@ -148,11 +151,16 @@ void main() {
       findsOneWidget,
     );
     expect(find.byType(PantasSwitch), findsOneWidget);
-    await tester.scrollUntilVisible(find.text('Start the Mock Exam'), 300);
+    await tester.scrollUntilVisible(
+      find.text('Start the Mock Exam'),
+      300,
+      scrollable: find.byType(Scrollable).first,
+    );
     expect(find.text('Start the Mock Exam'), findsOneWidget);
     await tester.scrollUntilVisible(
       find.text('The clock starts when you tap.'),
       120,
+      scrollable: find.byType(Scrollable).first,
     );
     expect(find.text('The clock starts when you tap.'), findsOneWidget);
 
@@ -172,7 +180,11 @@ void main() {
       ),
       findsOneWidget,
     );
-    await tester.scrollUntilVisible(find.text('Start the Mock Exam'), 300);
+    await tester.scrollUntilVisible(
+      find.text('Start the Mock Exam'),
+      300,
+      scrollable: find.byType(Scrollable).first,
+    );
     await tester.tap(find.text('Start the Mock Exam'));
     expect(startedStrict, isTrue);
   });
@@ -195,7 +207,11 @@ void main() {
       tester.widget<PantasSwitch>(find.byType(PantasSwitch)).value,
       isTrue,
     );
-    await tester.scrollUntilVisible(find.text('Start the Mock Exam'), 300);
+    await tester.scrollUntilVisible(
+      find.text('Start the Mock Exam'),
+      300,
+      scrollable: find.byType(Scrollable).first,
+    );
     await tester.tap(find.text('Start the Mock Exam'));
     expect(startedStrict, isTrue);
   });
@@ -273,7 +289,30 @@ void main() {
     );
     expect(tester.takeException(), isNull);
     expect(find.byType(Scrollable), findsWidgets);
-    await tester.scrollUntilVisible(find.text('Start the Mock Exam'), 300);
+    await tester.scrollUntilVisible(
+      find.text('Start the Mock Exam'),
+      300,
+      scrollable: find.byType(Scrollable).first,
+    );
     expect(find.text('Start the Mock Exam'), findsOneWidget);
   });
+
+  for (final scale in [1.0, 2.0]) {
+    testWidgets(
+        'the pinned section column leaves the Items and Time columns '
+        'reachable at 390 and x$scale', (tester) async {
+      await tester.binding.setSurfaceSize(const Size(390, 844));
+      addTearDown(() => tester.binding.setSurfaceSize(null));
+      await pump(tester, textScale: scale);
+      expect(tester.takeException(), isNull);
+      final pinned =
+          tester.getSize(find.byKey(const ValueKey('data-table-pinned')));
+      final table = tester.getSize(find.byKey(const ValueKey('data-table')));
+      // The pinned column keeps to about 60% of the table (its header can
+      // push it a little past that at large text).
+      expect(pinned.width, lessThan(table.width * .75));
+      expect(find.text('ITEMS'), findsOneWidget);
+      expect(find.text('TIME'), findsOneWidget);
+    });
+  }
 }

@@ -61,7 +61,7 @@ class TendenciesPage extends StatelessWidget {
     // finding is drawn without a surface of its own (4N-5).
     Widget group(String title, List<Tendency> cards) => GroupedSection(
           header: title,
-          radius: _findingRadius,
+          radius: PantasRadius.xl,
           children: [
             for (final (index, t) in cards.indexed)
               _Finding(
@@ -329,9 +329,6 @@ class _Profile extends StatelessWidget {
 /// The ghost glyph behind the profile card text.
 final double _ghostGlyph = PantasType.phoneDisplayL.fontSize!;
 
-/// Board `.fnd`: an 18 px card.
-const double _findingRadius = 18;
-
 class _Finding extends StatelessWidget {
   const _Finding({
     required this.tendency,
@@ -405,23 +402,15 @@ class _Finding extends StatelessWidget {
         ),
       ],
     );
-    final dark = Theme.of(context).brightness == Brightness.dark;
-    // A card of its own draws its real 1 px edge inside the padding, so the
-    // padding gives that pixel back and the content sits 20 px from the outer
-    // edge, as on the board (an inset rule there).
-    final edge = standalone && dark ? 1.0 : 0.0;
+    // A locked finding is a card of its own: the system Card, which draws its
+    // dark edge over the content, so the content sits 20 from the outer edge.
     Widget frame(Widget child) => standalone
-        ? Container(
-            decoration: BoxDecoration(
-              color: context.colors.surfaceCard,
-              borderRadius: BorderRadius.circular(_findingRadius),
-              border: dark ? Border.all(color: context.colors.edgeCard) : null,
-            ),
+        ? WebCard(
             padding: EdgeInsets.fromLTRB(
-              PantasSpace.s20 - edge,
-              topInset - edge,
-              PantasSpace.s20 - edge,
-              bottomInset - edge,
+              PantasSpace.s20,
+              topInset,
+              PantasSpace.s20,
+              bottomInset,
             ),
             child: child,
           )

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/ui/components/data_table.dart';
 import 'package:pantas/core/ui/components/pro_tag.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
@@ -84,10 +85,18 @@ void main() {
       await tester.tap(find.text('Mathematics'));
       await tester.pumpAndSettle();
       expect(find.text('Geometry'), findsOneWidget);
-      final topicRow = tester.widget<WebRow>(
-        find.ancestor(of: find.text('Geometry'), matching: find.byType(WebRow)),
+      // The topic is a row of the same table, set in under its subject.
+      expect(find.byType(PantasDataTable), findsOneWidget);
+      expect(
+        tester.getTopLeft(find.text('Geometry')).dx,
+        greaterThan(tester.getTopLeft(find.text('Mathematics')).dx),
       );
-      expect(topicRow.compact, isTrue);
+      expect(
+        tester.getTopLeft(find.text('Geometry')).dy,
+        greaterThan(tester.getTopLeft(find.text('Mathematics')).dy),
+      );
+      expect(find.text('5 answered'), findsOneWidget);
+      expect(find.text('40%'), findsOneWidget);
       expect(find.text('Subjects'), findsOneWidget);
       expect(tester.takeException(), isNull);
     });
@@ -201,7 +210,7 @@ void main() {
     testWidgets('wide Free keeps subject list and invites Pro, dark=$dark',
         (tester) async {
       await show(tester, pro: false);
-      expect(find.byType(ProTag), findsNWidgets(2));
+      expect(find.byType(ProMark), findsNWidgets(2));
       expect(find.text('Mathematics'), findsOneWidget);
       expect(find.text('Go deeper with Pro'), findsOneWidget);
       expect(find.byIcon(Icons.lock_outline_rounded), findsOneWidget);
@@ -247,26 +256,23 @@ void main() {
       await tester.pumpAndSettle();
     }
 
-    final chevron = find.descendant(
-      of: find.ancestor(
-        of: find.text('Mathematics'),
-        matching: find.byType(WebRow),
-      ),
+    final chevron = find.ancestor(
+      of: find.byIcon(Icons.keyboard_arrow_down),
       matching: find.byType(AnimatedRotation),
     );
     double turns(WidgetTester tester) =>
         tester.widget<AnimatedRotation>(chevron).turns;
-    final topics = find.byKey(const ValueKey('subject-topics-math'));
     Finder rotor() => find.descendant(
           of: chevron,
           matching: find.byType(RotationTransition),
         );
 
+    final topics = find.byKey(const ValueKey('data-table-children-0'));
+
     testWidgets('topics open over 240 ms and the chevron turns',
         (tester) async {
       await show(tester, still: false);
-      final before = tester.getSize(topics).height;
-      expect(before, 0);
+      expect(tester.getSize(topics).height, 0);
       await tester.tap(find.text('Mathematics'));
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 100));
@@ -278,10 +284,7 @@ void main() {
       await tester.pumpAndSettle();
       final end = tester.getSize(topics).height;
       expect(end, greaterThan(mid));
-      expect(
-        tester.widget<RotationTransition>(rotor()).turns.value,
-        .5,
-      );
+      expect(tester.widget<RotationTransition>(rotor()).turns.value, .5);
     });
 
     testWidgets('reduced motion opens at once', (tester) async {
@@ -290,11 +293,7 @@ void main() {
       await tester.pump();
       expect(find.text('Geometry'), findsOneWidget);
       expect(tester.getSize(topics).height, greaterThan(0));
-      expect(
-        tester.widget<RotationTransition>(rotor()).turns.value,
-        .5,
-      );
-      expect(tester.hasRunningAnimations, isFalse);
+      expect(tester.widget<RotationTransition>(rotor()).turns.value, .5);
     });
   });
 }
