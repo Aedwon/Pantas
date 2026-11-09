@@ -227,7 +227,7 @@ questions:
           This applies thin alpha shielding to gamma photons. Paper blocks external alpha particles. Check the radiation type and the density of the shield.
       - text: 'At equal thickness, a lighter shield reduces gamma intensity more than a denser one.'
         rationale: |
-          This reverses the role of density. Light shields are easy to handle, so they seem fine. Check which material of equal thickness takes in more photons, a dense one or a light one.
+          This reverses the usual trend. For the same photon energy and thickness, a dense material made of heavy atoms, such as lead, usually takes in more gamma photons than a light one. Light shields are easy to handle, so they seem fine. Check the trend with lead and paper, and remember that the material and the photon energy also matter.
       - text: 'Making a shield thicker does not change the gamma intensity behind it.'
         rationale: |
           This treats thickness as irrelevant. A thin shield may seem to do the same job. Check how intensity changes as photons pass through more material.

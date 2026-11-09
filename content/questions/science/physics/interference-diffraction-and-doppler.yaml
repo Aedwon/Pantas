@@ -140,7 +140,7 @@ questions:
         correct: true
       - text: "Destructive interference, because the path difference is a whole number of wavelengths"
         rationale: |
-          This has the correct reason but the wrong result. Canceling needs a half wavelength. Check which path differences give canceling.
+          This has the correct reason but the wrong result. Canceling needs an odd number of half wavelengths, such as $\dfrac{\lambda}{2}$ or $\dfrac{3\lambda}{2}$. A whole number of wavelengths adds the waves instead. Check whether the path difference is a whole number or an odd number of half wavelengths.
       - text: "Constructive interference, because the path difference is a half wavelength"
         rationale: |
           This has the correct result but the wrong reason. The path difference is given as $2\lambda$, not $\dfrac{\lambda}{2}$. Check the value in the question.

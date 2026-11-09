@@ -323,7 +323,7 @@ questions:
         correct: true
       - text: "The block is speeding up steadily"
         rationale: |
-          This treats a lifting motion as if any upward movement gives the same rope force. Rising looks like pulling harder. Check that a speeding-up block needs more than its weight, so the effort is larger than $640/2$.
+          This treats a block that is speeding up as if the rope force were still half the weight. A steady speed-up looks like a smooth, steady motion. Check that speeding up in either direction means the forces are not balanced, so the effort is not $640/2$.
       - text: "The block is slowing down as it rises"
         rationale: |
           This treats a block that is still moving upward as if its weight alone sets the rope force. The block is still moving up. Check that a slowing block needs less than its weight, so the effort is smaller than $640/2$.
