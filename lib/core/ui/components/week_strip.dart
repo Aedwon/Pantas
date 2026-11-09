@@ -169,8 +169,7 @@ class _WeekStripState extends State<WeekStrip> {
         final scrolls =
             constraints.hasBoundedWidth && content > constraints.maxWidth;
         _scroll ??= ScrollController(
-          initialScrollOffset:
-              (widget.today.weekday % 7) * (cell + gap),
+          initialScrollOffset: (widget.today.weekday % 7) * (cell + gap),
         );
         final row = Row(
           mainAxisSize: MainAxisSize.min,

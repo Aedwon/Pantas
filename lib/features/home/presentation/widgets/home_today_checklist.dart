@@ -573,7 +573,9 @@ class HomeTodayChecklist extends StatelessWidget {
       ListRow(
         title: lesson.title,
         subtitle: upNext ? 'Up next · ${lesson.subject}' : lesson.subject,
-        // Board (HE_LongTitle): a long subject is cut, never wrapped.
+        // Board (HE_LongTitle): a long title and subject are cut, never
+        // wrapped.
+        truncateTitle: true,
         subtitleMaxLines: 1,
         value: lesson.read
             ? 'Read'

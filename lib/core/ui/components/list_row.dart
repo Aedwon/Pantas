@@ -46,6 +46,7 @@ class ListRow extends StatelessWidget {
     this.richSubtitle,
     this.valueStyle,
     this.wrapTitle = false,
+    this.truncateTitle = false,
     this.minimumHeight = PantasSize.rowMinPhone,
     this.contentPadding,
     this.leadingGap = PantasSpace.s12,
@@ -95,6 +96,7 @@ class ListRow extends StatelessWidget {
         richSubtitle = null,
         valueStyle = null,
         wrapTitle = false,
+        truncateTitle = false,
         valueWidget = null,
         trailingWidget = null,
         titleWidget = null,
@@ -133,6 +135,7 @@ class ListRow extends StatelessWidget {
         richSubtitle = null,
         valueStyle = null,
         wrapTitle = false,
+        truncateTitle = false,
         valueWidget = null,
         trailingWidget = null,
         titleWidget = null,
@@ -185,6 +188,11 @@ class ListRow extends StatelessWidget {
   final InlineSpan? richSubtitle;
   final TextStyle? valueStyle;
   final bool wrapTitle;
+
+  /// Cuts a long title to one line with an ellipsis. Titles wrap by default
+  /// (ListRow README: "Don't truncate a title"); only a board that draws a
+  /// one-line title asks for this (the Home Today list, HE_LongTitle).
+  final bool truncateTitle;
   final double minimumHeight;
   final EdgeInsetsGeometry? contentPadding;
   final double leadingGap;
@@ -474,6 +482,8 @@ class ListRow extends StatelessWidget {
         tinted ? subBase.copyWith(color: c.textOnTintSecondary) : subBase;
     final label = Text.rich(
       richTitle ?? TextSpan(text: title),
+      maxLines: truncateTitle ? 1 : null,
+      overflow: truncateTitle ? TextOverflow.ellipsis : null,
       style: labelStyle,
     );
     // A plain text value shares the row with the title. The value takes the
