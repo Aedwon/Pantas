@@ -113,6 +113,7 @@ class _LessonPageState extends ConsumerState<LessonPage> {
   bool _captureAlive = true;
   bool _boundaryAlive = true;
   bool _captureFailed = false;
+  bool _changedDuringCapture = false;
   StreamSubscription<Object?>? _boundaryChanges;
   final _lifetimeSubscriptions = <ProviderSubscription<Object?>>[];
 
@@ -159,7 +160,10 @@ class _LessonPageState extends ConsumerState<LessonPage> {
         )
         .listen((updates) {
       if (_boundary == null) {
-        _expire();
+        // Sync writes its own bookkeeping here too, often during the first
+        // capture on a reload. Only a token change ends the reader, so the
+        // capture checks the boundary again once it has one.
+        _changedDuringCapture = true;
         return;
       }
       final boundary = _boundary;
@@ -193,6 +197,7 @@ class _LessonPageState extends ConsumerState<LessonPage> {
       if (!valid) return _expire();
       ref.invalidate(readerContextProvider(_lessonId));
       setState(() => _boundary = boundary);
+      if (_changedDuringCapture) unawaited(_validateBoundary(boundary));
     } on Exception {
       if (mounted) _expire();
     }
