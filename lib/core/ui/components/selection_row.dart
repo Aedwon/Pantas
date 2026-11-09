@@ -233,7 +233,10 @@ class _SelectionRowState extends State<_SelectionRow> {
           side: WidgetStateProperty.resolveWith(
             // No ring on a row at rest (O_Consent) or after a click; one
             // shows only while the keyboard drives the focus.
-            (states) => webFocusRing(states, c.accent) ?? BorderSide.none,
+            // A row with a mark rings the mark instead (Checkbox README).
+            (states) => w.showMark
+                ? BorderSide.none
+                : webFocusRing(states, c.accent) ?? BorderSide.none,
           ),
         ),
         child: Opacity(
@@ -261,6 +264,7 @@ class _SelectionRowState extends State<_SelectionRow> {
                               _states.value.contains(WidgetState.hovered),
                           pressed: enabled &&
                               _states.value.contains(WidgetState.pressed),
+                          focused: enabled && webKeyboardFocus(_states.value),
                         ),
                       ),
                     ),
@@ -332,6 +336,7 @@ class _SelectionMark extends StatelessWidget {
     required this.radio,
     this.hovered = false,
     this.pressed = false,
+    this.focused = false,
     this.size = PantasSize.check,
   });
   final bool selected;
@@ -339,6 +344,9 @@ class _SelectionMark extends StatelessWidget {
   final bool radio;
   final bool hovered;
   final bool pressed;
+
+  /// Keyboard focus: the 2 `accent` outline, offset 2, around the mark.
+  final bool focused;
   final double size;
 
   /// The check drawn inside the mark, `size-check` 24 to 14.
@@ -357,7 +365,7 @@ class _SelectionMark extends StatelessWidget {
     final c = context.colors;
     final on = selected || mixed;
     final still = MediaQuery.disableAnimationsOf(context);
-    return AnimatedScale(
+    final mark = AnimatedScale(
       scale: pressed ? _pressedScale : 1,
       duration: still ? Duration.zero : PantasDurations.short3,
       curve: PantasCurves.move,
@@ -398,6 +406,29 @@ class _SelectionMark extends StatelessWidget {
           ),
         ),
       ),
+    );
+    if (!focused) return mark;
+    const reach = PantasBorder.focus + PantasSpace.s2;
+    return Stack(
+      clipBehavior: Clip.none,
+      children: [
+        mark,
+        Positioned(
+          left: -reach,
+          top: -reach,
+          right: -reach,
+          bottom: -reach,
+          child: IgnorePointer(
+            child: DecoratedBox(
+              key: const ValueKey('selection-focus-ring'),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(_radius + reach),
+                border: Border.all(color: c.accent, width: PantasBorder.focus),
+              ),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

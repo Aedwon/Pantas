@@ -38,6 +38,31 @@ void main() {
         width: 280,
       ),
       GoldenState('Read only', (_) => _field(readOnly: true), width: 280),
+      GoldenState(
+        'Optional',
+        (_) => const PantasField(
+          label: 'Nickname',
+          optional: true,
+          hint: 'What should we call you?',
+        ),
+        width: 280,
+      ),
+      GoldenState(
+        'Multi-line',
+        (_) => const PantasField(
+          label: 'Note',
+          optional: true,
+          hint: 'Anything we should know?',
+          multiline: true,
+        ),
+        width: 280,
+      ),
+      GoldenState(
+        'Invalid, focus',
+        (_) => _field(errorText: 'Enter your name.'),
+        action: GoldenAction.focus,
+        width: 280,
+      ),
     ],
     cellWidth: 280,
     columns: 4,

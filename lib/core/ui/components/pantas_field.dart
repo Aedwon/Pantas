@@ -72,19 +72,17 @@ class PantasFieldMessage extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            if (error) ...[
-              Padding(
-                padding: const EdgeInsets.only(top: PantasSpace.s2),
-                child: ExcludeSemantics(
-                  child: Icon(
-                    PantasIcons.appError,
-                    size: PantasSize.icon - PantasSpace.s4,
-                    color: color,
-                  ),
+            Padding(
+              padding: const EdgeInsets.only(top: PantasSpace.s2),
+              child: ExcludeSemantics(
+                child: Icon(
+                  error ? PantasIcons.appError : PantasIcons.info,
+                  size: PantasSize.icon - PantasSpace.s4,
+                  color: color,
                 ),
               ),
-              const SizedBox(width: PantasSpace.s6),
-            ],
+            ),
+            const SizedBox(width: PantasSpace.s6),
             Expanded(
               child: Text(
                 text,

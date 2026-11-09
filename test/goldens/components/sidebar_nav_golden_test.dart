@@ -25,6 +25,21 @@ void main() {
           (_) => _sidebar(i),
           width: 260,
         ),
+      // The second item (Study) sits near the top of the list.
+      GoldenState(
+        'Item hover',
+        (_) => _sidebar(0),
+        action: GoldenAction.hover,
+        at: const Alignment(-0.2, -0.55),
+        width: 260,
+      ),
+      GoldenState(
+        'Item pressed',
+        (_) => _sidebar(0),
+        action: GoldenAction.pressed,
+        at: const Alignment(-0.2, -0.55),
+        width: 260,
+      ),
       GoldenState(
         'Focus',
         (_) => _sidebar(0),
@@ -33,7 +48,7 @@ void main() {
       ),
     ],
     cellWidth: 260,
-    columns: 5,
+    columns: 4,
     web: true,
   );
 }

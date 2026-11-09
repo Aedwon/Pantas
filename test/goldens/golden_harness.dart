@@ -74,6 +74,8 @@ class GoldenState {
     this.build, {
     this.action = GoldenAction.rest,
     this.width,
+    this.web,
+    this.at = Alignment.center,
   });
 
   final String label;
@@ -82,6 +84,14 @@ class GoldenState {
 
   /// The widest the cell's content may be. Defaults to the sheet's cell width.
   final double? width;
+
+  /// Draws this cell with the web (desktop) layout or the phone layout,
+  /// whatever the rest of the sheet does. Null follows the sheet.
+  final bool? web;
+
+  /// Where in the cell the pointer lands for hover and pressed. The center by
+  /// default; a part of a composite (a bar's counter) names its own spot.
+  final Alignment at;
 }
 
 /// Rest, hover, pressed and focus cells of one control, plus a disabled cell
@@ -91,29 +101,33 @@ List<GoldenState> interactionStates(
   WidgetBuilder build, {
   WidgetBuilder? disabled,
   double? width,
+  bool? web,
 }) =>
     [
-      GoldenState('$prefix rest', build, width: width),
+      GoldenState('$prefix rest', build, width: width, web: web),
       GoldenState(
         '$prefix hover',
         build,
         action: GoldenAction.hover,
         width: width,
+        web: web,
       ),
       GoldenState(
         '$prefix pressed',
         build,
         action: GoldenAction.pressed,
         width: width,
+        web: web,
       ),
       GoldenState(
         '$prefix focus',
         build,
         action: GoldenAction.focus,
         width: width,
+        web: web,
       ),
       if (disabled != null)
-        GoldenState('$prefix disabled', disabled, width: width),
+        GoldenState('$prefix disabled', disabled, width: width, web: web),
     ];
 
 /// A theme the sheet renders in.
@@ -148,60 +162,76 @@ void goldenSheet(
         ..physicalSize = const Size(6000, 6000)
         ..devicePixelRatio = 1;
       debugWebPlatformOverride = web;
-      addTearDown(() {
-        tester.view.reset();
-        debugWebPlatformOverride = null;
-      });
+      // flutter_test turns box shadows off, which draws every drop shadow as
+      // a hard gray edge. The app has soft shadows, so the sheet shows them.
+      debugDisableShadows = false;
+      try {
+        addTearDown(() {
+          tester.view.reset();
+          debugWebPlatformOverride = null;
+        });
 
-      final images = <_Mode, List<ui.Image>>{_Mode.light: [], _Mode.dark: []};
-      for (final mode in _Mode.values) {
-        for (final state in states) {
-          images[mode]!
-              .add(await _capture(tester, mode, state, cellWidth, web, settle));
-        }
-      }
-      addTearDown(() {
-        for (final list in images.values) {
-          for (final image in list) {
-            image.dispose();
+        final images = <_Mode, List<ui.Image>>{_Mode.light: [], _Mode.dark: []};
+        for (final mode in _Mode.values) {
+          for (final state in states) {
+            images[mode]!.add(
+              await _capture(
+                tester,
+                mode,
+                state,
+                cellWidth,
+                state.web ?? web,
+                settle,
+              ),
+            );
           }
         }
-      });
+        addTearDown(() {
+          for (final list in images.values) {
+            for (final image in list) {
+              image.dispose();
+            }
+          }
+        });
 
-      final sheetKey = GlobalKey();
-      await tester.pumpWidget(
-        _themed(
-          _Mode.light,
-          web,
-          Align(
-            alignment: Alignment.topLeft,
-            child: RepaintBoundary(
-              key: sheetKey,
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  for (final mode in _Mode.values)
-                    _Panel(
-                      mode: mode,
-                      web: web,
-                      columns: columns,
-                      title: '$name ${mode.name}',
-                      labels: [for (final s in states) s.label],
-                      images: images[mode]!,
-                    ),
-                ],
+        final sheetKey = GlobalKey();
+        await tester.pumpWidget(
+          _themed(
+            _Mode.light,
+            web,
+            Align(
+              alignment: Alignment.topLeft,
+              child: RepaintBoundary(
+                key: sheetKey,
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    for (final mode in _Mode.values)
+                      _Panel(
+                        mode: mode,
+                        web: web,
+                        columns: columns,
+                        title: '$name ${mode.name}',
+                        labels: [for (final s in states) s.label],
+                        images: images[mode]!,
+                      ),
+                  ],
+                ),
               ),
             ),
           ),
-        ),
-      );
-      await tester.pump();
-      expect(tester.takeException(), isNull);
-      await expectLater(
-        find.byKey(sheetKey),
-        matchesGoldenFile('../files/$name.png'),
-      );
+        );
+        await tester.pump();
+        expect(tester.takeException(), isNull);
+        await expectLater(
+          find.byKey(sheetKey),
+          matchesGoldenFile('../files/$name.png'),
+        );
+      } finally {
+        // The binding checks this flag before tear-downs run.
+        debugDisableShadows = true;
+      }
     },
     tags: goldenTag,
   );
@@ -226,6 +256,7 @@ Future<ui.Image> _capture(
   bool web,
   Duration settle,
 ) async {
+  debugWebPlatformOverride = web;
   final boundaryKey = GlobalKey();
   final contentKey = GlobalKey();
   await tester.pumpWidget(
@@ -262,7 +293,8 @@ Future<ui.Image> _capture(
     ),
   );
   await tester.pump(const Duration(milliseconds: 100));
-  final center = tester.getCenter(find.byKey(contentKey));
+  final contentBox = tester.getRect(find.byKey(contentKey));
+  final center = state.at.withinRect(contentBox);
   TestGesture? gesture;
   switch (state.action) {
     case GoldenAction.rest:

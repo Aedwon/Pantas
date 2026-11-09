@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/exam_name_line.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
 
 import '../golden_harness.dart';
 
@@ -19,11 +19,21 @@ void main() {
       ),
       GoldenState(
         'No exam date',
-        (_) => const ExamChip.empty(trailing: Text('Add your exam date')),
+        (_) => ExamChip.empty(
+          trailing: WebTextLink(label: 'Add Date', onPressed: () {}),
+        ),
+        width: 320,
+      ),
+      GoldenState(
+        'Add Date focus',
+        (_) => ExamChip.empty(
+          trailing: WebTextLink(label: 'Add Date', onPressed: () {}),
+        ),
+        action: GoldenAction.focus,
         width: 320,
       ),
     ],
     cellWidth: 320,
-    columns: 2,
+    web: true,
   );
 }

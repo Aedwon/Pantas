@@ -21,7 +21,7 @@ void main() {
       ),
       GoldenState('Disabled', (_) => const WebKeyHint('Enter', enabled: false)),
       GoldenState(
-        'Touch (hidden)',
+        'Not a key (shown)',
         (_) => const WebKeyHint('Enter', keyboard: false),
       ),
     ],

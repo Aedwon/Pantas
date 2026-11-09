@@ -8,6 +8,16 @@ void main() {
     'progress_ring',
     [
       GoldenState('Empty', (_) => const ProgressRing(fraction: 0, size: 72)),
+      GoldenState('24 px, 60%', (_) => const ProgressRing(fraction: 0.6)),
+      GoldenState('24 px, done', (_) => const ProgressRing(fraction: 1)),
+      GoldenState(
+        '34 px, 60%',
+        (_) => const ProgressRing(fraction: 0.6, size: 34),
+      ),
+      GoldenState(
+        '44 px, done',
+        (_) => const ProgressRing(fraction: 1, size: 44),
+      ),
       GoldenState(
         'Half',
         (_) => const ProgressRing(fraction: 0.5, size: 72, child: Text('50%')),

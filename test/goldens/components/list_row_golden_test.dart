@@ -4,7 +4,6 @@ import '../golden_harness.dart';
 
 ListRow _row({
   bool selected = false,
-  bool enabled = true,
   ListRowVariant variant = ListRowVariant.navigation,
   String? value,
   String? subtitle,
@@ -15,7 +14,7 @@ ListRow _row({
       value: value,
       variant: variant,
       selected: selected,
-      onTap: enabled ? () {} : null,
+      onTap: () {},
     );
 
 void main() {
@@ -25,7 +24,6 @@ void main() {
       ...interactionStates(
         'Navigation',
         (_) => _row(subtitle: '15 min'),
-        disabled: (_) => _row(subtitle: '15 min', enabled: false),
         width: 320,
       ),
       GoldenState(
@@ -46,6 +44,33 @@ void main() {
       GoldenState(
         'Static',
         (_) => const ListRow(title: 'Fractions, part 2', subtitle: '15 min'),
+        width: 320,
+      ),
+      // Disabled in the app is the "coming soon" exam row: `text-disabled`
+      // for the title, subtitle and label, no press.
+      GoldenState(
+        'Disabled (coming soon)',
+        (_) => ListRow.exam(
+          title: 'CSE',
+          subtitle: 'Civil Service Commission',
+          selected: false,
+          onTap: () {},
+          comingSoon: true,
+          settingsMode: true,
+        ),
+        web: false,
+        width: 320,
+      ),
+      GoldenState(
+        'Exam row, selected',
+        (_) => ListRow.exam(
+          title: 'UPCAT',
+          subtitle: 'University of the Philippines',
+          selected: true,
+          onTap: () {},
+          settingsMode: true,
+        ),
+        web: false,
         width: 320,
       ),
     ],
