@@ -9,7 +9,7 @@ Then read `guardrails.md` in this folder. It is the plan Aedwon is implementing.
 - **Branch `web/design-system-4`.** Every screen is on design system 4.0. Families A to M are merged,
   and the close-out commit is f49b99300. The full suite (`test/core`, `test/features`, `test/app`)
   shows 9986 passing. CI run 42503472179 passed, except `osv` (see below).
-- **Staging.** https://staging.pantas.study serves f49b99300 (Firebase project `pantas-staging`, site
+- **Staging.** https://staging.pantas.study serves faab5b4b8 (the sweep merge) (Firebase project `pantas-staging`, site
   `pantas-staging-app`, `X-Robots-Tag: noindex`). Deploy it from a checkout that is detached at the
   branch head. Check the SHA before building:
   `git checkout --detach origin/web/design-system-4 && test "$(git rev-parse HEAD)" = <sha> && flutter pub get && bash tool/deploy/staging_web.sh`.
@@ -22,7 +22,7 @@ Then read `guardrails.md` in this folder. It is the plan Aedwon is implementing.
 
 ## Work in flight when this was written (the "fix this" sweep, layer 0 of the plan)
 
-Four Sonnet builders ran in local worktrees. All four are committed and pushed (status below):
+Four Sonnet builders ran in local worktrees. All four are merged and on staging (status below):
 
 | Worktree | Branch | Scope |
 |---|---|---|
@@ -33,16 +33,10 @@ Four Sonnet builders ran in local worktrees. All four are committed and pushed (
 
 - Their brief is `sweep-brief.md` in this folder, copied from the lead's scratchpad.
 - Unavoidable raw controls carry `// ds-raw: <reason>`.
-- The lead session reviews each, commits it to its branch, pushes the branch, and adds a line below.
-- Only if the lead session can't, T3 takes over:
-  1. Check each worktree's `git status`.
-  2. Run an independent review.
-  3. Commit and merge into `web/design-system-4`, resolving `tool/checks/design_token_allowlist.txt`
-     conflicts (it should stay empty).
-  4. Run the full checks, then deploy to staging.
 
-Sweep status (Nov 9, lead session): all four pushed, reviewed, checks green. None are merged into
-`web/design-system-4` or deployed to staging. T3 merges them.
+Sweep status (Nov 9, lead session): all four reviewed and merged into `web/design-system-4`
+faab5b4b8, which staging serves. Merged tree: format, analyze, run_checks and layering clean;
+test/core, test/features and test/app 10026 pass. The sweep is done; it is not T3 work.
 
 - `ds4/sweep-a` 03739e5cd: Home and Quiz.
 - `ds4/sweep-b` 35b6388a3: Mock exam and the reader. The reader back is a 44 icon button named
@@ -55,9 +49,6 @@ Sweep status (Nov 9, lead session): all four pushed, reviewed, checks green. Non
   tag sits under the row instead of beside the title (lead ruling: one system row at every width).
 - `web/design-system-4` 69f4210ab: theme fallbacks (pushed, not on staging yet).
 
-Merge order: theme first, then a, b, c. Resolve `tool/checks/design_token_allowlist.txt` with
-`resolve_allowlist` rules (it stays empty). Run the full suite on the merged tree, then deploy.
-
 About 30 `// ds-raw:` markers remain across the three branches. `dart format` puts a marker on the
 first argument line, so the layer 1 and 2 checks must accept it there. Kept on purpose: sign-in
 provider buttons and code boxes, feedback and survey text fields, toasts (see gaps), onboarding and
@@ -69,7 +60,7 @@ System gaps the markers point at (each wants a core component, then the markers 
 - `PantasField` has no unlabeled variant and no capitalization option.
 - No token for the 11px flag dot; it is 10 for now.
 
-For Aedwon to confirm on staging after the merge:
+For Aedwon to confirm on staging:
 - "Create Free Account" is now an accent primary button; check it against the board.
 - Figure viewer close buttons are now 44 rounded squares.
 - Session building's "Recommended" tag placement on phones.
