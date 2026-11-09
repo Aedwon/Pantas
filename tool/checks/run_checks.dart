@@ -10,6 +10,7 @@ import 'dart:io';
 import 'bold_stem.dart';
 import 'check.dart';
 import 'design_token_literals.dart';
+import 'legal_text_drafting.dart';
 import 'lesson_list_exam_scope.dart';
 import 'letter_shortcut_gate.dart';
 import 'mock_blueprint_topics.dart';
@@ -24,6 +25,7 @@ const allChecks = <Check>[
   LessonListExamScopeCheck(),
   DesignTokenLiteralsCheck(),
   LetterShortcutGateCheck(),
+  LegalTextDraftingCheck(),
 ];
 
 void main() {
