@@ -52,6 +52,7 @@ class _Fixture {
 Future<_Fixture> _fixture(
   WidgetTester? tester, {
   Future<RoadmapToday>? roadmap,
+  StreamController<StudyRoadmap>? planCopies,
 }) async {
   final db = inMemoryDatabase();
   final content = inMemoryContentDatabase();
@@ -129,6 +130,28 @@ Future<_Fixture> _fixture(
     },
     examId: 'e',
   );
+  if (planCopies != null) {
+    addTearDown(planCopies.close);
+    planCopiesRevised = StudyRoadmap.decode(
+      {
+        'examId': 'e',
+        'serverNow': 100,
+        'accessRecheckAt': null,
+        'proCovered': false,
+        'revision': 'test-2',
+        'state': 'planning',
+        'today': dayPlan(),
+        'remaining': dayPlan(),
+        'originalDone': false,
+        'canAdvance': false,
+        'todayTopicOrder': ['t'],
+        'weekDays': [
+          for (var i = 0; i < 7; i++) {'state': i == 6 ? 'today' : 'unknown'},
+        ],
+      },
+      examId: 'e',
+    );
+  }
   late _HeldLauncher launcher;
   final container = ProviderContainer(
     overrides: [
@@ -145,8 +168,11 @@ Future<_Fixture> _fixture(
       ),
       studyUsesServerProvider.overrideWithValue(true),
       userSettingsProvider.overrideWith((_) async => UserSettings.defaults()),
-      serverStudyRoadmapProvider('e')
-          .overrideWith((_) => Stream.value(serverRoadmap)),
+      serverStudyRoadmapProvider('e').overrideWith(
+        (_) => planCopies == null
+            ? Stream.value(serverRoadmap)
+            : (planCopies..add(serverRoadmap)).stream,
+      ),
       roadmapTodayProvider('e')
           .overrideWith((_) => roadmap ?? Future.value(today)),
     ],
@@ -157,6 +183,9 @@ Future<_Fixture> _fixture(
   await real(() => container.read(activeExamFocusProvider.future));
   return _Fixture(container, launcher, today);
 }
+
+/// A newer copy of the same day's plan, which makes Home read itself again.
+late StudyRoadmap planCopiesRevised;
 
 Future<void> _settle(WidgetTester tester, [int rounds = 40]) async {
   for (var i = 0; i < rounds; i++) {
@@ -305,5 +334,39 @@ void main() {
     await _settle(tester);
     expect(find.text('Start New Questions'), findsOneWidget);
     expect(f.launcher.loads, 1);
+  });
+
+  // Codex review of 3d74b0fb4: a reload that replaced the request while a
+  // tap waited left the work unrecorded, and the tap waited again forever.
+  testWidgets('a Reviews tap that waits through a Home reload opens once ready',
+      (tester) async {
+    final copies = StreamController<StudyRoadmap>();
+    final f = await _fixture(tester, planCopies: copies);
+    await pumpHome(tester, f);
+    await _settle(tester);
+    final before = find.text('Start Reviews').evaluate().length;
+    await tester.tap(find.text('Reviews'));
+    await _settle(tester, 5);
+    copies.add(planCopiesRevised);
+    await _settle(tester, 10);
+
+    f.launcher.gate.complete();
+    await _settle(tester);
+    // The sheet adds its own Start Reviews to the one on the page.
+    expect(find.text('Start Reviews').evaluate().length, greaterThan(before));
+    expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('a failed preparation after Home closed reports nothing',
+      (tester) async {
+    final f = await _fixture(tester);
+    await pumpHome(tester, f);
+    await _settle(tester);
+    await tester.tap(find.text('New questions'));
+    await _settle(tester, 5);
+    await tester.pumpWidget(const SizedBox());
+    f.launcher.gate.completeError(StateError('prepare failed'));
+    await _settle(tester, 10);
+    expect(tester.takeException(), isNull);
   });
 }

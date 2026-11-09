@@ -410,14 +410,24 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
   /// reported and Home is read again.
   Future<void> _afterPrepared(HomeTodayData data, VoidCallback then) async {
     final generation = _generation;
+    final preparation = data.questionPreparation!;
+    final TodayQuestionWork work;
     try {
-      await data.questionPreparation;
+      work = await preparation;
     } on Object catch (error, stack) {
+      if (!mounted) return;
       unawaited(ref.read(telemetryProvider).recordError(error, stack));
       if (_current()) _retry();
       return;
     }
-    if (_current() && generation == _generation) then();
+    if (!_current() || generation != _generation) return;
+    // Recorded here too: a reload may have replaced the request meanwhile and
+    // dropped its own copy, and [then] must find the work, not wait again.
+    setState(() {
+      _ready = work;
+      _readyFrom = preparation;
+    });
+    then();
   }
 
   void _openReviews(HomeTodayData data) {
