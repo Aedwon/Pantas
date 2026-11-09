@@ -11,6 +11,7 @@ import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/storage/track_scope.dart';
 import 'package:pantas/core/time/study_days.dart';
+import 'package:pantas/core/ui/components/day_row.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/pantas_switch.dart';
 import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
@@ -263,6 +264,52 @@ void main() {
     expect(rect.left, greaterThanOrEqualTo(0));
     expect(rect.right, lessThanOrEqualTo(320));
   });
+
+  for (final scale in [1.0, 2.0]) {
+    testWidgets('at 390 and $scale the seven study day circles all fit',
+        (tester) async {
+      tester.view
+        ..physicalSize = const Size(390, 1600)
+        ..devicePixelRatio = 1;
+      addTearDown(() {
+        tester.view
+          ..resetPhysicalSize()
+          ..resetDevicePixelRatio();
+      });
+      await tester.pumpWidget(
+        MediaQuery(
+          data: MediaQueryData(
+            size: const Size(390, 1600),
+            textScaler: TextScaler.linear(scale),
+          ),
+          child: UncontrolledProviderScope(
+            container: ProviderContainer(overrides: createOverrides()),
+            child: MaterialApp(
+              theme: buildLightTheme(),
+              home: const ExamPage(),
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+      expect(
+        find.descendant(
+          of: find.byType(DayRow),
+          matching: find.byType(SingleChildScrollView),
+        ),
+        findsNothing,
+        reason: 'the row scrolls, so Saturday is cut at rest',
+      );
+      final row = tester.getRect(find.byType(DayRow));
+      var previous = tester.getRect(find.byKey(const ValueKey('study-day-7')));
+      for (final day in [1, 2, 3, 4, 5, 6]) {
+        final rect = tester.getRect(find.byKey(ValueKey('study-day-$day')));
+        expect(rect.left - previous.right, greaterThanOrEqualTo(4 - .01));
+        previous = rect;
+      }
+      expect(previous.right, lessThanOrEqualTo(row.right + .01));
+    });
+  }
 
   testWidgets('at 200% the exam date chip is as tall as its text',
       (tester) async {
