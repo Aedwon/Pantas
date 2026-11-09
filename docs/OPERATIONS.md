@@ -144,6 +144,70 @@ These cannot be scripted in this repo and must be redone if the relevant config 
 - [ ] Sanity 2FA enforcement at org level enabled — Plan 1 Task 19 step 4
 - [ ] GitHub branch protection on `main` — Plan 1 Task 28 step 2
 
+## Manual QR Ph refund
+
+PayMongo's refund API refuses QR Ph payments ("Refunds are not allowed for payments with source
+type qrph", test mode, 9 November 2026). Aedwon's ruling: refund QR Ph buyers by bank transfer,
+then record the refund so access matches. Report:
+`docs/superpowers/plans/paymongo/test-mode-run-2026-11-09.md` on `ops/paymongo-test-r1`.
+
+**Never edit a grant in the Firestore console.** It leaves the student's Pro status, later
+stacked grants and sign-in claims out of step. Use the command below. It sends a signed
+`payment.refunded` event for the money you returned, so the webhook's own refund logic runs:
+a partial amount shortens access in proportion, amounts that add up to the price revoke it, and
+later queued plans move earlier. Tested on staging, 9 November 2026.
+
+1. **Find the payment.** In the PayMongo dashboard, open the payment and copy its id
+   (`pay_...`) and amount. In Firestore, `paymongoPayments/<pay_ id>` gives the student's `uid`.
+2. **Send the money** by bank transfer. Keep the bank's reference number.
+3. **Save the command** below as `manual-refund.mjs` anywhere outside the repository.
+4. **Run it** with the project, the `pay_` id, the amount you returned **in centavos**
+   (₱499 is `49900`), and a new label made of letters, digits and `_`, for example `20261120_1`.
+   Prod in live mode:
+
+   ```sh
+   export PAYMONGO_WEBHOOK_SECRET="$(gcloud secrets versions access latest --secret PAYMONGO_WEBHOOK_SECRET --project pantas-prod)"
+   export PAYMONGO_LIVEMODE=true   # false while the project runs a sk_test_ key
+   node manual-refund.mjs pantas-prod pay_XXXX 49900 20261120_1
+   unset PAYMONGO_WEBHOOK_SECRET
+   ```
+
+   `HTTP 200 recorded` means it applied. The label is the refund's id: sending the same label
+   again changes nothing, so a retry is safe. **Never reuse a label for a different refund.**
+5. **Check** `users/<uid>/grants/<pay_ id>`: `refunds` lists `manual_<label>`, and `state` is
+   `revoked` (full) or `endsAt` moved earlier (partial).
+6. **Record it** outside the repository (it is student data): date, student public id or `uid`,
+   `pay_` id, amount, bank reference, label, and reason.
+
+```js
+// manual-refund.mjs. Records a refund made outside PayMongo through the webhook's refund path.
+// PAYMONGO_WEBHOOK_SECRET=... PAYMONGO_LIVEMODE=true|false node manual-refund.mjs <project> <pay_ id> <centavos> <label>
+import {createHmac} from 'node:crypto';
+const [project, paymentId, amountText, label] = process.argv.slice(2);
+const amount = Number(amountText);
+const secret = process.env.PAYMONGO_WEBHOOK_SECRET;
+const livemode = process.env.PAYMONGO_LIVEMODE === 'true';
+if (!/^pantas-(prod|staging)$/.test(project ?? '') || !/^pay_[A-Za-z0-9]+$/.test(paymentId ?? '') ||
+    !Number.isInteger(amount) || amount <= 0 || !/^[A-Za-z0-9_]{6,60}$/.test(label ?? '') || !secret ||
+    !['true', 'false'].includes(process.env.PAYMONGO_LIVEMODE)) {
+  console.error('Check the arguments: project, pay_ id, centavos, label (letters, digits, _), PAYMONGO_LIVEMODE.');
+  process.exit(2);
+}
+const refundId = `manual_${label}`;
+const body = JSON.stringify({data: {id: `evt_${refundId}`, type: 'event', attributes: {
+  type: 'payment.refunded', livemode, data: {id: paymentId, type: 'payment', attributes: {
+    refunds: [{id: refundId, attributes: {amount, status: 'succeeded'}}]}}}}});
+const t = Math.floor(Date.now() / 1000);
+const mac = createHmac('sha256', secret).update(`${t}.${body}`).digest('hex');
+const signature = livemode ? `t=${t},te=,li=${mac}` : `t=${t},te=${mac},li=`;
+const response = await fetch(`https://asia-southeast1-${project}.cloudfunctions.net/paymongoWebhook`,
+  {method: 'POST', headers: {'Content-Type': 'application/json', 'Paymongo-Signature': signature}, body});
+console.log(`${refundId}: HTTP ${response.status}`, response.status === 200 ? 'recorded' : 'NOT recorded, see the function log');
+```
+
+If PayMongo support later confirms a way to refund QR Ph through PayMongo, use that instead: its
+refund event then reaches the webhook by itself.
+
 ## Codemagic / signing (activated in Plan 8)
 
 - [ ] iOS App Store Connect API key uploaded
