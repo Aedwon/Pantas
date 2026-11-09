@@ -171,6 +171,22 @@ class PullPipeline {
     return PullApplyResult.applied;
   }
 
+  /// The sync_meta row that moves when a snapshot applies rows another device
+  /// wrote. Sync writes those rows without any feature repository knowing, so
+  /// local readers (Your record, the plan) refresh on this, and not on this
+  /// device's own echoes or its backup bookkeeping.
+  static const remoteChangeKey = 'remote_rows_applied';
+
+  Future<void> _noteRemoteChange() async {
+    final row = await (_db.select(_db.syncMeta)
+          ..where((meta) => meta.key.equals(remoteChangeKey)))
+        .getSingleOrNull();
+    final next = (int.tryParse(row?.value ?? '') ?? 0) + 1;
+    await _db.into(_db.syncMeta).insertOnConflictUpdate(
+          SyncMetaCompanion.insert(key: remoteChangeKey, value: '$next'),
+        );
+  }
+
   Future<void> applyCompleteSnapshot({
     required String generationId,
     required String collection,
@@ -179,14 +195,19 @@ class PullPipeline {
     if (generationId != _generationId) return;
     final entry = _activeEntry(collection);
     final presentIds = <String>{};
+    var fromElsewhere = 0;
 
     for (final document in documents) {
       presentIds.add(document.id);
-      await applyDocument(
+      final result = await applyDocument(
         generationId: generationId,
         collection: collection,
         document: document,
       );
+      if (result == PullApplyResult.applied &&
+          document.originDeviceId != _deviceId) {
+        fromElsewhere++;
+      }
     }
 
     final knownRows = await _db.customSelect(
@@ -211,8 +232,14 @@ class PullPipeline {
       // The same create, still in the journal before the outbox.
       if (await _isJournaledCreate(collection, rowId)) continue;
 
+      final before = await _rowMeta.readAcceptedBase(
+        collection: collection,
+        rowId: rowId,
+      );
       await entry.adapter.applyKnownAbsent(db: _db, rowId: rowId);
+      if (before?.state != SyncCausalBaseState.knownAbsent) fromElsewhere++;
     }
+    if (fromElsewhere > 0) await _noteRemoteChange();
 
     await _db.transaction(() async {
       for (final rowId in await _waitingRowIds(collection)) {
