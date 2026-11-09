@@ -67,6 +67,23 @@ void main() {
   );
 
   dsMatrix(
+    'wide email sign-in heading stays on one line',
+    (context) => _scope(const EmailSignInPage()),
+    scroll: false,
+    cells: const [
+      DsCell(1100, 1, dark: false),
+      DsCell(1440, 1, dark: false),
+      DsCell(1440, 1, dark: true),
+    ],
+    check: (tester, cell) async {
+      final title = find.textContaining('Welcome to Pantas');
+      expect(title, findsOneWidget);
+      // webDisplay is 48 px on a line height of 1.
+      expect(tester.getSize(title).height, lessThan(48 * 1.5));
+    },
+  );
+
+  dsMatrix(
     'beta waiting page fits and keeps the countdown and sign-out',
     (context) => _scope(
       BetaWaitingPage(

@@ -191,17 +191,6 @@ class _WhatsIncludedPageState extends ConsumerState<WhatsIncludedPage> {
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  if (!context.wideWeb) ...[
-                    Padding(
-                      padding: const EdgeInsets.only(left: PantasSpace.s4),
-                      child: Text(
-                        scope.exam.shortName,
-                        style: context.type.body
-                            .copyWith(color: context.colors.secondaryLabel),
-                      ),
-                    ),
-                    const SizedBox(height: PantasSpace.s20),
-                  ],
                   IgnorePointer(
                     ignoring: _saving,
                     child: ScopePicker(

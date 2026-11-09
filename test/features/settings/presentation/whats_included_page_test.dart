@@ -117,6 +117,11 @@ void main() {
     await tester.pumpAndSettle();
   }
 
+  testWidgets('the exam short name shows once on the phone', (tester) async {
+    await pumpPage(tester);
+    expect(find.text('CSE'), findsOneWidget);
+  });
+
   testWidgets('the last included topic stays selected', (tester) async {
     await pumpPage(tester);
     await tester.tap(find.text('Algebra'));

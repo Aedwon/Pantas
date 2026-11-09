@@ -12,6 +12,7 @@ import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/sync/engine/sync_active_context_store.dart';
 import 'package:pantas/core/sync/local_state_wiper.dart';
+import 'package:pantas/core/ui/components/floating_bar.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
@@ -356,6 +357,19 @@ void main() {
       });
     }
   }
+
+  testWidgets('at 200% the stacked Start bar has equal side insets',
+      (tester) async {
+    await pump(tester, scale: 2);
+    await tester.tap(find.byKey(const ValueKey('scope-select-t')));
+    await tester.pumpAndSettle();
+    final bar = tester.getRect(find.byType(FloatingBar));
+    final size = tester.getRect(find.byKey(const ValueKey('practice-size')));
+    final start = tester.getRect(find.widgetWithText(PantasButton, 'Start'));
+    final left = size.left - bar.left;
+    final right = bar.right - start.right;
+    expect(right, closeTo(left, 1), reason: 'left $left, right $right');
+  });
 
   testWidgets('singleton Questions overrides, Reset and wheel change',
       (tester) async {

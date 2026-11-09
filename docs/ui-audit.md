@@ -2782,3 +2782,17 @@ Findings and status (fixed on `ds4/visual-fixes-r1`, merged f1daed494; each fix 
 - Not defects (lead rulings): Backup shows one paragraph for Free and signed-out web (approved note); an unknown URL opens Home (router behavior); Plan history equals Plan on phone (Nov 5 decision); the mock's hollow squares and phone key hint were artifacts of the offscreen render (icon fonts not loaded; no hint provider).
 - DECISION NEEDED (Aedwon): Settings group order. `patterns.md` says Your exam, Account, Appearance, Accessibility, Pro, About; the app puts the Pro group first at every width. Moving it lowers the Pro offer, so it is his call. Left as is.
 - Text Size live preview built as board option A (Aedwon chose "A"). Deviation: the sample stem uses straight quotes, because an existing Settings check (QA 5Q-4) bans curly quotes there.
+
+## Design system 4.0 visual pass, round 2 fixes (lead triage, branch `ds4/visual-fixes-r2`)
+
+Each fix has a test that failed first.
+- FIXED. Performance (Free) at 390 and 100% text: the three segments, two with a Pro mark, fit the row without scrolling; columns share the row by label width when equal columns do not fit. At 320 the 244 px row is too narrow for three labels and two marks, so it scrolls, as the README allows.
+- FIXED. Mock pause at 390 and 200%: a long part name wraps; the row grows and the arrow follows.
+- NOT CHANGED (the approved mobile board CM_Setup draws it). Mock custom setup keeps the chevron "I know the section breakdown" row and the filled Questions and Time wells on the phone.
+- FIXED. Phone Appearance: with Automatic on, the tile of the theme in effect shows selected; with it off, the chosen one.
+- FIXED. "Continue with Google" on the phone Account and Pro pages is the white Google button with the G (one shared button). The wide Pro page uses it too.
+- FIXED (lead ruling: the system wins over board f A). A long organization beside "Coming soon" wraps at 320; the label stays at the row end and stacks under it above 1.5x.
+- FIXED. Custom quiz Start bar at 200%: Start sits 20 px from the right edge, equal to the left inset.
+- FIXED. Settings > What's included on the phone: the exam name shows once.
+- FIXED. Wide email sign-in: "Welcome to Pantas" stays on one line (no board draws this page). The form keeps 420 px.
+- FIXED. Settings Study days circles fit at 390 (padding 12 at the sides): Saturday is no longer cut at rest and the gap is the 4 px README minimum.

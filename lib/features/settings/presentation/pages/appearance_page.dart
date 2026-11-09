@@ -103,6 +103,13 @@ class AppearancePage extends ConsumerWidget {
         ],
       );
     }
+    // While Automatic is on, the tile of the theme in effect shows selected,
+    // as the OS does; otherwise the chosen one does.
+    final inEffect = preference == ThemePreference.system
+        ? (MediaQuery.platformBrightnessOf(context) == Brightness.dark
+            ? ThemePreference.dark
+            : ThemePreference.light)
+        : preference;
     return SettingsPanePage(
       section: 'Appearance',
       description: 'How Pantas looks.',
@@ -137,14 +144,14 @@ class AppearancePage extends ConsumerWidget {
                   _PhoneTile(
                     value: ThemePreference.light,
                     label: 'Light',
-                    selected: preference == ThemePreference.light,
+                    selected: inEffect == ThemePreference.light,
                     onTap: () => setTheme(ThemePreference.light),
                   ),
                   const SizedBox(width: PantasSpace.s56),
                   _PhoneTile(
                     value: ThemePreference.dark,
                     label: 'Dark',
-                    selected: preference == ThemePreference.dark,
+                    selected: inEffect == ThemePreference.dark,
                     onTap: () => setTheme(ThemePreference.dark),
                   ),
                 ],

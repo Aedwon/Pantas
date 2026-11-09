@@ -646,10 +646,13 @@ class _ExamPageState extends ConsumerState<ExamPage>
               ),
               // ST_Exam: seven 38 px circles, 10 px apart.
               Padding(
+                // 12 at the sides: seven 44 circles with the 4 px minimum gap
+                // need 332 px, and the 16 px side padding left 326 on a 390
+                // phone, so Saturday was cut at rest.
                 padding: const EdgeInsets.fromLTRB(
-                  PantasSpace.s16,
+                  PantasSpace.s12,
                   PantasSpace.s0,
-                  PantasSpace.s16,
+                  PantasSpace.s12,
                   PantasSpace.s14,
                 ),
                 // Seven 44 circles that scroll sideways when the row is too

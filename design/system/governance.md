@@ -38,6 +38,9 @@ Deprecated names stay until the next major version, then go (one rule, used in `
 
 ## Changelog
 
+### 4.0.2 (Nov 9, 2026), patch
+- Changed: CHANGE (D193): a SegmentedControl whose equal columns do not fit its container shares the row by label width before the track scrolls. No token or class added or removed.
+
 ### 4.0.1 (Nov 9, 2026), patch
 - Changed: CHANGE (D192): the ReaderTopBar back is the BackLink with the parent's name, plus the Esc KeyHint on wide screens; the bar's first column fits the link. No token or class added or removed.
 

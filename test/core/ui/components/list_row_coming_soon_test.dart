@@ -4,9 +4,9 @@ import 'package:pantas/core/ui/components/list_row.dart';
 
 import '../../../helpers/accessibility.dart';
 
-// Board "f A": on the phone picker a long organization stays on one line and
-// ends in an ellipsis beside "Coming soon". An exam that is out wraps as
-// before.
+// ListRow README: subtitles wrap, no ellipsis. Beside "Coming soon" a long
+// organization wraps and the label stays at the row end (the system wins over
+// the older board "f A").
 const _long = 'Maritime Academy of Asia and the Pacific Academy Foundation';
 
 Future<void> _pump(
@@ -38,7 +38,7 @@ void main() {
   for (final brightness in Brightness.values) {
     for (final settingsMode in [false, true]) {
       testWidgets(
-          'a Coming soon row keeps its organization on one line $brightness'
+          'a Coming soon row wraps its organization $brightness'
           ' settings $settingsMode', (tester) async {
         await _pump(
           tester,
@@ -47,11 +47,11 @@ void main() {
           brightness: brightness,
         );
         final text = tester.widget<Text>(find.text(_long));
-        expect(text.maxLines, 1);
-        expect(text.overflow, TextOverflow.ellipsis);
+        expect(text.maxLines, isNull);
+        expect(text.overflow, isNull);
         expect(find.text('Coming soon'), findsOneWidget);
-        // One line of the 13 px footnote beside the label, not two.
-        expect(tester.getSize(find.text(_long)).height, lessThan(24));
+        // Two lines of the 13 px footnote beside the label.
+        expect(tester.getSize(find.text(_long)).height, greaterThan(24));
       });
       testWidgets(
           'an exam that is out still wraps its organization $brightness'

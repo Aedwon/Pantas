@@ -191,16 +191,32 @@ class SegmentedSwitch extends StatelessWidget {
       return width;
     }
 
-    final widest = [
-          for (final (i, label) in labels.indexed)
-            natural(label) + (proMarks.contains(i) ? markWidth() : 0),
-        ].reduce(math.max) +
-        PantasSpace.s24;
+    final contents = [
+      for (final (i, label) in labels.indexed)
+        natural(label) + (proMarks.contains(i) ? markWidth() : 0),
+    ];
+    final widest = contents.reduce(math.max) + PantasSpace.s24;
+    // Each segment keeps 4 px of padding on both sides (`_segment`).
+    const minPad = PantasSpace.s8;
+    final proportional = [for (final c in contents) c + minPad];
     return LayoutBuilder(
       builder: (context, constraints) {
-        final need = widest * labels.length + PantasSpace.s4;
-        final scrolls =
-            constraints.hasBoundedWidth && need > constraints.maxWidth;
+        final equalNeed = widest * labels.length + PantasSpace.s4;
+        final bounded = constraints.hasBoundedWidth;
+        // Equal columns when they fit. If they do not, but every segment
+        // still fits at its own natural width, the columns share the row in
+        // proportion to their labels: a Free student's Subjects, Topics (Pro)
+        // and Lessons (Pro) fit a phone row without scrolling and without
+        // cutting a Pro mark. Only then does the track scroll.
+        final shared = bounded &&
+            equalNeed > constraints.maxWidth &&
+            proportional.reduce((a, b) => a + b) + PantasSpace.s4 <=
+                constraints.maxWidth;
+        final need = equalNeed;
+        final scrolls = bounded && !shared && need > constraints.maxWidth;
+        final weights =
+            shared ? proportional : List<double>.filled(labels.length, 1);
+        final weightSum = weights.reduce((a, b) => a + b);
         final track = Stack(
           children: [
             Positioned.fill(
@@ -218,7 +234,16 @@ class SegmentedSwitch extends StatelessWidget {
               padding: const EdgeInsets.all(PantasSpace.s2),
               child: LayoutBuilder(
                 builder: (context, constraints) {
-                  final cell = constraints.maxWidth / labels.length;
+                  final cells = [
+                    for (final w in weights)
+                      constraints.maxWidth * w / weightSum,
+                  ];
+                  final offsets = <double>[];
+                  var run = 0.0;
+                  for (final cell in cells) {
+                    offsets.add(run);
+                    run += cell;
+                  }
                   return Stack(
                     children: [
                       // One thumb slides under the labels (item 17, demo 7):
@@ -228,11 +253,8 @@ class SegmentedSwitch extends StatelessWidget {
                           child: IgnorePointer(
                             child: SlidingMarker(
                               key: const ValueKey('segmented-switch-thumb'),
-                              offsets: [
-                                for (var i = 0; i < labels.length; i++)
-                                  i * cell,
-                              ],
-                              lengths: List.filled(labels.length, cell),
+                              offsets: offsets,
+                              lengths: cells,
                               index: selected,
                               child: Padding(
                                 padding: EdgeInsets.symmetric(vertical: inset),
@@ -253,6 +275,7 @@ class SegmentedSwitch extends StatelessWidget {
                         children: [
                           for (var i = 0; i < labels.length; i++)
                             Expanded(
+                              flex: (weights[i] * 1000).round(),
                               child: _segment(context, i, large, radius),
                             ),
                         ],
