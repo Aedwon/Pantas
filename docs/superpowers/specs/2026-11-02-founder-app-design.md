@@ -31,7 +31,9 @@ Posts and Content Pass are not tabs in this build (your Nov 9 choice; Content Pa
 The app follows design system 4.0, like the student app. This replaces the Green frame you picked on
 Nov 2: its green window frame, card shadows and red status marks break the system's rules. What you
 chose in it stays: the page that says what needs you, the student page with the Pro time bar,
-confirmations in a side panel, and Delete Data set apart from everyday actions.
+confirmations in a side panel, and Delete Data set apart from everyday actions. One change: Remove
+Pro and Delete Data confirm in a center dialog, because the system confirms actions that destroy
+something in a dialog. Grant Pro and refunds keep the side panel.
 
 ### Owner Inputs
 
@@ -80,7 +82,7 @@ cannot see them.
 
 Students can already report a question, but reports stay on their device. This build sends them to
 the server, with daily limits, and changes "Saved on this device." to say the report was sent. The
-Inbox lists them as New, To Fix or Done. "Needs Fix" puts a report on a list content sessions read.
+Inbox lists them as New, Needs Fix or Done. "Needs Fix" puts a report on a list content sessions read.
 Beta feedback stays in the Firebase console; it ends with the beta.
 
 ### Numbers
@@ -114,7 +116,7 @@ already sends; they are kept 30 days. Firebase cost is a link to the billing pag
 ### What you approve
 
 - This Part 1.
-- The DS4 boards on the "DS4" page of the founder app canvas, version stated in Part 2. The built app
+- The 20 DS4 boards on the "DS4" page of the founder app canvas (version 13). The built app
   must match them on the screens they show. Screens or states not drawn follow DS4's own patterns.
   Canvas: https://claude.ai/artifact/8TwdfQP8rcvMrD6uopYC3k
 
@@ -266,20 +268,30 @@ Read on `web/design-system-4` at 89559a2e2 unless stated.
     and new ones, removes each from `quiz_question_reports` after success, and keeps it on failure.
     Wording (lead's copy call, written rule 4): "Report sent. Thank you." and, when offline, "Saved.
     It will send when you are back online." Rules deny client reads.
-13. **Inbox.** Lists `questionReports` by `status` (New, To Fix, Done). "Needs Fix" sets `toFix` and
+13. **Inbox.** Lists `questionReports` by `status` (New, Needs Fix, Done). "Needs Fix" sets `toFix` and
     appends the report to `~/Library/Application Support/Pantas Founder/content-fixes.json`, which
     content sessions read (pointer in `docs/OPERATIONS.md`). "Dismiss" sets `dismissed`. Marking fixed
     is done by the content session through the app's local file and later by Aedwon in the Inbox.
-14. **Staging switch.** Account block popover with Production and Staging. Switching signs in to the
-    other project's service account. Staging shows a Notice on every page.
-15. **Navigation counts.** DS4 SidebarNav has no count slot. The founder app adds one (board gap
-    G1), drawn from existing tokens. It is recorded as a founder-app extension in DS4 governance, not
-    a student app change.
+14. **Confirmations.** Grant Pro and both refund flows use the DS4 Drawer (Aedwon's Nov 2 side-sheet
+    choice). Remove Pro and Delete Data use the DS4 Dialog, because `patterns.md` confirms
+    destructive actions in a Dialog (lead ruling, Nov 10). Choice lists with six or fewer options
+    are Radio groups or a SegmentedControl, per the Select README.
+15. **Staging switch.** The account block opens a menu Popover with "Switch to Staging" (or
+    Production) and "Sign Out". Switching signs in to the other project's service account. Staging
+    shows a Notice on every page.
+16. **Parts DS4 lacks (board gaps).** Each is drawn from existing DS4 tokens and classes, marked on
+    its board, and recorded as a founder-app extension in DS4 governance, not a student app change:
+    G1 a count at the end of a nav item (warning color and icon when an urgent item waits); G2 the
+    account block as a menu trigger; G3 the Pro coverage timeline (ProgressBar segments with dates);
+    G4 the sign-in layout; G5 big-number tiles on Numbers.
 
 ### Boards
 
-Canvas "Pantas Founder App", page "DS4", boards prefixed `D4`. The approved version is the canvas
-version recorded in the decision log at approval. Board gaps and their rulings are listed on the
+Canvas "Pantas Founder App" (https://claude.ai/artifact/8TwdfQP8rcvMrD6uopYC3k), page "DS4", 20
+boards prefixed `D4`, version 13 (id 1794241164-6272). Before Aedwon saw them: an independent DS4
+review (14 findings, all fixed) and one headless render per board. DS4 bug B1: the bundle styles
+`.dtable tbody th` like a column header, so boards use `td` for row headings until DS4 fixes it; the
+build follows whichever the bundle supports at build time. Board gaps and their rulings are listed on the
 canvas notes and in the log. The earlier Green frame boards stay on their pages as history.
 
 ### Tests at the seams
