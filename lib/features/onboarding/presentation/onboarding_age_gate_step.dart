@@ -216,7 +216,7 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
   static const _stillMinorLine = 'You are still under 18.';
 
   static const _blockedHelp =
-      'Entered the wrong year? Email contact@pantas.study.';
+      'Entered the wrong year? Email support@pantas.study.';
 
   @override
   Widget build(BuildContext context) {

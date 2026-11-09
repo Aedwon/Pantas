@@ -6,7 +6,7 @@ void main() {
     final document = legalDocumentFallbacks['teens'];
     expect(document, isNotNull);
     expect(document!.title, 'Notice for teens');
-    expect(document.updatedAt, DateTime.utc(2026, 11, 10));
+    expect(document.updatedAt, DateTime.utc(2026, 11, 11));
     final text =
         document.sections.map((s) => '${s.heading}\n${s.body}').join('\n');
     expect(text, contains('This notice is for teens ages 13 to 17'));
@@ -16,7 +16,7 @@ void main() {
     );
     expect(
       text,
-      contains('Account and payment audit records: 730 days after the event.'),
+      contains('Our database security records: 730 days after the event.'),
     );
     expect(text, contains('dpo@pantas.study'));
     for (final omitted in [
@@ -46,16 +46,14 @@ void main() {
     );
     expect(
       subscriptions,
-      contains('Weekly, Yearly and Season Passes have no trial.'),
+      contains('our internal complaint process is deemed exhausted'),
     );
     expect(
       subscriptions,
       contains('do not limit any remedy Philippine law gives you'),
     );
     final limits = sections
-        .singleWhere(
-          (s) => s.heading == 'Use of the app and limits of responsibility',
-        )
+        .singleWhere((s) => s.heading == 'Limits of responsibility')
         .body;
     expect(limits, contains('gross negligence'));
     expect(limits, isNot(contains('](')));
@@ -88,8 +86,8 @@ void main() {
     );
     expect(
       document.sections.last.body,
-      'When we change this policy, we update it here and change the date '
-      'at the top.',
+      'We notify you before we change the processing described here. If a '
+      'change needs new permission, we ask before starting it.',
     );
   });
 
@@ -98,7 +96,7 @@ void main() {
 
     expect(document, isNotNull);
     expect(document!.title, 'Terms of Service');
-    expect(document.updatedAt, DateTime.utc(2026, 11, 10));
+    expect(document.updatedAt, DateTime.utc(2026, 11, 11));
   });
 
   test('terms fallback includes intellectual property clause', () {
@@ -151,13 +149,16 @@ void main() {
         'deliberately include your answers or lesson content.\n\n'
         'Reports have no dedicated account ID or IP address field. Sending '
         'a report uses your sign-in session, including a guest session, to '
-        'check the request and to limit how many reports are sent. '
-        "Google's connection logs for these reports also record your IP "
-        'address and full browser details. We do not use them to identify '
-        'you.\n\n'
-        'We keep these report logs for 30 days. These reports are on for '
-        'everyone who uses the web app and are separate from optional usage '
-        'sharing. To object, email dpo@pantas.study.',
+        'check the request and to limit how many reports are sent. We '
+        "exclude this function's request logs from our default log "
+        'storage. Google processes connection information to deliver '
+        'requests.\n\n'
+        'We keep the stored report logs for 30 days. These reports are on '
+        'by default and are separate from optional usage sharing. The '
+        'switch in Settings, then About, stops future reports from this '
+        'browser or device. Repeat this on other devices. Email '
+        'dpo@pantas.study for help, or for requests about reports already '
+        'collected.',
       );
     });
 
@@ -183,7 +184,8 @@ void main() {
         contains(
           '\u2022 Speed and error reports, security records, guardian '
           'requests and trial codes: our legitimate interest in keeping '
-          'Pantas working, safe and fair. We keep each to what we need.',
+          'Pantas working, safe and fair (Section 12(f)). We keep each to '
+          'what we need.',
         ),
       );
     });

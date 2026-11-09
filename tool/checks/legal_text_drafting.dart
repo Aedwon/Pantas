@@ -4,8 +4,9 @@ import 'package:pantas/features/legal/domain/legal_document.dart';
 import 'check.dart';
 
 // The Nov 5 drafts also carried "Owner note" paragraphs meant only for Aedwon.
-final _drafting =
-    RegExp(r'\bdraft|Section 13\(a\)|\bowner note', caseSensitive: false);
+// Section numbers are not banned: the Nov 11 texts cite the Data Privacy Act
+// on purpose ("Section 13(a)"), and the Nov 9 leak is still caught by "draft".
+final _drafting = RegExp(r'\bdraft|\bowner note', caseSensitive: false);
 
 class LegalTextDraftingCheck extends Check {
   const LegalTextDraftingCheck();
