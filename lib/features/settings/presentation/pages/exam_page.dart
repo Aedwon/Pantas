@@ -536,9 +536,11 @@ class _ExamPageState extends ConsumerState<ExamPage>
               valueWidget: context.wideWeb
                   ? null
                   : Container(
-                      height: 34,
+                      // At least 34 high; it grows with the text (200%).
+                      constraints: const BoxConstraints(minHeight: 34),
                       padding: const EdgeInsets.symmetric(
                         horizontal: PantasSpace.s12,
+                        vertical: PantasSpace.s4,
                       ),
                       decoration: BoxDecoration(
                         color: context.colors.fill,

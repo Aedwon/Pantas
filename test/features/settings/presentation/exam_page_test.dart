@@ -7,6 +7,7 @@ import 'package:go_router/go_router.dart';
 import 'package:pantas/app/routes/settings_routes.dart';
 import 'package:pantas/core/content/data/exam_catalog_repository.dart';
 import 'package:pantas/core/storage/domain/exam.dart';
+import 'package:pantas/core/storage/domain/exam_date.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/storage/track_scope.dart';
@@ -43,6 +44,7 @@ void main() {
   List<Override> createOverrides({
     Exam? activeExam,
     bool carryOverProgress = true,
+    ExamDate? examDate,
   }) {
     final exam = activeExam ?? upcat;
     final db = inMemoryDatabase();
@@ -75,7 +77,7 @@ void main() {
           name: 'Student',
           dailyReminderTime: null,
           studyDays: StudyDays.all,
-          examDate: null,
+          examDate: examDate,
           strictMockMode: false,
           helpImproveApp: true,
           carryOverProgress: carryOverProgress,
@@ -261,6 +263,55 @@ void main() {
     final rect = tester.getRect(saturday);
     expect(rect.left, greaterThanOrEqualTo(0));
     expect(rect.right, lessThanOrEqualTo(320));
+  });
+
+  testWidgets('at 200% the exam date chip is as tall as its text',
+      (tester) async {
+    tester.view
+      ..physicalSize = const Size(390, 844)
+      ..devicePixelRatio = 1;
+    addTearDown(() {
+      tester.view
+        ..resetPhysicalSize()
+        ..resetDevicePixelRatio();
+    });
+    await tester.pumpWidget(
+      MediaQuery(
+        data: const MediaQueryData(
+          size: Size(390, 844),
+          textScaler: TextScaler.linear(2),
+        ),
+        child: UncontrolledProviderScope(
+          container: ProviderContainer(
+            overrides: createOverrides(
+              examDate: ExamDate.onDay(DateTime(2027, 3, 14)),
+            ),
+          ),
+          child: MaterialApp(
+            theme: buildLightTheme(),
+            home: const ExamPage(),
+          ),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    expect(tester.takeException(), isNull);
+    final text = find.text('Mar 14, 2027');
+    await tester.ensureVisible(text);
+    final chip = find
+        .ancestor(
+          of: text,
+          matching: find.byWidgetPredicate(
+            (w) =>
+                w is Container &&
+                w.decoration is BoxDecoration &&
+                (w.decoration! as BoxDecoration).color != null,
+          ),
+        )
+        .first;
+    // The value line is 17 px at 1.35 line height, doubled: 45.9 px. A chip
+    // fixed at 34 cut it.
+    expect(tester.getSize(chip).height, greaterThanOrEqualTo(45.9));
   });
 
   testWidgets('carry over is a switch, on by default', (tester) async {
