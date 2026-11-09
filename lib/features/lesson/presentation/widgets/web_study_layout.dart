@@ -727,20 +727,25 @@ class _WebStudyMapState extends State<WebStudyMap>
             PantasSpace.s12,
             PantasSpace.s4,
           ),
-          child: Row(
-            children: [
-              Expanded(
-                child: Text(
-                  'BOOKMARKS',
-                  style: t.eb,
+          // A fixed 20px header (the link's line), so the label sits at the
+          // same place whatever the platform's text metrics.
+          child: SizedBox(
+            height: PantasSpace.s20,
+            child: Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    'BOOKMARKS',
+                    style: t.eb,
+                  ),
                 ),
-              ),
-              WebTextLink(
-                label: 'See all',
-                arrow: false,
-                onPressed: widget.onBookmarks,
-              ),
-            ],
+                WebTextLink(
+                  label: 'See all',
+                  arrow: false,
+                  onPressed: widget.onBookmarks,
+                ),
+              ],
+            ),
           ),
         ),
         for (var i = 0; i < shown.length; i += 2)
@@ -762,15 +767,18 @@ class _WebStudyMapState extends State<WebStudyMap>
   ) {
     final t = context.webTokens;
     return [
-      Row(
-        children: [
-          Expanded(child: _label(context, 'BOOKMARKS')),
-          WebTextLink(
-            label: 'See all',
-            arrow: false,
-            onPressed: widget.onBookmarks,
-          ),
-        ],
+      SizedBox(
+        height: PantasSpace.s20,
+        child: Row(
+          children: [
+            Expanded(child: _label(context, 'BOOKMARKS')),
+            WebTextLink(
+              label: 'See all',
+              arrow: false,
+              onPressed: widget.onBookmarks,
+            ),
+          ],
+        ),
       ),
       for (final lesson in bookmarks.take(3))
         _mapRow(
