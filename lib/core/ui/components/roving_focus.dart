@@ -67,7 +67,10 @@ class _RovingFocusState extends State<RovingFocus> {
       _nodes.add(FocusNode(debugLabel: 'RovingFocus ${_nodes.length}'));
     }
     while (_nodes.length > widget.count) {
-      _nodes.removeLast().dispose();
+      // The old child may still hold this node until this frame ends, so it
+      // is disposed after the frame rather than during build.
+      final surplus = _nodes.removeLast();
+      WidgetsBinding.instance.addPostFrameCallback((_) => surplus.dispose());
     }
     for (var i = 0; i < _nodes.length; i++) {
       _nodes[i].skipTraversal = i != widget.tabStop;
