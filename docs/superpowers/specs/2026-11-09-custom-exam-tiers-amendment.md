@@ -204,7 +204,7 @@ Functions (emulator unless marked plain):
 
 Client:
 
-- `custom_track_steps_test.dart`: tag only on General Information; line text follows ticks.
+- `custom_track_steps_test.dart`: only General Information's second line adds " · Civil Service"; no Tag anywhere; the footer caption follows ticks.
 - `whats_included_page_test.dart`: dialog for Student Pro adding General Information; no dialog for Free or Civil Service Pro; Save on Free saves; Keep Current Subjects saves nothing.
 - `pro_page_custom_test.dart` (rewritten): Student and Civil Service paywalls by name, no pass card, no free card, the why line.
 - `router_settings_test.dart`: switch to a higher-tier custom exam shows the upgrade board; same tier shows nothing.
