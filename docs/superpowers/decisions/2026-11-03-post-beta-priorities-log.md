@@ -130,3 +130,11 @@ Result: one Opus read per lesson, one at a time. All 18 stay open: the round-3 f
 After round 4 left all 18 open, the lead offered: one careful rework per lesson then one read (recommended), leave them for the Astra audit, or leave them for the final review. Aedwon: "proceed as you recommend. wdym by that other question?" The other question was about moving on to exam tags (P4); his November 4 instruction ("proceed just before the astra audit") already covers it.
 
 Result: 6 of 18 closed (2 clean, 4 minor); 12 stay open with round-5 findings, mostly narrow exceptions to general statements, about half introduced by the rework's own wording. Counts: 11 clean, 54 minor, 12 open. Branch head bd1c8cc10. Next: exam tags.
+
+## November 9: CET round 6 closes the open lessons
+
+Manager thread relayed Aedwon: "for the rest of items, please finish them". Order given: close the 12 open lessons, then exam tags, then the Astra audit, then figures. Aedwon's earlier limit still applies: "please don't parallelize so much because you have limited usage".
+
+Lead ruling: round 6 changed only the sentences each round-5 finding named, because in about half the open lessons the wider round-5 rework had added the next false absolute. Each changed sentence used a stated condition, the lead boundary-tested it, and one fresh Opus read per lesson checked the round-5 findings and every changed sentence. Outside changed text, the reader reported only Blockers and wrong or answer-revealing worked steps.
+
+Result: all 12 closed, 6 clean and 6 minor. Counts: 77 lessons, 17 clean, 60 minor, 0 open. The lead sent two points back (an unlimited "do not follow this rule" in earths-motions, a duplicate figure marker). Two of four fixer runs skipped some required reads, and both said so; the lead checked their sentences. One cost: the earths-motions sidereal-day figure, approved August 25, was removed because its renderer prints "a few extra degrees" for about 1 degree; the figure phase must redraw it. Exam tags re-checked: all 86 files match. Branch `content/cet-finish-r1` at fa936f9ed; details in `docs/content/rewrite/cet/round-6.md` there.
