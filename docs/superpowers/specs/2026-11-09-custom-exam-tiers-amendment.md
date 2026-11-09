@@ -42,8 +42,8 @@ When content is added, the table is rebuilt from the tags, and a check fails unt
 
 **While choosing subjects** (onboarding and Settings):
 
-- General Information carries a "Civil Service" tag on its row. Student subjects carry no tag.
-- One line under the list updates as the student ticks: "Studying is free. Pro for this exam uses Student plans." or "... Civil Service plans."
+- The subjects sit in a card. The card's footer holds the line and Continue (Placement 2, chosen 9 November). The line updates as the student ticks: "Studying is free. Pro for this exam uses Student plans." or "... Civil Service plans."
+- General Information is marked as Civil Service on its tile. How it is marked is open: Aedwon rejected the filled tag on 9 November, and the board shows options with no filled pill.
 - No price is printed here. The Pro page shows prices before any purchase, as the Terms already say.
 
 **On the Pro page,** a custom exam gets the normal paywall of its tier, with the exam's own name. One line says why: "PUP CET uses Civil Service plans because it includes General Information." The free card ("PUP CET is free to study. Pro plans come with a listed exam.") is removed. A custom exam never sells a season pass, because a pass belongs to one listed exam and its published date.
@@ -87,7 +87,7 @@ Per your 9 November rule, an agent drafts this text, GPT 6.1 Sol High critiques 
 2. **Five Civil Service-only sets inside Student subjects.** Decided 9 November: A. Two Mathematics sets (data interpretation) and three Reasoning sets (clerical ability, verbal logic) are tagged only for CSE.
    - A. Keep the subject rule as you chose it (recommended). Those sets stay in a Student custom exam. Their Pro notes still need Civil Service Pro, so the only thing a Student plan gives on them is mock and plan access. Cost: none to build.
    - B. Price by topic instead. Data interpretation and clerical ability become Civil Service. Cost: about one more day, a tier tag on topic rows in What's Included, and a Mathematics or Reasoning tick that can quietly raise the tier.
-3. **How the tier shows on the subjects step.** Pending his pick on the board. Options, drawn on the Claude Design board "Custom Exam Tier Picks" (https://claude.ai/artifact/YEtFgMGqFsQ3ukTYShkNvb):
+3. **How the tier shows on the subjects step.** 3B chosen (the line plus a mark on subjects above Student). Placement 2 chosen (subjects in a card, the line as its footer caption). The mark itself is pending: he rejected the filled tag ("it has a oval background that is also colored"), and the board shows options with no filled pill. First-round options, kept for the record: Options, drawn on the Claude Design board "Custom Exam Tier Picks" (https://claude.ai/artifact/YEtFgMGqFsQ3ukTYShkNvb):
    - A. The line under the list only. Cheapest. The student cannot see which subject raises the tier.
    - B. The line, plus a tag on rows above Student (recommended). One tag today, on General Information.
    - C. A tag on every row. Five "Student" tags that tell the student nothing.
@@ -176,8 +176,9 @@ All UI uses design system 4.0 components (`design/system/`), built 1:1 from the 
 
 **Subjects step** (`custom_track_subjects_step.dart`, onboarding and the Settings path), and **What's Included** (`whats_included_page.dart`) for custom exams:
 
-- Tier per row: system `Tag` (default tint) with the tier name, on rows above Student only (decision 3 B). On the wide `SelectableTile` and the phone `ListRow.checkbox`.
-- Tier line: body text under the list, `text-secondary`, updated on each tick from the client table. Strings: "Studying is free. Pro for this exam uses Student plans." / "... Civil Service plans." / "... Licensure plans."
+- Layout (Placement 2): the `SelectableTile` grid inside a `Card` (`card--pad`), closed by a `CardFooter` whose caption is the tier line and whose action is Continue; on the phone the footer button is `btn--block`. Phones use the same tiles (DS4: tiles for two to eight choices), replacing the phone checkbox rows. Each tile has its sub line: the subject's topic count.
+- Mark on subjects above Student: pending the board (no filled `Tag`; Aedwon rejected it on 9 November).
+- Tier line: the CardFooter caption, updated on each tick from the client table. Strings: "Studying is free. Pro for this exam uses Student plans." / "... Civil Service plans." / "... Licensure plans."
 - The client table is display only. The server decides coverage.
 
 **Raise-tier dialog** (What's Included save, and the subjects step from Settings): system `Dialog`, shown only when `entitlement.proIsActive` and the current plan's tier is below the new tier. Title "PUP CET becomes a Civil Service exam". Text "General Information is a Civil Service subject. Your Student plan doesn't cover Civil Service exams, so Pro features stop on PUP CET unless you upgrade." Two actions, per the Dialog README limit: Keep Subjects (tertiary) and See Plans (primary), which opens the tier upgrade screen (`ST_SwitchUpgrade` layout, its secondary action reading "Save on Free"). Wording is decision 4. Board: "Custom Exam Tier Picks", https://claude.ai/artifact/YEtFgMGqFsQ3ukTYShkNvb.
