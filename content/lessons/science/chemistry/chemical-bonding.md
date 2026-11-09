@@ -61,7 +61,7 @@ $$FC=V-L-\dfrac{B}{2}$$
 
 Here $V$ is the atom's valence electrons, $L$ is the electrons in its lone pairs, and $B$ is the electrons in its bonds. Prefer the structure with formal charges nearest zero. The charges must add up to the charge of the species.
 
-Some species need **resonance**. Two or more valid Lewis structures use the same atom order but differ in where the double or triple bonds and lone pairs sit. The real molecule is a blend of them. If the structures are equivalent, as in carbonate below, the bond lengths are equal. If they are not, the bonds differ in length.
+Some species need **resonance**. Two or more valid Lewis structures use the same atom order but differ in where the double or triple bonds and lone pairs sit. The real molecule is a blend of them. Equivalent structures give equal bond lengths, as in carbonate below.
 
 ### VSEPR: Predicting Shape
 
@@ -101,7 +101,7 @@ Attractions between molecules are weaker than the bonds inside them:
 - Ionic solids conduct electricity when melted or dissolved, because the ions can move, but not as solids.
 - Metals conduct as solids because their electrons are free, and most are malleable because layers of ions can slide without breaking the bonding.
 - Molecular substances usually have low melting and boiling points, because only the weak forces between molecules must be overcome. The bonds inside stay intact. Network solids, such as diamond, are an exception. A network solid is one giant lattice of covalent bonds, with no separate molecules.
-- Polar substances tend to dissolve in polar liquids such as water, and nonpolar ones in nonpolar liquids. The solute is what dissolves and the solvent is the liquid it dissolves in. The attractions between solute and solvent must be about as strong as the ones broken. Many ionic solids also dissolve in water, because the polar water molecules attract the ions, but not all do.
+- Polar substances tend to dissolve in polar liquids such as water, and nonpolar ones in nonpolar liquids. The solute is what dissolves and the solvent is the liquid it dissolves in. A substance usually dissolves well when the new attractions between solute and solvent are about as strong as, or stronger than, the ones broken. Many ionic solids also dissolve in water, because the polar water molecules attract the ions, but not all do.
 
 ## Examples
 

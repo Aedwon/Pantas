@@ -67,7 +67,7 @@ An electric field, made by charged plates, pushes on charged particles. It bent 
 
 The beam was the same when the negative plate was made of different metals. Thomson inferred that every atom contains the same negative particle. It was much lighter than the lightest atom, hydrogen. This particle is the **electron**. It showed that atoms are not indivisible.
 
-A normal atom is neutral overall. So Thomson proposed in $1904$ that the atom has a ball of positive charge with electrons embedded in it. This is the **plum pudding model**.
+A normal atom is neutral overall: its positive and negative charges are equal, so it has no net charge. So Thomson proposed in $1904$ that the atom has a ball of positive charge with electrons embedded in it. This is the **plum pudding model**.
 
 <!-- FIGURE: {"kind":"chemistry-diagram","type":"atomic-models","illustrationKey":"science/chemistry/history-of-the-atom#1","models":[{"label":"Dalton","model":"solid sphere"},{"label":"Thomson","model":"plum pudding with embedded electrons"},{"label":"Rutherford","model":"electrons orbiting a tiny dense nucleus"},{"label":"modern","model":"electron cloud around a nucleus"}]} -->
 
@@ -102,7 +102,7 @@ When it drops to a lower level, it gives off a photon whose energy equals the di
 
 <!-- ILLUSTRATION: energy level diagram for hydrogen with levels n = 1, 2, 3, 4 stacked upward, and downward arrows from n = 3 to n = 2 labeled "red line", and from n = 4 to n = 2 labeled "blue-green line" -->
 
-The Bohr model works well for hydrogen and for ions with one electron, such as He$^+$. An **ion** is an atom that has gained or lost electrons, so it has a charge. It does not correctly describe atoms with many electrons. It also treats electrons as particles on fixed circular paths, which the later model replaced.
+The Bohr model works well for hydrogen and for ions with one electron, such as He$^+$. An **ion** is an atom or group of atoms with an electric charge, and an atom becomes one by gaining or losing electrons. It does not correctly describe atoms with many electrons. It also treats electrons as particles on fixed circular paths, which the later model replaced.
 
 ### The Quantum-Mechanical Model
 

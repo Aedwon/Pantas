@@ -91,9 +91,11 @@ Each pattern is explained below. Check the limit of each one before you use it.
 
 ### Single Displacement and Reactivity
 
-A single displacement happens only if the free element is more reactive than the element it replaces. The **activity series** ranks metals, with hydrogen for comparison, from most to least reactive. A common version is this.
+A single displacement happens only if the free element is more reactive than the element it replaces. The **activity series** ranks metals, with hydrogen for comparison, from most to least reactive. A common version is this. It continues on the second line.
 
-$$K>Na>Ca>Mg>Al>Zn>Fe>Pb>(H)>Cu>Ag>Au$$
+$$K>Na>Ca>Mg>Al>Zn$$
+
+$$Fe>Pb>(H)>Cu>Ag>Au$$
 
 In an acid or a metal salt in water, a metal can replace hydrogen or a metal that is below it. Zinc is above hydrogen, so zinc replaces hydrogen in acid: $Zn+2HCl\rightarrow ZnCl_2+H_2$. Copper is below hydrogen, so copper does not react with dilute $HCl$.
 
@@ -108,9 +110,9 @@ Swapping partners on paper does not prove that anything happens. The letters in 
 A double displacement reaction happens only when a **driving force** removes ions from the solution. There are four common ones.
 
 - A **precipitate** forms. This is a solid that appears when two solutions are mixed because it does not dissolve.
-- Water forms. This happens when an acid meets a base. It is called neutralization. See the acids, bases and pH lesson.
+- Water forms. This happens when an acid meets a hydroxide base, which is one kind of neutralization. See the acids, bases and pH lesson.
 - A gas escapes.
-- A weak electrolyte forms. This is a compound that stays mostly as molecules in water and gives few ions, such as a weak acid. A strong acid, such as $HCl$, gives mostly ions. For example, $HCl+NaC_2H_3O_2\rightarrow NaCl+HC_2H_3O_2$ goes ahead because acetic acid, $HC_2H_3O_2$, is a weak acid.
+- A weak electrolyte forms. This is a compound that stays mostly as molecules in water and gives few ions, such as a weak acid, unlike a strong acid such as $HCl$, which gives mostly ions. For example, $HCl+NaC_2H_3O_2\rightarrow NaCl+HC_2H_3O_2$ goes ahead because acetic acid, $HC_2H_3O_2$, is a weak acid.
 
 To predict a precipitate, use solubility. A substance is **soluble** if it dissolves in water. These are the usual classroom rules, and a few compounds break them.
 
@@ -161,7 +163,7 @@ Patterns and redox cut across each other. All single displacement and all combus
 
 Combination and decomposition can be redox or not. Double displacement is not redox, because no oxidation number changes.
 
-Some reactions fit two patterns. Burning hydrogen, $2H_2+O_2\rightarrow2H_2O$, is both combination and combustion. Neutralization is both double displacement and acid-base.
+Some reactions fit two patterns. Burning hydrogen, $2H_2+O_2\rightarrow2H_2O$, is both combination and combustion. The neutralization of an acid by a metal hydroxide, such as $HCl+NaOH\rightarrow NaCl+H_2O$, is both double displacement and acid-base.
 
 ## Mnemonics & Memory Aids
 
