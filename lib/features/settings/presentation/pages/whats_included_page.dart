@@ -27,6 +27,7 @@ import 'package:pantas/features/paywall/application/paywall_providers.dart';
 import 'package:pantas/features/paywall/domain/coverage.dart';
 import 'package:pantas/features/paywall/domain/entitlement.dart';
 import 'package:pantas/features/paywall/domain/price_tier.dart';
+import 'package:pantas/features/settings/domain/custom_tier_raise.dart';
 import 'package:pantas/features/settings/presentation/widgets/settings_pane_page.dart';
 
 typedef WhatsIncludedScope = ({
@@ -205,8 +206,9 @@ class _WhatsIncludedPageState extends ConsumerState<WhatsIncludedPage> {
 
   /// A tick on a custom exam that would lift its tier above what the student's
   /// plan covers waits for an answer. Undo Change drops the tick: nothing is
-  /// written, and the ticks stay as saved. See Plans opens the Pro page, also
-  /// with nothing written. Returns true when the change may be saved.
+  /// written, and the ticks stay as saved. See Plans opens the upgrade
+  /// screen for the new tier. Returns true when the change may be saved: after
+  /// a purchase or Save on Free there, never on backing out.
   Future<bool> _confirmRaise({
     required Exam exam,
     required List<ScopeSubject> subjects,
@@ -231,7 +233,12 @@ class _WhatsIncludedPageState extends ConsumerState<WhatsIncludedPage> {
       entitlement = const Entitlement.free();
     }
     final plan = entitlement.tier ?? entitlement.coverage().tier;
-    if (!entitlement.proIsActive || plan == null || tierCovers(plan, after)) {
+    // Ask only when the plan covers the exam as saved and would stop covering
+    // it. A plan that already misses the saved tier has nothing more to lose.
+    if (!entitlement.proIsActive ||
+        plan == null ||
+        !tierCovers(plan, before) ||
+        tierCovers(plan, after)) {
       return true;
     }
     if (!mounted) return false;
@@ -252,10 +259,17 @@ class _WhatsIncludedPageState extends ConsumerState<WhatsIncludedPage> {
         onCancel: () => Navigator.of(context).pop(false),
       ),
     );
-    if ((answer ?? false) && mounted) {
-      unawaited(context.push<void>('/settings/pro'));
-    }
-    return false;
+    if (!(answer ?? false) || !mounted) return false;
+    // The upgrade screen prices this exam at its new tier. It returns true on
+    // a successful purchase or Save on Free, and nothing otherwise.
+    final proceed = await context.push<bool>(
+      Uri(
+        path: '/settings/exam/upgrade',
+        queryParameters: {'target': exam.id},
+      ).toString(),
+      extra: CustomTierRaise(examName: exam.name, tier: after),
+    );
+    return proceed ?? false;
   }
 
   Future<void> _change(

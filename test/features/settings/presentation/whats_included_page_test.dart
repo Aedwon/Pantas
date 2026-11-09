@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:drift/drift.dart' hide isNotNull, isNull;
+import 'package:drift/drift.dart' hide Column, isNotNull, isNull;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -25,6 +25,7 @@ import 'package:pantas/features/home/data/study_api.dart';
 import 'package:pantas/features/paywall/application/paywall_providers.dart';
 import 'package:pantas/features/paywall/domain/entitlement.dart';
 import 'package:pantas/features/paywall/domain/price_tier.dart';
+import 'package:pantas/features/settings/domain/custom_tier_raise.dart';
 import 'package:pantas/features/settings/presentation/pages/whats_included_page.dart';
 
 import '../../../helpers/custom_subject_tiers_fixture.dart';
@@ -433,6 +434,7 @@ void main() {
       WidgetTester tester, {
       required Entitlement entitlement,
       bool wide = true,
+      List<String> studentTopics = const ['top_1', 'top_2'],
     }) async {
       debugWebPlatformOverride = wide;
       addTearDown(() => debugWebPlatformOverride = null);
@@ -448,8 +450,28 @@ void main() {
             builder: (context, state) => const WhatsIncludedPage(),
           ),
           GoRoute(
-            path: '/settings/pro',
-            builder: (context, state) => const Text('the pro page'),
+            path: '/settings/exam/upgrade',
+            builder: (context, state) {
+              final raise = state.extra! as CustomTierRaise;
+              return Scaffold(
+                body: Column(
+                  children: [
+                    Text(
+                      'upgrade ${state.uri.queryParameters['target']} '
+                      '${raise.examName} ${raise.tier.name}',
+                    ),
+                    TextButton(
+                      onPressed: () => context.pop(true),
+                      child: const Text('Save on Free'),
+                    ),
+                    TextButton(
+                      onPressed: () => context.pop(),
+                      child: const Text('Back out'),
+                    ),
+                  ],
+                ),
+              );
+            },
           ),
         ],
       );
@@ -459,7 +481,7 @@ void main() {
           overrides: [
             appDatabaseProvider.overrideWithValue(db),
             contentDatabaseProvider.overrideWithValue(contentDb),
-            shippedCustomSubjectTiers(studentTopics: ['top_1', 'top_2']),
+            shippedCustomSubjectTiers(studentTopics: studentTopics),
             entitlementProvider
                 .overrideWith((ref) => Stream.value(entitlement)),
             authStateProvider.overrideWith(
@@ -577,7 +599,7 @@ void main() {
       expect(find.text(studentLine), findsOneWidget);
     });
 
-    testWidgets('See Plans opens the Pro page and saves nothing',
+    testWidgets('See Plans opens the upgrade screen at the new tier',
         (tester) async {
       await pumpTier(tester, entitlement: plan(PriceTier.student));
 
@@ -586,8 +608,62 @@ void main() {
       await tester.tap(find.text('See Plans'));
       await tester.pumpAndSettle();
 
-      expect(find.text('the pro page'), findsOneWidget);
+      expect(
+        find.text('upgrade $customId PUP CET civilService'),
+        findsOneWidget,
+      );
+      expect(await excluded(), {gi}, reason: 'nothing saved yet');
+    });
+
+    testWidgets('Save on Free there saves exactly the pending change',
+        (tester) async {
+      await pumpTier(tester, entitlement: plan(PriceTier.student));
+
+      await tester.tap(find.text('Constitution'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('See Plans'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Save on Free'));
+      await tester.pumpAndSettle();
+
+      expect(find.byType(ScopePicker), findsOneWidget);
+      expect(await excluded(), isEmpty);
+      expect(find.text(civilLine), findsOneWidget);
+    });
+
+    testWidgets('backing out of the upgrade screen saves nothing',
+        (tester) async {
+      await pumpTier(tester, entitlement: plan(PriceTier.student));
+
+      await tester.tap(find.text('Constitution'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('See Plans'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Back out'));
+      await tester.pumpAndSettle();
+
       expect(await excluded(), {gi});
+      expect(calls.where((c) => c.$1 == 'setExamSettings'), isEmpty);
+      expect(find.text(studentLine), findsOneWidget);
+    });
+
+    testWidgets('a plan that already misses the saved tier is not asked',
+        (tester) async {
+      // Saved: Civil Service-level (General Information kept). Geometry is
+      // unknown to the table here, which prices at the top tier.
+      await CustomTrackRepository(db, contentDb)
+          .setExcluded(examId: customId, topicIds: {'top_2'});
+      await pumpTier(
+        tester,
+        entitlement: plan(PriceTier.student),
+        studentTopics: ['top_1'],
+      );
+
+      await tester.tap(find.text('Geometry'));
+      await tester.pumpAndSettle();
+
+      expect(find.byType(CenteredDialog), findsNothing);
+      expect(await excluded(), isEmpty);
     });
 
     testWidgets('Free sees no dialog and the change saves', (tester) async {

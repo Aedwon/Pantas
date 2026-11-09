@@ -44,10 +44,15 @@ ExamCatalogEntry customCatalogEntry({
     );
 
 /// The tier from the client table and the topics the exam keeps. Display and
-/// phone use: the server decides coverage on its own.
+/// phone use: the server decides coverage on its own. Throws while the table
+/// or the exam's topics are not loaded, so the tier is unknown, never Student.
 Future<CustomTrackTier> customTierFromTable(Ref ref, ExamId examId) async {
   final tiers = await ref.watch(customSubjectTiersProvider.future);
   final topics = await ref.watch(scopedTopicsProvider(examId).future);
+  // No topics means the corpus is not loaded yet, not that the exam is
+  // Student. Fail closed like the server: no tier until there is something to
+  // price.
+  if (topics.isEmpty) throw StateError('No topics to price the exam from');
   final ids = [for (final topic in topics) topic.id];
   return CustomTrackTier(
     tier: tiers.tierOf(ids),

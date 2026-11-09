@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:drift/native.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -75,8 +77,7 @@ void main() {
 
     Future<bool> proFor({
       required Entitlement entitlement,
-      required PriceTier? tier,
-      bool tierFails = false,
+      required PriceTier tier,
     }) async {
       final db = ContentDatabase(NativeDatabase.memory());
       addTearDown(db.close);
@@ -88,10 +89,8 @@ void main() {
           activeExamFocusProvider.overrideWith(
             (ref) async => const ActiveExamFocus.selected(custom),
           ),
-          activeCustomTrackTierProvider.overrideWith((ref) async {
-            if (tierFails) throw StateError('offline');
-            return tier == null ? null : CustomTrackTier(tier: tier);
-          }),
+          activeCustomTrackTierProvider
+              .overrideWith((ref) async => CustomTrackTier(tier: tier)),
         ],
       );
       addTearDown(container.dispose);
@@ -145,21 +144,54 @@ void main() {
       );
     });
 
-    test('an unknown tier is Free, never a guess', () async {
-      expect(
-        await proFor(
-          entitlement: plan('pantas_cs_monthly'),
-          tier: null,
-        ),
-        isFalse,
+    Future<ProviderContainer> containerFor({
+      required Future<CustomTrackTier?> Function() tier,
+    }) async {
+      final db = ContentDatabase(NativeDatabase.memory());
+      addTearDown(db.close);
+      final container = ProviderContainer(
+        overrides: [
+          contentDatabaseProvider.overrideWithValue(db),
+          devProOverrideProvider.overrideWithValue(null),
+          entitlementProvider.overrideWith(
+            (_) => Stream.value(plan('pantas_cs_monthly')),
+          ),
+          activeExamFocusProvider.overrideWith(
+            (ref) async => const ActiveExamFocus.selected(custom),
+          ),
+          activeCustomTrackTierProvider.overrideWith((ref) => tier()),
+        ],
       );
-      expect(
-        await proFor(
-          entitlement: plan('pantas_cs_monthly'),
-          tier: PriceTier.student,
-          tierFails: true,
-        ),
-        isFalse,
+      addTearDown(container.dispose);
+      container.listen(proForActiveExamProvider, (_, __) {});
+      return container;
+    }
+
+    test('a tier still loading is loading, never Free and never Pro', () async {
+      final container = await containerFor(
+        tier: () => Completer<CustomTrackTier?>().future,
+      );
+      await Future<void>.delayed(const Duration(milliseconds: 50));
+      expect(container.read(proForActiveExamProvider).isLoading, isTrue);
+      expect(container.read(proForActiveExamProvider).hasValue, isFalse);
+    });
+
+    test('a tier that failed is an error, never Free and never Pro', () async {
+      final container = await containerFor(
+        tier: () async => throw StateError('offline'),
+      );
+      await expectLater(
+        container.read(proForActiveExamProvider.future),
+        throwsA(isA<StateError>()),
+      );
+      expect(container.read(proForActiveExamProvider).hasValue, isFalse);
+    });
+
+    test('no tier for a custom exam is an error, never Free', () async {
+      final container = await containerFor(tier: () async => null);
+      await expectLater(
+        container.read(proForActiveExamProvider.future),
+        throwsA(isA<StateError>()),
       );
     });
   });

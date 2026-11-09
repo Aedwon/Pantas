@@ -34,6 +34,7 @@ import 'package:pantas/features/paywall/application/custom_track_tier.dart';
 import 'package:pantas/features/paywall/domain/switch_outcome.dart';
 import 'package:pantas/features/paywall/paywall.dart';
 import 'package:pantas/features/settings/application/carry_over_providers.dart';
+import 'package:pantas/features/settings/domain/custom_tier_raise.dart';
 import 'package:pantas/features/settings/domain/exam_change_result.dart';
 import 'package:pantas/features/settings/presentation/carry_over_prompt.dart';
 import 'package:pantas/features/settings/presentation/pages/about_page.dart';
@@ -107,17 +108,29 @@ List<RouteBase> settingsRoutes(Ref ref) => [
         builder: (context, state) => Consumer(
           builder: (context, ref, _) {
             final targetId = state.uri.queryParameters['target'];
-            final target = targetId != null && isCustomExamId(targetId)
-                ? ref.watch(customSwitchTargetProvider(targetId)).valueOrNull
-                : ref
-                    .watch(examPickerCatalogProvider)
-                    .valueOrNull
-                    ?.where((e) => e.id == targetId)
-                    .firstOrNull;
+            final raise = state.extra;
+            final target = raise is CustomTierRaise && targetId != null
+                // A subject change that lifts the exam's tier: price the exam
+                // at the tier it would have, not the one saved.
+                ? customCatalogEntry(
+                    examId: targetId,
+                    name: raise.examName,
+                    tier: raise.tier,
+                  )
+                : targetId != null && isCustomExamId(targetId)
+                    ? ref
+                        .watch(customSwitchTargetProvider(targetId))
+                        .valueOrNull
+                    : ref
+                        .watch(examPickerCatalogProvider)
+                        .valueOrNull
+                        ?.where((e) => e.id == targetId)
+                        .firstOrNull;
             if (target == null) return const ChangeExamPage();
             return ProPage(
               targetExam: target,
               previousExamName: state.uri.queryParameters['from'],
+              freeLabel: raise is CustomTierRaise ? 'Save on Free' : null,
               onSwitchOnFree: () async => context.pop(true),
             );
           },

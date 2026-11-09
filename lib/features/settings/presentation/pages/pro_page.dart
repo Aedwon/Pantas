@@ -91,6 +91,7 @@ class ProPage extends ConsumerStatefulWidget {
     this.targetExam,
     this.previousExamName,
     this.onSwitchOnFree,
+    this.freeLabel,
     super.key,
   });
   final SubscriptionManagementLauncher subscriptionLauncher;
@@ -98,6 +99,10 @@ class ProPage extends ConsumerStatefulWidget {
   final ExamCatalogEntry? targetExam;
   final String? previousExamName;
   final Future<void> Function()? onSwitchOnFree;
+
+  /// The label of the keep-Free button on an upgrade screen. Defaults to
+  /// 'Switch on Free'.
+  final String? freeLabel;
   @override
   ConsumerState<ProPage> createState() => _ProPageState();
 }
@@ -776,7 +781,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                       offset: const Offset(-PantasSpace.s14, 0),
                       child: WebButton(
                         label: upgrade
-                            ? 'Switch on Free'
+                            ? (widget.freeLabel ?? 'Switch on Free')
                             : _busy && _restoring
                                 ? 'Restoring purchases'
                                 : 'Restore Purchases',
@@ -950,7 +955,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                       ),
                     if (upgrade)
                       PantasButton(
-                        label: 'Switch on Free',
+                        label: widget.freeLabel ?? 'Switch on Free',
                         variant: PantasButtonVariant.tertiary,
                         onPressed: _busy ? null : _switchOnFree,
                       ),

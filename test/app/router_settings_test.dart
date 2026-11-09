@@ -18,8 +18,10 @@ import 'package:pantas/core/ui/components/centered_dialog.dart';
 import 'package:pantas/features/onboarding/presentation/exam_picker_screen.dart';
 import 'package:pantas/features/onboarding/presentation/steps/custom_track_name_step.dart';
 import 'package:pantas/features/paywall/domain/coverage.dart';
+import 'package:pantas/features/paywall/domain/price_tier.dart';
 import 'package:pantas/features/paywall/paywall.dart';
 import 'package:pantas/features/settings/application/carry_over_providers.dart';
+import 'package:pantas/features/settings/domain/custom_tier_raise.dart';
 import 'package:pantas/features/settings/presentation/pages/delete_account_page.dart';
 import 'package:pantas/features/settings/presentation/pages/exam_page.dart';
 import 'package:pantas/features/settings/settings.dart';
@@ -420,6 +422,26 @@ void main() {
           await AppPreferencesRepository(db).selectedExamId(),
           'exam_custom_x',
         );
+      });
+
+      testWidgets(
+          'a subject change that lifts the tier opens the upgrade screen at '
+          'the new tier, and Save on Free returns true', (tester) async {
+        final router =
+            await pumpSettingsPicker(tester, entitlement: studentPlan);
+        final result = router.push<bool>(
+          '/settings/exam/upgrade?target=exam_custom_x',
+          extra: const CustomTierRaise(
+            examName: 'Bar Exam',
+            tier: PriceTier.civilService,
+          ),
+        );
+        await tester.pumpAndSettle();
+        expect(find.text('Bar Exam has its own price tier'), findsOneWidget);
+        expect(find.text('Switch on Free'), findsNothing);
+        await tester.tap(find.text('Save on Free'));
+        await tester.pumpAndSettle();
+        expect(await result, isTrue);
       });
 
       testWidgets('a pass holder still sees the pass warning', (tester) async {

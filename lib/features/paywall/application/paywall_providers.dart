@@ -186,15 +186,12 @@ final proForActiveExamProvider = FutureProvider<bool>((ref) async {
   if (exam == null) return false;
   if (exam.isCustom) {
     // A custom exam is covered by plan tier alone, from the same tier the Pro
-    // page uses. No pass can carry its id. While the tier is unknown it is
-    // Free, never a guess.
-    try {
-      final tier = await ref.watch(activeCustomTrackTierProvider.future);
-      if (tier == null) return false;
-      return entitlement.coversExam(exam.id, examTier: tier.tier);
-    } on Object {
-      return false;
-    }
+    // page uses. No pass can carry its id. While the tier loads this stays
+    // loading, and if it fails this fails: neither is ever Free or Pro by
+    // guess, like a listed exam whose entitlement is unknown.
+    final tier = await ref.watch(activeCustomTrackTierProvider.future);
+    if (tier == null) throw StateError('A custom exam has no known tier');
+    return entitlement.coversExam(exam.id, examTier: tier.tier);
   }
   final catalog =
       await ref.watch(examCatalogRepositoryProvider).watchAll().first;
