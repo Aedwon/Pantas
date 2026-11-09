@@ -285,7 +285,7 @@ void main() {
       );
       await tester.pumpAndSettle();
       expect(find.byType(WebReaderLayout), findsOneWidget);
-      expect(find.byTooltip('Back to Home'), findsOneWidget);
+      expect(find.text('Home'), findsOneWidget);
       expect(find.text('1 of 2'), findsOneWidget);
       await tester.tap(find.text('1 of 2'));
       await tester.pumpAndSettle();
@@ -500,10 +500,10 @@ void main() {
       final control = find
           .ancestor(of: find.text('1 of 2'), matching: find.byType(ReaderTap))
           .first;
-      // The board puts the lesson control midway between the back button and
+      // The board puts the lesson control midway between the Esc hint and
       // the buttons on the right, not at the window's center. The full width
       // button now leads those buttons, ahead of the bookmark.
-      final left = tester.getTopRight(find.byType(WebReaderBackControl)).dx;
+      final left = tester.getTopRight(find.byType(WebKeyHint)).dx;
       final right = tester.getTopLeft(find.byTooltip('Full width')).dx;
       expect(tester.getCenter(control).dx, closeTo((left + right) / 2, 1));
       await tester.tap(find.byTooltip('Bookmark this lesson (B)'));

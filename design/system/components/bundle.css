@@ -1120,7 +1120,7 @@ select.select:not([aria-invalid="true"]):not(.is-error):focus-visible{box-shadow
    .is-hidden after layout-reader-hide-scroll (120px) more, cleared by the first scroll up (the bar returns already titled). The bar only
    hides below that line. The 3px progress thread sits under the bar and stays at the top edge while the bar is hidden.
    Reduced motion: the states switch at once. */
-.reader-bar{position:sticky;top:0;z-index:var(--z-nav);display:grid;grid-template-columns:var(--size-icon-btn) minmax(0,1fr) var(--size-icon-btn);align-items:center;gap:var(--space-8);min-height:var(--layout-focus-head);padding:0 var(--space-20);background:var(--bg-page);transition:transform var(--dur-medium-2) var(--motion-move)}
+.reader-bar{position:sticky;top:0;z-index:var(--z-nav);display:grid;grid-template-columns:minmax(max-content,1fr) minmax(0,auto) minmax(var(--size-icon-btn),1fr);align-items:center;gap:var(--space-8);min-height:var(--layout-focus-head);padding:0 var(--space-20);background:var(--bg-page);transition:transform var(--dur-medium-2) var(--motion-move)}
 .reader-bar > :nth-child(3){justify-self:end}
 .reader-bar--phone{min-height:var(--size-target-touch);padding:var(--space-6) var(--space-8) 0 var(--space-4);gap:0}
 .reader-bar__title{display:flex;align-items:baseline;justify-content:center;gap:var(--space-8);min-width:0;text-align:center}

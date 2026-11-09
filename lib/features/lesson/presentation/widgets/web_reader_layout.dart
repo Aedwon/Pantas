@@ -10,7 +10,6 @@ import 'package:pantas/core/ui/components/content_renderer.dart';
 import 'package:pantas/core/ui/components/pantas_icon_button.dart';
 import 'package:pantas/core/ui/components/pantas_shadows.dart';
 import 'package:pantas/core/ui/components/toast.dart';
-import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
 import 'package:pantas/core/ui/theme/lesson_text_scale.dart';
 import 'package:pantas/core/ui/theme/reader_full_width.dart';
@@ -1169,10 +1168,10 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
   }
 }
 
-/// The reader bar's back button (ReaderTopBar): an icon button with a chevron,
-/// named "Back to" and the back label. Esc still goes back, from the key
-/// handler of the page that owns the bar. The loading and error bars use it
-/// too, so the bar does not move when the lesson arrives.
+/// The reader bar's back link (ReaderTopBar, D192): the system BackLink with
+/// the parent's name ("< Study") and the Esc key hint. Esc goes back from the
+/// key handler of the page that owns the bar. The loading and error bars use
+/// it too, so the bar does not move when the lesson arrives.
 class WebReaderBackControl extends StatelessWidget {
   const WebReaderBackControl({
     required this.label,
@@ -1182,10 +1181,13 @@ class WebReaderBackControl extends StatelessWidget {
   final String label;
   final VoidCallback onPressed;
   @override
-  Widget build(BuildContext context) => PantasIconButton(
-        tooltip: 'Back to $label',
-        glyph: PantasIcons.back,
-        onPressed: onPressed,
+  Widget build(BuildContext context) => Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          WebBackLink(label: label, onPressed: onPressed),
+          const SizedBox(width: PantasSpace.s12),
+          const WebKeyHint('Esc'),
+        ],
       );
 }
 

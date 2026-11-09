@@ -4,9 +4,9 @@ import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_button_spec.dart';
-import 'package:pantas/core/ui/components/pantas_icon_button.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/features/lesson/presentation/widgets/reader_tap.dart';
 import 'package:pantas/features/lesson/presentation/widgets/web_reader_layout.dart';
 
@@ -26,7 +26,7 @@ void main() {
   setUpAll(loadDsFonts);
 
   group('the reader bar back control', () {
-    testWidgets('is a named icon button with no label and no Esc hint',
+    testWidgets('is the BackLink with the parent name and the Esc hint (D192)',
         (tester) async {
       var taps = 0;
       await pumpDs(
@@ -34,11 +34,10 @@ void main() {
         wide,
         WebReaderBackControl(label: 'Study', onPressed: () => taps++),
       );
-      expect(find.byType(PantasIconButton), findsOneWidget);
-      expect(find.byTooltip('Back to Study'), findsOneWidget);
-      expect(find.text('Study'), findsNothing);
-      expect(find.text('Esc'), findsNothing);
-      await tester.tap(find.byType(PantasIconButton));
+      expect(find.byType(WebBackLink), findsOneWidget);
+      expect(find.text('Study'), findsOneWidget);
+      expect(find.byType(WebKeyHint), findsOneWidget);
+      await tester.tap(find.text('Study'));
       expect(taps, 1);
     });
 
@@ -48,18 +47,23 @@ void main() {
         wide,
         WebReaderBackControl(label: 'Study', onPressed: () {}),
       );
-      await _hover(tester, find.byType(PantasIconButton));
-      final style = tester.widget<IconButton>(find.byType(IconButton)).style!;
+      await _hover(tester, find.text('Study'));
+      final style = tester
+          .widget<TextButton>(
+            find.descendant(
+              of: find.byType(WebBackLink),
+              matching: find.byType(TextButton),
+            ),
+          )
+          .style!;
       final shape = style.shape!.resolve({WidgetState.hovered});
       expect(shape, isA<RoundedRectangleBorder>());
       expect(shape, isNot(isA<StadiumBorder>()));
       expect(
         (shape! as RoundedRectangleBorder).borderRadius,
-        BorderRadius.circular(PantasRadius.md),
+        BorderRadius.circular(PantasRadius.back),
       );
-      final wash = style.backgroundColor!.resolve({WidgetState.hovered})!;
-      expect(wash.a, greaterThan(0));
-      expect(wash, isNot(PantasColors.light.surfaceCard));
+      // The teal wash itself is the BackLink's, tested with the component.
     });
   });
 

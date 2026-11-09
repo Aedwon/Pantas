@@ -38,6 +38,9 @@ Deprecated names stay until the next major version, then go (one rule, used in `
 
 ## Changelog
 
+### 4.0.1 (Nov 9, 2026), patch
+- Changed: CHANGE (D192): the ReaderTopBar back is the BackLink with the parent's name, plus the Esc KeyHint on wide screens; the bar's first column fits the link. No token or class added or removed.
+
 ### 4.0.0 (Nov 8, 2026), major
 - Approval rule changed (D191): decisions the lead makes under Aedwon's delegation are final when recorded. The "proposal", "awaiting review" and "[Still open: Aedwon's review]" wording is gone. The README section "Decisions to review" is now "Decisions", and "Open for Aedwon" is now "Open items" (the icon files D41, the Source Serif 4 font files D91, the Mock exam phone layout D170); none is a decision. Only a decision Aedwon keeps for himself, or one that is absolutely necessary for him, goes to him.
 - Removed names (all deprecated in 3.0.0 to 3.2.0): tokens `text-past` (use `text-secondary`), `size-btn-md` (use `size-btn-bar`), `bp-desktop` (use `bp-tablet-landscape` and `bp-wide`), `size-icon-sm` and `size-gauge-h`; type styles `web-math` and `phone-math` (use `.math`); classes `.chart__line` (use per-column `.chart__seg`), `.focus-head--phone` (use `.focus-head`), `.tablet-column` and `.main--tablet` (use AppShell). The renamed private properties `--_h` and `--_p` (now `--h` and `--p`) have no old name left. Kept: `figure-viewer-bg` (the Flutter viewer reads it).
