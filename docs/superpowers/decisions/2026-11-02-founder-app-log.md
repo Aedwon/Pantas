@@ -377,3 +377,24 @@ Made under Aedwon's delegation. Each can be reversed by him.
     `docs/OPERATIONS.md` gets the pointer. Sessions without this Mac cannot read it.
 12. **The action log** is a Firestore collection on each project, written for every grant, removal,
     refund record and deletion, and shown on the Log screen.
+
+## November 9, 2026: Posts, complexity and build order
+
+Options offered (relayed by the manager), with costs:
+
+1. Posts tab. Separate spec later (recommended): after Content Pass merges and he gives marketing
+   direction; posts are made by hand until then. Or in this build: delays the rest, and no design
+   exists yet.
+2. Complexity for the whole app. Balanced (recommended), as chosen for Support: staging switch, log
+   screen, outside Codex audit for money and deletion; roughly 5 to 7 days of build. Or Minimal:
+   about 2 days shorter, no staging switch, the log is a file. He asked what Hardened means; the
+   manager answered: an export before each deletion, plus alerts while the app is closed, which
+   need a key on the Mac.
+3. Build order. Owner inputs first (recommended): the shell, sign-in and the Owner inputs tab in
+   about a day, then Support, Numbers and Inbox. Or all at once: one release, Owner inputs wait
+   about a week.
+
+Aedwon's answer, verbatim (relayed by the manager): "1. okay do what you recommend / 2. okay go with balanced / 3. do what you recommend"
+
+Result: Posts is a separate spec later. Balanced for the whole app. Owner inputs ship first, in
+their own worktree, then Support, Numbers and Inbox. Build only after he approves the spec.
