@@ -323,4 +323,30 @@ void main() {
       }
     });
   }
+
+  testWidgets('390 wide at 200 percent a long part name wraps whole',
+      (tester) async {
+    tester.view.devicePixelRatio = 1;
+    tester.view.physicalSize = const Size(390, 1400);
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    await tester.pumpWidget(
+      _paused(
+        still: true,
+        textScale: 2,
+        partNames: const ['Verbal', 'Numerical', 'General Information'],
+      ),
+    );
+    await tester.pump();
+    expect(tester.takeException(), isNull);
+    final text = find.text('General Information');
+    final box = tester.getRect(text);
+    // Two lines at 200 percent (17 * 1.35 * 2 = 46 a line).
+    expect(box.height, greaterThan(46 * 1.5), reason: 'the name wraps');
+    final row = tester.getRect(
+      find.ancestor(of: text, matching: find.byType(SizedBox)).first,
+    );
+    expect(row.bottom, greaterThanOrEqualTo(box.bottom - .5));
+    expect(row.height, greaterThanOrEqualTo(box.height));
+  });
 }
