@@ -1,0 +1,10 @@
+{
+  "lesson": "lesson-chemistry-history-of-the-atom",
+  "round": 6,
+  "reader": "opus",
+  "verdict": "minor",
+  "findings": [
+    {"rule": "L22a", "severity": "Minor", "quote": "Every atom has a center called the **nucleus**.", "problem": "Round-5 L22a still open, and not in this round's one-sentence fix scope. The nucleus paragraph that starts here has six sentences and the orbital paragraph starting 'Because of this, an electron has no fixed path.' has eight. The isotope, cathode-ray field, electron and alpha-particle paragraphs have five each, and the Bohr-limits paragraph now has four after the new ion sentence. Paragraphs should be one to three short sentences.", "source": "LSG: Formatting rules; checklist L22a; round-5 read L22a"}
+  ],
+  "goodQuotesChecked": 1
+}

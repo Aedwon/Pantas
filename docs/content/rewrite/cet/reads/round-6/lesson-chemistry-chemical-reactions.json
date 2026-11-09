@@ -1,0 +1,10 @@
+{
+  "lesson": "lesson-chemistry-chemical-reactions",
+  "round": 6,
+  "reader": "opus",
+  "verdict": "minor",
+  "findings": [
+    {"rule": "L24", "severity": "Minor", "quote": "Chemical Reactions (Reaction Patterns, Balancing Equations)", "problem": "Round-5 Minor still open, outside the round-6 fix scope. The frontmatter title differs from the outline title 'Chemical Reactions (Types of Reactions, Balancing Equations)' in tools/lesson_author/outline.json. It names the same content and stays Minor for the final review.", "source": "Checklist L24; tools/lesson_author/outline.json line 535; final-run-rulings.md (acids-bases-ph title ruling)"}
+  ],
+  "goodQuotesChecked": 1
+}

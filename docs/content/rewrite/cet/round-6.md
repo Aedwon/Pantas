@@ -44,3 +44,11 @@ One subagent at a time. The fixer changes only its lesson files. No question fil
 ## Results
 
 (Appended as each lesson finishes.)
+
+### Chemistry (November 9)
+
+- Fixer (Sonnet) skipped the required reads of AGENTS.md, WORKFLOW.md, SUBAGENTS.md, the style guide and the checklist, and said so. The edits were one or two sentences per lesson; the lead checked each changed sentence and found no error, so they were kept.
+- chemical-bonding: minor. Both round-5 Blockers fixed (solubility condition now "about as strong as, or stronger than"; the false resonance converse removed). Open Minor: one paragraph has four sentences.
+- chemical-reactions: minor. Neutralization now scoped to an acid and a hydroxide base, consistent with the acids-bases-ph lesson's NH3 + HCl case. Open Minor: title differs from the outline. 3,308 words, split candidate.
+- history-of-the-atom: minor. Ion now "an atom or group of atoms with an electric charge"; "neutral" defined. Open Minor: long paragraphs.
+- Lead quote check: every round-6 quote found in its lesson; every verdict matches its findings.

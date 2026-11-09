@@ -9,7 +9,7 @@
     "lessonPath": "content/lessons/science/chemistry/chemical-bonding.md",
     "lessonId": "lesson-chemistry-chemical-bonding",
     "group": "science",
-    "status": "open"
+    "status": "minor"
   },
   {
     "lessonPath": "content/lessons/science/chemistry/acids-bases-ph.md",
@@ -171,7 +171,7 @@
     "lessonPath": "content/lessons/science/chemistry/chemical-reactions.md",
     "lessonId": "lesson-chemistry-chemical-reactions",
     "group": "science",
-    "status": "open"
+    "status": "minor"
   },
   {
     "lessonPath": "content/lessons/science/chemistry/gas-laws.md",
@@ -183,7 +183,7 @@
     "lessonPath": "content/lessons/science/chemistry/history-of-the-atom.md",
     "lessonId": "lesson-chemistry-history-of-the-atom",
     "group": "science",
-    "status": "open"
+    "status": "minor"
   },
   {
     "lessonPath": "content/lessons/science/chemistry/matter.md",
