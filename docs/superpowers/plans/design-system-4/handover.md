@@ -22,7 +22,7 @@ Then read `guardrails.md` in this folder. It is the plan Aedwon is implementing.
 
 ## Work in flight when this was written (the "fix this" sweep, layer 0 of the plan)
 
-Four Sonnet builders were running in local worktrees, none committed yet:
+Four Sonnet builders ran in local worktrees. All four are committed and pushed (status below):
 
 | Worktree | Branch | Scope |
 |---|---|---|
@@ -41,7 +41,40 @@ Four Sonnet builders were running in local worktrees, none committed yet:
      conflicts (it should stay empty).
   4. Run the full checks, then deploy to staging.
 
-Sweep status: (the lead session appends here)
+Sweep status (Nov 9, lead session): all four pushed, reviewed, checks green. None are merged into
+`web/design-system-4` or deployed to staging. T3 merges them.
+
+- `ds4/sweep-a` 03739e5cd: Home and Quiz.
+- `ds4/sweep-b` 35b6388a3: Mock exam and the reader. The reader back is a 44 icon button named
+  "Back to <label>"; its label and Esc hint are gone and Esc still works. Lesson and mock tests 1575 pass.
+- `ds4/sweep-c` befebd80c: Settings, onboarding, assessment, guardian, beta feedback, wrapped, shell,
+  legal, sign-in. Its checks: format, analyze, run_checks, layering clean; 5701 tests pass. Review fixes:
+  `WebTextLink` takes an optional `style` so the inline Terms and Privacy links match the consent
+  sentence (new test); a stale chip-height comment; duplicate ds-raw markers. Guardian consent and age
+  gate behave the same. Session building now uses `SettingsRow` on phones too, so the "Recommended"
+  tag sits under the row instead of beside the title (lead ruling: one system row at every width).
+- `web/design-system-4` 69f4210ab: theme fallbacks (pushed, not on staging yet).
+
+Merge order: theme first, then a, b, c. Resolve `tool/checks/design_token_allowlist.txt` with
+`resolve_allowlist` rules (it stays empty). Run the full suite on the merged tree, then deploy.
+
+About 30 `// ds-raw:` markers remain across the three branches. `dart format` puts a marker on the
+first argument line, so the layer 1 and 2 checks must accept it there. Kept on purpose: sign-in
+provider buttons and code boxes, feedback and survey text fields, toasts (see gaps), onboarding and
+settings fields and toggles, the shell search and sidebar items.
+
+System gaps the markers point at (each wants a core component, then the markers go):
+- No shared toast host or helper, so screens call SnackBar directly.
+- `HomeTapArea` and `QuizTapArea` are identical; make one core tap area.
+- `PantasField` has no unlabeled variant and no capitalization option.
+- No token for the 11px flag dot; it is 10 for now.
+
+For Aedwon to confirm on staging after the merge:
+- "Create Free Account" is now an accent primary button; check it against the board.
+- Figure viewer close buttons are now 44 rounded squares.
+- Session building's "Recommended" tag placement on phones.
+- Tests to strengthen later: the legal page Back test now checks for `WebBackLink` and its label,
+  not the 20x20 chevron; the new hover-shape tests do not check the 44 hit area or disabled state.
 
 ## Open items for Aedwon
 
