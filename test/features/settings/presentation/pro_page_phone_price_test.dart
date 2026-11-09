@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
@@ -16,6 +17,7 @@ Future<void> _pump(
   required String monthly,
   required String yearly,
   Size size = const Size(390, 844),
+  bool anonymousWeb = false,
 }) async {
   tester.view.physicalSize = size;
   tester.view.devicePixelRatio = 1;
@@ -40,7 +42,8 @@ Future<void> _pump(
           buildExam(id: 'exam_cse_pro', shortName: 'CSE Professional'),
         ),
       ),
-      isAnonymousProvider.overrideWith((ref) async => false),
+      isAnonymousProvider.overrideWith((ref) async => anonymousWeb),
+      if (anonymousWeb) paymentsOnWebProvider.overrideWithValue(true),
       activeProCatalogEntryProvider.overrideWith(
         (ref) async => const ExamCatalogEntry(
           id: 'exam_cse_pro',
@@ -69,6 +72,24 @@ Future<void> _pump(
 }
 
 void main() {
+  testWidgets('phone Pro: Continue with Google carries the Google G',
+      (tester) async {
+    await _pump(
+      tester,
+      weekly: '₱49',
+      monthly: '₱149',
+      yearly: '₱1,199',
+      anonymousWeb: true,
+    );
+    final label = find.text('Continue with Google');
+    expect(label, findsOneWidget);
+    final button = find.ancestor(of: label, matching: find.byType(TextButton));
+    expect(
+      find.descendant(of: button.first, matching: find.byType(SvgPicture)),
+      findsOneWidget,
+    );
+  });
+
   testWidgets('phone plan prices drop .00, as the boards show', (tester) async {
     await _pump(
       tester,

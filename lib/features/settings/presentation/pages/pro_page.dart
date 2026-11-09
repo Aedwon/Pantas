@@ -12,6 +12,7 @@ import 'package:pantas/core/storage/age_gate.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/telemetry/telemetry.dart';
+import 'package:pantas/core/ui/components/google_sign_in_button.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pro_paused_line.dart';
 import 'package:pantas/core/ui/components/pro_tag.dart';
@@ -852,8 +853,8 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                           const SizedBox(height: PantasSpace.s8),
                         ],
                         if (web && anonymous)
-                          PantasButton(
-                            label: 'Continue with Google',
+                          GoogleSignInButton(
+                            expand: true,
                             onPressed: () =>
                                 context.push<void>('/settings/account'),
                           )

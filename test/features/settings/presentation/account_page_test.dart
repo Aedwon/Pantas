@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/auth/auth.dart';
 import 'package:pantas/core/sync/providers.dart';
@@ -24,6 +25,27 @@ void main() {
         'Your progress stays on this phone. Signing in gives you an '
         'account you can come back to.',
       ),
+      findsOneWidget,
+    );
+  });
+
+  testWidgets('the phone Continue with Google button carries the Google G',
+      (tester) async {
+    tester.view
+      ..physicalSize = const Size(390, 844)
+      ..devicePixelRatio = 1;
+    addTearDown(tester.view.reset);
+    await _pumpAccount(
+      tester,
+      repository: SequencedAuthRepository(const []),
+      user: null,
+    );
+    final button = find.ancestor(
+      of: find.text('Continue with Google'),
+      matching: find.byType(TextButton),
+    );
+    expect(
+      find.descendant(of: button.first, matching: find.byType(SvgPicture)),
       findsOneWidget,
     );
   });

@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/auth/auth_repository.dart';
@@ -14,6 +13,7 @@ import 'package:pantas/core/error/app_exception.dart';
 import 'package:pantas/core/sync/providers.dart';
 import 'package:pantas/core/ui/components/avatar.dart';
 import 'package:pantas/core/ui/components/centered_dialog.dart';
+import 'package:pantas/core/ui/components/google_sign_in_button.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
@@ -171,11 +171,8 @@ class _AccountPageState extends ConsumerState<AccountPage> {
           ),
           const SizedBox(height: PantasSpace.s24),
           if (user == null) ...[
-            WebButton(
+            GoogleSignInButton(
               label: _signingIn ? 'Signing in…' : 'Continue with Google',
-              variant: WebButtonVariant.white,
-              height: PantasSize.field,
-              icon: SvgPicture.string(_googleMark, width: 18, height: 18),
               busy: _signingIn,
               onPressed: _signingIn ? null : _signIn,
             ),
@@ -334,8 +331,8 @@ class _AccountPageState extends ConsumerState<AccountPage> {
         ),
         const SizedBox(height: PantasSpace.s20),
         if (user == null) ...[
-          PantasButton(
-            label: 'Continue with Google',
+          GoogleSignInButton(
+            expand: true,
             busy: _signingIn,
             onPressed: _signingIn ? null : _signIn,
           ),
@@ -517,12 +514,3 @@ bool _isNetworkError(Object error) {
   return error is NetworkException ||
       const {'network-request-failed', 'network_error'}.contains(code);
 }
-
-/// The board's four-color Google mark (ST_AccountOut), 18 px.
-const _googleMark = '''
-<svg viewBox="0 0 24 24">
-<path fill="#4285F4" d="M22.5 12.3c0-.8-.1-1.5-.2-2.3H12v4.4h5.9a5 5 0 0 1-2.2 3.3v2.7h3.5c2.1-1.9 3.3-4.7 3.3-8.1z"/>
-<path fill="#34A853" d="M12 23c3 0 5.5-1 7.2-2.7l-3.5-2.7c-1 .7-2.2 1-3.7 1-2.9 0-5.3-1.9-6.2-4.5H2.2v2.8A11 11 0 0 0 12 23z"/>
-<path fill="#FBBC05" d="M5.8 14.1a6.6 6.6 0 0 1 0-4.2V7.1H2.2a11 11 0 0 0 0 9.8z"/>
-<path fill="#EA4335" d="M12 5.4c1.6 0 3.1.6 4.2 1.7l3.1-3.1A11 11 0 0 0 2.2 7.1l3.6 2.8C6.7 7.3 9.1 5.4 12 5.4z"/>
-</svg>''';
