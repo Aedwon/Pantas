@@ -150,11 +150,18 @@ test('an account with no email is deleted at 730 days without any mail, and not 
   assert.equal((await db.doc('users/in-anon-old/server/x').get()).exists, false);
 });
 
-test('an unverified email is neither warned nor deleted', async () => {
-  await wipe('in-unverified');
-  const {auth, box} = await run([user('in-unverified', {days: 900, email: 'u@mail.com', verified: false})]);
-  assert.deepEqual(auth.deleted, []);
+test('an unverified email gets no mail and is deleted at 730 days, like a guest', async () => {
+  // Google sign-in can leave an account whose address Google never verified.
+  // Mailing it could reach someone else, so it is not warned; it still ends at 24 months.
+  await wipe('in-unverified-old', 'in-unverified-new');
+  await db.doc('users/in-unverified-old/server/x').set({a: 1});
+  const {auth, box} = await run([
+    user('in-unverified-old', {days: 730, email: 'u@mail.com', verified: false}),
+    user('in-unverified-new', {days: 729, email: 'v@mail.com', verified: false}),
+  ]);
+  assert.deepEqual(auth.deleted, ['in-unverified-old']);
   assert.equal(box.sent.length, 0);
+  assert.equal((await db.doc('users/in-unverified-old/server/x').get()).exists, false);
 });
 
 test('a mail failure records no warning and the pass goes on', async () => {

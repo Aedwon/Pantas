@@ -65,11 +65,13 @@ export async function runInactivityPass(deps: InactivityDeps): Promise<Inactivit
   const result: InactivityResult = {scanned: 0, warned: 0, deleted: 0};
 
   // Rechecks the account just before deleting, in case it was used since the page was read.
-  const deleteNow = async (uid: string): Promise<boolean> => {
+  const deleteNow = async (uid: string, warned = true): Promise<boolean> => {
     try {
       const fresh = await deps.auth.getUser(uid);
       const last = lastActivity(fresh);
       if (fresh.disabled || last === null || now - last < INACTIVE_DAYS * DAY_MS) return false;
+      // An account that gained a verified address since the page was read is owed a warning first.
+      if (!warned && fresh.email && fresh.emailVerified) return false;
       await deleteUserData(deps.db, deps.auth, uid, 'inactive_24_months', {now: () => now});
       return true;
     } catch (error) {
@@ -91,13 +93,13 @@ export async function runInactivityPass(deps: InactivityDeps): Promise<Inactivit
       if (await proRunning(deps.db, user, now)) continue;
       const idleLongEnough = now - last >= INACTIVE_DAYS * DAY_MS;
 
-      if (!user.email) {
-        // A guest account has no address to warn, and no one can sign back in to it.
-        if (idleLongEnough && result.deleted < deletionCap && await deleteNow(user.uid)) result.deleted += 1;
+      if (!user.email || !user.emailVerified) {
+        // No address to warn: a guest, or an address Google never verified (a Google sign-in can
+        // leave one). Mailing an unverified address could reach someone else, so these accounts
+        // end at 24 months without a warning, as the privacy texts say.
+        if (idleLongEnough && result.deleted < deletionCap && await deleteNow(user.uid, false)) result.deleted += 1;
         continue;
       }
-      // Only a verified address is warned. An unverified one is left alone, never deleted unwarned.
-      if (!user.emailVerified) continue;
 
       const record = deps.db.doc(`users/${user.uid}/server/inactivity`);
       const warnedAt = (await record.get()).get('warnedAt');
