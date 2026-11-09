@@ -37,7 +37,7 @@ Each rope **segment** is a straight length of rope between two turns or ties. Ea
 
 Count a segment if it is tied to the moving pulley or its frame, or runs around the moving pulley. A segment that runs from a fixed pulley to your hand does not pull on the load, so do not count it. If your hand pulls the end that leaves the moving pulley, that end counts.
 
-Two supporting segments give MA $2$: the effort is half the load, and the free end moves twice as far as the load. Three segments give MA $3$, four give MA $4$, and so on. The rule fails if the segments pull at a slant, because only part of each pull lifts the load.
+Two supporting segments give MA $2$: the effort is half the load when the load is held still or moves at a steady speed, and the free end moves twice as far as the load. Three segments give MA $3$, four give MA $4$, and so on. The rule fails if the segments pull at a slant, because only part of each pull lifts the load.
 
 Do not count pulleys. Systems with the same number of pulleys can have different numbers of supporting segments.
 

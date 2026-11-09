@@ -15,7 +15,7 @@ A **gene** is a section of DNA that helps control a trait. An **allele** is one 
 
 A **chromosome** is a long strand of DNA that carries many genes. A **genotype** is the set of alleles an individual carries for a gene.
 
-In a diploid organism made by sexual reproduction, most genes lie on chromosomes that are not sex chromosomes, and they come as a pair, one allele from each parent. In humans, a male has only one allele for a gene on the X chromosome. A haploid organism, such as a bacterium, has one copy of each gene.
+In a diploid organism made by sexual reproduction, most genes lie on chromosomes that are not sex chromosomes, and they come as a pair, one allele from each parent. In humans, a male has only one allele for most genes on the X chromosome. A haploid organism, such as a bacterium, has one copy of each gene.
 
 A **phenotype** is the trait you can see or measure, such as green or brown color. A **population** is a group of the same kind of organism living in one place and able to breed with each other.
 
@@ -47,7 +47,7 @@ Many mutations have no effect on the trait. Some harm the organism, and a few he
 
 **Genetic drift** is a change in allele frequency caused by chance alone. Some individuals have more offspring than others just by luck, not because their traits are better.
 
-Drift is strong in small populations and weak in large ones. In a small group, a few unlucky deaths can remove an allele completely. In a very large group, luck averages out and drift is small, though never exactly zero.
+Drift is strong in small populations and weak in large ones. In a small group, a few unlucky deaths can remove an allele completely. In a very large group, luck averages out and drift is small.
 
 Two well-known cases of drift are the bottleneck effect and the founder effect. In a **bottleneck**, a disaster leaves only a few survivors, and their alleles are a chance sample of the old population. In the **founder effect**, a few individuals start a new population, and at first it carries only the alleles those founders had.
 
@@ -227,7 +227,7 @@ Variants arise by chance. Whether selection makes a variant spread depends on th
 
 > An individual does not evolve a new inherited trait in its lifetime.
 
-Individuals may change during life, but changes gained during life are not passed on. A mutation in the DNA that offspring receive is the exception. The population is what evolves.
+Individuals may change during life, but changes gained during life are usually not passed on. A mutation in the DNA that offspring receive is the main exception. The population is what evolves.
 
 ### #5: Thinking Fitness Means Strength
 

@@ -55,11 +55,11 @@ A **Lewis structure** shows bonds and **lone pairs**, which are valence electron
 
 Step 2 is a guide, not a law. In HOCl the order is H-O-Cl, and molecules with two centers, such as $H_2O_2$ and $C_2H_4$, are given with their atom order.
 
-**Formal charge** is the charge an atom would have if every bonding pair were shared equally, so each atom owns its lone pairs and half of each bond. It helps you compare possible structures:
+**Formal charge** is the charge an atom would have if every bonding pair were shared equally, so each atom owns its nonbonding electrons and half of each bond. It helps you compare possible structures:
 
 $$FC=V-L-\dfrac{B}{2}$$
 
-Here $V$ is the atom's valence electrons, $L$ is the electrons in its lone pairs, and $B$ is the electrons in its bonds. Prefer the structure with formal charges nearest zero. The charges must add up to the charge of the species.
+Here $V$ is the atom's valence electrons, $L$ is its nonbonding electrons, which are the electrons in its lone pairs plus a single unpaired electron if it has one, and $B$ is the electrons in its bonds. Prefer the structure with formal charges nearest zero. The charges must add up to the charge of the species.
 
 Some species need **resonance**. Two or more valid Lewis structures use the same atom order but differ in where the double or triple bonds and lone pairs sit. The real molecule is a blend of them. Equivalent structures give equal bond lengths, as in carbonate below.
 
@@ -98,7 +98,7 @@ Attractions between molecules are weaker than the bonds inside them:
 ### Bonding and Properties
 
 - Ionic solids usually have high melting points, because the attraction between many oppositely charged ions is strong and takes much energy to overcome. They are brittle: a hard hit shifts one layer of the lattice, like charges end up side by side and repel, and the crystal splits.
-- Ionic solids conduct electricity when melted or dissolved, because the ions can move, but not as solids.
+- Ionic solids conduct electricity when melted or dissolved, because the ions can move. Typical ionic solids do not conduct as solids.
 - Metals conduct as solids because their electrons are free, and most are malleable because layers of ions can slide without breaking the bonding.
 - Molecular substances usually have low melting and boiling points, because only the weak forces between molecules must be overcome. The bonds inside stay intact. Network solids, such as diamond, are an exception. A network solid is one giant lattice of covalent bonds, with no separate molecules.
 - Polar substances tend to dissolve in polar liquids such as water, and nonpolar ones in nonpolar liquids. The solute is what dissolves and the solvent is the liquid it dissolves in. A substance usually dissolves well when the new attractions between solute and solvent are about as strong as, or stronger than, the ones broken. Many ionic solids also dissolve in water, because the polar water molecules attract the ions, but not all do.

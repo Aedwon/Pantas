@@ -53,7 +53,7 @@ Once the triangles are congruent, all their corresponding parts are equal. Use t
 
 SSA means two sides and an angle that is not between them. It is not a congruence test, because it can build two different triangles. HL is the right-triangle case that does work.
 
-SSA also fixes one triangle when the given side across from the given angle is at least as long as the other given side. For example, an angle of $120^\circ$ with a side $5$ next to it and a side $8$ across from it can make only one triangle. If the side across is shorter than the other given side and the angle is acute, two triangles may fit, so do not use SSA.
+SSA also fixes one triangle when the given side across from the given angle is longer than the other given side, or equal to it when the angle is acute. For example, an angle of $120^\circ$ with a side $5$ next to it and a side $8$ across from it can make only one triangle. If the side across is shorter than the other given side and the angle is acute, two triangles may fit, so do not use SSA.
 
 AAA does not prove congruence either. AAA gives the same shape but maybe a different size.
 
@@ -96,7 +96,7 @@ $$(a+b)^2 = 4 \cdot \dfrac{1}{2}ab + c^2$$
 
 $$a^2 + b^2 = c^2$$
 
-A **Pythagorean triple** is three whole numbers that satisfy $a^2 + b^2 = c^2$. Common ones are $3$-$4$-$5$, $5$-$12$-$13$, $8$-$15$-$17$, and multiples like $6$-$8$-$10$.
+A **Pythagorean triple** is three positive whole numbers that satisfy $a^2 + b^2 = c^2$. Common ones are $3$-$4$-$5$, $5$-$12$-$13$, $8$-$15$-$17$, and multiples like $6$-$8$-$10$.
 
 Two **special right triangles** are common:
 

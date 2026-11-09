@@ -251,7 +251,7 @@ questions:
           This is a pair of matching alleles. Two small letters look like a pair of alleles, so it seems to fit. Matching letters are not different. Check whether the two alleles are the same or different.
       - text: "$A$"
         rationale: |
-          This is one allele. A gamete carries one allele, so a single letter can seem right. Check that a diploid cell has two alleles of the gene.
+          This is one allele. A gamete carries one allele, so a single letter can seem right. Check that a diploid cell has two alleles of a gene that is not on a sex chromosome.
     explanation: |
       Heterozygous means the two alleles are different. $Aa$ has one $A$ and one $a$.
     approved: false

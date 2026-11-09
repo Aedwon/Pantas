@@ -78,7 +78,7 @@ A **claim** is a statement the speaker wants the audience to accept. **Evidence*
 - **Method:** how was it gathered, from how many cases, and compared with what?
 - **Relevance:** does it bear on this exact claim?
 
-Which appeal a passage uses is a separate question from how strong the appeal is. A statistic or an argument that gives a reason for a claim is a logos appeal, whether or not it is sound. A number about the speaker, such as years of service, supports ethos instead. The three checks judge its strength, not its type.
+Which appeal a passage uses is a separate question from how strong the appeal is. A statistic or an argument that gives a reason for a claim is a logos appeal, whether or not it is sound. A number that shows the speaker's experience or credibility, such as years of service, supports ethos instead. The three checks judge its strength, not its type.
 
 A number alone is not strong reasoning. A trusted source does not make irrelevant evidence relevant. A single personal story can be relevant as an example, but it cannot show a general trend.
 
@@ -305,7 +305,7 @@ A closing thanks or request may not be the main purpose, so do not choose by the
 
 > A number that gives a reason for a claim is logos, but it does not make the argument sound.
 
-An unsupported or irrelevant statistic is still a logos appeal, only a weak one. Check its source, method, and relevance to judge how strong it is. A number about the speaker's own record, such as years of service, builds ethos instead.
+An unsupported or irrelevant statistic is still a logos appeal, only a weak one. Check its source, method, and relevance to judge how strong it is. A number that shows the speaker's own experience or credibility, such as years of service, builds ethos instead.
 
 ### #2: Treating Ethos, Pathos, and Logos as Separate Boxes
 

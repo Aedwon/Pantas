@@ -139,7 +139,7 @@ A dry bean seed sits in a jar for months. It does not grow or move. Can it still
 **Solution:**
 
 1. A seed that is still alive is made of living cells, even when it looks inactive.
-2. Such a seed is dormant, so its metabolism is very slow but not zero.
+2. Such a seed is dormant, so its metabolism is very slow.
 3. Place it in moist soil in a warm place. If it sprouts and grows, it was alive. If it never does, it may be dead, or it may need a cold period or light first.
 4. A missing property at one moment does not show that something is nonliving.
 
@@ -169,7 +169,7 @@ Arrange these from smallest to largest: ecosystem, organ, tissue, community, cel
 
 Check the seven properties as a group: cells, energy processing, regulation, growth and development, response, reproduction, and evolution. Fire and crystals may copy some of them, but they have no cells and lack the rest.
 
-Cells alone are not enough either: a dead leaf or a piece of wood is made of cells, or what is left of them, but shows none of the other properties. Judge the whole set together.
+Cells alone are not enough either: a dead leaf or a dry wooden plank is made of cells, or what is left of them, but shows none of the other properties. Judge the whole set together.
 
 For viruses, remember two groups. They evolve and carry genetic material. They are also acellular and need a host cell to copy themselves.
 

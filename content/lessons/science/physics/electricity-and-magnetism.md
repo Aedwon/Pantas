@@ -35,7 +35,7 @@ Separate the spheres while the rod is still near, then remove the rod. The near 
 
 If a single ball has no path for electrons to leave, it only shifts its charges. This is called polarization. The ball is still neutral overall, but its near side is closer to the rod, so the rod attracts it.
 
-This is why a charged rod can pick up bits of neutral paper. Paper is an insulator, but its atoms still shift.
+This is why a charged rod can pick up bits of neutral paper. Paper is an insulator, but the charges inside its atoms and molecules still shift slightly.
 
 ### Coulomb's Law and Electric Fields
 

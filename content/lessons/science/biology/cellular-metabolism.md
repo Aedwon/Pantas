@@ -17,7 +17,7 @@ ATP has three phosphate groups (small units made of phosphorus and oxygen). When
 
 ### Words used in this lesson
 
-An **organic molecule** is a carbon-based molecule built around chains or rings of carbon and hydrogen, such as glucose ($C_6H_{12}O_6$, a sugar). Carbon dioxide and carbonates are carbon compounds, but they are not called organic.
+An **organic molecule** is a carbon-based molecule that usually has carbon bonded to hydrogen, such as glucose ($C_6H_{12}O_6$, a sugar). Carbon dioxide and carbonates are carbon compounds, but they are not called organic.
 
 An **organelle** is a small part inside a cell with its own job.
 
@@ -124,7 +124,7 @@ Name the biomolecule group of each item: glucose, an enzyme, a fat, DNA. Which g
 **Solution:**
 
 1. Glucose is a carbohydrate.
-2. An enzyme is a protein.
+2. Almost all enzymes are proteins.
 3. A fat is a lipid.
 4. DNA is a nucleic acid.
 5. Cells usually use carbohydrates, mainly glucose, first. They can also break down fats and proteins when needed.

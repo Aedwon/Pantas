@@ -94,7 +94,7 @@ Adding a day every fourth year is slightly too much, so the century rule removes
 
 ### Seasonal Constellations
 
-A **constellation** is a group of stars that people have named as a pattern in the sky, such as Orion or Scorpius. We see the stars only when the sky is dark, at night, when our side of Earth faces away from the Sun. The stars in the direction of the Sun are lost in daylight.
+A **constellation** is a group of stars that people have named as a pattern in the sky, such as Orion or Scorpius. We usually see the stars only when the sky is dark, at night, when our side of Earth faces away from the Sun. The stars in the direction of the Sun are lost in daylight.
 
 As Earth revolves, the direction of the Sun against the background stars changes through the year. So the part of the sky that we face at night changes too.
 

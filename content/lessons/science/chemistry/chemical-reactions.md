@@ -135,7 +135,7 @@ When there is plenty of oxygen, a fuel that has both carbon and hydrogen, and at
 
 A fuel with no hydrogen, such as carbon, gives no water.
 
-When oxygen is short, burning is **incomplete**. Some carbon ends up as carbon monoxide $CO$, which is a poisonous gas, and some as soot, which is solid carbon $C$. The hydrogen of the fuel still forms water.
+When oxygen is short, burning is **incomplete**. Some carbon ends up as carbon monoxide $CO$, which is a poisonous gas, and some as soot, which is solid carbon $C$. The hydrogen of the fuel usually still forms water.
 
 Fuels that also contain other elements give extra products. For example, sulfur burns mainly to form $SO_2$. Metals can burn as well: $2Mg+O_2\rightarrow2MgO$.
 

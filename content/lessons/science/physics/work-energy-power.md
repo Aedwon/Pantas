@@ -56,7 +56,7 @@ Positive net work speeds an object up. Negative net work slows it down. Zero net
 
 ### Conservation of Energy
 
-Energy is never created or destroyed. It changes form or moves from place to place. The total energy of an isolated system stays constant. An isolated system is a group of objects with no energy entering or leaving it from outside. If a motor or a push from outside adds energy, the system is not isolated, and its total energy rises.
+Energy is never created or destroyed. It changes form or moves from place to place. The total energy of an isolated system stays constant. An isolated system is a group of objects with no energy entering or leaving it from outside. If a motor or a push from outside adds energy, the system is not isolated, and its total energy rises unless the same amount of energy leaves.
 
 **Mechanical energy** is $KE+PE$. In this lesson, $PE$ is gravitational potential energy. A spring also stores energy, and that stored energy counts in $PE$ too. A **conservative force**, such as gravity, can give back the energy it takes. If only conservative forces do work, mechanical energy stays the same:
 
@@ -83,7 +83,7 @@ If a force moves an object at a steady speed $v$ in the direction of the force, 
 
 $$\text{efficiency} = \dfrac{\text{useful output}}{\text{total input}} \times 100\%$$
 
-A real machine wastes some energy as heat and sound. So its efficiency is below $100\%$. Only an ideal machine with no waste reaches $100\%$.
+A real machine that gives useful work or motion wastes some energy as heat and sound. So its efficiency is below $100\%$. Only an ideal machine with no waste reaches $100\%$.
 
 A **simple machine**, such as a lever or a pulley, changes the size or direction of a force. Input work is effort force times effort distance, and output work is load force times load distance. The pulleys-and-levers lesson explains effort, load and the ideal case.
 

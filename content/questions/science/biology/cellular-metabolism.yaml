@@ -211,7 +211,7 @@ questions:
         rationale: |
           Water is in every cell, so it seems like a biological molecule. It has no carbon. Check for a carbon-based molecule, such as a sugar, fat, or protein.
     explanation: |
-      Glucose, $C_6H_{12}O_6$, is a carbon-based sugar. Living things make sugars, so glucose is an organic molecule.
+      Glucose, $C_6H_{12}O_6$, is a carbon-based sugar. Its carbon atoms are bonded to hydrogen atoms, so glucose is an organic molecule.
     approved: false
 
   - id: q-biology-cellular-metabolism-0025
