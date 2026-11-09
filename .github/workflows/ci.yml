@@ -101,7 +101,8 @@ jobs:
           retention-days: 1
 
   goldens:
-    # The component sheets against the committed PNGs (guardrails layer 3).
+    # The component sheets and key screens (files/ and files/screens/) against the
+    # committed PNGs (guardrails layer 3).
     # The PNGs are generated on this image by the Update goldens workflow, so
     # the job skips itself, step by step, until the first ones are committed.
     runs-on: ubuntu-latest
@@ -112,7 +113,7 @@ jobs:
       - name: Look for committed goldens
         id: goldens
         run: |
-          if ls test/goldens/files/*.png >/dev/null 2>&1; then
+          if [ -n "$(find test/goldens/files -name '*.png' 2>/dev/null | head -n 1)" ]; then
             echo "present=true" >> "$GITHUB_OUTPUT"
           else
             echo "present=false" >> "$GITHUB_OUTPUT"

@@ -1,6 +1,7 @@
 name: Update goldens
 
-# Generates the component golden sheets (test/goldens) on the CI image, so the
+# Generates the component golden sheets and the key-screen goldens
+# (test/goldens, files/ and files/screens/) on the CI image, so the
 # fonts and rasterizer match the goldens job in ci.yml. Run it by hand, or push
 # a commit whose message contains [update-goldens]. It uploads the PNGs as an
 # artifact; a person reviews them and commits them under test/goldens/files.
@@ -29,6 +30,8 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: goldens
-          path: test/goldens/files/*.png
+          path: |
+            test/goldens/files/*.png
+            test/goldens/files/screens/*.png
           if-no-files-found: error
           retention-days: 14
