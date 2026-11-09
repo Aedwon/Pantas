@@ -19,7 +19,7 @@ A machine is **ideal** when it has no friction and its ropes, pulleys and bar ha
 
 $$F_\text{effort}\,d_\text{effort}=F_\text{load}\,d_\text{load}$$
 
-So MA is also the effort distance divided by the load distance. In a lever the ends move along curved paths, and these distances are in the same ratio as the lever arms. Real machines usually need more effort than the ideal value because of friction.
+So MA is also the effort distance divided by the load distance, each measured in the direction of its force. When the effort and load act at right angles to the bar, the points where they act move along curved paths, and these distances are in the same ratio as the lever arms. Real machines usually need more effort than the ideal value because of friction.
 
 Weight is a force in newtons (N): $W=mg$, with mass $m$ in kilograms and $g=9.8\text{ m/s}^2$.
 
@@ -74,7 +74,7 @@ $$\tau=r\,F\sin\theta$$
 
 Here $r$ is the distance from the fulcrum to where the force acts. The product $r\sin\theta$ is the moment arm.
 
-**Sine** ($\sin$) of an angle in a right triangle is the opposite side divided by the hypotenuse. The lesson Basic Trigonometric Ratios teaches it. Here you need only these values: $\sin30^\circ=\dfrac12$ and $\sin90^\circ=1$. An angle and its partner $180^\circ-\theta$ have the same sine, so $\sin150^\circ=\sin30^\circ=\dfrac12$.
+**Sine** ($\sin$) of an angle in a right triangle is the opposite side divided by the hypotenuse. The lesson Basic Trigonometric Ratios teaches it, and here you need only these values: $\sin30^\circ=\dfrac12$ and $\sin90^\circ=1$. An angle and its partner $180^\circ-\theta$ have the same sine, so $\sin150^\circ=\sin30^\circ=\dfrac12$.
 
 At $90^\circ$ the formula becomes $\tau=rF$. As the angle moves toward $0^\circ$ or $180^\circ$, you need a bigger force for the same turning effect. At exactly $0^\circ$ or $180^\circ$, the force points along the lever and gives no torque at all.
 
@@ -157,7 +157,7 @@ $$F_\text{effort}=\dfrac{1600}{4}=400\text{ N}$$
 
 ### #6: Lever Balance
 
-A downward load force of $980\text{ N}$ acts $2\text{ m}$ from a fulcrum. A perpendicular effort force is applied $5\text{ m}$ from the fulcrum on the other side. What effort balances the lever, and what is the MA?
+A downward load force of $980\text{ N}$ acts on a horizontal lever, $2\text{ m}$ from the fulcrum. A perpendicular effort force is applied $5\text{ m}$ from the fulcrum on the other side. What effort balances the lever, and what is the MA?
 
 **Solution:**
 
@@ -211,7 +211,7 @@ The MA is $\dfrac{600}{200}=3$.
 
 ### #9: An Angled Effort
 
-A $600\text{ N}$ load pushes down on a lever at $0.5\text{ m}$ from the fulcrum. A person pushes on the other side of the fulcrum, $2\text{ m}$ from it, with the force at an angle of $30^\circ$ to the lever. What effort balances the load?
+A $600\text{ N}$ load pushes straight down, at a right angle, on a horizontal lever at $0.5\text{ m}$ from the fulcrum. A person pushes on the other side of the fulcrum, $2\text{ m}$ from it, with the force at an angle of $30^\circ$ to the lever. What effort balances the load?
 
 **Solution:**
 
@@ -275,4 +275,4 @@ The fulcrum is not always at the end or the middle. In the wheelbarrow, the effo
 
 In a pulley system, friction and the weight of the moving pulley raise the effort.
 
-A lever bar's own weight acts at its **center of gravity**, the point where all its weight seems to act. For a bar with the same thickness and material all along, that point is the middle. The weight can raise or lower the effort depending on which side of the fulcrum that point lies. If a question gives no friction or bar weight to use, answer with the ideal value.
+A lever bar's own weight acts at its **center of gravity**, the point where all its weight seems to act. For a bar with the same thickness and material all along, that point is the middle. The weight can raise or lower the effort depending on which side of the fulcrum that point lies, and if a question gives no friction or bar weight to use, answer with the ideal value.

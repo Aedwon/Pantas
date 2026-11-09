@@ -36,7 +36,7 @@ $$KE = \dfrac{1}{2}mv^2$$
 
 $$PE = mgh$$
 
-The number $g$ is the acceleration due to gravity. Acceleration is how fast the velocity changes (see the Kinematics lesson). With air ignored, the velocity of a falling object changes by about $9.8\ \text{m/s}$ downward each second. For an object dropped or thrown straight down, the speed grows by $9.8\ \text{m/s}$ each second. For an object rising after a throw, the speed drops by that much. That is why the unit is meters per second per second, written $\text{m/s}^2$.
+The number $g$ is the acceleration due to gravity. Acceleration is how fast the velocity changes (see the Kinematics lesson). With air ignored, the velocity of a falling object changes by about $9.8\ \text{m/s}$ downward each second. For an object dropped or thrown straight down, the speed grows by $9.8\ \text{m/s}$ each second. For an object thrown straight up, the speed drops by that much each second while it rises. That is why the unit is meters per second per second, written $\text{m/s}^2$.
 
 The **weight** of an object is the pull of gravity on it, in newtons:
 
@@ -64,7 +64,7 @@ $$KE_i + PE_i = KE_f + PE_f$$
 
 A **nonconservative force**, such as sliding friction, air drag, or an applied push, pull or motor, can change mechanical energy. Sliding friction and drag turn it into thermal energy, the energy of the random motion of tiny particles, felt as warmth. A push or a motor can add to it.
 
-Friction that stops slipping does zero work only if the surface it grips is at rest, as under a ball rolling without slipping on the ground. If that surface moves, as a belt or a truck bed does, this friction can do positive work on the object it carries. The work $W_{nc}$ done by the nonconservative forces equals the change in mechanical energy:
+If the surface that grips an object is at rest, friction that stops slipping does zero work, as under a ball rolling without slipping on the ground. If that surface moves, as a belt or a truck bed does, this friction can do positive work on the object it carries. The work $W_{nc}$ done by the nonconservative forces equals the change in mechanical energy:
 
 $$W_{nc} = \Delta(KE+PE)$$
 
@@ -131,11 +131,11 @@ $$PE = mgh = (5)(9.8)(2) = 98\ \text{J}$$
 
 ### #4: Using the Work-Energy Theorem
 
-A $4.0\ \text{kg}$ block rests on a smooth floor. A constant horizontal force of $10\ \text{N}$ pushes it $5.0\ \text{m}$ in a straight line. Find its final speed.
+A $4.0\ \text{kg}$ block rests on a smooth floor, which means a floor with no friction. A constant horizontal force of $10\ \text{N}$ pushes it $5.0\ \text{m}$ in a straight line. Find its final speed.
 
 **Solution:**
 
-1. Gravity and the floor's support cancel, so the push is the net force, along the motion. Find the net work.
+1. Gravity and the floor's support cancel, and the floor has no friction, so the push is the net force, along the motion. Find the net work.
 
 $$W_{net} = Fd = (10)(5.0) = 50\ \text{J}$$
 

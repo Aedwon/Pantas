@@ -56,7 +56,7 @@ The mass of the object does not appear in this formula. Where the mass sits does
 
 ### Pushing an Object Over
 
-A **torque** is the turning effect of a force about a pivot, the edge or point it turns about. Torque equals the force times the shortest distance from the pivot to the line along which the force acts. That distance is the **lever arm**. Its unit is the newton-meter.
+A **torque** is the turning effect of a force about a pivot, the edge or point it turns about. Torque equals the force times the shortest distance from the pivot to the line along which the force acts. That distance is the **lever arm**, a length measured in meters. Torque is measured in newton-meters ($\text{N}\cdot\text{m}$).
 
 Let a box rest on level ground, and push it sideways with a horizontal force $F$ at height $H$ above the ground. The bottom edge on the far side from the push is the pivot. The push turns the box over.
 
@@ -64,7 +64,9 @@ The weight $W$ turns it back, with the lever arm $d$ from above. The box tips wh
 
 $$F \cdot H > W \cdot d$$
 
-Weight is $W = mg$, where $m$ is the mass in kilograms and $g = 9.8$ m/s$^2$. This test assumes the box does not slide first. An object of the same shape and size with more mass needs a bigger push to tip, even though its tilt angle is the same.
+Weight is a force, the pull of gravity on the object, so it is measured in newtons (N). It is $W = mg$, where $m$ is the mass in kilograms and $g = 9.8$ m/s$^2$. The unit m/s$^2$ means that, with air ignored, the speed of a falling object grows by $9.8$ meters per second each second.
+
+This test assumes the box does not slide first. If the mass is spread the same way, an object of the same shape and size with more mass needs a bigger push to tip, even though its tilt angle is the same.
 
 ### Moving Objects
 
@@ -197,9 +199,14 @@ The same truck carries the same mass of cargo either stacked high or secured low
 
 **Solution:**
 
-The **lower cargo arrangement** lowers the combined center of gravity. In a turn, the sideways push from the road acts at road level. A lower center of gravity makes the turning effect of that push on the truck smaller. This is a moving case, so turning speed, track width, road slope and tire grip also matter.
+The **lower cargo arrangement** improves rollover resistance.
 
-<!-- FIGURE: {"kind": "stability-shape", "shapes": [{"form": "truck", "baseWidth": 2, "height": 3}, {"form": "truck", "baseWidth": 3, "height": 1}], "semanticsLabel": "Two truck cargo profiles: one with cargo stacked tall giving a high center of gravity, and one with cargo spread low giving a low center of gravity."} -->
+1. It lowers the combined center of gravity.
+2. In a turn, the sideways push from the road acts at road level.
+3. A lower center of gravity makes the turning effect of that push on the truck smaller.
+4. This is a moving case, so turning speed, track width, road slope and tire grip also matter.
+
+<!-- FIGURE: {"kind": "stability-shape", "shapes": [{"form": "truck", "baseWidth": 2, "height": 3}, {"form": "truck", "baseWidth": 2, "height": 1}], "semanticsLabel": "Two truck cargo profiles: one with cargo stacked tall giving a high center of gravity, and one with cargo spread low giving a low center of gravity."} -->
 ### #10: Wider Stance
 
 A person stands first with feet close together, then with feet farther apart. Which stance gives a bigger base of support against a slow sideways push? Does it help against a push from the front?
@@ -223,15 +230,15 @@ A person stands first with feet close together, then with feet farther apart. Wh
 
 ### #1: "The Center of Gravity Is Always at the Geometric Center"
 
-> It sits at the geometric center only when the weight is spread evenly.
+> Spreading the weight evenly is one case that puts it at the geometric center.
 
-A hammer has it near the heavy head. Check how the weight is spread before you assume the middle.
+A dumbbell with two equal weights is another. A hammer has it near the heavy head. Check how the weight is spread before you assume the middle.
 
 ### #2: "Heavier Means Harder to Tip"
 
 > Mass alone does not change the tilt angle at which an object tips.
 
-The angle depends on where the center of gravity is and how wide the base is. An object of the same shape and size that is heavier does need a bigger push to tip. Heavy mass placed low also lowers the center of gravity.
+The angle depends on where the center of gravity is and how wide the base is. If its mass is spread the same way, an object of the same shape and size that is heavier does need a bigger push to tip. Heavy mass placed low also lowers the center of gravity.
 
 ### #3: Using the Weight Line Alone for a Turning Vehicle
 
