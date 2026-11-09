@@ -374,7 +374,7 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
                       _changeYear(-1),
                 },
                 child: TextField(
-                  // ds-raw: no label, stepper suffix
+                  // ds-raw: two-button stepper suffix, Field has one
                   controller: _yearController,
                   focusNode: _yearFocus,
                   keyboardType: TextInputType.number,

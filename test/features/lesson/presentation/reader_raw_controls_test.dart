@@ -11,6 +11,7 @@ import 'package:pantas/features/lesson/presentation/widgets/reader_tap.dart';
 import 'package:pantas/features/lesson/presentation/widgets/web_reader_layout.dart';
 
 import '../../../helpers/ds_matrix.dart';
+import '../../../helpers/hover_shape.dart';
 
 Future<void> _hover(WidgetTester tester, Finder target) async {
   final mouse = await tester.createGesture(kind: PointerDeviceKind.mouse);
@@ -63,6 +64,12 @@ void main() {
         (shape! as RoundedRectangleBorder).borderRadius,
         BorderRadius.circular(PantasRadius.back),
       );
+      expectHitArea(
+        tester,
+        find.byType(WebBackLink),
+        min: const Size(44, 40),
+        reason: 'BackLink is size-back (40) high on a fine pointer',
+      );
       // The teal wash itself is the BackLink's, tested with the component.
     });
   });
@@ -100,6 +107,26 @@ void main() {
       await tester.sendKeyEvent(LogicalKeyboardKey.enter);
       expect(taps, 2);
     });
+
+    testWidgets('a disabled one takes no wash and no tap', (tester) async {
+      await pumpDs(
+        tester,
+        wide,
+        const SizedBox(
+          width: 300,
+          child: ReaderTap(
+            key: ValueKey('off'),
+            onTap: null,
+            child: SizedBox(height: 36, child: Text('Core concept')),
+          ),
+        ),
+      );
+      await expectTapAreaInert(
+        tester,
+        find.byKey(const ValueKey('off')),
+        () => 0,
+      );
+    });
   });
 
   group('a text button', () {
@@ -119,6 +146,26 @@ void main() {
       final shape = style.shape!.resolve({WidgetState.hovered});
       expect(shape, isA<RoundedRectangleBorder>());
       expect(shape, isNot(isA<StadiumBorder>()));
+      expectHitArea(tester, find.byType(PantasButton));
+    });
+
+    testWidgets('a disabled one takes no wash and no tap', (tester) async {
+      await pumpDs(
+        tester,
+        wide,
+        const PantasButton(
+          label: 'Back to Home',
+          kind: PantasButtonKind.tertiary,
+          fullWidth: false,
+        ),
+      );
+      await expectDisabledInert(
+        tester,
+        find.descendant(
+          of: find.byType(PantasButton),
+          matching: find.byType(TextButton),
+        ),
+      );
     });
   });
 }

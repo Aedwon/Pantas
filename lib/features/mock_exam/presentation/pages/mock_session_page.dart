@@ -18,6 +18,7 @@ import 'package:pantas/core/ui/components/pantas_icon_button.dart';
 import 'package:pantas/core/ui/components/pantas_timer.dart';
 import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
+import 'package:pantas/core/ui/components/toast.dart';
 import 'package:pantas/core/ui/figures/question_figure.dart';
 import 'package:pantas/core/ui/icons/own/mock_panel_glyph.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
@@ -44,7 +45,6 @@ import 'package:pantas/features/mock_exam/domain/part_clock.dart';
 import 'package:pantas/features/mock_exam/presentation/mock_clock.dart';
 import 'package:pantas/features/mock_exam/presentation/proctor_toast.dart';
 import 'package:pantas/features/mock_exam/presentation/widgets/mock_proctor_sound.dart';
-import 'package:pantas/features/mock_exam/presentation/widgets/mock_toast.dart';
 import 'package:pantas/features/mock_exam/presentation/widgets/question_navigator_chip.dart';
 import 'package:pantas/features/mock_exam/presentation/widgets/web_mock_dialog.dart';
 import 'package:pantas/features/mock_exam/presentation/widgets/web_mock_panel_tab.dart';
@@ -239,7 +239,7 @@ class _MockSessionPageState extends State<MockSessionPage> {
   void _onSystemBack() {
     if (_gridOpen) return;
     if (widget.state.strictMode) {
-      showMockToast(
+      showPantasToast(
         context,
         'Strict mode is on. Back is off until you submit.',
       );
@@ -1353,8 +1353,8 @@ class _LegendDot extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Container(
-          width: PantasSpace.s10,
-          height: PantasSpace.s10,
+          width: PantasSize.flagDot,
+          height: PantasSize.flagDot,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             color: fill,

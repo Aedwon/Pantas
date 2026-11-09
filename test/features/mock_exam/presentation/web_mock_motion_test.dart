@@ -208,6 +208,44 @@ void main() {
       expect(shape('2').side.color, dark.borderControl);
     });
 
+    testWidgets('the flag dots are 11 wide: on a chip and in the legend',
+        (tester) async {
+      wide(tester);
+      await tester.pumpWidget(paper());
+      await tester.pumpAndSettle();
+      final legend = find.descendant(
+        of: find.ancestor(
+          of: find.text('Flagged'),
+          matching: find.byType(Row),
+        ),
+        matching: find.byType(Container),
+      );
+      expect(tester.getSize(legend.first), const Size.square(11));
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: buildLightTheme(web: true),
+          home: Center(
+            child: QuestionNavigatorChip(
+              number: 1,
+              name: 'Question 1, flagged',
+              flagged: true,
+              onTap: () {},
+            ),
+          ),
+        ),
+      );
+      final dot = find.descendant(
+        of: find.byType(QuestionNavigatorChip),
+        matching: find.byWidgetPredicate(
+          (w) =>
+              w is DecoratedBox &&
+              w.decoration is BoxDecoration &&
+              (w.decoration as BoxDecoration).shape == BoxShape.circle,
+        ),
+      );
+      expect(tester.getSize(dot.first), const Size.square(11));
+    });
+
     testWidgets(
         'hiding and showing the list never nudges the bar the wrong way',
         (tester) async {

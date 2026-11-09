@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
+import 'package:pantas/core/ui/components/toast.dart';
 import 'package:pantas/core/ui/leave_page.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
@@ -96,7 +97,7 @@ class _ExitSurveyPageState extends ConsumerState<ExitSurveyPage> {
         return;
       }
       setState(() => _phase = _Phase.form);
-      fbToast(
+      showPantasToast(
         context,
         e.failure == BetaFeedbackFailure.notAllowed
             ? 'The survey is closed.'
@@ -106,7 +107,7 @@ class _ExitSurveyPageState extends ConsumerState<ExitSurveyPage> {
     } on Exception {
       if (!mounted) return;
       setState(() => _phase = _Phase.form);
-      fbToast(context, 'Could not send. Try again.');
+      showPantasToast(context, 'Could not send. Try again.');
       return;
     }
     if (mounted) _finish();

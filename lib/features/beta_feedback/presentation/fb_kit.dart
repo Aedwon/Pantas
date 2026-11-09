@@ -754,27 +754,3 @@ class FbButton extends StatelessWidget {
     );
   }
 }
-
-/// The app's toast: a snack bar over the page, one at a time, drawn as the
-/// design system Toast (`toast-bg`, `toast-text`, `radius-lg`).
-void fbToast(BuildContext context, String message) {
-  final c = context.fb;
-  final wide = context.fbWide;
-  ScaffoldMessenger.maybeOf(context)
-    ?..clearSnackBars()
-    ..showSnackBar(
-      SnackBar(
-        // ds-raw: no shared toast helper
-        content: Text(
-          message,
-          style: (wide ? PantasType.webRowValue : PantasType.phoneSubhead)
-              .copyWith(color: c.toastText),
-        ),
-        backgroundColor: c.toastBg,
-        behavior: SnackBarBehavior.floating,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(PantasRadius.lg),
-        ),
-      ),
-    );
-}

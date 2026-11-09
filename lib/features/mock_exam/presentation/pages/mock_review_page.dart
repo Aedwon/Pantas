@@ -12,6 +12,7 @@ import 'package:pantas/core/ui/components/new_design/answer_reveal.dart';
 import 'package:pantas/core/ui/components/new_design/passage_card.dart';
 import 'package:pantas/core/ui/components/new_design/question_card.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/pantas_field.dart';
 import 'package:pantas/core/ui/components/pantas_icon_button.dart';
 import 'package:pantas/core/ui/components/pantas_tooltip.dart';
 import 'package:pantas/core/ui/components/review_list.dart';
@@ -1376,9 +1377,10 @@ class _ReasonPanelState extends State<_ReasonPanel> {
           if (_retry != null) saveFailureLine(() => _save(_retry!)),
           if (_typing) ...[
             const SizedBox(height: PantasSpace.s8),
-            TextField(
-              // ds-raw: PantasField needs a visible label, a copy change
+            PantasField.unlabeled(
+              semanticLabel: 'Type my own',
               controller: _controller,
+              multiline: true,
               maxLines: 3,
             ),
             const SizedBox(height: PantasSpace.s8),
@@ -1543,14 +1545,13 @@ class _ReasonPanelState extends State<_ReasonPanel> {
               ),
               if (_typing) ...[
                 const SizedBox(height: PantasSpace.s14),
-                TextField(
-                  // ds-raw: PantasField needs a visible label, a copy change
+                PantasField.unlabeled(
+                  semanticLabel: 'Type my own',
+                  hint: 'In your own words',
                   controller: _controller,
+                  multiline: true,
                   maxLines: 3,
                   onChanged: (_) => setState(() {}),
-                  decoration: const InputDecoration(
-                    hintText: 'In your own words',
-                  ),
                 ),
               ],
               if (_retry != null) saveFailureLine(() => _save(_retry!)),

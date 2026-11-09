@@ -501,7 +501,7 @@ class _SurveyTextBoxState extends State<SurveyTextBox> {
             label: widget.label,
             textField: true,
             child: TextField(
-              // ds-raw: input inside FbFieldWell, no label
+              // ds-raw: fixed rows, and the well lights on text
               key: ValueKey('${widget.id}-field'),
               controller: widget.controller,
               focusNode: _focus,

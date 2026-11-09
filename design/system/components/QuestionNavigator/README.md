@@ -9,7 +9,7 @@ QuestionNavigator is the grid of numbered chips that shows which questions are a
 - Chip `.qnav__q`: round, 13/600, tabular numbers. Blank: `surface-card` fill, 1.5px `border-control` ring (3.4:1 light, 5.1:1 dark), number in `text-secondary`. CHANGE (R2-O07): the ring was `divider-strong` (1.5:1), and blank versus answered is the main information in a timed mock.
 - Answered: `divider` fill, no ring, number in `text-primary`. Ring present versus absent is the shape cue; the state is also in the name. Current: 2.5px (`border-ring-current`) `text-primary` ring, number `web-field-label` at 700.
 - Locked: transparent, 1px `fill` ring, number in `text-disabled`.
-- Flagged: an 11px `accent` dot at the top right (offset -2px) with a 2px `surface-card` edge. It combines with any state.
+- Flagged: an 11px (`size-flag-dot`) `accent` dot at the top right (offset -2px) with a 2px `surface-card` edge. It combines with any state.
 - Panel `.qpanel`: 300 wide (`layout-qpanel`), padding 24 24 120, gap 16, `bg-page`, `z-sticky`. The heading "Questions" and an icon button sit on one row.
 - Edge tab `.qpanel-tab`: 34 wide (40 on hover), 46 high (`size-btn-bar`), radius 0 12 12 0 (`radius-md`), `surface-card`, `elev-popover`.
 - Content area `.qpanel-shift`: left padding 340 when the panel shows, 40 when hidden.
@@ -139,7 +139,7 @@ Literal spacing values this component keeps, with their source (R2-O08). Every o
 - `.focus:not(.focus--split) .qpanel`: padding 34px (MK_NavMotion bottom reserve)
 
 ## Tokens used
-`border-focus`, `accent`, `space-8`, `size-qnav`, `radius-full`, `surface-card`, `border-ring-strong`, `border-control`, `text-secondary`, `type-web-field-label`, `tracking-web-field-label`, `dur-short-2`, `motion-fade`, `motion-move`, `divider`, `text-primary`, `border-ring-current`, `fill`, `text-disabled`, `layout-qpanel`, `space-24`, `space-16`, `bg-page`, `dur-nav-panel`, `z-sticky`, `space-40`, `size-btn-bar`, `radius-md`, `elev-popover`, `dur-nudge`, `dur-reveal`, `motion-spring`, `dur-wait`, `layout-focus-head`, `z-modal`, `elev-drawer`, `space-20`, `radius-lg`, `surface-modal`, `elev-sheet`, `layout-focus-head-phone`, `size-target-touch`
+`border-focus`, `accent`, `space-8`, `size-qnav`, `radius-full`, `surface-card`, `border-ring-strong`, `border-control`, `text-secondary`, `type-web-field-label`, `tracking-web-field-label`, `dur-short-2`, `motion-fade`, `motion-move`, `divider`, `text-primary`, `border-ring-current`, `fill`, `text-disabled`, `layout-qpanel`, `space-24`, `space-16`, `bg-page`, `dur-nav-panel`, `z-sticky`, `space-40`, `size-btn-bar`, `radius-md`, `elev-popover`, `dur-nudge`, `dur-reveal`, `motion-spring`, `dur-wait`, `layout-focus-head`, `z-modal`, `elev-drawer`, `space-20`, `radius-lg`, `surface-modal`, `elev-sheet`, `layout-focus-head-phone`, `size-target-touch`, `size-flag-dot`
 
 ## Status
 Draft (new in 2.0). Source: the MK boards (`.q` chips, 36px circle, 13/600, 2.5px current ring, 11px flag dot) and MK_NavMotion (460ms). The panel heading row has no class in `bundle.css`, so the preview lays it out with a plain flex row. Changed in 3.0: blank ring `border-control` (R2-O07); state in each chip name. Changed in 3.1: APG grid roles, one name rule, panel tiers, bar re-centering, stroke token (R3-O14, ruling 5, R3-O22). Changed in 3.2: one state `.is-open`, rows as grids, the modal contract and a real scrim below 1024 (ruling 8, R4-O17, R4-O18).
