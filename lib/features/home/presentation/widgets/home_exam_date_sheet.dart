@@ -8,6 +8,7 @@ import 'package:pantas/core/time/date_entry_validator.dart';
 import 'package:pantas/core/ui/components/date_grid_focus.dart';
 import 'package:pantas/core/ui/components/month_first_date_picker.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/pantas_tap_area.dart';
 import 'package:pantas/core/ui/components/typed_date_field.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
@@ -16,7 +17,6 @@ import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
-import 'package:pantas/features/home/presentation/widgets/home_tap_area.dart';
 
 /// The exam date picker Home opens in a sheet (D-69): the same month-first
 /// picker as onboarding. Save stays grey until a month is picked, or, when
@@ -221,6 +221,8 @@ class HomeWebDatePicker extends StatefulWidget {
   final ValueChanged<MonthFirstDate> onChanged;
   final bool requireDay;
 
+  // ds-board: the home exam date board draws the calendar panel 259 tall;
+  // the system sets no height.
   static const _panelHeight = 259.0;
 
   @override
@@ -234,7 +236,6 @@ class _HomeWebDatePickerState extends State<HomeWebDatePicker> {
   DateTime get today => widget.today;
   ValueChanged<MonthFirstDate> get onChanged => widget.onChanged;
   bool get requireDay => widget.requireDay;
-  static const _panelHeight = HomeWebDatePicker._panelHeight;
 
   @override
   void dispose() {
@@ -277,7 +278,9 @@ class _HomeWebDatePickerState extends State<HomeWebDatePicker> {
             // panel instead of overflowing it.
             constraints: requireDay
                 ? null
-                : const BoxConstraints(minHeight: _panelHeight),
+                : const BoxConstraints(
+                    minHeight: HomeWebDatePicker._panelHeight,
+                  ),
             padding: const EdgeInsets.all(PantasSpace.s14),
             decoration: BoxDecoration(
               color: t.colors.bgPage,
@@ -367,7 +370,7 @@ class _HomeWebDatePickerState extends State<HomeWebDatePicker> {
     final months = SizedBox(
       key: const ValueKey('home-web-months'),
       width: PantasSpace.s56 * 2 + PantasSpace.s44 + PantasSpace.s4,
-      height: _panelHeight,
+      height: HomeWebDatePicker._panelHeight,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -449,7 +452,7 @@ class _HomeWebDatePickerState extends State<HomeWebDatePicker> {
       height: PantasSpace.s32 + PantasSpace.s6,
       child: Semantics(
         selected: selected,
-        child: HomeTapArea(
+        child: PantasTapArea(
           key: ValueKey(
             year == value.year
                 ? 'date-month-$month'
@@ -505,7 +508,7 @@ class _HomeWebDatePickerState extends State<HomeWebDatePicker> {
           focusNode: _grid.nodeFor(day),
           canRequestFocus: false,
           descendantsAreTraversable: _grid.isTabStop(day),
-          child: HomeTapArea(
+          child: PantasTapArea(
             key: ValueKey('date-day-$day'),
             onTap: past
                 ? null

@@ -3,11 +3,11 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_button_spec.dart';
 import 'package:pantas/core/ui/components/pantas_icon_button.dart';
+import 'package:pantas/core/ui/components/pantas_tap_area.dart';
 import 'package:pantas/core/ui/components/selectable_tile.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
-import 'package:pantas/features/home/presentation/widgets/home_tap_area.dart';
 
 import '../../../helpers/ds_matrix.dart';
 import '../../../helpers/hover_shape.dart';
@@ -23,7 +23,7 @@ void main() {
     await pumpDs(
       tester,
       _wide,
-      HomeTapArea(
+      PantasTapArea(
         key: const ValueKey('area'),
         onTap: () => taps++,
         borderRadius: BorderRadius.circular(PantasRadius.md),
@@ -41,30 +41,62 @@ void main() {
     expect(taps, 1);
   });
 
-  testWidgets('a disabled home tap area does not wash', (tester) async {
-    await pumpDs(
+  testWidgets('a disabled home tap area does not wash or take a tap', (
+    tester,
+  ) async {
+    var taps = 0;
+    Widget area({required bool enabled}) => PantasTapArea(
+          key: const ValueKey('area'),
+          onTap: enabled ? () => taps++ : null,
+          child: const SizedBox(width: 200, height: 60, child: Text('Row')),
+        );
+    // The counter is wired: the enabled area counts a tap.
+    await pumpDs(tester, _wide, area(enabled: true));
+    await tester.tap(find.byKey(const ValueKey('area')));
+    expect(taps, 1);
+    await pumpDs(tester, _wide, area(enabled: false));
+    await expectTapAreaInert(
       tester,
-      _wide,
-      const HomeTapArea(
-        key: ValueKey('area'),
-        onTap: null,
-        child: SizedBox(width: 200, height: 60, child: Text('Row')),
-      ),
+      find.byKey(const ValueKey('area')),
+      () => taps,
     );
-    await hoverOver(tester, find.byKey(const ValueKey('area')));
-    expect(
-      find.descendant(
-        of: find.byKey(const ValueKey('area')),
-        matching: find.byWidgetPredicate(
-          (w) =>
-              w is DecoratedBox &&
-              w.position == DecorationPosition.foreground &&
-              (w.decoration as BoxDecoration).color != Colors.transparent,
-        ),
-      ),
-      findsNothing,
-    );
+    expect(taps, 1);
   });
+
+  final disabled = <String, (Widget, Finder Function())>{
+    'icon button': (
+      PantasIconButton(
+        tooltip: 'Close',
+        glyph: PantasIcons.close,
+        onPressed: null,
+      ),
+      () => find.byType(IconButton),
+    ),
+    'tertiary button': (
+      const PantasButton(label: 'See more'),
+      () => find.descendant(
+            of: find.byType(PantasButton),
+            matching: find.byType(TextButton),
+          ),
+    ),
+    'secondary button': (
+      const WebButton(
+        label: 'Notes',
+        kind: PantasButtonKind.secondary,
+      ),
+      () => find.descendant(
+            of: find.byType(WebButton),
+            matching: find.byType(TextButton),
+          ),
+    ),
+  };
+  for (final entry in disabled.entries) {
+    testWidgets('a disabled ${entry.key} shows no hover wash and takes no tap',
+        (tester) async {
+      await pumpDs(tester, _wide, entry.value.$1);
+      await expectDisabledInert(tester, entry.value.$2());
+    });
+  }
 
   testWidgets('an icon button hovers as a rounded rectangle', (tester) async {
     await pumpDs(
@@ -83,6 +115,7 @@ void main() {
       button,
       tester.widget<IconButton>(button).style!,
     );
+    expectHitArea(tester, find.byType(PantasIconButton));
   });
 
   testWidgets('a text link hovers as a rounded rectangle', (tester) async {
@@ -97,6 +130,13 @@ void main() {
       tester,
       button,
       tester.widget<TextButton>(button).style!,
+    );
+    expectHitArea(
+      tester,
+      find.byType(WebTextLink),
+      min: const Size(44, 16),
+      reason: 'TextLink is inline; only a coarse pointer pads it to 44 '
+          '(TextLink README, Accessibility)',
     );
   });
 
@@ -118,6 +158,7 @@ void main() {
       button,
       tester.widget<TextButton>(button).style!,
     );
+    expectHitArea(tester, find.byType(PantasButton));
   });
 
   testWidgets('a wide tertiary button hovers as a rounded rectangle', (
@@ -139,6 +180,13 @@ void main() {
       tester,
       button,
       tester.widget<TextButton>(button).style!,
+    );
+    expectHitArea(
+      tester,
+      find.byType(WebButton),
+      min: const Size(44, 42),
+      reason: 'a small button is size-btn-sm (42) high on a fine pointer '
+          '(Button README, Accessibility)',
     );
   });
 

@@ -51,20 +51,18 @@ void main() {
           onChanged: (_) {},
         ),
       );
-      // The Field well is 48 high (`size-field`) with 14 side padding; test
-      // fonts have taller lines, so check the padding.
-      expect(
-        tester
-            .widget<TextField>(find.byType(TextField))
-            .decoration!
-            .contentPadding,
-        const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+      // The Field well is 48 high (`size-field`) with 14 side padding and a
+      // 1 px ring.
+      final well = tester.widget<Container>(
+        find.byKey(const ValueKey('field-well')),
       );
-      final border = tester
-          .widget<TextField>(find.byType(TextField))
-          .decoration!
-          .enabledBorder! as OutlineInputBorder;
-      expect(border.borderSide.width, 1);
+      expect(well.padding, const EdgeInsets.symmetric(horizontal: 14));
+      expect(
+        tester.getSize(find.byKey(const ValueKey('field-well'))).height,
+        greaterThanOrEqualTo(48),
+      );
+      final ring = (well.foregroundDecoration! as BoxDecoration).border!;
+      expect(ring.top.width, 1);
     });
 
     testWidgets('onboarding buttons are 48 tall $dark', (tester) async {

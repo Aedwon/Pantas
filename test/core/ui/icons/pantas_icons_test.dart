@@ -46,6 +46,8 @@ void main() {
     'pro': PantasIcons.pro,
     'progressError': PantasIcons.progressError,
     'appError': PantasIcons.appError,
+    'alert': PantasIcons.alert,
+    'info': PantasIcons.info,
     'tendencies': PantasIcons.tendencies,
     'answerStreak': PantasIcons.answerStreak,
     'search': PantasIcons.search,
@@ -64,7 +66,6 @@ void main() {
     'about': PantasIcons.about,
     'proSettings': PantasIcons.proSettings,
     'profile': PantasIcons.profile,
-    'info': PantasIcons.info,
     'warning': PantasIcons.warning,
     'bookOpen': PantasIcons.bookOpen,
     'magnifyingGlassPlus': PantasIcons.magnifyingGlassPlus,
@@ -91,7 +92,7 @@ void main() {
     final names = RegExp(r'static (?:Widget|IconData) get (\w+)')
         .allMatches(source)
         .map((match) => match.group(1));
-    expect(icons, hasLength(60));
+    expect(icons, hasLength(61));
     expect(names, unorderedEquals(icons.keys));
     expect(names, isNot(contains('locked')));
     expect(names, isNot(contains('lock')));
@@ -835,6 +836,8 @@ void main() {
       'cloudSlash': 0xe1b6,
       'phoneSlash': 0xee46,
       'appError': 0xe4e2,
+      'alert': 0xe4e0,
+      'info': 0xe2ce,
       'homeTab': 0xe2c2,
       'studyTab': 0xe0e6,
       'quizTab': 0xe184,
@@ -873,7 +876,7 @@ void main() {
       'proSettings': 0xe6a2,
       'profile': 0xe4c2,
     };
-    expect(codepoints, hasLength(46));
+    expect(codepoints, hasLength(48));
     for (final entry in codepoints.entries) {
       final icon = icons[entry.key]! as IconData;
       expect(icon.codePoint, entry.value, reason: entry.key);

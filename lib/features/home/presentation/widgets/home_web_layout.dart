@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart' show RenderAbstractViewport;
 import 'package:pantas/core/ui/components/pantas_icon_button.dart';
+import 'package:pantas/core/ui/components/pantas_tap_area.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/components/skeleton_fade.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
@@ -18,7 +19,6 @@ import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/home/presentation/widgets/home_columns.dart';
-import 'package:pantas/features/home/presentation/widgets/home_tap_area.dart';
 
 export 'package:pantas/core/ui/web/web_side_overlay.dart';
 
@@ -334,7 +334,7 @@ class HomeWebNotice extends StatelessWidget {
                       // right ones are rounded like a row's, so the ring is
                       // a closed shape beside the dismiss button.
                       borderRadius: toggleRadius,
-                      child: HomeTapArea(
+                      child: PantasTapArea(
                         onTap: onToggle,
                         borderRadius: toggleRadius,
                         focusRing: false,

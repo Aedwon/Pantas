@@ -94,6 +94,8 @@ abstract final class PantasIcons {
   // SY_Error uses Phosphor's regular warning-circle glyph.
   static IconData get appError =>
       const IconData(0xe4e2, fontFamily: 'Phosphor');
+  // ErrorState: Phosphor's regular warning triangle (the system `alert`).
+  static IconData get alert => const IconData(0xe4e0, fontFamily: 'Phosphor');
   static Widget get progressError => const OwnIcon(OwnIconKind.progressError);
   static IconData get tendencies =>
       const IconData(0xe2dc, fontFamily: 'Phosphor');

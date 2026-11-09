@@ -1,0 +1,14 @@
+name: pantas_lints
+description: Design system lint rules for Pantas, loaded by the Dart analysis server.
+publish_to: none
+environment:
+  sdk: ^3.9.0
+# The analyzer AST is still moving: 14.x renamed NamedExpression to NamedArgument.
+# An SDK upgrade may need the rules ported, so the versions are pinned exactly.
+dependencies:
+  analysis_server_plugin: 0.3.24
+  analyzer: 14.5.0
+dev_dependencies:
+  analyzer_testing: 0.4.3
+  test: ^1.25.0
+  test_reflective_loader: ^0.2.3

@@ -107,11 +107,13 @@ void main() {
   test('dialogs and sheets are flat identity surfaces', () {
     final theme = buildDarkTheme();
     const c = PantasColors.dark;
-    expect(theme.dialogTheme.backgroundColor, c.surface);
+    // Dialog README: `surface-modal` and `radius-2xl` (22). The theme drew
+    // `surface` and 14 before the layer 4 audit.
+    expect(theme.dialogTheme.backgroundColor, c.surfaceModal);
     expect(
       theme.dialogTheme.shape,
       const RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(14)),
+        borderRadius: BorderRadius.all(Radius.circular(22)),
       ),
     );
     expect(theme.bottomSheetTheme.backgroundColor, c.surfaceModal);

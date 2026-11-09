@@ -18,12 +18,15 @@ import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 
 /// Wide web: the width of every step's content column.
+// ds-board: board OB_* (code comment); no README entry
 const double onboardingColumnWidth = 580;
 
 /// Wide web: the steps list column to the left of the content column.
+// ds-board: board OB_* (code comment); no README entry
 const double onboardingRailWidth = 200;
 
 /// Wide web: the gap between the steps list and the content column.
+// ds-board: board OB_* (code comment); no README entry
 const double onboardingRailGap = 80;
 
 /// Wide web: the rail, its gap and the content column together.
@@ -32,15 +35,17 @@ const double onboardingFrameWidth =
 
 /// Wide web: the steps list starts this far below the top bar, level with the
 /// first step's title (board OB_*).
+// ds-board: board OB_* (code comment); no README entry
 const double onboardingRailTop = 96;
 
 /// Phone: the settings exam picker's Back row, one shorter than the onboarding
 /// one (board ST_ExamPick).
+// ds-board: board ST_ExamPick; no README
 const double onboardingBackBarCompact = 49;
 
 /// Wide web: space below the action row, in the window and at the end of the
 /// list, so the row rests where it was pinned.
-const double onboardingActionsMargin = 24;
+const double onboardingActionsMargin = PantasSpace.s24;
 
 /// What the still part of onboarding needs to know about the visible step.
 @immutable

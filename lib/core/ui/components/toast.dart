@@ -11,6 +11,7 @@ import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/letter_shortcuts.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 
 // The toast uses the inverted `toast-bg` and `toast-text` pair in both themes.
 
@@ -43,6 +44,7 @@ class Toast extends StatelessWidget {
   static const double _exitFall = PantasSpace.s8;
 
   /// `.toast--phone` keeps 13 on the sides of the message (phone board).
+  // ds-board: Toast README: .toast--phone padding 13
   static const double _phoneInsetY = PantasSpace.s12 + 1;
 
   @override
@@ -177,4 +179,51 @@ class _ToastAction extends StatelessWidget {
       ),
     );
   }
+}
+
+/// Shows [message] as the system Toast through the page's messenger (design
+/// system: Toast). One toast shows at a time: a new one replaces the current
+/// one. The messenger's own bar is made invisible, so only the Toast draws.
+///
+/// It lasts 4 seconds, or 8 with an [onUndo] action (`dur-toast`,
+/// `dur-toast-action`); pass [duration] to keep a longer or shorter time.
+/// [web] picks the wide layout and defaults to the window width. Pressing
+/// Undo runs [onUndo] and dismisses the toast. Without a messenger it does
+/// nothing.
+void showPantasToast(
+  BuildContext context,
+  String message, {
+  VoidCallback? onUndo,
+  String? keyHint,
+  Duration? duration,
+  bool? web,
+}) {
+  final messenger = ScaffoldMessenger.maybeOf(context);
+  if (messenger == null) return;
+  messenger
+    ..hideCurrentSnackBar()
+    ..showSnackBar(
+      SnackBar(
+        behavior: SnackBarBehavior.floating,
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        padding: EdgeInsets.zero,
+        margin: const EdgeInsets.all(PantasSpace.s16),
+        duration: duration ??
+            (onUndo == null
+                ? PantasDurations.toast
+                : PantasDurations.toastAction),
+        content: Toast(
+          message: message,
+          keyHint: keyHint,
+          web: web ?? context.wideWeb,
+          onUndo: onUndo == null
+              ? null
+              : () {
+                  onUndo();
+                  messenger.hideCurrentSnackBar();
+                },
+        ),
+      ),
+    );
 }

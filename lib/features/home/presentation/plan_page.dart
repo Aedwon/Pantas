@@ -8,6 +8,7 @@ import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_button_spec.dart';
 import 'package:pantas/core/ui/components/pantas_logo.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
+import 'package:pantas/core/ui/components/pantas_tap_area.dart';
 import 'package:pantas/core/ui/components/pro_paused_line.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -16,7 +17,6 @@ import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/home/presentation/plan_web.dart';
-import 'package:pantas/features/home/presentation/widgets/home_tap_area.dart';
 
 enum PlanNodeKind { week, review, mock, exam }
 
@@ -723,7 +723,7 @@ class _PlanPageState extends State<PlanPage> {
       ),
     );
     return week && node.target != null
-        ? HomeTapArea(onTap: () => widget.onWeek(node.target!), child: row)
+        ? PantasTapArea(onTap: () => widget.onWeek(node.target!), child: row)
         : row;
   }
 }
@@ -979,7 +979,7 @@ class _HistoryRow extends StatelessWidget {
     return MergeSemantics(
       child: Semantics(
         expanded: expanded,
-        child: HomeTapArea(
+        child: PantasTapArea(
           onTap: onTap,
           child: Container(
             padding: const EdgeInsets.symmetric(

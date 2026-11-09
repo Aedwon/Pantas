@@ -200,14 +200,14 @@ void main() {
           onChanged: (_) {},
         ),
       );
-      // The Field well is 48 high (`size-field`) with 14 side padding; test
-      // fonts have taller lines, so check the padding.
+      // The Field well is 48 high (`size-field`) with 14 side padding.
+      final well = tester.widget<Container>(
+        find.byKey(const ValueKey('field-well')),
+      );
+      expect(well.padding, const EdgeInsets.symmetric(horizontal: 14));
       expect(
-        tester
-            .widget<TextField>(find.byType(TextField))
-            .decoration!
-            .contentPadding,
-        const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+        tester.getSize(find.byKey(const ValueKey('field-well'))).height,
+        greaterThanOrEqualTo(48),
       );
       expect(
         tester.widget<TextField>(find.byType(TextField)).decoration!.labelText,

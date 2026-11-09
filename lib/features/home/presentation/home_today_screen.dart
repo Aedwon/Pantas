@@ -18,6 +18,7 @@ import 'package:pantas/core/ui/components/paused_quiz_notice.dart';
 import 'package:pantas/core/ui/components/progress_ring.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
+import 'package:pantas/core/ui/components/toast.dart';
 import 'package:pantas/core/ui/components/today_questions.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
@@ -708,7 +709,7 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
       }
       if (!await guard() || !mounted || !_current()) return;
       if (topicId == null && !ref.read(studyUsesServerProvider)) {
-        showHomeToast(
+        showPantasToast(
           context,
           'No questions are ready right now.',
         );
@@ -724,7 +725,7 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
     } catch (error, stack) {
       unawaited(telemetry.recordError(error, stack));
       if (mounted && _current()) {
-        showHomeToast(
+        showPantasToast(
           context,
           'Could not prepare this quiz.',
         );

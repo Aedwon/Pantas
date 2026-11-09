@@ -3,12 +3,12 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/ui/components/pantas_tap_area.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/home/application/home_notices.dart';
 import 'package:pantas/features/home/presentation/widgets/home_notice_strip.dart';
-import 'package:pantas/features/home/presentation/widgets/home_tap_area.dart';
 import 'package:pantas/features/home/presentation/widgets/home_web_layout.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
 
@@ -107,7 +107,7 @@ void main() {
       final card = tester.getRect(find.byType(HomeWebNotice));
       final header = find.ancestor(
         of: find.text('Add your exam date'),
-        matching: find.byType(HomeTapArea),
+        matching: find.byType(PantasTapArea),
       );
       // The header sits one pixel inside the card's own rule, so the 2 px ring
       // is not half under it, and the card keeps its 52 px header.

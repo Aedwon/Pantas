@@ -50,6 +50,7 @@ class TodayQuestionRow extends StatelessWidget {
                 fraction: total == 0 ? 0 : done / total,
                 emptyStrokeWidth: 2,
                 emptyTrackColor: ProgressRing.phoneEmptyTrack(context),
+                // ds-board: ProgressRing README sets no fill time; as built
                 fillDuration: const Duration(milliseconds: 700),
                 fillDelay: fillDelay,
               ),

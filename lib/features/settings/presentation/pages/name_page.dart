@@ -5,14 +5,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
+import 'package:pantas/core/ui/components/pantas_field.dart';
 import 'package:pantas/core/ui/leave_page.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
-import 'package:pantas/core/ui/theme/tokens/pantas_border.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
-import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
-import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
-import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/settings/presentation/widgets/settings_pane_page.dart';
@@ -107,17 +104,6 @@ class _NamePageState extends ConsumerState<NamePage> {
     }
   }
 
-  OutlineInputBorder _fieldBorder(BuildContext context, double width) =>
-      OutlineInputBorder(
-        borderRadius: BorderRadius.circular(PantasRadius.md),
-        borderSide: BorderSide(
-          color: width > 1
-              ? context.webTokens.colors.accent
-              : context.webTokens.colors.separator,
-          width: width,
-        ),
-      );
-
   @override
   Widget build(BuildContext context) {
     final settings = ref.watch(userSettingsProvider);
@@ -145,44 +131,13 @@ class _NamePageState extends ConsumerState<NamePage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    // Board `.field.focus`: 48 px, white, 2 px accent edge.
-                    SizedBox(
-                      height: PantasSize.field,
-                      child: Semantics(
-                        label: 'Name',
-                        child: TextField(
-                          // ds-raw: needs textCapitalization, no label
-                          controller: _controller,
-                          enabled: _loaded && !_saving,
-                          style: PantasType.webRowTitleSettings
-                              .copyWith(color: context.colors.textPrimary),
-                          textAlignVertical: TextAlignVertical.center,
-                          decoration: InputDecoration(
-                            filled: true,
-                            fillColor: context.webTokens.colors.surface,
-                            contentPadding: const EdgeInsets.symmetric(
-                              horizontal: PantasSpace.s14,
-                            ),
-                            border: _fieldBorder(
-                              context,
-                              PantasBorder.ringSelected,
-                            ),
-                            enabledBorder: _fieldBorder(
-                              context,
-                              PantasBorder.ringSelected,
-                            ),
-                            focusedBorder: _fieldBorder(
-                              context,
-                              PantasBorder.ringSelected,
-                            ),
-                            disabledBorder:
-                                _fieldBorder(context, PantasBorder.ring),
-                          ),
-                          textCapitalization: TextCapitalization.words,
-                          onChanged: _typed,
-                          onSubmitted: (_) => _back(),
-                        ),
-                      ),
+                    PantasField.unlabeled(
+                      semanticLabel: 'Name',
+                      controller: _controller,
+                      enabled: _loaded && !_saving,
+                      textCapitalization: TextCapitalization.words,
+                      onChanged: _typed,
+                      onSubmitted: (_) => _back(),
                     ),
                     const SizedBox(height: PantasSpace.s8),
                     Text(
@@ -198,68 +153,39 @@ class _NamePageState extends ConsumerState<NamePage> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                // ST_Name: a 48 px white field, 14 px corners, a 1.5 px
-                // accent edge and a clear button.
-                Container(
-                  height: PantasSize.field,
-                  padding: const EdgeInsets.only(
-                    left: PantasSpace.s16,
-                    right: PantasSpace.s12,
-                  ),
-                  decoration: BoxDecoration(
-                    color: context.colors.surface,
-                    borderRadius: BorderRadius.circular(PantasRadius.lg),
-                    border: Border.all(
-                      color: context.colors.accent,
-                      width: PantasBorder.ringStrong,
-                    ),
-                  ),
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: TextField(
-                          // ds-raw: needs textCapitalization, no label
-                          controller: _controller,
-                          enabled: _loaded && !_saving,
-                          style: context.type.body,
-                          cursorColor: context.colors.accent,
-                          decoration: const InputDecoration(
-                            border: InputBorder.none,
-                            isCollapsed: true,
-                          ),
-                          textCapitalization: TextCapitalization.words,
-                          onSubmitted: (_) => _back(),
-                        ),
-                      ),
-                      ValueListenableBuilder<TextEditingValue>(
-                        valueListenable: _controller,
-                        builder: (context, value, _) => value.text.isEmpty
-                            ? const SizedBox.shrink()
-                            : Semantics(
-                                button: true,
-                                label: 'Clear name',
-                                excludeSemantics: true,
-                                child: GestureDetector(
-                                  behavior: HitTestBehavior.opaque,
-                                  onTap: _controller.clear,
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(
-                                      left: PantasSpace.s8,
-                                    ),
-                                    child: SvgPicture.string(
-                                      _clearGlyph,
-                                      width: 20,
-                                      height: 20,
-                                      colorFilter: ColorFilter.mode(
-                                        context.colors.chevron,
-                                        BlendMode.srcIn,
-                                      ),
-                                    ),
+                PantasField.unlabeled(
+                  semanticLabel: 'Name',
+                  controller: _controller,
+                  enabled: _loaded && !_saving,
+                  textCapitalization: TextCapitalization.words,
+                  onSubmitted: (_) => _back(),
+                  action: ValueListenableBuilder<TextEditingValue>(
+                    valueListenable: _controller,
+                    builder: (context, value, _) => value.text.isEmpty
+                        ? const SizedBox.shrink()
+                        : Semantics(
+                            button: true,
+                            label: 'Clear name',
+                            excludeSemantics: true,
+                            child: GestureDetector(
+                              behavior: HitTestBehavior.opaque,
+                              onTap: _controller.clear,
+                              child: Padding(
+                                padding: const EdgeInsets.only(
+                                  left: PantasSpace.s8,
+                                ),
+                                child: SvgPicture.string(
+                                  _clearGlyph,
+                                  width: 20,
+                                  height: 20,
+                                  colorFilter: ColorFilter.mode(
+                                    context.colors.chevron,
+                                    BlendMode.srcIn,
                                   ),
                                 ),
                               ),
-                      ),
-                    ],
+                            ),
+                          ),
                   ),
                 ),
                 Padding(

@@ -126,7 +126,7 @@ class StateView extends StatelessWidget {
           child: icon ??
               (fullScreen
                   ? Icon(PantasIcons.appError)
-                  : PantasIcons.progressError),
+                  : Icon(PantasIcons.alert)),
         ),
       ),
     );
@@ -146,7 +146,9 @@ class StateView extends StatelessWidget {
             : PantasButtonVariant.secondary,
         height: PantasSize.btn,
         fontSize: PantasType.webLink.fontSize,
-        radius: PantasRadius.full,
+        // The tonal retry is a rounded rectangle (ErrorState README); only
+        // the primary action of a blocked state keeps the board's pill.
+        radius: primary ? PantasRadius.full : null,
         fullWidth: isError && !wide && !primary,
         horizontalPadding: PantasSpace.s24,
         onPressed: onRetry,

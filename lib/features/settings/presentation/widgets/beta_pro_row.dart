@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/pantas_switch.dart';
 import 'package:pantas/core/ui/components/row_tap_target.dart';
+import 'package:pantas/core/ui/components/toast.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_border.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
@@ -30,12 +31,7 @@ class _BetaProRowState extends ConsumerState<BetaProRow> {
       await ref.read(setBetaProProvider)(enabled: enabled);
     } on Exception {
       if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          // ds-raw: no shared toast helper
-          const SnackBar(
-            content: Text('Could not change Pro features. Try again.'),
-          ),
-        );
+        showPantasToast(context, 'Could not change Pro features. Try again.');
       }
     } finally {
       if (mounted) setState(() => _pending = false);

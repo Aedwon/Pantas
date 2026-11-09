@@ -9,6 +9,7 @@ import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 
 import '../../../helpers/ds_matrix.dart';
+import '../../../helpers/hover_shape.dart';
 
 /// The controls that replaced raw Material ones in the settings, onboarding,
 /// assessment, guardian, feedback, wrapped, shell, legal and app folders
@@ -49,6 +50,28 @@ void main() {
     );
     final finder = find.byType(PantasButton);
     expectRounded(hoverShape(tester, finder), tester.getSize(finder));
+    expectHitArea(tester, finder);
+  });
+
+  testWidgets('a disabled PantasButton takes no wash and no tap',
+      (tester) async {
+    await pumpDs(
+      tester,
+      wide,
+      const PantasButton(
+        label: "I Don't Agree",
+        kind: PantasButtonKind.tertiary,
+        tone: PantasButtonTone.critical,
+      ),
+      web: true,
+    );
+    await expectDisabledInert(
+      tester,
+      find.descendant(
+        of: find.byType(PantasButton),
+        matching: find.byType(TextButton),
+      ),
+    );
   });
 
   testWidgets('WebTextLink, the Terms and Privacy links', (tester) async {
@@ -60,6 +83,13 @@ void main() {
     );
     final finder = find.byType(WebTextLink);
     expectRounded(hoverShape(tester, finder), tester.getSize(finder));
+    expectHitArea(
+      tester,
+      finder,
+      min: const Size(44, 16),
+      reason: 'TextLink is inline; only a coarse pointer pads it to 44 '
+          '(TextLink README, Accessibility)',
+    );
   });
 
   testWidgets('WebBackLink, the legal page Back', (tester) async {
@@ -71,6 +101,12 @@ void main() {
     );
     final finder = find.byType(WebBackLink);
     expectRounded(hoverShape(tester, finder), tester.getSize(finder));
+    expectHitArea(
+      tester,
+      finder,
+      min: const Size(44, 40),
+      reason: 'BackLink is size-back (40) high on a fine pointer',
+    );
   });
 
   testWidgets('PantasIconButton, the year steppers and close buttons',
@@ -89,6 +125,29 @@ void main() {
     final button = tester.widget<IconButton>(find.byType(IconButton));
     final shape = button.style!.shape!.resolve({WidgetState.hovered})!;
     expectRounded(shape, const Size.square(32));
+    expectHitArea(
+      tester,
+      find.byType(PantasIconButton),
+      min: const Size.square(32),
+      reason: 'the 32 icon button is the preferred size on pointer-only '
+          'desktop bars (IconButton README, Accessibility)',
+    );
+  });
+
+  testWidgets('a disabled PantasIconButton takes no wash and no tap',
+      (tester) async {
+    await pumpDs(
+      tester,
+      wide,
+      PantasIconButton(
+        tooltip: 'Close',
+        glyph: PantasIcons.close,
+        size: PantasIconButtonSize.sm,
+        onPressed: null,
+      ),
+      web: true,
+    );
+    await expectDisabledInert(tester, find.byType(IconButton));
   });
 
   testWidgets('ListRow, the session order choices and debug rows',

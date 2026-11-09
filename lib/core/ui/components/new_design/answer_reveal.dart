@@ -50,6 +50,7 @@ class AnswerReveal extends StatelessWidget {
                       letter,
                       style: PantasType.phoneExplanation.copyWith(
                         fontWeight: FontWeight.w700,
+                        // ds-board: README type: web-glyph leading 1
                         height: 1,
                         color: context.colors.onAccent,
                       ),

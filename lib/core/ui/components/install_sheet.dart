@@ -227,13 +227,16 @@ class _SafariBar extends StatelessWidget {
             icon('<path d="m9.5 5.5 6.5 6.5-6.5 6.5"/>', muted),
             // The ring sits outside the 22 point layout box, as drawn.
             SizedBox.square(
+              // ds-board: InstallSheet board as drawn; no README entry
               dimension: 22,
               child: OverflowBox(
                 maxWidth: 36,
                 maxHeight: 36,
                 child: Container(
                   key: const ValueKey('install-share-ring'),
+                  // ds-board: InstallSheet board as drawn; no README entry
                   width: 36,
+                  // ds-board: InstallSheet board as drawn; no README entry
                   height: 36,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(

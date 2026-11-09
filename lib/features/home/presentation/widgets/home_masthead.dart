@@ -10,6 +10,7 @@ import 'package:pantas/core/storage/domain/exam_date.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/time/pantas_dates.dart';
 import 'package:pantas/core/ui/components/page_title.dart';
+import 'package:pantas/core/ui/components/pantas_tap_area.dart';
 import 'package:pantas/core/ui/components/pantas_tooltip.dart';
 import 'package:pantas/core/ui/components/progress_ring.dart';
 import 'package:pantas/core/ui/components/week_strip.dart';
@@ -26,7 +27,6 @@ import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/home/presentation/home_providers.dart';
 import 'package:pantas/features/home/presentation/plan_screen.dart';
 import 'package:pantas/features/home/presentation/widgets/home_skeletons.dart';
-import 'package:pantas/features/home/presentation/widgets/home_tap_area.dart';
 import 'package:pantas/features/home/presentation/widgets/home_web_layout.dart';
 import 'package:pantas/features/roadmap/domain/day_snapshot.dart';
 import 'package:pantas/l10n/app_localizations.dart';
@@ -651,7 +651,7 @@ class _WebWeekDayState extends State<_WebWeekDay> {
       onExit: (_) => setState(() => _hover = false),
       child: WebKeyboardRing(
         borderRadius: radius,
-        child: HomeTapArea(
+        child: PantasTapArea(
           onTap: widget.onPressed,
           borderRadius: radius,
           wash: false,

@@ -719,6 +719,7 @@ class _WebRowState extends State<WebRow> {
     final t = context.webTokens;
     final w = widget;
     final large = MediaQuery.textScalerOf(context).scale(17) > 25.5;
+    // ds-board: README type: web-label 14/600/1.3
     final lineHeight = w.boardMetrics ? 1.3 : null;
     final hairline =
         w.boardMetrics ? webHairline(context) : PantasBorder.hairline;
@@ -1420,6 +1421,7 @@ class WebAnswerOption extends StatelessWidget {
               child: Text(
                 letter,
                 style: PantasType.webLink.copyWith(
+                  // ds-board: README type: web-glyph leading 1
                   height: 1,
                   fontWeight: filled ? FontWeight.w700 : FontWeight.w600,
                   color: letterColor,

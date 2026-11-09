@@ -175,6 +175,7 @@ class _ValueWheelState extends State<ValueWheel> {
           child: widget.horizontal
               ? horizontalWheel(context)
               : SizedBox(
+                  // ds-board: DatePicker README: 5 rows; birth year 7
                   height: row * (widget.birthYear ? 7 : 5),
                   child: Stack(
                     alignment: Alignment.center,

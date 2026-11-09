@@ -72,19 +72,17 @@ class PantasFieldMessage extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            if (error) ...[
-              Padding(
-                padding: const EdgeInsets.only(top: PantasSpace.s2),
-                child: ExcludeSemantics(
-                  child: Icon(
-                    PantasIcons.appError,
-                    size: PantasSize.icon - PantasSpace.s4,
-                    color: color,
-                  ),
+            Padding(
+              padding: const EdgeInsets.only(top: PantasSpace.s2),
+              child: ExcludeSemantics(
+                child: Icon(
+                  error ? PantasIcons.appError : PantasIcons.info,
+                  size: PantasSize.icon - PantasSpace.s4,
+                  color: color,
                 ),
               ),
-              const SizedBox(width: PantasSpace.s6),
-            ],
+            ),
+            const SizedBox(width: PantasSpace.s6),
             Expanded(
               child: Text(
                 text,
@@ -112,18 +110,21 @@ class PantasFieldMessage extends StatelessWidget {
 class PantasField extends StatefulWidget {
   const PantasField({
     required this.label,
+    this.optional = false,
     this.controller,
     this.focusNode,
     this.hint,
     this.helpText,
     this.errorText,
-    this.optional = false,
     this.multiline = false,
+    this.maxLines,
     this.readOnly = false,
     this.enabled = true,
     this.obscureText = false,
     this.keyboardType,
     this.textInputAction,
+    this.textCapitalization = TextCapitalization.none,
+    this.autofocus = false,
     this.autofillHints,
     this.inputFormatters,
     this.maxLength,
@@ -132,9 +133,45 @@ class PantasField extends StatefulWidget {
     this.action,
     this.announceError = false,
     super.key,
-  });
+  }) : showLabel = true;
 
+  /// A field with no visible label, for a place where the screen already says
+  /// what the field is (a note box under the choice that asked for it).
+  /// [semanticLabel] is its name for screen readers and is required, since the
+  /// placeholder is never the name (Field README, Accessibility).
+  const PantasField.unlabeled({
+    required String semanticLabel,
+    this.controller,
+    this.focusNode,
+    this.hint,
+    this.helpText,
+    this.errorText,
+    this.multiline = false,
+    this.maxLines,
+    this.readOnly = false,
+    this.enabled = true,
+    this.obscureText = false,
+    this.keyboardType,
+    this.textInputAction,
+    this.textCapitalization = TextCapitalization.none,
+    this.autofocus = false,
+    this.autofillHints,
+    this.inputFormatters,
+    this.maxLength,
+    this.onChanged,
+    this.onSubmitted,
+    this.action,
+    this.announceError = false,
+    super.key,
+  })  : label = semanticLabel,
+        optional = false,
+        showLabel = false;
+
+  /// The visible label, or the screen reader name of an unlabeled field.
   final String label;
+
+  /// False for `PantasField.unlabeled`: the label is not drawn.
+  final bool showLabel;
   final TextEditingController? controller;
   final FocusNode? focusNode;
   final String? hint;
@@ -146,11 +183,16 @@ class PantasField extends StatefulWidget {
   final String? errorText;
   final bool optional;
   final bool multiline;
+
+  /// The most lines a [multiline] field grows to; unlimited when null.
+  final int? maxLines;
   final bool readOnly;
   final bool enabled;
   final bool obscureText;
   final TextInputType? keyboardType;
   final TextInputAction? textInputAction;
+  final TextCapitalization textCapitalization;
+  final bool autofocus;
   final Iterable<String>? autofillHints;
   final List<TextInputFormatter>? inputFormatters;
   final int? maxLength;
@@ -251,10 +293,12 @@ class _PantasFieldState extends State<PantasField> {
       keyboardType:
           widget.multiline ? TextInputType.multiline : widget.keyboardType,
       textInputAction: widget.textInputAction,
+      textCapitalization: widget.textCapitalization,
+      autofocus: widget.autofocus,
       autofillHints: widget.autofillHints,
       inputFormatters: widget.inputFormatters,
       maxLength: widget.maxLength,
-      maxLines: widget.multiline ? null : 1,
+      maxLines: widget.multiline ? widget.maxLines : 1,
       minLines: widget.multiline ? 1 : null,
       onChanged: widget.onChanged,
       onSubmitted: widget.onSubmitted,
@@ -279,7 +323,7 @@ class _PantasFieldState extends State<PantasField> {
           ? CrossAxisAlignment.start
           : CrossAxisAlignment.center,
       children: [
-        Expanded(child: input),
+        Expanded(child: Semantics(label: widget.label, child: input)),
         if (widget.action != null) ...[
           const SizedBox(width: PantasSpace.s8),
           // Pulls 8 px into the padding so the icon lines up with its edge.
@@ -340,17 +384,18 @@ class _PantasFieldState extends State<PantasField> {
             : PantasFieldMessage(widget.helpText!);
 
     return Semantics(
-      label: widget.label,
       container: true,
       explicitChildNodes: true,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          ExcludeSemantics(
-            child: PantasFieldLabel(widget.label, optional: widget.optional),
-          ),
-          const SizedBox(height: PantasSpace.s6),
+          if (widget.showLabel) ...[
+            ExcludeSemantics(
+              child: PantasFieldLabel(widget.label, optional: widget.optional),
+            ),
+            const SizedBox(height: PantasSpace.s6),
+          ],
           _FocusOutline(
             show: needsOuter && _focused,
             radius: radius,

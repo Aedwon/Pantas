@@ -5,6 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pantas/core/ui/components/toast.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
@@ -129,7 +130,7 @@ class _FeedbackComposeState extends ConsumerState<FeedbackCompose> {
     if (added > 0) _feedbackId = null;
     final problem = first;
     if (problem != null) {
-      fbToast(
+      showPantasToast(
         context,
         problem == PickedImageProblem.wrongType
             ? 'Use a PNG, JPEG or WebP image.'
@@ -161,7 +162,7 @@ class _FeedbackComposeState extends ConsumerState<FeedbackCompose> {
     } on Exception {
       if (!mounted) return;
       setState(() => _phase = _Phase.idle);
-      fbToast(context, 'Could not send. Try again.');
+      showPantasToast(context, 'Could not send. Try again.');
       return;
     }
     if (!mounted) return;
@@ -192,7 +193,7 @@ class _FeedbackComposeState extends ConsumerState<FeedbackCompose> {
       label: 'Your feedback',
       textField: true,
       child: TextField(
-        // ds-raw: input inside FbFieldWell, no label
+        // ds-raw: shares one well with the screenshot tiles
         controller: _text,
         focusNode: _focus,
         readOnly: _phase != _Phase.idle,

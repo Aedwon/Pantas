@@ -137,4 +137,88 @@ void main() {
     expect((disabled.decoration! as BoxDecoration).color, palette.fill);
     expect(disabled.foregroundDecoration, isNull);
   });
+
+  testWidgets('unlabeled: no visible label, the name is for screen readers',
+      (tester) async {
+    await pumpDs(
+      tester,
+      dsCells.first,
+      const SizedBox(
+        width: 340,
+        child: PantasField.unlabeled(
+          semanticLabel: 'Your note',
+          hint: 'In your own words',
+        ),
+      ),
+    );
+    expect(find.text('Your note'), findsNothing);
+    expect(find.byType(PantasFieldLabel), findsNothing);
+    expect(find.bySemanticsLabel(RegExp('Your note')), findsOneWidget);
+    expect(find.text('In your own words'), findsOneWidget);
+    expect(
+      tester.getSize(find.byKey(const ValueKey('field-well'))).height,
+      greaterThanOrEqualTo(48),
+    );
+  });
+
+  testWidgets('passes capitalization, autofocus and the line cap to the input',
+      (tester) async {
+    await pumpDs(
+      tester,
+      dsCells.first,
+      const SizedBox(
+        width: 340,
+        child: PantasField.unlabeled(
+          semanticLabel: 'Name',
+          textCapitalization: TextCapitalization.words,
+          autofocus: true,
+          multiline: true,
+          maxLines: 3,
+        ),
+      ),
+    );
+    final input = tester.widget<TextField>(find.byType(TextField));
+    expect(input.textCapitalization, TextCapitalization.words);
+    expect(input.autofocus, isTrue);
+    expect(input.maxLines, 3);
+    expect(input.minLines, 1);
+    expect(tester.binding.focusManager.primaryFocus?.hasFocus, isTrue);
+  });
+
+  testWidgets('capitalization defaults to none and a labeled field has a label',
+      (tester) async {
+    await pumpDs(
+      tester,
+      dsCells.first,
+      const SizedBox(width: 340, child: PantasField(label: 'Nickname')),
+    );
+    final input = tester.widget<TextField>(find.byType(TextField));
+    expect(input.textCapitalization, TextCapitalization.none);
+    expect(input.autofocus, isFalse);
+    expect(find.byType(PantasFieldLabel), findsOneWidget);
+  });
+
+  for (final labeled in [true, false]) {
+    testWidgets('the name is on the text field node itself (labeled $labeled)',
+        (tester) async {
+      final handle = tester.ensureSemantics();
+      await pumpDs(
+        tester,
+        dsCells.first,
+        SizedBox(
+          width: 340,
+          child: labeled
+              ? const PantasField(label: 'Nickname', hint: 'Hint')
+              : const PantasField.unlabeled(
+                  semanticLabel: 'Nickname',
+                  hint: 'Hint',
+                ),
+        ),
+      );
+      final node = tester.getSemantics(find.byType(TextField));
+      expect(node.getSemanticsData().flagsCollection.isTextField, isTrue);
+      expect(node.label, contains('Nickname'));
+      handle.dispose();
+    });
+  }
 }
