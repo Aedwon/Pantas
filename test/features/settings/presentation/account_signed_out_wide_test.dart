@@ -208,18 +208,11 @@ void main() {
 
   for (final w in [1440.0, 1024.0]) {
     for (final scale in [1.5, 2.0]) {
-      for (final pane in w == 1024 ? [null, 468.0] : <double?>[null]) {
+      for (final pane in w == 1024 ? [null, 828.0] : <double?>[null]) {
         testWidgets('pair stays inside the card ($w x$scale pane $pane)',
             (tester) async {
           await _pump(tester, DsCell(w, scale, dark: false), paneWidth: pane);
-          // The settings rows above the footer already overflow in a 468
-          // pane at large text (not this footer's doing), so that case only
-          // checks the footer's own geometry.
-          if (pane == null) {
-            expect(tester.takeException(), isNull);
-          } else {
-            while (tester.takeException() != null) {}
-          }
+          expect(tester.takeException(), isNull);
           final f = tester.getRect(find.byKey(const ValueKey('card-footer')));
           final email = tester.getRect(_button('Continue with Email'));
           final google = tester.getRect(_button('Continue with Google'));
@@ -265,6 +258,26 @@ void main() {
     expect(find.text('You need a connection to sign in.'), findsOneWidget);
     expect(find.text(_note), findsNothing);
   });
+
+  for (final scale in [1.5, 2.0]) {
+    testWidgets(
+        'Name and Pantas ID rows stack, not overflow, in a 468 detail pane (828 page) '
+        'at $scale text', (tester) async {
+      await _pump(
+        tester,
+        DsCell(1024, scale, dark: false),
+        paneWidth: 828,
+      );
+      expect(tester.takeException(), isNull);
+      // Ruling 12: a value that does not fit goes under its title.
+      final title = tester.getRect(find.text('Pantas ID'));
+      final value = tester.getRect(find.text('Sign in to get one'));
+      // Above 1.5x the value goes under the title; at 1.5 it still fits.
+      if (scale > 1.5) {
+        expect(value.top, greaterThanOrEqualTo(title.bottom));
+      }
+    });
+  }
 
   testWidgets('the shared Google button without a size stays 48 tall',
       (tester) async {
