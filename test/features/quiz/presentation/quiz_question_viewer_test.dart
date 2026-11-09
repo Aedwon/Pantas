@@ -188,7 +188,7 @@ void main() {
       FloatingBarState.neutral,
     );
     expect(find.text('Correct because 1'), findsOneWidget);
-    expect(find.text('your pick'), findsNothing);
+    expect(find.text('Your pick'), findsNothing);
     expect(find.byTooltip('Add Note'), findsNothing);
     expect(find.byType(QuizNoteEditor), findsNothing);
   });

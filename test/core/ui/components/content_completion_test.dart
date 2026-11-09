@@ -215,8 +215,8 @@ void main() {
         wrongPick: 'The mantle sits under the crust.',
       );
       await pumpAccessibilitySurface(tester, answer, brightness: brightness);
-      expect(find.text('correct answer'), findsOneWidget);
-      expect(find.text('your pick'), findsOneWidget);
+      expect(find.text('Correct answer'), findsOneWidget);
+      expect(find.text('Your pick'), findsOneWidget);
       final text =
           tester.widget<Text>(find.text('The crust is the outer layer.'));
       expect(text.style!.fontSize, 15);

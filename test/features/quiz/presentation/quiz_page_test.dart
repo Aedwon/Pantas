@@ -372,7 +372,7 @@ void main() {
 
     // The reveal says all of this and stays on screen. A toast said it
     // once, over the top, on every single answer.
-    expect(find.text('correct answer'), findsOneWidget);
+    expect(find.text('Correct answer'), findsOneWidget);
     expect(find.text('back in 4 days'), findsNothing);
     expect(find.byType(SnackBar), findsNothing);
     expect(find.text('Next'), findsOneWidget);
@@ -536,7 +536,7 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    expect(find.text('correct answer'), findsOneWidget);
+    expect(find.text('Correct answer'), findsOneWidget);
     final resumedPreparedStage = find.byKey(
       const ValueKey<String>('quiz-question-q2'),
       skipOffstage: false,

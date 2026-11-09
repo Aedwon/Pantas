@@ -229,7 +229,7 @@ void main() {
               .outcomes,
           isEmpty,
         );
-        expect(find.text('correct answer'), findsNothing);
+        expect(find.text('Correct answer'), findsNothing);
         await tester.tap(find.text('Right answer').hitTestable().first);
         await tester.pumpAndSettle();
         await tester.tap(find.text('Check'));
@@ -245,7 +245,7 @@ void main() {
           tester.widget<FloatingBar>(find.byType(FloatingBar)).state,
           FloatingBarState.right,
         );
-        await tester.ensureVisible(find.text('correct answer'));
+        await tester.ensureVisible(find.text('Correct answer'));
         await tester.pumpAndSettle();
         expect(find.textContaining('back in'), findsNothing);
         expect(find.text('Explanation 1'), findsOneWidget);
@@ -265,9 +265,9 @@ void main() {
         tester.widget<FloatingBar>(find.byType(FloatingBar)).state,
         FloatingBarState.wrong,
       );
-      await tester.ensureVisible(find.text('correct answer'));
+      await tester.ensureVisible(find.text('Correct answer'));
       await tester.pumpAndSettle();
-      expect(find.text('your pick'), pro ? findsOneWidget : findsNothing);
+      expect(find.text('Your pick'), pro ? findsOneWidget : findsNothing);
     });
   }
 
