@@ -38,6 +38,7 @@ import 'package:pantas/features/settings/domain/exam_change_result.dart';
 import 'package:pantas/features/settings/presentation/carry_over_prompt.dart';
 import 'package:pantas/features/settings/presentation/pages/about_page.dart';
 import 'package:pantas/features/settings/presentation/pages/account_page.dart';
+import 'package:pantas/features/settings/presentation/pages/accessibility_page.dart';
 import 'package:pantas/features/settings/presentation/pages/appearance_page.dart';
 import 'package:pantas/features/settings/presentation/pages/backup_page.dart';
 import 'package:pantas/features/settings/presentation/pages/debug_settings_page.dart';
@@ -70,6 +71,10 @@ List<RouteBase> settingsRoutes(Ref ref) => [
       GoRoute(
         path: '/settings/appearance',
         builder: (_, __) => const AppearancePage(),
+      ),
+      GoRoute(
+        path: '/settings/accessibility',
+        builder: (_, __) => const AccessibilityPage(),
       ),
       GoRoute(
         path: '/settings/exam',

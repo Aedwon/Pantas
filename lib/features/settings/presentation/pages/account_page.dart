@@ -12,7 +12,6 @@ import 'package:pantas/core/auth/public_id_provider.dart';
 import 'package:pantas/core/auth/sign_in_result.dart';
 import 'package:pantas/core/error/app_exception.dart';
 import 'package:pantas/core/sync/providers.dart';
-import 'package:pantas/core/sync/sync_status.dart';
 import 'package:pantas/core/ui/components/avatar.dart';
 import 'package:pantas/core/ui/components/centered_dialog.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
@@ -28,6 +27,7 @@ import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/paywall/application/paywall_providers.dart';
+import 'package:pantas/features/settings/presentation/pages/backup_page.dart';
 import 'package:pantas/features/settings/presentation/widgets/settings_pane_page.dart';
 import 'package:pantas/features/settings/presentation/widgets/settings_row.dart';
 import 'package:pantas/features/settings/presentation/widgets/settings_section.dart';
@@ -85,16 +85,7 @@ class _AccountPageState extends ConsumerState<AccountPage> {
         ref.watch(entitlementProvider).valueOrNull?.proIsActive ?? false;
     final web = ref.watch(paymentsOnWebProvider);
     final sync = ref.watch(syncStatusProvider).valueOrNull;
-    final backup = switch (sync) {
-      SyncUpToDate() || SyncOk() => 'Saved',
-      Syncing() || SyncActivating() => 'Backing up',
-      SyncOffline() => 'Offline',
-      SyncError() ||
-      SyncFailedSince() ||
-      SyncPartialFailure() =>
-        "Couldn't back up",
-      _ => 'Not backed up'
-    };
+    final backup = backupLabel(sync, now: DateTime.now());
     void push(String path) {
       final router = GoRouter.maybeOf(context);
       if (router != null) unawaited(router.push<void>(path));
@@ -210,13 +201,12 @@ class _AccountPageState extends ConsumerState<AccountPage> {
               onPressed: () => push('/settings/account/delete'),
             ),
           ] else ...[
-            if (!web) ...[
+            ...[
               SettingsSection(
                 header: 'Backup',
                 footer: pro
                     ? "Pantas backs up on its own whenever you're online."
-                    : 'Your progress stays in this browser only. With Pro, '
-                        "it's backed up and syncs across your devices.",
+                    : webFreeBackupNote,
                 children: [
                   SettingsRow(
                     title: 'Backup',
@@ -367,17 +357,20 @@ class _AccountPageState extends ConsumerState<AccountPage> {
             textAlign: TextAlign.center,
           ),
         ] else ...[
-          if (!web) ...[
+          ...[
             SettingsSection(
               header: 'Backup',
               footer: pro
                   ? "Pantas backs up on its own whenever you're online."
-                  : "Your progress stays on this phone only. With Pro, it's "
-                      'backed up and syncs across your devices.',
+                  : web
+                      ? webFreeBackupNote
+                      : 'Your progress stays on this phone only. With Pro, '
+                          "it's backed up and syncs across your devices.",
               children: [
                 SettingsRow(
                   title: 'Backup',
-                  value: pro ? backup : 'This phone only',
+                  value:
+                      pro ? backup : 'This ${web ? 'browser' : 'phone'} only',
                   variant: ListRowVariant.value,
                   divider: true,
                   dividerInset:
@@ -388,7 +381,9 @@ class _AccountPageState extends ConsumerState<AccountPage> {
                     title: 'Details',
                     onTap: () => push('/settings/backup'),
                   )
-                else
+                // Web leaves this out, as the wide layout does: during the
+                // beta, Pro comes from the switch on Settings, not checkout.
+                else if (!web)
                   SettingsRow(
                     title: 'Back Up with Pro',
                     onTap: () => push('/settings/pro'),

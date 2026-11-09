@@ -350,7 +350,7 @@ void main() {
       ],
     );
     await tester.pumpAndSettle();
-    await tester.tap(find.text('Back Up Now'));
+    await tester.tap(find.byType(PantasButton).last);
     await tester.pumpAndSettle();
     expect(telemetry.errors, [same(error)]);
     expect(find.text('Try Again'), findsOneWidget);

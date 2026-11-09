@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/ui/components/card_footer.dart';
 import 'package:pantas/core/ui/components/onboarding_frame.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_logo.dart';
@@ -37,6 +38,23 @@ void main() {
         // Back is the first thing in the column: its left edge is the
         // column's left edge. The inline action's right edge is the right.
         final left = tester.getTopLeft(find.text('Back')).dx;
+        if (step == 'customSubjects') {
+          // Placement 2 (Aedwon, Nov 9): Continue sits in the subjects card's
+          // footer beside the tier line, not in the inline action row. The
+          // card still fills the shared column.
+          expectContinueInCardFooter(tester, step);
+          final card = find.ancestor(
+            of: find.byType(CardFooter),
+            matching: find.byType(WebCard),
+          );
+          columns[step] = Rect.fromLTRB(
+            left,
+            0,
+            tester.getTopRight(card.first).dx,
+            0,
+          );
+          continue;
+        }
         final action = primaryButton();
         expect(action, findsOneWidget, reason: '$step has no inline action');
         final right = tester.getTopRight(action).dx;
@@ -216,6 +234,12 @@ void main() {
         expect(backRect, back, reason: '$step Back moved');
         expect(barRect, bar, reason: '$step progress bar moved');
         expect(find.byType(OnboardingFrame), findsOneWidget);
+        if (step == 'customSubjects') {
+          // Placement 2: Continue keeps its natural width in the card footer
+          // (CardFooter rule), so it has no bottom bar margins to share.
+          expectContinueInCardFooter(tester, step);
+          continue;
+        }
         // Same action placement: the primary button sits at the bottom with
         // the standard 20 px side margins.
         final button = find.byWidgetPredicate(
@@ -232,4 +256,17 @@ void main() {
       }
     });
   });
+}
+
+/// Placement 2: the step's one primary action is Continue in the card footer.
+void expectContinueInCardFooter(WidgetTester tester, String step) {
+  final inFooter = find.descendant(
+    of: find.byType(CardFooter),
+    matching: find.byWidgetPredicate(
+      (w) =>
+          (w is PantasButton && w.variant == PantasButtonVariant.primary) ||
+          (w is WebButton && w.label == 'Continue'),
+    ),
+  );
+  expect(inFooter, findsOneWidget, reason: '$step Continue in card footer');
 }

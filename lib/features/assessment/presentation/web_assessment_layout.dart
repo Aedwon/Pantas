@@ -9,6 +9,7 @@ import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
+import 'package:pantas/core/ui/web/letter_shortcuts.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_key_focus.dart';
 import 'package:pantas/core/ui/web/web_question.dart';
@@ -50,20 +51,13 @@ class WebAssessmentLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = context.webTokens;
-    return CallbackShortcuts(
+    return LetterShortcuts(
+      also: {const SingleActivator(LogicalKeyboardKey.escape): onLeave},
       bindings: {
-        const SingleActivator(LogicalKeyboardKey.escape): onLeave,
-        for (final (i, key) in const [
-          LogicalKeyboardKey.keyA,
-          LogicalKeyboardKey.keyB,
-          LogicalKeyboardKey.keyC,
-          LogicalKeyboardKey.keyD,
-          // Some questions have five choices, and the letter must work for
-          // each one the page shows.
-          LogicalKeyboardKey.keyE,
-          LogicalKeyboardKey.keyF,
-        ].indexed)
-          SingleActivator(key): () {
+        // Some questions have five choices, and the letter must work for
+        // each one the page shows.
+        for (final (i, key) in const ['a', 'b', 'c', 'd', 'e', 'f'].indexed)
+          key: () {
             if (i < question.choices.length) onPick(question.choices[i].id);
           },
       },

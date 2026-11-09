@@ -9,6 +9,7 @@ import 'package:go_router/go_router.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/letter_shortcuts.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/quiz/domain/quiz_session.dart';
@@ -285,7 +286,10 @@ void main() {
     late _Controller controller;
     late QuizSession before;
 
-    Future<void> pumpLive(WidgetTester tester) async {
+    Future<void> pumpLive(
+      WidgetTester tester, {
+      bool lettersOn = true,
+    }) async {
       debugWebPlatformOverride = true;
       addTearDown(() => debugWebPlatformOverride = null);
       tester.view.physicalSize = const Size(1440, 900);
@@ -311,9 +315,12 @@ void main() {
                 ),
             ),
           ],
-          child: MaterialApp(
-            theme: buildDarkTheme(web: true),
-            home: const QuizPage(examId: 'e', proIsActive: false),
+          child: LetterShortcutsScope(
+            enabled: lettersOn,
+            child: MaterialApp(
+              theme: buildDarkTheme(web: true),
+              home: const QuizPage(examId: 'e', proIsActive: false),
+            ),
           ),
         ),
       );
@@ -581,6 +588,38 @@ void main() {
       expect(picked(), 'a');
       await tester.sendKeyEvent(LogicalKeyboardKey.keyE);
       expect(picked(), 'a', reason: 'the question has two choices');
+    });
+
+    group('with Keyboard Shortcuts off', () {
+      testWidgets('A, B and E pick nothing', (tester) async {
+        await pumpLive(tester, lettersOn: false);
+        for (final key in [
+          LogicalKeyboardKey.keyA,
+          LogicalKeyboardKey.keyB,
+          LogicalKeyboardKey.keyE,
+        ]) {
+          await tester.sendKeyEvent(key);
+        }
+        expect(picked(), isNull);
+      });
+
+      testWidgets('F does not flag and G does not open the list',
+          (tester) async {
+        await pumpLive(tester, lettersOn: false);
+        await tester.sendKeyEvent(LogicalKeyboardKey.keyF);
+        await tester.sendKeyEvent(LogicalKeyboardKey.keyG);
+        await tester.pump(const Duration(milliseconds: 500));
+        expect(find.text('Flagged. Find it in the Quiz tab.'), findsNothing);
+        expect(find.text('Questions'), findsNothing);
+      });
+
+      testWidgets('Esc still asks to leave and Enter still works',
+          (tester) async {
+        await pumpLive(tester, lettersOn: false);
+        await tester.sendKeyEvent(LogicalKeyboardKey.escape);
+        await tester.pumpAndSettle();
+        expect(find.text('Leave this session?'), findsOneWidget);
+      });
     });
 
     testWidgets('F flags and does not pick', (tester) async {

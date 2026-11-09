@@ -45,6 +45,7 @@ const _honored = <String>{
   '/pro',
   '/settings/practice',
   '/settings/appearance',
+  '/settings/accessibility',
   '/settings/exam',
   '/settings/exam/change',
   '/settings/exam/transfer',

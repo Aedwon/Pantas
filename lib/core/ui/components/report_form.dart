@@ -13,6 +13,7 @@ import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
+import 'package:pantas/core/ui/web/letter_shortcuts.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_keyboard_hints.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -603,7 +604,7 @@ class _ReportButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final t = context.webTokens;
     final off = onPressed == null && !busy;
-    final showHint = keyHint != null && WebKeyboardHints.visibleOf(context);
+    final showHint = keyHintShown(context, keyHint);
     return TextButton(
       onPressed: busy ? null : onPressed,
       style: TextButton.styleFrom(

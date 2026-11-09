@@ -1,11 +1,56 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/letter_shortcuts.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/mock_exam/presentation/mock_hourglass.dart';
 import 'package:pantas/features/mock_exam/presentation/pause_page.dart';
 
 void main() {
+  for (final lettersOn in [true, false]) {
+    testWidgets(
+        'wide: P resumes only while Keyboard Shortcuts is on '
+        '(setting on: $lettersOn)', (tester) async {
+      debugWebPlatformOverride = true;
+      addTearDown(() => debugWebPlatformOverride = null);
+      tester.view.physicalSize = const Size(1440, 900);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      var resumed = 0;
+      await tester.pumpWidget(
+        LetterShortcutsScope(
+          enabled: lettersOn,
+          child: MaterialApp(
+            theme: buildLightTheme(web: true),
+            home: MediaQuery(
+              data: const MediaQueryData(
+                size: Size(1440, 900),
+                disableAnimations: true,
+              ),
+              child: PausePage(
+                partNames: const ['General Information'],
+                currentPartIndex: 0,
+                remaining: const Duration(minutes: 30),
+                partLength: const Duration(minutes: 90),
+                answeredCount: 3,
+                onResume: () => resumed++,
+                onDiscard: () {},
+              ),
+            ),
+          ),
+        ),
+      );
+      await tester.pump();
+      await tester.sendKeyEvent(LogicalKeyboardKey.keyP);
+      expect(resumed, lettersOn ? 1 : 0);
+      // Enter is not a character key and always resumes.
+      await tester.sendKeyEvent(LogicalKeyboardKey.enter);
+      expect(resumed, lettersOn ? 2 : 1);
+    });
+  }
+
   testWidgets('enabling reduced motion stops the paused clock and hourglass',
       (tester) async {
     debugWebPlatformOverride = true;

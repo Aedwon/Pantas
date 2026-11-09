@@ -12,6 +12,7 @@ import 'check.dart';
 import 'custom_subject_tiers.dart';
 import 'design_token_literals.dart';
 import 'lesson_list_exam_scope.dart';
+import 'letter_shortcut_gate.dart';
 import 'mock_blueprint_topics.dart';
 import 'shell_route_push.dart';
 import 'sync_mutations_typed_read.dart';
@@ -24,6 +25,7 @@ const allChecks = <Check>[
   LessonListExamScopeCheck(),
   DesignTokenLiteralsCheck(),
   CustomSubjectTiersCheck(),
+  LetterShortcutGateCheck(),
 ];
 
 void main() {

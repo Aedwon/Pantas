@@ -8,6 +8,7 @@ import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/content_renderer.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/letter_shortcuts.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/home/domain/lesson_day_context.dart';
@@ -418,6 +419,76 @@ void main() {
       await tester.pumpAndSettle();
       expect(find.text('Choose your exam'), findsOneWidget);
       expect(find.text('Choose Exam'), findsOneWidget);
+    });
+    testWidgets(
+        'with Keyboard Shortcuts off B does not bookmark '
+        'and the tooltip drops the letter $brightness', (tester) async {
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      final scroll = ScrollController();
+      final offset = ValueNotifier<double>(0);
+      final progress = ValueNotifier<double>(0);
+      addTearDown(scroll.dispose);
+      addTearDown(offset.dispose);
+      addTearDown(progress.dispose);
+      var bookmarks = 0;
+      var advanced = 0;
+      const reader = ReaderContext(
+        lesson: Lesson(
+          id: 'l1',
+          topicId: 't1',
+          title: 'Layers',
+          summary: '',
+          estimatedMinutes: 11,
+          bodyJson: [
+            {
+              '_type': 'block',
+              'style': 'normal',
+              'children': [
+                {'text': 'Earth has several layers.'},
+              ],
+            },
+          ],
+        ),
+        topicId: 't1',
+        topicName: 'Earth Science',
+        next: second,
+        positionInTopic: 1,
+        lessonsInTopic: 2,
+        topicLessons: [first, second],
+        isRead: true,
+        isBookmarked: false,
+        examId: 'e',
+      );
+      await pump(
+        tester,
+        LetterShortcutsScope(
+          enabled: false,
+          child: WebReaderLayout(
+            reader: reader,
+            controller: scroll,
+            scrollOffset: offset,
+            progress: progress,
+            onBack: () {},
+            onBookmark: () => bookmarks++,
+            onLesson: (_) {},
+            onNext: () => advanced++,
+            footer: const SizedBox(),
+            resumed: true,
+          ),
+        ),
+        brightness,
+        overrides: [appDatabaseProvider.overrideWithValue(db)],
+      );
+      await tester.pumpAndSettle();
+      expect(find.byTooltip('Bookmark this lesson'), findsOneWidget);
+      expect(find.byTooltip('Bookmark this lesson (B)'), findsNothing);
+      await tester.sendKeyEvent(LogicalKeyboardKey.keyB);
+      expect(bookmarks, 0);
+      // Arrow keys are not character keys and keep working.
+      await tester.sendKeyEvent(LogicalKeyboardKey.arrowRight);
+      expect(advanced, 1);
+      await tester.pumpWidget(const SizedBox());
     });
     testWidgets('wide reader outline, menu, B and focus bar $brightness',
         (tester) async {

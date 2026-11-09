@@ -360,7 +360,9 @@ void main() {
         // See all ends 12 px inside the right edge, on the label's line.
         final seeAll = tester.getRect(find.text('See all'));
         expect(seeAll.right, closeTo(card.right - 12, 0.01));
-        expect(tester.getSize(find.text('See all')).height, 20);
+        // Text height differs by platform (20 on macOS, 19 on Linux), so
+        // check the link is centered on the label's line, not its height.
+        expect(seeAll.center.dy, closeTo(label.center.dy, 0.01));
         // Rows 4 px under the header, side by side, 24 px apart.
         final left = find
             .ancestor(
@@ -378,14 +380,11 @@ void main() {
         expect(tester.getSize(right), Size(column, 36));
         expect(tester.getTopLeft(right).dx - tester.getTopRight(left).dx, 24);
         expect(tester.getTopLeft(right).dy, tester.getTopLeft(left).dy);
-        final header = tester.getRect(
-          find.ancestor(
-            of: find.text('See all'),
-            matching: find.byType(WebTextLink),
-          ),
-        );
+        // The header line is 20 px tall and starts 20 px under the card.
+        // Measured from that line, not the link's text box, whose height
+        // differs by platform.
         expect(
-          tester.getTopLeft(left).dy - header.bottom,
+          tester.getTopLeft(left).dy - (card.bottom + 20 + 20),
           closeTo(4, 0.01),
         );
         // The columns of the bookmarks line up with the subjects below.

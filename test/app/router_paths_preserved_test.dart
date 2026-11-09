@@ -50,6 +50,7 @@ void main() {
       '/settings',
       '/settings/practice',
       '/settings/appearance',
+      '/settings/accessibility',
       '/settings/account/name',
       '/settings/exam',
       '/settings/exam/change',
