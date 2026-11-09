@@ -565,6 +565,7 @@ class _EmailSignInPageState extends ConsumerState<EmailSignInPage> {
   // the laptop board puts it, and the code step grows downward from there so
   // the logo never moves between steps.
   static const _wideContent = 468.0;
+  static const _wideHeading = 560.0;
 
   Widget _wideLayout(SignInStyle style) {
     return SignInScroll(
@@ -583,8 +584,11 @@ class _EmailSignInPageState extends ConsumerState<EmailSignInPage> {
             children: [
               Padding(
                 padding: EdgeInsets.only(top: top),
+                // The heading is 48 px and needs more than the 420 px form
+                // column ("Welcome to Pantas" on one line), so the column is
+                // wider and the form keeps its 420.
                 child: ConstrainedBox(
-                  constraints: const BoxConstraints(maxWidth: 420),
+                  constraints: const BoxConstraints(maxWidth: _wideHeading),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -606,7 +610,12 @@ class _EmailSignInPageState extends ConsumerState<EmailSignInPage> {
                         child: StepSwitcher(
                           stepKey: _step,
                           delay: const Duration(milliseconds: 100),
-                          child: _form(style),
+                          child: Center(
+                            child: ConstrainedBox(
+                              constraints: const BoxConstraints(maxWidth: 420),
+                              child: _form(style),
+                            ),
+                          ),
                         ),
                       ),
                     ],
