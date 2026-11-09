@@ -752,7 +752,8 @@ class _PartList extends StatelessWidget {
                 textDirection: Directionality.of(context),
                 textScaler: scaler,
               )..layout(
-                  maxWidth: math.max(0, constraints.maxWidth - sideSpace));
+                  maxWidth: math.max(0, constraints.maxWidth - sideSpace),
+                );
               final h = painter.height;
               painter.dispose();
               return h <= lineHeight + 1 ? minRow : h + (minRow - lineHeight);
