@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/auth/providers.dart';
+import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_tag.dart';
-import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/features/paywall/paywall.dart';
 import 'package:pantas/features/settings/presentation/pages/pro_page.dart';
 
@@ -144,7 +144,9 @@ void main() {
         );
     final tag = tester.getRect(
       find.ancestor(
-          of: find.text('SAVE 32%'), matching: find.byType(PantasTag)),
+        of: find.text('SAVE 32%'),
+        matching: find.byType(PantasTag),
+      ),
     );
     // The tag clears the tile above by a gap, not by touching it.
     expect(tag.top, greaterThanOrEqualTo(tile('Monthly').bottom + 8));

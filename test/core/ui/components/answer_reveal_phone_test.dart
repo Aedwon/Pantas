@@ -41,7 +41,9 @@ void main() {
         expect(letter.style!.fontWeight, FontWeight.w700);
         final body = tester.widget<MathText>(
           find.widgetWithText(
-              MathText, 'Because the sum of the angles is 180 degrees.'),
+            MathText,
+            'Because the sum of the angles is 180 degrees.',
+          ),
         );
         expect(body.style!.fontSize, 15);
         expect(body.style!.height, 1.5);
