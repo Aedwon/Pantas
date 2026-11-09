@@ -23,6 +23,42 @@ import '../../../helpers/in_memory_database.dart';
 import '../../../helpers/pump_app.dart';
 
 void main() {
+  // Nov 8 Backup records its time in sync_meta after every backup. That is
+  // bookkeeping, and counting it made Home call its server reads again after
+  // each answer was backed up.
+  test('the backup time does not move the study core epoch', () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final container = ProviderContainer(
+      overrides: [appDatabaseProvider.overrideWithValue(db)],
+    );
+    addTearDown(container.dispose);
+    final seen = <int>[];
+    container.listen<AsyncValue<int>>(
+      studyCoreEpochProvider,
+      (_, next) => next.whenData(seen.add),
+      fireImmediately: true,
+    );
+    await pumpEventQueue();
+    expect(seen, [0]);
+
+    await db.into(db.syncMeta).insertOnConflictUpdate(
+          SyncMetaCompanion.insert(
+            key: 'last_backup_at:user-1',
+            value: '2026-11-09T00:00:00.000Z',
+          ),
+        );
+    await pumpEventQueue();
+    expect(seen, [0]);
+
+    // Any other bookkeeping, such as a full pull marker, still counts.
+    await db.into(db.syncMeta).insertOnConflictUpdate(
+          SyncMetaCompanion.insert(key: 'pending_full_pull', value: '1'),
+        );
+    await pumpEventQueue();
+    expect(seen.last, greaterThan(0));
+  });
+
   test('a changed token fails the read in hand and renews the reader',
       () async {
     final db = inMemoryDatabase();
