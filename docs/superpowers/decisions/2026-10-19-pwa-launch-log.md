@@ -2775,3 +2775,24 @@ Asked by the manager thread on Aedwon's "for the rest of items, please finish th
 - **Legal texts round 2 and privacy batch spec (lead, Nov 9):** on `docs/legal-texts-r1` at d3550d824. The review file `docs/legal/drafts/2026-11-09-legal-texts-review.md` now holds the teen notice, Terms Subscriptions, telemetry basis, a full adult Privacy Policy (remedy 8) and the rewritten Terms use and liability sections (remedy 9). All are marked to publish with the privacy batch. Process: Sonnet draft, Codex GPT 6.1 Sol high critique, Sonnet revision, then lead fixes. Correction to remedy 2: the age check cannot rest on legitimate interest, because age is sensitive information and Sec. 12(f) covers only ordinary information. The age step gets one line, and Continue is the permission (spec choice 11). The critique also added: adult study-record permission named in the setup acceptance, an "I'm 18 now" step that ends guardian controls (and closes the Nov 2 gap), ten-year guardian evidence (not nine, because some 12-year-olds pass the birth-year check), a liability cap of the greater of PHP 1,000 or 12 months' payments outside statutory damages, consumer venue left to the law, and the seven-day complaint line. The privacy batch spec and plan are `docs/superpowers/specs/2026-11-09-privacy-batch-design.md` and `docs/superpowers/plans/2026-11-09-privacy-batch-plan.md`: not built; the manager starts the batch after the redesign release and the bug fixes merge. Boards are needed for the guardian manage page and the minor checkout box. Owner inputs the batch needs (for the founder app): the real guardian mail key on prod, a confirmed sender address, and a monitored dpo inbox. Firestore confirmed in asia-southeast1. The Analytics retention setting is not readable with the current sign-in.
 - **Your record after another device's changes: ruling reversed (manager thread, Nov 9).** The manager did not accept the lead's "known limit": "I do not accept it as a known limit. It is a regression that has been live on prod since Nov 8, and beta testers use several devices. Find the root cause and fix it with a test that fails on the old code." Lead's correction: prod does refresh today, but only as a side effect of the backup-time write that also re-runs Home's server reads; the regression came from the unreleased f5d8d2926. Root cause: Sync writes incoming rows without any feature repository knowing, so local readers had no real signal. Fix at d862bfe9f: the pull step moves one `sync_meta` marker (`remote_rows_applied`) when a snapshot applies rows another device wrote, or a row the cloud no longer has; the study epoch counts it, while this device's own echoes and its backup time still do not. A focused GPT 6.1 Sol review found two gaps, both fixed at 641837de5: a push that loses to another device's newer row applied it without the marker, and a snapshot failing on a later row skipped the marker for rows it had already applied. Each has a test that fails before. Not re-reviewed after those two fixes.
 - **Gitleaks on the mirror branch:** run 42595983357's static job flagged the App Check site key in `tool/deploy/staging_web.sh` (candidate commit 10b2a5ea4, not this branch). It is a public reCAPTCHA site key; the release lane owns whether to allowlist it.
+
+## PayMongo readiness and the manager queue (Aedwon, Nov 9)
+
+- **Question (Aedwon):** whether PayMongo was ever tested, and whether users can buy Pro after the beta.
+- **Answer:** no end-to-end checkout has run, in test mode or live. The code is built and covered by fake-server tests. The test keys and the webhook have been on pantas-prod since Oct 31; the runbook's "confirm after deploy" step is still open.
+- **Path to purchase-ready:**
+  1. A full test-mode run on staging: a test card and QR Ph grant Pro, and a refund revokes it. An agent runs it headless.
+  2. PayMongo live activation. Needs Aedwon's verified merchant account and likely BIR registration.
+  3. Swap in the live keys and confirm one real small payment.
+  4. Publish the Terms and privacy texts with the privacy batch.
+  5. Turn off the beta gate for the public.
+- **Decision (Aedwon, verbatim):** "okay, put that in the queue first hehe". Step 1 joins the manager's queue.
+- **Manager queue, in order:**
+  - Running: the DS4 release candidate, the bug fixes, custom exams, the legal texts, and the beta monitor every 6 hours.
+  - Queued:
+    1. DS4 guardrails
+    2. The PayMongo test-mode run (step 1)
+    3. DS4 completion
+    4. The privacy app batch, after the redesign ships
+    5. The CET content finish
+    6. The founder app, including the Owner inputs tab
