@@ -178,12 +178,22 @@ class PantasComponentThemes {
       errorStyle: PantasType.webSmall.copyWith(color: colors.dangerText),
       prefixIconColor: colors.secondaryLabel,
       suffixIconColor: colors.secondaryLabel,
-      border: border(colors.controlOutline, PantasBorder.ring),
-      enabledBorder: border(colors.controlOutline, PantasBorder.ring),
-      focusedBorder: border(colors.accent, PantasBorder.ringSelected),
-      errorBorder: border(colors.danger, PantasBorder.ringSelected),
-      focusedErrorBorder: border(colors.danger, PantasBorder.ringSelected),
-      disabledBorder: border(colors.fill, PantasBorder.ring),
+      // One state-resolved border and no per-state borders: a field that sets
+      // `border: InputBorder.none` because its frame is drawn around it (the
+      // search field) then draws no second outline. Per-state theme borders
+      // would fill `enabledBorder` and win over the field's `none`.
+      border: WidgetStateInputBorder.resolveWith((states) {
+        if (states.contains(WidgetState.disabled)) {
+          return border(colors.fill, PantasBorder.ring);
+        }
+        if (states.contains(WidgetState.error)) {
+          return border(colors.danger, PantasBorder.ringSelected);
+        }
+        if (states.contains(WidgetState.focused)) {
+          return border(colors.accent, PantasBorder.ringSelected);
+        }
+        return border(colors.controlOutline, PantasBorder.ring);
+      }),
     );
   }
 

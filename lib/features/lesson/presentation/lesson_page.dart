@@ -1411,6 +1411,7 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody>
     return PantasSheet(
       label: 'Contents',
       readerContents: true,
+      scrollable: false,
       open: _contentsOpen,
       onDismiss: () => _setContents(false),
       page: SafeArea(

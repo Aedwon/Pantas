@@ -7,6 +7,7 @@ import 'package:go_router/go_router.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/pantas_button_parts.dart';
 import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_consent_step.dart';
@@ -219,6 +220,13 @@ void main() {
     for (final link in ['Terms of Service', 'Privacy Policy']) {
       expect(styleOf(link)?.fontSize, sentence?.fontSize, reason: link);
       expect(styleOf(link)?.height, sentence?.height, reason: link);
+      // An inline link takes no 44px box, so the wrapped sentence keeps
+      // its own line spacing (WCAG 2.5.8 exempts inline links).
+      expect(
+        find.ancestor(of: find.text(link), matching: find.byType(TouchTarget)),
+        findsNothing,
+        reason: link,
+      );
     }
   });
 

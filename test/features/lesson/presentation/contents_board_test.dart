@@ -196,6 +196,7 @@ void main() {
     List<Override> overrides = const [],
     void Function(String)? onSelect,
     ReaderContext readerContext = reader,
+    Size? viewport,
   }) async {
     await pumpAccessibilitySurface(
       tester,
@@ -209,6 +210,7 @@ void main() {
           page: const SizedBox.expand(),
           label: 'Contents',
           readerContents: true,
+          scrollable: false,
           open: true,
           onDismiss: () {},
           child: LessonContentsSheet(
@@ -219,7 +221,8 @@ void main() {
           ),
         ),
       ),
-      viewportSize: Size(scale == 1 ? 390 : 320, scale == 1 ? 844 : 640),
+      viewportSize:
+          viewport ?? Size(scale == 1 ? 390 : 320, scale == 1 ? 844 : 640),
       textScale: scale,
       brightness: dark ? Brightness.dark : Brightness.light,
       disableAnimations: true,
@@ -327,8 +330,10 @@ void main() {
       final gradient =
           (tester.widget<DecoratedBox>(fade).decoration as BoxDecoration)
               .gradient! as LinearGradient;
-      final surface =
-          dark ? PantasColors.dark.surface : PantasColors.light.surface;
+      // The fade blends into the sheet, not the page behind it.
+      final surface = dark
+          ? PantasColors.dark.surfaceModal
+          : PantasColors.light.surfaceModal;
       expect(gradient.colors, [surface.withValues(alpha: 0), surface]);
       expect(gradient.begin, Alignment.topCenter);
       expect(gradient.end, Alignment.bottomCenter);
@@ -388,6 +393,54 @@ void main() {
     expect(find.byKey(const ValueKey('contents-fade')), findsOneWidget);
     await tester.tap(find.text('Lesson 20'));
     expect(selected, 'l20');
+    expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('a short screen: one grabber, and the list scrolls to its end',
+      (tester) async {
+    final longReader = ReaderContext(
+      lesson: reader.lesson,
+      topicId: reader.topicId,
+      topicName: reader.topicName,
+      next: reader.next,
+      positionInTopic: 1,
+      lessonsInTopic: 12,
+      topicLessons: [
+        first,
+        readLesson,
+        unread,
+        for (var i = 4; i <= 12; i++)
+          StudyLesson(
+            id: 'l$i',
+            title: 'Lesson $i',
+            estimatedMinutes: 10,
+            isRead: false,
+            isBookmarked: false,
+          ),
+      ],
+      isRead: false,
+      isBookmarked: false,
+      examId: reader.examId,
+    );
+    String? selected;
+    await pumpContents(
+      tester,
+      readerContext: longReader,
+      onSelect: (id) => selected = id,
+      viewport: const Size(390, 420),
+    );
+    expect(find.byType(PantasSheetGrabber), findsOneWidget);
+    final list = find.byKey(const ValueKey('contents-topic-list'));
+    expect(tester.getSize(list).height, lessThan(400));
+    await tester.drag(list, const Offset(0, -1400));
+    await tester.pumpAndSettle();
+    final scroll = tester.state<ScrollableState>(
+      find.descendant(of: list, matching: find.byType(Scrollable)),
+    );
+    expect(scroll.position.pixels, greaterThan(0));
+    expect(scroll.position.extentAfter, 0);
+    await tester.tap(find.text('Lesson 12'));
+    expect(selected, 'l12');
     expect(tester.takeException(), isNull);
   });
 

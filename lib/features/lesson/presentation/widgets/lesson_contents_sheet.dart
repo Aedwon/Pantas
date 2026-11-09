@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/time/pantas_dates.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
-import 'package:pantas/core/ui/components/pantas_sheet.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -115,17 +114,7 @@ class LessonContentsSheet extends ConsumerWidget {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Center(
-            child: Container(
-              width: PantasSheetGrabber.width,
-              height: PantasSheetGrabber.height,
-              decoration: BoxDecoration(
-                color: context.colors.dividerStrong,
-                borderRadius: BorderRadius.circular(PantasRadius.full),
-              ),
-            ),
-          ),
-          const SizedBox(height: PantasSpace.s6),
+          // The grabber is the PantasSheet's own; the list draws none.
           Padding(
             padding: const EdgeInsets.fromLTRB(
               PantasSpace.s0,
@@ -140,41 +129,46 @@ class LessonContentsSheet extends ConsumerWidget {
             ),
           ),
           const SizedBox(height: PantasSpace.s6),
+          // The list takes the height the sheet has left and scrolls inside
+          // it; the sheet itself does not scroll (`scrollable: false`), so
+          // there is one scroll view and a drag always moves the list.
           if (topic)
-            Stack(
-              children: [
-                ConstrainedBox(
-                  constraints: const BoxConstraints(maxHeight: 400),
-                  child: SingleChildScrollView(
-                    key: const ValueKey('contents-topic-list'),
-                    child: rows,
+            Flexible(
+              child: Stack(
+                children: [
+                  ConstrainedBox(
+                    constraints: const BoxConstraints(maxHeight: 400),
+                    child: SingleChildScrollView(
+                      key: const ValueKey('contents-topic-list'),
+                      child: rows,
+                    ),
                   ),
-                ),
-                Positioned(
-                  left: 0,
-                  right: 0,
-                  bottom: 0,
-                  height: 56,
-                  child: IgnorePointer(
-                    child: DecoratedBox(
-                      key: const ValueKey('contents-fade'),
-                      decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                          colors: [
-                            context.colors.surface.withValues(alpha: 0),
-                            context.colors.surface,
-                          ],
+                  Positioned(
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    height: 56,
+                    child: IgnorePointer(
+                      child: DecoratedBox(
+                        key: const ValueKey('contents-fade'),
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                            colors: [
+                              context.colors.surfaceModal.withValues(alpha: 0),
+                              context.colors.surfaceModal,
+                            ],
+                          ),
                         ),
                       ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             )
           else
-            rows,
+            Flexible(child: SingleChildScrollView(child: rows)),
         ],
       ),
     );

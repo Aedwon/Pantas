@@ -108,6 +108,30 @@ void main() {
         expect(resolved.highlightColor, Colors.transparent);
         expect(resolved.hoverColor, colors.surfaceHover);
       });
+
+      test('a field that turns its border off draws no theme outline', () {
+        final fields = theme.inputDecorationTheme;
+        // Per-state theme borders would win over a field's `border: none`
+        // and draw a second outline inside a search box's own frame.
+        expect(fields.enabledBorder, isNull);
+        expect(fields.focusedBorder, isNull);
+        expect(fields.disabledBorder, isNull);
+        expect(fields.errorBorder, isNull);
+        expect(fields.focusedErrorBorder, isNull);
+        final bare = const InputDecoration(border: InputBorder.none)
+            .applyDefaults(fields);
+        expect(bare.border, InputBorder.none);
+        expect(bare.enabledBorder, isNull);
+        expect(bare.focusedBorder, isNull);
+        final plain = const InputDecoration().applyDefaults(fields);
+        final border = plain.border! as WidgetStateProperty<InputBorder>;
+        final rest = border.resolve({}) as OutlineInputBorder;
+        final focused =
+            border.resolve({WidgetState.focused}) as OutlineInputBorder;
+        expect(rest.borderSide.color, colors.controlOutline);
+        expect(focused.borderSide.color, colors.accent);
+        expect(rest.borderRadius, BorderRadius.circular(PantasRadius.md));
+      });
     });
   }
 }

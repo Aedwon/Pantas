@@ -345,7 +345,8 @@ class WebTextLink extends StatefulWidget {
   final VoidCallback? onPressed;
 
   /// Text style for a link set inside running text, so it matches the
-  /// sentence around it. Defaults to the TextLink label, 15/600.
+  /// sentence around it. Defaults to the TextLink label, 15/600. An inline
+  /// link takes no 44px touch box, so its lines keep the sentence's spacing.
   final TextStyle? style;
 
   /// The board's Home links are text only; other pages keep the arrow.
@@ -413,13 +414,15 @@ class _WebTextLinkState extends State<WebTextLink> {
         ),
       ),
     );
-    return TouchTarget(
-      child: PressScale(
-        scale: pantasPressScale,
-        enabled: enabled,
-        child: OffsetFocusRing(borderRadius: radius, child: link),
-      ),
+    final pressable = PressScale(
+      scale: pantasPressScale,
+      enabled: enabled,
+      child: OffsetFocusRing(borderRadius: radius, child: link),
     );
+    // A link set inside a sentence wraps with the text, so it takes no 44px
+    // box (inline links are exempt, WCAG 2.5.8); the box would open a gap
+    // between the sentence's lines.
+    return widget.style != null ? pressable : TouchTarget(child: pressable);
   }
 }
 
