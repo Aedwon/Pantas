@@ -147,6 +147,7 @@ Set counts per subject and tag are in the research note `tier-map.md` (session s
 - `functions` build copies it next to `examCatalog.json` (`package.json` build script). The app reads it as an asset beside the catalog.
 - New check `tool/checks/custom_subject_tiers.dart`: regenerates in memory and fails if the file differs, naming the subject. Test on a sample with a stale row, shown failing first (process-improvement rule 1).
 - A topic absent from the table (new content before the table is rebuilt) takes the tier of the highest-tier exam tagged on its sets, never the lowest, so an unmapped topic cannot lower a price. The check makes this state short-lived.
+- Build ruling, 9 November (after the GPT 6.1 Sol High audit): the server does not hold each topic's exam tags at run time, so a kept topic that is in the custom corpus but in neither `subjects[].topicIds` nor `topicTiers` raises the tier to the top of the ladder (Licensure). It fails closed and can never under-price. Where a caller has no corpus loaded (`mockReader` reads, `getCustomTracks`, the `advanceStudyRoadmap` replay check), the tier comes from the table alone; recorded as a known limit, since that window exists only when hosted content runs ahead of the functions deploy. Deploy order: functions (which carry the table) before a content upload that adds topics.
 
 ## 2.4 Server
 
@@ -167,6 +168,8 @@ Set counts per subject and tag are in the research note `tier-map.md` (session s
 | `customTracks.ts` `readCustomTracks` | no tier | adds `priceTier` per track, computed |
 | `roadmap.ts` `advanceStudyRoadmap` replay check (found during the build) | false | `coversCustom`, the same as `studyContext` |
 | `content.ts` | per set tags | unchanged |
+| `sessionDiagnosis.ts` notes (audit fix) | every note once the exam is covered | per question by its set's exam tags, the same helper as `content.ts` (`_setCoverage.ts`) |
+| `mock.ts` `beginMock` (audit fix) | coverage read after assembly | the higher tier of the exclusions the paper was drawn from and the exclusions read in the coverage transaction |
 
 **Listed exams:** no response, digest or cache key changes. The existing listed regression fixtures stay byte-identical.
 

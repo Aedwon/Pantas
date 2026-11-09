@@ -7,7 +7,7 @@ import {allowAtMost} from './_limits.js';
 import {checkAnswers, checkDuration, type Answer} from './_answers.js';
 import {core} from './_core.js';
 import {applyScope, loadCorpusCached, loadExamContent} from './_examContent.js';
-import {coversStudyExam, customExclusions, customTrackRef, isCustomExamId, isStudyExamId} from './_customTrack.js';
+import {coversStudyExam, customExclusions, customTrackRef, isCustomExamId, isStudyExamId, paperTier} from './_customTrack.js';
 import {mockCoverage} from './mockAccess.js';
 import {checkPaperAnswers, recordMockAnswers} from './mockAnswers.js';
 import {timed} from './_timed.js';
@@ -291,8 +291,12 @@ export async function beginMock(auth: Auth, data: unknown, deps: MockDeps): Prom
         throw new HttpsError('failed-precondition', 'Free accounts can take one mock every 30 days.');
       }
     }
+    // A custom paper pins its tier, so the readers never judge it below the tier it was drawn at.
+    const customTier = assembled.customScope ? paperTier(exclusions.get(examId) ?? [],
+      assembled.customScope.excludedTopicIds, assembled.customScope.corpusTopicIds) : undefined;
     const row = {examId, status: 'started', startedAt: now, strict, limitMs, seed, paper, answers: [] as Answer[],
-      pausedMs: 0, pausedAt: null, ...(typeof examName === 'string' ? {examName} : {}), ...(parts ? {parts} : {})};
+      pausedMs: 0, pausedAt: null, ...(typeof examName === 'string' ? {examName} : {}), ...(parts ? {parts} : {}),
+      ...(customTier ? {customTier} : {})};
     transaction.create(ref, row);
     return {...view(ref.id, row, now), resumed: false};
   });

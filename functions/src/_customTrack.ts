@@ -125,6 +125,12 @@ export function customTier(excludedTopicIds: readonly string[], corpusTopicIds?:
 }
 
 /** The higher of two ladder tiers. */
+/** The tier a custom mock row pins at start: the higher of the two exclusion reads beginMock compares. */
+export function paperTier(exclusions: readonly string[], assembled: readonly string[], corpusTopicIds?: Iterable<string>): PriceTier {
+  const corpus = corpusTopicIds ? [...corpusTopicIds] : undefined;
+  return higherTier(customTier(exclusions, corpus), customTier(assembled, corpus));
+}
+
 export const higherTier = (a: PriceTier, b: PriceTier): PriceTier => LADDER[Math.max(LADDER.indexOf(a), LADDER.indexOf(b))];
 
 type Covers = {coversExam(examId: string): boolean; coversCustom(tier: PriceTier): boolean};
@@ -157,10 +163,15 @@ export async function customExclusions(tx: Transaction, db: Firestore, uid: stri
  * counts, so a concurrent edit that lowers the tier between them cannot lower the price of what was built.
  */
 export function coversStudyExam(access: Covers, examId: string, exclusions: ReadonlyMap<string, string[]>,
-  options: {corpusTopicIds?: Iterable<string>; assembledExclusions?: readonly string[]} = {}): boolean {
+  options: {corpusTopicIds?: Iterable<string>; assembledExclusions?: readonly string[]; pinnedTier?: unknown} = {}): boolean {
   if (!isCustomExamId(examId)) return access.coversExam(examId);
   const corpus = options.corpusTopicIds ? [...options.corpusTopicIds] : undefined;
   let tier = customTier(exclusions.get(examId) ?? [], corpus);
   if (options.assembledExclusions) tier = higherTier(tier, customTier(options.assembledExclusions, corpus));
+  // A mock row pins the tier its paper was drawn at, so narrowing the subjects later cannot lower the
+  // tier its results and review are read at. A stored value that is not a tier fails closed.
+  if ('pinnedTier' in options && options.pinnedTier !== undefined) {
+    tier = higherTier(tier, LADDER.includes(options.pinnedTier as PriceTier) ? options.pinnedTier as PriceTier : 'licensure');
+  }
   return access.coversCustom(tier);
 }

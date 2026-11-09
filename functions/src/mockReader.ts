@@ -72,7 +72,7 @@ export async function serveMockResults(auth: Auth, data: unknown, deps: Deps) {
     const row = snapshot.data()!;
     const access = await mockCoverage(transaction, deps.db, uid, now);
     const exclusions = await customExclusions(transaction, deps.db, uid, [row.examId]);
-    const result = summary(id, row, coversStudyExam(access, row.examId, exclusions), now, access.recheckAt);
+    const result = summary(id, row, coversStudyExam(access, row.examId, exclusions, {pinnedTier: row.customTier}), now, access.recheckAt);
     await recordMockAnswers(transaction, deps.db, uid, id, row, now);
     return {...result, ...(result.canReview ? {paper: row.paper, answers: row.answers} : {}),
       ...(result.proCovered ? {notes: row.reviewNotes ?? {}} : {})};
@@ -130,7 +130,7 @@ export async function serveMockHistory(auth: Auth, data: unknown, deps: Deps) {
     const page = rows.docs.slice(0, limit);
     const last = page.at(-1);
     const exclusions = await customExclusions(transaction, deps.db, uid, page.map(d => d.get('examId')));
-    return {items: page.map(d => summary(d.id, d.data(), coversStudyExam(access, d.get('examId'), exclusions), now, access.recheckAt)),
+    return {items: page.map(d => summary(d.id, d.data(), coversStudyExam(access, d.get('examId'), exclusions, {pinnedTier: d.get('customTier')}), now, access.recheckAt)),
       next: rows.size > limit && last ? {submittedAt: last.get('submittedAt') as number, mockId: last.id} : null};
   });
 }
@@ -149,7 +149,7 @@ export async function writeMockReview(auth: Auth, data: unknown, deps: Deps) {
     const row = snapshot.data()!;
     const access = await mockCoverage(transaction, deps.db, uid, now);
     const exclusions = await customExclusions(transaction, deps.db, uid, [row.examId]);
-    const result = summary(id, row, coversStudyExam(access, row.examId, exclusions), now, access.recheckAt);
+    const result = summary(id, row, coversStudyExam(access, row.examId, exclusions, {pinnedTier: row.customTier}), now, access.recheckAt);
     if (!result.proCovered) throw new HttpsError('permission-denied', 'Pro is required for notes.');
     if (!row.paper.sections.some((s: {questions: {id: string}[]}) => s.questions.some(q => q.id === questionId))) throw bad('Question is not on this paper.');
     // Replace one question atomically without interpreting dots in a content id as field paths.

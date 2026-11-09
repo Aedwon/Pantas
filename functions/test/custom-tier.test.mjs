@@ -113,3 +113,13 @@ test('mock coverage uses the higher tier of the exclusions the paper was assembl
   // A listed exam ignores both.
   assert.equal(coversStudyExam(access('student', ['exam_cse_pro']), 'exam_cse_pro', new Map(), {assembledExclusions: []}), true);
 });
+
+test('a mock keeps the tier it was started at, so narrowing later cannot lower its review below it', () => {
+  const student = new Map([[CUSTOM, GENERAL.topicIds]]);
+  assert.equal(coversStudyExam(access('student'), CUSTOM, student), true);
+  assert.equal(coversStudyExam(access('student'), CUSTOM, student, {pinnedTier: 'civilService'}), false);
+  assert.equal(coversStudyExam(access('civilService'), CUSTOM, student, {pinnedTier: 'civilService'}), true);
+  assert.equal(coversStudyExam(access('student'), CUSTOM, student, {pinnedTier: 'student'}), true);
+  assert.equal(coversStudyExam(access('student'), CUSTOM, student, {pinnedTier: 'not-a-tier'}), false,
+    'a malformed stored tier fails closed');
+});
