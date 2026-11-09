@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pantas/core/ui/components/pantas_field.dart';
 import 'package:pantas/core/ui/components/pantas_slider.dart';
 import 'package:pantas/core/ui/leave_page.dart';
 import 'package:pantas/core/ui/motion/press_scale.dart';
@@ -69,7 +70,6 @@ class AppearancePage extends ConsumerWidget {
           ),
           const SizedBox(height: PantasSpace.s24),
           SettingsSection(
-            header: 'Text size',
             footer: 'Lessons and questions use this size. '
                 '$commandKeyLabel + and $commandKeyLabel − still zoom the '
                 'whole page.',
@@ -170,7 +170,6 @@ class AppearancePage extends ConsumerWidget {
         ),
         const SizedBox(height: PantasSpace.s20),
         SettingsSection(
-          header: 'Text size',
           footer: 'Lessons and questions use this size.',
           children: [
             Padding(
@@ -458,11 +457,20 @@ class _TextSizeSlider extends StatelessWidget {
   Widget build(BuildContext context) {
     final value = scale.clamp(1.0, 2.0);
     final shown = value.toStringAsFixed(1);
-    return PantasSlider(
-      value: value,
-      onChanged: onChanged,
-      valueText: '$shown\u00d7',
-      semanticValue: '$shown times',
+    // Slider README: the visible label is above the control, 13/600
+    // `text-secondary` (`field__label`), not a section eyebrow.
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        const PantasFieldLabel('Lesson Text Size'),
+        const SizedBox(height: PantasSpace.s6),
+        PantasSlider(
+          value: value,
+          onChanged: onChanged,
+          valueText: '$shown\u00d7',
+          semanticValue: '$shown times',
+        ),
+      ],
     );
   }
 }
