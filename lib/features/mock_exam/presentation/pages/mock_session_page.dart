@@ -16,6 +16,7 @@ import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_button_spec.dart';
 import 'package:pantas/core/ui/components/pantas_icon_button.dart';
 import 'package:pantas/core/ui/components/pantas_timer.dart';
+import 'package:pantas/core/ui/components/question_navigator_grid.dart';
 import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/components/toast.dart';
@@ -45,7 +46,6 @@ import 'package:pantas/features/mock_exam/domain/part_clock.dart';
 import 'package:pantas/features/mock_exam/presentation/mock_clock.dart';
 import 'package:pantas/features/mock_exam/presentation/proctor_toast.dart';
 import 'package:pantas/features/mock_exam/presentation/widgets/mock_proctor_sound.dart';
-import 'package:pantas/features/mock_exam/presentation/widgets/question_navigator_chip.dart';
 import 'package:pantas/features/mock_exam/presentation/widgets/web_mock_dialog.dart';
 import 'package:pantas/features/mock_exam/presentation/widgets/web_mock_panel_tab.dart';
 
@@ -622,34 +622,20 @@ class _MockSessionPageState extends State<MockSessionPage> {
     // QuestionNavigator chip: blank is a `border-control` ring on the card;
     // answered is the `divider` fill with no ring; the current one has the
     // heavy `text-primary` ring; a flag is an `accent` dot on any state.
-    Widget grid(List<String> questionIds, {bool enabled = true}) => Wrap(
-          spacing: PantasSpace.s8,
-          runSpacing: PantasSpace.s8,
-          children: [
+    Widget grid(List<String> questionIds, {bool enabled = true}) =>
+        QuestionNavigatorGrid(
+          scrollCurrentIntoView: false,
+          questions: [
             for (final (i, id) in questionIds.indexed)
-              Builder(
-                builder: (context) {
-                  final current = id == widget.state.currentQuestionId;
-                  final answered = enabled && _isAnswered(id);
-                  final flagged = widget.state.flags.contains(id);
-                  final name = !enabled
-                      ? 'Question ${i + 1}, locked'
-                      : 'Question ${i + 1}'
-                          '${current ? ', current' : ''}'
-                          ', ${answered ? 'answered' : 'blank'}'
-                          '${flagged ? ', flagged' : ''}';
-                  return QuestionNavigatorChip(
-                    number: i + 1,
-                    name: name,
-                    enabled: enabled,
-                    answered: answered,
-                    current: current,
-                    flagged: flagged,
-                    onTap: () => _goToPartQuestion(i + 1),
-                  );
-                },
+              NavigatorQuestion(
+                number: i + 1,
+                enabled: enabled,
+                answered: enabled && _isAnswered(id),
+                current: id == widget.state.currentQuestionId,
+                flagged: widget.state.flags.contains(id),
               ),
           ],
+          onSelected: _goToPartQuestion,
         );
     final panel = Container(
       key: const ValueKey('web-mock-panel'),
@@ -992,6 +978,14 @@ class _MockSessionPageState extends State<MockSessionPage> {
                                             ),
                                           WebBottomBar(
                                             compact: true,
+                                            // After an answer is picked a mock
+                                            // has no reveal: the hint says it
+                                            // is saved (FloatingBar README).
+                                            hint: _isAnswered(
+                                              widget.state.currentQuestionId,
+                                            )
+                                                ? 'Saved on this device'
+                                                : null,
                                             gap: PantasSpace.s6,
                                             counterPadding:
                                                 const EdgeInsets.symmetric(

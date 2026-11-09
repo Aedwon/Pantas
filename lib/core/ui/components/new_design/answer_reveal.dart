@@ -6,6 +6,7 @@ import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
 
 class AnswerReveal extends StatelessWidget {
   const AnswerReveal({
@@ -13,13 +14,24 @@ class AnswerReveal extends StatelessWidget {
     required this.explanation,
     this.pickedLetter,
     this.wrongPick,
+    this.onShowPassage,
     super.key,
   });
   final String correctLetter;
   final String explanation;
   final String? pickedLetter;
   final String? wrongPick;
-  Widget note(BuildContext context, String letter, String label, String body) =>
+
+  /// For a passage item: "Show Passage" at the right end of the head opens the
+  /// passage in a Sheet (Explanation README, R3-O08).
+  final VoidCallback? onShowPassage;
+  Widget note(
+    BuildContext context,
+    String letter,
+    String label,
+    String body, {
+    VoidCallback? onShowPassage,
+  }) =>
       DecoratedBox(
         decoration: BoxDecoration(
           border: Border(
@@ -64,12 +76,27 @@ class AnswerReveal extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      label,
-                      style: PantasType.phoneFootnote.copyWith(
-                        fontWeight: FontWeight.w500,
-                        color: context.colors.textSecondary,
-                      ),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Text(
+                            label,
+                            style: PantasType.phoneFootnote.copyWith(
+                              fontWeight: FontWeight.w500,
+                              color: context.colors.textSecondary,
+                            ),
+                          ),
+                        ),
+                        if (onShowPassage != null)
+                          WebTextLink(
+                            label: 'Show Passage',
+                            arrow: false,
+                            style: PantasType.phoneFootnote.copyWith(
+                              fontWeight: FontWeight.w600,
+                            ),
+                            onPressed: onShowPassage,
+                          ),
+                      ],
                     ),
                     const SizedBox(height: PantasSpace.s4),
                     MathText(
@@ -103,7 +130,13 @@ class AnswerReveal extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            note(context, correctLetter, 'Correct answer', explanation),
+            note(
+              context,
+              correctLetter,
+              'Correct answer',
+              explanation,
+              onShowPassage: onShowPassage,
+            ),
             if (wrongPick != null && pickedLetter != null) ...[
               const SizedBox(height: PantasSpace.s12),
               note(context, pickedLetter!, 'Your pick', wrongPick!),

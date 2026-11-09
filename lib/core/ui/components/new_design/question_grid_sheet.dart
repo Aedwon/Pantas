@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/pantas_sheet.dart';
-import 'package:pantas/core/ui/icons/pantas_icons.dart';
+import 'package:pantas/core/ui/components/question_navigator_grid.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
-import 'package:pantas/core/ui/theme/tokens/pantas_border.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_opacity.dart';
-import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 
@@ -67,51 +65,24 @@ class QuestionGridSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final c = context.colors;
-    Color numberColor(GridQuestion question) {
-      if (question.current && question.state == GridQuestionState.unreached) {
-        return c.textPrimary;
-      }
-      return switch (question.state) {
-        GridQuestionState.right =>
-          Theme.of(context).brightness == Brightness.dark
-              ? c.textPrimary
-              : c.accentTintText,
-        GridQuestionState.wrong => c.dangerText,
-        GridQuestionState.unreached => c.textSecondary,
-        GridQuestionState.answered => c.textPrimary,
-      };
-    }
-
-    FontWeight numberWeight(GridQuestion question) => question.current
-        ? FontWeight.w800
-        : question.state == GridQuestionState.unreached
-            ? FontWeight.w400
-            : FontWeight.w600;
-
-    String questionLabel(GridQuestion question) {
-      final result = switch (question.state) {
-        GridQuestionState.right => 'correct',
-        GridQuestionState.wrong => 'wrong',
-        GridQuestionState.answered => 'answered',
-        GridQuestionState.unreached => 'not reached',
-      };
-      return 'Question ${question.number}'
-          '${question.current ? ', current' : ''}, $result'
-          '${question.flagged ? ', flagged' : ''}';
-    }
-
-    VoidCallback? actionFor(GridQuestion question, {required bool enabled}) {
-      if (!enabled ||
-          (!mock &&
-              question.state == GridQuestionState.unreached &&
-              !question.current)) {
-        return null;
-      }
-      return () {
-        onSelected(question.number);
-        onDismiss();
-      };
-    }
+    NavigatorQuestion navigatorQuestion(
+      GridQuestion question, {
+      required bool partEnabled,
+    }) =>
+        // The grid shows progress only. A right or wrong answer is just an
+        // answered question here (QuestionNavigator README, Don't). A question
+        // not yet reached is locked, except in a mock, where any question of
+        // the open part can be opened.
+        NavigatorQuestion(
+          number: question.number,
+          answered: question.state != GridQuestionState.unreached,
+          current: question.current,
+          flagged: question.flagged,
+          enabled: partEnabled &&
+              (mock ||
+                  question.state != GridQuestionState.unreached ||
+                  question.current),
+        );
 
     final pinned = mock && footer != null;
     final header = <Widget>[
@@ -195,132 +166,20 @@ class QuestionGridSheet extends StatelessWidget {
               style: PantasType.phoneFootnote.copyWith(color: c.textSecondary),
             ),
           ),
-        LayoutBuilder(
-          builder: (context, constraints) {
-            final columns = mock ? 6 : 5;
-            final diameter = MediaQuery.textScalerOf(context).scale(17) > 25.5
-                ? PantasSize.select
-                : PantasSize.btnBar;
-            return Wrap(
-              runSpacing: PantasSpace.s12,
-              children: [
-                for (final question in parts[p].questions)
-                  _CurrentQuestion(
-                    current: question.current,
-                    child: SizedBox(
-                      width: constraints.maxWidth / columns,
-                      child: Center(
-                        child: Opacity(
-                          opacity:
-                              parts[p].enabled ? 1 : PantasOpacity.disabled,
-                          child: SizedBox.square(
-                            dimension: diameter,
-                            child: Semantics(
-                              label: questionLabel(question),
-                              selected: question.current,
-                              button: true,
-                              enabled: actionFor(
-                                    question,
-                                    enabled: parts[p].enabled,
-                                  ) !=
-                                  null,
-                              onTap: actionFor(
-                                question,
-                                enabled: parts[p].enabled,
-                              ),
-                              child: ExcludeSemantics(
-                                child: Material(
-                                  color: Colors.transparent,
-                                  child: InkWell(
-                                    key: ValueKey(
-                                      'grid-question-$p-'
-                                      '${question.number}',
-                                    ),
-                                    onTap: actionFor(
-                                      question,
-                                      enabled: parts[p].enabled,
-                                    ),
-                                    customBorder: const CircleBorder(),
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        color: question.state ==
-                                                GridQuestionState.right
-                                            ? c.accentTint
-                                            : question.state ==
-                                                    GridQuestionState.wrong
-                                                ? c.dangerTint
-                                                : question.state ==
-                                                        GridQuestionState
-                                                            .answered
-                                                    // The light gray is too
-                                                    // close to the dark page.
-                                                    ? c.divider
-                                                    : null,
-                                        border: Border.all(
-                                          color: question.current
-                                              ? c.textPrimary
-                                              : question.state ==
-                                                      GridQuestionState
-                                                          .unreached
-                                                  ? c.borderControl
-                                                  : Colors.transparent,
-                                          width: question.current
-                                              ? PantasBorder.ringCurrent
-                                              : PantasBorder.ringStrong,
-                                        ),
-                                      ),
-                                      child: Stack(
-                                        clipBehavior: Clip.none,
-                                        alignment: Alignment.center,
-                                        children: [
-                                          FittedBox(
-                                            fit: BoxFit.scaleDown,
-                                            child: Text(
-                                              '${question.number}',
-                                              maxLines: 1,
-                                              style:
-                                                  PantasType.phoneBody.copyWith(
-                                                fontWeight: numberWeight(
-                                                  question,
-                                                ),
-                                                color: numberColor(question),
-                                              ),
-                                            ),
-                                          ),
-                                          if (question.flagged)
-                                            Positioned(
-                                              top: -PantasSpace.s4,
-                                              right: -PantasSpace.s4,
-                                              child: Container(
-                                                width: PantasSpace.s18,
-                                                height: PantasSpace.s18,
-                                                decoration: BoxDecoration(
-                                                  color: c.surfaceCard,
-                                                  shape: BoxShape.circle,
-                                                ),
-                                                child: Icon(
-                                                  PantasIcons.flag,
-                                                  size: PantasSpace.s12,
-                                                  color: c.textPrimary,
-                                                ),
-                                              ),
-                                            ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-              ],
-            );
-          },
+        Opacity(
+          opacity: parts[p].enabled ? 1 : PantasOpacity.disabled,
+          child: QuestionNavigatorGrid(
+            questions: [
+              for (final question in parts[p].questions)
+                navigatorQuestion(question, partEnabled: parts[p].enabled),
+            ],
+            chipKey: (i) =>
+                ValueKey('grid-question-$p-${parts[p].questions[i].number}'),
+            onSelected: (number) {
+              onSelected(number);
+              onDismiss();
+            },
+          ),
         ),
         const SizedBox(height: PantasSpace.s14),
       ],
@@ -387,27 +246,4 @@ class QuestionGridSheet extends StatelessWidget {
       ),
     );
   }
-}
-
-class _CurrentQuestion extends StatefulWidget {
-  const _CurrentQuestion({required this.current, required this.child});
-  final bool current;
-  final Widget child;
-  @override
-  State<_CurrentQuestion> createState() => _CurrentQuestionState();
-}
-
-class _CurrentQuestionState extends State<_CurrentQuestion> {
-  @override
-  void initState() {
-    super.initState();
-    if (widget.current) {
-      WidgetsBinding.instance.addPostFrameCallback((_) {
-        if (mounted) Scrollable.ensureVisible(context, alignment: .5);
-      });
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) => widget.child;
 }

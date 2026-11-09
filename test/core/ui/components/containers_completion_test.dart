@@ -213,14 +213,17 @@ void main() {
           disableAnimations: true,
         );
         final first = find.byKey(const ValueKey('grid-question-0-1'));
-        final wrap = find.byKey(ValueKey('grid-question-0-${mock ? 7 : 6}'));
+        // Six columns in every mode (QuestionNavigator README).
+        final wrap = find.byKey(const ValueKey('grid-question-0-7'));
         expect(
           tester.getTopLeft(wrap).dy,
           greaterThan(tester.getTopLeft(first).dy),
         );
+        // Tab reaches one chip, the current one (question 4), and Enter
+        // opens it.
         await tester.sendKeyEvent(LogicalKeyboardKey.tab);
         await tester.sendKeyEvent(LogicalKeyboardKey.enter);
-        expect(picked, 1);
+        expect(picked, 4);
         expect(calls, 1);
         expect(dismissed, 1);
         await expectSurvivesTextScale(

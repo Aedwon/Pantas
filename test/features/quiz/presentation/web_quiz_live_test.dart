@@ -9,6 +9,8 @@ import 'package:go_router/go_router.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_border.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
 import 'package:pantas/core/ui/web/letter_shortcuts.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -749,12 +751,21 @@ void main() {
       expect(widths, {600.0});
     });
 
-    testWidgets('reduced motion shows the finished reveal at once',
+    testWidgets('reduced motion fades the explanation in place over 150 ms',
         (tester) async {
       await pumpLive(tester, still: true);
       controller.checked(after);
       await tester.pump();
+      await tester.pump();
+      final column = find.byKey(const ValueKey('web-answer-column'));
+      final left = tester.getTopLeft(column).dx;
+      // Begun, not finished, and the column is already in its place.
+      await tester.pump(const Duration(milliseconds: 60));
+      expect(revealOpacity(tester), inExclusiveRange(0, 1));
+      expect(tester.getTopLeft(column).dx, left);
+      await tester.pump(const Duration(milliseconds: 150));
       expect(revealOpacity(tester), 1);
+      expect(tester.getTopLeft(column).dx, left);
       expect(tester.hasRunningAnimations, isFalse);
     });
 
@@ -774,47 +785,46 @@ void main() {
       semantics.dispose();
     });
 
-    testWidgets('the navigator is five to a row and marks where you are',
+    testWidgets('the navigator is six to a row and marks where you are',
         (tester) async {
       await pumpLive(tester);
       await tester.sendKeyEvent(LogicalKeyboardKey.keyG);
       await tester.pumpAndSettle();
       Offset cell(int n) =>
           tester.getTopLeft(find.byKey(ValueKey('web-grid-question-$n')));
-      for (var n = 1; n < 5; n++) {
+      // QuestionNavigator: six 36 px chips a row, 8 px apart.
+      for (var n = 1; n < 6; n++) {
         expect(cell(n).dy, cell(0).dy);
-        expect(cell(n).dx, greaterThan(cell(n - 1).dx));
+        expect(cell(n).dx - cell(n - 1).dx, closeTo(36 + 8, .01));
       }
-      expect(cell(5).dy, greaterThan(cell(0).dy));
-      expect(cell(5).dx, cell(0).dx);
-      // The title and the grid share one left edge.
-      expect(cell(0).dx, tester.getTopLeft(find.text('Questions')).dx);
-      // Question 4 is on screen: the dark edge sits on it and no other cell.
-      BorderSide edge(int n) {
-        final cell = tester
-            .widgetList<DecoratedBox>(
+      expect(cell(6).dy, greaterThan(cell(0).dy));
+      expect(cell(6).dx, cell(0).dx);
+      expect(
+        tester.getSize(find.byKey(const ValueKey('web-grid-question-0'))),
+        const Size.square(36),
+      );
+      // Question 4 is on screen: the heavy ring sits on it and no other chip.
+      BorderSide ring(int n) {
+        final decoration = tester
+            .widget<DecoratedBox>(
               find.descendant(
                 of: find.byKey(ValueKey('web-grid-question-$n')),
-                matching: find.byType(DecoratedBox),
+                matching: find.byKey(const ValueKey('question-chip-fill')),
               ),
             )
-            .where((box) => box.position == DecorationPosition.background)
-            .map((box) => box.decoration)
-            .whereType<BoxDecoration>()
-            .first;
-        final border = cell.border;
-        return border is Border ? border.top : BorderSide.none;
+            .decoration as ShapeDecoration;
+        return (decoration.shape as CircleBorder).side;
       }
 
-      expect(edge(3).width, 2);
-      expect(edge(2).style, BorderStyle.none);
-      expect(edge(4).width, 1);
-      // Looking back at 2 moves the edge and leaves the grid open.
+      expect(ring(3).width, PantasBorder.ringCurrent);
+      expect(ring(2).width, isNot(PantasBorder.ringCurrent));
+      expect(ring(4).width, isNot(PantasBorder.ringCurrent));
+      // Looking back at 2 moves the ring and leaves the grid open.
       await tester.tap(find.byKey(const ValueKey('web-grid-question-1')));
       await tester.pumpAndSettle();
       expect(find.text('Questions'), findsOneWidget);
-      expect(edge(1).width, 2);
-      expect(edge(3).width, 1);
+      expect(ring(1).width, PantasBorder.ringCurrent);
+      expect(ring(3).width, isNot(PantasBorder.ringCurrent));
     });
   });
 
@@ -931,15 +941,13 @@ void main() {
       await tester.pumpAndSettle();
       Finder mark(int n) => find.descendant(
             of: find.byKey(ValueKey('web-grid-question-$n')),
-            matching: find.byKey(const ValueKey('web-grid-flag')),
+            matching: find.byKey(const ValueKey('question-chip-flag')),
           );
       expect(mark(1), findsOneWidget);
       expect(mark(0), findsNothing);
       expect(mark(2), findsNothing);
-      // Inside the cell, so the grid does not cut it.
-      final cell =
-          tester.getRect(find.byKey(const ValueKey('web-grid-question-1')));
-      expect(cell.contains(tester.getCenter(mark(1))), isTrue);
+      // An 11 px dot at the top right of the chip.
+      expect(tester.getSize(mark(1)), const Size.square(PantasSize.flagDot));
     });
 
     testWidgets('5R-5: the grid is a floating card, clear of the bar',
