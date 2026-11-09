@@ -1203,10 +1203,12 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
       radius: large ? PantasRadius.xl : PantasRadius.full,
       inset: 0,
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(
+        // The pill bar hugs Start with 8 on the right. The stacked bar is a
+        // rounded rectangle, so Start gets the same 20 as the left side.
+        padding: EdgeInsets.fromLTRB(
           PantasSpace.s20,
           PantasSpace.s8,
-          PantasSpace.s8,
+          large ? PantasSpace.s20 : PantasSpace.s8,
           PantasSpace.s8,
         ),
         child: large
