@@ -44,7 +44,7 @@ void main() {
       findsOneWidget,
     );
     expect(find.textContaining('this phone'), findsNothing);
-    expect(find.text('Continue with email'), findsOneWidget);
+    expect(find.text('Continue with Email'), findsOneWidget);
   });
 
   testWidgets('email accounts show their email on web', (tester) async {
