@@ -9,11 +9,10 @@ import 'package:pantas/core/dev/local_onboarding_presets.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/time/study_days.dart';
+import 'package:pantas/core/ui/components/day_row.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/selectable_tile.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
-import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
-import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
@@ -180,21 +179,8 @@ class _OnboardingStudyDaysStepState
       children: _loadFailed
           ? [errorFor('study days', _load)]
           : [
-              LayoutBuilder(
-                builder: (context, constraints) {
-                  // Seven day tiles in weekday order (D190): each at least 44
-                  // wide, the gap shrinks from 10 toward 4, and a row too
-                  // narrow for that scrolls sideways.
-                  const columns = 7;
-                  const minRow = columns * PantasSize.targetTouch +
-                      (columns - 1) * PantasSpace.s4;
-                  final scrolls = constraints.maxWidth < minRow;
-                  final gap = scrolls
-                      ? PantasSpace.s4
-                      : ((constraints.maxWidth -
-                                  columns * PantasSize.targetTouch) /
-                              (columns - 1))
-                          .clamp(PantasSpace.s4, PantasSpace.s10);
+              Builder(
+                builder: (context) {
                   const names = [
                     'Monday',
                     'Tuesday',
@@ -233,22 +219,12 @@ class _OnboardingStudyDaysStepState
                                   }),
                         ),
                       );
-                  const order = [7, 1, 2, 3, 4, 5, 6];
-                  if (scrolls) {
-                    return _ScrollingDays(
-                      order: order,
-                      selected: _days,
-                      gap: gap,
-                      tile: tile,
-                    );
-                  }
-                  return Row(
-                    children: [
-                      for (final (i, day) in order.indexed) ...[
-                        if (i > 0) SizedBox(width: gap),
-                        Expanded(child: tile(day)),
-                      ],
-                    ],
+                  // Seven day tiles in weekday order (D190).
+                  return DayRow(
+                    order: const [7, 1, 2, 3, 4, 5, 6],
+                    selected: _days,
+                    itemWidth: DayRow.tileWidth(context),
+                    itemBuilder: tile,
                   );
                 },
               ),
@@ -387,79 +363,4 @@ class _TooLateRow extends StatelessWidget {
       ],
     );
   }
-}
-
-/// The day row when it is too narrow for seven 44 tiles: it scrolls sideways
-/// and brings the selected day into view when it first builds and when the
-/// selection changes (SelectableTile README, D190).
-class _ScrollingDays extends StatefulWidget {
-  const _ScrollingDays({
-    required this.order,
-    required this.selected,
-    required this.gap,
-    required this.tile,
-  });
-  final List<int> order;
-  final Set<int> selected;
-  final double gap;
-  final Widget Function(int day) tile;
-
-  @override
-  State<_ScrollingDays> createState() => _ScrollingDaysState();
-}
-
-class _ScrollingDaysState extends State<_ScrollingDays> {
-  final _keys = {for (var day = 1; day <= 7; day++) day: GlobalKey()};
-  Set<int> _seen = {};
-
-  @override
-  void initState() {
-    super.initState();
-    _reveal();
-  }
-
-  @override
-  void didUpdateWidget(_ScrollingDays oldWidget) {
-    super.didUpdateWidget(oldWidget);
-    _reveal();
-  }
-
-  /// The day just turned on, else the first selected day in row order.
-  void _reveal() {
-    final now = {...widget.selected};
-    final added = now.difference(_seen);
-    _seen = now;
-    final day = added.isNotEmpty
-        ? widget.order.firstWhere(added.contains)
-        : widget.order.where(now.contains).firstOrNull;
-    if (day == null) return;
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      final target = _keys[day]!.currentContext;
-      if (!mounted || target == null) return;
-      Scrollable.ensureVisible(
-        target,
-        duration: MediaQuery.disableAnimationsOf(context)
-            ? Duration.zero
-            : PantasDurations.short3,
-        curve: PantasCurves.scroll,
-      );
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) => SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        child: Row(
-          children: [
-            for (final (i, day) in widget.order.indexed) ...[
-              if (i > 0) SizedBox(width: widget.gap),
-              SizedBox(
-                key: _keys[day],
-                width: PantasSize.targetTouch,
-                child: widget.tile(day),
-              ),
-            ],
-          ],
-        ),
-      );
 }

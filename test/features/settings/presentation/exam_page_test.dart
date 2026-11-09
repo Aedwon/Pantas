@@ -239,6 +239,30 @@ void main() {
     expect(find.text("What's included"), findsOneWidget);
   });
 
+  testWidgets('at 320 the study day circles scroll instead of running off',
+      (tester) async {
+    tester.view
+      ..physicalSize = const Size(320, 800)
+      ..devicePixelRatio = 1;
+    addTearDown(() {
+      tester.view
+        ..resetPhysicalSize()
+        ..resetDevicePixelRatio();
+    });
+    await tester.pumpAppWithProviders(
+      const ExamPage(),
+      overrides: createOverrides(),
+    );
+    await tester.pumpAndSettle();
+    expect(tester.takeException(), isNull);
+    final saturday = find.byKey(const ValueKey('study-day-6'));
+    await tester.ensureVisible(saturday);
+    await tester.pumpAndSettle();
+    final rect = tester.getRect(saturday);
+    expect(rect.left, greaterThanOrEqualTo(0));
+    expect(rect.right, lessThanOrEqualTo(320));
+  });
+
   testWidgets('carry over is a switch, on by default', (tester) async {
     await tester.pumpAppWithProviders(
       const ExamPage(),

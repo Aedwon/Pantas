@@ -12,9 +12,12 @@ import 'package:pantas/features/onboarding/presentation/onboarding_study_days_st
 import 'package:pantas/features/settings/data/settings_repository.dart';
 
 import '../../../helpers/accessibility.dart';
+import '../../../helpers/ds_matrix.dart' show loadDsFonts;
 import '../../../helpers/in_memory_database.dart';
 
 void main() {
+  // A day tile is as wide as its weekday label, so the test needs the real face.
+  setUpAll(loadDsFonts);
   for (final brightness in Brightness.values) {
     for (final scale in [1.0, 2.0]) {
       testWidgets(
