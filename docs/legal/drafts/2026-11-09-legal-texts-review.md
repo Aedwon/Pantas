@@ -94,7 +94,7 @@ To turn it off, open Settings, then About, and use "Help improve Pantas by shari
 
 To find slow screens and errors, the web app sends short technical reports. They include the app version, whether this is a first visit, a return visit or the first visit after an update, your browser family, your screen-size group, loading times, and error messages, counts and locations in our code. We remove common personal details, such as email addresses, before a report is sent. We do not deliberately include your answers or lesson content.
 
-The stored report does not contain your account ID. Sending it uses your sign-in session, including a guest session, to check the request and to limit how many reports are sent. Google's connection logs may also record your IP address and browser details. Combined with other information, these can sometimes identify a person. We do not use them to identify you.
+The stored report does not contain your account ID. Sending it uses your sign-in session, including a guest session, to check the request and to limit how many reports are sent. Google's connection logs also record your IP address and full browser details with each report. Combined with other information, these can sometimes identify a person. We do not use them to identify you.
 
 We keep these report logs for 30 days. These reports are on for everyone who uses the web app and are separate from optional usage sharing. You can object by emailing dpo@pantas.study.
 
@@ -235,7 +235,7 @@ Add as a new section after "What we never do" and before "Your rights".
 
 To find slow screens and errors, the web app sends short technical reports. They include the app version, whether this is a first visit, a return visit or the first visit after an update, your browser family, your screen-size group, loading times, and error messages, counts and locations in our code. We remove common personal details, such as email addresses, before a report is sent. We do not deliberately include your answers or lesson content.
 
-The stored report does not contain your account ID. Sending it uses your sign-in session, including a guest session, to check the request and to limit how many reports are sent. Google's connection logs may also record your IP address and browser details. Combined with other information, these can sometimes identify a person. We do not use them to identify you.
+The stored report does not contain your account ID. Sending it uses your sign-in session, including a guest session, to check the request and to limit how many reports are sent. Google's connection logs also record your IP address and full browser details with each report. Combined with other information, these can sometimes identify a person. We do not use them to identify you.
 
 We keep these report logs for 30 days. The reports are on for everyone who uses the web app and are separate from optional usage sharing. Our legal basis is our legitimate interest in keeping Pantas working and fast (Data Privacy Act, Section 12(f)). You can object by emailing dpo@pantas.study.
 
@@ -349,7 +349,8 @@ Critique points not adopted, and why:
    physical address, phone number and email on the website's homepage, plus invoices for
    sales and a complaint route. Website copy is yours to write, so none of this was drafted.
    Exposure: DTI enforcement once paid sales start.
-7. **Always-on telemetry.** Google's connection logs probably hold IP addresses. The
+7. **Always-on telemetry.** Google's connection logs hold IP addresses and full browser strings
+   (checked on pantas-prod, Nov 9). The
    legitimate-interest assessment supports the reports. However, no per-person way to stop
    them exists yet, so an objection cannot be honored for future reports.
 8. **The adult Privacy Policy is still a stub.** Adding the telemetry section does not give
@@ -364,12 +365,18 @@ Critique points not adopted, and why:
 
 Not done here. The application code was not changed. Each item is a separate task.
 
-1. **Check the Google log settings (two minutes, needs `gcloud` or the Cloud console).**
-   Confirm the `_Default` log bucket on pantas-prod keeps logs for 30 days, that no log sink
-   copies them elsewhere, and whether `reportClientTelemetry` request logs hold
-   `httpRequest.remoteIp`. If retention differs, change "30 days" in A and C2.
-2. **Set Analytics retention** in the Firebase console. If it is set to 2 months, change "up to
-   14 months" to "up to 2 months".
+1. **Google log settings: checked Nov 9, read-only, on pantas-prod.** The `_Default` log bucket
+   keeps logs for 30 days, so "30 days" in A and C2 is correct. The only sinks are the two
+   built-in ones (`_Default`, `_Required`), and the project has no parent organization, so no
+   sink copies these logs elsewhere. The `reportClientTelemetry` request logs hold
+   `httpRequest.remoteIp` and the full `userAgent` on every entry checked, so the IP sentence
+   in A and C2 now states this as fact. Their `referer` holds only the site address
+   (`app.pantas.study` or `pantas-prod.firebaseapp.com`), not a page path.
+2. **Analytics retention: not readable.** The Analytics property is 549551450, linked to
+   pantas-prod. The Admin API refused the read because the gcloud sign-in lacks the Analytics
+   scope, and adding it needs a new browser sign-in. "Up to 14 months" stays, because 14 months
+   is Google's maximum. To tighten it, open Analytics, then Admin, then Data retention. If it
+   shows 2 months, change the text to "up to 2 months".
 3. **Put the texts in the app** on `web/design-system-4`: the `teens`, `terms` and `privacy`
    documents in `lib/features/legal/domain/legal_document.dart`. Change the version date in
    `guardianDocumentVersions` and in `GUARDIAN_DOCUMENT_VERSIONS`
