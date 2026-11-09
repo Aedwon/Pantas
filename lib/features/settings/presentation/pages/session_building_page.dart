@@ -2,9 +2,9 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pantas/core/ui/components/pantas_tag.dart';
 import 'package:pantas/core/ui/components/segmented_switch.dart';
 import 'package:pantas/core/ui/leave_page.dart';
-import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
@@ -88,10 +88,14 @@ class SessionBuildingPage extends ConsumerWidget {
                 title: _orderingTitle(ordering),
                 subtitle: _orderingSubtitle(ordering),
                 footer: ordering.isRecommended
-                    ? Text(
-                        'Recommended',
-                        style: context.type.footnote
-                            .copyWith(color: context.colors.accent),
+                    // A system Tag under the row title, one row at every
+                    // width (lead ruling, Nov 9).
+                    ? const Padding(
+                        padding: EdgeInsets.only(top: PantasSpace.s6),
+                        child: Align(
+                          alignment: Alignment.centerLeft,
+                          child: PantasTag('Recommended'),
+                        ),
                       )
                     : null,
                 variant: ListRowVariant.check,
