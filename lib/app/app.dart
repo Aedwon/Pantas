@@ -10,6 +10,7 @@ import 'package:pantas/core/error/app_error_recovery.dart';
 import 'package:pantas/core/platform/welcome/welcome_handover_providers.dart';
 import 'package:pantas/core/storage/age_gate.dart';
 import 'package:pantas/core/ui/theme/app_text_scale.dart';
+import 'package:pantas/core/ui/web/letter_shortcuts.dart';
 import 'package:pantas/core/ui/web/web_layout_theme.dart';
 import 'package:pantas/features/beta_feedback/application/beta_day_reporter.dart';
 import 'package:pantas/features/home/application/study_delivery.dart';
@@ -47,6 +48,7 @@ class App extends ConsumerWidget {
           data: (preference) => preference.themeMode,
           orElse: () => ThemeMode.system,
         );
+    final letterShortcuts = ref.watch(letterShortcutsProvider);
     final gateway = ref.watch(notificationsGatewayProvider);
     // A learner who is already set up never needs the HTML Welcome screen.
     if (ref.watch(onboardingCompleteProvider).valueOrNull ?? false) {
@@ -68,15 +70,18 @@ class App extends ConsumerWidget {
       themeAnimationDuration: kIsWeb ? Duration.zero : kThemeAnimationDuration,
       scrollBehavior: const NoScrollBarsBehavior(),
       routerConfig: kIsWeb ? ref.watch(_webRouterConfigProvider) : router,
-      builder: (context, child) => AppTextScale(
-        child: WebLayoutTheme(
-          child: AppErrorRecovery(
-            child: SyncReconciliationGate(
-              child: NotificationTapRouter(
-                gateway: gateway,
-                router: router,
-                now: DateTime.now,
-                child: child ?? const SizedBox.shrink(),
+      builder: (context, child) => LetterShortcutsScope(
+        enabled: letterShortcuts,
+        child: AppTextScale(
+          child: WebLayoutTheme(
+            child: AppErrorRecovery(
+              child: SyncReconciliationGate(
+                child: NotificationTapRouter(
+                  gateway: gateway,
+                  router: router,
+                  now: DateTime.now,
+                  child: child ?? const SizedBox.shrink(),
+                ),
               ),
             ),
           ),

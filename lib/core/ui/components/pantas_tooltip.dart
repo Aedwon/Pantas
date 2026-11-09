@@ -7,6 +7,7 @@ import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
+import 'package:pantas/core/ui/web/letter_shortcuts.dart';
 import 'package:pantas/core/ui/web/web_keyboard_focus.dart';
 
 /// A short label that names an icon-only control or shows a cut title in
@@ -58,8 +59,13 @@ class PantasTooltip extends StatefulWidget {
   /// False when the anchor's accessible name already holds the text.
   final bool describesAnchor;
 
-  /// The label as shown: the name and its shortcut in brackets.
-  String get text => shortcut == null ? message : '$message ($shortcut)';
+  /// The label as shown: the name and its shortcut in brackets. A letter
+  /// shortcut drops out while Keyboard Shortcuts is off.
+  String textFor({required bool lettersOn}) {
+    final key = shortcut;
+    if (key == null || (!lettersOn && isCharacterKeyHint(key))) return message;
+    return '$message ($key)';
+  }
 
   @override
   State<PantasTooltip> createState() => _PantasTooltipState();
@@ -112,7 +118,9 @@ class _PantasTooltipState extends State<PantasTooltip> {
         onFocusChange: _focusChanged,
         child: Tooltip(
           key: _tooltip,
-          message: widget.text,
+          message: widget.textFor(
+            lettersOn: LetterShortcutsScope.enabledOf(context),
+          ),
           excludeFromSemantics: !widget.describesAnchor,
           waitDuration: PantasDurations.tooltip,
           // On touch the tooltip never shows by itself.

@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/domain/attempt.dart';
 import 'package:pantas/core/ui/components/button_pair.dart';
@@ -17,6 +16,7 @@ import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
+import 'package:pantas/core/ui/web/letter_shortcuts.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
@@ -123,17 +123,10 @@ class _QuizNoteEditorState extends State<QuizNoteEditor> {
       (MistakeTag.unknown, "I didn't know"),
       (MistakeTag.other, 'Type my own'),
     ];
-    return CallbackShortcuts(
+    return LetterShortcuts(
       bindings: {
         for (var i = 0; i < reasons.length; i++)
-          SingleActivator(
-            [
-              LogicalKeyboardKey.digit1,
-              LogicalKeyboardKey.digit2,
-              LogicalKeyboardKey.digit3,
-              LogicalKeyboardKey.digit4,
-            ][i],
-          ): () {
+          '${i + 1}': () {
             if (FocusManager.instance.primaryFocus?.context?.widget
                 is EditableText) {
               return;

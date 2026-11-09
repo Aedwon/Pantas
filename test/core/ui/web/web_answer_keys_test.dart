@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/ui/web/letter_shortcuts.dart';
 import 'package:pantas/core/ui/web/web_key_focus.dart';
 
 void main() {
@@ -13,14 +14,12 @@ void main() {
     await tester.pumpWidget(
       MaterialApp(
         home: Scaffold(
-          body: CallbackShortcuts(
-            bindings: {
-              const SingleActivator(LogicalKeyboardKey.keyF): () => flags++,
-              ...answerKeyBindings(
-                choiceCount: () => count,
-                onPick: picks.add,
-              ),
-            },
+          body: LetterShortcuts(
+            bindings: {'f': () => flags++},
+            once: answerKeyBindings(
+              choiceCount: () => count,
+              onPick: picks.add,
+            ),
             child: KeyFocusKeeper(
               child: Column(
                 children: [

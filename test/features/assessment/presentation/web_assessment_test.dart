@@ -4,6 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/domain/choice.dart';
 import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/letter_shortcuts.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/features/assessment/presentation/web_assessment_layout.dart';
 
@@ -53,6 +54,50 @@ void main() {
     await show(29);
     expect(find.widgetWithText(WebButton, 'Finish'), findsOneWidget);
     expect(find.text('Next'), findsNothing);
+  });
+
+  testWidgets(
+      'with Keyboard Shortcuts off the letters pick nothing and Esc '
+      'still leaves', (tester) async {
+    tester.view
+      ..physicalSize = const Size(1440, 900)
+      ..devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    final picks = <String>[];
+    var leave = 0;
+    await tester.pumpWidget(
+      LetterShortcutsScope(
+        enabled: false,
+        child: MaterialApp(
+          theme: buildLightTheme(web: true),
+          home: Scaffold(
+            body: WebAssessmentLayout(
+              question: question,
+              subject: 'Science · Biology',
+              examName: 'CSE',
+              index: 7,
+              total: 30,
+              onPick: picks.add,
+              onNext: () {},
+              onLeave: () => leave++,
+            ),
+          ),
+        ),
+      ),
+    );
+    await tester.pump();
+    for (final key in [
+      LogicalKeyboardKey.keyA,
+      LogicalKeyboardKey.keyB,
+      LogicalKeyboardKey.keyD,
+      LogicalKeyboardKey.keyF,
+    ]) {
+      await tester.sendKeyEvent(key);
+    }
+    expect(picks, isEmpty);
+    await tester.sendKeyEvent(LogicalKeyboardKey.escape);
+    expect(leave, 1);
   });
 
   for (final dark in [false, true]) {

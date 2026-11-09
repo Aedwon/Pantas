@@ -21,6 +21,7 @@ import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
+import 'package:pantas/core/ui/web/letter_shortcuts.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/lesson/application/reader_providers.dart';
@@ -880,15 +881,12 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
         widget.footer,
       ],
     );
-    return CallbackShortcuts(
-      bindings: {
+    return LetterShortcuts(
+      bindings: {if (ending == null) 'b': _bookmark},
+      also: {
         const SingleActivator(LogicalKeyboardKey.escape): widget.onBack,
-        if (ending == null) ...{
-          const SingleActivator(LogicalKeyboardKey.keyB): _bookmark,
-          if (widget.onNext != null)
-            const SingleActivator(LogicalKeyboardKey.arrowRight):
-                widget.onNext!,
-        },
+        if (ending == null && widget.onNext != null)
+          const SingleActivator(LogicalKeyboardKey.arrowRight): widget.onNext!,
       },
       child: Focus(
         autofocus: true,
@@ -1016,9 +1014,13 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
                                     _widthControl(t, fullWidth: fullWidth),
                                     const SizedBox(width: PantasSpace.s12),
                                     PantasIconButton(
-                                      tooltip: reader.isBookmarked
-                                          ? 'Remove bookmark (B)'
-                                          : 'Bookmark this lesson (B)',
+                                      tooltip: withLetterKey(
+                                        context,
+                                        reader.isBookmarked
+                                            ? 'Remove bookmark'
+                                            : 'Bookmark this lesson',
+                                        'B',
+                                      ),
                                       onPressed: _bookmark,
                                       icon: ReaderBookmarkPop(
                                         key: ValueKey(

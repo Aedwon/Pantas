@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/domain/attempt.dart';
 import 'package:pantas/core/ui/components/floating_bar.dart';
@@ -8,11 +9,43 @@ import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/web/letter_shortcuts.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/quiz/presentation/quiz_note_editor.dart';
 
 import '../../../helpers/pump_app.dart';
 
 void main() {
+  for (final lettersOn in [true, false]) {
+    testWidgets(
+        'wide: 1 picks a reason only while Keyboard Shortcuts is on '
+        '(setting on: $lettersOn)', (tester) async {
+      debugWebPlatformOverride = true;
+      addTearDown(() => debugWebPlatformOverride = null);
+      tester.view
+        ..physicalSize = const Size(1440, 900)
+        ..devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      MistakeTag? saved;
+      await tester.pumpApp(
+        LetterShortcutsScope(
+          enabled: lettersOn,
+          child: QuizNoteEditor(
+            onCancel: () {},
+            onSave: (tag, note) async => saved = tag,
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+      await tester.sendKeyEvent(LogicalKeyboardKey.digit1);
+      await tester.pump();
+      await tester.tap(find.text('Add Note'));
+      await tester.pumpAndSettle();
+      expect(saved, lettersOn ? MistakeTag.misread : isNull);
+    });
+  }
+
   for (final dark in [false, true]) {
     testWidgets('Remove uses destructive text color in dark mode: $dark',
         (tester) async {
