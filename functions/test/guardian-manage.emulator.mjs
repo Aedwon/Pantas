@@ -22,7 +22,7 @@ const app = {appId: 'app', token: {}, alreadyConsumed: false};
 const versions = {privacy: '2026-11-10', terms: '2026-11-10', teens: '2026-11-10'};
 const req = (uid, data, extra = {}) => ({auth: anon(uid), app, data, ...extra});
 const answer = (token, over = {}) => ({token, decision: 'confirm', agreed: true,
-  documentVersions: versions, noticeWordingVersion: '2026-11-09', ...over});
+  documentVersions: versions, noticeWordingVersion: '2026-11-11', ...over});
 const code = async promise => { try { await promise; return 'ok'; } catch (e) { assert.equal(typeof e.code, 'string', String(e)); return e.code; } };
 const confirmTokenOf = m => /guardian\?token=([a-f0-9]{64})/.exec(m.text)[1];
 const manageTokenOf = m => /guardian\/manage\?token=([a-f0-9]{64})/.exec(m.text)[1];
@@ -258,8 +258,8 @@ test('setGuardianSharing flips the choice and records each change as evidence', 
   const log = (await rows(`guardianConsentEvidence/${uid}/responses`)).filter(r => r.action.startsWith('sharing'))
     .sort((a, b) => a.decidedAt - b.decidedAt);
   assert.deepEqual(log, [
-    {action: 'sharing_on', decidedAt: T0 + DAY, documentVersions: versions, noticeWordingVersion: '2026-11-09'},
-    {action: 'sharing_off', decidedAt: T0 + 2 * DAY, documentVersions: versions, noticeWordingVersion: '2026-11-09'}]);
+    {action: 'sharing_on', decidedAt: T0 + DAY, documentVersions: versions, noticeWordingVersion: '2026-11-11'},
+    {action: 'sharing_off', decidedAt: T0 + 2 * DAY, documentVersions: versions, noticeWordingVersion: '2026-11-11'}]);
   const pending = 'dm-share-pending'; await reset(pending);
   await guardian.sendLink(req(pending, body()), h.deps);
   assert.deepEqual(await guardian.setSharing(req('v', {token: manageTokenOf(h.sent.at(-1)), allowed: true}), h.deps), {state: 'not_confirmed'});
@@ -287,7 +287,7 @@ test('withdrawing disables, signs out, deletes the account and keeps the evidenc
   const actions = (await rows(`guardianConsentEvidence/${uid}/responses`)).map(r => r.action).sort();
   assert.deepEqual(actions, ['confirm', 'withdraw']);
   const withdraw = (await rows(`guardianConsentEvidence/${uid}/responses`)).find(r => r.action === 'withdraw');
-  assert.deepEqual(withdraw, {action: 'withdraw', decidedAt: T0 + DAY, documentVersions: versions, noticeWordingVersion: '2026-11-09'});
+  assert.deepEqual(withdraw, {action: 'withdraw', decidedAt: T0 + DAY, documentVersions: versions, noticeWordingVersion: '2026-11-11'});
   for (const token of [pageManage, emailManage]) {
     assert.deepEqual(await guardian.withdraw(req('v', {token}), h.deps), {state: 'unknown'}, 'a second call');
     assert.deepEqual(await guardian.readManage(req('v', {token}), h.deps), {state: 'unknown'});

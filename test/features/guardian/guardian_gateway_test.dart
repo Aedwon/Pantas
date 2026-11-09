@@ -41,6 +41,27 @@ void main() {
     expect(client.calls.single.$2.keys, ['guardianName', 'guardianEmail']);
   });
 
+  test('the age check notice version goes with the link request', () async {
+    final client = _Client((_, __) => {'expiresAt': 1, 'maskedEmail': 'x'});
+    await CallableGuardianGateway(client).sendLink(
+      guardianName: 'Maria',
+      guardianEmail: 'maria@gmail.com',
+      ageCheckNoticeVersion: '2026-11-09',
+    );
+    expect(client.calls.single.$2, {
+      'guardianName': 'Maria',
+      'guardianEmail': 'maria@gmail.com',
+      'ageCheckNoticeVersion': '2026-11-09',
+    });
+  });
+
+  test('marking the account adult calls the callable', () async {
+    final client = _Client((_, __) => {'state': 'adult'});
+    await CallableGuardianGateway(client).markAdult();
+    expect(client.calls.single.$1, 'markGuardianAdult');
+    expect(client.calls.single.$2, <String, Object?>{});
+  });
+
   test('status reads the callable', () async {
     final client = _Client((_, __) => {'status': 'confirmed'});
     final status = await CallableGuardianGateway(client).status();
@@ -74,30 +95,41 @@ void main() {
   });
 
   test('answering sends the decision and the agreement', () async {
-    final client = _Client((_, __) => {'state': 'confirmed'});
+    final client =
+        _Client((_, __) => {'state': 'confirmed', 'manageToken': 'mt'});
     final gateway = CallableGuardianGateway(client);
-    expect(
-      await gateway.answer(token: 't', confirm: true, agreed: true),
-      GuardianAnswer.confirmed,
+    final confirmed = await gateway.answer(
+      token: 't',
+      confirm: true,
+      agreed: true,
+      allowSharing: true,
     );
+    expect(confirmed.answer, GuardianAnswer.confirmed);
+    expect(confirmed.manageToken, 'mt');
     expect(client.calls.single.$1, 'answerGuardianRequest');
     expect(client.calls.single.$2, {
       'token': 't',
       'decision': 'confirm',
       'agreed': true,
+      'allowSharing': true,
       'documentVersions': {
         'privacy': '2026-11-10',
         'terms': '2026-11-10',
         'teens': '2026-11-10',
       },
-      'noticeWordingVersion': '2026-11-09',
+      'noticeWordingVersion': '2026-11-11',
     });
     client.reply = (_, __) => {'state': 'declined'};
-    expect(
-      await gateway.answer(token: 't', confirm: false, agreed: false),
-      GuardianAnswer.declined,
+    final declined = await gateway.answer(
+      token: 't',
+      confirm: false,
+      agreed: false,
+      allowSharing: false,
     );
+    expect(declined.answer, GuardianAnswer.declined);
+    expect(declined.manageToken, isNull);
     expect(client.calls.last.$2['decision'], 'decline');
+    expect(client.calls.last.$2['allowSharing'], false);
   });
 
   test('a rate limit and any other failure become typed errors', () async {

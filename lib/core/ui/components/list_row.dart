@@ -538,7 +538,7 @@ class ListRow extends StatelessWidget {
                     ? PantasSwitch(
                         value: selected,
                         label: title,
-                        onChanged: (_) => onTap?.call(),
+                        onChanged: onTap == null ? null : (_) => onTap!(),
                       )
                     // Phone boards: the row is 53 px, the switch 31. The whole
                     // row is the tap target, so the switch need not be 44.
@@ -550,7 +550,7 @@ class ListRow extends StatelessWidget {
                           child: PantasSwitch(
                             value: selected,
                             label: title,
-                            onChanged: (_) => onTap?.call(),
+                            onChanged: onTap == null ? null : (_) => onTap!(),
                           ),
                         ),
                       ),

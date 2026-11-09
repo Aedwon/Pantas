@@ -103,8 +103,9 @@ String? _notHonored(List<String> segments, Uri url) {
         // An upgrade is only meaningful from the picker that starts it.
         case 'exam' when third == 'upgrade':
           return '/settings/exam/change';
-        // A destructive screen is never a place to land cold.
-        case 'account' when third == 'delete':
+        // A destructive screen is never a place to land cold. The age re-check
+        // reports back to the Account page that opened it.
+        case 'account' when third == 'delete' || third == 'adult-check':
           return '/settings/account';
         // Developer tools are not a place to land.
         case '_debug' || '_gallery':

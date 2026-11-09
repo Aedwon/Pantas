@@ -35,7 +35,7 @@ const DAY_MS = 86_400_000;
 export const GUARDIAN_DOCUMENT_VERSIONS = {
   privacy: '2026-11-10', terms: '2026-11-10', teens: '2026-11-10',
 } as const;
-export const GUARDIAN_NOTICE_WORDING_VERSION = '2026-11-09';
+export const GUARDIAN_NOTICE_WORDING_VERSION = '2026-11-11';
 /** The version of the line the age step shows above the birth-year field. */
 export const AGE_CHECK_NOTICE_VERSION = '2026-11-09';
 

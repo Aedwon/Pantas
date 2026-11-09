@@ -23,6 +23,7 @@ class GuardianStatus {
     required this.status,
     this.maskedEmail,
     this.expiresAt,
+    this.sharingAllowed = false,
   });
 
   factory GuardianStatus.fromJson(Map<Object?, Object?> json) {
@@ -34,12 +35,16 @@ class GuardianStatus {
       expiresAt: expires is int
           ? DateTime.fromMillisecondsSinceEpoch(expires, isUtc: true)
           : null,
+      sharingAllowed: json['sharingAllowed'] == true,
     );
   }
 
   final GuardianConsentStatus status;
   final String? maskedEmail;
   final DateTime? expiresAt;
+
+  /// Whether the guardian allows optional usage sharing for this student.
+  final bool sharingAllowed;
 }
 
 /// What the guardian sees when they open the link. Reading never confirms.
@@ -61,6 +66,14 @@ class GuardianLinkClosed extends GuardianLinkView {
 enum GuardianLinkClosedReason { used, expired, unknown }
 
 enum GuardianAnswer { confirmed, declined, used, expired, unknown }
+
+/// The answer plus, after a confirmation, the link token that opens the
+/// guardian's manage page. The server returns it once.
+class GuardianAnswerResult {
+  const GuardianAnswerResult(this.answer, {this.manageToken});
+  final GuardianAnswer answer;
+  final String? manageToken;
+}
 
 /// The parent or guardian's contact, kept on this device only so the student
 /// can resend. The server keeps a masked address and hashes.

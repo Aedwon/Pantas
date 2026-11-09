@@ -55,10 +55,10 @@ for (const decision of ['confirm', 'decline']) {
   test(`${decision} records the shown versions, action and time without contact data`, async () => {
     const s = pending();
     const data = {token: s.token, decision, agreed: decision === 'confirm',
-      documentVersions: versions, noticeWordingVersion: '2026-11-09'};
+      documentVersions: versions, noticeWordingVersion: '2026-11-11'};
     await guardian.answerRequest(request(data), s.deps);
     assert.deepEqual(s.rows.get(evidencePath(s.hash)), {
-      documentVersions: versions, noticeWordingVersion: '2026-11-09',
+      documentVersions: versions, noticeWordingVersion: '2026-11-11',
       action: decision, agreed: decision === 'confirm', decidedAt: T0 + DAY,
       ...(decision === 'confirm' ? {sharingAllowed: false} : {}),
     });
@@ -68,7 +68,7 @@ for (const decision of ['confirm', 'decline']) {
 }
 
 test('missing or mismatched shown versions cannot create false evidence', async () => {
-  for (const extra of [{}, {documentVersions: {...versions, teens: 'old'}, noticeWordingVersion: '2026-11-09'},
+  for (const extra of [{}, {documentVersions: {...versions, teens: 'old'}, noticeWordingVersion: '2026-11-11'},
     {documentVersions: versions, noticeWordingVersion: 'old'}]) {
     const s = pending();
     await assert.rejects(guardian.answerRequest(request({token: s.token, decision: 'decline', ...extra}), s.deps),
@@ -92,7 +92,7 @@ for (const decision of ['confirm', 'decline']) {
   test(`${decision} removes contact and used links seven days later but retains evidence`, async () => {
     const s = pending();
     await guardian.answerRequest(request({token: s.token, decision, agreed: decision === 'confirm',
-      documentVersions: versions, noticeWordingVersion: '2026-11-09'}), s.deps);
+      documentVersions: versions, noticeWordingVersion: '2026-11-11'}), s.deps);
     await guardian.purgeGuardianRecords(s.db, T0 + 8 * DAY - 1);
     assert.ok(s.rows.has(`guardianTokens/${s.hash}`));
     await guardian.purgeGuardianRecords(s.db, T0 + 8 * DAY);

@@ -26,6 +26,8 @@ Future<void> continueAsAdult(WidgetTester tester) async {
   final wheel = tester.widget<ValueWheel>(find.byType(ValueWheel));
   wheel.onSelected(wheel.values.indexOf('2000'));
   await tester.pump();
+  // The age check line makes the step taller than this small test surface.
+  await tester.ensureVisible(find.text('Continue'));
   await tester.tap(find.text('Continue'));
   await tester.pumpAndSettle();
 }

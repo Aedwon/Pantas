@@ -14,6 +14,7 @@ import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/guardian/application/guardian_providers.dart';
 import 'package:pantas/features/guardian/domain/guardian_consent.dart';
 import 'package:pantas/features/guardian/domain/guardian_copy.dart';
@@ -43,6 +44,11 @@ enum _Phase { loading, loadFailed, form, closed, confirmed, declined }
 class _GuardianConfirmPageState extends ConsumerState<GuardianConfirmPage> {
   _Phase _phase = _Phase.loading;
   bool _agreed = false;
+  bool _allowSharing = false;
+
+  /// Kept for the Manage Permission button that follows in a later task.
+  // ignore: unused_field
+  String? _manageToken;
   bool _busy = false;
   bool _failed = false;
   bool _lastConfirm = false;
@@ -89,10 +95,12 @@ class _GuardianConfirmPageState extends ConsumerState<GuardianConfirmPage> {
             token: token,
             confirm: confirm,
             agreed: _agreed,
+            allowSharing: _allowSharing,
           );
       if (!mounted) return;
       setState(() {
-        _phase = switch (result) {
+        _manageToken = result.manageToken;
+        _phase = switch (result.answer) {
           GuardianAnswer.confirmed => _Phase.confirmed,
           GuardianAnswer.declined => _Phase.declined,
           _ => _Phase.closed,
@@ -154,14 +162,7 @@ class _GuardianConfirmPageState extends ConsumerState<GuardianConfirmPage> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            "Pantas keeps your child's answers and study progress to run the "
-            'app. If your child wants Pro, they should ask a parent or '
-            'guardian '
-            'to pay using their own payment method. Confirming here does not '
-            'authorize a charge. Checkout does not check who is paying.',
-            style: textStyle,
-          ),
+          Text(GuardianCopy.explanation, style: textStyle),
           const SizedBox(height: PantasSpace.s8),
           Wrap(
             spacing: PantasSpace.s20,
@@ -184,6 +185,28 @@ class _GuardianConfirmPageState extends ConsumerState<GuardianConfirmPage> {
       content: Text(
         "I'm their parent or guardian, and I agree to these terms.",
         style: textStyle,
+      ),
+    );
+    final sharing = CheckboxRow(
+      title: GuardianCopy.sharingLabel,
+      selected: _allowSharing,
+      gap: PantasSpace.s14,
+      standardDensity: true,
+      squareEdges: wide,
+      onTap:
+          _busy ? null : () => setState(() => _allowSharing = !_allowSharing),
+      content: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(GuardianCopy.sharingLabel, style: textStyle),
+          Text(
+            GuardianCopy.sharingHelp,
+            style: wide
+                ? context.webTokens.sm
+                : context.type.footnote
+                    .copyWith(color: context.colors.secondaryLabel),
+          ),
+        ],
       ),
     );
     Widget group(Widget child) =>
@@ -210,6 +233,8 @@ class _GuardianConfirmPageState extends ConsumerState<GuardianConfirmPage> {
         group(card),
         const SizedBox(height: PantasSpace.s12),
         group(agreement),
+        const SizedBox(height: PantasSpace.s12),
+        group(sharing),
       ],
     );
   }

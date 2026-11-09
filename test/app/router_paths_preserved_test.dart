@@ -51,6 +51,7 @@ void main() {
       '/settings/practice',
       '/settings/appearance',
       '/settings/accessibility',
+      '/settings/account/adult-check',
       '/settings/account/name',
       '/settings/exam',
       '/settings/exam/change',

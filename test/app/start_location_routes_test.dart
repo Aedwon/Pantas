@@ -72,6 +72,7 @@ const _mapped = <String, String>{
   '/quiz/mock/setup': '/quiz',
   '/settings/exam/upgrade': '/settings/exam/change',
   '/settings/account/delete': '/settings/account',
+  '/settings/account/adult-check': '/settings/account',
   '/settings/_debug': '/settings',
   '/settings/_gallery': '/settings',
   '/onboarding/custom/name': '/onboarding',

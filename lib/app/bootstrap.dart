@@ -44,10 +44,12 @@ import 'package:pantas/core/telemetry/firebase_telemetry.dart';
 import 'package:pantas/core/telemetry/perf_timeline.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/theme/font_licenses.dart';
+import 'package:pantas/features/guardian/application/guardian_providers.dart';
 import 'package:pantas/features/mock_exam/application/mock_availability_provider.dart';
 import 'package:pantas/features/mock_exam/domain/mock_availability.dart';
 import 'package:pantas/features/notifications/application/notifications_providers.dart';
 import 'package:pantas/features/notifications/presentation/notifications_lifecycle_observer.dart';
+import 'package:pantas/features/onboarding/application/setup_acceptance.dart';
 import 'package:pantas/features/paywall/paywall.dart';
 import 'package:pantas/features/review_prompt/application/review_prompt_providers.dart';
 import 'package:pantas/features/review_prompt/data/in_app_review_gateway.dart';
@@ -364,6 +366,17 @@ Future<void> _bootstrap(
     PerfTimeline.mark('boot.content');
     await applyPersistedTelemetryConsent(container);
     PerfTimeline.mark('boot.consent');
+    // A named account's setup acceptance reaches the server, best effort. It
+    // retries on each start until it succeeds.
+    container.read(setupAcceptanceSyncProvider);
+    // A minor's sharing follows the guardian's choice. It reads the server, so
+    // startup does not wait for it.
+    unawaited(
+      container.read(minorSharingProvider.future).then<void>(
+            (_) {},
+            onError: (Object _, StackTrace __) {},
+          ),
+    );
     await registerDevProSwitch(container);
     await registerDevDemoSwitch(container);
     await payments;
@@ -444,6 +457,7 @@ Future<void> applyPersistedTelemetryConsent(
     final controller = container.read(
       telemetryConsentControllerProvider.notifier,
     );
+    ClientReporter.active?.enabled = settings.speedReportsEnabled;
     await controller.applyStartupConsent(
       enabled: settings.helpImproveApp,
     );

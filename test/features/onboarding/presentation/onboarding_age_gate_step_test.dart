@@ -9,10 +9,13 @@ import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/value_wheel.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/features/guardian/application/guardian_providers.dart';
+import 'package:pantas/features/guardian/data/guardian_gateway.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_age_gate_step.dart';
 
 import '../../../helpers/accessibility.dart';
 import '../../../helpers/in_memory_database.dart';
+import '../../guardian/fake_guardian_gateway.dart';
 
 void main() {
   late AppDatabase db;
@@ -56,7 +59,7 @@ void main() {
         await pump(tester, brightness: brightness, scale: scale);
         expect(find.text('When were you born?'), findsOneWidget);
         expect(
-          find.text('We only ask this once and never keep it.'),
+          find.text('This sets up your account for your age.'),
           findsOneWidget,
         );
         expect(
@@ -222,6 +225,100 @@ void main() {
     await tester.pumpAndSettle();
   });
 
+  const ageLine = 'Pantas uses your birth year once, on this device, to set '
+      'your age group. We keep only the group.';
+
+  for (final year in ['2000', '2009']) {
+    testWidgets(
+        'the age check line shows, and its version is stored with '
+        'the $year group', (tester) async {
+      await pump(tester);
+      expect(find.text(ageLine), findsOneWidget);
+      // It sits above the year wheel.
+      expect(
+        tester.getTopLeft(find.text(ageLine)).dy,
+        lessThan(tester.getTopLeft(find.byType(ValueWheel)).dy),
+      );
+      final wheel = tester.widget<ValueWheel>(find.byType(ValueWheel));
+      wheel.onSelected(wheel.values.indexOf(year));
+      await tester.pump();
+      await tester.tap(find.text('Continue'));
+      await tester.pumpAndSettle();
+      final repo = AppPreferencesRepository(db);
+      expect(await repo.ageCheckNoticeVersion(), '2026-11-09');
+      expect(await repo.ageGroup(), isNotNull);
+    });
+  }
+
+  group('re-check from Settings ("I\'m 18 now")', () {
+    late FakeGuardianGateway gateway;
+    setUp(() => gateway = FakeGuardianGateway());
+
+    Future<void> pumpRecheck(
+      WidgetTester tester,
+      String year,
+      void Function() onPassed,
+    ) async {
+      await AppPreferencesRepository(db).setAgeGroup('minor');
+      await pumpAccessibilitySurface(
+        tester,
+        ProviderScope(
+          overrides: [
+            appDatabaseProvider.overrideWithValue(db),
+            guardianGatewayProvider.overrideWithValue(gateway),
+          ],
+          child: OnboardingAgeGateStep(
+            currentYear: 2026,
+            recheck: true,
+            onAgeGatePassed: onPassed,
+          ),
+        ),
+        viewportSize: const Size(390, 844),
+        disableAnimations: true,
+      );
+      final wheel = tester.widget<ValueWheel>(find.byType(ValueWheel));
+      wheel.onSelected(wheel.values.indexOf(year));
+      await tester.pump();
+      await tester.tap(find.text('Continue'));
+      await tester.pumpAndSettle();
+    }
+
+    testWidgets('an adult year calls the callable, then switches to adult',
+        (tester) async {
+      var passed = 0;
+      await pumpRecheck(tester, '2000', () => passed++);
+      expect(gateway.adultCalls, 1);
+      expect(await AppPreferencesRepository(db).ageGroup(), 'adult');
+      expect(passed, 1);
+    });
+
+    testWidgets('under 18 says so and changes nothing', (tester) async {
+      var passed = 0;
+      await pumpRecheck(tester, '2009', () => passed++);
+      expect(find.text('You are still under 18.'), findsOneWidget);
+      expect(gateway.adultCalls, 0);
+      expect(await AppPreferencesRepository(db).ageGroup(), 'minor');
+      expect(await AppPreferencesRepository(db).blockedMinimumAge(), isNull);
+      expect(passed, 0);
+    });
+
+    testWidgets('a server error keeps the student a minor and offers a retry',
+        (tester) async {
+      gateway.adultFailure = const GuardianGatewayException('unavailable');
+      var passed = 0;
+      await pumpRecheck(tester, '2000', () => passed++);
+      expect(find.text('Could not save your progress.'), findsOneWidget);
+      expect(await AppPreferencesRepository(db).ageGroup(), 'minor');
+      expect(passed, 0);
+      gateway.adultFailure = null;
+      await tester.ensureVisible(find.text('Try Again'));
+      await tester.tap(find.text('Try Again'));
+      await tester.pumpAndSettle();
+      expect(await AppPreferencesRepository(db).ageGroup(), 'adult');
+      expect(passed, 1);
+    });
+  });
+
   testWidgets('year selection can be changed with the keyboard',
       (tester) async {
     await pump(tester);
@@ -274,6 +371,16 @@ void main() {
     );
     await tester.pumpAndSettle();
   }
+
+  testWidgets('wide: the age check line sits above the YEAR label',
+      (tester) async {
+    await pumpFramed(tester, wide: true);
+    expect(find.text(ageLine), findsOneWidget);
+    expect(
+      tester.getTopLeft(find.text(ageLine)).dy,
+      lessThan(tester.getTopLeft(find.text('YEAR')).dy),
+    );
+  });
 
   group('wide: the range hint under the year field', () {
     Future<void> type(WidgetTester tester, String text) async {
