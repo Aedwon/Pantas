@@ -314,4 +314,57 @@ void main() {
       semantics.dispose();
     });
   }
+
+  for (final key in [LogicalKeyboardKey.enter, LogicalKeyboardKey.space]) {
+    testWidgets('mock phone count opens the navigator on ${key.keyLabel}',
+        (tester) async {
+      tester.view.devicePixelRatio = 1;
+      tester.view.physicalSize = const Size(390, 640);
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      await tester.pumpWidget(
+        ProviderScope(
+          overrides: [
+            hydratedMockQuestionProvider.overrideWith((ref, id) => _question()),
+          ],
+          child: MaterialApp(
+            theme: buildLightTheme(),
+            home: MockSessionPage(
+              state: MockSessionInProgress(
+                attemptId: 'paper',
+                durationSeconds: 11400,
+                questionIds: [for (var i = 1; i <= 250; i++) 'q$i'],
+                currentIndex: 124,
+                elapsedSeconds: 0,
+                answers: const {},
+                flags: const {},
+                strictMode: false,
+              ),
+              remainingInPart: const Duration(hours: 3),
+              partPosition: 125,
+              partTotal: 250,
+              partName: 'Verbal Ability',
+              oneBlock: true,
+              canGoPrevious: true,
+              canGoNext: true,
+              onPrevious: () {},
+              onNext: () {},
+              onAnswer: (_) {},
+              onToggleFlag: () {},
+              onPause: () {},
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+      Focus.of(tester.element(find.text('125 of 250'))).requestFocus();
+      await tester.pump();
+      await tester.sendKeyEvent(key);
+      await tester.pumpAndSettle();
+      expect(
+        tester.widget<QuestionGridSheet>(find.byType(QuestionGridSheet)).open,
+        isTrue,
+      );
+    });
+  }
 }

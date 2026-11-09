@@ -73,13 +73,14 @@ class HomeWeekStripData {
   final Map<int, WeekDayState> around;
 
   /// The state of [day], given the Sunday that starts the week. A day with no
-  /// known state reads as an off day: no dot and no status.
+  /// known state is plain: no dot, no status and not dimmed. Its history is
+  /// unknown, so it must not read as a rest day.
   WeekDayState stateOn(DateTime day, DateTime weekStart) {
     final from = DateTime.utc(weekStart.year, weekStart.month, weekStart.day);
     final offset =
         DateTime.utc(day.year, day.month, day.day).difference(from).inDays;
     if (offset >= 0 && offset < 7) return states[offset];
-    return around[offset] ?? WeekDayState.dayOff;
+    return around[offset] ?? WeekDayState.plain;
   }
 }
 

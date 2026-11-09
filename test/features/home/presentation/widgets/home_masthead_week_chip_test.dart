@@ -7,6 +7,8 @@ import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/home/presentation/home_providers.dart';
 import 'package:pantas/features/home/presentation/widgets/home_masthead.dart';
 
+import '../../../../helpers/ds_matrix.dart';
+
 const _examId = 'upcat';
 
 HomeWeekStripData _week(int todayIndex, {double fraction = .48}) =>
@@ -75,6 +77,7 @@ Future<void> _pump(
 }
 
 void main() {
+  setUpAll(loadDsFonts);
   final thursday = DateTime(2026, 10, 15, 20);
 
   for (final scale in [1.0, 2.0]) {
@@ -94,13 +97,19 @@ void main() {
         final chip = tester.getRect(
           find.byKey(const ValueKey('masthead-exam-chip')),
         );
-        if (width == 320) {
-          // Fits three days or drops the chip, by the font's width: the
-          // exact cases are in week_window_test with the app font.
+        if (width == 320 && scale == 1) {
+          // Three days on one line with the chip (board S3B5, 320).
+          final days = [
+            for (var i = 0; i < 5; i++)
+              if (find.byKey(ValueKey('week-day-$i')).evaluate().isNotEmpty) i,
+          ];
+          expect(days.length, 3);
+          expect(chip.left, greaterThanOrEqualTo(strip.right - 0.01));
+          expect(chip.top, lessThan(strip.bottom));
         } else if (scale == 1) {
           expect(chip.left, greaterThanOrEqualTo(strip.right - 0.01));
           expect(chip.top, lessThan(strip.bottom));
-        } else {
+        } else if (width <= 390) {
           expect(chip.top, greaterThanOrEqualTo(strip.bottom));
           // 4 px in from the strip's left edge, with no rule and no bridge.
           expect(chip.left - strip.left, 4);

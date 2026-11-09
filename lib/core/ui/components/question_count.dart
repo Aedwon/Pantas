@@ -15,6 +15,10 @@ class QuestionCount extends StatelessWidget {
   final String text;
   final TextStyle style;
 
+  /// The caret is 16 (`nf-v-t3`); the system has no small icon size token, so
+  /// it takes the 16 step.
+  static const double caretSize = PantasSpace.s16;
+
   static const EdgeInsets padding = EdgeInsets.only(
     left: PantasSpace.s16,
     right: PantasSpace.s12,
@@ -29,7 +33,7 @@ class QuestionCount extends StatelessWidget {
           ExcludeSemantics(
             child: Icon(
               PantasIcons.caretUpDown,
-              size: 16,
+              size: caretSize,
               color: context.colors.textSecondary,
             ),
           ),

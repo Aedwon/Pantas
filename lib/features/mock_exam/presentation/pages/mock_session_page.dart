@@ -550,7 +550,7 @@ class _MockSessionPageState extends State<MockSessionPage> {
                     )..layout();
                     final needed = counterMetrics.width +
                         // Caret, its gap and the button's side padding.
-                        16 +
+                        QuestionCount.caretSize +
                         PantasSpace.s8 +
                         QuestionCount.padding.horizontal +
                         2 * PantasSize.iconBtn +

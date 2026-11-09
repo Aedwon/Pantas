@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/domain/exam_date.dart';
 import 'package:pantas/core/ui/components/week_strip.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/home/presentation/home_providers.dart';
 import 'package:pantas/features/home/presentation/widgets/home_masthead.dart';
@@ -175,6 +176,41 @@ void main() {
       findsOneWidget,
     );
     expect(find.bySemanticsLabel(RegExp('November 8, today')), findsOneWidget);
+    semantics.dispose();
+  });
+
+  testWidgets('server path: days before the week are plain, not dimmed',
+      (tester) async {
+    final semantics = tester.ensureSemantics();
+    await _pump(
+      tester,
+      width: 390,
+      now: _sun,
+      week: HomeWeekStripData(
+        // ignore: prefer_const_literals_to_create_immutables
+        states: [
+          WeekDayState.today,
+          ...List.filled(5, WeekDayState.plain),
+          WeekDayState.dayOff,
+        ],
+        todayFraction: .5,
+      ),
+    );
+    expect(tester.takeException(), isNull);
+    // Friday the 6th and Saturday the 7th: no status and not dimmed.
+    expect(find.bySemanticsLabel('Friday, November 6'), findsOneWidget);
+    expect(find.bySemanticsLabel('Saturday, November 7'), findsOneWidget);
+    final digit = tester.widget<Text>(
+      find.descendant(
+        of: find.byKey(const ValueKey('week-day-0')),
+        matching: find.text('6'),
+      ),
+    );
+    expect(digit.style!.fontWeight, isNot(FontWeight.w400));
+    expect(
+      digit.style!.color,
+      tester.element(find.text('6')).colors.textPrimary,
+    );
     semantics.dispose();
   });
 

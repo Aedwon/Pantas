@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
@@ -698,6 +699,29 @@ void main() {
         isTrue,
       );
       semantics.dispose();
+    });
+  }
+
+  for (final key in [LogicalKeyboardKey.enter, LogicalKeyboardKey.space]) {
+    testWidgets('quiz phone count opens the navigator on ${key.keyLabel}',
+        (tester) async {
+      await pump(
+        tester,
+        session: QuizSession.start(
+          sessionId: 'keys',
+          examId: 'e',
+          questions: [item(1), item(2), item(3)],
+          startedAt: DateTime.utc(2026),
+        ),
+      );
+      Focus.of(tester.element(find.text('1 of 3'))).requestFocus();
+      await tester.pump();
+      await tester.sendKeyEvent(key);
+      await tester.pumpAndSettle();
+      expect(
+        tester.widget<QuestionGridSheet>(find.byType(QuestionGridSheet)).open,
+        isTrue,
+      );
     });
   }
 
