@@ -6,10 +6,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:pantas/core/ui/components/centered_dialog.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/pantas_button_spec.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
@@ -614,19 +616,13 @@ class _PausePageState extends State<PausePage> with TickerProviderStateMixin {
             label: 'Discard This Mock',
             hint: 'Opens a confirmation',
             excludeSemantics: true,
-            child: InkWell(
-              onTap: _leaving ? null : _confirmDiscard,
-              child: SizedBox(
-                height: PantasSpace.s44,
-                child: Center(
-                  child: Text(
-                    'Discard This Mock',
-                    style: context.type.emphasized.copyWith(
-                      color: c.destructive,
-                    ),
-                  ),
-                ),
-              ),
+            onTap: _leaving ? null : _confirmDiscard,
+            child: PantasButton(
+              label: 'Discard This Mock',
+              kind: PantasButtonKind.tertiary,
+              tone: PantasButtonTone.critical,
+              height: PantasSize.btn,
+              onPressed: _leaving ? null : _confirmDiscard,
             ),
           ),
         ],

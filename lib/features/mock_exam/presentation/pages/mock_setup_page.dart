@@ -484,20 +484,10 @@ class _MockSetupPageState extends State<MockSetupPage> {
               alignment: Alignment.centerLeft,
               child: Transform.translate(
                 offset: const Offset(-6, 0),
-                child: TextButton.icon(
+                child: WebBackLink(
+                  label: 'Quiz',
                   onPressed: () => leavePage(context, fallback: '/quiz'),
-                  style: TextButton.styleFrom(
-                    minimumSize: const Size(0, 40),
-                    padding: EdgeInsets.zero,
-                    foregroundColor: t.colors.accent,
-                    overlayColor: Colors.transparent,
-                    visualDensity: VisualDensity.standard,
-                    tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                    textStyle: PantasType.webLead
-                        .copyWith(color: t.colors.textPrimary),
-                  ),
-                  icon: const Icon(Icons.chevron_left, size: 20),
-                  label: const Text('Quiz'),
+                  nudge: false,
                 ),
               ),
             ),

@@ -11,6 +11,7 @@ import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
 import 'package:pantas/features/lesson/domain/models/study_map.dart';
+import 'package:pantas/features/lesson/presentation/widgets/reader_tap.dart';
 import 'package:pantas/features/lesson/presentation/widgets/web_study_layout.dart';
 
 // Nov 3, items 4 and 12: the wide Study page. Sizes come from the approved
@@ -230,7 +231,7 @@ void main() {
         final row = find
             .ancestor(
               of: find.text(_longTopic),
-              matching: find.byType(TextButton),
+              matching: find.byType(ReaderTap),
             )
             .first;
         expect(tester.getSize(row), Size(column, 36));
@@ -351,26 +352,26 @@ void main() {
         final card = tester.getRect(find.byType(WebCard).first);
         final column = (content - 24) / 2;
         final label = tester.getRect(find.text('BOOKMARKS'));
-        // The header is 30 px tall, 22 px under the card, with the 15 px
-        // label centered in it; the label inset is 12.
-        expect(label.top - card.bottom, closeTo(20 + 6, 0.01));
+        // The header is as tall as the See all link (20 px), 20 px under the
+        // card, with the label centered in it; the label inset is 12.
+        expect(label.top - card.bottom, closeTo(20 + 1, 0.01));
         expect(label.left, card.left + 12);
         expect(tester.getSize(find.text('BOOKMARKS')).height, 18);
         // See all ends 12 px inside the right edge, on the label's line.
         final seeAll = tester.getRect(find.text('See all'));
         expect(seeAll.right, closeTo(card.right - 12, 0.01));
-        expect(tester.getSize(find.text('See all')).height, 18);
+        expect(tester.getSize(find.text('See all')).height, 20);
         // Rows 4 px under the header, side by side, 24 px apart.
         final left = find
             .ancestor(
               of: find.text('Lesson of Logical & Verbal Reasoning'),
-              matching: find.byType(TextButton),
+              matching: find.byType(ReaderTap),
             )
             .first;
         final right = find
             .ancestor(
               of: find.text('Lesson of Mechanical & Technical Reasoning'),
-              matching: find.byType(TextButton),
+              matching: find.byType(ReaderTap),
             )
             .first;
         expect(tester.getSize(left), Size(column, 36));
@@ -380,7 +381,7 @@ void main() {
         final header = tester.getRect(
           find.ancestor(
             of: find.text('See all'),
-            matching: find.byType(TextButton),
+            matching: find.byType(WebTextLink),
           ),
         );
         expect(
@@ -418,7 +419,7 @@ void main() {
         final row = find
             .ancestor(
               of: find.text('Lesson of Logical & Verbal Reasoning'),
-              matching: find.byType(TextButton),
+              matching: find.byType(ReaderTap),
             )
             .first;
         expect(tester.getSize(row).width, (content - 24) / 2);
@@ -475,7 +476,7 @@ void main() {
         // 3K-24: a long topic name wraps in the map column instead of
         // ending in dots.
         final longRow = find.descendant(
-          of: find.byType(TextButton),
+          of: find.byType(ReaderTap),
           matching: find.text(_longTopic),
         );
         expect(
@@ -656,23 +657,22 @@ void main() {
     );
     await tester.sendKeyEvent(LogicalKeyboardKey.tab);
     await tester.pump();
-    final button = find.ancestor(
+    final row = find.ancestor(
       of: find.text('Logical & Verbal Reasoning'),
-      matching: find.byType(TextButton),
+      matching: find.byType(ReaderTap),
     );
-    final material = tester.widget<Material>(
-      find.descendant(of: button, matching: find.byType(Material)).first,
-    );
-    final side = (material.shape! as OutlinedBorder).side;
-    expect(side.width, 2);
-    expect(side.color, const Color(0xFF0B7A68));
-    final ink = tester.firstWidget<InkWell>(
-      find.descendant(of: button, matching: find.byType(InkWell)),
-    );
+    // The keyboard ring is drawn outside the row, and the row keeps no fill.
     expect(
-      ink.overlayColor?.resolve({WidgetState.focused}),
-      Colors.transparent,
+      find.descendant(
+        of: row,
+        matching: find.byKey(const ValueKey('focus-ring')),
+      ),
+      findsOneWidget,
     );
+    final fill = tester.widget<AnimatedContainer>(
+      find.descendant(of: row, matching: find.byType(AnimatedContainer)).first,
+    );
+    expect((fill.decoration! as BoxDecoration).color, Colors.transparent);
   });
 }
 

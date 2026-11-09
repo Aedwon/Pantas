@@ -8,6 +8,7 @@ import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/lesson/application/reader_providers.dart';
+import 'package:pantas/features/lesson/presentation/widgets/reader_tap.dart';
 import 'package:pantas/features/lesson/presentation/widgets/web_reader_layout.dart';
 
 import '../../../helpers/in_memory_database.dart';
@@ -191,7 +192,7 @@ void main() {
     final outlineEntry = find
         .ancestor(
           of: find.text('Traps to Watch For').first,
-          matching: find.byType(TextButton),
+          matching: find.byType(ReaderTap),
         )
         .first;
     await tester.tap(outlineEntry);

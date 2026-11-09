@@ -11,8 +11,11 @@ import 'package:pantas/core/auth/auth.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/pantas_button_spec.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/mock_exam/application/server_mock_providers.dart';
 import 'package:pantas/features/mock_exam/application/server_mock_results_providers.dart';
@@ -21,6 +24,7 @@ import 'package:pantas/features/mock_exam/presentation/widgets/mock_card.dart';
 import 'package:pantas/features/paywall/paywall.dart';
 import 'package:pantas/features/quiz/presentation/today_providers.dart';
 
+import '../../../helpers/ds_matrix.dart';
 import '../../../helpers/in_memory_database.dart';
 
 const _title = 'Take a timed mock';
@@ -31,6 +35,7 @@ const _failure = 'Could not load your mock.';
 const _resume = '/quiz/mock/resume/mock_1?examId=upcat';
 
 void main() {
+  setUpAll(loadDsFonts);
   late AppDatabase db;
   late ContentDatabase contentDb;
 
@@ -197,19 +202,12 @@ void main() {
         expect(title.letterSpacing, -.264);
         expect(tester.widget<Text>(find.text(_message)).style!.fontSize, 16);
         expect(tester.widget<Text>(find.text(_note)).style!.fontSize, 15);
-        final button = find.widgetWithText(TextButton, _button);
+        final button = find.widgetWithText(WebButton, _button);
         expect(tester.getSize(button).height, 50);
-        final style = tester.widget<TextButton>(button).style!;
-        expect(
-          style.shape!.resolve({}),
-          RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
-        );
-        expect(style.textStyle!.resolve({})!.fontSize, 16);
-        // The chip is the label color on the page color: light text on a
-        // dark page, so its fill is light in dark and dark in light.
-        final fill = style.backgroundColor!.resolve({})!;
-        final label = style.foregroundColor!.resolve({})!;
-        expect(fill.computeLuminance() > label.computeLuminance(), dark);
+        // The button is the system's primary Button at the large size.
+        final system = tester.widget<WebButton>(button);
+        expect(system.size, PantasButtonSize.lg);
+        expect(system.expand, isTrue);
         // 24 px (`space-24`, the system step nearest the board's 22) between
         // the parts of the card.
         expect(
@@ -232,7 +230,7 @@ void main() {
         expect(title.fontWeight, FontWeight.w700);
         expect(tester.widget<Text>(find.text(_message)).style!.fontSize, 15);
         expect(tester.widget<Text>(find.text(_note)).style!.fontSize, 13);
-        final button = find.widgetWithText(TextButton, _button);
+        final button = find.widgetWithText(PantasButton, _button);
         expect(tester.getSize(button).height, 50);
         expect(tester.getSize(button).width, 358 - 32);
         // 12 px between the parts of the card.

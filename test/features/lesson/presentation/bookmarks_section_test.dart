@@ -194,7 +194,13 @@ void main() {
 
   testWidgets('See all is labeled and at least 44dp', (tester) async {
     final semantics = tester.ensureSemantics();
-    await pumpWith(tester, rows: 4, onSeeAll: () {});
+    var taps = 0;
+    await pumpWith(tester, rows: 4, onSeeAll: () => taps++);
+
+    // The 44 px hit area reaches below the 20 px link.
+    final link = tester.getRect(find.text('See all'));
+    await tester.tapAt(Offset(link.center.dx, link.center.dy + 18));
+    expect(taps, 1);
 
     final action = find.semantics.byLabel('See all bookmarks');
     expect(action, findsOne);

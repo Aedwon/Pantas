@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/pantas_button_spec.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/features/mock_exam/presentation/mock_hourglass.dart';
@@ -238,10 +239,15 @@ void main() {
       (tester) async {
     await tester.pumpWidget(_paused(still: true));
     await tester.pump();
-    expect(find.byType(PantasButton), findsOneWidget);
-    final context = tester.element(find.byType(PausePage));
-    final discard = tester.widget<Text>(find.text('Discard This Mock'));
-    expect(discard.style!.color, context.colors.destructive);
+    final buttons =
+        tester.widgetList<PantasButton>(find.byType(PantasButton)).toList();
+    expect(buttons, hasLength(2));
+    // Resume is the filled primary; Discard is a critical tertiary.
+    final resume = buttons.firstWhere((b) => b.label == 'Resume');
+    expect(resume.kind ?? PantasButtonKind.primary, PantasButtonKind.primary);
+    final discard = buttons.firstWhere((b) => b.label == 'Discard This Mock');
+    expect(discard.kind, PantasButtonKind.tertiary);
+    expect(discard.tone, PantasButtonTone.critical);
     expect(
       tester.getSize(find.bySemanticsLabel('Discard This Mock')).height,
       greaterThanOrEqualTo(44),

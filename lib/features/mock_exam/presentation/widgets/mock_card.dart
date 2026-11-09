@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:pantas/core/time/pantas_dates.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/pantas_button_spec.dart';
 import 'package:pantas/core/ui/components/pro_paused_line.dart';
-import 'package:pantas/core/ui/motion/press_scale.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
-import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
@@ -370,7 +370,8 @@ Widget _rise(BuildContext context, Widget content) =>
       },
     );
 
-/// Board `.btn2` / `.btnw` at card width: 48 px tall, radius 12, 17 px.
+/// Board `.btn2` / `.btnw` at card width: the system's large Button, the
+/// secondary kind or the white one.
 class _MockActionButton extends StatelessWidget {
   const _MockActionButton({
     required this.label,
@@ -382,62 +383,13 @@ class _MockActionButton extends StatelessWidget {
   final bool outlined;
 
   @override
-  Widget build(BuildContext context) {
-    final t = context.webTokens;
-    final button = TextButton(
-      onPressed: onPressed,
-      style: ButtonStyle(
-        animationDuration: MediaQuery.disableAnimationsOf(context)
-            ? Duration.zero
-            : PantasDurations.short2,
-        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-        visualDensity: VisualDensity.standard,
-        minimumSize: const WidgetStatePropertyAll(Size(double.infinity, 48)),
-        padding: const WidgetStatePropertyAll(
-          EdgeInsets.symmetric(horizontal: PantasSpace.s18),
-        ),
-        overlayColor: const WidgetStatePropertyAll(Colors.transparent),
-        backgroundColor: WidgetStateProperty.resolveWith((s) {
-          if (s.contains(WidgetState.disabled)) return t.disabledBackground;
-          final hover = s.contains(WidgetState.hovered);
-          return outlined
-              ? (hover ? t.rowHover : t.colors.surface)
-              : (hover ? t.secondaryHover : t.colors.accentTint);
-        }),
-        foregroundColor: WidgetStateProperty.resolveWith(
-          (s) => s.contains(WidgetState.disabled)
-              ? t.disabledText
-              : outlined
-                  ? t.colors.label
-                  : t.tintText,
-        ),
-        side: WidgetStateProperty.resolveWith(
-          (s) => BorderSide(
-            color: s.contains(WidgetState.focused)
-                ? t.colors.accent
-                : outlined && !s.contains(WidgetState.disabled)
-                    ? (t.dark ? t.cardEdge : t.colors.separator)
-                    : Colors.transparent,
-            width: s.contains(WidgetState.focused) ? 2 : 1,
-          ),
-        ),
-        shape: WidgetStatePropertyAll(
-          RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(PantasRadius.md),
-          ),
-        ),
-        textStyle: WidgetStatePropertyAll(
-          PantasType.webLead.copyWith(
-            color: t.colors.textPrimary,
-            fontWeight: FontWeight.w600,
-            height: 1.2,
-          ),
-        ),
-      ),
-      child: Text(label),
-    );
-    return PressScale(scale: .96, enabled: onPressed != null, child: button);
-  }
+  Widget build(BuildContext context) => WebButton(
+        label: label,
+        onPressed: onPressed,
+        kind: outlined ? PantasButtonKind.white : PantasButtonKind.secondary,
+        size: PantasButtonSize.lg,
+        expand: true,
+      );
 }
 
 class _History extends StatelessWidget {
@@ -688,58 +640,22 @@ class MockSignUpCard extends StatelessWidget {
   }
 }
 
-/// Board `.gb`: the sign-in chip, 50 px tall, radius 14, 16 px. Its fill is
-/// the label color and its text the page color, in light and dark.
+/// Board `.gb`: the sign-in button, the system's large primary Button.
 class _CreateAccountButton extends StatelessWidget {
   const _CreateAccountButton({required this.onPressed});
   final VoidCallback onPressed;
 
   @override
-  Widget build(BuildContext context) {
-    final t = context.webTokens;
-    final c = t.colors;
-    final fill = c.label;
-    final text = t.dark ? c.background : c.surface;
-    return PressScale(
-      scale: .96,
-      child: TextButton(
-        onPressed: onPressed,
-        style: ButtonStyle(
-          animationDuration: MediaQuery.disableAnimationsOf(context)
-              ? Duration.zero
-              : PantasDurations.short2,
-          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-          visualDensity: VisualDensity.standard,
-          minimumSize: const WidgetStatePropertyAll(Size(double.infinity, 50)),
-          padding: const WidgetStatePropertyAll(
-            EdgeInsets.symmetric(horizontal: PantasSpace.s18),
-          ),
-          overlayColor: const WidgetStatePropertyAll(Colors.transparent),
-          backgroundColor: WidgetStatePropertyAll(fill),
-          foregroundColor: WidgetStatePropertyAll(text),
-          side: WidgetStateProperty.resolveWith(
-            (s) => BorderSide(
-              color: s.contains(WidgetState.focused)
-                  ? c.accent
-                  : Colors.transparent,
-              width: s.contains(WidgetState.focused) ? 2 : 1,
-            ),
-          ),
-          shape: WidgetStatePropertyAll(
-            RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(PantasRadius.lg),
-            ),
-          ),
-          textStyle: WidgetStatePropertyAll(
-            PantasType.webBody.copyWith(
-              color: t.colors.textPrimary,
-              fontWeight: FontWeight.w600,
-              height: 1.2,
-            ),
-          ),
-        ),
-        child: const Text('Create Free Account'),
-      ),
-    );
-  }
+  Widget build(BuildContext context) => context.wideWeb
+      ? WebButton(
+          label: 'Create Free Account',
+          onPressed: onPressed,
+          size: PantasButtonSize.lg,
+          expand: true,
+        )
+      : PantasButton(
+          label: 'Create Free Account',
+          onPressed: onPressed,
+          height: PantasSize.btnLg,
+        );
 }

@@ -20,6 +20,7 @@ import 'package:pantas/core/telemetry/perf_timeline.dart';
 import 'package:pantas/core/telemetry/telemetry.dart';
 import 'package:pantas/core/time/pantas_dates.dart';
 import 'package:pantas/core/ui/components/content_renderer.dart';
+import 'package:pantas/core/ui/components/pantas_icon_button.dart';
 import 'package:pantas/core/ui/components/pantas_sheet.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/icons/own/own_icons.dart';
@@ -640,31 +641,12 @@ class _ReaderFallback extends ConsumerWidget {
                 color: context.colors.surface,
                 child: Align(
                   alignment: Alignment.centerLeft,
-                  child: TextButton(
-                    style: TextButton.styleFrom(
-                      minimumSize: const Size(44, 44),
-                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: PantasSpace.s4,
-                        vertical: PantasSpace.s6,
-                      ),
-                    ),
-                    onPressed: onClose ?? () => origin.leave(context),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Icon(
-                          PantasIcons.back,
-                          size: 24,
-                          color: context.colors.accent,
-                        ),
-                        const SizedBox(width: PantasSpace.s2),
-                        Text(
-                          origin.backLabel(context),
-                          style: context.type.body
-                              .copyWith(color: context.colors.accent),
-                        ),
-                      ],
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: PantasSpace.s8),
+                    child: WebBackLink(
+                      label: origin.backLabel(context),
+                      onPressed: onClose ?? () => origin.leave(context),
+                      nudge: false,
                     ),
                   ),
                 ),
@@ -1207,10 +1189,10 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody>
               WebTopBar(
                 leading:
                     Text(widget.planLabel ?? reader.topicName, style: t.sm),
-                trailing: IconButton(
+                trailing: PantasIconButton(
                   onPressed: close,
                   tooltip: 'Close',
-                  icon: const Icon(Icons.close, size: 18),
+                  glyph: PantasIcons.close,
                 ),
               ),
               Expanded(

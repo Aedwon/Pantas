@@ -696,7 +696,7 @@ void main() {
       tester,
       extra: [authStateProvider.overrideWith((ref) => auth.stream)],
     );
-    await tester.tap(find.byTooltip('Back to questions'));
+    await tester.tap(find.text('All questions'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Flagged 12'));
     await tester.pumpAndSettle();

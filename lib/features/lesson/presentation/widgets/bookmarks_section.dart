@@ -8,6 +8,7 @@ import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/lesson/application/bookmark_providers.dart';
 import 'package:pantas/features/lesson/presentation/widgets/study_skeletons.dart';
@@ -131,25 +132,26 @@ class BookmarksSection extends ConsumerWidget {
               Positioned(
                 top: 0,
                 right: 16,
-                child: TextButton(
-                  onPressed: onSeeAll,
-                  style: TextButton.styleFrom(
-                    minimumSize: const Size(44, 44),
-                    padding: EdgeInsets.zero,
-                    tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                  ),
-                  child: Semantics(
-                    label: 'See all bookmarks',
-                    excludeSemantics: true,
-                    child: SizedBox(
-                      height: PantasSize.targetTouch,
+                child: Semantics(
+                  label: 'See all bookmarks',
+                  excludeSemantics: true,
+                  // The link draws at its own size; the box around it is the
+                  // 44 px hit area on every width.
+                  child: GestureDetector(
+                    behavior: HitTestBehavior.opaque,
+                    onTap: onSeeAll,
+                    child: ConstrainedBox(
+                      constraints: const BoxConstraints(
+                        minHeight: PantasSize.targetTouch,
+                        minWidth: PantasSize.targetTouch,
+                      ),
                       child: Align(
                         alignment: Alignment.topCenter,
-                        child: Text(
-                          'See all',
-                          style: context.type.subheadStrong.copyWith(
-                            color: context.colors.accent,
-                          ),
+                        widthFactor: 1,
+                        child: WebTextLink(
+                          label: 'See all',
+                          arrow: false,
+                          onPressed: onSeeAll,
                         ),
                       ),
                     ),

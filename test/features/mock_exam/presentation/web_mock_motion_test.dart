@@ -17,6 +17,7 @@ import 'package:pantas/features/mock_exam/presentation/pages/custom_mock_setup_p
 import 'package:pantas/features/mock_exam/presentation/pages/mock_session_page.dart';
 import 'package:pantas/features/mock_exam/presentation/part_transition_page.dart';
 import 'package:pantas/features/mock_exam/presentation/widgets/mock_card.dart';
+import 'package:pantas/features/mock_exam/presentation/widgets/question_navigator_chip.dart';
 
 // Wide web plays the phone's mock motion: the paper swap, the between-parts
 // dots, the card rise and the row editors.
@@ -183,32 +184,26 @@ void main() {
         ),
       );
       await tester.pumpAndSettle();
-      Color fill(String number) => tester
-          .widget<TextButton>(
-            find.ancestor(
-              of: find.text(number),
-              matching: find.byType(TextButton),
+      ShapeDecoration chip(String number) => tester
+          .widget<DecoratedBox>(
+            find.descendant(
+              of: find.ancestor(
+                of: find.text(number),
+                matching: find.byType(QuestionNavigatorChip),
+              ),
+              matching: find.byKey(const ValueKey('question-chip-fill')),
             ),
           )
-          .style!
-          .backgroundColor!
-          .resolve({})!;
+          .decoration as ShapeDecoration;
+      Color fill(String number) => chip(number).color!;
       const dark = PantasColors.dark;
       // QuestionNavigator: answered is the `divider` fill with no ring;
       // blank is the card with the 3:1 `border-control` ring. The ring is the
       // shape cue, so the two never rest on the fill alone.
       expect(fill('1'), dark.divider);
       expect(fill('2'), dark.surfaceCard);
-      OutlinedBorder shape(String number) => tester
-          .widget<TextButton>(
-            find.ancestor(
-              of: find.text(number),
-              matching: find.byType(TextButton),
-            ),
-          )
-          .style!
-          .shape!
-          .resolve({})!;
+      OutlinedBorder shape(String number) =>
+          chip(number).shape as OutlinedBorder;
       expect(shape('1').side, BorderSide.none);
       expect(shape('2').side.color, dark.borderControl);
     });

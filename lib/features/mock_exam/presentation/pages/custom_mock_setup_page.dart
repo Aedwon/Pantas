@@ -13,10 +13,12 @@ import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/mock_exam/domain/corpus_ceiling.dart';
 import 'package:pantas/features/mock_exam/domain/custom_blueprint.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/web_custom_mock_setup.dart';
+import 'package:pantas/features/mock_exam/presentation/widgets/mock_tap.dart';
 
 /// The width of one value wheel (board width; the system sets no token).
 const _wheelWidth = 120.0;
@@ -142,17 +144,14 @@ class _CustomMockSetupPageState extends State<CustomMockSetupPage> {
       button: onTap != null,
       label: semanticLabel,
       excludeSemantics: semanticLabel != null,
-      child: InkWell(
+      child: MockTap(
         key: key,
         onTap: onTap,
-        borderRadius: BorderRadius.circular(PantasRadius.sm),
+        radius: PantasRadius.sm,
+        restFill: c.fill,
         child: Container(
           constraints: const BoxConstraints(minHeight: 34),
           padding: const EdgeInsets.symmetric(horizontal: PantasSpace.s12),
-          decoration: BoxDecoration(
-            color: c.fill,
-            borderRadius: BorderRadius.circular(PantasRadius.sm),
-          ),
           alignment: Alignment.center,
           child: Text(
             text,
@@ -467,22 +466,12 @@ class _CustomMockSetupPageState extends State<CustomMockSetupPage> {
           children: [
             Align(
               alignment: Alignment.centerLeft,
-              child: TextButton(
-                onPressed: back,
-                style: TextButton.styleFrom(
-                  minimumSize: const Size(44, 44),
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: PantasSpace.s16),
-                ),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Icon(PantasIcons.back, size: 20, color: c.accent),
-                    Text(
-                      'Quiz',
-                      style: context.type.body.copyWith(color: c.accent),
-                    ),
-                  ],
+              child: Padding(
+                padding: const EdgeInsets.only(left: PantasSpace.s16),
+                child: WebBackLink(
+                  label: 'Quiz',
+                  onPressed: back ?? () {},
+                  nudge: false,
                 ),
               ),
             ),
@@ -551,23 +540,10 @@ class _CustomMockSetupPageState extends State<CustomMockSetupPage> {
                                   button: true,
                                   label: 'Tick More Subjects',
                                   excludeSemantics: true,
-                                  child: InkWell(
-                                    onTap: widget.onTickMoreSubjects,
-                                    child: ConstrainedBox(
-                                      constraints: const BoxConstraints(
-                                        minHeight: 44,
-                                      ),
-                                      child: Align(
-                                        alignment: Alignment.centerLeft,
-                                        child: Text(
-                                          'Tick More Subjects',
-                                          style: context.type.subhead.copyWith(
-                                            fontWeight: FontWeight.w600,
-                                            color: c.accent,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
+                                  child: WebTextLink(
+                                    label: 'Tick More Subjects',
+                                    arrow: false,
+                                    onPressed: widget.onTickMoreSubjects,
                                   ),
                                 ),
                               ],

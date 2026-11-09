@@ -2,8 +2,11 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:pantas/core/ui/components/pantas_button_spec.dart';
+import 'package:pantas/core/ui/components/pantas_icon_button.dart';
 import 'package:pantas/core/ui/components/pantas_switch.dart';
 import 'package:pantas/core/ui/components/row_tap_target.dart';
+import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
@@ -174,22 +177,10 @@ class WebCustomMockSetup extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  TextButton(
-                    onPressed: onBack,
-                    style: TextButton.styleFrom(
-                      padding: EdgeInsets.zero,
-                      minimumSize: const Size(0, 40),
-                      foregroundColor: t.colors.accent,
-                      textStyle: PantasType.webLead
-                          .copyWith(color: t.colors.textPrimary),
-                    ),
-                    child: const Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Icon(Icons.chevron_left, size: 20),
-                        Text('Quiz'),
-                      ],
-                    ),
+                  WebBackLink(
+                    label: 'Quiz',
+                    onPressed: onBack ?? () {},
+                    nudge: false,
                   ),
                   const SizedBox(height: PantasSpace.s6),
                   Text('Set up your mock', style: t.h1),
@@ -240,16 +231,12 @@ class WebCustomMockSetup extends StatelessWidget {
                                         ),
                                       ),
                                       const SizedBox(width: PantasSpace.s8),
-                                      TextButton(
+                                      WebButton(
+                                        label: 'Tick More Subjects',
+                                        kind: PantasButtonKind.tertiary,
+                                        tone: PantasButtonTone.accent,
+                                        size: PantasButtonSize.sm,
                                         onPressed: onTickMoreSubjects,
-                                        style: TextButton.styleFrom(
-                                          foregroundColor: t.colors.accent,
-                                          textStyle: PantasType.webSub.copyWith(
-                                            color: t.colors.textPrimary,
-                                            fontWeight: FontWeight.w600,
-                                          ),
-                                        ),
-                                        child: const Text('Tick More Subjects'),
                                       ),
                                     ],
                                   ),
@@ -446,20 +433,13 @@ class _WideSectionRowState extends State<_WideSectionRow> {
     Widget field(int? value, {required bool minutes}) => SizedBox(
           width: _fieldWidth,
           height: PantasSize.btnXs,
-          child: OutlinedButton(
+          child: WebButton(
+            label: value == null ? 'Set' : '$value',
+            kind: PantasButtonKind.white,
+            size: PantasButtonSize.xs,
+            expand: true,
             onPressed: () =>
                 setState(() => _minutes = _minutes == minutes ? null : minutes),
-            style: OutlinedButton.styleFrom(
-              padding: EdgeInsets.zero,
-              side: BorderSide(color: t.colors.separator),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(PantasRadius.md),
-              ),
-            ),
-            child: Text(
-              value == null ? 'Set' : '$value',
-              style: PantasType.webBody.copyWith(color: t.colors.textPrimary),
-            ),
           ),
         );
     return Container(
@@ -600,56 +580,30 @@ class _InlineStepperState extends State<_InlineStepper> {
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              IconButton(
+              PantasIconButton(
                 tooltip: 'Decrease $label',
-                visualDensity: VisualDensity.standard,
-                constraints:
-                    const BoxConstraints.tightFor(width: 32, height: 32),
-                padding: EdgeInsets.zero,
-                style: IconButton.styleFrom(
-                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                ),
+                size: PantasIconButtonSize.sm,
+                glyph: PantasIcons.back,
                 onPressed: index > 0 ? () => move(-1) : null,
-                icon: const Icon(Icons.chevron_left),
               ),
               for (final v in values.skip(start).take(5))
                 Padding(
                   padding:
                       const EdgeInsets.symmetric(horizontal: PantasSpace.s2),
-                  child: TextButton(
+                  child: WebButton(
+                    label: format(v),
+                    kind: v == value
+                        ? PantasButtonKind.primary
+                        : PantasButtonKind.tertiary,
+                    size: PantasButtonSize.xs,
                     onPressed: () => onChanged(v),
-                    style: TextButton.styleFrom(
-                      minimumSize: const Size(54, 36),
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: PantasSpace.s8,
-                      ),
-                      backgroundColor:
-                          v == value ? t.colors.accentFill : Colors.transparent,
-                      foregroundColor: v == value
-                          ? t.colors.onAccent
-                          : t.colors.textSecondary,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(PantasRadius.sm),
-                      ),
-                      textStyle: PantasType.webBody.copyWith(
-                        color: t.colors.textPrimary,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                    child: Text(format(v)),
                   ),
                 ),
-              IconButton(
+              PantasIconButton(
                 tooltip: 'Increase $label',
-                visualDensity: VisualDensity.standard,
-                constraints:
-                    const BoxConstraints.tightFor(width: 32, height: 32),
-                padding: EdgeInsets.zero,
-                style: IconButton.styleFrom(
-                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                ),
+                size: PantasIconButtonSize.sm,
+                glyph: PantasIcons.next,
                 onPressed: index < values.length - 1 ? () => move(1) : null,
-                icon: const Icon(Icons.chevron_right),
               ),
             ],
           ),

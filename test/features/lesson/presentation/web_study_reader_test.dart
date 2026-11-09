@@ -20,6 +20,7 @@ import 'package:pantas/features/lesson/domain/models/study_map.dart';
 import 'package:pantas/features/lesson/presentation/lesson_page.dart';
 import 'package:pantas/features/lesson/presentation/widgets/reader_bar.dart';
 import 'package:pantas/features/lesson/presentation/widgets/reader_gap.dart';
+import 'package:pantas/features/lesson/presentation/widgets/reader_tap.dart';
 import 'package:pantas/features/lesson/presentation/widgets/web_ending_layout.dart';
 import 'package:pantas/features/lesson/presentation/widgets/web_lesson_search.dart';
 import 'package:pantas/features/lesson/presentation/widgets/web_reader_layout.dart';
@@ -284,7 +285,7 @@ void main() {
       );
       await tester.pumpAndSettle();
       expect(find.byType(WebReaderLayout), findsOneWidget);
-      expect(find.text('Home'), findsOneWidget);
+      expect(find.byTooltip('Back to Home'), findsOneWidget);
       expect(find.text('1 of 2'), findsOneWidget);
       await tester.tap(find.text('1 of 2'));
       await tester.pumpAndSettle();
@@ -497,12 +498,12 @@ void main() {
       expect(find.text('Earth Science · 11 min'), findsOneWidget);
       expect(find.text('1 of 2'), findsOneWidget);
       final control = find
-          .ancestor(of: find.text('1 of 2'), matching: find.byType(TextButton))
+          .ancestor(of: find.text('1 of 2'), matching: find.byType(ReaderTap))
           .first;
-      // The board puts the lesson control midway between the Esc hint and
+      // The board puts the lesson control midway between the back button and
       // the buttons on the right, not at the window's center. The full width
       // button now leads those buttons, ahead of the bookmark.
-      final left = tester.getTopRight(find.byType(WebKeyHint)).dx;
+      final left = tester.getTopRight(find.byType(WebReaderBackControl)).dx;
       final right = tester.getTopLeft(find.byTooltip('Full width')).dx;
       expect(tester.getCenter(control).dx, closeTo((left + right) / 2, 1));
       await tester.tap(find.byTooltip('Bookmark this lesson (B)'));
@@ -526,14 +527,13 @@ void main() {
       expect(find.text('EARTH SCIENCE'), findsNothing);
       offset.value = 100;
       await tester.pump();
-      expect(
-        tester
-            .widget<LinearProgressIndicator>(
-              find.byType(LinearProgressIndicator),
-            )
-            .minHeight,
-        3,
+      final thread = find.descendant(
+        of: find.byWidgetPredicate(
+          (w) => w is Semantics && w.properties.label == 'Lesson progress',
+        ),
+        matching: find.byType(SizedBox),
       );
+      expect(tester.getSize(thread.first).height, 3);
       expect(tester.takeException(), isNull);
       await tester.pumpWidget(const SizedBox());
     });
@@ -553,8 +553,7 @@ void main() {
         ],
       );
       await tester.pumpAndSettle();
-      final quiz =
-          find.widgetWithText(TextButton, 'Quiz yourself, 5 questions');
+      final quiz = find.widgetWithText(WebButton, 'Quiz yourself, 5 questions');
       expect(
         tester.getCenter(find.text('Read')).dy,
         closeTo(tester.getCenter(quiz).dy, 1),
