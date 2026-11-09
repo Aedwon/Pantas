@@ -32,6 +32,7 @@ import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
+import 'package:pantas/core/ui/web/letter_shortcuts.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_key_focus.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -837,28 +838,29 @@ class _MockSessionPageState extends State<MockSessionPage> {
         ),
       ),
     );
-    return CallbackShortcuts(
+    return LetterShortcuts(
       bindings: {
-        const SingleActivator(LogicalKeyboardKey.keyF): widget.onToggleFlag,
-        // A to E pick a choice, as on the assessment. The count comes from
-        // the question the page shows.
-        ...answerKeyBindings(
-          choiceCount: () =>
-              ProviderScope.containerOf(context, listen: false)
-                  .read(
-                    hydratedMockQuestionProvider(
-                      widget.state.currentQuestionId,
-                    ),
-                  )
-                  .valueOrNull
-                  ?.question
-                  .choices
-                  .length ??
-              0,
-          onPick: widget.onAnswer,
-        ),
-        if (!widget.state.strictMode)
-          const SingleActivator(LogicalKeyboardKey.keyP): _onPausePressed,
+        'f': widget.onToggleFlag,
+        if (!widget.state.strictMode) 'p': _onPausePressed,
+      },
+      // A to E pick a choice, as on the assessment. The count comes from
+      // the question the page shows.
+      once: answerKeyBindings(
+        choiceCount: () =>
+            ProviderScope.containerOf(context, listen: false)
+                .read(
+                  hydratedMockQuestionProvider(
+                    widget.state.currentQuestionId,
+                  ),
+                )
+                .valueOrNull
+                ?.question
+                .choices
+                .length ??
+            0,
+        onPick: widget.onAnswer,
+      ),
+      also: {
         if (widget.canGoPrevious)
           const SingleActivator(LogicalKeyboardKey.arrowLeft):
               widget.onPrevious,

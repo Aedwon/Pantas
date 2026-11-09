@@ -23,6 +23,7 @@ List<RouteBase> settingsRoutes(Ref ref) => [
         '/settings',
         '/settings/practice',
         '/settings/appearance',
+        '/settings/accessibility',
         '/settings/exam',
         '/settings/exam/change',
         '/settings/exam/upgrade',

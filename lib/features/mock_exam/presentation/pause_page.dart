@@ -3,7 +3,6 @@ import 'dart:math' as math;
 import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:pantas/core/ui/components/centered_dialog.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_button_spec.dart';
@@ -14,6 +13,7 @@ import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
+import 'package:pantas/core/ui/web/letter_shortcuts.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_key_focus.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -463,8 +463,8 @@ class _PausePageState extends State<PausePage> with TickerProviderStateMixin {
         ),
       ),
     );
-    return CallbackShortcuts(
-      bindings: {const SingleActivator(LogicalKeyboardKey.keyP): _resume},
+    return LetterShortcuts(
+      bindings: {'p': _resume},
       child: Focus(
         onKeyEvent: enterKeyHandler(_resume),
         autofocus: true,

@@ -203,7 +203,7 @@ bool textFieldHasFocus() {
       context.findAncestorWidgetOfExactType<EditableText>() != null;
 }
 
-/// The A to E keys that pick an answer, for a page's `CallbackShortcuts`.
+/// The A to E keys that pick an answer, for a page's `LetterShortcuts`.
 ///
 /// The keys stand for the first five choices in order, as on the assessment.
 /// F is not one of them: it flags the question on the quiz and the mock, and
@@ -211,19 +211,16 @@ bool textFieldHasFocus() {
 /// once. A key typed into a text field goes to the field, not to the page.
 /// [onPick] receives the choice's position and decides whether a pick is
 /// allowed right now. [choiceCount] is read when the key is pressed.
-Map<ShortcutActivator, VoidCallback> answerKeyBindings({
+///
+/// Pass the result to `LetterShortcuts.once`, so the
+/// Keyboard Shortcuts setting turns the keys off.
+Map<String, VoidCallback> answerKeyBindings({
   required int Function() choiceCount,
   required ValueChanged<int> onPick,
 }) =>
     {
-      for (final (i, key) in const [
-        LogicalKeyboardKey.keyA,
-        LogicalKeyboardKey.keyB,
-        LogicalKeyboardKey.keyC,
-        LogicalKeyboardKey.keyD,
-        LogicalKeyboardKey.keyE,
-      ].indexed)
-        SingleActivator(key, includeRepeats: false): () {
+      for (final (i, letter) in const ['a', 'b', 'c', 'd', 'e'].indexed)
+        letter: () {
           if (textFieldHasFocus()) return;
           if (i < choiceCount()) onPick(i);
         },

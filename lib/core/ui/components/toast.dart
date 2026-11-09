@@ -9,6 +9,7 @@ import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
+import 'package:pantas/core/ui/web/letter_shortcuts.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 
 // The toast uses the inverted `toast-bg` and `toast-text` pair in both themes.
@@ -114,7 +115,9 @@ class Toast extends StatelessWidget {
                 ),
               ),
               if (web && onUndo != null) const SizedBox(width: PantasSpace.s14),
-              if (keyHint != null) ...[
+              if (keyHint != null &&
+                  (!isCharacterKeyHint(keyHint!) ||
+                      LetterShortcutsScope.enabledOf(context))) ...[
                 const SizedBox(width: PantasSpace.s14),
                 WebKeyHint(keyHint!, onButton: true),
               ],

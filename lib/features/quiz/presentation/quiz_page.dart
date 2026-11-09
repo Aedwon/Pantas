@@ -40,6 +40,7 @@ import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
+import 'package:pantas/core/ui/web/letter_shortcuts.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_key_focus.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -996,8 +997,8 @@ class _QuizPageState extends ConsumerState<QuizPage> {
     // The Leave dialog owns the keys while it is open. Its own focus keeps
     // them away from this page; this is the second guard, for a page that
     // gets the focus back anyway.
-    return CallbackShortcuts(
-      bindings: {
+    return LetterShortcuts(
+      also: {
         const SingleActivator(LogicalKeyboardKey.escape): () {
           if (_leaveOpen) {
             _dismissLeave();
@@ -1007,26 +1008,28 @@ class _QuizPageState extends ConsumerState<QuizPage> {
             unawaited(_confirmLeave());
           }
         },
-        const SingleActivator(LogicalKeyboardKey.keyF): () {
+      },
+      bindings: {
+        'f': () {
           if (!_leaveOpen && !_flagBusy) unawaited(_toggleFlag(question.id));
         },
-        const SingleActivator(LogicalKeyboardKey.keyG): () {
+        'g': () {
           if (!_leaveOpen && !state.checking) {
             setState(() => _gridOpen = !_gridOpen);
           }
         },
-        // A to E pick a choice, as on the assessment. They stop once the
-        // question is checked, while it is being checked, and in a dialog.
-        ...answerKeyBindings(
-          choiceCount: () => question.choices.length,
-          onPick: (i) {
-            if (_leaveOpen || state.checking || outcome != null) return;
-            ref
-                .read(quizControllerProvider.notifier)
-                .pick(chosenChoiceId: question.choices[i].id);
-          },
-        ),
       },
+      // A to E pick a choice, as on the assessment. They stop once the
+      // question is checked, while it is being checked, and in a dialog.
+      once: answerKeyBindings(
+        choiceCount: () => question.choices.length,
+        onPick: (i) {
+          if (_leaveOpen || state.checking || outcome != null) return;
+          ref
+              .read(quizControllerProvider.notifier)
+              .pick(chosenChoiceId: question.choices[i].id);
+        },
+      ),
       child: KeyFocusKeeper(
         // The page's own node only holds its keys: Tab skips it.
         skipTraversal: true,

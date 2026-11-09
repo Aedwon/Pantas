@@ -24,6 +24,7 @@ import 'package:pantas/core/ui/theme/tokens/pantas_shadow.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
+import 'package:pantas/core/ui/web/letter_shortcuts.dart';
 import 'package:pantas/core/ui/web/web_back_link_ring.dart';
 import 'package:pantas/core/ui/web/web_keyboard_focus.dart';
 import 'package:pantas/core/ui/web/web_keyboard_hints.dart';
@@ -147,7 +148,7 @@ class WebButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final c = context.webTokens.colors;
-    final showKeyHint = keyHint != null && WebKeyboardHints.visibleOf(context);
+    final showKeyHint = keyHintShown(context, keyHint);
     final (pairKind, pairTone) = _pair;
     final sizeClass = size ??
         (pill
@@ -292,6 +293,12 @@ class WebKeyHint extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (keyboard && !WebKeyboardHints.visibleOf(context)) {
+      return const SizedBox.shrink();
+    }
+    // A letter key that is switched off must not be advertised.
+    if (keyboard &&
+        isCharacterKeyHint(label) &&
+        !LetterShortcutsScope.enabledOf(context)) {
       return const SizedBox.shrink();
     }
     final c = context.webTokens.colors;
