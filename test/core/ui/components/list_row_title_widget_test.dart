@@ -113,8 +113,8 @@ void main() {
       ),
       findsOneWidget,
     );
-    expect(
-        tester.widget<PantasTooltip>(find.byType(PantasTooltip)).message, long);
+    final tooltip = tester.widget<PantasTooltip>(find.byType(PantasTooltip));
+    expect(tooltip.message, long);
   });
 
   testWidgets('a short truncateTitle row has no Tooltip', (tester) async {
