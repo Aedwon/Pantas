@@ -299,3 +299,81 @@ Aedwon's answer: "balanced, but my codex limits reset in 2 days i think (do doub
 Result: Balanced. Checked with the Codex usage tool on November 2: accounts a, b and c are at 100%, 95% and
 95% of their weekly limits and reset on Wednesday, November 4, between 14:45 and 18:20 by this Mac's clock
 (Pacific). The audit runs after the build, so this does not block it. Do not start the audit before the reset.
+
+## November 9, 2026: brainstorm resumed, new facts
+
+Resumed by the overall manager (Aedwon: "for the rest of items, please finish them"). Spec work only.
+Policy read from `origin/main` at 6d6a70f94. Code facts read from `origin/web/design-system-4` at
+89559a2e2, Content Pass from `origin/claude/content-pass-r1-4eb59e` at c1b94901f, the privacy batch
+spec from `origin/docs/legal-texts-r1` at d3550d824.
+
+Facts that change earlier entries:
+
+- The question-report sender was never built. The Nov 2 answer "Before the beta" waited on this spec,
+  which was not written, so reports still stay on the device ("Saved on this device"). The beta
+  started Nov 9 without it.
+- Web app errors are now collected: since Nov 7, `reportClientTelemetry` writes web errors and
+  speed marks to Cloud Logging (30 days). The Nov 2 "Not tracked" no longer holds.
+- Feedback (Beta) is live on prod (Nov 7) and stored per tester in Firestore. It carries no question
+  ID. It is read in the Firebase console.
+- The 1-year beta reward is a Pro source (`beta_reward` grants), as are trials, beta grants and
+  PayMongo payments.
+- PayMongo refuses API refunds for QR Ph. Aedwon's ruling (Nov 9, launch log): refund QR Ph by bank
+  transfer, then record it with the manual refund runbook in `docs/OPERATIONS.md`. A refund larger
+  than the PayMongo balance is refused (D8).
+- PayMongo still runs test keys. Live payments wait for the BIR COR, the DTI name and the sole
+  proprietor upgrade (launch log, Nov 9).
+- Giveaway winners are found by their short public ID (Oct 4 log), not only by email.
+- Content Pass is a Flutter web page with a Dart server on 127.0.0.1 and a native Mac window. It
+  is not merged while Aedwon refines it. Its "queue" is its review list; it has no intake for reports.
+- New requirement (Aedwon, Nov 9, launch log): an "Owner inputs" tab. His words, relayed by the
+  manager: "founder app only. you're underestimating your speed of completing things. you should be
+  able to finish the things you've listed in a week i bet". The manager's list: business phone; BIR
+  COR or registration; DTI business name; the PayMongo sole proprietor upgrade; invoice or official
+  receipt method; website footer facts (his own copy); NPC registration; signed child privacy
+  assessment; the RevenueCat secrets; the guardian mail key. The privacy batch spec adds the sender
+  address for warning and manage emails and a monitored dpo@pantas.study inbox.
+- Founder app UI boards must be Claude Design boards on design system 4.0 (DS4), with a fresh DS4
+  review and a render check before he sees them (process-improvement entry, Nov 9).
+
+## November 9, 2026: lead rulings (D191, final)
+
+Made under Aedwon's delegation. Each can be reversed by him.
+
+1. **Look moves to DS4.** The approved Green frame (Nov 2) breaks DS4 rules: a teal window frame,
+   card shadows, Inter, red for a system problem, amber buttons. The founder app is rebuilt on DS4's
+   AppShell, SidebarNav, Card, ListRow, Sheet and the rest, keeping what he chose in the Green frame
+   boards: the needs-you home, the student page with the coverage bar, side-sheet confirmations, and
+   Delete data set apart. He sees the DS4 boards with the spec.
+2. **Build stack.** Plain web pages that load DS4's `tokens.css` and `bundle.css`, so the app matches
+   the boards; a local Node and TypeScript server that imports the payment, grant and deletion code
+   in `functions/src` instead of copying it; a native Mac window like Content Pass, opened from
+   Spotlight. The server listens on 127.0.0.1 only and requires a secret the window passes at launch.
+   Content Pass has no such check today; that is noted, not changed here.
+3. **Content Pass stays a separate app** in this build. Folding it in is its own later change.
+4. **Lookup** accepts an email, a short public ID or an account ID.
+5. **Coverage bar** shows every Pro source: PayMongo payments, trials, beta grants, the beta reward,
+   founder grants and store passes.
+6. **Grant Pro** writes a `founder` grant in the Pantas records (Nov 2 choice). Lengths: 1 week,
+   2 weeks, 1 month, 3 months. Reasons: Giveaway, Support fix, Other with a note. Refused for a guest
+   account with no email, per the Oct 4 giveaway rules. `docs/pricing.md` changes with the build.
+7. **QR Ph refunds** in the app: the refund sheet says to send a bank transfer, then "Record bank
+   refund" with the amount and bank reference. The local server calls the same refund code the
+   webhook runs, directly. The webhook signing secret never reaches the Mac, because it could also
+   fake a paid event. Card refunds stay "check, then PayMongo" (Nov 2).
+8. **Delete data** gets a server-side path that deletes a named account with the same steps as
+   self-deletion. It is refused while a refund, dispute or refund follow-up is open.
+9. **Numbers** shows the web error count from the telemetry log instead of "Not tracked".
+10. **Inbox** holds question reports only (Nov 2). The report sender ships with this build: a
+    rate-limited callable with the server-side limits the abuse review asked for, and new wording in
+    place of "Saved on this device" (lead's copy call, written rule 4). Beta feedback stays in the
+    Firebase console; it ends with the beta.
+11. **Owner inputs storage.** Each item has a state (Not yet, Ready) and, where safe, a value. Values
+    and states live in a file on his Mac, never in the public repository. Secrets (the RevenueCat
+    secret key, the guardian mail key) are pasted once and written straight to Google Secret Manager
+    on the chosen project. They are never saved on the Mac or shown again; the tab shows only when
+    each was set. The founder service account may add versions to those named secrets only. Each
+    item names the work it unblocks. Sessions on this Mac read the file when blocked on an input;
+    `docs/OPERATIONS.md` gets the pointer. Sessions without this Mac cannot read it.
+12. **The action log** is a Firestore collection on each project, written for every grant, removal,
+    refund record and deletion, and shown on the Log screen.
