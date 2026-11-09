@@ -1,0 +1,34 @@
+name: Update goldens
+
+# Generates the component golden sheets (test/goldens) on the CI image, so the
+# fonts and rasterizer match the goldens job in ci.yml. Run it by hand, or push
+# a commit whose message contains [update-goldens]. It uploads the PNGs as an
+# artifact; a person reviews them and commits them under test/goldens/files.
+# Logs and artifacts are public: sheets use fixed fake text only.
+on:
+  workflow_dispatch:
+  push:
+    branches: ['**']
+
+permissions:
+  contents: read
+
+jobs:
+  update-goldens:
+    if: github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[update-goldens]')
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ./.github/actions/setup-app
+
+      - name: Render the golden sheets
+        run: flutter test --tags golden --run-skipped --update-goldens test/goldens
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: goldens
+          path: test/goldens/files/*.png
+          if-no-files-found: error
+          retention-days: 14

@@ -100,6 +100,41 @@ jobs:
           path: coverage/lcov.info
           retention-days: 1
 
+  goldens:
+    # The component sheets against the committed PNGs (guardrails layer 3).
+    # The PNGs are generated on this image by the Update goldens workflow, so
+    # the job skips itself, step by step, until the first ones are committed.
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Look for committed goldens
+        id: goldens
+        run: |
+          if ls test/goldens/files/*.png >/dev/null 2>&1; then
+            echo "present=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "present=false" >> "$GITHUB_OUTPUT"
+            echo "No golden PNG is committed yet, so the goldens job has nothing to compare."
+          fi
+
+      - uses: ./.github/actions/setup-app
+        if: steps.goldens.outputs.present == 'true'
+
+      - name: Golden tests
+        if: steps.goldens.outputs.present == 'true'
+        run: flutter test --tags golden --run-skipped test/goldens
+
+      - name: Upload the failure diffs
+        if: failure() && steps.goldens.outputs.present == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: golden-failures
+          path: test/goldens/**/failures/*.png
+          if-no-files-found: ignore
+          retention-days: 7
+
   coverage:
     needs: test
     runs-on: ubuntu-latest
