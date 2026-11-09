@@ -54,10 +54,33 @@ pass 15, retire or merge one first.
    `web-design/pantas-handoff/`). Never hand-draw a local HTML board or redraw a screen from
    widget code. No check can judge fidelity: he does the visual check.
 
+4. Never ask Aedwon to write legal or policy text (terms, privacy notices, legal bases,
+   consent or refund wording). First search `docs/legal/`, `docs/legal-drafts/`, the app's
+   legal documents on the integration branch and the pantas-web project; use what exists as
+   the base. If text is missing, an agent drafts it to favor Pantas as far as Philippine law
+   allows, Codex GPT 6.1 Sol at high effort critiques it through `codex-pick`, and he only
+   checks the result. His words (Nov 9): "how many times does this have to pop up. has this not been written already? in the pantas-web project? if not, i already told you, you should have an agent write it for me instead. for these texts, have a codex 6.1 Sol High critique it. the angle should be that it's leaning in favor of us, to the extend PH law allows. do not ask me any text of this kind again. i cannot afford a lawyer. i should only check what you drafted" No check can tell when a question to him
+   asks for legal text.
+
 ## Entries
 
 Newest first. When this file passes about 120 lines, move the oldest closed entries to
 the current decision log.
+
+### Legal text asked of him again (Nov 9)
+
+- His words: "how many times does this have to pop up. has this not been written already? in the pantas-web project? if not, i already told you, you should have an agent write it for me instead. for these texts, have a codex 6.1 Sol High critique it. the angle should be that it's leaning in favor of us, to the extend PH law allows. do not ask me any text of this kind again. i cannot afford a lawyer. i should only check what you drafted"
+- Wrong: the teen notice, the Terms web Subscriptions wording and the telemetry legal-basis
+  line kept coming back to him as open items ("Still needs him or a lawyer", Nov 5; "Open:
+  legal-basis line wording for Aedwon", Nov 7), although a Nov 5 draft existed in
+  `docs/legal/drafts/` and all three texts were already built into the app.
+- Why it got through: the Nov 5 QA ruling said "legal text is not rewritten by agents", and
+  nothing told agents to search for existing drafts or to draft and critique legal text
+  themselves.
+- Fix: written rule 4. No check can tell when a question to him asks for legal text. The
+  three texts were redrafted, critiqued by Codex Sol at high effort and put in one review
+  file, `docs/legal/drafts/2026-11-09-legal-texts-review.md` on `docs/legal-texts-r1`
+  (1eb945a93).
 
 ### Raw framework controls bypassed the design system (Nov 9)
 
