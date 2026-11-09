@@ -1343,6 +1343,8 @@ void main() {
 
   for (final (scale, radius) in [
     (1.0, PantasRadius.full),
+    (1.4, PantasRadius.full),
+    (1.6, PantasRadius.xl),
     (2.0, PantasRadius.xl),
   ]) {
     testWidgets(

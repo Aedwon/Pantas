@@ -73,4 +73,13 @@ void main() {
       lessThanOrEqualTo(288),
     );
   });
+
+  testWidgets('at 0.85x the dial and number shrink with the text',
+      (tester) async {
+    const gauge = HalfRingGauge.mock(fraction: .612, label: '171 correct');
+    final one = await measure(tester, gauge, 1, '61.2');
+    final small = await measure(tester, gauge, .85, '61.2');
+    expect(small.dial, closeTo(one.dial * .85, .5));
+    expect(small.number, closeTo(one.number * .85, .5));
+  });
 }

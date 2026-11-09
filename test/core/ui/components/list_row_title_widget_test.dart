@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/math_text.dart';
+import 'package:pantas/core/ui/components/pantas_tooltip.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 
 import '../../../helpers/pump_app.dart';
@@ -93,5 +94,36 @@ void main() {
     expect(find.byType(MathText), findsOneWidget);
     expect(tester.getSize(find.byType(ListRow)).width, 320);
     expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('a cut truncateTitle row shows the full title in a Tooltip',
+      (tester) async {
+    const long =
+        'Solving word problems with ratios and proportions in the real world';
+    await tester.pumpApp(
+      SizedBox(
+        width: 300,
+        child: ListRow(title: long, truncateTitle: true, onTap: () {}),
+      ),
+    );
+    expect(
+      find.ancestor(
+        of: find.text(long, findRichText: true),
+        matching: find.byType(PantasTooltip),
+      ),
+      findsOneWidget,
+    );
+    expect(
+        tester.widget<PantasTooltip>(find.byType(PantasTooltip)).message, long);
+  });
+
+  testWidgets('a short truncateTitle row has no Tooltip', (tester) async {
+    await tester.pumpApp(
+      SizedBox(
+        width: 300,
+        child: ListRow(title: 'Short', truncateTitle: true, onTap: () {}),
+      ),
+    );
+    expect(find.byType(PantasTooltip), findsNothing);
   });
 }

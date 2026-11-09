@@ -546,8 +546,10 @@ class _ScaledDial extends StatelessWidget {
     final grown = media.textScaler.scale(16) / 16;
     return LayoutBuilder(
       builder: (context, constraints) {
-        var grow = grown < 1 ? 1.0 : grown;
-        if (constraints.hasBoundedWidth) {
+        // Below 1x the whole dial shrinks with the text; above it, it grows
+        // as far as the width allows.
+        var grow = grown;
+        if (grown > 1 && constraints.hasBoundedWidth) {
           final room = constraints.maxWidth / dial.width;
           if (grow > room) grow = room < 1 ? 1.0 : room;
         }

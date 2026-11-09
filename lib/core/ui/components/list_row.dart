@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/pantas_switch.dart';
+import 'package:pantas/core/ui/components/pantas_tooltip.dart';
 import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -480,12 +481,37 @@ class ListRow extends StatelessWidget {
     );
     final subStyle =
         tinted ? subBase.copyWith(color: c.textOnTintSecondary) : subBase;
-    final label = Text.rich(
+    final plainLabel = Text.rich(
       richTitle ?? TextSpan(text: title),
       maxLines: truncateTitle ? 1 : null,
       overflow: truncateTitle ? TextOverflow.ellipsis : null,
       style: labelStyle,
     );
+    // A cut title shows its full text in a Tooltip (R3-O10; a fine pointer),
+    // and only when it is actually cut.
+    final label = !truncateTitle
+        ? plainLabel
+        : LayoutBuilder(
+            builder: (context, box) {
+              final painter = TextPainter(
+                text: TextSpan(
+                  style: labelStyle,
+                  children: [richTitle ?? TextSpan(text: title)],
+                ),
+                maxLines: 1,
+                textDirection: Directionality.of(context),
+                textScaler: MediaQuery.textScalerOf(context),
+              )..layout(maxWidth: box.maxWidth);
+              final cut = painter.didExceedMaxLines;
+              painter.dispose();
+              return cut
+                  ? PantasTooltip(
+                      message: richTitle?.toPlainText() ?? title,
+                      child: plainLabel,
+                    )
+                  : plainLabel;
+            },
+          );
     // A plain text value shares the row with the title. The value takes the
     // room it needs when the title and value fit on one line ("Practice" and
     // "10 questions" at 320 px). When the title would be cut, the value goes

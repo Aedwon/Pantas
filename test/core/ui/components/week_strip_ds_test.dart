@@ -47,10 +47,14 @@ void main() {
           expect(days[i].left - days[i - 1].right, closeTo(50 / 6, .01));
         }
       } else {
-        // At large text the column grows with Today's ring (4 clear each
-        // side) and the strip scrolls instead of squeezing.
+        // At 2.0 the column is Today's ring grown by 1.7 (the text beyond
+        // 1.3x) plus 4 clear on each side: 34 x 1.7 + 8. Seven do not fit in
+        // 358, so the gap is the 4 minimum and the strip scrolls.
         for (final day in days) {
-          expect(day.width, greaterThanOrEqualTo(44));
+          expect(day.width, closeTo(34 * 1.7 + 8, .01));
+        }
+        for (var i = 1; i < 7; i++) {
+          expect(days[i].left - days[i - 1].right, closeTo(4, .01));
         }
       }
       // Today: accent weekday at 700, number on an accent-fill disc.
@@ -166,6 +170,30 @@ void main() {
       }
       final weekday = tester.getRect(find.text('Wed'));
       expect(weekday.bottom, lessThanOrEqualTo(digit.top));
+    });
+  }
+
+  for (final scale in [1.2, 1.3]) {
+    testWidgets('on a 390 phone the strip keeps 44 cells and fits at $scale',
+        (tester) async {
+      await pumpDs(
+        tester,
+        DsCell(390, scale, dark: false),
+        SizedBox(width: 358, child: _strip()),
+      );
+      for (var i = 0; i < 7; i++) {
+        expect(
+          tester.getRect(find.byKey(ValueKey('week-day-$i'))).width,
+          closeTo(44, .001),
+        );
+      }
+      final scrollable = tester.state<ScrollableState>(
+        find.descendant(
+          of: find.byType(WeekStrip),
+          matching: find.byType(Scrollable),
+        ),
+      );
+      expect(scrollable.position.maxScrollExtent, 0);
     });
   }
 }

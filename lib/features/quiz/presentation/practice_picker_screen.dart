@@ -1195,7 +1195,7 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
           ? null
           : () => unawaited(_start(index, summary)),
     );
-    final large = MediaQuery.textScalerOf(context).scale(15) > 20;
+    final large = MediaQuery.textScalerOf(context).scale(15) > 22.5;
     // FloatingBar README, stacked (ruling 5): above 1.5x the bar holds two
     // rows and becomes a rounded rectangle, so Start does not sit against a
     // pill's curved end.

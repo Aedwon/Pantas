@@ -48,11 +48,14 @@ class WeekStrip extends StatefulWidget {
   /// The 34 px ring around Today's disc (`.wd__ring`).
   static const double _ring = PantasSize.avatarLg - PantasSpace.s10;
 
-  /// How much the text is enlarged (1 at default size). Today's disc and ring
-  /// grow with it, so the date inside never squeezes or clips at 200%.
+  /// How much Today's disc and ring grow. Up to 1.3x text the day keeps its
+  /// 44px column and the drawn sizes (the 34px ring fits 44 with room), so a
+  /// 390 phone still shows seven days unscrolled. Beyond 1.3x they grow by
+  /// the excess, so at 200% the date is not squeezed and the ring is not
+  /// clipped.
   static double _grow(BuildContext context) {
     final grown = MediaQuery.textScalerOf(context).scale(16) / 16;
-    return grown < 1 ? 1 : grown;
+    return grown <= 1.3 ? 1 : grown - 0.3;
   }
 
   /// Today's disc: 26 on wide screens, 28 on the phone, grown with the text.
