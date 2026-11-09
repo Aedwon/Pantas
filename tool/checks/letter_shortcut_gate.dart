@@ -11,9 +11,9 @@ const _gateFile = 'lib/core/ui/web/letter_shortcuts.dart';
 
 /// Findings that are known. Key: path.
 const _accepted = <String, String>{
-  'lib/core/ui/components/pantas_select.dart':
-      'type-ahead acts only while the select itself has focus, which WCAG '
-          '2.1.4 exempts',
+  'lib/core/ui/components/typeahead_buffer.dart':
+      'type-ahead in Select and Popover acts only while the open list has '
+          'focus, which WCAG 2.1.4 exempts',
 };
 
 final _characterKey = RegExp(

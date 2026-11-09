@@ -107,9 +107,11 @@ void main() {
       await tester.pump();
       expect(selected.day, isNull);
       expect(selected.month, 3);
+      // The picker now carries the typed field above the grid, so it is taller
+      // than the screen at 2.0; every host scrolls it.
       await expectSurvivesTextScale(
         tester,
-        picker,
+        SingleChildScrollView(child: picker),
         brightness: brightness,
         viewportSize: const Size(390, 844),
         disableAnimations: true,

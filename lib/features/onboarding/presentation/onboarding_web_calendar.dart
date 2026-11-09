@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
+import 'package:pantas/core/time/date_entry_validator.dart';
 import 'package:pantas/core/ui/components/month_first_date_picker.dart';
+import 'package:pantas/core/ui/components/typed_date_field.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
@@ -33,6 +38,83 @@ class OnboardingWebCalendar extends StatefulWidget {
 }
 
 class _OnboardingWebCalendarState extends State<OnboardingWebCalendar> {
+  /// One focus node per day of the shown month (day 1 is index 0), so the
+  /// arrow keys can move between the cells and only one is a Tab stop.
+  final List<FocusNode> _dayNodes = [
+    for (var day = 1; day <= 31; day++)
+      FocusNode(debugLabel: 'calendar day $day'),
+  ];
+
+  @override
+  void dispose() {
+    for (final node in _dayNodes) {
+      node.dispose();
+    }
+    super.dispose();
+  }
+
+  /// The last day of the range this calendar shows: the end of next year.
+  DateTime get _lastAllowed => DateTime(widget.today.year + 1, 12, 31);
+
+  bool _allowed(int year, int month, int day) => DateEntryValidator.isAllowed(
+        DateTime(year, month, day),
+        firstAllowed: widget.today,
+        lastAllowed: _lastAllowed,
+      );
+
+  /// The first day of the month that may be chosen, or null.
+  int? _firstAllowedDay(int year, int month) {
+    final last = DateTime(year, month + 1, 0).day;
+    for (var day = 1; day <= last; day++) {
+      if (_allowed(year, month, day)) return day;
+    }
+    return null;
+  }
+
+  /// Date grid keys (DatePicker README): Left and Right one day, Up and Down
+  /// one week, Home and End the first and last allowed day. Keys move focus
+  /// and stay inside the month shown; Enter or Space chooses.
+  KeyEventResult _onDayKey(int year, int month, KeyEvent event) {
+    if (event is KeyUpEvent) return KeyEventResult.ignored;
+    final keys = HardwareKeyboard.instance;
+    if (keys.isControlPressed || keys.isAltPressed || keys.isMetaPressed) {
+      return KeyEventResult.ignored;
+    }
+    final last = DateTime(year, month + 1, 0).day;
+    var from = 0;
+    for (var day = 1; day <= last; day++) {
+      if (_dayNodes[day - 1].hasFocus) from = day;
+    }
+    if (from == 0) return KeyEventResult.ignored;
+    final first = _firstAllowedDay(year, month);
+    if (first == null) return KeyEventResult.ignored;
+    var lastAllowed = last;
+    while (lastAllowed > first && !_allowed(year, month, lastAllowed)) {
+      lastAllowed--;
+    }
+    final key = event.logicalKey;
+    final int target;
+    if (key == LogicalKeyboardKey.arrowLeft) {
+      target = from - 1;
+    } else if (key == LogicalKeyboardKey.arrowRight) {
+      target = from + 1;
+    } else if (key == LogicalKeyboardKey.arrowUp) {
+      target = from - DateTime.daysPerWeek;
+    } else if (key == LogicalKeyboardKey.arrowDown) {
+      target = from + DateTime.daysPerWeek;
+    } else if (key == LogicalKeyboardKey.home) {
+      target = first;
+    } else if (key == LogicalKeyboardKey.end) {
+      target = lastAllowed;
+    } else {
+      return KeyEventResult.ignored;
+    }
+    if (target >= first && target <= lastAllowed && target != from) {
+      _dayNodes[target - 1].requestFocus();
+    }
+    return KeyEventResult.handled;
+  }
+
   MonthFirstDate get value => widget.value;
   DateTime get today => widget.today;
   ValueChanged<MonthFirstDate> get onChanged => widget.onChanged;
@@ -101,63 +183,92 @@ class _OnboardingWebCalendarState extends State<OnboardingWebCalendar> {
       required bool picked,
       bool isToday = false,
       String? semantics,
-    }) =>
-        Semantics(
-          selected: picked,
-          label: semantics,
-          child: TextButton(
-            // ds-raw: calendar day cell, tint and today label
-            onPressed: action,
-            style: TextButton.styleFrom(
-              // ds-raw: same button, calendar day cell
-              padding: EdgeInsets.zero,
-              backgroundColor: picked
-                  ? t.colors.accentFill
-                  : semantics == null
-                      ? Colors.transparent
-                      : t.colors.background,
-              foregroundColor: picked
-                  ? t.colors.onAccent
-                  : isToday
-                      ? t.colors.accent
-                      : t.colors.textPrimary,
-              disabledForegroundColor: t.disabledText,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(PantasRadius.md),
+      FocusNode? focusNode,
+      String? name,
+    }) {
+      final button = TextButton(
+        // ds-raw: calendar day cell, tint and today label
+        focusNode: focusNode,
+        onPressed: action,
+        style: TextButton.styleFrom(
+          // ds-raw: same button, calendar day cell
+          padding: EdgeInsets.zero,
+          backgroundColor: picked
+              ? t.colors.accentFill
+              : semantics == null
+                  ? Colors.transparent
+                  : t.colors.background,
+          foregroundColor: picked
+              ? t.colors.onAccent
+              : isToday
+                  ? t.colors.accent
+                  : t.colors.textPrimary,
+          disabledForegroundColor: t.disabledText,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(PantasRadius.md),
+          ),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            if (isToday)
+              Text(
+                'Today',
+                style: PantasType.webKeyHintSm.copyWith(
+                  fontWeight: FontWeight.w700,
+                  color: picked ? t.colors.onAccent : t.colors.accent,
+                ),
+              ),
+            Text(
+              label,
+              style:
+                  (semantics == null ? PantasType.webBody : PantasType.webSub)
+                      .copyWith(
+                fontWeight: picked || isToday
+                    ? FontWeight.w700
+                    : semantics == null
+                        ? FontWeight.w400
+                        : FontWeight.w500,
               ),
             ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                if (isToday)
-                  Text(
-                    'Today',
-                    style: PantasType.webKeyHintSm.copyWith(
-                      fontWeight: FontWeight.w700,
-                      color: picked ? t.colors.onAccent : t.colors.accent,
-                    ),
-                  ),
-                Text(
-                  label,
-                  style: (semantics == null
-                          ? PantasType.webBody
-                          : PantasType.webSub)
-                      .copyWith(
-                    fontWeight: picked || isToday
-                        ? FontWeight.w700
-                        : semantics == null
-                            ? FontWeight.w400
-                            : FontWeight.w500,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        );
+          ],
+        ),
+      );
+      if (name == null) {
+        return Semantics(selected: picked, label: semantics, child: button);
+      }
+      // A date cell is named in full ("November 28, 2026"), and the chosen
+      // one pops (DatePicker, States).
+      return Semantics(
+        label: name,
+        button: true,
+        selected: picked,
+        enabled: action != null,
+        onTap: action,
+        excludeSemantics: true,
+        child: _SelectedPop(
+          key: ValueKey('date-cell-pop-$label'),
+          selected: picked,
+          child: button,
+        ),
+      );
+    }
+
     // The day panel always draws six week rows.
     Widget monthBody(int year, int monthNumber) {
       final first = DateTime(year, monthNumber).weekday % 7;
       final last = DateTime(year, monthNumber + 1, 0).day;
+      // One Tab stop: the chosen day, else the first allowed one.
+      final chosenDay = value.year == year &&
+              value.month == monthNumber &&
+              value.day != null &&
+              _allowed(year, monthNumber, value.day!)
+          ? value.day
+          : null;
+      final tabStop = chosenDay ?? _firstAllowedDay(year, monthNumber);
+      for (var d = 1; d <= 31; d++) {
+        _dayNodes[d - 1].skipTraversal = d != tabStop;
+      }
       return Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -189,27 +300,42 @@ class _OnboardingWebCalendarState extends State<OnboardingWebCalendar> {
             ],
           ),
           const SizedBox(height: PantasSpace.s12),
-          grid(
-            [
-              for (var n = 0; n < first; n++) const SizedBox.shrink(),
-              for (var d = 1; d <= last; d++)
-                choice(
-                  '$d',
-                  DateTime(year, monthNumber, d).isBefore(today)
-                      ? null
-                      : () => onChanged(
-                            MonthFirstDate(
-                              year: year,
-                              month: monthNumber,
-                              day: d,
-                            ),
-                          ),
-                  picked: value.day == d,
-                  isToday: DateTime(year, monthNumber, d) == today,
-                ),
-              for (var n = first + last; n < 42; n++) const SizedBox.shrink(),
-            ],
-            7,
+          Semantics(
+            label: DateFormat('MMMM y', 'en_US')
+                .format(DateTime(year, monthNumber)),
+            container: true,
+            explicitChildNodes: true,
+            child: Focus(
+              canRequestFocus: false,
+              skipTraversal: true,
+              onKeyEvent: (node, event) => _onDayKey(year, monthNumber, event),
+              child: grid(
+                [
+                  for (var n = 0; n < first; n++) const SizedBox.shrink(),
+                  for (var d = 1; d <= last; d++)
+                    choice(
+                      '$d',
+                      !_allowed(year, monthNumber, d)
+                          ? null
+                          : () => onChanged(
+                                MonthFirstDate(
+                                  year: year,
+                                  month: monthNumber,
+                                  day: d,
+                                ),
+                              ),
+                      picked: value.day == d,
+                      isToday: DateTime(year, monthNumber, d) == today,
+                      focusNode: _dayNodes[d - 1],
+                      name: DateFormat('MMMM d, y', 'en_US')
+                          .format(DateTime(year, monthNumber, d)),
+                    ),
+                  for (var n = first + last; n < 42; n++)
+                    const SizedBox.shrink(),
+                ],
+                7,
+              ),
+            ),
           ),
         ],
       );
@@ -261,6 +387,19 @@ class _OnboardingWebCalendarState extends State<OnboardingWebCalendar> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
+        // The typed field sits with the grid (DatePicker, Placement). A full
+        // valid date selects the day; the grid and the field share one rule.
+        TypedDateField(
+          value: value.month == null || value.day == null
+              ? null
+              : DateTime(value.year, value.month!, value.day!),
+          firstAllowed: today,
+          lastAllowed: _lastAllowed,
+          onChanged: (date) => onChanged(
+            MonthFirstDate(year: date.year, month: date.month, day: date.day),
+          ),
+        ),
+        const SizedBox(height: PantasSpace.s16),
         IntrinsicHeight(
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -402,4 +541,81 @@ class _OnboardingWebCalendarState extends State<OnboardingWebCalendar> {
       ],
     );
   }
+}
+
+/// The chosen date cell pops (DatePicker, States): 350 ms (`dur-switch`),
+/// scale 0.4 to 1.08 on `motion-enter` for the first 60 percent, then back to
+/// 1 on `motion-fade`, fading in with it. Keyframes are the system's `pn-pop`.
+/// It plays when a cell becomes the chosen one, and not at all under reduced
+/// motion.
+class _SelectedPop extends StatefulWidget {
+  const _SelectedPop({
+    required this.selected,
+    required this.child,
+    super.key,
+  });
+
+  final bool selected;
+  final Widget child;
+
+  @override
+  State<_SelectedPop> createState() => _SelectedPopState();
+}
+
+class _SelectedPopState extends State<_SelectedPop>
+    with SingleTickerProviderStateMixin {
+  // ds-board: pn-pop keyframes in design/system/components/bundle.css; the
+  // system sets no scale token.
+  static const double _from = 0.4;
+  static const double _peak = 1.08;
+
+  late final AnimationController _controller = AnimationController(
+    vsync: this,
+    duration: PantasDurations.switchDuration,
+    value: 1,
+  );
+
+  late final Animation<double> _scale = TweenSequence<double>([
+    TweenSequenceItem(
+      tween: Tween<double>(begin: _from, end: _peak)
+          .chain(CurveTween(curve: PantasCurves.enter)),
+      weight: 60,
+    ),
+    TweenSequenceItem(
+      tween: Tween<double>(begin: _peak, end: 1)
+          .chain(CurveTween(curve: PantasCurves.fade)),
+      weight: 40,
+    ),
+  ]).animate(_controller);
+
+  late final Animation<double> _opacity = TweenSequence<double>([
+    TweenSequenceItem(tween: Tween<double>(begin: 0, end: 1), weight: 60),
+    TweenSequenceItem(tween: ConstantTween<double>(1), weight: 40),
+  ]).animate(_controller);
+
+  @override
+  void didUpdateWidget(_SelectedPop oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.selected &&
+        !oldWidget.selected &&
+        !MediaQuery.disableAnimationsOf(context)) {
+      _controller.forward(from: 0);
+    }
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) => AnimatedBuilder(
+        animation: _controller,
+        child: widget.child,
+        builder: (context, child) => Opacity(
+          opacity: _opacity.value,
+          child: Transform.scale(scale: _scale.value, child: child),
+        ),
+      );
 }

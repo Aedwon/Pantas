@@ -26,6 +26,7 @@ class SearchField extends StatefulWidget {
     this.autofocus = false,
     this.outlined = false,
     this.keyHint,
+    this.showCancel = true,
     super.key,
   });
   final ValueChanged<String> onChanged;
@@ -41,6 +42,10 @@ class SearchField extends StatefulWidget {
   /// The key hint (a `WebKeyHint`, "Ctrl K"), shown at the right of an empty
   /// desktop field. It is decoration: hidden on touch screens.
   final Widget? keyHint;
+
+  /// Whether the phone field shows its Cancel text button while editing. A
+  /// field inside a list (the Select search) closes with the list instead.
+  final bool showCancel;
   @override
   State<SearchField> createState() => _SearchFieldState();
 }
@@ -292,7 +297,10 @@ class _SearchFieldState extends State<SearchField> {
         // The field stays 14 px under the title whatever the Cancel height.
         Row(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [Expanded(child: enteringField), cancel],
+          children: [
+            Expanded(child: enteringField),
+            if (widget.showCancel) cancel,
+          ],
         ),
       ],
     );

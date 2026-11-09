@@ -2,7 +2,9 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:pantas/core/time/date_entry_validator.dart';
 import 'package:pantas/core/ui/components/offset_focus_ring.dart';
+import 'package:pantas/core/ui/components/typed_date_field.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
@@ -278,8 +280,7 @@ class _MonthFirstDatePickerState extends State<MonthFirstDatePicker> {
       );
       for (var day = 1; day <= last; day++) {
         final date = DateTime(year, month, day);
-        final past =
-            date.isBefore(DateTime(today.year, today.month, today.day));
+        final past = !DateEntryValidator.isAllowed(date, firstAllowed: today);
         final isToday = date == DateTime(today.year, today.month, today.day);
         final selected = value.day == day;
         // Fully past week rows are omitted; remaining past days stay dimmed.
@@ -466,11 +467,25 @@ class _MonthFirstDatePickerState extends State<MonthFirstDatePicker> {
         ),
       ],
     ];
+    // The typed field sits above the month grid (DatePicker, Placement). It
+    // follows the chosen day and selects one when a full valid date is typed.
+    final chosen = value.month == null || value.day == null
+        ? null
+        : DateTime(year, value.month!, value.day!);
+    final typed = TypedDateField(
+      value: chosen,
+      firstAllowed: today,
+      onChanged: (date) => onChanged(
+        MonthFirstDate(year: date.year, month: date.month, day: date.day),
+      ),
+    );
     if (onboarding) {
       return Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
+          typed,
+          const SizedBox(height: PantasSpace.s16),
           monthCard,
           if (value.month != null) ...[
             const SizedBox(height: PantasSpace.s18),
@@ -479,20 +494,28 @@ class _MonthFirstDatePickerState extends State<MonthFirstDatePicker> {
         ],
       );
     }
-    return card('date-picker-card', [
-      _yearRow(context, year),
-      const SizedBox(height: PantasSpace.s10),
-      ...rows,
-      _CalendarExpansion(
-        child: value.month == null
-            ? const SizedBox.shrink()
-            : Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: dayChildren,
-              ),
-      ),
-    ]);
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        typed,
+        const SizedBox(height: PantasSpace.s16),
+        card('date-picker-card', [
+          _yearRow(context, year),
+          const SizedBox(height: PantasSpace.s10),
+          ...rows,
+          _CalendarExpansion(
+            child: value.month == null
+                ? const SizedBox.shrink()
+                : Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: dayChildren,
+                  ),
+          ),
+        ]),
+      ],
+    );
   }
 }
 

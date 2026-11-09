@@ -69,11 +69,11 @@ const l = SingleActivator(LogicalKeyboardKey.arrowLeft);
     expect(found.single.message, contains('CharacterActivator'));
   });
 
-  test('reading an event character fails, except the select type-ahead', () {
+  test('reading an event character fails, except the shared type-ahead', () {
     const code = 'void k(KeyEvent e) { if (e.character == "f") flag(); }';
     final found = findUngatedLetterKeys({
       'lib/a.dart': code,
-      'lib/core/ui/components/pantas_select.dart': code,
+      'lib/core/ui/components/typeahead_buffer.dart': code,
     });
     expect(found, hasLength(2));
     expect(
