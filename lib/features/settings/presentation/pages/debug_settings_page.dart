@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:pantas/core/ui/components/list_row.dart';
 
 class DebugSettingsPage extends StatelessWidget {
   const DebugSettingsPage({super.key});
@@ -17,10 +18,10 @@ class DebugSettingsPage extends StatelessWidget {
       appBar: AppBar(title: const Text('Debug settings')),
       body: ListView(
         children: const [
-          ListTile(title: Text('Wipe local data')),
-          ListTile(title: Text('Current entitlement state')),
-          ListTile(title: Text('Force resync')),
-          ListTile(title: Text('Raw last-sync')),
+          ListRow(title: 'Wipe local data', hideTrailing: true),
+          ListRow(title: 'Current entitlement state', hideTrailing: true),
+          ListRow(title: 'Force resync', hideTrailing: true),
+          ListRow(title: 'Raw last-sync', hideTrailing: true),
         ],
       ),
     );

@@ -31,6 +31,7 @@ class _BetaProRowState extends ConsumerState<BetaProRow> {
     } on Exception {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
+          // ds-raw: no shared toast helper
           const SnackBar(
             content: Text('Could not change Pro features. Try again.'),
           ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/legal/legal.dart';
 import 'package:pantas/features/legal/presentation/legal_document_page.dart';
@@ -36,7 +37,7 @@ void main() {
     expect(find.text('Intellectual property'), findsOneWidget);
   });
 
-  testWidgets('the onboarding legal page draws the same Back as the steps',
+  testWidgets('the onboarding legal page draws the system Back link',
       (tester) async {
     debugWebPlatformOverride = true;
     addTearDown(() => debugWebPlatformOverride = null);
@@ -55,12 +56,13 @@ void main() {
       ),
     );
     await tester.pump();
-    final chevron = find.descendant(
-      of: find.widgetWithText(TextButton, 'Back'),
-      matching: find.byType(SvgPicture),
+    final back = find.byType(WebBackLink);
+    expect(back, findsOneWidget);
+    expect(
+      find.descendant(of: back, matching: find.text('Back')),
+      findsOneWidget,
     );
-    expect(chevron, findsOneWidget);
-    expect(tester.getSize(chevron), const Size(20, 20));
+    expect(find.byType(SvgPicture), findsNothing);
     expect(find.byIcon(Icons.chevron_left), findsNothing);
     expect(find.text('Terms of Service'), findsWidgets);
   });

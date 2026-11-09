@@ -338,10 +338,15 @@ class WebTextLink extends StatefulWidget {
     required this.label,
     required this.onPressed,
     this.arrow = true,
+    this.style,
     super.key,
   });
   final String label;
   final VoidCallback? onPressed;
+
+  /// Text style for a link set inside running text, so it matches the
+  /// sentence around it. Defaults to the TextLink label, 15/600.
+  final TextStyle? style;
 
   /// The board's Home links are text only; other pages keep the arrow.
   final bool arrow;
@@ -383,7 +388,7 @@ class _WebTextLinkState extends State<WebTextLink> {
           tapTargetSize: MaterialTapTargetSize.shrinkWrap,
           shape: RoundedRectangleBorder(borderRadius: radius),
           side: BorderSide.none,
-          textStyle: PantasType.webLink,
+          textStyle: widget.style ?? PantasType.webLink,
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,

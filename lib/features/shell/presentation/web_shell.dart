@@ -505,6 +505,7 @@ class _SearchButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final c = context.colors;
     return TextButton(
+      // ds-raw: search entry per SearchField, opens overlay
       focusNode: focusNode,
       onPressed: onPressed,
       style: ButtonStyle(
@@ -641,6 +642,7 @@ class _SidebarItemState extends State<_SidebarItem> {
               boxShadow: widget.drawsOwnFill ? context.shadows.navActive : null,
             ),
             child: TextButton(
+              // ds-raw: sidebar nav item per SidebarNav
               statesController: _states,
               onPressed: widget.onPressed,
               style: ButtonStyle(

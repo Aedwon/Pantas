@@ -6,6 +6,7 @@ import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/sync/providers.dart';
 import 'package:pantas/core/sync/sync_status.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/pantas_button_parts.dart';
 import 'package:pantas/core/ui/leave_page.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
@@ -129,12 +130,7 @@ class _BackupPageState extends ConsumerState<BackupPage> {
               value: value,
               variant: ListRowVariant.value,
               divider: true,
-              trailingWidget: busy
-                  ? const SizedBox.square(
-                      dimension: 18,
-                      child: CircularProgressIndicator(strokeWidth: 2),
-                    )
-                  : null,
+              trailingWidget: busy ? const PantasSpinner() : null,
             ),
             if (last != null)
               SettingsRow(

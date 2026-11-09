@@ -124,18 +124,11 @@ class _OnboardingConsentStepState extends ConsumerState<OnboardingConsentStep> {
             style: context.wideWeb ? textStyle : boardText,
           ),
         );
-    Widget link(String text, String route) => TextButton(
+    Widget link(String text, String route) => WebTextLink(
+          label: text,
+          arrow: false,
+          style: context.wideWeb ? textStyle : boardText,
           onPressed: () => context.push(route),
-          style: TextButton.styleFrom(
-            padding: EdgeInsets.zero,
-            minimumSize: Size.zero,
-            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-          ),
-          child: Text(
-            text,
-            style: (context.wideWeb ? textStyle : boardText)
-                .copyWith(color: context.colors.accent),
-          ),
         );
     return OnboardingWebPage(
       title: 'Terms and Privacy',

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
 import 'package:pantas/core/ui/components/pantas_logo.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
@@ -7,7 +6,6 @@ import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/leave_page.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
-import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
@@ -217,32 +215,10 @@ class OnboardingLegalPage extends StatelessWidget {
                     children: [
                       Align(
                         alignment: Alignment.centerLeft,
-                        child: TextButton.icon(
+                        child: WebBackLink(
+                          label: 'Back',
                           onPressed: () =>
                               leavePage(context, fallback: '/onboarding'),
-                          // The chevron the onboarding steps draw, so Back
-                          // looks the same on a step and on this page.
-                          icon: SvgPicture.string(
-                            '<svg viewBox="0 0 24 24" fill="none" '
-                            'stroke="currentColor" stroke-width="2.2" '
-                            'stroke-linecap="round" '
-                            'stroke-linejoin="round"> '
-                            '<path d="M15 4.5 7.5 12l7.5 7.5"/></svg>',
-                            width: 20,
-                            height: 20,
-                            colorFilter: ColorFilter.mode(
-                              t.colors.accent,
-                              BlendMode.srcIn,
-                            ),
-                          ),
-                          label: const Text('Back'),
-                          style: TextButton.styleFrom(
-                            foregroundColor: t.colors.accent,
-                            minimumSize: const Size(0, PantasSize.btnXs),
-                            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                            padding: EdgeInsets.zero,
-                            textStyle: PantasType.webRowTitle,
-                          ),
                         ),
                       ),
                       const SizedBox(height: PantasSpace.s28),

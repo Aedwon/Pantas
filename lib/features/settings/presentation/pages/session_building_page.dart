@@ -3,11 +3,9 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/ui/components/segmented_switch.dart';
-import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/leave_page.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
-import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
 import 'package:pantas/features/quiz/domain/models/quiz_preferences.dart';
@@ -85,32 +83,22 @@ class SessionBuildingPage extends ConsumerWidget {
               'much easier on exam day.',
           children: [
             for (final ordering in SessionOrdering.values)
-              if (context.wideWeb)
-                SettingsRow(
-                  mutuallyExclusive: true,
-                  title: _orderingTitle(ordering),
-                  subtitle: _orderingSubtitle(ordering),
-                  footer: ordering.isRecommended
-                      ? Text(
-                          'Recommended',
-                          style: context.type.footnote
-                              .copyWith(color: context.colors.accent),
-                        )
-                      : null,
-                  variant: ListRowVariant.check,
-                  selected: settings.sessionOrdering == ordering,
-                  divider: ordering != SessionOrdering.values.last,
-                  onTap: () => unawaited(actions.setSessionOrdering(ordering)),
-                )
-              else
-                _ChoiceRow(
-                  title: _orderingTitle(ordering),
-                  subtitle: _orderingSubtitle(ordering),
-                  recommended: ordering.isRecommended,
-                  selected: settings.sessionOrdering == ordering,
-                  divider: ordering != SessionOrdering.values.last,
-                  onTap: () => unawaited(actions.setSessionOrdering(ordering)),
-                ),
+              SettingsRow(
+                mutuallyExclusive: true,
+                title: _orderingTitle(ordering),
+                subtitle: _orderingSubtitle(ordering),
+                footer: ordering.isRecommended
+                    ? Text(
+                        'Recommended',
+                        style: context.type.footnote
+                            .copyWith(color: context.colors.accent),
+                      )
+                    : null,
+                variant: ListRowVariant.check,
+                selected: settings.sessionOrdering == ordering,
+                divider: ordering != SessionOrdering.values.last,
+                onTap: () => unawaited(actions.setSessionOrdering(ordering)),
+              ),
           ],
         ),
         const SizedBox(height: PantasSpace.s24),
@@ -148,74 +136,3 @@ String _orderingSubtitle(SessionOrdering ordering) => switch (ordering) {
       SessionOrdering.interleavedTail => 'Mostly one topic, some others.',
       SessionOrdering.fullyMixed => 'No two in a row from the same topic.'
     };
-
-/// ST_Practice on the phone: a plain row with a green "Recommended" tag beside
-/// the title and a check at the right of the chosen row.
-class _ChoiceRow extends StatelessWidget {
-  const _ChoiceRow({
-    required this.title,
-    required this.subtitle,
-    required this.recommended,
-    required this.selected,
-    required this.divider,
-    required this.onTap,
-  });
-  final String title;
-  final String subtitle;
-  final bool recommended;
-  final bool selected;
-  final bool divider;
-  final VoidCallback onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    final c = context.colors;
-    return Semantics(
-      button: true,
-      checked: selected,
-      inMutuallyExclusiveGroup: true,
-      label: [title, if (recommended) 'Recommended', subtitle].join(', '),
-      excludeSemantics: true,
-      child: InkWell(
-        onTap: onTap,
-        child: Container(
-          padding: const EdgeInsets.symmetric(
-            horizontal: PantasSpace.s16,
-            vertical: PantasSpace.s10,
-          ),
-          decoration: BoxDecoration(
-            border: divider
-                ? Border(bottom: BorderSide(color: c.separator, width: .5))
-                : null,
-          ),
-          child: Row(
-            children: [
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Wrap(
-                      crossAxisAlignment: WrapCrossAlignment.center,
-                      spacing: PantasSpace.s8,
-                      children: [
-                        Text(title, style: context.type.body),
-                        if (recommended) ...[
-                          Text(
-                            'Recommended',
-                            style: PantasType.webTag.copyWith(color: c.accent),
-                          ),
-                        ],
-                      ],
-                    ),
-                    Text(subtitle, style: context.type.footnote),
-                  ],
-                ),
-              ),
-              if (selected) Icon(PantasIcons.check, size: 18, color: c.accent),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}

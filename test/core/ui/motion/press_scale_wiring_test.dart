@@ -8,7 +8,6 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
   const tiles = {
     'lib/features/settings/presentation/pages/appearance_page.dart': 2,
-    'lib/features/onboarding/presentation/exam_picker_screen.dart': 1,
     'lib/core/ui/components/pantas_button.dart': 1,
   };
   for (final entry in tiles.entries) {

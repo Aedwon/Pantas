@@ -192,6 +192,7 @@ class _FeedbackComposeState extends ConsumerState<FeedbackCompose> {
       label: 'Your feedback',
       textField: true,
       child: TextField(
+        // ds-raw: input inside FbFieldWell, no label
         controller: _text,
         focusNode: _focus,
         readOnly: _phase != _Phase.idle,

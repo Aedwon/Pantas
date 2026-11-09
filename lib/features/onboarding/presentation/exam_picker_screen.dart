@@ -17,6 +17,7 @@ import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/pantas_icon_button.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/components/pantas_tag.dart';
 import 'package:pantas/core/ui/components/search_field.dart';
@@ -24,7 +25,6 @@ import 'package:pantas/core/ui/components/selectable_tile.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
-import 'package:pantas/core/ui/motion/press_scale.dart';
 import 'package:pantas/core/ui/motion/selection_motion.dart';
 import 'package:pantas/core/ui/motion/view_swap.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -318,6 +318,7 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
             child: child,
           ),
           child: TextButton(
+            // ds-raw: row owns the tint fade and hover
             key: ValueKey('exam-${entry.id}'),
             onPressed: onTap,
             style: ButtonStyle(
@@ -617,11 +618,11 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
                     children: [
                       Expanded(child: Text('Exam', style: t.h3)),
                       const WebKeyHint('Esc'),
-                      IconButton(
+                      PantasIconButton(
                         onPressed: _saving ? null : _back,
                         tooltip: 'Close',
-                        color: t.colors.textSecondary,
-                        icon: const Icon(Icons.close, size: PantasSpace.s18),
+                        glyph: PantasIcons.close,
+                        size: PantasIconButtonSize.sm,
                       ),
                     ],
                   ),
@@ -927,14 +928,8 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
 /// board does (board ST_ExamPick).
 const double _settingsNoteWidth = 380;
 
-/// A pressed group chip shrinks to this share of its size.
-const double _chipPressScale = .96;
-
-/// A filter chip label that always takes the width of its heaviest (selected)
-/// weight, so no chip moves or wraps when another is picked.
-/// A group chip on the wide picker. It keeps its wide look and takes the
-/// phone chip's motion (item 17, demo 5): the fill and label fade over 160 ms
-/// on the ease, and a press shrinks it to 96%.
+/// A group chip on the wide picker: the system's filter chip with a 44 high
+/// hit area.
 class _WideGroupChip extends StatelessWidget {
   const _WideGroupChip({
     required this.label,
@@ -946,49 +941,12 @@ class _WideGroupChip extends StatelessWidget {
   final VoidCallback onPressed;
   @override
   Widget build(BuildContext context) {
-    final t = context.webTokens;
-    final fill = selected ? t.colors.label : t.colors.surface;
-    final ink = selected ? t.colors.surface : t.colors.label;
-    // Material does not animate a button's own fill, so the chip paints it
-    // behind a transparent button.
-    final chip = PressScale(
-      scale: _chipPressScale,
-      child: FadingColor(
-        color: fill,
-        builder: (context, fill, child) => DecoratedBox(
-          key: const ValueKey('wide-chip-fill'),
-          decoration: ShapeDecoration(
-            color: fill,
-            shape: const StadiumBorder(),
-          ),
-          child: child,
-        ),
-        child: TextButton(
-          onPressed: onPressed,
-          style: TextButton.styleFrom(
-            foregroundColor: ink,
-            textStyle: selected ? PantasType.webLabel : PantasType.webNav,
-            shape: const StadiumBorder(),
-            minimumSize: const Size(0, PantasSize.btnXs),
-            // The fill is painted around the button, so no hit padding.
-            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-            padding: const EdgeInsets.symmetric(horizontal: PantasSpace.s14),
-          ),
-          child: FadingColor(
-            color: ink,
-            builder: (context, color, child) => DefaultTextStyle.merge(
-              style: TextStyle(color: color),
-              child: child!,
-            ),
-            child: _ChipLabel(
-              label: label,
-              style: PantasType.webLabel,
-            ),
-          ),
-        ),
-      ),
+    final chip = PantasButton.filterChip(
+      label: label,
+      selected: selected,
+      onPressed: onPressed,
     );
-    // The painted chip stays 36 high; the hit area is 44 (`size-target-touch`)
+    // The painted chip stays 32 high; the hit area is 44 (`size-target-touch`)
     // and opaque, so a tap just above or below still selects it.
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
@@ -996,33 +954,6 @@ class _WideGroupChip extends StatelessWidget {
       child: SizedBox(
         height: PantasSize.targetTouch,
         child: Center(widthFactor: 1, heightFactor: 1, child: chip),
-      ),
-    );
-  }
-}
-
-class _ChipLabel extends StatelessWidget {
-  const _ChipLabel({required this.label, required this.style});
-  final String label;
-  final TextStyle style;
-  @override
-  Widget build(BuildContext context) {
-    final painter = TextPainter(
-      text: TextSpan(text: label, style: style),
-      textDirection: Directionality.of(context),
-      textScaler: MediaQuery.textScalerOf(context),
-      maxLines: 1,
-    )..layout();
-    final width = painter.width.ceilToDouble();
-    painter.dispose();
-    return SizedBox(
-      width: width,
-      child: Text(
-        label,
-        textAlign: TextAlign.center,
-        maxLines: 1,
-        softWrap: false,
-        overflow: TextOverflow.visible,
       ),
     );
   }

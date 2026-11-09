@@ -290,8 +290,10 @@ class _ExamPageState extends ConsumerState<ExamPage>
             ),
             selected: settings.studyDays.weekdays.contains(day),
             child: TextButton(
+              // ds-raw: circle day toggle, no system component
               key: ValueKey('study-day-$day'),
               style: TextButton.styleFrom(
+                // ds-raw: same button, circle day toggle
                 shape: const CircleBorder(),
                 minimumSize: const Size.square(PantasSize.targetTouch),
                 fixedSize: const Size.square(PantasSize.targetTouch),

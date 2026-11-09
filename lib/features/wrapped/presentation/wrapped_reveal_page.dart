@@ -4,6 +4,7 @@ import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/loading_shapes.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/pantas_icon_button.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/features/wrapped/application/wrapped_providers.dart';
@@ -39,7 +40,7 @@ class _WrappedRevealPageState extends ConsumerState<WrappedRevealPage> {
       appBar: AppBar(
         title: const Text('Wrapped'),
         actions: [
-          IconButton(
+          PantasIconButton(
             icon: const Icon(Icons.collections_bookmark_outlined),
             tooltip: 'My shared cards',
             onPressed: () => Navigator.of(context).push(
@@ -149,7 +150,10 @@ class _WrappedRevealPageState extends ConsumerState<WrappedRevealPage> {
       ref.invalidate(wrappedArtifactProvider(widget.artifactId));
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('PNG rendered for sharing.')),
+          // ds-raw: no shared toast helper yet
+          const SnackBar(
+            content: Text('PNG rendered for sharing.'),
+          ),
         );
       }
     } catch (_) {

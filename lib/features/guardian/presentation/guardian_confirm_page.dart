@@ -7,9 +7,9 @@ import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/pantas_button_spec.dart';
 import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
-import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
@@ -144,15 +144,10 @@ class _GuardianConfirmPageState extends ConsumerState<GuardianConfirmPage> {
     final textStyle = wide
         ? PantasType.webLead.copyWith(color: context.colors.textPrimary)
         : context.type.body;
-    final accent = context.colors.accent;
-    Widget link(String label, String path) => TextButton(
+    Widget link(String label, String path) => WebTextLink(
+          label: label,
+          arrow: false,
           onPressed: () => _open(path),
-          style: TextButton.styleFrom(
-            padding: EdgeInsets.zero,
-            minimumSize: const Size(0, PantasSize.targetTouch),
-            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-          ),
-          child: Text(label, style: textStyle.copyWith(color: accent)),
         );
     final card = Padding(
       padding: const EdgeInsets.all(PantasSpace.s16),
@@ -204,19 +199,11 @@ class _GuardianConfirmPageState extends ConsumerState<GuardianConfirmPage> {
           busy: _busy,
           onPressed: _busy || !_agreed ? null : () => _answer(confirm: true),
         ),
-        TextButton(
+        PantasButton(
+          label: "I Don't Agree",
+          kind: PantasButtonKind.tertiary,
+          tone: PantasButtonTone.critical,
           onPressed: _busy ? null : () => _answer(confirm: false),
-          style: TextButton.styleFrom(
-            foregroundColor: context.colors.dangerText,
-            minimumSize: const Size(0, PantasSize.field),
-          ),
-          child: Text(
-            "I Don't Agree",
-            style: textStyle.copyWith(
-              color: context.colors.dangerText,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
         ),
       ],
       children: [

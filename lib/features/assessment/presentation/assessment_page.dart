@@ -22,6 +22,7 @@ import 'package:pantas/core/ui/components/new_design/passage_card.dart'
     as passage_ui;
 import 'package:pantas/core/ui/components/new_design/question_card.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/pantas_icon_button.dart';
 import 'package:pantas/core/ui/components/report_form.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
@@ -469,10 +470,10 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
                 : Column(
                     children: [
                       WebTopBar(
-                        leading: IconButton(
+                        leading: PantasIconButton(
                           tooltip: 'Leave assessment',
                           onPressed: _completing ? null : _leave,
-                          icon: const Icon(Icons.close),
+                          glyph: PantasIcons.close,
                         ),
                       ),
                       Expanded(child: body),
@@ -507,34 +508,15 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          IconButton(
+                          PantasIconButton(
                             tooltip: 'Leave assessment',
-                            constraints: const BoxConstraints.tightFor(
-                              width: PantasSize.iconBtn,
-                              height: PantasSize.iconBtn,
-                            ),
-                            padding: EdgeInsets.zero,
-                            style: IconButton.styleFrom(
-                              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                            ),
                             onPressed: _completing ? null : _leave,
-                            icon: Icon(
-                              PantasIcons.close,
-                              color: context.colors.iconMuted,
-                              size: PantasSize.icon,
-                            ),
+                            glyph: PantasIcons.close,
                           ),
                           if (question != null)
-                            IconButton(
+                            PantasIconButton(
                               tooltip: 'Report',
-                              constraints: const BoxConstraints.tightFor(
-                                width: PantasSize.iconBtn,
-                                height: PantasSize.iconBtn,
-                              ),
-                              padding: EdgeInsets.zero,
-                              style: IconButton.styleFrom(
-                                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                              ),
+                              accent: _reported.contains(question.id),
                               onPressed: _completing
                                   ? null
                                   : () async {
@@ -553,15 +535,7 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
                                         );
                                       }
                                     },
-                              icon: IconTheme(
-                                data: IconThemeData(
-                                  color: _reported.contains(question.id)
-                                      ? context.colors.accent
-                                      : context.colors.textSecondary,
-                                  size: PantasSpace.s20,
-                                ),
-                                child: PantasIcons.report,
-                              ),
+                              icon: PantasIcons.report,
                             ),
                         ],
                       ),
