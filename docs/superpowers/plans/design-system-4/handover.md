@@ -9,7 +9,7 @@ Then read `guardrails.md` in this folder. It is the plan Aedwon is implementing.
 - **Branch `web/design-system-4`.** Every screen is on design system 4.0. Families A to M are merged,
   and the close-out commit is f49b99300. The full suite (`test/core`, `test/features`, `test/app`)
   shows 9986 passing. CI run 42503472179 passed, except `osv` (see below).
-- **Staging.** https://staging.pantas.study serves d648f1a4f (the sweep merge plus D192, the reader back keeps "< Study") (Firebase project `pantas-staging`, site
+- **Staging.** https://staging.pantas.study serves 89559a2e2 (the sweep merge, D192 and the Nov 9 phone-check fixes) (Firebase project `pantas-staging`, site
   `pantas-staging-app`, `X-Robots-Tag: noindex`). Deploy it from a checkout that is detached at the
   branch head. Check the SHA before building:
   `git checkout --detach origin/web/design-system-4 && test "$(git rev-parse HEAD)" = <sha> && flutter pub get && bash tool/deploy/staging_web.sh`.
