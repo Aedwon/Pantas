@@ -11,10 +11,14 @@ import 'package:pantas/features/lesson/application/reader_providers.dart';
 import 'package:pantas/features/lesson/data/repos/reader_position_repository.dart';
 import 'package:pantas/features/lesson/presentation/lesson_page.dart';
 
+import '../../../helpers/ds_matrix.dart' show loadDsFonts;
 import '../../../helpers/accessibility.dart';
 import '../../../helpers/in_memory_database.dart';
 
 void main() {
+  // The title steps down only when a word would not fit, so the test needs
+  // the real face, not the wide fallback.
+  setUpAll(loadDsFonts);
   for (final brightness in Brightness.values) {
     for (final scale in [1.0, 2.0]) {
       testWidgets(
@@ -95,7 +99,9 @@ void main() {
         final title = tester.widget<Text>(
           find.text('Layers of the Earth and Composition').first,
         );
-        expect(title.style!.fontSize, 28);
+        // At 200% "Composition" would split, so the title takes the size of
+        // title 2 (D180) and keeps the reader's spacing.
+        expect(title.style!.fontSize, scale > 1.5 ? 22 : 28);
         expect(title.style!.fontWeight, FontWeight.w700);
         expect(title.style!.height, 1.08);
         expect(title.style!.letterSpacing, -.5);

@@ -222,6 +222,8 @@ class _HitRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) => ListRow(
         title: hit.title,
+        // Board (search results): one line.
+        truncateTitle: true,
         richTitle: hit.titleMatch == null
             ? null
             : _spans(hit.titleMatch!, context.type.body),

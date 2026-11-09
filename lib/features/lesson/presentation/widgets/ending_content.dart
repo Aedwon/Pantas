@@ -192,6 +192,8 @@ class EndingContent extends StatelessWidget {
                   for (final lesson in unread)
                     ListRow(
                       title: lesson.title,
+                      // Board: a long lesson title is cut to one line.
+                      truncateTitle: true,
                       value: '${lesson.estimatedMinutes} min',
                       leading: const SizedBox(width: PantasSpace.s24),
                       contentPadding:

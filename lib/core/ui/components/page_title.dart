@@ -47,10 +47,14 @@ class PantasTitle extends StatelessWidget {
     required TextDirection direction,
     bool narrowRule = true,
   }) {
-    final down = PantasType.phoneTitle2.copyWith(color: style.color);
-    if (narrowRule && width / scaler.scale(16) < narrowRem) return down;
+    final title2 = PantasType.phoneTitle2.copyWith(color: style.color);
+    if (narrowRule && width / scaler.scale(16) < narrowRem) return title2;
     if (_longestWordFits(text, style, width, scaler, direction)) return style;
-    return down;
+    // A title that is not the large title keeps its own spacing and line
+    // height and only takes the size of title 2.
+    return narrowRule
+        ? title2
+        : style.copyWith(fontSize: PantasType.phoneTitle2.fontSize);
   }
 
   static bool _longestWordFits(
