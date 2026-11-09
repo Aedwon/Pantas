@@ -34,14 +34,26 @@ class AnswerReveal extends StatelessWidget {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
-                width: PantasSize.optBadgePhone,
-                child: Text(
-                  letter,
-                  textAlign: TextAlign.center,
-                  style: PantasType.phoneExplanation.copyWith(
-                    fontWeight: FontWeight.w700,
-                    color: context.colors.textSecondary,
+              // Key column 30 (`size-opt-badge-phone`): the letter on an
+              // `accent-fill` circle, 15/700 in `on-accent` (Explanation
+              // README, `.xpl-phone__key`).
+              DecoratedBox(
+                key: const ValueKey('answer-reveal-key'),
+                decoration: BoxDecoration(
+                  color: context.colors.accentFill,
+                  shape: BoxShape.circle,
+                ),
+                child: SizedBox.square(
+                  dimension: PantasSize.optBadgePhone,
+                  child: Center(
+                    child: Text(
+                      letter,
+                      style: PantasType.phoneExplanation.copyWith(
+                        fontWeight: FontWeight.w700,
+                        height: 1,
+                        color: context.colors.onAccent,
+                      ),
+                    ),
                   ),
                 ),
               ),
@@ -90,10 +102,10 @@ class AnswerReveal extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            note(context, correctLetter, 'correct answer', explanation),
+            note(context, correctLetter, 'Correct answer', explanation),
             if (wrongPick != null && pickedLetter != null) ...[
               const SizedBox(height: PantasSpace.s12),
-              note(context, pickedLetter!, 'your pick', wrongPick!),
+              note(context, pickedLetter!, 'Your pick', wrongPick!),
             ],
           ],
         ),

@@ -42,7 +42,7 @@ void main() {
       final title = tester.widget<Text>(
         find.text('A long topic title for truncation'),
       );
-      expect(title.maxLines, 1);
+      expect(title.maxLines, isNull);
       await tester.tap(find.byKey(const ValueKey('scope-select-t')));
       await tester.pump();
       expect(changed, {'a'});

@@ -549,6 +549,8 @@ class _Finding extends StatelessWidget {
                 _share(context, t.rightLabel, t.rightFigure!, null),
               ],
             )
+          else if (!covered)
+            ..._lockedChart(context, t)
           else ...[
             if (clear && t.id == TendencyId.stamina)
               Text('Accuracy in your mocks', style: context.type.footnote),
@@ -665,6 +667,131 @@ class _Finding extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  /// The Free chart: the same labeled placeholder the wide page draws, so the
+  /// two sides of each finding are named instead of left as blank gray bars.
+  List<Widget> _lockedChart(BuildContext context, Tendency t) {
+    final c = context.colors;
+    final label = context.type.footnote;
+    Widget bar(String name, double fraction) => Row(
+          children: [
+            SizedBox(
+              width: PantasSpace.s56 + PantasSpace.s32,
+              child: Text(name, style: label),
+            ),
+            const SizedBox(width: PantasSpace.s12),
+            Expanded(
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(PantasRadius.full),
+                child: SizedBox(
+                  height: PantasSpace.s10,
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: FractionallySizedBox(
+                      widthFactor: fraction,
+                      child: ColoredBox(
+                        color: c.fill,
+                        child: const SizedBox.expand(),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        );
+    Widget tile(String name) => Expanded(
+          child: Container(
+            padding: const EdgeInsets.symmetric(
+              horizontal: PantasSpace.s14,
+              vertical: PantasSpace.s12,
+            ),
+            decoration: BoxDecoration(
+              color: c.background,
+              borderRadius: BorderRadius.circular(PantasRadius.md),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  '\u2013',
+                  style: PantasType.webH2.copyWith(color: c.textSecondary),
+                ),
+                Text(name, style: label),
+              ],
+            ),
+          ),
+        );
+    return switch (t.id) {
+      TendencyId.underPressure || TendencyId.howYouAnswer => [
+          bar(t.leftLabel, .6),
+          const SizedBox(height: PantasSpace.s14),
+          bar(t.rightLabel, .45),
+        ],
+      TendencyId.howYouStudy => [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(PantasRadius.full),
+            child: SizedBox(
+              height: PantasSpace.s12,
+              child: ColoredBox(color: c.fill, child: const SizedBox.expand()),
+            ),
+          ),
+          const SizedBox(height: PantasSpace.s8),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Flexible(child: Text(t.leftLabel, style: label)),
+              Flexible(
+                child: Text(
+                  t.rightLabel,
+                  textAlign: TextAlign.right,
+                  style: label,
+                ),
+              ),
+            ],
+          ),
+        ],
+      TendencyId.howLongYouRemember => [
+          Row(
+            children: [
+              tile(t.leftLabel),
+              const SizedBox(width: PantasSpace.s12),
+              tile(t.rightLabel),
+            ],
+          ),
+        ],
+      TendencyId.stamina => [
+          SizedBox(
+            height: PantasSpace.s56,
+            width: double.infinity,
+            child: CustomPaint(
+              painter: _FindingPainter(
+                t,
+                1,
+                c.fill,
+                c.textPrimary,
+                c.warningText,
+                clear: false,
+              ),
+            ),
+          ),
+          const SizedBox(height: PantasSpace.s8),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Flexible(child: Text(t.leftLabel, style: label)),
+              Flexible(
+                child: Text(
+                  t.rightLabel,
+                  textAlign: TextAlign.right,
+                  style: label,
+                ),
+              ),
+            ],
+          ),
+        ],
+    };
   }
 
   Widget _share(

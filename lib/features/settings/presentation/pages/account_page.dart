@@ -182,7 +182,7 @@ class _AccountPageState extends ConsumerState<AccountPage> {
             if (web) ...[
               const SizedBox(height: PantasSpace.s12),
               WebButton(
-                label: 'Continue with email',
+                label: 'Continue with Email',
                 variant: WebButtonVariant.secondary,
                 onPressed: _signingIn ? null : () => push('/auth/email-link'),
               ),
@@ -342,7 +342,7 @@ class _AccountPageState extends ConsumerState<AccountPage> {
           if (web) ...[
             const SizedBox(height: PantasSpace.s12),
             PantasButton(
-              label: 'Continue with email',
+              label: 'Continue with Email',
               variant: PantasButtonVariant.secondary,
               onPressed: _signingIn ? null : () => push('/auth/email-link'),
             ),

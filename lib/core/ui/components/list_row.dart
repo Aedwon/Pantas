@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/pantas_switch.dart';
+import 'package:pantas/core/ui/components/pantas_tooltip.dart';
 import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -46,6 +47,7 @@ class ListRow extends StatelessWidget {
     this.richSubtitle,
     this.valueStyle,
     this.wrapTitle = false,
+    this.truncateTitle = false,
     this.minimumHeight = PantasSize.rowMinPhone,
     this.contentPadding,
     this.leadingGap = PantasSpace.s12,
@@ -95,6 +97,7 @@ class ListRow extends StatelessWidget {
         richSubtitle = null,
         valueStyle = null,
         wrapTitle = false,
+        truncateTitle = false,
         valueWidget = null,
         trailingWidget = null,
         titleWidget = null,
@@ -133,6 +136,7 @@ class ListRow extends StatelessWidget {
         richSubtitle = null,
         valueStyle = null,
         wrapTitle = false,
+        truncateTitle = false,
         valueWidget = null,
         trailingWidget = null,
         titleWidget = null,
@@ -185,6 +189,11 @@ class ListRow extends StatelessWidget {
   final InlineSpan? richSubtitle;
   final TextStyle? valueStyle;
   final bool wrapTitle;
+
+  /// Cuts a long title to one line with an ellipsis. Titles wrap by default
+  /// (ListRow README: "Don't truncate a title"); only a board that draws a
+  /// one-line title asks for this (the Home Today list, HE_LongTitle).
+  final bool truncateTitle;
   final double minimumHeight;
   final EdgeInsetsGeometry? contentPadding;
   final double leadingGap;
@@ -246,6 +255,8 @@ class ListRow extends StatelessWidget {
         (wide ? PantasLayout.rowPadY : PantasLayout.rowPadY - PantasSpace.s2);
     final padX = wide ? PantasLayout.rowInset : PantasSpace.s16;
     if (_exam && settingsMode && !context.wideWeb) {
+      final stackComingSoon =
+          comingSoon && MediaQuery.textScalerOf(context).scale(17) > 25.5;
       // ST_ExamPick: a plain 62 px row, the check at the right, and a gray
       // "Coming soon" for an exam that is not out yet.
       return Column(
@@ -289,20 +300,32 @@ class ListRow extends StatelessWidget {
                             ),
                           ),
                           // Board "f A": beside "Coming soon" the organization
-                          // stays on one line and ends in an ellipsis.
+                          // stays on one line and ends in an ellipsis. At
+                          // large text the label moves under it (ruling 12)
+                          // and the line has the full width.
                           Text(
                             subtitle ?? '',
                             style: subBase.copyWith(
                               color:
                                   comingSoon ? c.textDisabled : c.textSecondary,
                             ),
-                            maxLines: comingSoon ? 1 : null,
-                            overflow: comingSoon ? TextOverflow.ellipsis : null,
+                            maxLines: comingSoon && !stackComingSoon ? 1 : null,
+                            overflow: comingSoon && !stackComingSoon
+                                ? TextOverflow.ellipsis
+                                : null,
                           ),
+                          if (stackComingSoon)
+                            Text(
+                              'Coming soon',
+                              style: subBase.copyWith(
+                                fontWeight: FontWeight.w500,
+                                color: c.textDisabled,
+                              ),
+                            ),
                         ],
                       ),
                     ),
-                    if (comingSoon)
+                    if (comingSoon && !stackComingSoon)
                       Text(
                         'Coming soon',
                         style: subBase.copyWith(
@@ -358,9 +381,6 @@ class ListRow extends StatelessWidget {
                         ? PantasType.webRowTitleSettings
                             .copyWith(color: c.textPrimary)
                         : titleBase,
-                    maxLines: _checkbox || wrapTitle ? null : 1,
-                    overflow:
-                        _checkbox || wrapTitle ? null : TextOverflow.ellipsis,
                   ),
               if (subtitle != null)
                 Text(
@@ -461,12 +481,37 @@ class ListRow extends StatelessWidget {
     );
     final subStyle =
         tinted ? subBase.copyWith(color: c.textOnTintSecondary) : subBase;
-    final label = Text.rich(
+    final plainLabel = Text.rich(
       richTitle ?? TextSpan(text: title),
-      maxLines: wrapTitle ? null : 1,
-      overflow: wrapTitle ? null : TextOverflow.ellipsis,
+      maxLines: truncateTitle ? 1 : null,
+      overflow: truncateTitle ? TextOverflow.ellipsis : null,
       style: labelStyle,
     );
+    // A cut title shows its full text in a Tooltip (R3-O10; a fine pointer),
+    // and only when it is actually cut.
+    final label = !truncateTitle
+        ? plainLabel
+        : LayoutBuilder(
+            builder: (context, box) {
+              final painter = TextPainter(
+                text: TextSpan(
+                  style: labelStyle,
+                  children: [richTitle ?? TextSpan(text: title)],
+                ),
+                maxLines: 1,
+                textDirection: Directionality.of(context),
+                textScaler: MediaQuery.textScalerOf(context),
+              )..layout(maxWidth: box.maxWidth);
+              final cut = painter.didExceedMaxLines;
+              painter.dispose();
+              return cut
+                  ? PantasTooltip(
+                      message: richTitle?.toPlainText() ?? title,
+                      child: plainLabel,
+                    )
+                  : plainLabel;
+            },
+          );
     // A plain text value shares the row with the title. The value takes the
     // room it needs when the title and value fit on one line ("Practice" and
     // "10 questions" at 320 px). When the title would be cut, the value goes

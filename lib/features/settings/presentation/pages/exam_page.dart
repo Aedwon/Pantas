@@ -9,6 +9,7 @@ import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/storage/track_scope.dart';
 import 'package:pantas/core/time/study_days.dart';
+import 'package:pantas/core/ui/components/day_row.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/segmented_switch.dart';
 import 'package:pantas/core/ui/components/value_wheel.dart';
@@ -535,9 +536,11 @@ class _ExamPageState extends ConsumerState<ExamPage>
               valueWidget: context.wideWeb
                   ? null
                   : Container(
-                      height: 34,
+                      // At least 34 high; it grows with the text (200%).
+                      constraints: const BoxConstraints(minHeight: 34),
                       padding: const EdgeInsets.symmetric(
                         horizontal: PantasSpace.s12,
+                        vertical: PantasSpace.s4,
                       ),
                       decoration: BoxDecoration(
                         color: context.colors.fill,
@@ -649,11 +652,13 @@ class _ExamPageState extends ConsumerState<ExamPage>
                   PantasSpace.s16,
                   PantasSpace.s14,
                 ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    for (final day in [7, 1, 2, 3, 4, 5, 6]) studyDay(day),
-                  ],
+                // Seven 44 circles that scroll sideways when the row is too
+                // narrow for them (SelectableTile README, D190).
+                child: DayRow(
+                  order: const [7, 1, 2, 3, 4, 5, 6],
+                  selected: settings.studyDays.weekdays.toSet(),
+                  fill: false,
+                  itemBuilder: studyDay,
                 ),
               ),
             ],

@@ -29,8 +29,8 @@ void main() {
         final title = tester.widget<Text>(
           find.text('A very long row title that must stay on one line'),
         );
-        expect(title.maxLines, 1);
-        expect(title.overflow, TextOverflow.ellipsis);
+        expect(title.maxLines, isNull);
+        expect(title.overflow, isNot(TextOverflow.ellipsis));
         expect(title.style!.fontSize, 17);
         expect(title.style!.height, 1.35);
 

@@ -6,6 +6,7 @@ import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/telemetry/telemetry.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/pantas_field.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/guardian/application/guardian_providers.dart';
@@ -62,10 +63,13 @@ void main() {
         disableAnimations: true,
       );
 
+  // The label is drawn above each field at every width, so the placeholder
+  // is an example: "Full name" and "name@example.com".
   Finder field(String label) => find.byWidgetPredicate(
         (w) =>
             w is TextField &&
-            (w.decoration?.hintText?.startsWith(label) ?? false),
+            w.decoration?.hintText ==
+                (label.endsWith('name') ? 'Full name' : 'name@example.com'),
       );
 
   Future<void> fill(
@@ -251,10 +255,27 @@ void main() {
     expect(hints, ['Full name', 'name@example.com']);
   });
 
-  testWidgets('phone: with no label drawn, the placeholder names the field',
-      (tester) async {
-    await pump(tester);
-    expect(field("Parent or guardian's name"), findsOneWidget);
-    expect(field("Parent or guardian's email"), findsOneWidget);
-  });
+  for (final scale in [1.0, 2.0]) {
+    testWidgets(
+        'phone: each field has its label above it and an example inside $scale',
+        (tester) async {
+      await pump(tester, scale: scale);
+      // Field README: the label is above on every width, and the placeholder
+      // is never the only hint.
+      for (final label in [
+        "Parent or guardian's name",
+        "Parent or guardian's email",
+      ]) {
+        expect(
+          find.descendant(
+            of: find.byType(PantasFieldLabel),
+            matching: find.text(label),
+          ),
+          findsOneWidget,
+        );
+      }
+      expect(field("Parent or guardian's name"), findsOneWidget);
+      expect(field("Parent or guardian's email"), findsOneWidget);
+    });
+  }
 }

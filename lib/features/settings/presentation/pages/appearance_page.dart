@@ -19,6 +19,7 @@ import 'package:pantas/features/home/application/performance/table_order_prefs.d
 import 'package:pantas/features/settings/presentation/widgets/settings_pane_page.dart';
 import 'package:pantas/features/settings/presentation/widgets/settings_row.dart';
 import 'package:pantas/features/settings/presentation/widgets/settings_section.dart';
+import 'package:pantas/features/settings/presentation/widgets/text_size_sample.dart';
 import 'package:pantas/features/settings/settings.dart';
 
 // The board's wide theme tile: a 128 px preview with 6 px on each side.
@@ -69,24 +70,17 @@ class AppearancePage extends ConsumerWidget {
           ),
           const SizedBox(height: PantasSpace.s24),
           SettingsSection(
-            header: 'Text size',
+            header: 'Lesson Text Size',
             footer: 'Lessons and questions use this size. '
                 '$commandKeyLabel + and $commandKeyLabel − still zoom the '
                 'whole page.',
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: PantasSpace.s16,
-                  vertical: PantasSpace.s18,
-                ),
-                child: _TextSizeSlider(
-                  scale: scale,
-                  onChanged: (value) => unawaited(
-                    ref.read(lessonTextScaleProvider.notifier).setScale(value),
-                  ),
-                ),
+            children: _textSizeChildren(
+              scale: scale,
+              wide: true,
+              onChanged: (value) => unawaited(
+                ref.read(lessonTextScaleProvider.notifier).setScale(value),
               ),
-            ],
+            ),
           ),
           const SizedBox(height: PantasSpace.s24),
           SettingsSection(
@@ -170,19 +164,15 @@ class AppearancePage extends ConsumerWidget {
         ),
         const SizedBox(height: PantasSpace.s20),
         SettingsSection(
-          header: 'Text size',
+          header: 'Lesson Text Size',
           footer: 'Lessons and questions use this size.',
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(PantasSpace.s16),
-              child: _TextSizeSlider(
-                scale: scale,
-                onChanged: (value) => unawaited(
-                  ref.read(lessonTextScaleProvider.notifier).setScale(value),
-                ),
-              ),
+          children: _textSizeChildren(
+            scale: scale,
+            wide: false,
+            onChanged: (value) => unawaited(
+              ref.read(lessonTextScaleProvider.notifier).setScale(value),
             ),
-          ],
+          ),
         ),
         const SizedBox(height: PantasSpace.s20),
         SettingsSection(
@@ -465,4 +455,51 @@ class _TextSizeSlider extends StatelessWidget {
       semanticValue: '$shown times',
     );
   }
+}
+
+/// The inside of the Lesson Text Size card (board TS_A): the slider row, a
+/// hairline, then the sample on the system inset surface. The wide card pads
+/// both 18 by 16; the phone group pads both 16.
+List<Widget> _textSizeChildren({
+  required double scale,
+  required bool wide,
+  required ValueChanged<double> onChanged,
+}) =>
+    [
+      Padding(
+        padding: wide
+            ? const EdgeInsets.symmetric(
+                horizontal: PantasSpace.s16,
+                vertical: PantasSpace.s18,
+              )
+            : const EdgeInsets.all(PantasSpace.s16),
+        child: _TextSizeSlider(scale: scale, onChanged: onChanged),
+      ),
+      const _Hairline(),
+      Builder(
+        builder: (context) => ColoredBox(
+          key: const ValueKey('text-size-band'),
+          color: context.colors.surfaceInset,
+          child: Padding(
+            padding: wide
+                ? const EdgeInsets.symmetric(
+                    horizontal: PantasSpace.s16,
+                    vertical: PantasSpace.s18,
+                  )
+                : const EdgeInsets.all(PantasSpace.s16),
+            child: const TextSizeSample(),
+          ),
+        ),
+      ),
+    ];
+
+class _Hairline extends StatelessWidget {
+  const _Hairline();
+
+  @override
+  Widget build(BuildContext context) => Divider(
+        height: PantasBorder.hairline,
+        thickness: PantasBorder.hairline,
+        color: context.colors.divider,
+      );
 }

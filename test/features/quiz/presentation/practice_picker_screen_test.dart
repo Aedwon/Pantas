@@ -29,6 +29,7 @@ import 'package:pantas/features/quiz/presentation/practice_picker_providers.dart
 import 'package:pantas/features/quiz/presentation/practice_picker_screen.dart';
 import 'package:pantas/features/quiz/presentation/quiz_controller.dart';
 
+import '../../../helpers/ds_matrix.dart' show loadDsFonts;
 import '../../../helpers/in_memory_database.dart';
 import '../../../helpers/pump_app.dart';
 
@@ -111,7 +112,10 @@ class _FailingPreferences extends PracticePreferencesRepository {
 }
 
 void main() {
-  setUpAll(() {
+  setUpAll(() async {
+    // The title steps down only when a word would not fit, so the test needs
+    // the real face, not the wide fallback.
+    await loadDsFonts();
     registerFallbackValue(<PracticeUnit>[]);
     registerFallbackValue(<String, int>{});
     registerFallbackValue(DateTime.utc(2026));
@@ -1336,6 +1340,31 @@ void main() {
     );
     expect(tester.takeException(), isNull);
   });
+
+  for (final (scale, radius) in [
+    (1.0, PantasRadius.full),
+    (1.4, PantasRadius.full),
+    (1.6, PantasRadius.xl),
+    (2.0, PantasRadius.xl),
+  ]) {
+    testWidgets(
+        'the Start bar is ${scale > 1.5 ? 'a rounded rectangle' : 'a pill'}'
+        ' at $scale text', (tester) async {
+      await pump(tester, scale: scale);
+      final bar = tester.widget<AnimatedContainer>(
+        find
+            .ancestor(
+              of: find.widgetWithText(PantasButton, 'Start'),
+              matching: find.byType(AnimatedContainer),
+            )
+            .first,
+      );
+      expect(
+        (bar.decoration! as BoxDecoration).borderRadius,
+        BorderRadius.circular(radius),
+      );
+    });
+  }
 
   testWidgets('picker uses the shared board checkbox', (tester) async {
     await pump(tester, saved: {'a', 'b'});

@@ -20,6 +20,7 @@ import 'package:pantas/core/telemetry/perf_timeline.dart';
 import 'package:pantas/core/telemetry/telemetry.dart';
 import 'package:pantas/core/time/pantas_dates.dart';
 import 'package:pantas/core/ui/components/content_renderer.dart';
+import 'package:pantas/core/ui/components/page_title.dart';
 import 'package:pantas/core/ui/components/pantas_icon_button.dart';
 import 'package:pantas/core/ui/components/pantas_sheet.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
@@ -1633,8 +1634,9 @@ class _LessonContent extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: PantasSpace.s8),
-                    Text(
+                    PantasTitle(
                       reader.lesson.title,
+                      narrowRule: false,
                       style: context.type.pageTitle.copyWith(
                         height: 1.08,
                         letterSpacing: -.5,

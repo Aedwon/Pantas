@@ -941,11 +941,17 @@ class _MockReviewRow extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          ContentRenderer(
-                            text: entry.label,
-                            questionStem: entry.labelIsStem,
-                            maxLines: entry.labelIsStem ? 1 : null,
-                          ),
+                          if (entry.labelIsStem)
+                            PantasTooltip(
+                              message: ContentRenderer.plainText(entry.label),
+                              child: ContentRenderer(
+                                text: entry.label,
+                                questionStem: true,
+                                maxLines: 1,
+                              ),
+                            )
+                          else
+                            ContentRenderer(text: entry.label),
                           if (!entry.isAnswered) ...[
                             const SizedBox(height: PantasSpace.s4),
                             Text(

@@ -83,8 +83,9 @@ void main() {
             ),
         );
         expectContrast(colors.accent, colors.surface, minimum: 3);
-        expect(title.maxLines, 1);
-        expect(title.overflow, TextOverflow.ellipsis);
+        // ListRow README: titles wrap, no ellipsis.
+        expect(title.maxLines, isNull);
+        expect(title.overflow, isNot(TextOverflow.ellipsis));
         expect(
           tester.getSize(find.byKey(const ValueKey('selection-mark'))),
           const Size(24, 24),

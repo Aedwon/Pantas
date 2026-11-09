@@ -688,8 +688,6 @@ class _SetupTable extends StatelessWidget {
           row(
             Text(
               sections[i].name,
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
               style: rowText,
             ),
             _phoneFigure(

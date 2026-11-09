@@ -27,9 +27,9 @@ class OnboardingNameField extends StatelessWidget {
   final TextEditingController controller;
   final String label;
 
-  /// The placeholder. It defaults to [label], which is right when the label is
-  /// not drawn (the phone). Where the label is drawn above the field, a
-  /// placeholder that repeats it says nothing, so the caller gives its own.
+  /// The placeholder: an example of what to type. The label is always drawn
+  /// above the field (Field README: never use the placeholder as the label),
+  /// so a placeholder that repeats it says nothing and is left out.
   final String? hint;
   final ValueChanged<String> onChanged;
   final ValueChanged<String>? onSubmitted;
@@ -60,7 +60,7 @@ class OnboardingNameField extends StatelessWidget {
           .copyWith(color: context.colors.textPrimary),
       cursorColor: context.colors.accent,
       decoration: InputDecoration(
-        hintText: hint ?? label,
+        hintText: hint,
         floatingLabelBehavior: FloatingLabelBehavior.never,
         counterText: '',
         // A TextField ignores a SizedBox height, so the 48 well is a minimum.
@@ -89,7 +89,6 @@ class OnboardingNameField extends StatelessWidget {
         ),
       ),
     );
-    if (!context.wideWeb) return field;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [

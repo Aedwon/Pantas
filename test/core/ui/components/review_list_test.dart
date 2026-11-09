@@ -311,8 +311,8 @@ void main() {
     await tester.tap(find.text('Q4 Miss'));
     await tester.pumpAndSettle();
 
-    expect(find.text('correct answer'), findsOneWidget);
-    expect(find.text('your pick'), findsNothing);
+    expect(find.text('Correct answer'), findsOneWidget);
+    expect(find.text('Your pick'), findsNothing);
     expect(find.textContaining('Pro'), findsNothing);
   });
 
@@ -329,7 +329,7 @@ void main() {
     await tester.tap(find.text('Q4 Miss'));
     await tester.pumpAndSettle();
 
-    expect(find.text('your pick'), findsOneWidget);
+    expect(find.text('Your pick'), findsOneWidget);
   });
 
   testWidgets('the pennant is tappable and reports the question',

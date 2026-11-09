@@ -27,10 +27,11 @@ void main() {
           findsOneWidget,
         );
         final title = tester.widget<Text>(find.text('Welcome to Pantas'));
-        expect(title.style!.fontSize, 34);
+        // D180: the large title steps down to title 2 under 12rem.
+        expect(title.style!.fontSize, scale > 1.5 ? 22 : 34);
         expect(title.style!.fontWeight, FontWeight.w700);
-        expect(title.style!.height, 1.12);
-        expect(title.style!.letterSpacing, -.748);
+        expect(title.style!.height, scale > 1.5 ? 1.35 : 1.12);
+        expect(title.style!.letterSpacing, scale > 1.5 ? -.264 : -.748);
         final subtitle = tester.widget<Text>(
           find.text('Your personal review companion\nfor Philippine exams.'),
         );

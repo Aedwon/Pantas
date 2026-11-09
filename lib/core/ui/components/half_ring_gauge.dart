@@ -320,10 +320,9 @@ class _HalfRingGaugeState extends State<HalfRingGauge>
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          SizedBox(
-            width: dial.width,
-            height: dial.height,
-            child: Stack(
+          _ScaledDial(
+            dial: dial,
+            builder: (context) => Stack(
               children: [
                 CustomPaint(
                   key: const ValueKey('half-ring-paint'),
@@ -524,6 +523,51 @@ class _HalfRingGaugeState extends State<HalfRingGauge>
           ),
         ),
       ),
+    );
+  }
+}
+
+/// Draws a dial at its board size and grows the whole dial with the text.
+///
+/// The number sits inside the arc, so scaling only the number at 200 percent
+/// pushed it through the stroke. The dial is drawn at the board's size with
+/// the text scale taken off, then scaled up as one piece by the text scale,
+/// as far as the width allows. The number, the arc and the overlay keep their
+/// proportions at every text size.
+class _ScaledDial extends StatelessWidget {
+  const _ScaledDial({required this.dial, required this.builder});
+
+  final Size dial;
+  final WidgetBuilder builder;
+
+  @override
+  Widget build(BuildContext context) {
+    final media = MediaQuery.of(context);
+    final grown = media.textScaler.scale(16) / 16;
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        // Below 1x the whole dial shrinks with the text; above it, it grows
+        // as far as the width allows.
+        var grow = grown;
+        if (grown > 1 && constraints.hasBoundedWidth) {
+          final room = constraints.maxWidth / dial.width;
+          if (grow > room) grow = room < 1 ? 1.0 : room;
+        }
+        return SizedBox(
+          width: dial.width * grow,
+          height: dial.height * grow,
+          child: FittedBox(
+            child: SizedBox(
+              width: dial.width,
+              height: dial.height,
+              child: MediaQuery(
+                data: media.copyWith(textScaler: TextScaler.noScaling),
+                child: Builder(builder: builder),
+              ),
+            ),
+          ),
+        );
+      },
     );
   }
 }

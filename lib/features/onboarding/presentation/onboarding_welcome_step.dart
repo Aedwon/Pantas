@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:pantas/core/platform/first_screen_ready.dart';
+import 'package:pantas/core/ui/components/page_title.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_logo.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -135,7 +136,7 @@ class OnboardingWelcomeStep extends StatelessWidget {
                         Semantics(
                           header: true,
                           liveRegion: true,
-                          child: Text(
+                          child: PantasTitle(
                             'Welcome to Pantas',
                             textAlign: TextAlign.center,
                             style: context.type.largeTitle,

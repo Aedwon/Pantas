@@ -48,13 +48,32 @@ class WeekStrip extends StatefulWidget {
   /// The 34 px ring around Today's disc (`.wd__ring`).
   static const double _ring = PantasSize.avatarLg - PantasSpace.s10;
 
-  /// Today's disc: 26 on wide screens, 28 on the phone.
-  static double _disc(bool phone) => phone ? PantasSpace.s28 : PantasSize.task;
+  /// How much Today's disc and ring grow. Up to 1.3x text the day keeps its
+  /// 44px column and the drawn sizes (the 34px ring fits 44 with room), so a
+  /// 390 phone still shows seven days unscrolled. Beyond 1.3x they grow by
+  /// the excess, so at 200% the date is not squeezed and the ring is not
+  /// clipped.
+  static double _grow(BuildContext context) {
+    final grown = MediaQuery.textScalerOf(context).scale(16) / 16;
+    return grown <= 1.3 ? 1 : grown - 0.3;
+  }
+
+  /// Today's disc: 26 on wide screens, 28 on the phone, grown with the text.
+  static double _disc(bool phone, double grow) =>
+      (phone ? PantasSpace.s28 : PantasSize.task) * grow;
+
+  /// A day column: 44, or as wide as the grown ring plus 4 on each side, so
+  /// the weekday and the ring fit at large text. The strip scrolls when seven
+  /// do not fit.
+  static double cellFor(double grow) {
+    final needed = _ring * grow + 2 * PantasSpace.s4;
+    return needed > _cell ? needed : _cell;
+  }
 
   /// The gap between day columns for a strip [width] wide: 10 when the strip
   /// has room, down to 4 as it narrows.
-  static double gapFor(double width) {
-    final room = (width - _cell * 7) / 6;
+  static double gapFor(double width, [double cell = _cell]) {
+    final room = (width - cell * 7) / 6;
     return room.clamp(_gapMin, _gapMax);
   }
 
@@ -75,12 +94,14 @@ class WeekStrip extends StatefulWidget {
   }) {
     final scale = MediaQuery.textScalerOf(context);
     final phone = !context.wideWeb;
-    final gap = gapFor(width);
-    final content = _cell * 7 + gap * 6;
+    final grow = _grow(context);
+    final cell = cellFor(grow);
+    final gap = gapFor(width, cell);
+    final content = cell * 7 + gap * 6;
     final lastIsToday = states.last == WeekDayState.today;
     final double visible;
     if (lastIsToday) {
-      visible = todayFraction > 0 ? _ring : _disc(phone);
+      visible = todayFraction > 0 ? _ring * grow : _disc(phone, grow);
     } else {
       final start = PantasDates.weekStart(today);
       final last = DateTime(start.year, start.month, start.day + 6);
@@ -91,14 +112,14 @@ class WeekStrip extends StatefulWidget {
         ),
         textDirection: TextDirection.ltr,
         textScaler: scale,
-      )..layout(maxWidth: _cell);
+      )..layout(maxWidth: cell);
       visible = painter.width;
       painter.dispose();
     }
-    final inset = (_cell - visible) / 2;
+    final inset = (cell - visible) / 2;
     if (content <= width) return inset + (width - content);
     final maxScroll = content - width;
-    final startScroll = (today.weekday % 7 * (_cell + gap)).clamp(
+    final startScroll = (today.weekday % 7 * (cell + gap)).clamp(
       0.0,
       maxScroll,
     );
@@ -144,13 +165,14 @@ class _WeekStripState extends State<WeekStrip> {
     final phone = !context.wideWeb;
     return LayoutBuilder(
       builder: (context, constraints) {
-        final gap = WeekStrip.gapFor(constraints.maxWidth);
-        final content = WeekStrip._cell * 7 + gap * 6;
+        final grow = WeekStrip._grow(context);
+        final cell = WeekStrip.cellFor(grow);
+        final gap = WeekStrip.gapFor(constraints.maxWidth, cell);
+        final content = cell * 7 + gap * 6;
         final scrolls =
             constraints.hasBoundedWidth && content > constraints.maxWidth;
         _scroll ??= ScrollController(
-          initialScrollOffset:
-              (widget.today.weekday % 7) * (WeekStrip._cell + gap),
+          initialScrollOffset: (widget.today.weekday % 7) * (cell + gap),
         );
         final row = Row(
           mainAxisSize: MainAxisSize.min,
@@ -163,6 +185,8 @@ class _WeekStripState extends State<WeekStrip> {
                 i,
                 DateTime(start.year, start.month, start.day + i),
                 phone: phone,
+                grow: grow,
+                cellWidth: cell,
               ),
             ],
           ],
@@ -188,6 +212,8 @@ class _WeekStripState extends State<WeekStrip> {
     int i,
     DateTime date, {
     required bool phone,
+    required double grow,
+    required double cellWidth,
   }) {
     final c = context.colors;
     final state = widget.states[i];
@@ -198,7 +224,7 @@ class _WeekStripState extends State<WeekStrip> {
     final radius = BorderRadius.circular(
       phone ? PantasRadius.sm : PantasRadius.md,
     );
-    final disc = WeekStrip._disc(phone);
+    final disc = WeekStrip._disc(phone, grow);
     final digit = Text(
       '${date.day}',
       style: WeekStrip._digitStyle(today: today).copyWith(
@@ -233,7 +259,7 @@ class _WeekStripState extends State<WeekStrip> {
       );
       mark = widget.todayFraction > 0
           ? ProgressRing(
-              size: WeekStrip._ring,
+              size: WeekStrip._ring * grow,
               fraction: widget.todayFraction,
               showCheck: false,
               child: fill,
@@ -273,7 +299,7 @@ class _WeekStripState extends State<WeekStrip> {
             highlightColor: Colors.transparent,
             splashColor: Colors.transparent,
             child: Container(
-              width: WeekStrip._cell,
+              width: cellWidth,
               padding: const EdgeInsets.symmetric(vertical: PantasSpace.s4),
               foregroundDecoration: selected
                   ? BoxDecoration(
@@ -293,7 +319,7 @@ class _WeekStripState extends State<WeekStrip> {
                     constraints: BoxConstraints(
                       minHeight: math.max<double>(
                         PantasSize.tileDay / 2 - PantasSpace.s8,
-                        WeekStrip._ring,
+                        WeekStrip._ring * grow,
                       ),
                     ),
                     child: Center(child: mark),
@@ -336,7 +362,7 @@ class _WeekStripState extends State<WeekStrip> {
         waitDuration: PantasDurations.tooltip,
         triggerMode: TooltipTriggerMode.manual,
         preferBelow: false,
-        verticalOffset: WeekStrip._cell / 2 + PantasSpace.s16,
+        verticalOffset: cellWidth / 2 + PantasSpace.s16,
         constraints: const BoxConstraints(maxWidth: PantasSize.tooltipMax),
         padding: const EdgeInsets.symmetric(
           horizontal: PantasSpace.s8,

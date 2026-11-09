@@ -11,6 +11,7 @@ import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/math_text.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_icon_button.dart';
+import 'package:pantas/core/ui/components/pantas_tooltip.dart';
 import 'package:pantas/core/ui/components/pro_paused_line.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -314,18 +315,23 @@ class _SessionEndBodyState extends State<SessionEndBody>
                                 titleWidget: widget.session.questions[index]
                                             .shortLabel ==
                                         null
-                                    ? DefaultTextStyle(
-                                        style: type.body,
-                                        maxLines: 1,
-                                        overflow: TextOverflow.ellipsis,
-                                        softWrap: false,
-                                        child: MathText(
-                                          ContentRenderer.plainText(
-                                            widget
-                                                .session.questions[index].stem,
-                                          ),
+                                    ? PantasTooltip(
+                                        message: ContentRenderer.plainText(
+                                          widget.session.questions[index].stem,
+                                        ),
+                                        child: DefaultTextStyle(
+                                          style: type.body,
                                           maxLines: 1,
                                           overflow: TextOverflow.ellipsis,
+                                          softWrap: false,
+                                          child: MathText(
+                                            ContentRenderer.plainText(
+                                              widget.session.questions[index]
+                                                  .stem,
+                                            ),
+                                            maxLines: 1,
+                                            overflow: TextOverflow.ellipsis,
+                                          ),
                                         ),
                                       )
                                     : null,

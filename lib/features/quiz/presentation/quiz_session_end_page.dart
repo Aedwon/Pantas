@@ -15,6 +15,7 @@ import 'package:pantas/core/ui/components/content_renderer.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/math_text.dart';
+import 'package:pantas/core/ui/components/pantas_tooltip.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
@@ -296,17 +297,20 @@ class _QuizSessionEndPageState extends ConsumerState<QuizSessionEndPage> {
                           return ListRow(
                             title: title,
                             titleWidget: question.shortLabel == null
-                                ? DefaultTextStyle(
-                                    style: PantasType.phoneBody.copyWith(
-                                      color: context.colors.textPrimary,
-                                    ),
-                                    maxLines: 1,
-                                    overflow: TextOverflow.ellipsis,
-                                    softWrap: false,
-                                    child: MathText(
-                                      title,
+                                ? PantasTooltip(
+                                    message: title,
+                                    child: DefaultTextStyle(
+                                      style: PantasType.phoneBody.copyWith(
+                                        color: context.colors.textPrimary,
+                                      ),
                                       maxLines: 1,
                                       overflow: TextOverflow.ellipsis,
+                                      softWrap: false,
+                                      child: MathText(
+                                        title,
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
+                                      ),
                                     ),
                                   )
                                 : null,

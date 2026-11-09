@@ -92,6 +92,10 @@ class BookmarksSection extends ConsumerWidget {
                               wrapTitle:
                                   MediaQuery.textScalerOf(context).scale(17) >
                                       25.5,
+                              // Board: one line at default text.
+                              truncateTitle:
+                                  MediaQuery.textScalerOf(context).scale(17) <=
+                                      25.5,
                               subtitle: row.topicName,
                               leading: SizedBox.square(
                                 dimension: 24,

@@ -2,9 +2,9 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pantas/core/ui/components/pantas_tag.dart';
 import 'package:pantas/core/ui/components/segmented_switch.dart';
 import 'package:pantas/core/ui/leave_page.dart';
-import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
@@ -87,11 +87,24 @@ class SessionBuildingPage extends ConsumerWidget {
                 mutuallyExclusive: true,
                 title: _orderingTitle(ordering),
                 subtitle: _orderingSubtitle(ordering),
-                footer: ordering.isRecommended
-                    ? Text(
-                        'Recommended',
-                        style: context.type.footnote
-                            .copyWith(color: context.colors.accent),
+                // Tag README: right after the row title, 6 px gap and a 2 px
+                // baseline lift, wrapping with the title at large text.
+                richTitle: ordering.isRecommended
+                    ? TextSpan(
+                        children: [
+                          TextSpan(text: _orderingTitle(ordering)),
+                          const WidgetSpan(
+                            alignment: PlaceholderAlignment.baseline,
+                            baseline: TextBaseline.alphabetic,
+                            child: Padding(
+                              padding: EdgeInsets.only(
+                                left: PantasSpace.s6,
+                                bottom: PantasSpace.s2,
+                              ),
+                              child: PantasTag('Recommended'),
+                            ),
+                          ),
+                        ],
                       )
                     : null,
                 variant: ListRowVariant.check,

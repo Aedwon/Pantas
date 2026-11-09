@@ -240,6 +240,7 @@ void main() {
     await pump(tester, pro: false);
     await tester.tap(find.text('Topics'));
     await tester.pumpAndSettle();
+    await tester.ensureVisible(find.text('Unlock with Pro'));
     await tester.tap(find.text('Unlock with Pro'));
     await tester.pumpAndSettle();
     expect(lastPush, '/settings/pro');

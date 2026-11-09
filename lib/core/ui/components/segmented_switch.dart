@@ -1,7 +1,9 @@
+import 'dart:async';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/pantas_shadows.dart';
+import 'package:pantas/core/ui/components/pro_tag.dart';
 import 'package:pantas/core/ui/motion/selection_motion.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
@@ -14,11 +16,85 @@ import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 
+/// A track wider than its row scrolls sideways (SegmentedControl README) and
+/// keeps the selected segment in view, so the chosen view is never the one
+/// scrolled off.
+class _SelectedInView extends StatefulWidget {
+  const _SelectedInView({
+    required this.selected,
+    required this.count,
+    required this.width,
+    required this.child,
+  });
+
+  final int selected;
+  final int count;
+  final double width;
+  final Widget child;
+
+  @override
+  State<_SelectedInView> createState() => _SelectedInViewState();
+}
+
+class _SelectedInViewState extends State<_SelectedInView> {
+  final _controller = ScrollController();
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance
+        .addPostFrameCallback((_) => _reveal(animate: false));
+  }
+
+  @override
+  void didUpdateWidget(_SelectedInView oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.selected != widget.selected) {
+      WidgetsBinding.instance.addPostFrameCallback((_) => _reveal());
+    }
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  /// Centers the selected segment in the row, as far as the track allows.
+  void _reveal({bool animate = true}) {
+    if (!mounted || !_controller.hasClients) return;
+    final position = _controller.position;
+    final cell = (widget.width - PantasSpace.s4) / widget.count;
+    final center = PantasSpace.s2 + cell * (widget.selected + .5);
+    final target = (center - position.viewportDimension / 2)
+        .clamp(0.0, position.maxScrollExtent);
+    if (!animate || MediaQuery.disableAnimationsOf(context)) {
+      _controller.jumpTo(target);
+    } else {
+      unawaited(
+        _controller.animateTo(
+          target,
+          duration: PantasDurations.flip,
+          curve: PantasCurves.house,
+        ),
+      );
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) => SingleChildScrollView(
+        controller: _controller,
+        scrollDirection: Axis.horizontal,
+        child: SizedBox(width: widget.width, child: widget.child),
+      );
+}
+
 class SegmentedSwitch extends StatelessWidget {
   const SegmentedSwitch({
     required this.labels,
     required this.selected,
     required this.onChanged,
+    this.proMarks = const [],
     super.key,
   })  : bookmarks = false,
         enabled = true,
@@ -37,9 +113,14 @@ class SegmentedSwitch extends StatelessWidget {
     required this.onChanged,
     this.enabled = true,
     super.key,
-  }) : bookmarks = true;
+  })  : bookmarks = true,
+        proMarks = const [];
   final bool bookmarks;
   final bool enabled;
+
+  /// Segment indexes that carry the Pro mark after their label (a Free
+  /// student's locked views, as on the wide switch).
+  final List<int> proMarks;
   final List<String> labels;
   final int selected;
   final ValueChanged<int> onChanged;
@@ -96,7 +177,25 @@ class SegmentedSwitch extends StatelessWidget {
       return width;
     }
 
-    final widest = labels.map(natural).reduce(math.max) + PantasSpace.s24;
+    // The Pro mark is its own text on a 6 px side padding, 6 px after the
+    // label.
+    double markWidth() {
+      final painter = TextPainter(
+        text: const TextSpan(text: 'Pro', style: PantasType.webPro),
+        textDirection: Directionality.of(context),
+        textScaler: textScaler,
+        maxLines: 1,
+      )..layout();
+      final width = painter.width + PantasSpace.s12 + PantasSpace.s6;
+      painter.dispose();
+      return width;
+    }
+
+    final widest = [
+          for (final (i, label) in labels.indexed)
+            natural(label) + (proMarks.contains(i) ? markWidth() : 0),
+        ].reduce(math.max) +
+        PantasSpace.s24;
     return LayoutBuilder(
       builder: (context, constraints) {
         final need = widest * labels.length + PantasSpace.s4;
@@ -166,9 +265,11 @@ class SegmentedSwitch extends StatelessWidget {
           ],
         );
         if (!scrolls) return track;
-        return SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: SizedBox(width: need, child: track),
+        return _SelectedInView(
+          selected: selected,
+          count: labels.length,
+          width: need,
+          child: track,
         );
       },
     );
@@ -217,13 +318,24 @@ class SegmentedSwitch extends StatelessWidget {
                         color: i == selected
                             ? colors.textPrimary
                             : colors.textOnFill,
-                        builder: (context, color, _) => Text(
-                          labels[i],
-                          maxLines: 1,
-                          softWrap: false,
-                          textAlign: TextAlign.center,
-                          style: _label(color, selected: i == selected),
-                        ),
+                        builder: (context, color, _) {
+                          final label = Text(
+                            labels[i],
+                            maxLines: 1,
+                            softWrap: false,
+                            textAlign: TextAlign.center,
+                            style: _label(color, selected: i == selected),
+                          );
+                          if (!proMarks.contains(i)) return label;
+                          return Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              label,
+                              const SizedBox(width: PantasSpace.s6),
+                              const ProMark(),
+                            ],
+                          );
+                        },
                       ),
                     ),
                   ),

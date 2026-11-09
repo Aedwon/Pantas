@@ -207,7 +207,9 @@ void main() {
         // The button is the system's primary Button at the large size.
         final system = tester.widget<WebButton>(button);
         expect(system.size, PantasButtonSize.lg);
-        expect(system.expand, isTrue);
+        // No full-width button on a wide screen: natural width.
+        expect(system.expand, isFalse);
+        expect(tester.getSize(button).width, lessThan(300));
         // 24 px (`space-24`, the system step nearest the board's 22) between
         // the parts of the card.
         expect(

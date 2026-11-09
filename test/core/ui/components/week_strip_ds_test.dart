@@ -1,10 +1,12 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/ui/components/progress_ring.dart';
 import 'package:pantas/core/ui/components/week_strip.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 
 import '../../../helpers/ds_matrix.dart';
+import '../../../helpers/line_breaks.dart';
 
 WeekStrip _strip({DateTime? selected, ValueChanged<DateTime>? onSelected}) =>
     WeekStrip(
@@ -24,6 +26,8 @@ WeekStrip _strip({DateTime? selected, ValueChanged<DateTime>? onSelected}) =>
     );
 
 void main() {
+  setUpAll(loadDsFonts);
+
   dsMatrix(
     'week strip: 44 columns, shrinking gap, Today disc, no overflow',
     (context) => SizedBox(width: 358, child: _strip()),
@@ -34,12 +38,24 @@ void main() {
         for (var i = 0; i < 7; i++)
           tester.getRect(find.byKey(ValueKey('week-day-$i'))),
       ];
-      for (final day in days) {
-        expect(day.width, closeTo(44, .001));
-      }
-      // The gap shrinks from 10 toward 4: 358 leaves (358 - 308) / 6.
-      for (var i = 1; i < 7; i++) {
-        expect(days[i].left - days[i - 1].right, closeTo(50 / 6, .01));
+      if (cell.scale == 1) {
+        for (final day in days) {
+          expect(day.width, closeTo(44, .001));
+        }
+        // The gap shrinks from 10 toward 4: 358 leaves (358 - 308) / 6.
+        for (var i = 1; i < 7; i++) {
+          expect(days[i].left - days[i - 1].right, closeTo(50 / 6, .01));
+        }
+      } else {
+        // At 2.0 the column is Today's ring grown by 1.7 (the text beyond
+        // 1.3x) plus 4 clear on each side: 34 x 1.7 + 8. Seven do not fit in
+        // 358, so the gap is the 4 minimum and the strip scrolls.
+        for (final day in days) {
+          expect(day.width, closeTo(34 * 1.7 + 8, .01));
+        }
+        for (var i = 1; i < 7; i++) {
+          expect(days[i].left - days[i - 1].right, closeTo(4, .01));
+        }
       }
       // Today: accent weekday at 700, number on an accent-fill disc.
       final weekday = tester.widget<Text>(find.text('Wed'));
@@ -131,4 +147,53 @@ void main() {
     expect(find.text('Planned'), findsNothing);
     expect(find.text('No study'), findsNothing);
   });
+
+  for (final cell in const [
+    DsCell(390, 2, dark: false),
+    DsCell(390, 2, dark: true),
+  ]) {
+    testWidgets('at 200% Today keeps its ring and number whole ($cell)',
+        (tester) async {
+      await pumpDs(tester, cell, SizedBox(width: 358, child: _strip()));
+      expect(tester.takeException(), isNull);
+      final day = tester.getRect(find.byKey(const ValueKey('week-day-3')));
+      final ring = tester.getRect(find.byType(ProgressRing));
+      // The ring sits inside its column with room on both sides.
+      expect(ring.left, greaterThanOrEqualTo(day.left));
+      expect(ring.right, lessThanOrEqualTo(day.right));
+      // The number is not squeezed by the disc.
+      final digit = tester.getRect(find.text('7'));
+      expect(digit.height, lessThanOrEqualTo(ring.height - 8));
+      // The weekday does not split and does not touch the number.
+      for (final label in ['Sun', 'Wed', 'Thu']) {
+        expect(splitsAWord(tester, find.text(label)), isFalse);
+      }
+      final weekday = tester.getRect(find.text('Wed'));
+      expect(weekday.bottom, lessThanOrEqualTo(digit.top));
+    });
+  }
+
+  for (final scale in [1.2, 1.3]) {
+    testWidgets('on a 390 phone the strip keeps 44 cells and fits at $scale',
+        (tester) async {
+      await pumpDs(
+        tester,
+        DsCell(390, scale, dark: false),
+        SizedBox(width: 358, child: _strip()),
+      );
+      for (var i = 0; i < 7; i++) {
+        expect(
+          tester.getRect(find.byKey(ValueKey('week-day-$i'))).width,
+          closeTo(44, .001),
+        );
+      }
+      final scrollable = tester.state<ScrollableState>(
+        find.descendant(
+          of: find.byType(WeekStrip),
+          matching: find.byType(Scrollable),
+        ),
+      );
+      expect(scrollable.position.maxScrollExtent, 0);
+    });
+  }
 }

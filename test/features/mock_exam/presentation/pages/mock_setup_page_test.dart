@@ -156,8 +156,16 @@ void main() {
     );
     expect(find.text('The clock starts when you tap.'), findsOneWidget);
 
+    // Section names wrap now, so the table is taller than the screen.
+    await tester.ensureVisible(find.byType(PantasSwitch));
+    await tester.pumpAndSettle();
     await tester.tap(find.byType(PantasSwitch));
     await tester.pumpAndSettle();
+    await tester.ensureVisible(
+      find.text(
+        'No pausing and no ending a section early. Leaving the app instantly ends and submits your answers, finished or not finished.',
+      ),
+    );
     expect(
       find.text(
         'No pausing and no ending a section early. Leaving the app instantly ends and submits your answers, finished or not finished.',

@@ -3,6 +3,7 @@ import 'dart:ui' show CheckedState;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/ui/components/pantas_tag.dart';
 import 'package:pantas/features/settings/data/settings_repository.dart';
 import 'package:pantas/features/settings/domain/session_ordering.dart';
 import 'package:pantas/features/settings/presentation/pages/session_building_page.dart';
@@ -25,7 +26,10 @@ void main() {
 
     expect(find.text('One topic only'), findsOneWidget);
     expect(find.text('Grouped by topic, one topic at a time.'), findsOneWidget);
-    expect(find.text('Interleaved tail'), findsOneWidget);
+    expect(
+      find.textContaining('Interleaved tail', findRichText: true),
+      findsOneWidget,
+    );
     expect(
       find.text('Mostly one topic, some others.'),
       findsOneWidget,
@@ -45,6 +49,20 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('Recommended'), findsOneWidget);
+    // A system Tag right after the row title, on the title's line.
+    final title = tester
+        .getRect(find.textContaining('Interleaved tail', findRichText: true));
+    final tag = tester.getRect(find.byType(PantasTag));
+    expect(tag.left, greaterThan(title.left));
+    expect(tag.center.dy, closeTo(title.center.dy, 6));
+    // A system Tag, not plain colored text.
+    expect(
+      find.ancestor(
+        of: find.text('Recommended'),
+        matching: find.byType(PantasTag),
+      ),
+      findsOneWidget,
+    );
   });
 
   testWidgets('choosing an ordering writes it', (tester) async {
