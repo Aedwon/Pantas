@@ -86,13 +86,13 @@ void main() {
 
   Finder chip(String label) => find.ancestor(
         of: find.text(label),
-        matching: find.byKey(const ValueKey('wide-chip-fill')),
+        matching: find.byKey(const ValueKey('chip-fill')),
       );
   // The painted width, which a scale changes and the layout size does not.
   double width(WidgetTester tester, String label) =>
       tester.getBottomRight(chip(label)).dx - tester.getTopLeft(chip(label)).dx;
   Color fill(WidgetTester tester, String label) =>
-      ((tester.widget<DecoratedBox>(chip(label)).decoration) as ShapeDecoration)
+      ((tester.widget<DecoratedBox>(chip(label)).decoration) as BoxDecoration)
           .color!;
   Color ink(WidgetTester tester, String label) =>
       tester.widget<Text>(find.text(label)).style?.color ??
@@ -122,7 +122,7 @@ void main() {
       (tester) async {
     await pumpPicker(tester);
     final painted = chip('Civil service');
-    expect(tester.getSize(painted).height, 36);
+    expect(tester.getSize(painted).height, 32);
     final off = fill(tester, 'Civil service');
     final top = tester.getTopLeft(painted);
     await tester.tapAt(Offset(top.dx + 20, top.dy - 3));

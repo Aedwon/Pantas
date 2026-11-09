@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -207,6 +208,18 @@ void main() {
     expect((await repository.readUserSettings()).acceptedTermsAt, isNotNull);
     expect((await repository.readUserSettings()).helpImproveApp, isTrue);
     expect(completed, 1);
+  });
+
+  testWidgets('inline Terms and Privacy links match the sentence text',
+      (tester) async {
+    await pump(tester, completed: () {});
+    TextStyle? styleOf(String text) =>
+        tester.renderObject<RenderParagraph>(find.text(text).first).text.style;
+    final sentence = styleOf('I agree to the ');
+    for (final link in ['Terms of Service', 'Privacy Policy']) {
+      expect(styleOf(link)?.fontSize, sentence?.fontSize, reason: link);
+      expect(styleOf(link)?.height, sentence?.height, reason: link);
+    }
   });
 
   testWidgets('legal pages preserve both boxes when returning', (tester) async {

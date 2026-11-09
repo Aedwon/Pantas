@@ -106,8 +106,10 @@ class _OnboardingWebCalendarState extends State<OnboardingWebCalendar> {
           selected: picked,
           label: semantics,
           child: TextButton(
+            // ds-raw: calendar day cell, tint and today label
             onPressed: action,
             style: TextButton.styleFrom(
+              // ds-raw: same button, calendar day cell
               padding: EdgeInsets.zero,
               backgroundColor: picked
                   ? t.colors.accentFill

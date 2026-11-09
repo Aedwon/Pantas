@@ -712,6 +712,7 @@ class FbButton extends StatelessWidget {
 
     final motion = MediaQuery.disableAnimationsOf(context);
     final button = TextButton(
+      // ds-raw: takes a widget child, not a label
       onPressed: busy ? () {} : onPressed,
       style: ButtonStyle(
         animationDuration: motion ? Duration.zero : PantasDurations.short2,
@@ -763,6 +764,7 @@ void fbToast(BuildContext context, String message) {
     ?..clearSnackBars()
     ..showSnackBar(
       SnackBar(
+        // ds-raw: no shared toast helper
         content: Text(
           message,
           style: (wide ? PantasType.webRowValue : PantasType.phoneSubhead)

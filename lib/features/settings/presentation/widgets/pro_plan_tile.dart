@@ -142,6 +142,7 @@ class _ProPlanTileState extends State<ProPlanTile> {
                 type: MaterialType.transparency,
                 borderRadius: radius,
                 child: InkWell(
+                  // ds-raw: tile draws its own states, as SelectableTile
                   onTap: w.onTap,
                   borderRadius: radius,
                   splashFactory: NoSplash.splashFactory,

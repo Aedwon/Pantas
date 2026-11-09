@@ -9,6 +9,7 @@ import 'package:pantas/core/dev/local_onboarding_presets.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/onboarding_frame.dart';
+import 'package:pantas/core/ui/components/pantas_icon_button.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/components/value_wheel.dart';
 import 'package:pantas/core/ui/motion/pantas_effects.dart';
@@ -373,6 +374,7 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
                       _changeYear(-1),
                 },
                 child: TextField(
+                  // ds-raw: no label, stepper suffix
                   controller: _yearController,
                   focusNode: _yearFocus,
                   keyboardType: TextInputType.number,
@@ -422,28 +424,22 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
                     suffixIcon: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        SizedBox(
-                          height: PantasSpace.s24,
-                          child: IconButton(
-                            padding: EdgeInsets.zero,
-                            tooltip: 'Next year',
-                            onPressed: () => _changeYear(1),
-                            icon: const Icon(
-                              Icons.keyboard_arrow_up,
-                              size: PantasSpace.s14,
-                            ),
+                        PantasIconButton(
+                          size: PantasIconButtonSize.sm,
+                          tooltip: 'Next year',
+                          onPressed: () => _changeYear(1),
+                          icon: const Icon(
+                            Icons.keyboard_arrow_up,
+                            size: PantasSpace.s14,
                           ),
                         ),
-                        SizedBox(
-                          height: PantasSpace.s24,
-                          child: IconButton(
-                            padding: EdgeInsets.zero,
-                            tooltip: 'Earlier year',
-                            onPressed: () => _changeYear(-1),
-                            icon: const Icon(
-                              Icons.keyboard_arrow_down,
-                              size: PantasSpace.s14,
-                            ),
+                        PantasIconButton(
+                          size: PantasIconButtonSize.sm,
+                          tooltip: 'Earlier year',
+                          onPressed: () => _changeYear(-1),
+                          icon: const Icon(
+                            Icons.keyboard_arrow_down,
+                            size: PantasSpace.s14,
                           ),
                         ),
                       ],

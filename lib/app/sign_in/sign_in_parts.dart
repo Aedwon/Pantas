@@ -648,6 +648,7 @@ class SignInButton extends StatelessWidget {
       width: double.infinity,
       child: PressScale(
         child: TextButton(
+          // ds-raw: brand provider button with logo content
           onPressed: onPressed,
           style: ButtonStyle(
             tapTargetSize: MaterialTapTargetSize.shrinkWrap,
@@ -700,6 +701,7 @@ class SignInTextButton extends StatelessWidget {
       height: PantasSize.targetTouch,
       width: double.infinity,
       child: TextButton(
+        // ds-raw: brand provider button with logo content
         onPressed: onPressed,
         style: ButtonStyle(
           tapTargetSize: MaterialTapTargetSize.shrinkWrap,
@@ -898,6 +900,7 @@ class SignInField extends StatelessWidget {
               ),
             ),
             child: TextField(
+              // ds-raw: input in sign-in well, autofocus, autofill
               controller: controller,
               focusNode: focusNode,
               autofocus: true,
@@ -1057,6 +1060,7 @@ class CodeBoxes extends StatelessWidget {
                       selectionHandleColor: Colors.transparent,
                     ),
                     child: TextField(
+                      // ds-raw: input in sign-in well, autofocus, autofill
                       controller: controller,
                       focusNode: focusNode,
                       autofocus: true,

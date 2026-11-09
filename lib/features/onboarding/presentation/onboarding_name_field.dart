@@ -45,6 +45,7 @@ class OnboardingNameField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final field = TextField(
+      // ds-raw: needs textCapitalization and focus node
       controller: controller,
       focusNode: focusNode,
       maxLength: maxLength,

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/ui/components/loading_shapes.dart';
+import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/pantas_button_spec.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_border.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
@@ -108,18 +110,12 @@ class _SharedCardRow extends ConsumerWidget {
             ),
           ),
           const SizedBox(width: PantasSpace.s12),
-          TextButton(
+          PantasButton(
+            label: 'Revoke',
             onPressed: () => _revoke(ref),
-            style: TextButton.styleFrom(
-              foregroundColor: colors.destructive,
-              minimumSize:
-                  const Size(PantasSize.targetTouch, PantasSize.targetTouch),
-              padding: EdgeInsets.zero,
-            ),
-            child: Text(
-              'Revoke',
-              style: styles.sectionHeader.copyWith(color: colors.destructive),
-            ),
+            kind: PantasButtonKind.tertiary,
+            tone: PantasButtonTone.critical,
+            fullWidth: false,
           ),
         ],
       ),

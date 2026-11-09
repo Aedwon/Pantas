@@ -151,6 +151,7 @@ class _NamePageState extends ConsumerState<NamePage> {
                       child: Semantics(
                         label: 'Name',
                         child: TextField(
+                          // ds-raw: needs textCapitalization, no label
                           controller: _controller,
                           enabled: _loaded && !_saving,
                           style: PantasType.webRowTitleSettings
@@ -217,6 +218,7 @@ class _NamePageState extends ConsumerState<NamePage> {
                     children: [
                       Expanded(
                         child: TextField(
+                          // ds-raw: needs textCapitalization, no label
                           controller: _controller,
                           enabled: _loaded && !_saving,
                           style: context.type.body,
