@@ -1,7 +1,7 @@
 # Custom exams get a price tier from their subjects: spec amendment
 
 **Date:** 9 November 2026
-**Status:** Part 1 approved by Aedwon on 9 November 2026, relayed by the manager. Decision 2: A. Decisions 3 and 4 wait for his pick on the board. Nothing is built.
+**Status:** Fully approved, 9 November 2026. Part 1 approved by Aedwon; decision 2: A; decision 3: 3B, Placement 2, Mark 1; decision 4 (dialog copy) settled by the lead under D191 after Aedwon: "sorry what needs deciding on Decision 4? that's just a copy decision right not a UI one". Nothing is built; the build waits for the manager to resume it.
 **Approval, verbatim:** "okay, this is approved on my end, / 2 A / 3 i think this i can better decide if you illustrate / 4 illustrate". Logged on main at 15fcd12f8.
 **Decision that started it (Aedwon, verbatim, relayed by the manager):** "i was thinking if they make their own custom exam, they have a student-only, professional-only or something like that kind of tiering so that we can limit and thus properly price their Pro subscription". Offered A (the subjects decide) or B (the student picks a category). Aedwon: "okay A." Logged on main at b362ba69b, launch log entry "Custom exams get a price tier".
 **Amends:** `docs/superpowers/specs/2026-08-02-custom-exam-track-design.md` Section 1 and `docs/superpowers/specs/2026-11-04-custom-exams-on-web-design.md` choice 2 (1.3), 2.5, 2.7, 2.8, 2.9, 2.17 picks 2 and 6.
@@ -91,7 +91,7 @@ Per your 9 November rule, an agent drafts this text, GPT 6.1 Sol High critiques 
    - A. The line under the list only. Cheapest. The student cannot see which subject raises the tier.
    - B. The line, plus a tag on rows above Student (recommended). One tag today, on General Information.
    - C. A tag on every row. Five "Student" tags that tell the student nothing.
-4. **The raise-tier dialog** in 1.4, still open, pending his answer on the board: its wording and two actions, on the same board.
+4. **The raise-tier dialog** in 1.4. Settled 9 November as copy only, by the lead under D191 (wording in 2.5). Originally listed as: its wording and two actions, on the same board.
 
 ## 1.8 Cost, risk and how it will be judged
 
@@ -181,7 +181,7 @@ All UI uses design system 4.0 components (`design/system/`), built 1:1 from the 
 - Tier line: the CardFooter caption, updated on each tick from the client table. Strings: "Studying is free. Pro for this exam uses Student plans." / "... Civil Service plans." / "... Licensure plans."
 - The client table is display only. The server decides coverage.
 
-**Raise-tier dialog** (What's Included save, and the subjects step from Settings): system `Dialog`, shown only when `entitlement.proIsActive` and the current plan's tier is below the new tier. Title "PUP CET becomes a Civil Service exam". Text "General Information is a Civil Service subject. Your Student plan doesn't cover Civil Service exams, so Pro features stop on PUP CET unless you upgrade." Two actions, per the Dialog README limit: Keep Subjects (tertiary) and See Plans (primary), which opens the tier upgrade screen (`ST_SwitchUpgrade` layout, its secondary action reading "Save on Free"). Wording is decision 4. Board: "Custom Exam Tier Picks", https://claude.ai/artifact/YEtFgMGqFsQ3ukTYShkNvb.
+**Raise-tier dialog** (What's Included save, and the subjects step from Settings): system `Dialog`, shown only when `entitlement.proIsActive` and the current plan's tier is below the new tier. Title "PUP CET becomes a Civil Service exam". Text "General Information is a Civil Service subject, and your Student plan does not cover it. Pro features stop on PUP CET unless you upgrade." (final, lead ruling under D191, 9 November; the exam name, subject and tiers fill in from the student's exam) Two actions, per the Dialog README limit: Keep Subjects (tertiary) and See Plans (primary), which opens the tier upgrade screen (`ST_SwitchUpgrade` layout, its secondary action reading "Save on Free"). Wording settled; see the launch log, 9 November. Board: "Custom Exam Tier Picks", https://claude.ai/artifact/YEtFgMGqFsQ3ukTYShkNvb.
 
 **Pro page** (`pro_page.dart`): remove `_CustomFreeCard` and the `showOffers = !custom` rule. A custom track resolves its tier from `getCustomTracks` (web) or the client table (native) and shows that tier's paywall, the same component path as `PriceTier.fromCatalog` for a listed exam, with no pass card. Header uses the track name. One line under the header: "PUP CET uses Civil Service plans because it includes General Information." For Student: "PUP CET uses Student plans."
 
