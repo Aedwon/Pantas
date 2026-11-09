@@ -206,10 +206,18 @@ class _OnboardingExamDateStepState
             child: Row(
               children: [
                 Container(
-                  // The tile grows with the text instead of clipping it.
+                  key: const ValueKey('exam-date-tile'),
+                  // The tile grows with the text instead of clipping it
+                  // (D175: sized so the month fits at 200%), and the month
+                  // keeps 8 clear on each side.
                   alignment: Alignment.center,
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: PantasSpace.s8,
+                  ),
                   constraints: BoxConstraints(
-                    minWidth: context.wideWeb ? _tileWide : _tilePhoneWidth,
+                    minWidth: MediaQuery.textScalerOf(context).scale(
+                      context.wideWeb ? _tileWide : _tilePhoneWidth,
+                    ),
                     minHeight: context.wideWeb ? _tileWide : _tilePhoneHeight,
                   ),
                   decoration: BoxDecoration(
