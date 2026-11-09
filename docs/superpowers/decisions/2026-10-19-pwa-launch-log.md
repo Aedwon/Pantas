@@ -2806,3 +2806,4 @@ Asked by the manager thread on Aedwon's "for the rest of items, please finish th
 - **Recorded as:** written rule 6 in `docs/workflow/process-improvement.md`, and a line in `docs/OPERATIONS.md` under Contact (the file has no separate email section).
 - **Enforced in:** the beta monitor's private send script (outside the repository) now refuses a real send unless a self-test of the same email version to that address is recorded.
 - **Note:** the Nov 9 "beta is live" reminder went out before this rule existed, without a self-test.
+- IDEA, not approved scope (Aedwon, 9 November): a flashcards mode in the Study tab, with the manager's initial insights. Record: `docs/future/2026-11-09-flashcards-idea.md`.
