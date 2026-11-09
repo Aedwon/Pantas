@@ -64,7 +64,7 @@ The weight $W$ turns it back, with the lever arm $d$ from above. The box tips wh
 
 $$F \cdot H > W \cdot d$$
 
-Weight is a force, the pull of gravity on the object, so it is measured in newtons (N). It is $W = mg$, where $m$ is the mass in kilograms and $g = 9.8$ m/s$^2$. The unit m/s$^2$ means that, with air ignored, the speed of a falling object grows by $9.8$ meters per second each second.
+Weight is a force, the pull of gravity on the object, so it is measured in newtons (N). It is $W = mg$, where $m$ is the mass in kilograms and $g = 9.8$ m/s$^2$. The value $g = 9.8$ m/s$^2$ means that, with air ignored, a falling object's speed grows by $9.8$ meters per second each second.
 
 This test assumes the box does not slide first. If the mass is spread the same way, an object of the same shape and size with more mass needs a bigger push to tip, even though its tilt angle is the same.
 

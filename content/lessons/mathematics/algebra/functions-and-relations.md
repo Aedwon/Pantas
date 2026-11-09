@@ -38,7 +38,9 @@ Domains and ranges are often written as **intervals**. A square bracket includes
 
 The symbol $\infty$ means the numbers go on without end, so it always gets a round bracket. The symbol $\cup$ means "together with", so $[-1,2)\cup(2,\infty)$ is two pieces joined.
 
-To find the range from a rule and a stated domain, find which outputs the rule reaches. For a straight line that is not horizontal, the smallest and largest outputs come from the two ends of the domain. A line that is not horizontal never gives the same output twice. So if an end is left out, as in $2x+1$ on $1<x\le4$, the output at that end is left out too, and the range is $(3,9]$.
+To find the range from a rule and a stated domain, find which outputs the rule reaches. For a straight line that is not horizontal, the smallest and largest outputs come from the two ends of the domain.
+
+A line that is not horizontal never gives the same output twice. So if an end is left out, as in $2x+1$ on $1<x\le4$, the output at that end is left out too, and the range is $(3,9]$.
 
 A horizontal line, such as $y=3$, gives the same output for every input. Its range is just $\{3\}$.
 
@@ -47,6 +49,10 @@ If the domain has no end on one side, the range of a line that is not horizontal
 For a parabola (the curve of $y=ax^2+bx+c$ with $a\ne0$), also check the **turning point**. This is the point where the curve stops falling and starts rising, or the reverse.
 
 For $y=a(x-h)^2+k$ it is at $x=h$, with output $k$. For $y=ax^2+bx+c$ it is at $x=-\dfrac{b}{2a}$. Use it only if it lies inside the domain.
+
+When the domain is all real numbers, the sign of $a$ decides the range. If $a>0$, the parabola opens up, so the turning point gives the least output and the range goes from that output up. If $a<0$, it opens down, so the turning point gives the greatest output and the range goes from that output down.
+
+For example, $y=x^2-4x+5$ has $-\dfrac{b}{2a}=2$, and the output there is $1$. Since $a=1>0$, the range is $[1,\infty)$. The lesson Types of Functions (Linear, Quadratic, Rational, Absolute Value, Exponential, Logarithmic, Piecewise) teaches how $a$ sets the opening direction.
 
 A parabola can give the same output twice. So a left-out end's output is left out only if no included input gives it. For $y=x^2$ on $-2<x\le2$, the left-out end gives $4$, but $x=2$ also gives $4$, so the range is $[0,4]$.
 
@@ -154,7 +160,7 @@ $$f(1)=3\qquad f(4)=9$$
 
 So the range is $[3,9]$.
 
-2. The curve $h$ is a parabola written as $(x-2)^2+1$, so its turning point is at $x=2$. That is inside $[0,5]$. There $h(2)=1$, the smallest output.
+2. The curve $h$ is a parabola written as $(x-2)^2+1$, so its turning point is at $x=2$. That is inside $[0,5]$. There $h(2)=1$. Since $a=1>0$, the parabola opens up, so $1$ is the smallest output.
 3. Check the two ends of the domain.
 
 $$h(0)=4+1=5\qquad h(5)=9+1=10$$
@@ -240,6 +246,8 @@ $$(f\circ g)(x)=\sqrt{x^2-4}$$
 $$x^2-4\ge0$$
 
 $$(x-2)(x+2)\ge0$$
+
+The Polynomials lesson teaches this factoring, a difference of two squares. The Quadratic Equations lesson teaches how to solve a quadratic inequality.
 
 4. The product is $0$ or positive when both factors are $0$ or positive, or both are $0$ or negative. That gives $x\ge2$ or $x\le-2$.
 
@@ -363,7 +371,7 @@ The domain is $[-1,2)\cup(2,\infty)$.
 
 > Find the domain from the rule as given, not from the simplified form.
 
-Take $f(x)=\dfrac{x^2-4}{x-2}$. After cancelling, it looks like $x+2$, but $x=2$ is still not allowed in $f$. The domain is all real numbers except $2$, and the output $4$ is never produced.
+Take $f(x)=\dfrac{x^2-4}{x-2}$. After canceling, it looks like $x+2$, but $x=2$ is still not allowed in $f$. The domain is all real numbers except $2$, and the output $4$ is never produced.
 
 ### #6: Taking a Plus-or-Minus Branch Without Checking
 

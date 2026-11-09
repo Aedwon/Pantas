@@ -79,7 +79,9 @@ If a triangle's sides satisfy this, with $c$ as the longest side, it is a right 
 
 This cuts off four right triangles, one in each corner. Each has legs $a$ and $b$. Each long side of the middle shape is the hypotenuse of one of them, so all four sides of the middle shape equal $c$.
 
-At each corner of the middle shape, the corner angle and the two acute angles of the triangles next to it lie along a straight side of the big square, so they add to $180^\circ$. The two acute angles of a right triangle add to $90^\circ$. So each corner is $90^\circ$, and the middle shape is a square of side $c$.
+The four corner triangles are congruent by SAS, because each has legs $a$ and $b$ around a right angle. So each has the same two acute angles.
+
+At each corner of the middle shape, the corner angle and the two acute angles of the triangles next to it lie along a straight side of the big square, so they add to $180^\circ$. Going around the square the same way each time puts the two different acute angles of a triangle at each marked point, and these add to $90^\circ$. So each corner is $90^\circ$, and the middle shape is a square of side $c$.
 
 <!-- ILLUSTRATION: square of side a + b, four right triangles (legs a, b) in the corners, tilted square of side c in the middle -->
 
@@ -169,9 +171,7 @@ The other remote interior angle is $65^\circ$.
 
 ### #5: Isosceles Triangle
 
-An isosceles triangle has one angle of $50^\circ$. Find the other two angles. There are two possible answers.
-
-<!-- ILLUSTRATION: two isosceles triangles side by side; left has two base angles 50° and apex ?; right has apex 50° and two base angles ? -->
+An isosceles triangle has one angle of $50^\circ$. Find all possible measures of the other two angles.
 
 **Solution:**
 The $50^\circ$ angle is either a base angle or the angle between the equal sides.
@@ -180,6 +180,8 @@ The $50^\circ$ angle is either a base angle or the angle between the equal sides
 2. If $50^\circ$ is the angle between the equal sides, the two base angles share $180^\circ - 50^\circ = 130^\circ$. Each is $\dfrac{130^\circ}{2} = 65^\circ$.
 
 The angles are $50^\circ$, $50^\circ$, $80^\circ$ or $50^\circ$, $65^\circ$, $65^\circ$.
+
+<!-- ILLUSTRATION: two isosceles triangles side by side; left has two base angles 50° and apex ?; right has apex 50° and two base angles ? -->
 
 ### #6: Matching Parts and Choosing the Rule
 
@@ -201,8 +203,6 @@ The rule is AAS, and $AC = DF$.
 
 (b) In quadrilateral $ABCD$ (a four-sided shape), $AB = AD$ and $CB = CD$. If $\angle B = 100^\circ$, find $\angle D$.
 
-<!-- ILLUSTRATION: (a) segments AB and CD crossing at O, with OA = OB and OC = OD marked by ticks, AC = 7; (b) quadrilateral ABCD with diagonal AC, AB = AD one tick, CB = CD two ticks, angle B = 100° -->
-
 **Solution:**
 Find the equal parts first, including the ones the figure hides.
 
@@ -212,6 +212,8 @@ Find the equal parts first, including the ones the figure hides.
 4. Point $B$ matches $D$, so $\angle D = \angle B = 100^\circ$.
 
 The answers are (a) $BD = 7$ and (b) $\angle D = 100^\circ$.
+
+<!-- ILLUSTRATION: (a) segments AB and CD crossing at O, with OA = OB and OC = OD marked by ticks, AC = 7; (b) quadrilateral ABCD with diagonal AC, AB = AD one tick, CB = CD two ticks, angle B = 100° -->
 
 ### #8: The Shadow Problem (Similarity)
 
@@ -266,7 +268,9 @@ The answers are (a) $5$, $5$, and $5\sqrt{2}$; (b) $6$, $6\sqrt{3}$, and $12$.
 
 Scan for Pythagorean triples before squaring. If a right triangle has a leg $5$ and hypotenuse $13$, the missing leg is $12$.
 
-The triple $10$-$24$-$26$ is $5$-$12$-$13$ doubled. The shortcut works when the sides match a triple or a multiple of one. Otherwise, add the squares of the legs, then take the square root, to find a hypotenuse. To find a leg, subtract the square of the known leg from the square of the hypotenuse, then take the square root.
+The triple $10$-$24$-$26$ is $5$-$12$-$13$ doubled. The shortcut works when the known sides match a triple or a multiple of one in their roles, with the largest number of the triple as the hypotenuse. Legs $4$ and $5$ give a hypotenuse of $\sqrt{41}$, not a $3$-$4$-$5$ triangle.
+
+Otherwise, add the squares of the legs, then take the square root, to find a hypotenuse. To find a leg, subtract the square of the known leg from the square of the hypotenuse, then take the square root.
 
 In a $30$-$60$-$90$ triangle, find the short leg first. The short leg is the side across from $30^\circ$.
 

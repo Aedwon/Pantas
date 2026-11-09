@@ -17,7 +17,9 @@ The part of Earth north of the equator is the **Northern Hemisphere**. The part 
 
 ### Rotation
 
-**Rotation** is Earth's spin around its own axis. Earth spins toward the east. The daily trip of the Sun, Moon, and stars across the sky is only apparent. It happens because the ground under us turns.
+**Rotation** is Earth's spin around its own axis. Earth spins toward the east.
+
+The daily trip of the Sun, Moon, and stars across the sky is only apparent. It happens because the ground under us turns.
 
 Seen from most places on Earth, the Sun, Moon, and stars therefore appear to rise on the eastern side of the sky and set on the western side.
 
@@ -30,11 +32,12 @@ After one turn, Earth must turn a little more, about $1^\circ$, before the Sun i
 The same fact explains why a given star rises about $4$ minutes earlier each night. After a month it rises about $2$ hours earlier.
 
 <!-- ILLUSTRATION: top view of Earth at two positions on its orbit, one day apart; a dot on Earth faces a distant star at both positions, labeled "one sidereal day: 23 h 56 min"; at the second position the dot still needs to turn about 1 degree to face the Sun again, labeled "one solar day: 24 h" -->
-<!-- FIGURE: {"kind":"earth-science-diagram","type":"sidereal-solar-day","illustrationKey":"science/earth-science-astronomy/earths-motions#4","earthPositions":2,"siderealReference":"distant stars","extraRotation":"a few extra degrees","result":"solar day slightly longer"} -->
 
 ### Revolution and Axial Tilt
 
-**Revolution** is Earth's trip around the Sun along its path, called its **orbit**. One trip measured against the stars takes about $365.26$ days. Calendars follow the seasonal year instead, about $365.24$ days, from one March equinox to the next. It is slightly shorter because of precession (explained below).
+**Revolution** is Earth's trip around the Sun along its path, called its **orbit**. One trip measured against the stars takes about $365.26$ days.
+
+Calendars follow the seasonal year instead, about $365.24$ days, from one March equinox to the next. It is slightly shorter because of precession (explained below).
 
 The flat surface that the orbit lies on is the **orbital plane**.
 
@@ -95,11 +98,13 @@ A **constellation** is a group of stars that people have named as a pattern in t
 
 As Earth revolves, the direction of the Sun against the background stars changes through the year. So the part of the sky that we face at night changes too.
 
-A constellation that is high at midnight in one season lies in the Sun's direction about six months later. Daylight then hides it. A constellation that is high in the evening is seen in the dark sky before sunrise about six months later.
+Take a constellation near the Sun's yearly path across the sky, such as Orion or Scorpius. If it is high at midnight in one season, it lies in the Sun's direction about six months later. Daylight then hides it.
 
-The **north celestial pole** is the point in the sky that Earth's axis points toward. Earth's rotation makes the stars seem to circle around it. Precession, below, explains it more.
+If it is high in the evening, it is seen in the dark sky before sunrise about six months later.
 
-A constellation close enough to the north celestial pole is the exception. In the Northern Hemisphere, far enough north of the equator, it never sets. It is above the horizon all year.
+The **north celestial pole** is the point in the sky that Earth's axis points toward in the north. The **south celestial pole** is the matching point in the south. Earth's rotation makes the stars seem to circle around them. Precession, below, explains more.
+
+Constellations close to a celestial pole can break this rule. Near the north celestial pole, a constellation never sets in places far enough north of the equator, and near the south celestial pole the same holds far enough south. Such a constellation is above the horizon all year.
 
 We can see it on any clear night when the sky gets dark. Where the Sun does not set, the sky does not get dark.
 
