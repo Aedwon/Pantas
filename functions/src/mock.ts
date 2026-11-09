@@ -7,7 +7,7 @@ import {allowAtMost} from './_limits.js';
 import {checkAnswers, checkDuration, type Answer} from './_answers.js';
 import {core} from './_core.js';
 import {applyScope, loadCorpusCached, loadExamContent} from './_examContent.js';
-import {customTrackRef, isCustomExamId, isStudyExamId} from './_customTrack.js';
+import {coversStudyExam, customExclusions, customTrackRef, isCustomExamId, isStudyExamId} from './_customTrack.js';
 import {mockCoverage} from './mockAccess.js';
 import {checkPaperAnswers, recordMockAnswers} from './mockAnswers.js';
 import {timed} from './_timed.js';
@@ -117,7 +117,9 @@ async function findOpen(db: Firestore, uid: string) {
   return open.docs[0];
 }
 
-type Assembled = {paper: Paper; limitMs: number; sectionMinutes: number[] | null};
+/** `customScope` is set for a custom paper: the exclusions it was drawn from and the corpus it was drawn on. */
+type Assembled = {paper: Paper; limitMs: number; sectionMinutes: number[] | null;
+  customScope?: {excludedTopicIds: string[]; corpusTopicIds: string[]}};
 const notEnough = () => new HttpsError('failed-precondition', 'There are not enough questions for this mock yet.');
 
 /** The ids of the student's last two submitted papers for this exam, which a new paper avoids. */
@@ -178,7 +180,9 @@ async function assembleCustomPaper(db: Firestore, uid: string, examId: string, n
   if (!Array.isArray(sections) || sections.length === 0) throw new HttpsError('failed-precondition', 'This exam has no mock yet.');
   // The active exam keeps its scope in the settings. Any other custom exam falls back to its own copy.
   const scope = settings.get('examId') === examId ? settings : track;
-  const content = applyScope(await loadCorpusCached(db, now), scope.get('excludedTopicIds') ?? [], scope.get('excludedLessonIds') ?? []);
+  const corpus = await loadCorpusCached(db, now);
+  const excludedTopicIds = ((scope.get('excludedTopicIds') ?? []) as unknown[]).filter((id): id is string => typeof id === 'string');
+  const content = applyScope(corpus, excludedTopicIds, scope.get('excludedLessonIds') ?? []);
   const byTopic = new Map<string, Question[]>();
   const setOf = new Map<string, string>();
   for (const q of content.questions) {
@@ -236,7 +240,8 @@ async function assembleCustomPaper(db: Firestore, uid: string, examId: string, n
       questions: filled[index]!.map(id => ({id, setId: setOf.get(id) ?? ''}))})),
   };
   return {paper, limitMs: Number(plan.totalMinutes) * 60_000,
-    sectionMinutes: plan.sectionsTimedSeparately === true ? sections.map(section => section.suggestedMinutes) : null};
+    sectionMinutes: plan.sectionsTimedSeparately === true ? sections.map(section => section.suggestedMinutes) : null,
+    customScope: {excludedTopicIds, corpusTopicIds: corpus.topics.map(topic => topic.id)}};
 }
 
 /**
@@ -275,7 +280,12 @@ export async function beginMock(auth: Auth, data: unknown, deps: MockDeps): Prom
     const raced = await transaction.get(mocks(deps.db, uid).where('status', '==', 'started').limit(1));
     if (raced.docs[0]) return {...view(raced.docs[0].id, raced.docs[0].data(), now), resumed: true};
     const access = await mockCoverage(transaction, deps.db, uid, now);
-    if (!access.coversExam(examId)) {
+    const exclusions = await customExclusions(transaction, deps.db, uid, [examId]);
+    // The paper was drawn from one read of the exclusions and this check reads them again. A concurrent
+    // setExamSettings can lower the tier between the two, so the higher tier of the two decides.
+    const covered = coversStudyExam(access, examId, exclusions, {
+      corpusTopicIds: assembled.customScope?.corpusTopicIds, assembledExclusions: assembled.customScope?.excludedTopicIds});
+    if (!covered) {
       const recent = await transaction.get(mocks(deps.db, uid).where('submittedAt', '>', now - FREE_MOCK_WINDOW_MS));
       if (recent.docs.some((doc) => doc.get('status') === 'submitted')) {
         throw new HttpsError('failed-precondition', 'Free accounts can take one mock every 30 days.');

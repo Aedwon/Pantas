@@ -1,4 +1,7 @@
 import '../lib/index.js';
+import {readFileSync} from 'node:fs';
+const GENERAL_INFORMATION = JSON.parse(readFileSync(new URL('../../content/exams/custom_subject_tiers.json', import.meta.url), 'utf8'))
+  .subjects.find(s => s.name === 'General Information').topicIds;
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import {getFirestore} from 'firebase-admin/firestore';
@@ -127,20 +130,38 @@ test('mock mirror counts on actual start day and completes on finish day across 
  await recordMock(named(uid),payload,deps(finishAt+1000));assert.deepEqual(await totals(uid),saved);
 });
 
-test('review notes are refused on a custom paper, even with a paid grant for CSE',async()=>{
+test('review notes on a custom paper follow the exam tier: a pass never covers it, a Student plan covers a Student exam only',async()=>{
  const uid='mr-custom-notes',id='CustomReview0001',examId='exam_custom_6f1c2d3e-4a5b-4c6d-8e7f-0a1b2c3d4e5f';
  await db.recursiveDelete(db.doc(`users/${uid}`));
  const paper={expectedQuestionCount:2,sections:[{sectionId:'section_all',name:'Everything',questions:[{id:'ca',setId:'set'},{id:'cb',setId:'set'}]}]};
  await items(uid).doc(id).set({examId,examName:'PUP CET',status:'submitted',startedAt:NOW-1000,submittedAt:NOW,endedBy:'student',strict:false,limitMs:3600000,durationMs:1000,
   paper,answers:[{questionId:'ca',chosen:'a',correct:true,answeredAt:NOW}],pausedMs:0,pausedAt:null});
- await db.doc(`users/${uid}/grants/paid`).set({source:'paymongo',product:'pantas_cs_monthly',tier:'civilService',startsAt:NOW-DAY,endsAt:NOW+60*DAY,state:'active',createdAt:NOW-DAY});
- const caller={...named(uid),token:{...named(uid).token,pro:true,proUntil:NOW+60*DAY}};
+ // The track keeps every subject, which is a Civil Service exam.
+ await db.doc(`users/${uid}/server/customTracks/items/${examId}`).set({examId,name:'PUP CET',excludedTopicIds:[],excludedLessonIds:[],blueprint:null,createdAt:NOW,updatedAt:NOW});
+ const grantDoc=db.doc(`users/${uid}/grants/paid`);
+ const give=(product,tier)=>grantDoc.set({source:'paymongo',product,tier,startsAt:NOW-DAY,endsAt:NOW+60*DAY,state:'active',createdAt:NOW-DAY});
+ const caller=named(uid);
  const body={mockId:id,questionId:'ca',missReason:'slipped',reasonNote:'check signs'};
- await assert.rejects(writeMockReview(caller,body,deps()),e=>e.code==='permission-denied'&&e.message==='Pro is required for notes.');
+ const refused=()=>assert.rejects(writeMockReview(caller,body,deps()),e=>e.code==='permission-denied'&&e.message==='Pro is required for notes.');
+ // A pass belongs to one listed exam and never covers a custom one.
+ await give('pantas_pass_cse_pro','civilService');
+ await refused();
  assert.equal((await snapshot(uid,id)).reviewNotes,undefined);
- const results=await serveMockResults(caller,{mockId:id},deps());
+ let results=await serveMockResults(caller,{mockId:id},deps());
  assert.equal(results.proCovered,false);assert.equal('notes' in results,false);
- // The same grant still covers a listed CSE paper, so the refusal is about the custom id.
+ // A Student plan does not reach a Civil Service exam.
+ await give('pantas_pro_monthly','student');
+ await refused();
+ // Excluding General Information makes it a Student exam, so the same plan covers it.
+ await db.doc(`users/${uid}/server/customTracks/items/${examId}`).update({excludedTopicIds:GENERAL_INFORMATION});
+ await writeMockReview(caller,body,deps());
+ results=await serveMockResults(caller,{mockId:id},deps());
+ assert.equal(results.proCovered,true);assert.deepEqual(Object.keys(results.notes),['ca']);
+ // A Civil Service plan covers the exam with every subject kept.
+ await db.doc(`users/${uid}/server/customTracks/items/${examId}`).update({excludedTopicIds:[]});
+ await give('pantas_cs_monthly','civilService');
+ await writeMockReview(caller,{...body,reasonNote:'again'},deps());
+ // The same grant still covers a listed CSE paper.
  const listed=await start('mr-custom-notes-listed');
  await db.doc('users/mr-custom-notes-listed/grants/paid').set({source:'paymongo',product:'pantas_cs_monthly',tier:'civilService',startsAt:NOW-DAY,endsAt:NOW+60*DAY,state:'active',createdAt:NOW-DAY});
  await submit('mr-custom-notes-listed',listed);

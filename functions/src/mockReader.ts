@@ -4,7 +4,7 @@ import {assertFreshAppCheck, enforceAppCheck} from './_appCheck.js';
 import {assertNamedUser} from './_audit.js';
 import {allowAtMost} from './_limits.js';
 import {mockCoverage} from './mockAccess.js';
-import {customTrackRef, isCustomExamId, isStudyExamId} from './_customTrack.js';
+import {coversStudyExam, customExclusions, customTrackRef, isCustomExamId, isStudyExamId} from './_customTrack.js';
 import {assemblePaper, endIfTimedOut, FREE_MOCK_WINDOW_MS} from './mock.js';
 import type {Answer} from './_answers.js';
 import {recordMockAnswers} from './mockAnswers.js';
@@ -71,7 +71,8 @@ export async function serveMockResults(auth: Auth, data: unknown, deps: Deps) {
     if (!snapshot.exists) throw new HttpsError('not-found', 'Mock not found.');
     const row = snapshot.data()!;
     const access = await mockCoverage(transaction, deps.db, uid, now);
-    const result = summary(id, row, access.coversExam(row.examId), now, access.recheckAt);
+    const exclusions = await customExclusions(transaction, deps.db, uid, [row.examId]);
+    const result = summary(id, row, coversStudyExam(access, row.examId, exclusions), now, access.recheckAt);
     await recordMockAnswers(transaction, deps.db, uid, id, row, now);
     return {...result, ...(result.canReview ? {paper: row.paper, answers: row.answers} : {}),
       ...(result.proCovered ? {notes: row.reviewNotes ?? {}} : {})};
@@ -97,7 +98,7 @@ export async function serveMockAvailability(auth: Auth, data: unknown, deps: Dep
     // A custom exam has a mock once its track holds a plan.
     const hasMock = custom ? !!blueprint.get('blueprint') : blueprint.exists;
     const previous = last.docs[0];
-    const proCovered = access.coversExam(examId);
+    const proCovered = coversStudyExam(access, examId, await customExclusions(transaction, deps.db, uid, [examId]));
     const nextEligibleAt = proCovered || !previous ? null : Number(previous.get('submittedAt')) + FREE_MOCK_WINDOW_MS;
     const lastForExam = lastExam.docs[0];
     const running = active.docs[0];
@@ -128,7 +129,8 @@ export async function serveMockHistory(auth: Auth, data: unknown, deps: Deps) {
     const [rows, access] = await Promise.all([transaction.get(query.limit(limit + 1)), mockCoverage(transaction, deps.db, uid, now)]);
     const page = rows.docs.slice(0, limit);
     const last = page.at(-1);
-    return {items: page.map(d => summary(d.id, d.data(), access.coversExam(d.get('examId')), now, access.recheckAt)),
+    const exclusions = await customExclusions(transaction, deps.db, uid, page.map(d => d.get('examId')));
+    return {items: page.map(d => summary(d.id, d.data(), coversStudyExam(access, d.get('examId'), exclusions), now, access.recheckAt)),
       next: rows.size > limit && last ? {submittedAt: last.get('submittedAt') as number, mockId: last.id} : null};
   });
 }
@@ -146,7 +148,8 @@ export async function writeMockReview(auth: Auth, data: unknown, deps: Deps) {
     if (!snapshot.exists) throw new HttpsError('not-found', 'Mock not found.');
     const row = snapshot.data()!;
     const access = await mockCoverage(transaction, deps.db, uid, now);
-    const result = summary(id, row, access.coversExam(row.examId), now, access.recheckAt);
+    const exclusions = await customExclusions(transaction, deps.db, uid, [row.examId]);
+    const result = summary(id, row, coversStudyExam(access, row.examId, exclusions), now, access.recheckAt);
     if (!result.proCovered) throw new HttpsError('permission-denied', 'Pro is required for notes.');
     if (!row.paper.sections.some((s: {questions: {id: string}[]}) => s.questions.some(q => q.id === questionId))) throw bad('Question is not on this paper.');
     // Replace one question atomically without interpreting dots in a content id as field paths.

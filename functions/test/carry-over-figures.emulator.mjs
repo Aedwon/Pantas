@@ -1,4 +1,11 @@
 import '../lib/index.js';
+import {readFileSync} from 'node:fs';
+const GENERAL_INFORMATION = JSON.parse(readFileSync(new URL('../../content/exams/custom_subject_tiers.json', import.meta.url), 'utf8'))
+  .subjects.find(s => s.name === 'General Information').topicIds;
+// The fixture corpus uses made-up topic ids. A kept topic the table does not know prices at the top tier, so
+// the fixture places its topics at Student, the same module instance the functions read.
+import {customSubjectTiers} from '../lib/_customTrack.js';
+for (const id of ['topic-math', 'topic-lang', 'topic_cse_pro_vocabulary', 'topic_cse_pro_arithmetic_number_sense']) customSubjectTiers.topicTiers[id] = 'Student';
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import {getFirestore} from 'firebase-admin/firestore';
@@ -208,6 +215,32 @@ test('a custom response is Free depth only, even with a paid grant for a listed 
     for (const field of ['topics', 'lessons', 'topicDetails']) assert.equal(field in r.performance, false, field);
     assert.deepEqual(Object.keys(r.performance).sort(), ['lessonLevelAvailable', 'overall', 'subjects']);
   }
+});
+
+test('a custom response is Pro when the plan reaches the exam tier, the trial resolves the same way, and the cache key carries the tier', async () => {
+  const uid = 'carry-cus-tier';
+  await seedCustom(uid, {carry: true});
+  const grants = db.doc('users/' + uid + '/grants/tier');
+  const student = {source: 'paymongo', product: 'pantas_pro_monthly', tier: 'student', startsAt: NOW - DAY, endsAt: NOW + 30 * DAY, state: 'active', createdAt: NOW - DAY};
+  await grants.set(student);
+  // Nothing excluded keeps every subject, which is a Civil Service exam, so a Student plan does not reach it.
+  let r = await readStudyInsights(customAuth(uid), customBody(uid), deps());
+  assert.equal(r.proCovered, false);
+  const civilKey = await storedKey(uid);
+  await db.doc('users/' + uid + '/server/settings').update({excludedTopicIds: GENERAL_INFORMATION});
+  r = await readStudyInsights(customAuth(uid), customBody(uid), deps());
+  assert.equal(r.proCovered, true);
+  for (const field of ['tendencies', 'whenYouWork']) assert.equal(field in r, true, field);
+  assert.notEqual(await storedKey(uid), civilKey, 'a tier change is a new cache key');
+  // A Student trial reaches a Student exam, and its end is reported because nothing paid outlasts it.
+  await grants.set({source: 'trial', product: 'web_trial', tier: 'student', startsAt: NOW - DAY, endsAt: NOW + 3 * DAY, state: 'active', createdAt: NOW - DAY});
+  r = await readStudyInsights(customAuth(uid), customBody(uid), deps());
+  assert.equal(r.proCovered, true);
+  assert.equal(r.trialEndsAt, NOW + 3 * DAY);
+  await db.doc('users/' + uid + '/server/settings').update({excludedTopicIds: []});
+  r = await readStudyInsights(customAuth(uid), customBody(uid), deps());
+  assert.equal(r.proCovered, false);
+  assert.equal(r.trialEndsAt, null, 'a Student trial does not reach the Civil Service exam');
 });
 
 test('a custom exam with no settings asks to set the exam first, and one named by other settings says it changed', async () => {

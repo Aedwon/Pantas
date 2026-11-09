@@ -5,7 +5,7 @@ import {HttpsError, onCall} from 'firebase-functions/v2/https';
 import {allowAtMost} from './_limits.js';
 import {core} from './_core.js';
 import {loadExamContent, loadStudyContent, loadStudyContentLinks, loadGapTags, scopeLessonContent} from './_examContent.js';
-import {MAX_CUSTOM_TRACKS, checkCustomBlock, customTrackRef, isCustomExamId, isStudyExamId, type CustomBlueprint} from './_customTrack.js';
+import {MAX_CUSTOM_TRACKS, checkCustomBlock, coversStudyExam, customTrackRef, isCustomExamId, isStudyExamId, type CustomBlueprint} from './_customTrack.js';
 import {phDay, phStamp} from './_phDate.js';
 import {hasLiveProClaim} from './_pro.js';
 import {completedOn, firstCompletedBefore, loadTotals, sessionTimesOf, totalsIn, viewOf, type AnswerView, type Totals, totalsRef} from './_answerTotals.js';
@@ -351,7 +351,7 @@ async function studyContext(tx: FirebaseFirestore.Transaction, db: Firestore, ui
   const gapTags = Object.fromEntries(Object.entries(await loadGapTags(db, now)).filter(([, lesson]) => scopedLessons.has(lesson)));
   const relevantMocks = mocks.docs.filter(d => d.get('examId') === examId);
   const lastMock = relevantMocks.reduce<number | null>((a,d) => Math.max(a ?? 0, Number(d.get('submittedAt'))), null);
-  const pro = access.coversExam(examId);
+  const pro = coversStudyExam(access, examId, new Map([[examId, config.excludedTopicIds ?? []]]), {corpusTopicIds: allContent.topics.map(t => t.id)});
   const inputs = {
     today, examId, examDate: config.examDate, studyDays: config.studyDays, treatTodayAsStudyDay: false,
     topics: content.topics.map((t, i) => ({id: t.id, name: t.name, authoredIndex: i})),
@@ -500,7 +500,8 @@ export async function advanceStudyRoadmap(auth: StudyAuth, data: unknown, deps: 
       const [access,settings] = await Promise.all([mockCoverage(tx, deps.db, uid, now),tx.get(settingsRef(deps.db,uid))]);
       if(settings.get('examId')!==body.examId)throw new HttpsError('failed-precondition','Your exam changed. Open this screen again.');
       const original = JSON.parse(String(saved.get('responseJson')));
-      if (!access.coversExam(body.examId)) { delete original.comingUp; delete original.history; original.proCovered=false;original.tier='free'; }
+      const corpusTopicIds = isCustomExamId(body.examId) ? (await loadStudyContent(deps.db, body.examId, tx)).topics.map(t => t.id) : undefined;
+      if (!coversStudyExam(access, body.examId, new Map([[body.examId, settings.get('excludedTopicIds') ?? []]]), {corpusTopicIds})) { delete original.comingUp; delete original.history; original.proCovered=false;original.tier='free'; }
       return {...original,serverNow:now,accessRecheckAt:access.recheckAt};
     }
     const context = await studyContext(tx, deps.db, uid, body.examId, now);

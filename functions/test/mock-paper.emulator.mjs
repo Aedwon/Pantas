@@ -638,3 +638,51 @@ test('another account sees no mock for this account\'s custom id', async () => {
   assert.deepEqual((await serveMockHistory(named(stranger), {}, d(NOW + 2 * MIN))).items, []);
   assert.equal((await items(stranger)).size, 0);
 });
+
+// ---- the tier changes between assembling a custom paper and the coverage check ----
+test('a setExamSettings that lowers the tier after the paper is drawn does not unlock the free window', async () => {
+  const { readFileSync } = await import('node:fs');
+  const table = JSON.parse(readFileSync(new URL('../../content/exams/custom_subject_tiers.json', import.meta.url), 'utf8'));
+  const general = table.subjects.find(s => s.name === 'General Information').topicIds;
+  const maths = table.subjects.find(s => s.name === 'Mathematics').topicIds[0];
+  const kept = general[0];
+  const previous = new Map();
+  const names = ['index', 'exam_race'];
+  for (const id of names) previous.set(id, await db.doc(`content/catalog/items/${id}`).get());
+  const raceSet = (id, topic) => ({id, topic, lesson: null, exams: ['exam_race'], language: 'en', questions: free(id, 30)});
+  await db.doc('content/catalog/items/index').set({version: 'race-i', payload: JSON.stringify({
+    subjects: [{_id: 'subj_race', name: 'Race', exam: 'exam_race', ordering: 1}],
+    topics: [{_id: kept, name: 'Kept', subject: 'subj_race', ordering: 1}, {_id: maths, name: 'Maths', subject: 'subj_race', ordering: 2}],
+    catalogs: ['exam_race']})});
+  await db.doc('content/catalog/items/exam_race').set({version: 'race-e', payload: JSON.stringify({id: 'exam_race', sets: [raceSet('race-g', kept), raceSet('race-m', maths)]})});
+  clearExamContentCache();
+  try {
+    const uid = 'p-race';
+    await reset(uid);
+    // A Student plan. Nothing excluded, so General Information is kept and the exam is Civil Service-level.
+    await db.doc(`users/${uid}/grants/race`).set({source: 'paymongo', product: 'pantas_pro_monthly', tier: 'student', startsAt: NOW - DAY, endsAt: NOW + DAY, state: 'active', createdAt: NOW - DAY});
+    const examId = await makeTrack(uid, [sec('section_1', 'One', 10, 20, [kept, maths])], {settings: {excluded: []}});
+    await db.doc(`users/${uid}/server/mocks/items/earlier`).set({examId: 'exam_other', status: 'submitted', startedAt: NOW - 2 * DAY, submittedAt: NOW - DAY, answers: []});
+    // Between drawing the paper and checking coverage, another request ticks General Information off.
+    const racing = new Proxy(db, {get(target, prop) {
+      if (prop === 'runTransaction') {
+        return async (...args) => {
+          await db.doc(`users/${uid}/server/settings`).update({excludedTopicIds: general});
+          return target.runTransaction(...args);
+        };
+      }
+      const value = target[prop];
+      return typeof value === 'function' ? value.bind(target) : value;
+    }});
+    await assert.rejects(beginMock(named(uid), {examId}, {...d(), db: racing}),
+      e => e.code === 'failed-precondition' && e.message === 'Free accounts can take one mock every 30 days.');
+    // The same account, read again with the lowered exclusions and no race, is covered.
+    const lowered = await beginMock(named(uid), {examId}, d());
+    assert.equal(lowered.resumed, false);
+  } finally {
+    for (const [id, snapshot] of previous) {
+      if (snapshot.exists) await db.doc(`content/catalog/items/${id}`).set(snapshot.data()); else await db.doc(`content/catalog/items/${id}`).delete();
+    }
+    clearExamContentCache();
+  }
+});

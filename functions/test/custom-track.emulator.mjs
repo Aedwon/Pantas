@@ -1,4 +1,12 @@
 import '../lib/index.js';
+import {readFileSync} from 'node:fs';
+const TIERS = JSON.parse(readFileSync(new URL('../../content/exams/custom_subject_tiers.json', import.meta.url), 'utf8'));
+/** Topic ids that make a custom exam Civil Service while any is kept. Excluding them all makes it Student. */
+const GENERAL_INFORMATION = TIERS.subjects.find(s => s.name === 'General Information').topicIds;
+// The fixture corpus uses made-up topic ids. A kept topic the table does not know prices at the top tier, so
+// the fixture places its topics at Student, the same module instance the functions read.
+import {customSubjectTiers} from '../lib/_customTrack.js';
+for (const id of ['topic_alpha', 'topic_beta', 'topic_empty']) customSubjectTiers.topicTiers[id] = 'Student';
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import {randomUUID} from 'node:crypto';
@@ -217,12 +225,13 @@ test('content that cannot be read stops the save before anything is stored', asy
 });
 
 // ---- getRoadmap and the plan ------------------------------------------------------------------------------------
-test('a Free custom response has no comingUp or history, even with a Pro claim and a paid grant for CSE', async () => {
+test('a Free custom response has no comingUp or history, even with a Pro claim and a pass for CSE', async () => {
   const uid = 'ct-free', id = newId();
   await reset(uid);
   await save(uid, id, {customTrack: {name: 'Mine', blueprint: blueprint()}});
   const claimed = named(uid, {pro: true, proUntil: NOW + 100 * DAY});
-  await db.doc(`users/${uid}/grants/trial`).set({source: 'trial', product: 'web_trial', tier: 'civilService', startsAt: NOW - DAY, endsAt: NOW + 30 * DAY, state: 'active', createdAt: NOW - DAY});
+  // A pass belongs to one listed exam, so it never covers a custom exam. A claim alone is never read.
+  await db.doc(`users/${uid}/grants/trial`).set({source: 'paymongo', product: 'pantas_pass_cse_pro', tier: 'civilService', startsAt: NOW - DAY, endsAt: NOW + 30 * DAY, state: 'active', createdAt: NOW - DAY});
   for (const auth of [named(uid), claimed, anon(uid)]) {
     const view = await readStudyRoadmap(auth, body(uid, id), deps());
     assert.equal(view.examId, id);
@@ -234,6 +243,80 @@ test('a Free custom response has no comingUp or history, even with a Pro claim a
   }
   // Clean up the grant.
   await db.doc(`users/${uid}/grants/trial`).delete();
+});
+
+const grantOf = (uid, product, tier) => db.doc(`users/${uid}/grants/ct-tier`).set({source: 'paymongo', product, tier, startsAt: NOW - DAY, endsAt: NOW + 60 * DAY, state: 'active', createdAt: NOW - DAY});
+const settingsDoc = uid => db.doc(`users/${uid}/server/settings`);
+
+test('a custom plan is Pro when the account plan reaches the exam tier, and the tier follows the kept subjects', async () => {
+  const uid = 'ct-tier-plan', id = newId();
+  await reset(uid);
+  await save(uid, id, {customTrack: {name: 'Mine', blueprint: blueprint()}});
+  const view = () => readStudyRoadmap(named(uid), body(uid, id), deps());
+  // Nothing is excluded, so every subject is kept, which is Civil Service.
+  await grantOf(uid, 'pantas_pro_monthly', 'student');
+  let read = await view();
+  assert.equal(read.proCovered, false);
+  assert.equal('comingUp' in read, false);
+  // Excluding every General Information topic leaves only Student subjects.
+  await settingsDoc(uid).update({excludedTopicIds: GENERAL_INFORMATION});
+  read = await view();
+  assert.equal(read.proCovered, true);
+  assert.equal(read.tier, 'pro');
+  assert.ok('comingUp' in read && 'history' in read);
+  // Adding it back removes them on the next read.
+  await settingsDoc(uid).update({excludedTopicIds: []});
+  read = await view();
+  assert.equal(read.proCovered, false);
+  assert.equal('comingUp' in read, false);
+  assert.equal('history' in read, false);
+  // Civil Service Pro covers either tier, and so does a Civil Service trial.
+  await grantOf(uid, 'pantas_cs_monthly', 'civilService');
+  assert.equal((await view()).proCovered, true);
+  await settingsDoc(uid).update({excludedTopicIds: GENERAL_INFORMATION});
+  assert.equal((await view()).proCovered, true);
+  await db.doc(`users/${uid}/grants/ct-tier`).set({source: 'trial', product: 'web_trial', tier: 'civilService', startsAt: NOW - DAY, endsAt: NOW + 30 * DAY, state: 'active', createdAt: NOW - DAY});
+  assert.equal((await view()).proCovered, true);
+});
+
+test('a request field cannot set the tier: the server reads its own exclusions', async () => {
+  const uid = 'ct-tier-field', id = newId();
+  await reset(uid);
+  await save(uid, id, {customTrack: {name: 'Mine', blueprint: blueprint()}});
+  await grantOf(uid, 'pantas_pro_monthly', 'student');
+  for (const extra of [{priceTier: 'Student'}, {tier: 'student'}, {excludedTopicIds: GENERAL_INFORMATION}, {customTier: 'student'}]) {
+    assert.equal((await readStudyRoadmap(named(uid), body(uid, id, extra), deps())).proCovered, false, JSON.stringify(extra));
+  }
+});
+
+test('getCustomTracks returns a computed priceTier, from settings while active and from the track otherwise', async () => {
+  const uid = 'ct-tier-list', a = newId(), b = newId();
+  await reset(uid);
+  await save(uid, a, {customTrack: {name: 'A'}}, NOW);
+  await save(uid, b, {customTrack: {name: 'B'}}, NOW + 1000);
+  // A client-sent value is never stored or returned.
+  await db.doc(trackPath(uid, a)).update({excludedTopicIds: GENERAL_INFORMATION, priceTier: 'Licensure'});
+  await settingsDoc(uid).update({excludedTopicIds: []});
+  let result = await readCustomTracks(named(uid), {expectedUid: uid}, deps());
+  assert.deepEqual(result.tracks.map(t => [t.examId, t.priceTier]), [[b, 'Civil Service'], [a, 'Student']]);
+  await settingsDoc(uid).update({excludedTopicIds: GENERAL_INFORMATION});
+  result = await readCustomTracks(named(uid), {expectedUid: uid}, deps());
+  assert.equal(result.tracks.find(t => t.examId === b).priceTier, 'Student', 'the active exam follows settings');
+});
+
+test('a Student custom exam is covered by a Student plan and not by a pass or a beta grant', async () => {
+  const uid = 'ct-tier-pass', id = newId();
+  await reset(uid);
+  await save(uid, id, {customTrack: {name: 'Mine', blueprint: blueprint()}});
+  await settingsDoc(uid).update({excludedTopicIds: GENERAL_INFORMATION});
+  const view = () => readStudyRoadmap(named(uid), body(uid, id), deps());
+  for (const [source, product, tier, examId] of [['paymongo', 'pantas_pass_cse_pro', 'civilService'],
+    ['beta', 'beta_exam_cse_pro', 'civilService', 'exam_cse_pro'], ['beta_reward', 'beta_reward', 'civilService', 'exam_cse_pro']]) {
+    await db.doc(`users/${uid}/grants/ct-tier`).set({source, product, tier, ...(examId ? {examId} : {}), startsAt: NOW - DAY, endsAt: NOW + 60 * DAY, state: 'active', createdAt: NOW - DAY});
+    assert.equal((await view()).proCovered, false, `${source} grants are exam-specific`);
+  }
+  await grantOf(uid, 'pantas_pro_monthly', 'student');
+  assert.equal((await view()).proCovered, true);
 });
 
 test('the plan uses the whole corpus and the excluded topics in settings', async () => {
@@ -633,22 +716,46 @@ test('Free cooldown: a CSE mock blocks a custom start, and a custom mock blocks 
   assert.equal((await beginMock(named(customFirst), {examId: b}, mockDeps(MOCK_NOW + MIN + 30 * DAY))).resumed, false);
 });
 
-test('a paid CSE grant opens CSE but not a custom mock', async () => {
+test('a Civil Service plan opens CSE and a custom mock inside the 30 days; a CSE pass opens only CSE', async () => {
   await seedCorpus();
   await seedCse();
   const uid = 'ct-m-paid', id = newId();
   await reset(uid);
   await save(uid, id, {customTrack: {name: 'A', blueprint: blueprint(MOCK_NOW)}}, MOCK_NOW);
-  await paidCse(uid);
   await submittedCse(uid, MOCK_NOW - 5 * DAY);
   const claims = {pro: true, proUntil: MOCK_NOW + 60 * DAY};
+  // A pass belongs to one listed exam, so a custom exam stays on the Free window.
+  await db.doc(`users/${uid}/grants/ct-pass`).set({source: 'paymongo', product: 'pantas_pass_cse_pro', tier: 'civilService',
+    startsAt: MOCK_NOW - DAY, endsAt: MOCK_NOW + 60 * DAY, state: 'active', createdAt: MOCK_NOW - DAY});
   await startRefused(beginMock(named(uid, claims), {examId: id}, mockDeps()), COOLDOWN);
   const state = await serveMockAvailability(named(uid, claims), {examId: id}, mockDeps());
   assert.equal(state.status, 'cooldown');
   assert.equal(state.proCovered, false);
-  const cse = await beginMock(named(uid, claims), {examId: 'exam_cse_pro'}, mockDeps());
-  assert.equal(cse.resumed, false);
-  assert.equal('examName' in cse, false, 'a listed mock has no name');
+  await db.doc(`users/${uid}/grants/ct-pass`).delete();
+  // The monthly Civil Service plan reaches a custom exam that keeps every subject.
+  await paidCse(uid);
+  const covered = await serveMockAvailability(named(uid, claims), {examId: id}, mockDeps());
+  assert.equal(covered.status, 'available');
+  assert.equal(covered.proCovered, true);
+  const custom = await beginMock(named(uid, claims), {examId: id}, mockDeps());
+  assert.equal(custom.resumed, false);
+  assert.equal('examName' in custom, true, 'a custom mock has a name');
+});
+
+test('a Student plan opens a custom mock only while General Information is not kept', async () => {
+  await seedCorpus();
+  await seedCse();
+  const uid = 'ct-m-student', id = newId();
+  await reset(uid);
+  await save(uid, id, {customTrack: {name: 'A', blueprint: blueprint(MOCK_NOW)}}, MOCK_NOW);
+  await submittedCse(uid, MOCK_NOW - 5 * DAY);
+  await db.doc(`users/${uid}/grants/ct-student`).set({source: 'paymongo', product: 'pantas_pro_monthly', tier: 'student',
+    startsAt: MOCK_NOW - DAY, endsAt: MOCK_NOW + 60 * DAY, state: 'active', createdAt: MOCK_NOW - DAY});
+  await startRefused(beginMock(named(uid), {examId: id}, mockDeps()), COOLDOWN);
+  assert.equal((await serveMockAvailability(named(uid), {examId: id}, mockDeps())).proCovered, false);
+  await db.doc(`users/${uid}/server/settings`).update({excludedTopicIds: GENERAL_INFORMATION});
+  assert.equal((await serveMockAvailability(named(uid), {examId: id}, mockDeps())).status, 'available');
+  assert.equal((await beginMock(named(uid), {examId: id}, mockDeps())).resumed, false);
 });
 
 test('another account cannot start, read or list this account\'s custom mock', async () => {

@@ -1,5 +1,10 @@
 import '../lib/index.js';
+import {readFileSync} from 'node:fs';
+const GENERAL_INFORMATION=JSON.parse(readFileSync(new URL('../../content/exams/custom_subject_tiers.json',import.meta.url),'utf8')).subjects.find(s=>s.name==='General Information').topicIds;
 import * as callables from '../lib/index.js';
+import {customSubjectTiers} from '../lib/_customTrack.js';
+// The fixture topic is made up. A kept topic the table does not know prices at the top tier, so place it at Student.
+customSubjectTiers.topicTiers['b4-topic']='Student';
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import {getFirestore} from 'firebase-admin/firestore';
@@ -140,10 +145,37 @@ test('custom Free returns tracedCount only, with no lesson, question, choice or 
  const secrets=[...fixture.lessons.map(l=>l.id),...fixture.sets.flatMap(s=>s.questions.map(q=>q.id)),...answers.flatMap(a=>a.chosen?[a.chosen]:[]),note];
  for(const secret of secrets)assert.equal(text.includes(secret),false,secret);
 });
-test('a paid grant and a live Pro claim for a listed exam do not make a custom exam Pro',async()=>{
- const uid='b4-custom-claim';await seedCustom(uid,{pro:true});
+test('a pass and a live Pro claim for a listed exam do not make a custom exam Pro',async()=>{
+ const uid='b4-custom-claim';await seedCustom(uid);
  await db.doc('users/'+uid+'/grants/paid').set({source:'paymongo',product:'pantas_pass_cse_pro',tier:'civilService',startsAt:NOW-DAY,endsAt:NOW+DAY,state:'active',createdAt:NOW-DAY});
  assert.deepEqual(await read(auth(uid),customBody(uid),deps()),{status:'ok',tier:'free',tracedCount:1});
+});
+test('a plan that reaches the custom exam tier makes it Pro, and a Student plan does not reach a Civil Service exam',async()=>{
+ const uid='b4-custom-tier';await seedCustom(uid);
+ await db.doc('users/'+uid+'/grants/paid').set({source:'paymongo',product:'pantas_pro_monthly',tier:'student',startsAt:NOW-DAY,endsAt:NOW+DAY,state:'active',createdAt:NOW-DAY});
+ // Nothing is excluded, so every subject is kept and the exam is Civil Service.
+ assert.deepEqual(await read(auth(uid),customBody(uid),deps()),{status:'ok',tier:'free',tracedCount:1});
+ await db.doc('users/'+uid+'/server/settings').update({excludedTopicIds:GENERAL_INFORMATION});
+ assert.equal((await read(auth(uid),customBody(uid),deps())).tier,'pro');
+ await db.doc('users/'+uid+'/server/settings').update({excludedTopicIds:[]});
+ await db.doc('users/'+uid+'/grants/paid').set({source:'paymongo',product:'pantas_cs_monthly',tier:'civilService',startsAt:NOW-DAY,endsAt:NOW+DAY,state:'active',createdAt:NOW-DAY});
+ assert.equal((await read(auth(uid),customBody(uid),deps())).tier,'pro');
+});
+test('a custom exam gives a wrong-choice note only for a set whose own exam tags the plan covers',async()=>{
+ const uid='b4-custom-notes';await seedCustom(uid);
+ await db.doc('users/'+uid+'/server/settings').update({excludedTopicIds:GENERAL_INFORMATION});
+ // The plan is Student, so with General Information excluded the exam is Student-level and Pro.
+ await db.doc('users/'+uid+'/grants/paid').set({source:'paymongo',product:'pantas_pro_monthly',tier:'student',startsAt:NOW-DAY,endsAt:NOW+DAY,state:'active',createdAt:NOW-DAY});
+ // Every set in the seed carries the listed CSE tag, which a Student plan does not cover. The target set also carries a Student exam.
+ for(const id of ['b4-target-set','b4-within-set','b4-prereq-set','b4-correct-set'])await db.doc('content/questions/items/'+id).set({version:'1',payload:JSON.stringify({meta:{exams:['cse-pro']}})});
+ const uncovered=await read(auth(uid),customBody(uid),deps());
+ assert.equal(uncovered.tier,'pro');
+ assert.equal(JSON.stringify(uncovered).includes(note),false,'a Civil Service-only set leaks no note to a Student plan');
+ await db.doc('content/questions/items/b4-target-set').set({version:'1',payload:JSON.stringify({meta:{exams:['cse-pro','upcat']}})});
+ const covered=await read(auth(uid),customBody(uid),deps());
+ assert.equal(JSON.stringify(covered).includes(note),true,'a set that also carries a covered exam tag still delivers its note');
+ await db.doc('content/questions/items/b4-target-set').delete();
+ assert.equal(JSON.stringify(await read(auth(uid),customBody(uid),deps())).includes(note),false,'a set with no readable tags delivers no note');
 });
 test('a custom session names the exam it was made under, a malformed custom id is Unknown exam, and a wrong exam is refused',async()=>{
  const uid='b4-custom-errors';await seedCustom(uid);

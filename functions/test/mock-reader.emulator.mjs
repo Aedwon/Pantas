@@ -1,4 +1,8 @@
 import '../lib/index.js';
+import {readFileSync} from 'node:fs';
+const TIERS = JSON.parse(readFileSync(new URL('../../content/exams/custom_subject_tiers.json', import.meta.url), 'utf8'));
+/** Topic ids that make a custom exam Civil Service while any is kept. Excluding them all makes it Student. */
+const GENERAL_INFORMATION = TIERS.subjects.find(s => s.name === 'General Information').topicIds;
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import {getFirestore} from 'firebase-admin/firestore';
@@ -176,7 +180,7 @@ test('custom availability reads the track: no track and no blueprint are no-blue
   await db.doc(`content/mocks/items/${CUSTOM}`).delete();
 });
 
-test('custom availability: the window counts every exam, a paid CSE grant does not open it, tracks do not reset it', async () => {
+test('custom availability: the window counts every exam, a Civil Service plan opens it by tier, a pass does not, tracks do not reset it', async () => {
   const uid = 'mr-c-cooldown';
   await seed(uid);                       // a listed CSE mock submitted at NOW
   await track(uid); await track(uid, OTHER_CUSTOM, {name: 'Second'});
@@ -186,12 +190,29 @@ test('custom availability: the window counts every exam, a paid CSE grant does n
     assert.equal(out.nextEligibleAt, NOW + 30 * DAY);
     assert.equal(out.lastMockId, null);
   }
-  await cseGrant(uid);
+  // A pass for CSE opens CSE, but a pass never covers a custom exam.
+  await grant(uid, 'pantas_pass_cse_pro');
   assert.equal((await r.serveMockAvailability(auth(uid), {examId: EXAM}, deps())).status, 'available');
   const custom = await r.serveMockAvailability(auth(uid), {examId: CUSTOM}, deps());
   assert.equal(custom.status, 'cooldown');
   assert.equal(custom.proCovered, false);
   assert.equal((await r.serveMockAvailability(auth(uid), {examId: CUSTOM}, deps(NOW + 30 * DAY))).status, 'available');
+  // The monthly Civil Service plan covers this custom exam (no topic is excluded, so every subject is kept).
+  await cseGrant(uid);
+  const covered = await r.serveMockAvailability(auth(uid), {examId: CUSTOM}, deps());
+  assert.equal(covered.status, 'available');
+  assert.equal(covered.proCovered, true);
+  assert.equal(covered.nextEligibleAt, null);
+  // A Student plan covers it only while General Information is excluded, read from the track when it is not the active exam.
+  await db.doc(`users/${uid}/grants/grant`).set({source: 'paymongo', product: 'pantas_pro_monthly', tier: 'student', startsAt: NOW - DAY, endsAt: NOW + DAY, state: 'active', createdAt: NOW - DAY});
+  assert.equal((await r.serveMockAvailability(auth(uid), {examId: CUSTOM}, deps())).proCovered, false);
+  await trackRef(uid).update({excludedTopicIds: GENERAL_INFORMATION});
+  const student = await r.serveMockAvailability(auth(uid), {examId: CUSTOM}, deps());
+  assert.equal(student.proCovered, true);
+  assert.equal(student.status, 'available');
+  assert.equal((await r.serveMockAvailability(auth(uid), {examId: OTHER_CUSTOM}, deps())).proCovered, false, 'the other track keeps every subject');
+  await trackRef(uid).update({excludedTopicIds: []});
+  await db.doc(`users/${uid}/grants/grant`).delete();
   // A custom mock also blocks a CSE start and the other custom track, and lastMockId is per exam.
   const own = 'mr-c-own';
   await db.recursiveDelete(db.doc(`users/${own}`));

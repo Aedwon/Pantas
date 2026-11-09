@@ -2,7 +2,7 @@ import {enforceAppCheck} from './_appCheck.js';
 import {getFirestore, type Firestore} from 'firebase-admin/firestore';
 import {HttpsError, onCall} from 'firebase-functions/v2/https';
 import {allowAtMost} from './_limits.js';
-import {MAX_CUSTOM_TRACKS, customTrackRef, isCustomExamId} from './_customTrack.js';
+import {MAX_CUSTOM_TRACKS, customTier, customTrackRef, isCustomExamId, tierDisplayName} from './_customTrack.js';
 import {assertStudyOwner} from './studyObservations.js';
 import {timed} from './_timed.js';
 
@@ -31,6 +31,9 @@ export async function readCustomTracks(auth: Auth, data: unknown, deps: Deps) {
   const active = settings.get('examId');
   return {activeExamId: typeof active === 'string' ? active : null, tracks: rows.docs.map(row => ({
     examId: row.id, name: row.get('name') ?? null, excludedTopicIds: row.get('excludedTopicIds') ?? [],
+    // Table alone: this read loads no corpus, so a topic the table does not know cannot be seen here.
+    // Computed here from the server's own exclusions (settings while active, else the track), never stored or read from a request.
+    priceTier: tierDisplayName(customTier((row.id === active ? settings.get('excludedTopicIds') : row.get('excludedTopicIds')) ?? [])),
     excludedLessonIds: row.get('excludedLessonIds') ?? [], blueprint: row.get('blueprint') ?? null,
     createdAt: row.get('createdAt'), updatedAt: row.get('updatedAt')}))};
 }

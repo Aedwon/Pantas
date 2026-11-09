@@ -1,4 +1,5 @@
 import {enforceAppCheck} from './_appCheck.js';
+import {setCoveredByTags} from './_setCoverage.js';
 import {getFirestore, type DocumentSnapshot, type Firestore} from 'firebase-admin/firestore';
 import {HttpsError, onCall} from 'firebase-functions/v2/https';
 import {sharedCeiling, type Ceiling} from './_contentCeiling.js';
@@ -110,8 +111,7 @@ export async function serveContent(auth: Auth, data: unknown, deps: ContentDeps)
     if (kind === 'questions') {
       const set = JSON.parse(String(snapshot.get('payload'))) as {meta?: {exams?: unknown}};
       const exams = set.meta?.exams;
-      paid = Array.isArray(exams) && exams.some(exam =>
-        typeof exam === 'string' && coverage.coversExam(`exam_${exam.replaceAll('-', '_')}`));
+      paid = setCoveredByTags(exams, id => coverage.coversExam(id));
     }
     // The returned version names the tier it was built for, so a Free copy never satisfies a Pro caller.
     const version = `${String(snapshot.get('version'))}.${paid ? 'p' : 'f'}`;

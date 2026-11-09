@@ -130,7 +130,7 @@ Set counts per subject and tag are in the research note `tier-map.md` (session s
 3. **Custom exam tier** = the highest subject tier among kept subjects. An exam with no kept subject cannot be saved, as today.
 4. **Computed, never stored as truth.** The server derives the tier from the authoritative exclusions (`settings` while active, else the track document) and the generated table, at each check. `getCustomTracks` returns it for display. A stored copy would go stale when the table changes.
 5. **Passes never cover a custom id.** `access.coversExam` is called with an id no pass can carry. The paywall omits the pass card.
-6. **Beta grants** cover a custom exam by their `civilService` tier, as they already cover Student exams. The beta row stays hidden on a custom exam (`setBetaPro` remains CSE only).
+6. **Beta grants** do not cover a custom exam. Corrected 9 November during the build: beta and beta-reward grants are exam-specific in `revenuecatCoverage.ts` (they cover CSE Professional or Subprofessional only), so `coversExam('', tier)` never matches them. The first draft said they covered it by their `civilService` tier; that was wrong. The beta row stays hidden on a custom exam (`setBetaPro` remains CSE only).
 7. **Native** uses the same table through the client copy. Phones are not publicly released, so native purchase flows are checked with the native release work.
 8. **No change to question-level gating** in `content.ts`. It already prevents a Student plan from unlocking Civil Service-only notes.
 
@@ -165,6 +165,7 @@ Set counts per subject and tag are in the research note `tier-map.md` (session s
 | `studyInsights.ts` `pro`, `actualTrial` (around 37-40) | false, null | tier from `customTier`; trial resolves as for a listed exam of that tier |
 | `sessionDiagnosis.ts` `pro` (40, 71) | false | `coversCustom` |
 | `customTracks.ts` `readCustomTracks` | no tier | adds `priceTier` per track, computed |
+| `roadmap.ts` `advanceStudyRoadmap` replay check (found during the build) | false | `coversCustom`, the same as `studyContext` |
 | `content.ts` | per set tags | unchanged |
 
 **Listed exams:** no response, digest or cache key changes. The existing listed regression fixtures stay byte-identical.
@@ -196,7 +197,7 @@ Functions (emulator unless marked plain):
 
 - Plain: `customTier` for every subject, for an unmapped topic, for all-excluded.
 - Plain: the table check fails on a stale sample.
-- `custom-track.emulator.mjs`: Student custom exam covered by Student Pro, Civil Service Pro, Licensure Pro and the beta grant; Civil Service custom exam not covered by Student Pro, covered by Civil Service Pro; a pass for CSE Professional never covers a custom exam; a client-sent `priceTier` field is ignored.
+- `custom-track.emulator.mjs`: Student custom exam covered by Student Pro, Civil Service Pro and Licensure Pro, and not by the beta grant; Civil Service custom exam not covered by Student Pro, covered by Civil Service Pro; a pass for CSE Professional never covers a custom exam; a client-sent `priceTier` field is ignored.
 - `mock-paper.emulator.mjs`: covered custom exam starts a second mock inside 30 days; uncovered is refused with the existing message.
 - `mock-reader.emulator.mjs`: availability `cooldown` only when uncovered; review edits allowed when covered.
 - `study-roadmap.emulator.mjs`: covered custom exam gets `comingUp` and `history`; adding General Information on Student Pro removes them on the next read; removing it restores them.

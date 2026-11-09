@@ -6,7 +6,7 @@ import {allowAtMost} from './_limits.js';
 import {core} from './_core.js';
 import type {Answer} from './_answers.js';
 import {applyScope, loadStudyContent} from './_examContent.js';
-import {isCustomExamId, isStudyExamId} from './_customTrack.js';
+import {coversStudyExam, customExclusions, customTier, isCustomExamId, isStudyExamId} from './_customTrack.js';
 import {examSubjectGroups, examSubjectName, examPerformanceSubjects} from './_examSubjectGroups.js';
 import {phDay, phStamp} from './_phDate.js';
 import {mockCoverage} from './mockAccess.js';
@@ -35,10 +35,12 @@ type Insights={profile:{id:string}|null;tendencies:Record<'pressure'|'stamina'|'
  whenYouWork:{peakHour:number;averageMinutes:number;sessionCount:number}|null};
 const bad=(message:string)=>new HttpsError('invalid-argument',message);
 const tiers:Record<string,PriceTier>={'Student':'student','Civil Service':'civilService','Licensure':'licensure','PSHS-NCE':'nce'};
-async function actualTrial(tx:Transaction,db:Firestore,uid:string,examId:string,now:number):Promise<number|null>{
+async function actualTrial(tx:Transaction,db:Firestore,uid:string,examId:string,now:number,customExcluded?:string[],corpusTopicIds?:string[]):Promise<number|null>{
  const inputs=await readEntitlementInputs(tx,db,uid);
- const tier=tiers[String((examCatalog.find(e=>e.id===examId) as {priceTier?:string}|undefined)?.priceTier)];
+ // A custom exam has no catalog entry: its tier comes from its subjects, and the id is empty so no pass can match.
+ const tier=customExcluded?customTier(customExcluded,corpusTopicIds):tiers[String((examCatalog.find(e=>e.id===examId) as {priceTier?:string}|undefined)?.priceTier)];
  if(!tier)return null;
+ if(customExcluded)examId='';
  const grants=[...inputs.grants.values()];
  const trials=grants.filter(g=>g.source==='trial'&&g.state==='active'&&g.startsAt<=now&&g.endsAt>now&&
   coverageAt({at:now,grants:ledgerGrants([g])}).coversExam(examId,tier));
@@ -61,12 +63,14 @@ export async function readStudyInsights(auth:Auth,data:unknown,deps:Deps){
  if(!await(deps.allow??((uid,key)=>allowAtMost(uid,key,600,3600000)))(auth.uid,'getStudyInsights'))throw new HttpsError('resource-exhausted','Too many attempts. Try again later.');
  return deps.db.runTransaction(async tx=>{
   const cacheRef=deps.db.doc('users/'+auth.uid+'/server/studyInsights');
-  const [corpus,totalDoc,observationRevision,cache,access,settings,trialEndsAt]=await Promise.all([
-   loadStudyContent(deps.db,examId,tx),
+  const settings=await tx.get(deps.db.doc('users/'+auth.uid+'/server/settings'));
+  const exclusions=await customExclusions(tx,deps.db,auth.uid,[examId],settings);
+  const corpus=await loadStudyContent(deps.db,examId,tx),corpusTopicIds=corpus.topics.map(t=>t.id);
+  const [totalDoc,observationRevision,cache,access,trialEndsAt]=await Promise.all([
    tx.get(deps.db.doc('users/'+auth.uid+'/server/answerTotals')),
    tx.get(deps.db.doc('users/'+auth.uid+'/server/studyRevision')),tx.get(cacheRef),
-   mockCoverage(tx,deps.db,auth.uid,now),tx.get(deps.db.doc('users/'+auth.uid+'/server/settings')),
-   actualTrial(tx,deps.db,auth.uid,examId,now),
+   mockCoverage(tx,deps.db,auth.uid,now),
+   actualTrial(tx,deps.db,auth.uid,examId,now,isCustomExamId(examId)?exclusions.get(examId):undefined,corpusTopicIds),
   ]);
   const custom=isCustomExamId(examId);
   if(custom&&!settings.exists)throw new HttpsError('failed-precondition','Set your exam first.');
@@ -76,8 +80,8 @@ export async function readStudyInsights(auth:Auth,data:unknown,deps:Deps){
   const content=custom?applyScope(corpus,excluded[0],excluded[1]):corpus;
   // Absent means carry over. The choice filters the figures only; the plan and due dates never read it.
   const carry=settings.get('carryOverProgress')!==false;
-  const pro=access.coversExam(examId),topicOf=new Map(content.topics.map(t=>[t.id,t]));
-  const sourceRevision=JSON.stringify([examId,content.revision,totalDoc.get('sessions')??0,observationRevision.get('value')??0,phDay(now),carry,'topic-details-v5-csc-parts',...(custom?excluded:[])]);
+  const pro=coversStudyExam(access,examId,exclusions,{corpusTopicIds}),topicOf=new Map(content.topics.map(t=>[t.id,t]));
+  const sourceRevision=JSON.stringify([examId,content.revision,totalDoc.get('sessions')??0,observationRevision.get('value')??0,phDay(now),carry,'topic-details-v5-csc-parts',...(custom?[...excluded,customTier(exclusions.get(examId)??[],corpusTopicIds)]:[])]);
   const response=(derived:Insights,performance:Performance,revision:string)=>{
    const {topics,lessons,topicDetails,...visible}=performance;
    return{examId:examId,serverNow:now,accessRecheckAt:access.recheckAt,proCovered:pro,revision,trialEndsAt,
