@@ -193,9 +193,18 @@ void main() {
             ? const Color(0xFFF5F5F7)
             : const Color(0xFF151515),
       );
+      // Roving focus (ruling R1): Tab reaches one stop, the selected day or
+      // Today. Left and Right pick the next day; Home and End pick the first
+      // and last day shown.
       await tester.sendKeyEvent(LogicalKeyboardKey.tab);
       await tester.sendKeyEvent(LogicalKeyboardKey.enter);
+      expect(picked, DateTime(2026, 10, 7));
+      await tester.sendKeyEvent(LogicalKeyboardKey.arrowLeft);
+      expect(picked, DateTime(2026, 10, 6));
+      await tester.sendKeyEvent(LogicalKeyboardKey.home);
       expect(picked, DateTime(2026, 10, 4));
+      await tester.sendKeyEvent(LogicalKeyboardKey.end);
+      expect(picked, DateTime(2026, 10, 10));
       await expectSurvivesTextScale(
         tester,
         strip,

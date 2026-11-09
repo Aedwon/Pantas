@@ -39,7 +39,8 @@ class _HarnessState extends State<_Harness> {
   @override
   Widget build(BuildContext context) {
     return MediaQuery(
-      data: MediaQueryData(disableAnimations: widget.still),
+      // Keep the real window size: the sheet reads it for its landscape rule.
+      data: MediaQuery.of(context).copyWith(disableAnimations: widget.still),
       child: MockSessionPage(
         state: MockSessionInProgress(
           attemptId: 'a',
