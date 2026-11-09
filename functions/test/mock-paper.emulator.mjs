@@ -522,7 +522,8 @@ test('a custom mock keeps the track name in its row and its view, and nothing el
   assert.deepEqual(keys(out), ['answers', 'examId', 'examName', 'limitMs', 'mockId', 'paper', 'paused', 'remainingMs', 'resumed', 'startedAt', 'strict']);
   const row = (await db.doc(`users/${uid}/server/mocks/items/${out.mockId}`).get()).data();
   assert.equal(row.examName, 'PUP CET');
-  assert.deepEqual(keys(row), ['answers', 'examId', 'examName', 'limitMs', 'paper', 'pausedAt', 'pausedMs', 'seed', 'startedAt', 'status', 'strict']);
+  assert.deepEqual(keys(row), ['answers', 'customTier', 'examId', 'examName', 'limitMs', 'paper', 'pausedAt', 'pausedMs', 'seed', 'startedAt', 'status', 'strict']);
+  assert.equal('customTier' in out, false, 'the pinned tier stays on the row and is not served in the view');
   assert.equal((await readMock(named(uid), {}, d(NOW + MIN))).examName, 'PUP CET');
   assert.equal((await changeMock(named(uid), {mockId: out.mockId, action: 'pause'}, d(NOW + MIN))).examName, 'PUP CET');
   // A track with no name writes no key at all.

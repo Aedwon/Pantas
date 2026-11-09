@@ -76,10 +76,10 @@ test('seed corpus', seedCorpus);
 test('creating a custom exam stores settings and the track in one save, and plans without the legacy roadmap', async () => {
   const uid = 'ct-create', id = newId();
   await reset(uid);
-  await save(uid, id, {customTrack: {name: '  PUP CET  ', blueprint: blueprint()}, excludedTopicIds: ['topic_beta', 'topic_beta'], excludedLessonIds: ['lesson-a-1']});
+  await save(uid, id, {customTrack: {name: '  PUP CET  ', blueprint: blueprint()}, excludedTopicIds: ['topic_beta', 'topic_beta'], excludedLessonIds: ['lesson-a-0']});
   assert.deepEqual(await settingsOf(uid), {examId: id, examDate: {precision: 'day', day: '2026-11-30'}, studyDays: [1, 2, 3, 4, 5, 6, 7],
-    assessmentCompleted: true, excludedLessonIds: ['lesson-a-1'], excludedTopicIds: ['topic_beta'], updatedAt: NOW});
-  assert.deepEqual(await track(uid, id), {examId: id, name: 'PUP CET', excludedTopicIds: ['topic_beta'], excludedLessonIds: ['lesson-a-1'],
+    assessmentCompleted: true, excludedLessonIds: ['lesson-a-0'], excludedTopicIds: ['topic_beta'], updatedAt: NOW});
+  assert.deepEqual(await track(uid, id), {examId: id, name: 'PUP CET', excludedTopicIds: ['topic_beta'], excludedLessonIds: ['lesson-a-0'],
     blueprint: blueprint(), createdAt: NOW, updatedAt: NOW});
   assert.equal((await db.doc(`users/${uid}/server/roadmap`).get()).exists, false, 'a custom exam has no legacy roadmap');
   const today = (await db.doc(`users/${uid}/server/roadmapDays/items/${id}:2026-10-24`).get());
@@ -136,11 +136,11 @@ test('the newest blueprint wins: an older one is ignored, an equal or newer one 
 test('unknown excluded ids are dropped from settings and from the track', async () => {
   const uid = 'ct-drop', id = newId();
   await reset(uid);
-  await save(uid, id, {excludedTopicIds: ['topic_beta', 'topic_empty', 'topic_not_in_any_catalog'], excludedLessonIds: ['lesson-a-2', 'lesson-b-0', 'lesson-gone']});
+  await save(uid, id, {excludedTopicIds: ['topic_beta', 'topic_empty', 'topic_not_in_any_catalog'], excludedLessonIds: ['lesson-a-0', 'lesson-a-2', 'lesson-b-0', 'lesson-gone']});
   assert.deepEqual((await settingsOf(uid)).excludedTopicIds, ['topic_beta']);
-  assert.deepEqual((await settingsOf(uid)).excludedLessonIds, ['lesson-a-2', 'lesson-b-0']);
+  assert.deepEqual((await settingsOf(uid)).excludedLessonIds, ['lesson-a-0', 'lesson-b-0']);
   assert.deepEqual((await track(uid, id)).excludedTopicIds, ['topic_beta']);
-  assert.deepEqual((await track(uid, id)).excludedLessonIds, ['lesson-a-2', 'lesson-b-0']);
+  assert.deepEqual((await track(uid, id)).excludedLessonIds, ['lesson-a-0', 'lesson-b-0']);
 });
 
 test('a save that leaves no known topic is refused and stores nothing', async () => {
@@ -496,7 +496,7 @@ test('getCustomTracks returns only the caller\'s tracks, newest first, with the 
   assert.deepEqual(result.tracks.map(t => t.name), ['B', 'A']);
   assert.equal(result.tracks[0].blueprint.sectionsTimedSeparately, true, 'returned as stored');
   assert.equal(result.tracks[1].blueprint.sectionsTimedSeparately, false, 'returned as stored');
-  assert.deepEqual(Object.keys(result.tracks[0]).sort(), ['blueprint', 'createdAt', 'examId', 'excludedLessonIds', 'excludedTopicIds', 'name', 'updatedAt']);
+  assert.deepEqual(Object.keys(result.tracks[0]).sort(), ['blueprint', 'createdAt', 'examId', 'excludedLessonIds', 'excludedTopicIds', 'name', 'priceTier', 'updatedAt']);
   assert.deepEqual((await readCustomTracks(named(other), {expectedUid: other}, deps())).tracks.map(t => t.name), ['Not mine']);
   await db.doc(`users/${uid}/server/settings`).update({examId: 'exam_cse_pro'});
   assert.equal((await readCustomTracks(named(uid), {expectedUid: uid}, deps())).activeExamId, 'exam_cse_pro');
@@ -607,7 +607,7 @@ test('another account cannot read or change sessions, insights, diagnosis or the
   await save(a, id, {customTrack: {name: 'Secret name'}, excludedTopicIds: ['topic_beta']});
   await recordSession(named(a), session(a, ['qa-0', 'qb-0'], true), deps());
   const aInsights = await readStudyInsights(named(a), ask(a), deps());
-  assert.deepEqual(aInsights.performance.overall, {correct: 1, answered: 1});
+  assert.deepEqual(aInsights.performance.overall, {correct: 1, answered: 1, accuracy: 1});
   assert.deepEqual(await readCarryableCount(named(a), ask(a), deps()), {count: 1});
   const aTree = await treeOf(a);
   // B has nothing yet, so A's id resolves to nothing of A's.
@@ -626,7 +626,7 @@ test('another account cannot read or change sessions, insights, diagnosis or the
   // With B's own settings the same ids answer from B's data alone.
   await save(b, id, {});
   const bInsights = await readStudyInsights(named(b), ask(b), deps());
-  assert.deepEqual(bInsights.performance.overall, {correct: 0, answered: 1}, 'B\'s figures, not A\'s');
+  assert.deepEqual(bInsights.performance.overall, {correct: 0, answered: 1, accuracy: 0}, 'B\'s figures, not A\'s');
   const bDiagnosis = await readSessionDiagnosis(named(b), ask(b, {sessionId: sid}), deps());
   assert.deepEqual(bDiagnosis, {status: 'ok', tier: 'free', tracedCount: 0});
   assert.deepEqual(await treeOf(a), aTree, 'still nothing of A changed');

@@ -489,7 +489,7 @@ async function listedStudent(name,pro){
  const uid='reg-'+name;await seed(uid);
  if(pro)await db.doc('users/'+uid+'/grants/trial').set({source:'trial',product:'web_trial',tier:'civilService',startsAt:NOW-DAY,endsAt:NOW+DAY,state:'active',createdAt:NOW-DAY});
  await saveExamSettings(auth(uid),{expectedUid:uid,examId:EXAM,examDate:{precision:'day',day:'2026-11-15'},studyDays:[5,5,3,1,2,4,6],
-  assessmentCompleted:true,excludedTopicIds:['topic-cse-alpha'],excludedLessonIds:['lesson-cse-7'],carryOverProgress:false},deps());
+  assessmentCompleted:true,excludedTopicIds:['topic_cse_pro_vocabulary'],excludedLessonIds:['lesson-cse-0'],carryOverProgress:false},deps());
  return uid;
 }
 for(const [name,pro] of [['free',false],['pro',true]]){

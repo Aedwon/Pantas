@@ -121,7 +121,7 @@ test('a listed exam keeps the same cache key as before custom exams, so no store
   clearExamContentCache();
   await readStudyInsights(auth(uid), body(uid), deps());
   assert.equal((await db.doc('users/' + uid + '/server/studyInsights').get()).get('sourceRevision'),
-    '["exam_cse_pro","exam_cse_pro:v1",0,0,"2026-10-24",true,"topic-details-v3-unmet-requirements"]');
+    '["exam_cse_pro","exam_cse_pro:v1:exam-lessons-v2",0,0,"2026-10-24",true,"topic-details-v5-csc-parts"]');
 });
 
 // ---- a custom exam: the whole corpus, filtered by the ticked subjects ----
@@ -159,11 +159,11 @@ test('a custom exam counts a carried answer only in a ticked subject, and never 
   const uid = 'carry-cus-on';
   await seedCustom(uid, {carry: true});
   const all = await readStudyInsights(customAuth(uid), customBody(uid), deps());
-  assert.deepEqual(overall(all), {correct: 2, answered: 4});
+  assert.deepEqual(overall(all), {correct: 2, answered: 4, accuracy: .5});
   assert.deepEqual(bySubject(all), [['subj-math', 1, 2], ['subj-lang', 1, 2]]);
   await seedCustom(uid, {carry: true, excluded: ['topic-lang']});
   const math = await readStudyInsights(customAuth(uid), customBody(uid), deps());
-  assert.deepEqual(overall(math), {correct: 1, answered: 2}, 'the carried and the own Language answers are both hidden');
+  assert.deepEqual(overall(math), {correct: 1, answered: 2, accuracy: .5}, 'the carried and the own Language answers are both hidden');
   assert.deepEqual(bySubject(math), [['subj-math', 1, 2]]);
 });
 
@@ -171,11 +171,11 @@ test('a custom exam with carry-over off counts only its own sessions', async () 
   const uid = 'carry-cus-off';
   await seedCustom(uid, {carry: false});
   const r = await readStudyInsights(customAuth(uid), customBody(uid), deps());
-  assert.deepEqual(overall(r), {correct: 1, answered: 2});
+  assert.deepEqual(overall(r), {correct: 1, answered: 2, accuracy: .5});
   await seedCustom(uid, {carry: false, excluded: ['topic-math']});
-  assert.deepEqual(overall(await readStudyInsights(customAuth(uid), customBody(uid), deps())), {correct: 1, answered: 1});
+  assert.deepEqual(overall(await readStudyInsights(customAuth(uid), customBody(uid), deps())), {correct: 1, answered: 1, accuracy: 1});
   await seedCustom(uid, undefined);
-  assert.deepEqual(overall(await readStudyInsights(customAuth(uid), customBody(uid), deps())), {correct: 2, answered: 4}, 'no flag counts as on');
+  assert.deepEqual(overall(await readStudyInsights(customAuth(uid), customBody(uid), deps())), {correct: 2, answered: 4, accuracy: .5}, 'no flag counts as on');
 });
 
 test('narrowing hides figures at once, with the answers kept, and ticking the subject again restores them', async () => {
@@ -187,12 +187,12 @@ test('narrowing hides figures at once, with the answers kept, and ticking the su
   await settings.update({excludedTopicIds: ['topic-lang']});
   // Same day, same sessions, same observation count: only the stored cache key can tell the two apart.
   const narrow = await readStudyInsights(customAuth(uid), customBody(uid), deps());
-  assert.deepEqual(overall(narrow), {correct: 1, answered: 2});
+  assert.deepEqual(overall(narrow), {correct: 1, answered: 2, accuracy: .5});
   assert.notEqual(await storedKey(uid), wideKey, 'the excluded lists are part of the cache key');
   assert.notEqual(narrow.revision, wide.revision);
   await settings.update({excludedTopicIds: []});
   const again = await readStudyInsights(customAuth(uid), customBody(uid), deps());
-  assert.deepEqual(overall(again), {correct: 2, answered: 4});
+  assert.deepEqual(overall(again), {correct: 2, answered: 4, accuracy: .5});
   assert.equal(await storedKey(uid), wideKey);
   assert.equal(again.revision, wide.revision);
   await settings.update({excludedLessonIds: ['no-such-lesson']});

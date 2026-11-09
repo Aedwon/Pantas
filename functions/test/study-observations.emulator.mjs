@@ -260,14 +260,14 @@ test('scope is not applied at ingest: a session finished before narrowing counts
  assert.equal((await db.doc('users/'+uid+'/server/studyInsights').get()).exists,true,'the rebuild after a custom session reads the insights too');
  assert.equal((await db.doc(`users/${uid}/server/roadmapDays/items/${CUSTOM}:2026-10-24`).get()).exists,true,'and the plan');
  const view=()=>readStudyInsights(auth(uid),{expectedUid:uid,examId:CUSTOM},deps).then(r=>r.performance.overall);
- assert.deepEqual(await view(),{correct:2,answered:2});
+ assert.deepEqual(await view(),{correct:2,answered:2,accuracy:1});
  await customSettings(uid,['topic-lang']);
- assert.deepEqual(await view(),{correct:1,answered:1},'narrowing hides the Language answer');
+ assert.deepEqual(await view(),{correct:1,answered:1,accuracy:1},'narrowing hides the Language answer');
  assert.equal((await recordSession(auth(uid),customBatch(uid,'custom-session-8',['l2']),deps)).stored,true,'Language is not ticked, and the session is still stored');
  assert.equal((await totalsOf(uid)).answers,3);
- assert.deepEqual(await view(),{correct:1,answered:1});
+ assert.deepEqual(await view(),{correct:1,answered:1,accuracy:1});
  await customSettings(uid,[]);
- assert.deepEqual(await view(),{correct:3,answered:3},'ticking it again restores every answer');
+ assert.deepEqual(await view(),{correct:3,answered:3,accuracy:1},'ticking it again restores every answer');
 });
 
 test('a lesson read with custom settings active is stored and the rebuild does not fail',async()=>{

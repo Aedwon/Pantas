@@ -8,10 +8,10 @@
    },
    "carryOverProgress": false,
    "excludedLessonIds": [
-    "lesson-cse-7"
+    "lesson-cse-0"
    ],
    "excludedTopicIds": [
-    "topic-cse-alpha"
+    "topic_cse_pro_vocabulary"
    ],
    "studyDays": [
     1,
@@ -31,7 +31,7 @@
    "proCovered": false,
    "tier": "free",
    "state": "planning",
-   "revision": "4de288c40d533d4b1d12a04091f8560d0b531a6c88790416bbf8a97e84ace4f3",
+   "revision": "a532323f3a46362bce6a59b53bcfb106f0ddf51d168dca9074401e10e6f1ee00",
    "today": {
     "day": "2026-10-24",
     "lessonIds": [
@@ -71,7 +71,7 @@
    "originalDone": false,
    "canAdvance": false,
    "todayTopicOrder": [
-    "topic-cse-beta"
+    "topic_cse_pro_arithmetic_number_sense"
    ],
    "weekDays": [
     {
@@ -155,7 +155,7 @@
     "mockDurationMinutes": 165
    }
   },
-  "digest": "{\"examId\":\"exam_cse_pro\",\"examDate\":\"2026-11-15:day\",\"scope\":[\"topic-cse-beta\"],\"excludedLessons\":[\"lesson-cse-7\"],\"content\":\"exam_cse_pro:catalog-v1\",\"assessed\":true,\"mocks\":0,\"studyDays\":\"1,2,3,4,5,6\"}"
+  "digest": "{\"examId\":\"exam_cse_pro\",\"examDate\":\"2026-11-15:day\",\"scope\":[\"topic_cse_pro_arithmetic_number_sense\"],\"excludedLessons\":[\"lesson-cse-0\"],\"content\":\"exam_cse_pro:catalog-v1:exam-lessons-v2\",\"assessed\":true,\"mocks\":0,\"studyDays\":\"1,2,3,4,5,6\"}"
  },
  "pro": {
   "settings": {
@@ -166,10 +166,10 @@
    },
    "carryOverProgress": false,
    "excludedLessonIds": [
-    "lesson-cse-7"
+    "lesson-cse-0"
    ],
    "excludedTopicIds": [
-    "topic-cse-alpha"
+    "topic_cse_pro_vocabulary"
    ],
    "studyDays": [
     1,
@@ -189,7 +189,7 @@
    "proCovered": true,
    "tier": "pro",
    "state": "planning",
-   "revision": "4de288c40d533d4b1d12a04091f8560d0b531a6c88790416bbf8a97e84ace4f3",
+   "revision": "a532323f3a46362bce6a59b53bcfb106f0ddf51d168dca9074401e10e6f1ee00",
    "today": {
     "day": "2026-10-24",
     "lessonIds": [
@@ -229,7 +229,7 @@
    "originalDone": false,
    "canAdvance": false,
    "todayTopicOrder": [
-    "topic-cse-beta"
+    "topic_cse_pro_arithmetic_number_sense"
    ],
    "weekDays": [
     {
@@ -316,16 +316,9 @@
     "examDay": "2026-11-15",
     "reviewOnlyFrom": "2026-11-10",
     "mockDay": "2026-11-10",
-    "weeksAhead": [
-     {
-      "weekStart": "2026-10-25",
-      "topicIds": [
-       "topic-cse-beta"
-      ]
-     }
-    ],
+    "weeksAhead": [],
     "topicOrder": [
-     "topic-cse-beta"
+     "topic_cse_pro_arithmetic_number_sense"
     ]
    },
    "history": {
@@ -333,6 +326,6 @@
     "next": null
    }
   },
-  "digest": "{\"examId\":\"exam_cse_pro\",\"examDate\":\"2026-11-15:day\",\"scope\":[\"topic-cse-beta\"],\"excludedLessons\":[\"lesson-cse-7\"],\"content\":\"exam_cse_pro:catalog-v1\",\"assessed\":true,\"mocks\":0,\"studyDays\":\"1,2,3,4,5,6\"}"
+  "digest": "{\"examId\":\"exam_cse_pro\",\"examDate\":\"2026-11-15:day\",\"scope\":[\"topic_cse_pro_arithmetic_number_sense\"],\"excludedLessons\":[\"lesson-cse-0\"],\"content\":\"exam_cse_pro:catalog-v1:exam-lessons-v2\",\"assessed\":true,\"mocks\":0,\"studyDays\":\"1,2,3,4,5,6\"}"
  }
 }

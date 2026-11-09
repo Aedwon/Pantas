@@ -89,7 +89,7 @@ List<Violation> findStaleSubjectTiers(
     }
   }
   if (found.isEmpty && jsonEncode(committed) != jsonEncode(generated)) {
-    found.add(Violation('custom_subject_tiers.json', 'differs; $fix'));
+    found.add(const Violation('custom_subject_tiers.json', 'differs; $fix'));
   }
   return found;
 }
