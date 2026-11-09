@@ -407,6 +407,11 @@ exists.
   you cannot name the mistake, the distractor is filler and the item is weak.
 - **For code: read the diff against the plan's file table.** Anything touched that the table
   does not name is a finding.
+- **For UI code: check component use and the look, not only values** (guardrails plan, Nov 9,
+  after raw framework controls passed every value check). Every control on a screen is a
+  design-system component, or carries a `// ds-raw: <reason>` that is true. Where the change
+  alters a component or key screen, compare its golden sheet with the system's preview or
+  the failing golden's before and after images; reading code against a README is not enough.
 
 **3. Report exceptions, not a narrative.** A list of findings with file and line, or the
 sentence "no findings" followed by the pasted evidence. **Do not restate what the plan asked
