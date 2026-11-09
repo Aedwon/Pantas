@@ -56,7 +56,7 @@ Positive net work speeds an object up. Negative net work slows it down. Zero net
 
 ### Conservation of Energy
 
-Energy is never created or destroyed. It changes form or moves from place to place. The total energy of an isolated system stays constant. An isolated system is a group of objects with no energy entering or leaving it from outside. If a motor or a push from outside adds energy, the system is not isolated, and its total energy rises unless the same amount of energy leaves.
+Energy is never created or destroyed. It changes form or moves from place to place. The total energy of an isolated system stays constant. An isolated system is a group of objects with no energy entering or leaving it from outside. If a motor or a push from outside adds energy, the system is not isolated, and its total energy rises if more energy comes in than leaves.
 
 **Mechanical energy** is $KE+PE$. In this lesson, $PE$ is gravitational potential energy. A spring also stores energy, and that stored energy counts in $PE$ too. A **conservative force**, such as gravity, can give back the energy it takes. If only conservative forces do work, mechanical energy stays the same:
 

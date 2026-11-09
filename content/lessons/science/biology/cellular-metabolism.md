@@ -124,7 +124,7 @@ Name the biomolecule group of each item: glucose, an enzyme, a fat, DNA. Which g
 **Solution:**
 
 1. Glucose is a carbohydrate.
-2. Almost all enzymes are proteins.
+2. An enzyme is usually a protein.
 3. A fat is a lipid.
 4. DNA is a nucleic acid.
 5. Cells usually use carbohydrates, mainly glucose, first. They can also break down fats and proteins when needed.

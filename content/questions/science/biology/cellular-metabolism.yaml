@@ -203,7 +203,7 @@ questions:
         correct: true
       - text: "Carbon dioxide"
         rationale: |
-          This molecule has a carbon atom, so it seems organic. It is a carbon compound but is not called organic. Check for a carbon-based molecule of living things, such as a sugar, fat, or protein.
+          This molecule has a carbon atom, so it seems organic. It is a carbon compound but is not called organic. Check whether its carbon is bonded to hydrogen.
       - text: "Oxygen gas"
         rationale: |
           Oxygen gas is vital for living things, so it seems linked to life. It has no carbon. Check for a carbon-based molecule, such as a sugar, fat, or protein.
