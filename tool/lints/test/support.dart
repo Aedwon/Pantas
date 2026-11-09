@@ -21,8 +21,37 @@ class Colors {
   static const Color red = Color(0xFFFF0000);
 }
 
-class Cubic {
+class Curve {
+  const Curve();
+}
+
+class Cubic extends Curve {
   const Cubic(double a, double b, double c, double d);
+}
+
+class Curves {
+  const Curves._();
+  static const Curve linear = Cubic(0, 0, 1, 1);
+  static const Curve easeIn = Cubic(0.42, 0, 1, 1);
+  static const Curve easeOut = Cubic(0, 0, 0.58, 1);
+}
+
+class HSLColor {
+  const HSLColor.fromAHSL(double a, double h, double s, double l);
+  Color toColor() => const Color(0);
+}
+
+class HSVColor {
+  const HSVColor.fromAHSV(double a, double h, double s, double v);
+  Color toColor() => const Color(0);
+}
+
+class Icon extends Widget {
+  const Icon(int data, {double? size});
+}
+
+class PageRouteLike {
+  const PageRouteLike({Duration? transitionDuration, Curve? curve});
 }
 
 class Radius {
@@ -72,7 +101,11 @@ class Container extends Widget {
 }
 
 class Fade extends Widget {
-  const Fade({required Duration duration, Duration? reverseDuration});
+  const Fade({
+    required Duration duration,
+    Duration? reverseDuration,
+    Curve? curve,
+  });
 }
 
 class Gap extends Widget {

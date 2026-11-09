@@ -417,7 +417,7 @@ class PantasSheetGrabber extends StatelessWidget {
   /// `.sheet__grab` is 36 wide and 5 high. The system sets no token for it, so
   /// this is the one place that states it; hand-laid sheets read it here.
   static const double width = PantasSpace.s32 + PantasSpace.s4;
-  // ds-board: grabber 36x5 (README Sheet)
+  // ds-board: Sheet README: grabber 36x5
   static const double height = PantasSpace.s4 + 1;
 
   @override

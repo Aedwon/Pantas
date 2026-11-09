@@ -105,7 +105,7 @@ class ChoiceRow extends StatelessWidget {
           : Text(
               letter,
               style: PantasType.webLink.copyWith(
-                // ds-board: letter line height 1, centered glyph
+                // ds-board: README type: web-glyph leading 1
                 height: 1,
                 color: foreground,
               ),

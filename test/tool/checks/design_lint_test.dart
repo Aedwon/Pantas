@@ -92,4 +92,76 @@ void main() {
       }
     });
   });
+
+  group('canary', () {
+    test('the canary finding is found and left out of the counts', () {
+      final found = parseMachineOutput(
+        [
+          _row('DS_NO_DESIGN_LITERAL', canaryPath, 2),
+          _row('DS_NO_DESIGN_LITERAL', 'lib/app/a.dart', 10),
+        ].join('\n'),
+        _root,
+      );
+      expect(hasCanary(found), isTrue);
+      expect(countFindings(withoutCanary(found)), {
+        'lib/app/a.dart ds_no_design_literal': 1,
+      });
+    });
+
+    test('without the canary finding the plugin did not load', () {
+      final found = parseMachineOutput(
+        _row('DS_NO_DESIGN_LITERAL', 'lib/app/a.dart', 10),
+        _root,
+      );
+      expect(hasCanary(found), isFalse);
+      expect(hasCanary(const []), isFalse);
+    });
+
+    test('the canary must be a design literal finding', () {
+      final found = parseMachineOutput(
+        _row('DS_BOARD_VALUE_REASON', canaryPath, 2),
+        _root,
+      );
+      expect(hasCanary(found), isFalse);
+    });
+  });
+
+  group('update guard', () {
+    const base = {
+      'lib/app/a.dart ds_no_design_literal': 3,
+      'lib/app/b.dart ds_board_value_reason': 1,
+    };
+
+    test('a rename keeps the rule total and passes', () {
+      expect(
+        updateProblems(base, {
+          'lib/app/z.dart ds_no_design_literal': 3,
+          'lib/app/b.dart ds_board_value_reason': 1,
+        }),
+        isEmpty,
+      );
+    });
+
+    test('a smaller total passes', () {
+      expect(updateProblems(base, {}), isEmpty);
+    });
+
+    test('a rule total that rises is refused, naming the rule', () {
+      final problems = updateProblems(base, {
+        'lib/app/a.dart ds_no_design_literal': 2,
+        'lib/app/c.dart ds_no_design_literal': 2,
+        'lib/app/b.dart ds_board_value_reason': 1,
+      });
+      expect(problems.single, contains('ds_no_design_literal'));
+      expect(problems.single, contains('3 to 4'));
+    });
+
+    test('a rule that was absent and appears is refused', () {
+      final problems = updateProblems(base, {
+        ...base,
+        'lib/app/b.dart ds_marker_reason': 1,
+      });
+      expect(problems.single, contains('ds_marker_reason'));
+    });
+  });
 }

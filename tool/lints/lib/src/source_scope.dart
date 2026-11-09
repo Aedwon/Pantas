@@ -6,6 +6,9 @@ import 'package:analyzer/source/line_info.dart';
 /// Paths are normalized to forward slashes and matched on the `/lib/`
 /// segment, so the same check works in the repo and in the test harness
 /// (which puts the sample package at `/home/test`).
+/// The fixture `tool/checks/design_lint.dart` uses to prove the plugin loaded.
+const canaryPath = 'test/tool/fixtures/design_lint_canary.dart';
+
 class SourceScope {
   const SourceScope._();
 
@@ -30,6 +33,7 @@ class SourceScope {
   /// and `lib/core/ui/figures/`), generated files and `lib/l10n/`.
   static bool isDesignScoped(RuleContext context, RuleContextUnit unit) {
     final rel = _relative(context, unit);
+    if (rel == canaryPath) return true;
     if (!rel.startsWith('lib/')) return false;
     if (_generated.hasMatch(rel)) return false;
     if (rel.startsWith('lib/l10n/')) return false;
@@ -80,7 +84,6 @@ class MarkerLines {
           _lines[line - 2].trimLeft().startsWith('//') &&
           _has(line - 1, marker));
 
-  /// A board marker on [line] or the line above.
-  bool boardNear(int line) =>
-      _has(line, boardMarker) || _has(line - 1, boardMarker);
+  /// A board marker on [line], or alone on the comment line above it.
+  bool boardNear(int line) => _onOrAbove(line, boardMarker);
 }

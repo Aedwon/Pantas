@@ -43,7 +43,7 @@ class Toast extends StatelessWidget {
   static const double _exitFall = PantasSpace.s8;
 
   /// `.toast--phone` keeps 13 on the sides of the message (phone board).
-  // ds-board: phone toast inset 13 (phone board)
+  // ds-board: Toast README: .toast--phone padding 13
   static const double _phoneInsetY = PantasSpace.s12 + 1;
 
   @override

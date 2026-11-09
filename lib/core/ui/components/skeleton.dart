@@ -14,11 +14,11 @@ import 'package:pantas/core/ui/web/web_tokens.dart';
 const double _headerWidth = 140;
 
 /// Space under a section heading placeholder.
-// ds-board: heading gap 7, as drawn
+// ds-board: Skeleton placeholder gap as drawn; no README entry
 const double _headingGap = PantasSpace.s6 + 1;
 
 /// Space under an eyebrow placeholder.
-// ds-board: eyebrow gap 9, as drawn
+// ds-board: Skeleton placeholder gap as drawn; no README entry
 const double _eyebrowGap = PantasSpace.s8 + 1;
 
 /// The width of the small label above a question stem.

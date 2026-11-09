@@ -17,7 +17,7 @@ import 'package:pantas/core/ui/web/web_tokens.dart';
 
 // The scrolling passage pane's height on the approved board. The system
 // sets the passage column's width but not this pane's height.
-// ds-board: passage pane 560 (approved board)
+// ds-board: approved Quiz board; Passage README sets width only
 const double _passageHeight = 560;
 
 /// The question, passage and checked answer share one desktop stage.
@@ -54,7 +54,7 @@ class _WebQuizQuestionState extends State<WebQuizQuestion>
     with SingleTickerProviderStateMixin {
   late final _reveal = AnimationController(
     vsync: this,
-    // ds-board: answer reveal timeline, no token
+    // ds-board: AnswerOption README: reveal timings 560/700 ms
     duration: const Duration(milliseconds: 1840),
     value: widget.checked ? 1 : 0,
   );
@@ -389,7 +389,7 @@ class _WebQuizQuestionState extends State<WebQuizQuestion>
           child: Text(
             letter,
             style: PantasType.webLink.copyWith(
-              // ds-board: letter line height 1, centered glyph
+              // ds-board: README type: web-glyph leading 1
               height: 1,
               fontWeight: FontWeight.w700,
               color: wrong ? c.onDanger : c.onAccent,

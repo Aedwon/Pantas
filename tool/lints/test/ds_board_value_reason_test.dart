@@ -80,6 +80,14 @@ const double publicGap = 12;
         'const double _gap = 12;\n$_use',
   );
 
+  Future<void> test_marker_trailing_the_previous_declaration_does_not_count() =>
+      assertMarkedIn('features/a/page.dart', '''
+$importFlutter
+const double _a = 10; // ds-board: Home board, row gap
+const double «_b» = 12;
+Widget use() => const SizedBox(width: _a, height: _b);
+''');
+
   Future<void> test_marker_above_a_doc_comment_does_not_count() =>
       assertMarkedIn(
         'features/a/page.dart',

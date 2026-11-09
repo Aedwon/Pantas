@@ -14,11 +14,24 @@
 // `--update` in the same change that fixed the finding. A finding in
 // `lib/core/` or `tool/` always fails, because those have no baseline.
 //
+// Known limit: counts are per file and rule, so a fix and a new finding in the
+// same file and rule cancel out. The baseline cannot tell them apart.
+//
+// Canary: `test/tool/fixtures/design_lint_canary.dart` holds one known
+// `ds_no_design_literal` finding. The run fails with "plugin did not load"
+// when it is missing, and the canary is left out of the counts.
+//
+// `--update` refuses when the canary is missing, and when the total of any
+// rule rises against the current baseline (a rename keeps the total). With no
+// baseline file yet it writes one, which is also how to rebuild it after the
+// rules widen: delete the file, run `--update`, review the diff.
+//
 // This must run through `dart analyze`. `flutter analyze` stops before the
 // plugin reports, so it never shows these diagnostics.
 import 'dart:io';
 
 const baselinePath = 'tool/lints/baseline.txt';
+const canaryPath = 'test/tool/fixtures/design_lint_canary.dart';
 const refreshCommand = 'dart run tool/checks/design_lint.dart --update';
 
 /// One design lint diagnostic: project-relative [path], rule name, and its
@@ -53,6 +66,39 @@ List<DesignFinding> parseMachineOutput(String output, String root) {
     found.add(DesignFinding(path, rule, row, column));
   }
   return found;
+}
+
+/// Whether the plugin reported the canary's finding.
+bool hasCanary(List<DesignFinding> findings) => findings.any(
+      (f) => f.path == canaryPath && f.rule == 'ds_no_design_literal',
+    );
+
+List<DesignFinding> withoutCanary(List<DesignFinding> findings) => [
+      for (final f in findings)
+        if (f.path != canaryPath) f,
+    ];
+
+/// Why `--update` must refuse: the total of a rule rose against [baseline].
+List<String> updateProblems(
+  Map<String, int> baseline,
+  Map<String, int> current,
+) {
+  Map<String, int> totals(Map<String, int> counts) {
+    final out = <String, int>{};
+    counts.forEach((key, count) {
+      final rule = key.substring(key.indexOf(' ') + 1);
+      out[rule] = (out[rule] ?? 0) + count;
+    });
+    return out;
+  }
+
+  final before = totals(baseline);
+  final now = totals(current);
+  return [
+    for (final rule in now.keys.toList()..sort())
+      if (now[rule]! > (before[rule] ?? 0))
+        '$rule rose from ${before[rule] ?? 0} to ${now[rule]}',
+  ];
 }
 
 /// Counts per `path rule` key.
@@ -137,10 +183,18 @@ Future<void> main(List<String> args) async {
       ..writeln(result.stderr);
     exit(2);
   }
-  final findings = parseMachineOutput(
-    '${result.stdout}\n${result.stderr}',
-    root,
-  );
+  final all = parseMachineOutput('${result.stdout}\n${result.stderr}', root);
+  if (!hasCanary(all)) {
+    stdout
+      ..writeln('FAIL  design-lint: plugin did not load')
+      ..writeln(
+        '      The canary finding in $canaryPath was not reported, so a '
+        'clean result would mean nothing. Use `dart analyze`, not '
+        '`flutter analyze`.',
+      );
+    exit(1);
+  }
+  final findings = withoutCanary(all);
   final current = countFindings(findings);
   watch.stop();
 
@@ -152,7 +206,17 @@ Future<void> main(List<String> args) async {
       );
       exit(1);
     }
-    File('$root/$baselinePath').writeAsStringSync(formatBaseline(current));
+    final existing = File('$root/$baselinePath');
+    final rises = existing.existsSync()
+        ? updateProblems(parseBaseline(existing.readAsStringSync()), current)
+        : const <String>[];
+    if (rises.isNotEmpty) {
+      stderr.writeln(
+        'Not written: the baseline only shrinks.\n${rises.join('\n')}',
+      );
+      exit(1);
+    }
+    existing.writeAsStringSync(formatBaseline(current));
     stdout.writeln(
       'Wrote $baselinePath: ${current.length} line(s), '
       '${findings.length} finding(s).',

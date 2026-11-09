@@ -30,7 +30,7 @@ import 'package:pantas/core/ui/web/web_tokens.dart';
 /// Sent up the tree once a reader example has finished opening, so the page
 /// can measure its new length. See `_ExampleCard`.
 /// The height a reader figure holds while it loads (board value, no token).
-// ds-board: reader figure placeholder 223, board value
+// ds-board: Figure README sets no placeholder height; as built
 const double _figurePlaceholderHeight = 223;
 
 class ReaderResizedNotification extends Notification {
@@ -383,10 +383,10 @@ class ContentRenderer extends StatelessWidget {
     final name = string(block['style']);
     final base = readerFigures
         ? readerBody(context)
-        // ds-board: phone-reader-body leading 1.55 (README type)
+        // ds-board: README type: phone-reader-body 17/1.55
         : style ?? context.type.body.copyWith(height: 1.55);
     final phoneType = switch (name) {
-      // ds-board: reader h1 leading 1.15, no token
+      // ds-board: README type has no 1.15; as built
       'h1' => context.type.pageTitle.copyWith(height: 1.15),
       'h2' when readerFigures => _readerH2(context),
       'h2' => context.type.sectionHero,
@@ -403,7 +403,7 @@ class ContentRenderer extends StatelessWidget {
       'blockquote' => base.copyWith(fontWeight: FontWeight.w500),
       // A step is not a paragraph, so it has no tracking and a tighter line.
       _ when step => base.copyWith(
-          // ds-board: solution step leading 1.67/1.6, no token
+          // ds-board: ReaderBlock README: 1.6; no 1.67 entry
           height: context.wideWeb ? 1.67 : 1.6,
           letterSpacing: 0,
         ),
@@ -467,14 +467,14 @@ class ContentRenderer extends StatelessWidget {
             // of step 9 and step 10 starts at the same place.
             if (step)
               ConstrainedBox(
-                // ds-board: step number column 22, no token
+                // ds-board: ReaderBlock README has no step column; as built
                 constraints: const BoxConstraints(minWidth: 22),
                 child: Text(marker, style: markerStyle),
               )
             else
               Text(marker, style: markerStyle),
-            // ds-board: reader step gap 9, no token
-            SizedBox(width: readerFigures ? 9 : 12),
+            // ds-board: ReaderBlock README has no step gap; as built
+            SizedBox(width: readerFigures ? 9 : PantasSpace.s12),
             Expanded(child: body),
           ],
         ),
@@ -667,7 +667,7 @@ class ContentRenderer extends StatelessWidget {
           const SizedBox(height: PantasSpace.s10),
           MathText(
             string(block['body']),
-            // ds-board: phone-reader-body leading 1.55 (README type)
+            // ds-board: README type: phone-reader-body 17/1.55
             style: context.type.body.copyWith(height: 1.55),
           ),
           const SizedBox(height: PantasSpace.s10),
@@ -692,7 +692,7 @@ class ContentRenderer extends StatelessWidget {
                 const SizedBox(height: PantasSpace.s10),
                 MathText(
                   string(block['solution']),
-                  // ds-board: phone-reader-body leading 1.55 (README type)
+                  // ds-board: README type: phone-reader-body 17/1.55
                   style: context.type.body.copyWith(height: 1.55),
                 ),
               ],
@@ -998,7 +998,7 @@ class ContentRenderer extends StatelessWidget {
     final c = context.colors;
     final wide = context.wideWeb;
     final text = readerBody(context).copyWith(
-      // ds-board: solution step leading 1.67/1.6, no token
+      // ds-board: ReaderBlock README: 1.6; no 1.67 entry
       height: wide ? 1.67 : 1.6,
       letterSpacing: 0,
     );
@@ -1146,9 +1146,9 @@ class ContentRenderer extends StatelessWidget {
         counters.clear();
       }
       if (children.isNotEmpty) {
-        children
-            // ds-board: reader heading gap 32/18, no token
-            .add(SizedBox(height: string(block['style']) == 'h2' ? 32 : 18));
+        final gap =
+            string(block['style']) == 'h2' ? PantasSpace.s32 : PantasSpace.s18;
+        children.add(SizedBox(height: gap));
       }
       children.add(dispatch(context, block, marker: marker));
     }
@@ -1265,7 +1265,7 @@ class _ExampleCardState extends State<_ExampleCard> {
             ? panel
             : TweenAnimationBuilder<double>(
                 tween: Tween(begin: 0, end: 1),
-                // ds-board: reader fade 300 ms, no matching role
+                // ds-board: no README entry; flip token is the flip role
                 duration: const Duration(milliseconds: 300),
                 builder: (context, value, child) =>
                     Opacity(opacity: value, child: child),
@@ -1298,7 +1298,7 @@ class _ExampleCardState extends State<_ExampleCard> {
       // motion skips it and the panel appears at once.
       if (!still) {
         region = AnimatedSize(
-          // ds-board: reader fade 300 ms, no matching role
+          // ds-board: no README entry; flip token is the flip role
           duration: const Duration(milliseconds: 300),
           alignment: Alignment.topCenter,
           onEnd: _resized,
@@ -1345,8 +1345,7 @@ class _ExampleCardState extends State<_ExampleCard> {
           SizedBox(
             height: solution == null
                 ? widget.stemTail
-                // ds-board: least gap 18 under a solved stem
-                : math.max(widget.stemTail, 18),
+                : math.max(widget.stemTail, PantasSpace.s18),
           ),
           if (region != null) region,
           SizedBox(height: wide ? PantasSpace.s8 : PantasSpace.s4),
@@ -1450,10 +1449,10 @@ class _FigureFrame extends StatelessWidget {
         barrierLabel: 'Close figure',
         barrierColor: context.colors.transparent,
         transitionDuration:
-            // ds-board: figure viewer open 380 ms, no token role
+            // ds-board: Figure README names no viewer times; as built
             still ? Duration.zero : const Duration(milliseconds: 380),
         reverseTransitionDuration:
-            // ds-board: figure viewer close 280 ms, no token role
+            // ds-board: Figure README names no viewer times; as built
             still ? Duration.zero : const Duration(milliseconds: 280),
         pageBuilder: (context, animation, secondary) => _FigureViewer(
           figure: followTheme || labelViewer
@@ -1578,6 +1577,7 @@ class _FigureFrame extends StatelessWidget {
                             alignment: Alignment.center,
                             child: Icon(
                               PantasIcons.expandFigure,
+                              // ds-board: Figure README: no glyph size
                               size: 16,
                               color: context.wideWeb
                                   ? context.colors.secondaryLabel
@@ -1598,9 +1598,9 @@ class _FigureFrame extends StatelessWidget {
               style: context.type.caption.copyWith(
                 fontSize: reader
                     ? context.wideWeb
-                        // ds-board: reader credit size 13, no token
+                        // ds-board: Figure README sets no credit size; as built
                         ? 13
-                        // ds-board: reader credit size 11, no token
+                        // ds-board: Figure README sets no credit size; as built
                         : 11
                     : null,
                 fontWeight: FontWeight.w400,
@@ -1854,7 +1854,7 @@ class _FigureViewerState extends State<_FigureViewer> {
                   icon: Icon(
                     PantasIcons.close,
                     color: context.colors.onFigureViewer,
-                    size: 20,
+                    size: PantasSize.icon,
                   ),
                 ),
               ),
@@ -1899,6 +1899,7 @@ class _FigureViewerState extends State<_FigureViewer> {
                     onPressed: () => Navigator.of(context).pop(),
                     icon: Icon(
                       PantasIcons.close,
+                      // ds-board: Figure README: no viewer glyph size
                       size: 22,
                       color: context.colors.onFigureViewer,
                     ),
@@ -2223,12 +2224,12 @@ class _ImageFailure extends StatelessWidget {
               ExcludeSemantics(
                 child: Icon(
                   PantasIcons.imageFailed,
+                  // ds-board: no README for this glyph
                   size: reader ? 30 : 32,
                   color: context.colors.chevron,
                 ),
               ),
-              // ds-board: failure tile gap 6/10, no token
-              SizedBox(height: reader ? 6 : 10),
+              SizedBox(height: reader ? PantasSpace.s6 : PantasSpace.s10),
               Text(
                 reader
                     ? 'This illustration didn’t load.'

@@ -306,7 +306,7 @@ class HomeDrawerQuestionRow extends StatelessWidget {
         title: title,
         wrapTitle: true,
         titleStyle: PantasType.webBody.copyWith(
-          // ds-board: row title leading 1.3, no token
+          // ds-board: README type: web-label 14/600/1.3
           height: 1.3,
           color: context.webTokens.colors.textPrimary,
         ),

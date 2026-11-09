@@ -308,7 +308,7 @@ class _FilterRow extends StatelessWidget {
               onTap: () => onChanged(ReviewFilter.values[i]),
               excludeSemantics: true,
               child: ConstrainedBox(
-                // ds-board: 48 tap target, no token has 48
+                // ds-board: ListRow README: 48 px row (D179)
                 constraints: const BoxConstraints(minHeight: 48),
                 child: Center(
                   child: Text(
@@ -378,7 +378,7 @@ class ReviewRow extends StatelessWidget {
                     // student's position.
                     onTap: onToggleExpanded,
                     child: ConstrainedBox(
-                      // ds-board: 48 tap target, no token has 48
+                      // ds-board: ListRow README: 48 px row (D179)
                       constraints: const BoxConstraints(minHeight: 48),
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -421,11 +421,12 @@ class ReviewRow extends StatelessWidget {
                   excludeFromSemantics: true,
                   onTap: () => onToggleFlag(entry.question.id),
                   child: SizedBox.square(
-                    // ds-board: 48 tap target, no token has 48
+                    // ds-board: ListRow README: 48 px row (D179)
                     dimension: 48,
                     child: Center(
                       child: Icon(
                         PantasIcons.flag,
+                        // ds-board: no README for this glyph
                         size: 21,
                         color: entry.isFlagged
                             ? colors.label

@@ -26,7 +26,7 @@ class WorkStep {
 }
 
 /// Phone: the title starts this far down the page (board L_Restore).
-// ds-board: title top 96 (board L_Restore)
+// ds-board: board L_Restore (code comment); no README entry
 const double _phoneTitleTop = 96;
 
 class StepsScreen extends StatelessWidget {

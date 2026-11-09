@@ -251,6 +251,118 @@ const _slow = Duration(milliseconds: 900);
 Widget build() => const Fade(duration: «_slow»);
 ''');
 
+  // ---- more routes inside the library -------------------------------------
+
+  Future<void> test_private_getter_with_a_literal_body_is_followed() =>
+      assertMarked('''
+$importFlutter
+
+double get _gap => 13;
+
+Widget build() => SizedBox(width: «_gap»);
+''');
+
+  Future<void> test_class_getter_is_followed() => assertMarked('''
+$importFlutter
+
+class Panel {
+  double get _inset => 17;
+  Widget build() => SizedBox(height: «_inset»);
+}
+''');
+
+  Future<void> test_getter_with_a_board_marker_is_accepted() =>
+      assertNoDiagnostics('''
+$importFlutter
+
+// ds-board: Home board, rail gap
+double get _gap => 13;
+
+Widget build() => SizedBox(width: _gap);
+''');
+
+  Future<void> test_switch_expression_arms_are_followed() => assertMarked(
+    body(
+      'return SizedBox(width: switch (flag) { true => «8», false => «12» });',
+    ),
+  );
+
+  Future<void> test_switch_arm_that_is_a_token_is_clean() =>
+      assertNoDiagnostics(
+        body(
+          'return SizedBox(width: switch (flag) { true => Space.md, _ => 0 });',
+        ),
+      );
+
+  Future<void> test_hsl_and_hsv_literals_are_colors() => assertMarked(
+    body(
+      'return Container(color: HSLColor.fromAHSL(«1», «200», «0.5», «0.4»).toColor());',
+    ),
+  );
+
+  // ---- curves and icons ----------------------------------------------------
+
+  Future<void> test_curves_name_reaching_a_curve_parameter() => assertMarked(
+    body('return const Fade(duration: Duration.zero, curve: «Curves.easeIn»);'),
+  );
+
+  Future<void> test_curves_linear_is_allowed() => assertNoDiagnostics(
+    body('return const Fade(duration: Duration.zero, curve: Curves.linear);'),
+  );
+
+  Future<void> test_curves_name_through_a_conditional_and_a_variable() =>
+      assertMarked(
+        body('''final curve = flag ? Curves.easeIn : Curves.easeOut;
+  return Fade(duration: Duration.zero, curve: «curve»);'''),
+      );
+
+  Future<void> test_curves_name_outside_a_curve_parameter_is_clean() =>
+      assertNoDiagnostics(
+        body('''const curve = Curves.easeIn;
+  return Container(width: curve.hashCode.toDouble());'''),
+      );
+
+  Future<void> test_icon_size_literal() =>
+      assertMarked(body('return const Icon(1, size: «18»);'));
+
+  Future<void> test_icon_size_token_is_clean() =>
+      assertNoDiagnostics(body('return const Icon(1, size: Space.md);'));
+
+  // ---- which durations are animation durations -----------------------------
+
+  Future<void> test_project_parameter_named_duration_counts() =>
+      assertMarked('''
+$importFlutter
+
+class Spin extends Widget {
+  const Spin({required Duration duration, Duration? reverseDuration});
+}
+
+Widget build() => const Spin(
+  duration: Duration(milliseconds: «200»),
+  reverseDuration: Duration(seconds: «1»),
+);
+''');
+
+  Future<void> test_project_parameter_with_another_name_is_clean() =>
+      assertNoDiagnostics('''
+$importFlutter
+
+class Session extends Widget {
+  const Session({required Duration sessionDuration});
+}
+
+Widget build() => const Session(sessionDuration: Duration(seconds: 30));
+''');
+
+  Future<void> test_framework_parameter_with_any_duration_name_counts() =>
+      assertMarked(
+        body(
+          'const route = PageRouteLike(transitionDuration: '
+          'Duration(milliseconds: «300»));\n  return const Gap();',
+        ),
+      );
+
   // ---- markers --------------------------------------------------------------
 
   Future<void> test_geometry_marker_exempts_a_radius_on_its_line() =>
@@ -444,4 +556,26 @@ $importFlutter
 
 const gap = SizedBox(width: «12»);
 ''');
+
+  Future<void>
+  test_the_canary_fixture_is_in_scope_and_other_tests_are_not() async {
+    const source = '''
+import 'package:flutter/widgets.dart';
+
+Widget canary() => const SizedBox(width: «1234»);
+''';
+    final annotated = Annotated(source);
+    final canary = newFile(
+      '$testPackageRootPath/test/tool/fixtures/design_lint_canary.dart',
+      annotated.source,
+    );
+    await assertDiagnosticsInFile(canary.path, [
+      for (final (offset, length) in annotated.spans) lint(offset, length),
+    ]);
+    final other = newFile(
+      '$testPackageRootPath/test/other_test.dart',
+      annotated.source,
+    );
+    await assertDiagnosticsInFile(other.path, const []);
+  }
 }

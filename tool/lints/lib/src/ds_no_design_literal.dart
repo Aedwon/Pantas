@@ -91,6 +91,8 @@ class _Leaf {
 
 const _designTypes = {
   'Color': _Kind.color,
+  'HSLColor': _Kind.color,
+  'HSVColor': _Kind.color,
   'EdgeInsets': _Kind.spacing,
   'EdgeInsetsDirectional': _Kind.spacing,
   'BorderRadius': _Kind.radius,
@@ -221,21 +223,23 @@ class DesignFlow {
         _isFrameworkLibrary(parameterType.element.library)) {
       return _Kind.color;
     }
+    if (parameterType is InterfaceType &&
+        parameterType.element.name == 'Curve' &&
+        _isFrameworkLibrary(parameterType.element.library)) {
+      return _Kind.curve;
+    }
     final owner = parameter.enclosingElement;
     final cls = switch (owner) {
       ConstructorElement() => owner.enclosingElement,
       MethodElement() => owner.enclosingElement,
       _ => null,
     };
-    if (cls == null || !_isFrameworkLibrary(cls.library)) {
-      // A Duration parameter on a project widget is also an animation API.
-      if (_isDurationParameter(parameter, name) &&
-          cls != null &&
-          cls.library?.uri.scheme == 'package') {
-        return _Kind.duration;
-      }
-      return null;
+    if (cls == null) return null;
+    final framework = _isFrameworkLibrary(cls.library);
+    if (_isAnimationDuration(parameter, name, framework: framework)) {
+      return _Kind.duration;
     }
+    if (!framework) return null;
     final className = cls.name;
     if (className == 'TextStyle' &&
         (name == 'fontSize' || name == 'letterSpacing' || name == 'height')) {
@@ -245,15 +249,44 @@ class DesignFlow {
         (name == 'width' || name == 'height' || name == 'dimension')) {
       return _Kind.size;
     }
-    if (_isDurationParameter(parameter, name)) return _Kind.duration;
+    if (className == 'Icon' && name == 'size') return _Kind.size;
     return null;
   }
 
-  bool _isDurationParameter(FormalParameterElement parameter, String name) {
+  /// A Duration is an animation duration when the framework declares the
+  /// parameter (any name ending in `uration`), or when a project or package
+  /// widget names it exactly `duration` or `reverseDuration`. A parameter such
+  /// as `sessionDuration` on a project class is data, not motion.
+  bool _isAnimationDuration(
+    FormalParameterElement parameter,
+    String name, {
+    required bool framework,
+  }) {
     final type = parameter.type;
-    return type is InterfaceType &&
-        type.element.name == 'Duration' &&
-        name.endsWith('uration');
+    if (type is! InterfaceType || type.element.name != 'Duration') {
+      return false;
+    }
+    if (framework) return name.endsWith('uration');
+    return name == 'duration' || name == 'reverseDuration';
+  }
+
+  /// `Curves.<name>` other than `linear` reaching a Curve parameter.
+  bool _curvesName(
+    SimpleIdentifier name,
+    AstNode reportAt,
+    _Kind kind,
+    List<_Leaf> leaves,
+  ) {
+    if (kind != _Kind.curve) return false;
+    final element = name.element;
+    if (element is! GetterElement) return false;
+    final owner = element.enclosingElement;
+    if (owner is! ClassElement || owner.name != 'Curves') return false;
+    if (!_isFrameworkLibrary(owner.library)) return false;
+    if (name.name != 'linear') {
+      leaves.add(_Leaf(reportAt, 'Curves.${name.name}', kind));
+    }
+    return true;
   }
 
   // ---- tracing ------------------------------------------------------------
@@ -311,11 +344,16 @@ class DesignFlow {
           if (!_isPlainValue(expression)) continue;
           _trace(expression, kind, geometry, leaves, seen, via: via);
         }
+      case SwitchExpression():
+        for (final arm in node.cases) {
+          _trace(arm.expression, kind, geometry, leaves, seen, via: via);
+        }
       case InstanceCreationExpression():
         _traceCreation(node, kind, leaves, seen, via);
       case SimpleIdentifier():
         _follow(via ?? node, node.element, kind, geometry, leaves, seen);
       case PrefixedIdentifier():
+        if (_curvesName(node.identifier, via ?? node, kind, leaves)) break;
         _follow(
           via ?? node,
           node.identifier.element,
@@ -325,6 +363,7 @@ class DesignFlow {
           seen,
         );
       case PropertyAccess():
+        if (_curvesName(node.propertyName, via ?? node, kind, leaves)) break;
         _follow(
           via ?? node,
           node.propertyName.element,
@@ -438,12 +477,19 @@ class DesignFlow {
     List<_Leaf> leaves,
     Set<Element> seen,
   ) {
-    final variable = switch (element) {
+    // A getter written out in this library (`double get _gap => 13`) is read
+    // like a const. A field's own getter is the field.
+    final Element? variable = switch (element) {
+      GetterElement() when _declarations().containsKey(element) => element,
       GetterElement() => element.variable,
       VariableElement() => element,
       _ => null,
     };
-    if (variable == null || !(variable.isFinal || variable.isConst)) return;
+    if (variable == null) return;
+    if (variable is VariableElement &&
+        !(variable.isFinal || variable.isConst)) {
+      return;
+    }
     if (!seen.add(variable)) return;
     reached.add(variable);
     final declaration = _declarations()[variable];
@@ -462,10 +508,8 @@ class DesignFlow {
 
   bool _declaredWithBoardMarker(_Declaration declaration) {
     final markers = _markerLinesOf(declaration.unit);
-    final node = declaration.node;
-    final start = markers.lineOf((node.parent?.parent ?? node).offset);
-    return markers.boardNear(start) ||
-        markers.boardNear(markers.lineOf(node.name.offset));
+    return markers.boardNear(markers.lineOf(declaration.startOffset)) ||
+        markers.boardNear(markers.lineOf(declaration.nameOffset));
   }
 
   Map<Element, _Declaration> _declarations() {
@@ -546,13 +590,26 @@ class DesignFlow {
   }
 }
 
+/// What a library reads a name as: the expression it holds or returns.
+///
+/// Limit: only variables and getters with an expression body are followed.
+/// Function returns, parameter defaults and forwarding helpers
+/// (`double gap(bool b) => b ? 8 : 12`) are out of scope; a value that goes
+/// through them is not seen.
 class _Declaration {
-  const _Declaration(this.node, this.unit);
+  const _Declaration(
+    this.initializer,
+    this.unit,
+    this.nameOffset,
+    this.startOffset,
+  );
 
-  final VariableDeclaration node;
+  final Expression initializer;
   final RuleContextUnit unit;
+  final int nameOffset;
 
-  Expression get initializer => node.initializer!;
+  /// Where the declaration starts, after its doc comment and annotations.
+  final int startOffset;
 }
 
 class _DeclarationCollector extends RecursiveAstVisitor<void> {
@@ -563,10 +620,49 @@ class _DeclarationCollector extends RecursiveAstVisitor<void> {
 
   @override
   void visitVariableDeclaration(VariableDeclaration node) {
+    final initializer = node.initializer;
     final element = node.declaredFragment?.element;
-    if (node.initializer != null && element != null) {
-      map[element] = _Declaration(node, unit);
+    if (initializer != null && element != null) {
+      final owner = node.parent?.parent;
+      map[element] = _Declaration(
+        initializer,
+        unit,
+        node.name.offset,
+        owner is AnnotatedNode
+            ? owner.firstTokenAfterCommentAndMetadata.offset
+            : node.offset,
+      );
     }
     super.visitVariableDeclaration(node);
+  }
+
+  @override
+  void visitMethodDeclaration(MethodDeclaration node) {
+    final body = node.body;
+    final element = node.declaredFragment?.element;
+    if (node.isGetter && body is ExpressionFunctionBody && element != null) {
+      map[element] = _Declaration(
+        body.expression,
+        unit,
+        node.name.offset,
+        node.firstTokenAfterCommentAndMetadata.offset,
+      );
+    }
+    super.visitMethodDeclaration(node);
+  }
+
+  @override
+  void visitFunctionDeclaration(FunctionDeclaration node) {
+    final body = node.functionExpression.body;
+    final element = node.declaredFragment?.element;
+    if (node.isGetter && body is ExpressionFunctionBody && element != null) {
+      map[element] = _Declaration(
+        body.expression,
+        unit,
+        node.name.offset,
+        node.firstTokenAfterCommentAndMetadata.offset,
+      );
+    }
+    super.visitFunctionDeclaration(node);
   }
 }

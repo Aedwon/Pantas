@@ -9,6 +9,7 @@ import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
 const _popDuration = PantasDurations.medium3;
 
 /// The check inside the 24 disc, as the Checkbox draws it.
+// ds-board: Checkbox README: 14 px check
 const _glyph = 14.0;
 
 class CheckMark extends StatelessWidget {
