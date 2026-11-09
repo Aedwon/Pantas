@@ -138,3 +138,13 @@ Manager thread relayed Aedwon: "for the rest of items, please finish them". Orde
 Lead ruling: round 6 changed only the sentences each round-5 finding named, because in about half the open lessons the wider round-5 rework had added the next false absolute. Each changed sentence used a stated condition, the lead boundary-tested it, and one fresh Opus read per lesson checked the round-5 findings and every changed sentence. Outside changed text, the reader reported only Blockers and wrong or answer-revealing worked steps.
 
 Result: all 12 closed, 6 clean and 6 minor. Counts: 77 lessons, 17 clean, 60 minor, 0 open. The lead sent two points back (an unlimited "do not follow this rule" in earths-motions, a duplicate figure marker). Two of four fixer runs skipped some required reads, and both said so; the lead checked their sentences. One cost: the earths-motions sidereal-day figure, approved August 25, was removed because its renderer prints "a few extra degrees" for about 1 degree; the figure phase must redraw it. Exam tags re-checked: all 86 files match. Branch `content/cet-finish-r1` at fa936f9ed; details in `docs/content/rewrite/cet/round-6.md` there.
+
+## November 9: CET P6, P7 and the Astra audit start
+
+- P6: all 77 CET lessons now have roadmap links (91: 8 required, 83 helpful) and 102 new wrong-choice gap tags. Sonnet drafted by subject; the lead checked every required link against both lessons and dropped three tags whose idea the question's own lesson teaches. CSE entries unchanged. This gives UPCAT real lesson links, the open item in the R1-R2 roadmap plan.
+- P7: no change. UPCAT's blueprint already says its values are reported; ACET's blueprint is on staging only, with a placeholder aptitude time and 20 verbal logic questions for 45 slots after P4; DCAT and USTET have no published format. All three go on Aedwon's final list.
+- Four open wrong-choice notes from the question check were rewritten and passed an independent Opus check after two send-backs.
+- P8 Astra: a cost test on one lesson used about 2% of one Codex account's week and found a real Blocker (the tilted tipping test), now fixed and independently checked. All 77 lessons need about 150% of one account's week; the accounts had 40% room in total until the November 11 reset. Lead ruling: audit the 17 most-fixed lessons now, stopping when total room falls below 20% so engineering keeps Codex during the beta, and the other 60 after the reset.
+- Lead errors: during the P6 merge, one write re-sorted the whole file and another removed an existing CSE tag; both were caught in the diff and reverted before commit. A recheck message to a subagent named a wrong commit id and was corrected.
+
+Branch `content/cet-finish-r1` at 80f51cdcf.
