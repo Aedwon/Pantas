@@ -93,7 +93,7 @@ payment that did not unlock Pro), and the server flags duplicate pass payments f
 student who paid by QR Ph cannot be refunded that way, and no refund event would ever revoke the
 grant. Not checked: whether the dashboard allows it, and how live mode behaves. Options: ask PayMongo
 support; refund QR Ph buyers by bank transfer with a manual revoke (needs an admin path, which does
-not exist now); or drop QR Ph from checkout. F's pass stays active on staging.
+not exist now); or drop QR Ph from checkout. Aedwon chose bank transfer plus a manual revoke (rulings below).
 
 **D8 (Medium, operations). A refund fails when the available balance is lower than the refund.**
 A one-shot ₱499 refund on G's card-paid pass returned `available_balance_insufficient`: "Refund
@@ -156,10 +156,76 @@ Clicks for Aedwon (no change was made):
 Not confirmed: which name checkout shows after an upgrade, whether a statement descriptor can be
 set, and whether the personal name can be hidden. Only PayMongo support can confirm these.
 
+### Aedwon's rulings on D7 and the merchant name (9 November)
+
+Verbatim, relayed by the manager: "okay with A. i can do manual transfers / for the name, my
+PayMongo account is still in individual mode, not sole proprietor since i still don't have my BIR
+COR. with that said, can we keep my name out or not? lean on keeping out my name, but if it's
+inevitable then i guess we have no choice".
+
+- **D7 decision:** a QR Ph refund goes out by manual bank transfer, and Aedwon then shortens or
+  revokes access by hand. He also asks PayMongo support whether the API can refund QR Ph (draft
+  below). Runbook: `docs/OPERATIONS.md`, "Manual QR Ph refund".
+- **Manual revoke tested on staging.** The runbook's command sends a signed `payment.refunded`
+  event for a refund made outside PayMongo, so the webhook's own refund logic runs: the grant,
+  later stacked grants, Pro status and sign-in claims update together. On F's QR Ph pass
+  (`pay_qvoXMQvF5UgyRTxK7u2fkegy`, ₱499): a ₱249.50 manual refund shortened the pass from
+  14 March 2027 23:59:59 to 11 January 2027 09:50:37 PHT (half its length); the same label sent
+  again changed nothing; a second ₱249.50 revoked it and set `pro: false`. Editing a grant in the
+  Firestore console is not safe: it leaves the Pro status, stacked grants and sign-in claims stale.
+
+### Going live: recommendation
+
+**Do not take live payments while the PayMongo account is in Individual mode.** Wait for the BIR
+Certificate of Registration, the DTI business name, and the upgrade to a Sole Proprietorship
+account. Reasons:
+
+- PayMongo documents no way to show a store name, or to hide the owner's name, on Hosted Checkout
+  or card statements. Today every checkout reads the legal name in its `merchant` field. The only
+  documented way to put a business name on the account is the DTI-registered name that a sole
+  proprietor account requires. Whether checkout then shows it is for PayMongo support to confirm
+  (message 1 below).
+- Selling before the COR also leaves no BIR-registered invoices to issue for those sales.
+- PayMongo's docs list online card and e-wallet acceptance among registered-account features, not
+  Individual ones (`docs/account-settings-business-types.md`). This was not tested in live mode.
+
+What our code already controls, checked in `functions/src/paymongoCheckout.ts` and
+`paymongoClient.ts`:
+
+- **Line items:** every product is named "Pantas Pro, ..." ("Pantas Pro, Civil Service, 1 month",
+  "Pantas Pro, CSE Professional pass", and so on). Already Pantas.
+- **Description:** the code sends no `description`. PayMongo shows none (read back as null).
+- **Reference number:** the code sends the order UUID as `reference_number`, and checkout shows it
+  in the header next to the merchant name (D4).
+- **Merchant name and statement descriptor:** not sent by the code. The create request documents
+  no field for either, so the code cannot change them.
+
+If PayMongo says the account name is shown regardless, the name appears on checkout; Aedwon has
+accepted that if it is unavoidable.
+
+### Messages for Aedwon to send through "Reach the Team" (drafts, not sent)
+
+**Message 1, the name shown to buyers.**
+
+> Hi PayMongo team. My account is in Individual mode. On Hosted Checkout (checkout sessions) the
+> merchant name shown to buyers is my full legal name. Can an Individual account show a store or
+> display name instead, on checkout and on the buyer's card statement? If not, after I upgrade to a
+> Sole Proprietorship with a DTI business name, will checkout and card statements show the DTI
+> business name only, without my personal name? Is there a setting or API field for the
+> statement descriptor? Thank you.
+
+**Message 2, refunding QR Ph payments.**
+
+> Hi PayMongo team. When I call POST /v1/refunds for a payment made with QR Ph through Hosted
+> Checkout, the API returns "Refunds are not allowed for payments with source type qrph." Is there
+> any way to refund a QR Ph payment, through the API or the dashboard, in test or live mode? If
+> not, what is the recommended way to return money to a QR Ph buyer, and is it the same after the
+> account is upgraded to a Sole Proprietorship? Thank you.
+
 ### Staging data left by the rerun
 
 Accounts E `bvxshuH4b4UxcdAW0PzaZdAoL063` (Monthly revoked, Weekly revoked), F
-`Xb8hbZgPhcUm9g6c9asat0ylk5m2` (pass active, QR Ph, cannot be refunded), G
+`Xb8hbZgPhcUm9g6c9asat0ylk5m2` (QR Ph pass, revoked by the manual refund test), G
 `JPpkb0SWFrRf58i6YtznlGIGfw82` (pass active, card, refund refused for balance). Temporary access
 removed: the App Check debug token "paymongo test-mode rerun (Nov 9; delete after)" was deleted; no
 IAM role was added in the rerun. The staging webhook stays enabled. All browsers were closed.
