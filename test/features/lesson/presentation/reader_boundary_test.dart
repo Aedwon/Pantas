@@ -177,6 +177,63 @@ void main() {
     expect((await contexts.readSnapshot())!.token, isNot(original));
   });
 
+  // Seventh sweep S1: on a reload Sync writes its own bookkeeping (cursors,
+  // the last backup time) while the reader is still capturing. The token is
+  // unchanged, so the lesson must still open.
+  testWidgets('an unrelated sync_meta write during capture keeps the lesson',
+      (tester) async {
+    await rotateSyncToken(SyncActiveContextStore(db));
+    final positions = _HeldBoundaryChecks(db)..hold = 1;
+    await tester.pumpAppWithProviders(
+      const LessonPage(lessonId: 'l'),
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(content),
+        readerPositionRepositoryProvider.overrideWithValue(positions),
+      ],
+    );
+    for (var i = 0; i < 20 && positions.checks.isEmpty; i++) {
+      await tester.pump();
+    }
+    expect(positions.checks, hasLength(1));
+    await db.into(db.syncMeta).insert(
+          SyncMetaCompanion.insert(
+            key: 'last_backup_at:u',
+            value: '2026-11-09T00:00:00Z',
+          ),
+        );
+    await tester.pump();
+    positions.checks.single.complete();
+    await tester.pumpAndSettle();
+    expect(find.text('Could not load this lesson.'), findsNothing);
+    expect(find.text('Circles'), findsOneWidget);
+  });
+
+  testWidgets('a token change during capture still expires the page',
+      (tester) async {
+    await rotateSyncToken(SyncActiveContextStore(db));
+    final positions = _HeldBoundaryChecks(db)..hold = 1;
+    await tester.pumpAppWithProviders(
+      const LessonPage(lessonId: 'l'),
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(content),
+        readerPositionRepositoryProvider.overrideWithValue(positions),
+      ],
+    );
+    for (var i = 0; i < 20 && positions.checks.isEmpty; i++) {
+      await tester.pump();
+    }
+    expect(positions.checks, hasLength(1));
+    // The held check has already read the old token; the change lands after.
+    final release = positions.checks.single;
+    positions.hold = 0;
+    release.complete();
+    await rotateSyncToken(SyncActiveContextStore(db));
+    await tester.pumpAndSettle();
+    expect(find.text('Circles'), findsNothing);
+  });
+
   testWidgets('new page rejects a cached context with old provenance',
       (tester) async {
     await pump(tester);

@@ -74,7 +74,7 @@ class _BackupPageState extends ConsumerState<BackupPage> {
     });
     final telemetry = ref.read(telemetryProvider);
     try {
-      await runtime.forceFlush();
+      await runtime.retry();
     } catch (error, stack) {
       await telemetry.recordError(error, stack);
       if (mounted && uid == ref.read(currentUserProvider).valueOrNull?.uid) {

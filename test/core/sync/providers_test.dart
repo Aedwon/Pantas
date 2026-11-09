@@ -60,6 +60,9 @@ class RecordingRuntimeSurface implements SyncRuntimeSurface {
   }
 
   @override
+  Future<void> retry() => forceFlush();
+
+  @override
   Future<void> update({
     required SyncIdentity identity,
     required SyncEntitlement entitlement,
