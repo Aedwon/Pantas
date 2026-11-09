@@ -229,6 +229,7 @@ class PantasPage extends StatelessWidget {
             child: ConstrainedBox(
               constraints: BoxConstraints(
                 minHeight: centerBody
+                    // ds-board: title block inset 36, no token
                     ? (constraints.maxHeight - 36).clamp(0, double.infinity)
                     : 0,
               ),
@@ -252,6 +253,7 @@ class PantasPage extends StatelessWidget {
                           narrowRule: false,
                           style: settingsPicker
                               ? context.type.pageTitleCompact
+                                  // ds-board: settings picker title leading 1.2
                                   .copyWith(height: 1.2)
                               : context.type.pageTitle,
                         ),

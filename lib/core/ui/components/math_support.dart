@@ -495,6 +495,7 @@ InlineSpan inlineMathSpan(
         // font size the maths reads smaller and sits low against the words,
         // although both share one baseline. Sizing it up evens the two.
         final sized = body.copyWith(
+          // ds-board: fallback size 14 when no style is set
           fontSize: (body.fontSize ?? inherited.fontSize ?? 14) *
               inlineMathSizeFactor,
         );

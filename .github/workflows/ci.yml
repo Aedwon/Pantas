@@ -9,7 +9,7 @@ on:
     paths-ignore: ['docs/**', '**.md']
   push:
     # Staging only fast-forwards to a commit that already ran here.
-    branches: [main, 'web/**', '!web/staging-candidate-r1']
+    branches: [main, 'web/**', 'ds4/**', '!web/staging-candidate-r1']
     paths-ignore: ['docs/**', '**.md']
 
 concurrency:
@@ -35,6 +35,15 @@ jobs:
         # lib and test only, which is what the repo formats. Generated
         # files now exist by this point and they are not ours to format.
         run: dart format --output=none --set-exit-if-changed lib test
+
+      - name: Design lint
+        # The ratchet over tool/lints. It runs dart analyze because flutter
+        # analyze stops before the plugin reports. Plan: guardrails layer 2.
+        run: dart run tool/checks/design_lint.dart
+
+      - name: Design lint rule tests
+        working-directory: tool/lints
+        run: dart pub get && dart test
 
       - name: dart analyze
         run: flutter analyze

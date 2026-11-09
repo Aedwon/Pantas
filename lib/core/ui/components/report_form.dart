@@ -255,6 +255,7 @@ class _ReportFormState extends State<ReportForm> {
                                   'right away.'
                               : 'Something wrong or unclear? Tell us '
                                   "and we'll check it.",
+                  // ds-board: hint leading 1.4, no token
                   style: context.type.footnote.copyWith(height: 1.4),
                 ),
                 const SizedBox(height: PantasSpace.s12),
@@ -550,7 +551,7 @@ class _WebReportPanelState extends State<_WebReportPanel> {
                               ),
                             ),
                             SizedBox.square(
-                              dimension: 32,
+                              dimension: PantasSize.iconBtnSm,
                               child: IconButton(
                                 tooltip: 'Close report',
                                 padding: EdgeInsets.zero,

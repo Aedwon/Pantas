@@ -41,9 +41,13 @@ import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 
 // Heights of the demo frames. The design system sets no height for them.
+// ds-board: gallery demo frame, system sets none
 const double _pageFrameHeight = 260;
+// ds-board: gallery demo frame, system sets none
 const double _stepsFrameHeight = 360;
+// ds-board: gallery demo frame, system sets none
 const double _stateFrameHeight = 420;
+// ds-board: gallery demo frame, system sets none
 const double _figureFrameHeight = 80;
 
 class ComponentGalleryPage extends StatefulWidget {

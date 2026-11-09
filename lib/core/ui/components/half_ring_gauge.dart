@@ -32,15 +32,25 @@ const double _wideMockStroke = 18;
 const wideQuizDial = Size(_wideQuizWidth, _wideQuizHeight);
 
 /// Number and unit sizes of those boards.
+// ds-board: gauge number 56, no token (board)
 const double _largeNumber = 56;
+// ds-board: gauge number 64, no token (board)
 const double _wideMockNumber = 64;
+// ds-board: gauge unit 24, no token (board)
 const double _largeUnit = 24;
+// ds-board: gauge unit 26, no token (board)
 const double _wideMockUnit = 26;
+// ds-board: quiz count 60, no token (board)
 const double _quizCount = 60;
+// ds-board: quiz count 76, no token (board)
 const double _wideQuizCount = 76;
+// ds-board: quiz count row 64, no token (board)
 const double _quizCountHeight = 64;
+// ds-board: quiz count row 80, no token (board)
 const double _wideQuizCountHeight = 80;
+// ds-board: quiz total 24, no token (board)
 const double _quizTotal = 24;
+// ds-board: quiz total 28, no token (board)
 const double _wideQuizTotal = 28;
 const Duration _quizWait = Duration(milliseconds: 400);
 const Duration _quizDuration = Duration(milliseconds: 1600);
@@ -369,6 +379,7 @@ class _HalfRingGaugeState extends State<HalfRingGauge>
                                             : large
                                                 ? _largeNumber
                                                 : null,
+                                        // ds-board: gauge number line height 1
                                         height: large ? 1 : null,
                                       ),
                                     ),

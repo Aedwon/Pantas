@@ -69,11 +69,13 @@ class PantasSlider extends StatelessWidget {
     final startStyle = PantasType.webLabel.copyWith(
       color: colors.textSecondary,
       fontWeight: FontWeight.w500,
+      // ds-board: slider label line height 1
       height: 1,
     );
     final endStyle = PantasType.webStatUnit.copyWith(
       color: colors.textSecondary,
       fontWeight: FontWeight.w500,
+      // ds-board: slider label line height 1
       height: 1,
     );
     final valueStyle = PantasType.webLink.copyWith(

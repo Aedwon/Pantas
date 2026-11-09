@@ -698,6 +698,7 @@ class ListRow extends StatelessWidget {
                             if (naturalValue)
                               ConstrainedBox(
                                 constraints:
+                                    // ds-board: natural value cap 140, no token
                                     const BoxConstraints(maxWidth: 140),
                                 child: detail,
                               )

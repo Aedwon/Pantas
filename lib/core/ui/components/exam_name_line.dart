@@ -100,6 +100,7 @@ class ExamChip extends StatelessWidget {
             Text(
               empty ? 'DATE' : month!.toUpperCase(),
               style: PantasType.webPro.copyWith(
+                // ds-board: month label line height 1
                 height: 1,
                 color: c.textSecondary,
               ),

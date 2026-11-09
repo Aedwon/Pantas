@@ -342,6 +342,7 @@ class _SelectionMark extends StatelessWidget {
   final double size;
 
   /// The check drawn inside the mark, `size-check` 24 to 14.
+  // ds-board: check glyph 14 (size-check 24 to 14)
   static const double _glyph = 14;
   static const double _pressedScale = 0.94;
 
