@@ -40,11 +40,11 @@ On a level support (a flat, horizontal surface), compare the weight line with th
 - if it falls exactly on the **edge** of the base, the object is at the tipping threshold, the point where it is just about to tip;
 - if it falls **outside** the edge and nothing holds the object, gravity turns it farther over and it tips.
 
-If the object is tilted slowly, it touches the support only along the bottom edge it turns on, called the pivot edge. Compare the weight line with that pivot edge:
+If the object is tilted slowly, it touches the support only along the edge or point it turns on, called the pivot edge. Compare the weight line with that pivot edge:
 
 - if the weight line is still on the same side of the pivot edge as the object's own base, gravity turns the object back down;
 - if it is exactly over the pivot edge, the object is at the tipping threshold;
-- if it is past the pivot edge, on the far side from the object's base, gravity turns it farther over and it tips.
+- if it is past the pivot edge, on the far side from the object's base, and nothing holds the object, gravity turns it farther over and it tips.
 
 This test uses only the shape of the object and where its center of gravity sits. It does not say anything about sliding.
 

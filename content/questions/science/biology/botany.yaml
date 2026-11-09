@@ -251,7 +251,7 @@ questions:
           This turns a shoot response into a fixed root rule. Roots and shoots are both plant organs that sense light, so a stronger root response seems possible. Check whether root light responses can differ between plants.
       - text: "No; roots mainly respond to gravity, so light usually has no effect on them."
         rationale: |
-          This mixes up the main cue for roots with the only cue. Roots respond strongly to gravity, so light can seem irrelevant to them. Check the claim "light usually has no effect" by asking whether roots grown with light from one side ever bend differently from roots grown in the dark. If they do, light affects them.
+          This treats the strong gravity response of roots as proof that light usually does nothing to them. Roots respond strongly to gravity, so light can seem irrelevant. Check how often roots respond to light by comparing roots of several species grown with light from one side, since many bend away from it.
     explanation: |
       A shoot commonly grows toward light. Root responses to light vary with the species and conditions. The shoot response alone cannot tell us how the roots will grow.
     approved: true
