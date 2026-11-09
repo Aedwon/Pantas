@@ -75,6 +75,21 @@ class WebOverlayMotion {
     fade: true,
   );
 
+  /// Reduced motion (Drawer, Dialog and Sheet READMEs): the panel and the
+  /// scrim fade in place over 150 ms, with no slide, rise or travel.
+  static const reduced = WebOverlayMotion(
+    open: PantasDurations.short2,
+    close: PantasDurations.short2,
+    curve: PantasCurves.linear,
+    scrim: PantasDurations.short2,
+    scrimCurve: PantasCurves.linear,
+    fade: true,
+  );
+
+  /// This motion, or [reduced] when the platform asks for reduced motion.
+  WebOverlayMotion forContext(BuildContext context) =>
+      MediaQuery.disableAnimationsOf(context) ? reduced : this;
+
   final Duration open;
   final Duration close;
   final Curve curve;
@@ -210,8 +225,9 @@ mixin OverlayFocusReturn<T extends StatefulWidget> on State<T> {
 
 /// Lets a page play a [WebOverlayLayer]'s exit before it leaves. The page keeps
 /// one, passes it to the layer, and calls [close] with what leaving does. The
-/// layer runs that once its exit has ended. With no layer to play it, or with
-/// reduced motion, [close] leaves at once. A second [close] does nothing.
+/// layer runs that once its exit has ended. With no layer to play it, [close]
+/// leaves at once; with reduced motion the layer fades out over 150 ms first.
+/// A second [close] does nothing.
 class WebOverlayExit {
   _WebOverlayLayerState? _layer;
   VoidCallback? _leave;
@@ -242,8 +258,8 @@ class WebOverlayExit {
 /// Draws a scrim and [child] over its parent and plays [motion] once, as the
 /// layer first appears. A page that opens with the overlay already in place (a
 /// direct address, a root modal) uses it, since no route is there to animate.
-/// With reduced motion it is in place at once. Give it an [exit] to play the
-/// motion backward before the page leaves.
+/// With reduced motion the panel and scrim fade in place over 150 ms. Give it
+/// an [exit] to play the motion backward before the page leaves.
 class WebOverlayLayer extends StatefulWidget {
   const WebOverlayLayer({
     required this.motion,
@@ -279,6 +295,9 @@ class _WebOverlayLayerState extends State<WebOverlayLayer>
     vsync: this,
     duration: widget.motion.open,
     reverseDuration: widget.motion.close,
+    // Reduced motion shortens nothing here: it swaps the slide for a 150 ms
+    // fade. The default behavior would run that fade at 5% of its time.
+    animationBehavior: AnimationBehavior.preserve,
   );
   bool _started = false;
 
@@ -302,23 +321,19 @@ class _WebOverlayLayerState extends State<WebOverlayLayer>
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
+    final motion = widget.motion.forContext(context);
+    _controller
+      ..duration = motion.open
+      ..reverseDuration = motion.close;
     if (_started) return;
     _started = true;
-    if (MediaQuery.disableAnimationsOf(context)) {
-      _controller.value = 1;
-    } else {
-      unawaited(_controller.forward());
-    }
+    unawaited(_controller.forward());
   }
 
   /// Plays the exit. The exit's callback runs when the controller reaches 0.
   void _play() {
     setState(() {});
-    if (MediaQuery.disableAnimationsOf(context)) {
-      _controller.value = 0;
-    } else {
-      unawaited(_controller.reverse());
-    }
+    unawaited(_controller.reverse());
     if (mounted && _controller.isDismissed) widget.exit?._finish();
   }
 
@@ -332,12 +347,13 @@ class _WebOverlayLayerState extends State<WebOverlayLayer>
   @override
   Widget build(BuildContext context) {
     final closing = widget.exit?.closing ?? false;
+    final motion = widget.motion.forContext(context);
     return Stack(
       fit: StackFit.expand,
       children: [
         AnimatedModalBarrier(
           color: _controller
-              .drive(CurveTween(curve: widget.motion.routeScrimCurve))
+              .drive(CurveTween(curve: motion.routeScrimCurve))
               .drive(
                 ColorTween(
                   begin: widget.barrierColor.withValues(alpha: 0),
@@ -352,7 +368,7 @@ class _WebOverlayLayerState extends State<WebOverlayLayer>
           alignment: widget.alignment,
           child: IgnorePointer(
             ignoring: closing,
-            child: widget.motion.transition(_controller, widget.child),
+            child: motion.transition(_controller, widget.child),
           ),
         ),
       ],
@@ -395,8 +411,11 @@ class WebOverlayRoute<T> extends PopupRoute<T> {
   final WebOverlayMotion motion;
   final WidgetBuilder builder;
 
-  /// Reduced motion: the overlay appears and leaves at once.
+  /// Reduced motion: the overlay fades in place over 150 ms, panel and scrim,
+  /// with no slide or rise.
   final bool still;
+
+  WebOverlayMotion get _motion => still ? WebOverlayMotion.reduced : motion;
 
   @override
   final Color? barrierColor;
@@ -406,14 +425,24 @@ class WebOverlayRoute<T> extends PopupRoute<T> {
   final String barrierLabel;
 
   @override
-  Curve get barrierCurve => motion.routeScrimCurve;
+  Curve get barrierCurve => _motion.routeScrimCurve;
+
+  // The default controller runs at 5% of its time under the system's reduced
+  // motion setting. The 150 ms fade keeps its length.
+  @override
+  AnimationController createAnimationController() => AnimationController(
+        duration: transitionDuration,
+        reverseDuration: reverseTransitionDuration,
+        debugLabel: debugLabel,
+        vsync: navigator!,
+        animationBehavior: AnimationBehavior.preserve,
+      );
 
   @override
-  Duration get transitionDuration => still ? Duration.zero : motion.open;
+  Duration get transitionDuration => _motion.open;
 
   @override
-  Duration get reverseTransitionDuration =>
-      still ? Duration.zero : motion.close;
+  Duration get reverseTransitionDuration => _motion.close;
 
   @override
   Widget buildPage(
@@ -434,5 +463,5 @@ class WebOverlayRoute<T> extends PopupRoute<T> {
     Animation<double> secondaryAnimation,
     Widget child,
   ) =>
-      motion.transition(animation, child);
+      _motion.transition(animation, child);
 }

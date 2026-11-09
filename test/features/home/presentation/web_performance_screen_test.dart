@@ -245,10 +245,14 @@ void main() {
       expect(tester.takeException(), isNull);
     });
 
-    testWidgets('reduced motion goes home at once', (tester) async {
+    testWidgets('reduced motion fades out over 150 ms, then goes home',
+        (tester) async {
       await openByAddress(tester, still: true);
       await tester.tapAt(const Offset(100, 100));
       await tester.pump();
+      await tester.pump();
+      expect(find.text('open'), findsNothing);
+      await tester.pump(const Duration(milliseconds: 160));
       await tester.pump();
       expect(find.text('open'), findsOneWidget);
     });

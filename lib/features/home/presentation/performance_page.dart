@@ -398,6 +398,7 @@ class _PerformancePageState extends State<PerformancePage> {
     return PantasSheet(
       page: page,
       label: 'Subjects',
+      closeLabel: 'Cancel',
       open: _picker,
       onDismiss: () => setState(() => _picker = false),
       readerContents: true,

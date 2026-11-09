@@ -679,6 +679,7 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
                       : 'New questions',
           open: _sheet != null && data != null,
           onDismiss: _dismiss,
+          closeLabel: 'Close',
           readerContents: true,
           scrollable: false,
           child: data == null ? const SizedBox.shrink() : _contents(data),

@@ -84,6 +84,7 @@ void main() {
           brightness: brightness,
           disableAnimations: true,
         );
+        await tester.pump(const Duration(milliseconds: 150));
         final current = find
             .bySemanticsLabel(RegExp('Question 1.*current.*correct.*flagged'));
         expect(current, findsOneWidget);

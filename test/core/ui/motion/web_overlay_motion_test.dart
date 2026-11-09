@@ -1,8 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
 
 const _panel = Key('panel');
+
+/// The operating system's reduced motion setting. A controller left on its
+/// default behavior runs at 5% of its time under it, so a fade that must last
+/// 150 ms is only proved with this set.
+void _systemReducedMotion(WidgetTester tester) {
+  tester.platformDispatcher.accessibilityFeaturesTestValue =
+      const FakeAccessibilityFeatures(disableAnimations: true);
+  addTearDown(tester.platformDispatcher.clearAccessibilityFeaturesTestValue);
+}
 
 Future<void> _open(
   WidgetTester tester, {
@@ -12,6 +22,7 @@ Future<void> _open(
   tester.view.physicalSize = const Size(1440, 900);
   tester.view.devicePixelRatio = 1;
   addTearDown(tester.view.reset);
+  if (still) _systemReducedMotion(tester);
   await tester.pumpWidget(
     MaterialApp(
       home: MediaQuery(
@@ -75,10 +86,66 @@ void main() {
     expect(tester.getTopLeft(find.byKey(_panel)).dy, 0);
   });
 
-  testWidgets('reduced motion shows the overlay at once', (tester) async {
-    await _open(tester, motion: WebOverlayMotion.drawer, still: true);
-    await tester.pump();
-    expect(tester.getTopLeft(find.byKey(_panel)).dx, 1040);
+  group('reduced motion fades in place over 150 ms', () {
+    double panelOpacity(WidgetTester tester) => tester
+        .widget<Opacity>(
+          find
+              .ancestor(of: find.byKey(_panel), matching: find.byType(Opacity))
+              .first,
+        )
+        .opacity;
+
+    double routeScrim(WidgetTester tester) => tester
+        .widget<AnimatedModalBarrier>(find.byType(AnimatedModalBarrier).last)
+        .color
+        .value!
+        .a;
+
+    for (final entry in {
+      'drawer': WebOverlayMotion.drawer,
+      'dialog': WebOverlayMotion.dialog,
+      'lesson': WebOverlayMotion.lesson,
+    }.entries) {
+      testWidgets('a ${entry.key} route fades with no slide or rise',
+          (tester) async {
+        await _open(tester, motion: entry.value, still: true);
+        final place = tester.getTopLeft(find.byKey(_panel));
+        await tester.pump(const Duration(milliseconds: 75));
+        expect(tester.getTopLeft(find.byKey(_panel)), place);
+        expect(place.dx, 1040);
+        expect(place.dy, 0);
+        expect(panelOpacity(tester), closeTo(.5, .02));
+        expect(routeScrim(tester), closeTo(.54 / 2, .02));
+        await tester.pump(const Duration(milliseconds: 76));
+        expect(panelOpacity(tester), 1);
+        expect(routeScrim(tester), closeTo(.54, .01));
+      });
+    }
+
+    testWidgets('a route fades out over 150 ms and leaves', (tester) async {
+      await _open(tester, motion: WebOverlayMotion.drawer, still: true);
+      await tester.pumpAndSettle();
+      await tester.tapAt(const Offset(100, 100));
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 75));
+      expect(tester.getTopLeft(find.byKey(_panel)).dx, 1040);
+      expect(panelOpacity(tester), closeTo(.5, .02));
+      await tester.pump(const Duration(milliseconds: 80));
+      await tester.pump();
+      expect(find.byKey(_panel), findsNothing);
+    });
+  });
+
+  test('the reduced preset fades in 150 ms with no travel', () {
+    const reduced = WebOverlayMotion.reduced;
+    expect(reduced.open, PantasDurations.short2);
+    expect(reduced.close, PantasDurations.short2);
+    expect(reduced.scrim, PantasDurations.short2);
+    expect(reduced.open.inMilliseconds, 150);
+    expect(reduced.slide, Offset.zero);
+    expect(reduced.rise, 0);
+    expect(reduced.travel, 0);
+    expect(reduced.fade, isTrue);
   });
 
   test('the drawer carries the phone sheet numbers', () {
@@ -123,6 +190,7 @@ void main() {
       tester.view.physicalSize = const Size(1440, 900);
       tester.view.devicePixelRatio = 1;
       addTearDown(tester.view.reset);
+      if (still) _systemReducedMotion(tester);
       await tester.pumpWidget(
         MaterialApp(
           home: MediaQuery(
@@ -172,9 +240,41 @@ void main() {
       );
     });
 
-    testWidgets('reduced motion puts it in place at once', (tester) async {
+    testWidgets('reduced motion fades panel and scrim in place over 150 ms',
+        (tester) async {
       await mount(tester, still: true);
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 75));
       expect(tester.getTopLeft(find.byKey(_panel)).dx, 1040);
+      final fade = tester.widget<Opacity>(
+        find
+            .ancestor(of: find.byKey(_panel), matching: find.byType(Opacity))
+            .first,
+      );
+      expect(fade.opacity, closeTo(.5, .02));
+      expect(
+        tester
+            .widget<AnimatedModalBarrier>(find.byType(AnimatedModalBarrier))
+            .color
+            .value!
+            .a,
+        closeTo(.28 / 2, .02),
+      );
+      await tester.pump(const Duration(milliseconds: 76));
+      expect(tester.hasRunningAnimations, isFalse);
+      expect(
+        tester
+            .widget<Opacity>(
+              find
+                  .ancestor(
+                    of: find.byKey(_panel),
+                    matching: find.byType(Opacity),
+                  )
+                  .first,
+            )
+            .opacity,
+        1,
+      );
     });
 
     Color scrim(WidgetTester tester) => tester
@@ -222,15 +322,22 @@ void main() {
       expect(left, 1);
     });
 
-    testWidgets('reduced motion leaves at once with nothing pending',
+    testWidgets('reduced motion fades out over 150 ms, then leaves once',
         (tester) async {
       final exit = WebOverlayExit();
       var left = 0;
       await mount(tester, still: true, exit: exit);
-      await tester.pump();
+      await tester.pumpAndSettle();
       exit.close(() => left++);
-      expect(left, 1);
+      expect(left, 0);
       await tester.pump();
+      await tester.pump(const Duration(milliseconds: 75));
+      expect(left, 0);
+      expect(tester.getTopLeft(find.byKey(_panel)).dx, 1040);
+      expect(scrim(tester).a, inExclusiveRange(0, .28));
+      await tester.pump(const Duration(milliseconds: 80));
+      await tester.pump();
+      expect(left, 1);
       expect(tester.hasRunningAnimations, isFalse);
       expect(scrim(tester).a, 0);
     });

@@ -338,15 +338,18 @@ class QuestionGridSheet extends StatelessWidget {
       open: open,
       onDismiss: onDismiss,
       label: title,
+      closeLabel: 'Close',
       // MK_Sheet: the mock sheet is 664 px under 180 px of the page.
       topInset: pinned ? 272 : (mock ? 180 : 0),
       scrollable: !pinned,
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(
+        // The sheet's Close button brings the bottom padding. A footer button
+        // above it sits 8 apart, as stacked sheet actions do.
+        padding: EdgeInsets.fromLTRB(
           PantasSpace.s20,
           PantasSpace.s8,
           PantasSpace.s20,
-          PantasSpace.s32,
+          footer == null ? PantasSpace.s16 : PantasSpace.s0,
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -362,7 +365,13 @@ class QuestionGridSheet extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(height: PantasSpace.s16),
+              // The Close button below needs room at large text on a short
+              // phone, so the gap tightens there and stays 16 otherwise.
+              SizedBox(
+                height: MediaQuery.textScalerOf(context).scale(16) > 24
+                    ? PantasSpace.s12
+                    : PantasSpace.s16,
+              ),
               footer!,
             ] else ...[
               ...body,

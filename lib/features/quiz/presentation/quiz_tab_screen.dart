@@ -288,6 +288,7 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
       label: label,
       open: _questionSheet != null && examId != null,
       onDismiss: _dismissQuestions,
+      closeLabel: 'Close',
       readerContents: true,
       scrollable: false,
       child: _questionSheet != null && examId != null
