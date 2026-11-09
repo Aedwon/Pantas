@@ -38,6 +38,15 @@ import 'package:pantas/features/settings/settings.dart';
 const _note = 'Your progress stays in this browser. '
     'Signing in gives you an account you can come back to.';
 
+/// The room the footer's button pair needs on one line. The pair measures 423
+/// at 1.0 text: 98 of button padding, icon and gap that do not scale, and 325
+/// of label that does. Scaling only the labels keeps the stack decision
+/// following the real text size.
+double _pairWidth(BuildContext context) {
+  final scale = MediaQuery.textScalerOf(context).scale(1);
+  return 98 + 325 * scale;
+}
+
 class AccountPage extends ConsumerStatefulWidget {
   const AccountPage({super.key});
   @override
@@ -134,8 +143,7 @@ class _AccountPageState extends ConsumerState<AccountPage> {
                 ? null
                 : CardFooter(
                     caption: 'You get your own Pantas ID when you sign in.',
-                    // Two buttons are about 423 wide at 1.0 text.
-                    actionMinWidth: 423,
+                    actionMinWidth: _pairWidth(context),
                     action: Wrap(
                       spacing: PantasSpace.s12,
                       runSpacing: PantasSpace.s12,
@@ -162,7 +170,7 @@ class _AccountPageState extends ConsumerState<AccountPage> {
                     ),
                   ),
             footer: user == null
-                ? null
+                ? _errorMessage ?? _note
                 : digits == null
                     ? "It shows up the next time you're online."
                     : 'This is safe to share publicly.',
@@ -207,11 +215,6 @@ class _AccountPageState extends ConsumerState<AccountPage> {
           ),
           const SizedBox(height: PantasSpace.s24),
           if (user == null) ...[
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: PantasSpace.s16),
-              child: Text(_errorMessage ?? _note, style: t.sm),
-            ),
-            const SizedBox(height: PantasSpace.s24),
             Align(
               alignment: Alignment.centerLeft,
               child: WebButton(

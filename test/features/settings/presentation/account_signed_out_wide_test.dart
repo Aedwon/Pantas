@@ -1,9 +1,12 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/auth/auth.dart';
 import 'package:pantas/core/ui/components/card_footer.dart';
+import 'package:pantas/core/ui/components/google_sign_in_button.dart';
 import 'package:pantas/core/ui/components/pantas_button_spec.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
@@ -18,10 +21,12 @@ const _note = 'Your progress stays in this browser. '
 
 class _Repo implements AuthRepository {
   int googleCalls = 0;
+  Completer<SignInResult>? gate;
+  SignInResult result = const SignInResult.cancelled();
   @override
   Future<SignInResult> signInWithGoogle() async {
     googleCalls++;
-    return const SignInResult.cancelled();
+    return gate?.future ?? result;
   }
 
   @override
@@ -32,19 +37,30 @@ Future<List<String>> _pump(
   WidgetTester tester,
   DsCell cell, {
   _Repo? repo,
+  AuthUser? user,
+  double? paneWidth,
+  bool web = true,
 }) async {
   final pushed = <String>[];
   tester.view
     ..physicalSize = Size(cell.width, 1400)
     ..devicePixelRatio = 1;
-  debugWebPlatformOverride = true;
+  debugWebPlatformOverride = web;
   addTearDown(() {
     tester.view.reset();
     debugWebPlatformOverride = null;
   });
   final router = GoRouter(
     routes: [
-      GoRoute(path: '/', builder: (_, __) => const AccountPage()),
+      GoRoute(
+        path: '/',
+        builder: (_, __) => paneWidth == null
+            ? const AccountPage()
+            : Align(
+                alignment: Alignment.topLeft,
+                child: SizedBox(width: paneWidth, child: const AccountPage()),
+              ),
+      ),
       GoRoute(
         path: '/auth/email-link',
         builder: (_, __) {
@@ -64,9 +80,9 @@ Future<List<String>> _pump(
   await tester.pumpWidget(
     ProviderScope(
       overrides: [
-        currentUserProvider.overrideWith((ref) => null),
+        currentUserProvider.overrideWith((ref) => user),
         authRepositoryProvider.overrideWithValue(repo ?? _Repo()),
-        paymentsOnWebProvider.overrideWithValue(true),
+        paymentsOnWebProvider.overrideWithValue(web),
       ],
       child: MediaQuery(
         data: MediaQueryData(
@@ -74,9 +90,8 @@ Future<List<String>> _pump(
           textScaler: TextScaler.linear(cell.scale),
         ),
         child: MaterialApp.router(
-          theme: cell.dark
-              ? buildDarkTheme(web: true)
-              : buildLightTheme(web: true),
+          theme:
+              cell.dark ? buildDarkTheme(web: web) : buildLightTheme(web: web),
           routerConfig: router,
         ),
       ),
@@ -178,5 +193,117 @@ void main() {
     await tester.tap(find.text('Delete My Data'));
     await tester.pumpAndSettle();
     expect(pushed, ['/settings/account/delete']);
+  });
+
+  testWidgets('the note is the group note, 8px under the card', (tester) async {
+    await _pump(tester, const DsCell(1440, 1, dark: false));
+    final card = tester.getRect(
+      find.ancestor(
+        of: find.byType(CardFooter),
+        matching: find.byType(WebCard),
+      ),
+    );
+    expect(tester.getTopLeft(find.text(_note)).dy - card.bottom, 8);
+  });
+
+  for (final w in [1440.0, 1024.0]) {
+    for (final scale in [1.5, 2.0]) {
+      for (final pane in w == 1024 ? [null, 468.0] : <double?>[null]) {
+        testWidgets('pair stays inside the card ($w x$scale pane $pane)',
+            (tester) async {
+          await _pump(tester, DsCell(w, scale, dark: false), paneWidth: pane);
+          // The settings rows above the footer already overflow in a 468
+          // pane at large text (not this footer's doing), so that case only
+          // checks the footer's own geometry.
+          if (pane == null) {
+            expect(tester.takeException(), isNull);
+          } else {
+            while (tester.takeException() != null) {}
+          }
+          final f = tester.getRect(find.byKey(const ValueKey('card-footer')));
+          final email = tester.getRect(_button('Continue with Email'));
+          final google = tester.getRect(_button('Continue with Google'));
+          for (final r in [email, google]) {
+            expect(r.left, greaterThanOrEqualTo(f.left));
+            expect(r.right, lessThanOrEqualTo(f.right));
+            expect(r.bottom, lessThanOrEqualTo(f.bottom));
+          }
+        });
+      }
+    }
+  }
+
+  testWidgets('busy: both buttons are disabled and Google says Signing in',
+      (tester) async {
+    final repo = _Repo()..gate = Completer<SignInResult>();
+    await _pump(tester, const DsCell(1440, 1, dark: false), repo: repo);
+    await tester.tap(_button('Continue with Google'));
+    await tester.pump();
+    expect(find.text('Signing in…'), findsOneWidget);
+    expect(find.text('Continue with Google'), findsNothing);
+    expect(tester.widget<TextButton>(_button('Signing in…')).onPressed, isNull);
+    expect(
+      tester.widget<TextButton>(_button('Continue with Email')).onPressed,
+      isNull,
+    );
+    repo.gate!.complete(const SignInResult.cancelled());
+    await tester.pumpAndSettle();
+    expect(find.text('Continue with Google'), findsOneWidget);
+    expect(
+      tester.widget<TextButton>(_button('Continue with Email')).onPressed,
+      isNotNull,
+    );
+  });
+
+  testWidgets('a Google failure text replaces the note, as before',
+      (tester) async {
+    final repo = _Repo()
+      ..result = const SignInResult.failed(reason: 'network-request-failed');
+    await _pump(tester, const DsCell(1440, 1, dark: false), repo: repo);
+    await tester.tap(_button('Continue with Google'));
+    await tester.pumpAndSettle();
+    expect(find.text('You need a connection to sign in.'), findsOneWidget);
+    expect(find.text(_note), findsNothing);
+  });
+
+  testWidgets('the shared Google button without a size stays 48 tall',
+      (tester) async {
+    await pumpDs(
+      tester,
+      const DsCell(1440, 1, dark: false),
+      GoogleSignInButton(onPressed: () {}),
+    );
+    expect(tester.getSize(find.byType(TextButton)).height, 48);
+  });
+
+  testWidgets('phone signed out is unchanged: no footer, full-width Google',
+      (tester) async {
+    await _pump(
+      tester,
+      const DsCell(390, 1, dark: false),
+      web: false,
+    );
+    expect(find.byType(CardFooter), findsNothing);
+    expect(
+      tester.getSize(_button('Continue with Google')).width,
+      greaterThan(300),
+    );
+    expect(find.text('Continue with Email'), findsNothing);
+    expect(find.textContaining('on this phone'), findsOneWidget);
+    expect(find.text('Delete My Data'), findsOneWidget);
+  });
+
+  testWidgets('wide signed in is unchanged: no footer, Sign Out and Delete',
+      (tester) async {
+    await _pump(
+      tester,
+      const DsCell(1440, 1, dark: false),
+      user: const AuthUser(uid: 'u', email: 'a@example.com', displayName: 'A'),
+    );
+    expect(find.byType(CardFooter), findsNothing);
+    expect(find.text('Sign Out'), findsOneWidget);
+    expect(find.text('Delete Account'), findsOneWidget);
+    expect(find.text('Continue with Google'), findsNothing);
+    expect(find.text('Delete My Data'), findsNothing);
   });
 }
