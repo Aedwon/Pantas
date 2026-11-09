@@ -758,8 +758,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                             ),
                           if (showOffers)
                             if (web && anonymous)
-                              WebButton(
-                                label: 'Continue with Google',
+                              GoogleSignInButton(
                                 onPressed: () =>
                                     context.push<void>('/settings/account'),
                               )

@@ -2790,8 +2790,8 @@ Each fix has a test that failed first.
 - FIXED. Mock pause at 390 and 200%: a long part name wraps; the row grows and the arrow follows.
 - NOT CHANGED (the approved mobile board CM_Setup draws it). Mock custom setup keeps the chevron "I know the section breakdown" row and the filled Questions and Time wells on the phone.
 - FIXED. Phone Appearance: with Automatic on, the tile of the theme in effect shows selected; with it off, the chosen one.
-- FIXED. "Continue with Google" on the phone Account and Pro pages is the white Google button with the G (one shared button). The wide Pro page still draws its own plain button without the G.
-- NOT CHANGED, DECISION NEEDED. Change exam at 320: the board "f A" and its test say a long organization stays on one line and ends in an ellipsis beside "Coming soon" (it wraps once the label moves under at large text). The round 2 finding asks for a wrap. Either let the label drop under the organization at narrow widths too, or keep the board.
+- FIXED. "Continue with Google" on the phone Account and Pro pages is the white Google button with the G (one shared button). The wide Pro page uses it too.
+- FIXED (lead ruling: the system wins over board f A). A long organization beside "Coming soon" wraps at 320; the label stays at the row end and stacks under it above 1.5x.
 - FIXED. Custom quiz Start bar at 200%: Start sits 20 px from the right edge, equal to the left inset.
 - FIXED. Settings > What's included on the phone: the exam name shows once.
 - FIXED. Wide email sign-in: "Welcome to Pantas" stays on one line (no board draws this page). The form keeps 420 px.

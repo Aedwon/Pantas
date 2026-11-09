@@ -299,20 +299,15 @@ class ListRow extends StatelessWidget {
                                   comingSoon ? c.textDisabled : c.textPrimary,
                             ),
                           ),
-                          // Board "f A": beside "Coming soon" the organization
-                          // stays on one line and ends in an ellipsis. At
-                          // large text the label moves under it (ruling 12)
-                          // and the line has the full width.
+                          // The organization wraps (README); "Coming soon"
+                          // stays at the row end, and moves under it at large
+                          // text (ruling 12).
                           Text(
                             subtitle ?? '',
                             style: subBase.copyWith(
                               color:
                                   comingSoon ? c.textDisabled : c.textSecondary,
                             ),
-                            maxLines: comingSoon && !stackComingSoon ? 1 : null,
-                            overflow: comingSoon && !stackComingSoon
-                                ? TextOverflow.ellipsis
-                                : null,
                           ),
                           if (stackComingSoon)
                             Text(
@@ -386,13 +381,8 @@ class ListRow extends StatelessWidget {
                 Text(
                   subtitle!,
                   style: subBase,
-                  // Board "f A": beside "Coming soon" the organization stays on
-                  // one line and ends in an ellipsis. When the label moves
-                  // under it (large text), the line has the full width.
-                  maxLines: comingSoon && !stackComingSoon ? 1 : null,
-                  overflow: comingSoon && !stackComingSoon
-                      ? TextOverflow.ellipsis
-                      : null,
+                  // The organization wraps (README); the label moves under it
+                  // at large text.
                 ),
               if (footer != null) footer!,
               if (stackComingSoon)
