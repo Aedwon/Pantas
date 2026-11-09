@@ -10,7 +10,8 @@ bool splitsAWord(WidgetTester tester, Finder finder) {
     final text = render.text.toPlainText();
     double? top(int i) {
       final boxes = render.getBoxesForSelection(
-          TextSelection(baseOffset: i, extentOffset: i + 1));
+        TextSelection(baseOffset: i, extentOffset: i + 1),
+      );
       return boxes.isEmpty ? null : boxes.first.top;
     }
 

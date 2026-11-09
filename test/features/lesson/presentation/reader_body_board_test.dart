@@ -11,8 +11,8 @@ import 'package:pantas/features/lesson/application/reader_providers.dart';
 import 'package:pantas/features/lesson/data/repos/reader_position_repository.dart';
 import 'package:pantas/features/lesson/presentation/lesson_page.dart';
 
-import '../../../helpers/ds_matrix.dart' show loadDsFonts;
 import '../../../helpers/accessibility.dart';
+import '../../../helpers/ds_matrix.dart' show loadDsFonts;
 import '../../../helpers/in_memory_database.dart';
 
 void main() {

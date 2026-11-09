@@ -38,7 +38,7 @@ void main() {
     ),
     (
       'quiz count',
-      HalfRingGauge.quizCount(correct: 18, total: 20),
+      const HalfRingGauge.quizCount(correct: 18, total: 20),
       '/20',
     ),
   ]) {

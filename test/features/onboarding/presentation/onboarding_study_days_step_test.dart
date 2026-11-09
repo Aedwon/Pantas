@@ -16,7 +16,8 @@ import '../../../helpers/ds_matrix.dart' show loadDsFonts;
 import '../../../helpers/in_memory_database.dart';
 
 void main() {
-  // A day tile is as wide as its weekday label, so the test needs the real face.
+  // A day tile is as wide as its weekday label, so the test needs the real
+  // face.
   setUpAll(loadDsFonts);
   for (final brightness in Brightness.values) {
     for (final scale in [1.0, 2.0]) {

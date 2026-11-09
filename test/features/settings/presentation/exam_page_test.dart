@@ -7,7 +7,6 @@ import 'package:go_router/go_router.dart';
 import 'package:pantas/app/routes/settings_routes.dart';
 import 'package:pantas/core/content/data/exam_catalog_repository.dart';
 import 'package:pantas/core/storage/domain/exam.dart';
-import 'package:pantas/core/storage/domain/exam_date.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/storage/track_scope.dart';
