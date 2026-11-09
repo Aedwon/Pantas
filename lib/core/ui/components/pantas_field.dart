@@ -325,7 +325,7 @@ class _PantasFieldState extends State<PantasField> {
           ? CrossAxisAlignment.start
           : CrossAxisAlignment.center,
       children: [
-        Expanded(child: input),
+        Expanded(child: Semantics(label: widget.label, child: input)),
         if (widget.action != null) ...[
           const SizedBox(width: PantasSpace.s8),
           // Pulls 8 px into the padding so the icon lines up with its edge.
@@ -386,7 +386,6 @@ class _PantasFieldState extends State<PantasField> {
             : PantasFieldMessage(widget.helpText!);
 
     return Semantics(
-      label: widget.label,
       container: true,
       explicitChildNodes: true,
       child: Column(

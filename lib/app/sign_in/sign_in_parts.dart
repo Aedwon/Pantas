@@ -900,7 +900,7 @@ class SignInField extends StatelessWidget {
               ),
             ),
             child: TextField(
-              // ds-raw: input in sign-in well, autofocus, autofill
+              // ds-raw: autocorrect off, red tint when invalid
               controller: controller,
               focusNode: focusNode,
               autofocus: true,
@@ -1060,7 +1060,7 @@ class CodeBoxes extends StatelessWidget {
                       selectionHandleColor: Colors.transparent,
                     ),
                     child: TextField(
-                      // ds-raw: input in sign-in well, autofocus, autofill
+                      // ds-raw: paste-only menu, hidden text over the boxes
                       controller: controller,
                       focusNode: focusNode,
                       autofocus: true,

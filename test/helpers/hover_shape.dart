@@ -97,30 +97,49 @@ void expectHitArea(
   expect(size.height, greaterThanOrEqualTo(min.height), reason: why);
 }
 
-/// Asserts a disabled Material button (a `ButtonStyleButton` or `IconButton`)
+/// Asserts a disabled Material button (text, filled, elevated, outlined or
+/// icon), judged on its effective style (its own over the theme's)
 /// has no press handler, shows no hover or press wash, and ignores a tap.
 Future<void> expectDisabledInert(WidgetTester tester, Finder button) async {
   final widget = tester.widget(button.first);
   final VoidCallback? onPressed;
-  final ButtonStyle? style;
-  if (widget is ButtonStyleButton) {
+  final ButtonStyle? own;
+  final ButtonStyle? themed;
+  final context = tester.element(button.first);
+  if (widget is TextButton) {
     onPressed = widget.onPressed;
-    style = widget.style;
+    own = widget.style;
+    themed = TextButtonTheme.of(context).style;
+  } else if (widget is FilledButton) {
+    onPressed = widget.onPressed;
+    own = widget.style;
+    themed = FilledButtonTheme.of(context).style;
+  } else if (widget is ElevatedButton) {
+    onPressed = widget.onPressed;
+    own = widget.style;
+    themed = ElevatedButtonTheme.of(context).style;
+  } else if (widget is OutlinedButton) {
+    onPressed = widget.onPressed;
+    own = widget.style;
+    themed = OutlinedButtonTheme.of(context).style;
   } else if (widget is IconButton) {
     onPressed = widget.onPressed;
-    style = widget.style;
+    own = widget.style;
+    themed = IconButtonTheme.of(context).style;
   } else {
     fail('${widget.runtimeType} is not a Material button');
   }
+  // The effective style: the widget's own over the theme's button theme.
+  final style = (own ?? const ButtonStyle()).merge(themed);
   expect(onPressed, isNull, reason: 'a disabled control has no handler');
   // Hovering must change nothing: every color a disabled button draws is the
   // same with or without the pointer on it.
   const resting = <WidgetState>{WidgetState.disabled};
   const hovered = <WidgetState>{WidgetState.disabled, WidgetState.hovered};
   final colors = <String, WidgetStateProperty<Color?>?>{
-    'background': style?.backgroundColor,
-    'foreground': style?.foregroundColor,
-    'overlay': style?.overlayColor,
+    'background': style.backgroundColor,
+    'foreground': style.foregroundColor,
+    'overlay': style.overlayColor,
   };
   for (final MapEntry(:key, :value) in colors.entries) {
     expect(
@@ -129,7 +148,7 @@ Future<void> expectDisabledInert(WidgetTester tester, Finder button) async {
       reason: 'the disabled $key does not change on hover',
     );
   }
-  final overlay = style?.overlayColor?.resolve(hovered);
+  final overlay = style.overlayColor?.resolve(hovered);
   expect(
     overlay == null || overlay.a == 0,
     isTrue,
@@ -158,6 +177,7 @@ Future<void> expectTapAreaInert(
   Finder area,
   int Function() taps,
 ) async {
+  final before = taps();
   await hoverOver(tester, area);
   expect(
     find.descendant(
@@ -174,5 +194,5 @@ Future<void> expectTapAreaInert(
   );
   await tester.tap(area, warnIfMissed: false);
   await tester.pump();
-  expect(taps(), 0);
+  expect(taps(), before);
 }

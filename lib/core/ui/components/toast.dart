@@ -201,7 +201,7 @@ void showPantasToast(
   final messenger = ScaffoldMessenger.maybeOf(context);
   if (messenger == null) return;
   messenger
-    ..clearSnackBars()
+    ..hideCurrentSnackBar()
     ..showSnackBar(
       SnackBar(
         behavior: SnackBarBehavior.floating,

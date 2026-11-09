@@ -66,24 +66,26 @@ void main() {
   });
 
   testWidgets('a disabled tap area takes no wash and no tap', (tester) async {
-    await pumpDs(
-      tester,
-      wide,
-      const SizedBox(
-        width: 300,
-        child: MockTap(
-          key: ValueKey('off'),
-          onTap: null,
-          radius: PantasRadius.sm,
-          child: SizedBox(height: 46, child: Text('Question 1')),
-        ),
-      ),
-    );
+    var taps = 0;
+    Widget area({required bool enabled}) => SizedBox(
+          width: 300,
+          child: MockTap(
+            key: const ValueKey('off'),
+            onTap: enabled ? () => taps++ : null,
+            radius: PantasRadius.sm,
+            child: const SizedBox(height: 46, child: Text('Question 1')),
+          ),
+        );
+    await pumpDs(tester, wide, area(enabled: true));
+    await tester.tap(find.text('Question 1'));
+    expect(taps, 1);
+    await pumpDs(tester, wide, area(enabled: false));
     await expectTapAreaInert(
       tester,
       find.byKey(const ValueKey('off')),
-      () => 0,
+      () => taps,
     );
+    expect(taps, 1);
   });
 
   testWidgets('a tap area washes as a rounded rectangle and answers Enter',

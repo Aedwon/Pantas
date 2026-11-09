@@ -103,4 +103,36 @@ void main() {
       throwsA(isA<TestFailure>()),
     );
   });
+
+  testWidgets('expectDisabledInert reads the theme style, not only the widget',
+      (tester) async {
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: ThemeData(
+          textButtonTheme: TextButtonThemeData(
+            style: ButtonStyle(
+              backgroundColor: WidgetStateProperty.resolveWith(
+                (states) => states.contains(WidgetState.hovered)
+                    ? Colors.red
+                    : Colors.transparent,
+              ),
+            ),
+          ),
+        ),
+        home: const Scaffold(
+          body: Center(
+            child: TextButton(
+              key: ValueKey('themed'),
+              onPressed: null,
+              child: Text('Themed'),
+            ),
+          ),
+        ),
+      ),
+    );
+    await expectLater(
+      expectDisabledInert(tester, find.byKey(const ValueKey('themed'))),
+      throwsA(isA<TestFailure>()),
+    );
+  });
 }

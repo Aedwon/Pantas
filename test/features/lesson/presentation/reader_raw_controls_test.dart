@@ -109,23 +109,25 @@ void main() {
     });
 
     testWidgets('a disabled one takes no wash and no tap', (tester) async {
-      await pumpDs(
-        tester,
-        wide,
-        const SizedBox(
-          width: 300,
-          child: ReaderTap(
-            key: ValueKey('off'),
-            onTap: null,
-            child: SizedBox(height: 36, child: Text('Core concept')),
-          ),
-        ),
-      );
+      var taps = 0;
+      Widget area({required bool enabled}) => SizedBox(
+            width: 300,
+            child: ReaderTap(
+              key: const ValueKey('off'),
+              onTap: enabled ? () => taps++ : null,
+              child: const SizedBox(height: 36, child: Text('Core concept')),
+            ),
+          );
+      await pumpDs(tester, wide, area(enabled: true));
+      await tester.tap(find.text('Core concept'));
+      expect(taps, 1);
+      await pumpDs(tester, wide, area(enabled: false));
       await expectTapAreaInert(
         tester,
         find.byKey(const ValueKey('off')),
-        () => 0,
+        () => taps,
       );
+      expect(taps, 1);
     });
   });
 

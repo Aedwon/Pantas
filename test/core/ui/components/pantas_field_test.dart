@@ -153,7 +153,7 @@ void main() {
     );
     expect(find.text('Your note'), findsNothing);
     expect(find.byType(PantasFieldLabel), findsNothing);
-    expect(find.bySemanticsLabel('Your note'), findsOneWidget);
+    expect(find.bySemanticsLabel(RegExp('Your note')), findsOneWidget);
     expect(find.text('In your own words'), findsOneWidget);
     expect(
       tester.getSize(find.byKey(const ValueKey('field-well'))).height,
@@ -197,4 +197,28 @@ void main() {
     expect(input.autofocus, isFalse);
     expect(find.byType(PantasFieldLabel), findsOneWidget);
   });
+
+  for (final labeled in [true, false]) {
+    testWidgets('the name is on the text field node itself (labeled $labeled)',
+        (tester) async {
+      final handle = tester.ensureSemantics();
+      await pumpDs(
+        tester,
+        dsCells.first,
+        SizedBox(
+          width: 340,
+          child: labeled
+              ? const PantasField(label: 'Nickname', hint: 'Hint')
+              : const PantasField.unlabeled(
+                  semanticLabel: 'Nickname',
+                  hint: 'Hint',
+                ),
+        ),
+      );
+      final node = tester.getSemantics(find.byType(TextField));
+      expect(node.getSemanticsData().flagsCollection.isTextField, isTrue);
+      expect(node.label, contains('Nickname'));
+      handle.dispose();
+    });
+  }
 }

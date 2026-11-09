@@ -44,20 +44,23 @@ void main() {
   testWidgets('a disabled quiz tap area does not wash or take a tap', (
     tester,
   ) async {
-    await pumpDs(
-      tester,
-      _wide,
-      const PantasTapArea(
-        key: ValueKey('area'),
-        onTap: null,
-        child: SizedBox(width: 200, height: 60, child: Text('Row')),
-      ),
-    );
+    var taps = 0;
+    Widget area({required bool enabled}) => PantasTapArea(
+          key: const ValueKey('area'),
+          onTap: enabled ? () => taps++ : null,
+          child: const SizedBox(width: 200, height: 60, child: Text('Row')),
+        );
+    // The counter is wired: the enabled area counts a tap.
+    await pumpDs(tester, _wide, area(enabled: true));
+    await tester.tap(find.byKey(const ValueKey('area')));
+    expect(taps, 1);
+    await pumpDs(tester, _wide, area(enabled: false));
     await expectTapAreaInert(
       tester,
       find.byKey(const ValueKey('area')),
-      () => 0,
+      () => taps,
     );
+    expect(taps, 1);
   });
 
   final disabled = <String, (Widget, Finder Function())>{
