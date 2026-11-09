@@ -10,6 +10,8 @@ import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/ui/components/floating_bar.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/pantas_button_spec.dart';
+import 'package:pantas/core/ui/components/pantas_icon_button.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/components/pantas_sheet.dart';
 import 'package:pantas/core/ui/components/scope_picker.dart';
@@ -35,6 +37,7 @@ import 'package:pantas/features/quiz/domain/picker/practice_selection.dart';
 import 'package:pantas/features/quiz/domain/picker/practice_summary.dart';
 import 'package:pantas/features/quiz/presentation/practice_picker_providers.dart';
 import 'package:pantas/features/quiz/presentation/quiz_controller.dart';
+import 'package:pantas/features/quiz/presentation/quiz_tap_area.dart';
 
 class PracticePickerScreen extends ConsumerStatefulWidget {
   const PracticePickerScreen({required this.examId, super.key});
@@ -484,33 +487,29 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                         ? Padding(
                             padding:
                                 const EdgeInsets.only(right: PantasSpace.s20),
-                            child: SizedBox.square(
-                              dimension: 32,
-                              child: IconButton(
-                                tooltip: _webOpenTopics.contains(topic.id)
-                                    ? 'Hide lessons in ${topic.name}'
-                                    : 'Show lessons in ${topic.name}',
-                                padding: EdgeInsets.zero,
-                                onPressed: () => setState(() {
-                                  if (!_webOpenTopics.remove(topic.id)) {
-                                    _webOpenTopics.add(topic.id);
-                                  }
-                                }),
-                                // One caret that turns, as on the phone.
-                                icon: AnimatedRotation(
-                                  key: ValueKey('web-caret-${topic.id}'),
-                                  turns: _webOpenTopics.contains(topic.id)
-                                      ? .5
-                                      : 0,
-                                  curve: PantasCurves.house,
-                                  duration: still
-                                      ? Duration.zero
-                                      : const Duration(milliseconds: 300),
-                                  child: Icon(
-                                    Icons.keyboard_arrow_down,
-                                    size: 14,
-                                    color: t.colors.iconChevron,
-                                  ),
+                            child: PantasIconButton(
+                              size: PantasIconButtonSize.sm,
+                              tooltip: _webOpenTopics.contains(topic.id)
+                                  ? 'Hide lessons in ${topic.name}'
+                                  : 'Show lessons in ${topic.name}',
+                              onPressed: () => setState(() {
+                                if (!_webOpenTopics.remove(topic.id)) {
+                                  _webOpenTopics.add(topic.id);
+                                }
+                              }),
+                              // One caret that turns, as on the phone.
+                              icon: AnimatedRotation(
+                                key: ValueKey('web-caret-${topic.id}'),
+                                turns:
+                                    _webOpenTopics.contains(topic.id) ? .5 : 0,
+                                curve: PantasCurves.house,
+                                duration: still
+                                    ? Duration.zero
+                                    : const Duration(milliseconds: 300),
+                                child: Icon(
+                                  Icons.keyboard_arrow_down,
+                                  size: 14,
+                                  color: t.colors.iconChevron,
                                 ),
                               ),
                             ),
@@ -664,18 +663,10 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
               Expanded(child: Text('YOUR QUIZ', style: t.eb)),
               if (!summary.isEmpty)
                 _fadeIn(
-                  TextButton(
+                  WebTextLink(
+                    label: 'Clear',
+                    arrow: false,
                     onPressed: () => selection(const PracticeSelection.empty()),
-                    style: TextButton.styleFrom(
-                      padding: EdgeInsets.zero,
-                      minimumSize: Size.zero,
-                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                    ),
-                    child: Text(
-                      'Clear',
-                      style: PantasType.webLabel
-                          .copyWith(color: t.colors.textSecondary),
-                    ),
                   ),
                 ),
             ],
@@ -819,61 +810,7 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                                         _value,
                                       }.toList()
                                         ..sort()))
-                                        Expanded(
-                                          child: SizedBox(
-                                            height: PantasSize.btnXs,
-                                            child: TextButton(
-                                              onPressed: _invalid(
-                                                summary.unitCount,
-                                                pace,
-                                              ).contains(_values.indexOf(value))
-                                                  ? null
-                                                  : () => _change(() {
-                                                        _value = value;
-                                                        _adjustments = {};
-                                                      }),
-                                              style: TextButton.styleFrom(
-                                                padding: EdgeInsets.zero,
-                                                minimumSize: Size.zero,
-                                                tapTargetSize:
-                                                    MaterialTapTargetSize
-                                                        .shrinkWrap,
-                                                backgroundColor: _value == value
-                                                    ? t.colors.accentFill
-                                                    : Colors.transparent,
-                                                shape: RoundedRectangleBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                    PantasRadius.sm,
-                                                  ),
-                                                ),
-                                              ),
-                                              child: Text(
-                                                '$value',
-                                                style: t
-                                                    .style(
-                                                      15,
-                                                      weight: FontWeight.w600,
-                                                      color: _value == value
-                                                          ? t.colors.onAccent
-                                                          : t.colors
-                                                              .secondaryLabel,
-                                                    )
-                                                    .copyWith(
-                                                      decoration: _invalid(
-                                                        summary.unitCount,
-                                                        pace,
-                                                      ).contains(
-                                                        _values.indexOf(value),
-                                                      )
-                                                          ? TextDecoration
-                                                              .lineThrough
-                                                          : null,
-                                                    ),
-                                              ),
-                                            ),
-                                          ),
-                                        ),
+                                        _valueSegment(t, summary, pace, value),
                                     ],
                                   ),
                                 ),
@@ -895,16 +832,9 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                                 ),
                               ),
                             ),
-                            TextButton(
-                              style: TextButton.styleFrom(
-                                minimumSize: const Size(0, 30),
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: PantasSpace.s8,
-                                ),
-                                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                                textStyle: PantasType.webLabel
-                                    .copyWith(color: t.colors.textPrimary),
-                              ),
+                            WebTextLink(
+                              label: _adjusting ? 'Reset' : 'Adjust',
+                              arrow: false,
                               onPressed: () {
                                 if (_adjusting) {
                                   _change(() {
@@ -915,7 +845,6 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                                   setState(() => _adjusting = true);
                                 }
                               },
-                              child: Text(_adjusting ? 'Reset' : 'Adjust'),
                             ),
                           ],
                         ),
@@ -1065,10 +994,10 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                       padding: const EdgeInsets.only(top: PantasSpace.s4),
                       child: Align(
                         alignment: Alignment.centerLeft,
-                        child: TextButton.icon(
+                        child: WebBackLink(
+                          label: 'Quiz',
+                          nudge: false,
                           onPressed: () => unawaited(_back()),
-                          icon: Icon(PantasIcons.back, size: 20),
-                          label: const Text('Quiz'),
                         ),
                       ),
                     ),
@@ -1148,25 +1077,16 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
   }
 
   Widget _clearButton() {
-    final button = TextButton(
-      style: TextButton.styleFrom(
-        minimumSize: const Size(44, 44),
-        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-        padding: const EdgeInsets.only(
-          left: PantasSpace.s12,
-          right: PantasSpace.s16,
-        ),
-      ),
+    final button = PantasButton(
+      label: 'Clear',
+      kind: PantasButtonKind.tertiary,
+      tone: PantasButtonTone.accent,
+      height: PantasSize.btn,
+      fullWidth: false,
       onPressed: () => _change(() {
         _selection = const PracticeSelection.empty();
         _adjustments = {};
       }),
-      child: Text(
-        'Clear',
-        style: PantasType.phoneBody
-            .copyWith(color: context.colors.textPrimary)
-            .copyWith(color: context.colors.accent),
-      ),
     );
     if (MediaQuery.disableAnimationsOf(context)) {
       return Opacity(
@@ -1203,7 +1123,7 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
     String caption,
     String pickedLabel,
   ) {
-    final size = InkWell(
+    final size = QuizTapArea(
       key: const ValueKey('practice-size'),
       onTap:
           barSummary.isEmpty ? null : () => setState(() => _lengthOpen = true),
@@ -1426,24 +1346,13 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                   ),
                 ),
               ),
-              TextButton(
+              PantasButton(
+                label: 'Done',
+                kind: PantasButtonKind.tertiary,
+                tone: PantasButtonTone.accent,
+                height: PantasSize.btn,
+                fullWidth: false,
                 onPressed: () => setState(() => _lengthOpen = false),
-                style: TextButton.styleFrom(
-                  visualDensity: VisualDensity.standard,
-                  minimumSize: const Size(0, 30),
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: PantasSpace.s12),
-                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                ),
-                child: Text(
-                  'Done',
-                  style: PantasType.phoneBody
-                      .copyWith(color: context.colors.textPrimary)
-                      .copyWith(
-                        fontWeight: FontWeight.w600,
-                        color: context.colors.accent,
-                      ),
-                ),
               ),
             ],
           ),
@@ -1541,7 +1450,12 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              TextButton(
+              PantasButton(
+                label: _adjusting ? 'Reset' : 'Adjust',
+                kind: PantasButtonKind.tertiary,
+                tone: PantasButtonTone.accent,
+                height: PantasSize.btn,
+                fullWidth: false,
                 onPressed: () {
                   if (_adjusting) {
                     _change(() {
@@ -1552,20 +1466,6 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                     setState(() => _adjusting = true);
                   }
                 },
-                style: TextButton.styleFrom(
-                  visualDensity: VisualDensity.standard,
-                  minimumSize: const Size(0, 40),
-                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                ),
-                child: Text(
-                  _adjusting ? 'Reset' : 'Adjust',
-                  style: PantasType.phoneExplanation
-                      .copyWith(color: context.colors.textPrimary)
-                      .copyWith(
-                        fontWeight: FontWeight.w600,
-                        color: context.colors.accent,
-                      ),
-                ),
               ),
             ],
           ),
@@ -1663,6 +1563,55 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
   int _count(PracticeSummary summary, Set<String> keys) =>
       keys.fold<int>(0, (sum, key) => sum + (summary.countsByUnit[key] ?? 0));
 
+  Widget _valueSegment(
+    WebTokens t,
+    PracticeSummary summary,
+    int? pace,
+    int value,
+  ) {
+    final blocked = _invalid(
+      summary.unitCount,
+      pace,
+    ).contains(_values.indexOf(value));
+    final radius = BorderRadius.circular(PantasRadius.sm);
+    final picked = _value == value;
+    return Expanded(
+      child: SizedBox(
+        height: PantasSize.btnXs,
+        child: QuizTapArea(
+          onTap: blocked
+              ? null
+              : () => _change(() {
+                    _value = value;
+                    _adjustments = {};
+                  }),
+          borderRadius: radius,
+          child: DecoratedBox(
+            decoration: BoxDecoration(
+              color: picked ? t.colors.accentFill : Colors.transparent,
+              borderRadius: radius,
+            ),
+            child: Center(
+              child: Text(
+                '$value',
+                style: t
+                    .style(
+                      15,
+                      weight: FontWeight.w600,
+                      color:
+                          picked ? t.colors.onAccent : t.colors.secondaryLabel,
+                    )
+                    .copyWith(
+                      decoration: blocked ? TextDecoration.lineThrough : null,
+                    ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
   Widget _step(
     PracticeSummary summary,
     Set<String> keys,
@@ -1675,27 +1624,22 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
       delta,
       preserveTotal: _mode == PracticeUnitMode.minutes,
     );
-    return SizedBox.square(
-      dimension: 44,
-      child: IconButton(
-        tooltip: '${delta > 0 ? 'Increase' : 'Decrease'} $title',
-        onPressed:
-            next == null ? null : () => _change(() => _adjustments = next),
-        padding: const EdgeInsets.all(PantasSpace.s6),
-        icon: Container(
-          width: 30,
-          height: 30,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: context.colors.surfaceCard,
-          ),
-          child: Icon(
-            delta > 0 ? Icons.add : Icons.remove,
-            size: 16,
-            color: next == null
-                ? context.colors.textSecondary
-                : context.colors.accent,
-          ),
+    return PantasIconButton(
+      tooltip: '${delta > 0 ? 'Increase' : 'Decrease'} $title',
+      onPressed: next == null ? null : () => _change(() => _adjustments = next),
+      icon: Container(
+        width: 30,
+        height: 30,
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: context.colors.surfaceCard,
+        ),
+        child: Icon(
+          delta > 0 ? Icons.add : Icons.remove,
+          size: 16,
+          color: next == null
+              ? context.colors.textSecondary
+              : context.colors.accent,
         ),
       ),
     );
@@ -1714,27 +1658,21 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
       preserveTotal: _mode == PracticeUnitMode.minutes,
     );
     final t = context.webTokens;
-    return SizedBox.square(
-      dimension: 28,
-      child: IconButton(
-        tooltip: '${delta > 0 ? 'Increase' : 'Decrease'} $title',
-        onPressed:
-            next == null ? null : () => _change(() => _adjustments = next),
-        padding: EdgeInsets.zero,
-        visualDensity: VisualDensity.standard,
-        constraints: const BoxConstraints.tightFor(width: 28, height: 28),
-        icon: Container(
-          width: 28,
-          height: 28,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(PantasRadius.sm),
-            color: t.colors.bgPage,
-          ),
-          child: Icon(
-            delta > 0 ? Icons.add : Icons.remove,
-            size: 16,
-            color: next == null ? t.colors.textSecondary : t.colors.textPrimary,
-          ),
+    return PantasIconButton(
+      size: PantasIconButtonSize.sm,
+      tooltip: '${delta > 0 ? 'Increase' : 'Decrease'} $title',
+      onPressed: next == null ? null : () => _change(() => _adjustments = next),
+      icon: Container(
+        width: 28,
+        height: 28,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(PantasRadius.sm),
+          color: t.colors.bgPage,
+        ),
+        child: Icon(
+          delta > 0 ? Icons.add : Icons.remove,
+          size: 16,
+          color: next == null ? t.colors.textSecondary : t.colors.textPrimary,
         ),
       ),
     );

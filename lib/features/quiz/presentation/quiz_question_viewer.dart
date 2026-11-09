@@ -12,6 +12,7 @@ import 'package:pantas/core/ui/components/new_design/answer_reveal.dart';
 import 'package:pantas/core/ui/components/new_design/passage_card.dart'
     as passage_ui;
 import 'package:pantas/core/ui/components/new_design/question_card.dart';
+import 'package:pantas/core/ui/components/pantas_icon_button.dart';
 import 'package:pantas/core/ui/components/pantas_shadows.dart';
 import 'package:pantas/core/ui/components/pro_paused_line.dart';
 import 'package:pantas/core/ui/figures/question_figure.dart';
@@ -217,20 +218,10 @@ class _QuizQuestionViewerState extends State<QuizQuestionViewer> {
                         const EdgeInsets.symmetric(horizontal: PantasSpace.s20),
                     child: Row(
                       children: [
-                        TextButton.icon(
+                        WebBackLink(
+                          label: widget.backLabel,
+                          nudge: false,
                           onPressed: widget.onBack,
-                          style: TextButton.styleFrom(
-                            minimumSize: const Size(0, 40),
-                            padding: EdgeInsets.zero,
-                            foregroundColor: t.colors.accent,
-                            overlayColor: Colors.transparent,
-                            visualDensity: VisualDensity.standard,
-                            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                            textStyle: PantasType.webLead
-                                .copyWith(color: t.colors.textPrimary),
-                          ),
-                          icon: Icon(PantasIcons.back, size: 20),
-                          label: Text(widget.backLabel),
                         ),
                         const SizedBox(width: PantasSpace.s10),
                         const WebKeyHint('Esc'),
@@ -245,31 +236,19 @@ class _QuizQuestionViewerState extends State<QuizQuestionViewer> {
                                   .copyWith(color: t.colors.textSecondary),
                             ),
                           ),
-                        SizedBox.square(
-                          dimension: 44,
-                          child: IconButton(
+                        DecoratedBox(
+                          decoration: BoxDecoration(
+                            color: _reportOpen
+                                ? t.disabledBackground
+                                : Colors.transparent,
+                            borderRadius:
+                                BorderRadius.circular(PantasRadius.md),
+                          ),
+                          child: PantasIconButton(
                             tooltip: 'Report a question',
-                            padding: EdgeInsets.zero,
-                            style: IconButton.styleFrom(
-                              minimumSize: Size.zero,
-                              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                              backgroundColor: _reportOpen
-                                  ? t.disabledBackground
-                                  : Colors.transparent,
-                              shape: RoundedRectangleBorder(
-                                borderRadius:
-                                    BorderRadius.circular(PantasRadius.md),
-                              ),
-                            ),
                             onPressed: () => unawaited(_report(question.id)),
-                            icon: IconTheme(
-                              data: IconThemeData(
-                                color: _reported.contains(question.id)
-                                    ? t.colors.accent
-                                    : t.colors.textSecondary,
-                              ),
-                              child: PantasIcons.report,
-                            ),
+                            icon: PantasIcons.report,
+                            accent: _reported.contains(question.id),
                           ),
                         ),
                       ],
@@ -395,59 +374,21 @@ class _QuizQuestionViewerState extends State<QuizQuestionViewer> {
                     child: Align(
                       alignment: Alignment.centerLeft,
                       // Boards: a 44 px back row, whatever the density.
-                      child: TextButton(
-                        onPressed: widget.onBack,
-                        style: TextButton.styleFrom(
-                          minimumSize: const Size(44, 44),
-                          padding: const EdgeInsets.fromLTRB(
-                            PantasSpace.s8,
-                            PantasSpace.s0,
-                            PantasSpace.s16,
-                            PantasSpace.s0,
-                          ),
-                          visualDensity: VisualDensity.standard,
-                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                        ),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Icon(
-                              PantasIcons.back,
-                              size: 24,
-                              color: colors.accent,
-                            ),
-                            const SizedBox(width: PantasSpace.s2),
-                            Flexible(
-                              child: Text(
-                                widget.backLabel,
-                                style: PantasType.phoneBody
-                                    .copyWith(color: context.colors.textPrimary)
-                                    .copyWith(color: colors.accent),
-                              ),
-                            ),
-                          ],
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: PantasSpace.s8),
+                        child: WebBackLink(
+                          label: widget.backLabel,
+                          nudge: false,
+                          onPressed: widget.onBack,
                         ),
                       ),
                     ),
                   ),
-                  IconButton(
+                  PantasIconButton(
                     tooltip: 'Report a question',
-                    constraints:
-                        const BoxConstraints.tightFor(width: 44, height: 44),
-                    padding: EdgeInsets.zero,
-                    style: IconButton.styleFrom(
-                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                    ),
                     onPressed: () => unawaited(_report(question.id)),
-                    icon: IconTheme(
-                      data: IconThemeData(
-                        color: _reported.contains(question.id)
-                            ? colors.accent
-                            : colors.textSecondary,
-                        size: 21,
-                      ),
-                      child: PantasIcons.report,
-                    ),
+                    icon: PantasIcons.report,
+                    accent: _reported.contains(question.id),
                   ),
                 ],
               ),
@@ -533,17 +474,10 @@ class _QuizQuestionViewerState extends State<QuizQuestionViewer> {
                           VoidCallback? onPressed, {
                           Color? color,
                         }) =>
-                            IconButton(
+                            PantasIconButton(
                               tooltip: tooltip,
-                              style: IconButton.styleFrom(
-                                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                              ),
-                              constraints: const BoxConstraints.tightFor(
-                                width: 44,
-                                height: PantasSize.btn,
-                              ),
-                              padding: EdgeInsets.zero,
-                              icon: Icon(icon, size: 20, color: color),
+                              glyph: icon,
+                              accent: color == colors.accent,
                               onPressed: onPressed,
                             );
                         final previous = action(
@@ -854,20 +788,11 @@ class _ViewerBar extends StatelessWidget {
     final t = context.webTokens;
     final c = t.colors;
     Widget arrow(String tooltip, IconData icon, VoidCallback? onPressed) =>
-        SizedBox.square(
-          dimension: PantasSize.btnBar,
-          child: IconButton(
-            tooltip: tooltip,
-            onPressed: onPressed,
-            padding: EdgeInsets.zero,
-            style: IconButton.styleFrom(
-              minimumSize: Size.zero,
-              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-              foregroundColor: c.accent,
-              disabledForegroundColor: t.disabledText,
-            ),
-            icon: Icon(icon, size: 20),
-          ),
+        PantasIconButton(
+          tooltip: tooltip,
+          onPressed: onPressed,
+          glyph: icon,
+          accent: true,
         );
     return Container(
       constraints: const BoxConstraints(minHeight: PantasSize.bar),
@@ -917,14 +842,10 @@ class _ViewerBar extends StatelessWidget {
           const WebKeyHint('→'),
           const SizedBox(width: PantasSpace.s6),
           if (onEditNote != null)
-            SizedBox.square(
-              dimension: 46,
-              child: IconButton(
-                tooltip: 'Edit Note',
-                onPressed: onEditNote,
-                padding: EdgeInsets.zero,
-                icon: Icon(PantasIcons.addNote),
-              ),
+            PantasIconButton(
+              tooltip: 'Edit Note',
+              onPressed: onEditNote,
+              glyph: PantasIcons.addNote,
             ),
           arrow('Next question', PantasIcons.next, onNext),
         ],

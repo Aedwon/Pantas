@@ -751,17 +751,22 @@ void main() {
       // The title and the grid share one left edge.
       expect(cell(0).dx, tester.getTopLeft(find.text('Questions')).dx);
       // Question 4 is on screen: the dark edge sits on it and no other cell.
-      ShapeBorder? shape(int n) => tester
-          .widget<TextButton>(
-            find.descendant(
-              of: find.byKey(ValueKey('web-grid-question-$n')),
-              matching: find.byType(TextButton),
-            ),
-          )
-          .style
-          ?.shape
-          ?.resolve({});
-      BorderSide edge(int n) => (shape(n)! as RoundedRectangleBorder).side;
+      BorderSide edge(int n) {
+        final cell = tester
+            .widgetList<DecoratedBox>(
+              find.descendant(
+                of: find.byKey(ValueKey('web-grid-question-$n')),
+                matching: find.byType(DecoratedBox),
+              ),
+            )
+            .where((box) => box.position == DecorationPosition.background)
+            .map((box) => box.decoration)
+            .whereType<BoxDecoration>()
+            .first;
+        final border = cell.border;
+        return border is Border ? border.top : BorderSide.none;
+      }
+
       expect(edge(3).width, 2);
       expect(edge(2).style, BorderStyle.none);
       expect(edge(4).width, 1);

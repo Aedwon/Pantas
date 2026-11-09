@@ -13,6 +13,7 @@ import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/math_text.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/pantas_icon_button.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/components/review_list.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
@@ -201,17 +202,13 @@ class _FlaggedListPageState extends ConsumerState<FlaggedListPage> {
         trailingWidget: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            IconButton(
+            PantasIconButton(
               tooltip: 'Remove flag from question ${entry.number}',
-              constraints: const BoxConstraints(minWidth: 44, minHeight: 44),
               onPressed: _removing.contains(entry.question.id)
                   ? null
                   : () => unawaited(_remove(entry.question.id)),
-              icon: Icon(
-                PantasIcons.flag,
-                size: 21,
-                color: context.colors.accent,
-              ),
+              glyph: PantasIcons.flag,
+              accent: true,
             ),
             Icon(PantasIcons.next, size: 16, color: context.colors.iconChevron),
           ],
@@ -243,14 +240,13 @@ class _FlaggedListPageState extends ConsumerState<FlaggedListPage> {
               style: PantasType.webFieldLabel.copyWith(color: t.colors.accent),
             ),
           ),
-          trailing: IconButton(
+          trailing: PantasIconButton(
             tooltip: 'Remove flag from question ${entry.number}',
-            constraints: const BoxConstraints.tightFor(width: 44, height: 44),
-            visualDensity: VisualDensity.standard,
             onPressed: _removing.contains(entry.question.id)
                 ? null
                 : () => unawaited(_remove(entry.question.id)),
-            icon: Icon(PantasIcons.flag, size: 21, color: t.colors.accent),
+            glyph: PantasIcons.flag,
+            accent: true,
           ),
           divider: !last,
           onPressed: () => unawaited(_open(entry)),

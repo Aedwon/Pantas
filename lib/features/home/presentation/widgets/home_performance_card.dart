@@ -6,7 +6,6 @@ import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/half_ring_gauge.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
-import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
@@ -223,44 +222,15 @@ class _SeeAllRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = context.webTokens;
-    return TextButton(
+    return WebRow(
+      title: 'See all topics and lessons',
+      boardMetrics: true,
+      divider: false,
+      chevron: WebRowChevron.always,
       onPressed: onPressed,
-      style: ButtonStyle(
-        animationDuration: MediaQuery.disableAnimationsOf(context)
-            ? Duration.zero
-            : PantasDurations.short2,
-        visualDensity: VisualDensity.standard,
-        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-        minimumSize: const WidgetStatePropertyAll(Size(double.infinity, 51)),
-        padding: const WidgetStatePropertyAll(
-          EdgeInsets.symmetric(
-            horizontal: PantasSpace.s20,
-            vertical: PantasSpace.s16,
-          ),
-        ),
-        shape: const WidgetStatePropertyAll(RoundedRectangleBorder()),
-        backgroundColor: WidgetStateProperty.resolveWith(
-          (s) => s.contains(WidgetState.hovered) || webKeyboardFocus(s)
-              ? t.rowHover
-              : Colors.transparent,
-        ),
-        side: WidgetStateProperty.resolveWith(
-          (s) => webFocusRing(s, t.colors.accent),
-        ),
-        overlayColor: const WidgetStatePropertyAll(Colors.transparent),
-      ),
-      child: Row(
-        children: [
-          Expanded(
-            child: Text(
-              'See all topics and lessons',
-              style: PantasType.webBody
-                  .copyWith(height: 1.3, color: t.colors.textPrimary),
-            ),
-          ),
-          if (!pro) ...[
-            const SizedBox(width: PantasSpace.s12),
-            Container(
+      trailing: pro
+          ? null
+          : Container(
               padding: const EdgeInsets.symmetric(
                 horizontal: PantasSpace.s6,
                 vertical: PantasSpace.s2,
@@ -275,11 +245,6 @@ class _SeeAllRow extends StatelessWidget {
                     .copyWith(letterSpacing: .22, color: t.tintText),
               ),
             ),
-          ],
-          const SizedBox(width: PantasSpace.s12),
-          const WebChevron(),
-        ],
-      ),
     );
   }
 }

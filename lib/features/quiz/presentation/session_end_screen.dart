@@ -10,6 +10,7 @@ import 'package:pantas/core/ui/components/half_ring_gauge.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/math_text.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/pantas_icon_button.dart';
 import 'package:pantas/core/ui/components/pro_paused_line.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -20,6 +21,7 @@ import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/quiz/domain/quiz_session.dart';
+import 'package:pantas/features/quiz/presentation/quiz_tap_area.dart';
 import 'package:pantas/features/quiz/presentation/session_entry_motion.dart';
 import 'package:pantas/features/quiz/presentation/web_session_results.dart';
 
@@ -119,8 +121,9 @@ class _SessionEndBodyState extends State<SessionEndBody>
     final circle = Semantics(
       label: 'Question ${index + 1}, ${item.isCorrect ? 'correct' : 'wrong'}',
       button: true,
-      child: InkResponse(
+      child: QuizTapArea(
         onTap: () => widget.onQuestion(index),
+        borderRadius: BorderRadius.circular(PantasRadius.full),
         child: Container(
           width: 28,
           height: 28,
@@ -209,17 +212,10 @@ class _SessionEndBodyState extends State<SessionEndBody>
                   alignment: Alignment.centerLeft,
                   child: Transform.translate(
                     offset: const Offset(-8, 4),
-                    child: IconButton(
+                    child: PantasIconButton(
                       tooltip: 'Done',
-                      constraints:
-                          const BoxConstraints.tightFor(width: 44, height: 44),
-                      padding: EdgeInsets.zero,
                       onPressed: _nextBusy ? null : widget.onDone,
-                      icon: Icon(
-                        PantasIcons.close,
-                        size: 22,
-                        color: colors.borderControl,
-                      ),
+                      glyph: PantasIcons.close,
                     ),
                   ),
                 ),

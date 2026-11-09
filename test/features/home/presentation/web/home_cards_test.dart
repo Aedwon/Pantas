@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/features/home/presentation/widgets/home_web_layout.dart';
 
 void main() {
@@ -23,17 +24,26 @@ void main() {
       // Home (Main) board: white 16 px cards.
       final rows = <Element>[];
       for (final title in ['Your record', 'Your tendencies']) {
-        final row = find.ancestor(
+        final card = find.ancestor(
           of: find.text(title),
-          matching: find.byType(TextButton),
+          matching: find.byType(WebCard),
         );
+        expect(card, findsOneWidget);
+        rows.add(card.evaluate().single);
+        final row =
+            find.descendant(of: card, matching: find.byType(TextButton));
         expect(row, findsOneWidget);
-        rows.add(row.evaluate().single);
+        final surface = tester
+            .widgetList<Container>(
+              find.descendant(of: card, matching: find.byType(Container)),
+            )
+            .map((c) => c.decoration)
+            .whereType<BoxDecoration>()
+            .map((d) => d.color)
+            .whereType<Color>()
+            .first;
+        expect(surface, dark ? const Color(0xFF1F1F1F) : Colors.white);
         final button = tester.widget<TextButton>(row);
-        expect(
-          button.style!.backgroundColor!.resolve(<WidgetState>{}),
-          dark ? const Color(0xFF1F1F1F) : Colors.white,
-        );
         expect(
           button.style!.backgroundColor!.resolve({WidgetState.hovered}),
           dark ? const Color(0xFF2A2A2A) : const Color(0xFFF7F7F9),

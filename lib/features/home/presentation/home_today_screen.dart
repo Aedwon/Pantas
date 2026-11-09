@@ -642,8 +642,9 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
       }
       if (!await guard() || !mounted || !_current()) return;
       if (topicId == null && !ref.read(studyUsesServerProvider)) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('No questions are ready right now.')),
+        showHomeToast(
+          context,
+          'No questions are ready right now.',
         );
         return;
       }
@@ -657,8 +658,9 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
     } catch (error, stack) {
       unawaited(telemetry.recordError(error, stack));
       if (mounted && _current()) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Could not prepare this quiz.')),
+        showHomeToast(
+          context,
+          'Could not prepare this quiz.',
         );
       }
     }

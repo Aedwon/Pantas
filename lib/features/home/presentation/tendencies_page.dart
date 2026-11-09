@@ -14,6 +14,7 @@ import 'package:pantas/core/ui/theme/tokens/pantas_opacity.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/home/application/how_you_work_provider.dart';
 import 'package:pantas/features/home/presentation/widgets/web_tendencies_layout.dart';
@@ -272,9 +273,10 @@ class _Profile extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     if (data.name == null)
-                      TextButton(
+                      WebTextLink(
+                        label: 'Add your name',
                         onPressed: onName,
-                        child: const Text('Add your name'),
+                        arrow: false,
                       )
                     else
                       Text(

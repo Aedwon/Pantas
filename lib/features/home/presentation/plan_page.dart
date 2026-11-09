@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/pantas_button_spec.dart';
 import 'package:pantas/core/ui/components/pantas_logo.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/components/pro_paused_line.dart';
@@ -15,6 +16,7 @@ import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/home/presentation/plan_web.dart';
+import 'package:pantas/features/home/presentation/widgets/home_tap_area.dart';
 
 enum PlanNodeKind { week, review, mock, exam }
 
@@ -721,7 +723,7 @@ class _PlanPageState extends State<PlanPage> {
       ),
     );
     return week && node.target != null
-        ? InkWell(onTap: () => widget.onWeek(node.target!), child: row)
+        ? HomeTapArea(onTap: () => widget.onWeek(node.target!), child: row)
         : row;
   }
 }
@@ -850,29 +852,18 @@ class _HistoryFooter extends StatelessWidget {
   final VoidCallback onMore;
   @override
   Widget build(BuildContext context) => more
-      ? TextButton(
-          style: TextButton.styleFrom(
-            minimumSize: const Size.fromHeight(49),
-            foregroundColor: context.colors.accent,
-          ),
+      ? PantasButton(
+          label: 'See more',
+          kind: PantasButtonKind.tertiary,
+          tone: PantasButtonTone.accent,
           onPressed: loading ? null : onMore,
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
-                'See more',
-                style: context.type.body.copyWith(color: context.colors.accent),
-              ),
-              const SizedBox(width: PantasSpace.s4),
-              RotatedBox(
-                quarterTurns: 1,
-                child: Icon(
-                  PantasIcons.next,
-                  size: 13,
-                  color: context.colors.accent,
-                ),
-              ),
-            ],
+          trailing: RotatedBox(
+            quarterTurns: 1,
+            child: Icon(
+              PantasIcons.next,
+              size: 13,
+              color: context.colors.accent,
+            ),
           ),
         )
       : Padding(
@@ -988,7 +979,7 @@ class _HistoryRow extends StatelessWidget {
     return MergeSemantics(
       child: Semantics(
         expanded: expanded,
-        child: InkWell(
+        child: HomeTapArea(
           onTap: onTap,
           child: Container(
             padding: const EdgeInsets.symmetric(

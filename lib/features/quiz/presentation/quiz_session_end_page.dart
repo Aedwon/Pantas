@@ -16,11 +16,11 @@ import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/math_text.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
-import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/paywall/application/paywall_providers.dart';
 import 'package:pantas/features/paywall/domain/entitlement.dart';
@@ -236,45 +236,20 @@ class _QuizSessionEndPageState extends ConsumerState<QuizSessionEndPage> {
               height: PantasSize.btn,
               child: Align(
                 alignment: Alignment.centerLeft,
-                child: TextButton(
-                  onPressed: () {
-                    if (context.canPop()) {
-                      context.pop();
-                    } else {
-                      context.pushReplacement(
-                        '/quiz/debrief/${widget.attemptId}',
-                      );
-                    }
-                  },
-                  style: TextButton.styleFrom(
-                    minimumSize: const Size(44, 44),
-                    padding: const EdgeInsets.fromLTRB(
-                      PantasSpace.s8,
-                      PantasSpace.s0,
-                      PantasSpace.s16,
-                      PantasSpace.s0,
-                    ),
-                    visualDensity: VisualDensity.standard,
-                    tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                  ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Icon(
-                        PantasIcons.back,
-                        size: 24,
-                        color: context.colors.accent,
-                      ),
-                      const SizedBox(width: PantasSpace.s2),
-                      Flexible(
-                        child: Text(
-                          'Session',
-                          style: PantasType.phoneBody
-                              .copyWith(color: context.colors.textPrimary)
-                              .copyWith(color: context.colors.accent),
-                        ),
-                      ),
-                    ],
+                child: Padding(
+                  padding: const EdgeInsets.only(left: PantasSpace.s8),
+                  child: WebBackLink(
+                    label: 'Session',
+                    nudge: false,
+                    onPressed: () {
+                      if (context.canPop()) {
+                        context.pop();
+                      } else {
+                        context.pushReplacement(
+                          '/quiz/debrief/${widget.attemptId}',
+                        );
+                      }
+                    },
                   ),
                 ),
               ),

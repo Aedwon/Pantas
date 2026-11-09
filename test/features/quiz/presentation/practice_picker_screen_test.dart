@@ -839,7 +839,8 @@ void main() {
     await tester.tap(find.byKey(const ValueKey('practice-size')));
     await tester.pumpAndSettle();
     expect(find.text('PICKED'), findsNothing);
-    expect(tester.widget<Text>(find.text('Adjust')).style!.fontSize, 15);
+    // The system's tertiary button label.
+    expect(tester.widget<Text>(find.text('Adjust')).style!.fontSize, 16);
     expect(
       tester
           .getSize(find.byKey(const ValueKey('practice-summary-divider')))

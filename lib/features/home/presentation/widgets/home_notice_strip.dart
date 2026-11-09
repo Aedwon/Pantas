@@ -8,9 +8,9 @@ import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/domain/exam_date.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/notice_strip.dart';
+import 'package:pantas/core/ui/components/selectable_tile.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
-import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/home/application/home_notices.dart';
@@ -81,51 +81,19 @@ class _HomeNoticeStripState extends ConsumerState<HomeNoticeStrip> {
         if (!DateTime(month.year, month.month, day).isBefore(today))
           SizedBox(
             width: PantasSpace.s44,
-            child: TextButton(
+            child: SelectableTile.day(
               key: ValueKey('notice-day-$day'),
-              onPressed: _saving
+              weekday: DateFormat('EEE', 'en_US').format(
+                DateTime(month.year, month.month, day),
+              ),
+              name: '$day',
+              selected: _pickedDay?.day == day,
+              onTap: _saving
                   ? null
                   : () => setState(
                         () =>
                             _pickedDay = DateTime(month.year, month.month, day),
                       ),
-              style: TextButton.styleFrom(
-                padding: const EdgeInsets.symmetric(vertical: PantasSpace.s8),
-                minimumSize: const Size(44, 52),
-                backgroundColor: _pickedDay?.day == day
-                    ? context.colors.accentFill
-                    : context.colors.surfaceCard,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(PantasRadius.md),
-                  side: BorderSide(color: context.colors.divider),
-                ),
-              ),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(
-                    DateFormat('EEE', 'en_US').format(
-                      DateTime(month.year, month.month, day),
-                    ),
-                    style: context.type.captionSmall.copyWith(
-                      color: _pickedDay?.day == day
-                          ? context.colors.onAccent
-                          : context.colors.textSecondary,
-                    ),
-                  ),
-                  Text(
-                    '$day',
-                    style: context.type.body.copyWith(
-                      fontWeight: _pickedDay?.day == day
-                          ? FontWeight.w600
-                          : FontWeight.w500,
-                      color: _pickedDay?.day == day
-                          ? context.colors.onAccent
-                          : context.colors.textPrimary,
-                    ),
-                  ),
-                ],
-              ),
             ),
           ),
     ];

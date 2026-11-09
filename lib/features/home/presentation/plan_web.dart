@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:pantas/core/ui/components/pantas_icon_button.dart';
 import 'package:pantas/core/ui/components/pro_paused_line.dart';
 import 'package:pantas/core/ui/components/progress_ring.dart';
+import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/motion/pane_transition.dart';
 import 'package:pantas/core/ui/motion/view_swap.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
@@ -13,6 +15,7 @@ import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_page_heading.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/home/presentation/plan_page.dart';
+import 'package:pantas/features/home/presentation/widgets/home_tap_area.dart';
 import 'package:pantas/features/home/presentation/widgets/plan_skeletons.dart';
 
 /// The sidebar shell owns the outer padding and width.
@@ -497,10 +500,12 @@ class PlanWebHistory extends StatelessWidget {
                     borderRadius: const BorderRadius.vertical(
                       bottom: Radius.circular(PantasRadius.xl),
                     ),
-                    child: InkWell(
+                    child: HomeTapArea(
                       onTap: loading ? null : onMore,
+                      wash: false,
+                      focusRing: false,
                       // The row's tint is its own fill: the card's fill is
-                      // opaque, so the InkWell's ink would paint under it and
+                      // opaque, so an ink well's ink would paint under it and
                       // the row showed no hover (5Q-8).
                       child: WebHover(
                         builder: (context, hovered) => DecoratedBox(
@@ -608,20 +613,12 @@ class PlanPaneHeader extends StatelessWidget {
               children: [
                 const WebKeyHint('Esc'),
                 const SizedBox(width: PantasSpace.s6),
-                SizedBox.square(
-                  dimension: 32,
-                  child: IconButton(
-                    onPressed: onClose,
-                    tooltip: 'Close',
-                    padding: EdgeInsets.zero,
-                    style: IconButton.styleFrom(
-                      foregroundColor: t.colors.accent,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(PantasRadius.md),
-                      ),
-                    ),
-                    icon: const Icon(Icons.close, size: 18),
-                  ),
+                PantasIconButton(
+                  tooltip: 'Close',
+                  onPressed: onClose,
+                  glyph: PantasIcons.close,
+                  size: PantasIconButtonSize.sm,
+                  accent: true,
                 ),
               ],
             ),

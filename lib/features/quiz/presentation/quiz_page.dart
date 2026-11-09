@@ -54,6 +54,7 @@ import 'package:pantas/features/quiz/presentation/question_flag_providers.dart';
 import 'package:pantas/features/quiz/presentation/questions_unavailable.dart';
 import 'package:pantas/features/quiz/presentation/quiz_controller.dart';
 import 'package:pantas/features/quiz/presentation/quiz_session_end_page.dart';
+import 'package:pantas/features/quiz/presentation/quiz_tap_area.dart';
 import 'package:pantas/features/quiz/presentation/today_providers.dart';
 import 'package:pantas/features/quiz/presentation/web_quiz_question.dart';
 
@@ -742,14 +743,7 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                         ? null
                         : () => unawaited(_toggleFlag(question.id)),
                     child: ExcludeSemantics(
-                      child: IconButton(
-                        constraints: const BoxConstraints(
-                          minWidth: PantasSize.iconBtn,
-                          minHeight: PantasSize.iconBtn,
-                        ),
-                        style: IconButton.styleFrom(
-                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                        ),
+                      child: PantasIconButton(
                         tooltip: flagged.contains(question.id)
                             ? 'Remove flag'
                             : 'Flag question',
@@ -1199,22 +1193,10 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                                               _toggleFlag(question.id),
                                             ),
                                     child: ExcludeSemantics(
-                                      child: IconButton(
+                                      child: PantasIconButton(
                                         tooltip: flagged.contains(question.id)
                                             ? 'Remove flag'
                                             : 'Flag question',
-                                        constraints:
-                                            const BoxConstraints.tightFor(
-                                          width: PantasSize.iconBtn,
-                                          height: PantasSize.iconBtn,
-                                        ),
-                                        padding: EdgeInsets.zero,
-                                        visualDensity: VisualDensity.standard,
-                                        style: IconButton.styleFrom(
-                                          tapTargetSize:
-                                              MaterialTapTargetSize.shrinkWrap,
-                                          shape: const CircleBorder(),
-                                        ),
                                         // Stays enabled while the write
                                         // runs: a disabled button gives
                                         // up its focus, and the ring
@@ -1393,7 +1375,7 @@ class _QuizPageState extends ConsumerState<QuizPage> {
       label: 'Question ${index + 1} of $total. Open question navigator',
       onTap: enabled ? open : null,
       child: ExcludeSemantics(
-        child: InkWell(
+        child: QuizTapArea(
           key: const ValueKey('quiz-counter'),
           onTap: enabled ? open : null,
           child: Padding(
@@ -1752,43 +1734,43 @@ class _WebGridCell extends StatelessWidget {
     final t = context.webTokens;
     final answered = outcome != null;
     final right = outcome?.isCorrect ?? false;
-    final cell = TextButton(
-      onPressed: onPressed,
-      style: TextButton.styleFrom(
-        padding: EdgeInsets.zero,
-        visualDensity: VisualDensity.standard,
-        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-        textStyle: PantasType.webSub.copyWith(
-          color: t.colors.textPrimary,
-          fontWeight: onScreen ? FontWeight.w700 : FontWeight.w600,
+    final enabled = onPressed != null;
+    final radius = BorderRadius.circular(PantasRadius.md);
+    final border = onScreen
+        ? Border.all(
+            color: t.colors.textPrimary,
+            width: PantasBorder.ringSelected,
+          )
+        : answered
+            ? null
+            : Border.all(color: t.colors.divider);
+    final cell = QuizTapArea(
+      onTap: onPressed,
+      borderRadius: radius,
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          color: !answered || !enabled
+              ? t.colors.surfaceCard
+              : right
+                  ? t.colors.accentTint
+                  : t.colors.dangerTint,
+          borderRadius: radius,
+          border: border,
         ),
-        backgroundColor: !answered
-            ? t.colors.surfaceCard
-            : right
-                ? t.colors.accentTint
-                : t.colors.dangerTint,
-        disabledBackgroundColor: t.colors.surfaceCard,
-        foregroundColor: !answered
-            ? t.colors.textSecondary
-            : right
-                ? t.colors.accent
-                : t.colors.dangerText,
-        disabledForegroundColor: t.colors.textSecondary,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(PantasRadius.md),
-          side: onScreen
-              ? BorderSide(
-                  color: t.colors.textPrimary,
-                  width: PantasBorder.ringSelected,
-                )
-              : answered
-                  ? BorderSide.none
-                  : BorderSide(color: t.colors.divider),
+        child: Center(
+          child: Text(
+            '$number',
+            semanticsLabel: flagged ? '$number, flagged' : null,
+            style: PantasType.webSub.copyWith(
+              fontWeight: onScreen ? FontWeight.w700 : FontWeight.w600,
+              color: !answered || !enabled
+                  ? t.colors.textSecondary
+                  : right
+                      ? t.colors.accent
+                      : t.colors.dangerText,
+            ),
+          ),
         ),
-      ),
-      child: Text(
-        '$number',
-        semanticsLabel: flagged ? '$number, flagged' : null,
       ),
     );
     if (!flagged) return cell;

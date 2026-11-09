@@ -649,23 +649,10 @@ class HomeTodayHeader extends StatelessWidget {
                 children: [
                   Text('TODAY', style: context.type.sectionHeader),
                   if (onPlan != null)
-                    TextButton(
+                    WebTextLink(
+                      label: 'View full plan',
                       onPressed: onPlan,
-                      style: TextButton.styleFrom(
-                        visualDensity: VisualDensity.standard,
-                        minimumSize: const Size(0, 20),
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: PantasSpace.s12,
-                        ),
-                        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                      ),
-                      child: Text(
-                        'View full plan',
-                        style: context.type.subhead.copyWith(
-                          color: context.colors.accent,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
+                      arrow: false,
                     ),
                 ],
               ),

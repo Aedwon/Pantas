@@ -6,6 +6,7 @@ import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/quiz/application/session_debrief_provider.dart';
 import 'package:pantas/features/quiz/data/session_diagnosis_api.dart';
 import 'package:pantas/features/quiz/domain/models/review_batch_position.dart';
+import 'package:pantas/features/quiz/presentation/quiz_tap_area.dart';
 import 'package:pantas/features/quiz/presentation/session_debrief_cards.dart';
 import 'package:pantas/features/quiz/presentation/session_end_screen.dart';
 
@@ -116,7 +117,7 @@ void main() {
         if (wide) {
           final row = find.ancestor(
             of: find.text('1 is in Algebraic Expressions itself'),
-            matching: find.byType(InkWell),
+            matching: find.byType(QuizTapArea),
           );
           final circle = find.descendant(
             of: row,
@@ -400,7 +401,7 @@ void main() {
       } else {
         final nextRow = find.ancestor(
           of: find.text(_plan.next!.title),
-          matching: find.byType(InkWell),
+          matching: find.byType(QuizTapArea),
         );
         expect(
           tester.getTopLeft(title).dy - tester.getBottomLeft(nextRow).dy,

@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/pantas_icon_button.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -164,10 +165,10 @@ class TopicDetailPage extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       const WebKeyHint('Esc'),
-                      IconButton(
+                      PantasIconButton(
                         tooltip: 'Close topic',
                         onPressed: onBack,
-                        icon: const Icon(Icons.close, size: 20),
+                        glyph: PantasIcons.close,
                       ),
                     ],
                   ),
