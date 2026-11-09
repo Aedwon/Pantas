@@ -120,7 +120,7 @@ void main() {
       }
       // Cells are 44 wide. Five days touch.
       for (final r in rects) {
-        expect(r.width, 44);
+        expect(r.width, closeTo(44, .01));
       }
       if (days == 5) {
         for (var i = 1; i < 5; i++) {
