@@ -360,7 +360,9 @@ void main() {
         // See all ends 12 px inside the right edge, on the label's line.
         final seeAll = tester.getRect(find.text('See all'));
         expect(seeAll.right, closeTo(card.right - 12, 0.01));
-        expect(tester.getSize(find.text('See all')).height, 20);
+        // Text height differs by platform (20 on macOS, 19 on Linux), so
+        // check the link is centered on the label's line, not its height.
+        expect(seeAll.center.dy, closeTo(label.center.dy, 0.01));
         // Rows 4 px under the header, side by side, 24 px apart.
         final left = find
             .ancestor(
