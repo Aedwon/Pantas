@@ -263,6 +263,7 @@ class _PantasSheetState extends State<PantasSheet>
       );
 
   /// A viewport this short or shorter (a phone on its side) centers the sheet.
+  // ds-board: Sheet README landscape rule, "when the height is 500px or less".
   static const double _landscapeHeight = 500;
 
   Widget _panel(BoxConstraints constraints, double sheetProgress) {

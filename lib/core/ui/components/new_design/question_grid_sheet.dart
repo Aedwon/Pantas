@@ -368,9 +368,11 @@ class QuestionGridSheet extends StatelessWidget {
               // The Close button below needs room at large text on a short
               // phone, so the gap tightens there and stays 16 otherwise.
               SizedBox(
-                height: MediaQuery.textScalerOf(context).scale(16) > 24
-                    ? PantasSpace.s12
-                    : PantasSpace.s16,
+                height:
+                    MediaQuery.textScalerOf(context).scale(PantasSpace.s16) >
+                            PantasSpace.s24
+                        ? PantasSpace.s12
+                        : PantasSpace.s16,
               ),
               footer!,
             ] else ...[
