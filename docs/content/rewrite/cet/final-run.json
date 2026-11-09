@@ -120,20 +120,20 @@
     "lessonPath": "content/lessons/science/biology/meiosis-and-genetic-variation.md",
     "lessonId": "lesson-biology-meiosis-and-genetic-variation",
     "group": "science",
-    "status": "open",
+    "status": "clean",
     "splitFrom": "lesson-biology-cellular-reproduction"
   },
   {
     "lessonPath": "content/lessons/science/biology/characteristics-of-life.md",
     "lessonId": "lesson-biology-characteristics-of-life",
     "group": "science",
-    "status": "open"
+    "status": "clean"
   },
   {
     "lessonPath": "content/lessons/science/biology/evolution.md",
     "lessonId": "lesson-biology-evolution",
     "group": "science",
-    "status": "open"
+    "status": "clean"
   },
   {
     "lessonPath": "content/lessons/science/biology/human-anatomy-physiology.md",

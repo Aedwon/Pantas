@@ -52,3 +52,11 @@ One subagent at a time. The fixer changes only its lesson files. No question fil
 - chemical-reactions: minor. Neutralization now scoped to an acid and a hydroxide base, consistent with the acids-bases-ph lesson's NH3 + HCl case. Open Minor: title differs from the outline. 3,308 words, split candidate.
 - history-of-the-atom: minor. Ion now "an atom or group of atoms with an electric charge"; "neutral" defined. Open Minor: long paragraphs.
 - Lead quote check: every round-6 quote found in its lesson; every verdict matches its findings.
+
+### Biology (November 9)
+
+- Fixer (Sonnet) read every required file this time.
+- characteristics-of-life: clean. Virus now "must get its genetic material into a host cell"; dormancy scoped to "a seed that is dry or resting"; Example 1 uses only the stem's "grows".
+- evolution: clean. The allele-pair rule is scoped to "a diploid organism made by sexual reproduction"; Example 1 takes the 100 copies from the stem; the acquired-trait sentence now says "a body change gained by use".
+- meiosis-and-genetic-variation: clean. The allele-count rule again requires genes on different pairs, and each heterozygous gene "doubles the number of choices".
+- Lead quote check: verdicts match their findings.
