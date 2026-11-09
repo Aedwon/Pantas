@@ -246,6 +246,8 @@ class ListRow extends StatelessWidget {
         (wide ? PantasLayout.rowPadY : PantasLayout.rowPadY - PantasSpace.s2);
     final padX = wide ? PantasLayout.rowInset : PantasSpace.s16;
     if (_exam && settingsMode && !context.wideWeb) {
+      final stackComingSoon =
+          comingSoon && MediaQuery.textScalerOf(context).scale(17) > 25.5;
       // ST_ExamPick: a plain 62 px row, the check at the right, and a gray
       // "Coming soon" for an exam that is not out yet.
       return Column(
@@ -289,20 +291,32 @@ class ListRow extends StatelessWidget {
                             ),
                           ),
                           // Board "f A": beside "Coming soon" the organization
-                          // stays on one line and ends in an ellipsis.
+                          // stays on one line and ends in an ellipsis. At
+                          // large text the label moves under it (ruling 12)
+                          // and the line has the full width.
                           Text(
                             subtitle ?? '',
                             style: subBase.copyWith(
                               color:
                                   comingSoon ? c.textDisabled : c.textSecondary,
                             ),
-                            maxLines: comingSoon ? 1 : null,
-                            overflow: comingSoon ? TextOverflow.ellipsis : null,
+                            maxLines: comingSoon && !stackComingSoon ? 1 : null,
+                            overflow: comingSoon && !stackComingSoon
+                                ? TextOverflow.ellipsis
+                                : null,
                           ),
+                          if (stackComingSoon)
+                            Text(
+                              'Coming soon',
+                              style: subBase.copyWith(
+                                fontWeight: FontWeight.w500,
+                                color: c.textDisabled,
+                              ),
+                            ),
                         ],
                       ),
                     ),
-                    if (comingSoon)
+                    if (comingSoon && !stackComingSoon)
                       Text(
                         'Coming soon',
                         style: subBase.copyWith(
@@ -358,9 +372,6 @@ class ListRow extends StatelessWidget {
                         ? PantasType.webRowTitleSettings
                             .copyWith(color: c.textPrimary)
                         : titleBase,
-                    maxLines: _checkbox || wrapTitle ? null : 1,
-                    overflow:
-                        _checkbox || wrapTitle ? null : TextOverflow.ellipsis,
                   ),
               if (subtitle != null)
                 Text(
@@ -463,8 +474,6 @@ class ListRow extends StatelessWidget {
         tinted ? subBase.copyWith(color: c.textOnTintSecondary) : subBase;
     final label = Text.rich(
       richTitle ?? TextSpan(text: title),
-      maxLines: wrapTitle ? null : 1,
-      overflow: wrapTitle ? null : TextOverflow.ellipsis,
       style: labelStyle,
     );
     // A plain text value shares the row with the title. The value takes the

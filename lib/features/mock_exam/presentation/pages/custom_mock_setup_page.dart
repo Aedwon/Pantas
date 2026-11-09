@@ -254,8 +254,6 @@ class _CustomMockSetupPageState extends State<CustomMockSetupPage> {
     final stack = MediaQuery.textScalerOf(context).scale(17) > 25.5;
     final label = Text(
       subject.name,
-      maxLines: 1,
-      overflow: TextOverflow.ellipsis,
       style: context.type.body,
     );
     final unit = context.type.footnote.copyWith(color: c.secondaryLabel);

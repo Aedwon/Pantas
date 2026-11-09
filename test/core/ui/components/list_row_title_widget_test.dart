@@ -34,13 +34,12 @@ void main() {
     expect(tester.getRect(find.text('Google')).right, row.right - 16);
   });
 
-  testWidgets('default title keeps truncation and the existing tap',
-      (tester) async {
+  testWidgets('default title wraps and keeps the existing tap', (tester) async {
     var taps = 0;
     await tester.pumpApp(ListRow(title: 'Plain title', onTap: () => taps++));
     final title = tester.widget<Text>(find.text('Plain title'));
-    expect(title.maxLines, 1);
-    expect(title.overflow, TextOverflow.ellipsis);
+    expect(title.maxLines, isNull);
+    expect(title.overflow, isNot(TextOverflow.ellipsis));
     await tester.tap(find.text('Plain title'));
     expect(taps, 1);
     expect(tester.takeException(), isNull);

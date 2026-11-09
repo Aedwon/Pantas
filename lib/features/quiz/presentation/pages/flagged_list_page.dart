@@ -15,6 +15,7 @@ import 'package:pantas/core/ui/components/math_text.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_icon_button.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
+import 'package:pantas/core/ui/components/pantas_tooltip.dart';
 import 'package:pantas/core/ui/components/review_list.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
@@ -171,16 +172,19 @@ class _FlaggedListPageState extends ConsumerState<FlaggedListPage> {
             ? ContentRenderer.plainText(entry.label)
             : entry.label,
         titleWidget: entry.labelIsStem
-            ? DefaultTextStyle(
-                style: PantasType.phoneBody
-                    .copyWith(color: context.colors.textPrimary),
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                softWrap: false,
-                child: MathText(
-                  ContentRenderer.plainText(entry.label),
+            ? PantasTooltip(
+                message: ContentRenderer.plainText(entry.label),
+                child: DefaultTextStyle(
+                  style: PantasType.phoneBody
+                      .copyWith(color: context.colors.textPrimary),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
+                  softWrap: false,
+                  child: MathText(
+                    ContentRenderer.plainText(entry.label),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
                 ),
               )
             : null,

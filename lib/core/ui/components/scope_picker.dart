@@ -204,8 +204,6 @@ class _ScopePickerState extends State<ScopePicker>
                   Expanded(
                     child: Text(
                       title,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
                       style: board
                           ? (lesson
                                   ? PantasType.webRowTitleSettings

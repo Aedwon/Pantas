@@ -809,8 +809,6 @@ class _PartList extends StatelessWidget {
                           Expanded(
                             child: Text(
                               names[i],
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
                               style: context.type.body.copyWith(
                                 fontWeight: i == currentIndex
                                     ? FontWeight.w600
