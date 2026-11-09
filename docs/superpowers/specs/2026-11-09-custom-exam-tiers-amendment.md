@@ -57,7 +57,7 @@ Example: a Student custom exam, and the student ticks General Information in Wha
 
 - Free student: the tier line changes. Saving works as before.
 - Pro that already covers Civil Service: nothing extra happens.
-- Student Pro: before saving, a dialog says the exam becomes Civil Service and the Student plan does not cover it. Choices: Keep Current Subjects (first), Save on Free, See Civil Service Plans (the upgrade paywall). This matches the existing rule for switching to a pricier listed exam.
+- Student Pro: before saving, a dialog says the exam becomes Civil Service and the Student plan does not cover it. Two choices: Keep Subjects, or See Plans. See Plans opens the existing upgrade screen for that tier, which already offers Upgrade and Save on Free. This matches the existing rule for switching to a pricier listed exam. (Corrected on the board, 9 November: the first draft had three dialog buttons, and the design system allows at most two.)
 - If the student later removes General Information, the exam is Student again, and Student Pro covers it again at once.
 - Lowering the tier never asks anything. Pro stays.
 - Nothing is deleted at any point. Narrowing still only filters.
@@ -86,11 +86,11 @@ Per your 9 November rule, an agent drafts this text, GPT 6.1 Sol High critiques 
 2. **Five Civil Service-only sets inside Student subjects.** Two Mathematics sets (data interpretation) and three Reasoning sets (clerical ability, verbal logic) are tagged only for CSE.
    - A. Keep the subject rule as you chose it (recommended). Those sets stay in a Student custom exam. Their Pro notes still need Civil Service Pro, so the only thing a Student plan gives on them is mock and plan access. Cost: none to build.
    - B. Price by topic instead. Data interpretation and clerical ability become Civil Service. Cost: about one more day, a tier tag on topic rows in What's Included, and a Mathematics or Reasoning tick that can quietly raise the tier.
-3. **How the tier shows on the subjects step.** Options, drawn on a Claude Design board before building:
+3. **How the tier shows on the subjects step.** Options, drawn on the Claude Design board "Custom Exam Tier Picks" (https://claude.ai/artifact/YEtFgMGqFsQ3ukTYShkNvb):
    - A. The line under the list only. Cheapest. The student cannot see which subject raises the tier.
    - B. The line, plus a tag on rows above Student (recommended). One tag today, on General Information.
    - C. A tag on every row. Five "Student" tags that tell the student nothing.
-4. **The raise-tier dialog** in 1.4: its wording and three actions, on the same board.
+4. **The raise-tier dialog** in 1.4: its wording and two actions, on the same board.
 
 ## 1.8 Cost, risk and how it will be judged
 
@@ -179,7 +179,7 @@ All UI uses design system 4.0 components (`design/system/`), built 1:1 from the 
 - Tier line: body text under the list, `text-secondary`, updated on each tick from the client table. Strings: "Studying is free. Pro for this exam uses Student plans." / "... Civil Service plans." / "... Licensure plans."
 - The client table is display only. The server decides coverage.
 
-**Raise-tier dialog** (What's Included save, and the subjects step from Settings): system `Dialog`, shown only when `entitlement.proIsActive` and the current plan's tier is below the new tier. Title "This makes PUP CET a Civil Service exam". Text "Your Student plan covers Student exams. Pro features stop on PUP CET unless you upgrade." Actions in Dialog README order: Keep Current Subjects, Save on Free, See Civil Service Plans (opens the Pro page in upgrade mode). Wording is decision 4.
+**Raise-tier dialog** (What's Included save, and the subjects step from Settings): system `Dialog`, shown only when `entitlement.proIsActive` and the current plan's tier is below the new tier. Title "PUP CET becomes a Civil Service exam". Text "General Information is a Civil Service subject. Your Student plan doesn't cover Civil Service exams, so Pro features stop on PUP CET unless you upgrade." Two actions, per the Dialog README limit: Keep Subjects (tertiary) and See Plans (primary), which opens the tier upgrade screen (`ST_SwitchUpgrade` layout, its secondary action reading "Save on Free"). Wording is decision 4. Board: "Custom Exam Tier Picks", https://claude.ai/artifact/YEtFgMGqFsQ3ukTYShkNvb.
 
 **Pro page** (`pro_page.dart`): remove `_CustomFreeCard` and the `showOffers = !custom` rule. A custom track resolves its tier from `getCustomTracks` (web) or the client table (native) and shows that tier's paywall, the same component path as `PriceTier.fromCatalog` for a listed exam, with no pass card. Header uses the track name. One line under the header: "PUP CET uses Civil Service plans because it includes General Information." For Student: "PUP CET uses Student plans."
 
