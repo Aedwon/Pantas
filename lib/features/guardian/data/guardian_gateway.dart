@@ -41,6 +41,18 @@ abstract interface class GuardianGateway {
     required bool agreed,
     required bool allowSharing,
   });
+
+  /// Reads the manage page for the link. Never changes anything.
+  Future<GuardianManageView> readManage(String token);
+
+  /// Turns optional usage sharing on or off for the student.
+  Future<GuardianManageView> setSharing({
+    required String token,
+    required bool allowed,
+  });
+
+  /// Closes the student's account at the guardian's request.
+  Future<GuardianWithdrawal> withdraw(String token);
 }
 
 // Single-method interface is intentional for callable-client test DI.
@@ -153,6 +165,46 @@ class CallableGuardianGateway implements GuardianGateway {
       'used' => const GuardianAnswerResult(GuardianAnswer.used),
       'expired' => const GuardianAnswerResult(GuardianAnswer.expired),
       _ => const GuardianAnswerResult(GuardianAnswer.unknown),
+    };
+  }
+
+  GuardianManageView _manageView(Map<Object?, Object?> reply) =>
+      switch (reply['state']) {
+        'active' => GuardianManageActive(
+            sharingAllowed: reply['sharingAllowed'] == true,
+          ),
+        'not_confirmed' => const GuardianManageNotConfirmed(),
+        _ => const GuardianManageClosed(),
+      };
+
+  @override
+  Future<GuardianManageView> readManage(String token) async => _manageView(
+        _map(await _client.call('getGuardianManage', {'token': token})),
+      );
+
+  @override
+  Future<GuardianManageView> setSharing({
+    required String token,
+    required bool allowed,
+  }) async =>
+      _manageView(
+        _map(
+          await _client.call(
+            'setGuardianSharing',
+            {'token': token, 'allowed': allowed},
+          ),
+        ),
+      );
+
+  @override
+  Future<GuardianWithdrawal> withdraw(String token) async {
+    final reply = _map(
+      await _client.call('withdrawGuardianPermission', {'token': token}),
+    );
+    return switch (reply['state']) {
+      'withdrawn' => GuardianWithdrawal.withdrawn,
+      'not_confirmed' => GuardianWithdrawal.notConfirmed,
+      _ => GuardianWithdrawal.closed,
     };
   }
 }

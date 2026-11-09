@@ -46,8 +46,7 @@ class _GuardianConfirmPageState extends ConsumerState<GuardianConfirmPage> {
   bool _agreed = false;
   bool _allowSharing = false;
 
-  /// Kept for the Manage Permission button that follows in a later task.
-  // ignore: unused_field
+  /// Returned once with a confirmation. It opens the manage page.
   String? _manageToken;
   bool _busy = false;
   bool _failed = false;
@@ -133,9 +132,26 @@ class _GuardianConfirmPageState extends ConsumerState<GuardianConfirmPage> {
           detail: GuardianCopy.closedDetail,
         );
       case _Phase.confirmed:
-        return const GuardianScreen(
+        final manageToken = _manageToken;
+        return GuardianScreen(
           title: GuardianCopy.confirmedTitle,
           detail: GuardianCopy.confirmedDetail,
+          actions: [
+            // Boards CF_Wide, CF_PhDone: one secondary button, centered at its
+            // natural width on both layouts.
+            if (manageToken != null)
+              Center(
+                child: PantasButton(
+                  label: GuardianCopy.managePermissionLabel,
+                  variant: PantasButtonVariant.secondary,
+                  fullWidth: false,
+                  onPressed: () => _open(
+                    '/guardian/manage?token='
+                    '${Uri.encodeQueryComponent(manageToken)}',
+                  ),
+                ),
+              ),
+          ],
         );
       case _Phase.declined:
         return const GuardianScreen(

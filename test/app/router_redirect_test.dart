@@ -324,6 +324,40 @@ void main() {
       expect(guardian.answers, isEmpty, reason: 'opening never confirms');
     });
 
+    testWidgets('the manage link opens for a signed-out visitor',
+        (tester) async {
+      final guardian = FakeGuardianGateway()
+        ..manage = const GuardianManageActive(sharingAllowed: true);
+      await pumpApp(tester, guardian: guardian);
+      final container =
+          ProviderScope.containerOf(tester.element(find.byType(App)));
+      container.read(routerProvider).go('/guardian/manage?token=abc');
+      await tester.pumpAndSettle();
+      expect(pathOf(tester), '/guardian/manage');
+      expect(find.text('Manage permission'), findsOneWidget);
+      expect(guardian.sharingCalls, isEmpty, reason: 'opening never changes');
+    });
+
+    testWidgets('the manage link opens on a device held on Waiting',
+        (tester) async {
+      await AppPreferencesRepository(db).setAgeGroup('minor');
+      final guardian = FakeGuardianGateway()
+        ..current = GuardianStatus(
+          status: GuardianConsentStatus.pending,
+          maskedEmail: 'm***@g***.com',
+          expiresAt: DateTime.utc(2026, 11, 9),
+        )
+        ..manage = const GuardianManageActive(sharingAllowed: false);
+      await pumpApp(tester, guardian: guardian);
+      expect(pathOf(tester), '/guardian/waiting');
+      final container =
+          ProviderScope.containerOf(tester.element(find.byType(App)));
+      container.read(routerProvider).go('/guardian/manage?token=abc');
+      await tester.pumpAndSettle();
+      expect(pathOf(tester), '/guardian/manage');
+      expect(find.text('Manage permission'), findsOneWidget);
+    });
+
     testWidgets('legal pages open for the guardian before any onboarding',
         (tester) async {
       await pumpApp(tester, guardian: FakeGuardianGateway());

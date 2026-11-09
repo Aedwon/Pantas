@@ -187,6 +187,69 @@ void main() {
     expect(find.widgetWithText(PantasButton, 'Confirm'), findsNothing);
   });
 
+  Future<void> confirmNow(WidgetTester tester) async {
+    final agreement =
+        find.text("I'm their parent or guardian, and I agree to these terms.");
+    await tester.ensureVisible(agreement);
+    await tester.tap(agreement);
+    await tester.pump();
+    final confirm = find.widgetWithText(PantasButton, 'Confirm');
+    await tester.ensureVisible(confirm);
+    await tester.tap(confirm);
+    await tester.pumpAndSettle();
+  }
+
+  for (final web in [false, true]) {
+    testWidgets(
+        'the Thank you page offers Manage Permission, which opens the manage '
+        'page with the returned token, web $web', (tester) async {
+      gateway.manageTokenTo = 'mt-123';
+      await pump(
+        tester,
+        web: web,
+        size: web ? const Size(1440, 900) : const Size(390, 844),
+      );
+      await confirmNow(tester);
+      expect(find.text('Thank you'), findsOneWidget);
+      final button = find.widgetWithText(PantasButton, 'Manage Permission');
+      expect(button, findsOneWidget);
+      expect(
+        tester.widget<PantasButton>(button).variant,
+        PantasButtonVariant.secondary,
+      );
+      await tester.tap(button);
+      expect(opened, ['/guardian/manage?token=mt-123']);
+    });
+  }
+
+  testWidgets('the Manage Permission button sits centered at natural width',
+      (tester) async {
+    await pump(tester);
+    await confirmNow(tester);
+    final box =
+        tester.getRect(find.widgetWithText(PantasButton, 'Manage Permission'));
+    expect(box.center.dx, closeTo(195, 1));
+    expect(box.width, lessThan(390 - 40));
+  });
+
+  testWidgets('without a manage token there is no Manage Permission button',
+      (tester) async {
+    gateway.manageTokenTo = null;
+    await pump(tester);
+    await confirmNow(tester);
+    expect(find.text('Thank you'), findsOneWidget);
+    expect(find.text('Manage Permission'), findsNothing);
+  });
+
+  testWidgets('a declined answer offers no Manage Permission', (tester) async {
+    gateway.answerTo = GuardianAnswer.declined;
+    await pump(tester);
+    await tester.ensureVisible(find.text("I Don't Agree"));
+    await tester.tap(find.text("I Don't Agree"));
+    await tester.pumpAndSettle();
+    expect(find.text('Manage Permission'), findsNothing);
+  });
+
   testWidgets(
       'the sharing box starts unticked and is independent of the '
       'agreement box', (tester) async {

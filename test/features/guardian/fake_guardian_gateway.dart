@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:pantas/features/guardian/data/guardian_gateway.dart';
 import 'package:pantas/features/guardian/domain/guardian_consent.dart';
 
@@ -81,5 +83,45 @@ class FakeGuardianGateway implements GuardianGateway {
       answerTo,
       manageToken: answerTo == GuardianAnswer.confirmed ? manageTokenTo : null,
     );
+  }
+
+  GuardianManageView manage = const GuardianManageActive(sharingAllowed: false);
+  Exception? manageFailure;
+  Exception? sharingFailure;
+  Exception? withdrawFailure;
+  GuardianWithdrawal withdrawTo = GuardianWithdrawal.withdrawn;
+  final sharingCalls = <({String token, bool allowed})>[];
+  final withdrawCalls = <String>[];
+
+  /// Completes the next sharing call when set, so a test can look at the page
+  /// while the call is still out.
+  Completer<void>? sharingGate;
+
+  /// Returned by the next sharing call instead of the new value.
+  GuardianManageView? sharingResult;
+
+  @override
+  Future<GuardianManageView> readManage(String token) async {
+    if (manageFailure != null) throw manageFailure!;
+    return manage;
+  }
+
+  @override
+  Future<GuardianManageView> setSharing({
+    required String token,
+    required bool allowed,
+  }) async {
+    sharingCalls.add((token: token, allowed: allowed));
+    await sharingGate?.future;
+    if (sharingFailure != null) throw sharingFailure!;
+    return manage =
+        sharingResult ?? GuardianManageActive(sharingAllowed: allowed);
+  }
+
+  @override
+  Future<GuardianWithdrawal> withdraw(String token) async {
+    withdrawCalls.add(token);
+    if (withdrawFailure != null) throw withdrawFailure!;
+    return withdrawTo;
   }
 }

@@ -132,6 +132,51 @@ void main() {
     expect(client.calls.last.$2['allowSharing'], false);
   });
 
+  test('reading the manage page maps the three answers', () async {
+    final client =
+        _Client((_, __) => {'state': 'active', 'sharingAllowed': true});
+    final gateway = CallableGuardianGateway(client);
+    final active = await gateway.readManage('m');
+    expect(client.calls.single.$1, 'getGuardianManage');
+    expect(client.calls.single.$2, {'token': 'm'});
+    expect(active, isA<GuardianManageActive>());
+    expect((active as GuardianManageActive).sharingAllowed, isTrue);
+    client.reply = (_, __) => {'state': 'active'};
+    expect(
+      ((await gateway.readManage('m')) as GuardianManageActive).sharingAllowed,
+      isFalse,
+    );
+    client.reply = (_, __) => {'state': 'not_confirmed'};
+    expect(await gateway.readManage('m'), isA<GuardianManageNotConfirmed>());
+    client.reply = (_, __) => {'state': 'unknown'};
+    expect(await gateway.readManage('m'), isA<GuardianManageClosed>());
+    client.reply = (_, __) => {'state': 'something else'};
+    expect(await gateway.readManage('m'), isA<GuardianManageClosed>());
+  });
+
+  test('turning sharing on or off names the callable and the choice', () async {
+    final client = _Client(
+      (_, __) => {'state': 'active', 'sharingAllowed': true},
+    );
+    final view = await CallableGuardianGateway(client)
+        .setSharing(token: 'm', allowed: true);
+    expect(client.calls.single.$1, 'setGuardianSharing');
+    expect(client.calls.single.$2, {'token': 'm', 'allowed': true});
+    expect((view as GuardianManageActive).sharingAllowed, isTrue);
+  });
+
+  test('withdrawing names the callable and maps the answers', () async {
+    final client = _Client((_, __) => {'state': 'withdrawn'});
+    final gateway = CallableGuardianGateway(client);
+    expect(await gateway.withdraw('m'), GuardianWithdrawal.withdrawn);
+    expect(client.calls.single.$1, 'withdrawGuardianPermission');
+    expect(client.calls.single.$2, {'token': 'm'});
+    client.reply = (_, __) => {'state': 'not_confirmed'};
+    expect(await gateway.withdraw('m'), GuardianWithdrawal.notConfirmed);
+    client.reply = (_, __) => {'state': 'unknown'};
+    expect(await gateway.withdraw('m'), GuardianWithdrawal.closed);
+  });
+
   test('a rate limit and any other failure become typed errors', () async {
     final limited = CallableGuardianGateway(
       _Client((_, __) => throw const GuardianRateLimitedException()),
