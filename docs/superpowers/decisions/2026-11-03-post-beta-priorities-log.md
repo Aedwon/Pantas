@@ -148,3 +148,9 @@ Result: all 12 closed, 6 clean and 6 minor. Counts: 77 lessons, 17 clean, 60 min
 - Lead errors: during the P6 merge, one write re-sorted the whole file and another removed an existing CSE tag; both were caught in the diff and reverted before commit. A recheck message to a subagent named a wrong commit id and was corrected.
 
 Branch `content/cet-finish-r1` at 80f51cdcf.
+
+## November 9: CET content paused
+
+The manager relayed that Aedwon wants CET content paused and moved to the end of the queue. The lead stopped at a clean point; the instruction arrived after exam tags, P6, P7 and Astra stage 1 were already done. Astra stage 1 (16 lessons) found 24 more findings in 13 lessons. The lead upheld 13 and fixed 7 more with one hedge word each; all 20 fixes passed an independent check. A figure pilot was stopped before any SVG was drawn.
+
+State: 77 lessons, 17 clean, 60 minor, 0 open. Not done: Astra on 61 lessons (Codex weekly reset November 11, 20:49), figures (about 194 markers), and the review package. Branch `content/cet-finish-r1` at 01e8ef72c; the resume steps are at the end of `docs/content/rewrite/cet/final-run-report.md` there.
