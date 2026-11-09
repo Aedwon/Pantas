@@ -403,6 +403,17 @@ void main() {
     });
 
     testWidgets(
+        'locked charts name both sides, like the wide page, $brightness',
+        (tester) async {
+      await pumpFresh(tester, pro: false, brightness: brightness);
+      // Each side of each finding is labeled; no blank gray bars.
+      for (final label in ['under time', 'right', 'wrong', 'reading']) {
+        expect(find.text(label), findsOneWidget, reason: label);
+      }
+      expect(find.text('practicing'), findsNWidgets(2));
+    });
+
+    testWidgets(
         'locked findings are rounded cards like the Pro one, '
         '$brightness (4N-15)', (tester) async {
       await pumpFresh(tester, pro: false, brightness: brightness);
