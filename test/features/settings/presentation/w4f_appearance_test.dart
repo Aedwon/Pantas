@@ -31,14 +31,11 @@ void main() {
     for (final label in ['Light', 'Dark', 'Automatic']) {
       expect(find.text(label), findsOneWidget);
     }
-    // Slider README: the label reads "Lesson Text Size", 13/600, above the
-    // control, and no section eyebrow says "Text size".
-    expect(find.text('Lesson Text Size'), findsOneWidget);
+    // Board TS_A: the section header reads "Lesson Text Size" and no second
+    // label sits above the slider.
+    expect(find.text('LESSON TEXT SIZE'), findsOneWidget);
+    expect(find.text('Lesson Text Size'), findsNothing);
     expect(find.text('TEXT SIZE'), findsNothing);
-    expect(find.text('Text size'), findsNothing);
-    final label = tester.widget<Text>(find.text('Lesson Text Size'));
-    expect(label.style!.fontSize, 13);
-    expect(label.style!.fontWeight, FontWeight.w600);
     final slider = tester.widget<Slider>(find.byType(Slider));
     slider.onChanged!(1.5);
     await tester.pumpAndSettle();
