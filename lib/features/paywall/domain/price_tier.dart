@@ -1,19 +1,7 @@
 import 'package:pantas/core/content/data/exam_catalog_repository.dart';
+import 'package:pantas/core/content/domain/price_tier.dart';
 
-enum PriceTier {
-  student,
-  civilService,
-  licensure,
-  nce;
-
-  factory PriceTier.fromCatalog(String value) => switch (value) {
-        'Student' => student,
-        'Civil Service' => civilService,
-        'Licensure' => licensure,
-        'PSHS-NCE' => nce,
-        _ => throw ArgumentError.value(value, 'value', 'Unknown price tier'),
-      };
-}
+export 'package:pantas/core/content/domain/price_tier.dart';
 
 Future<PriceTier> tierForExam(
   ExamCatalogRepository catalog,

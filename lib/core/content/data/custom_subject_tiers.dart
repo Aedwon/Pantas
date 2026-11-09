@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:meta/meta.dart';
-import 'package:pantas/features/paywall/domain/price_tier.dart';
+import 'package:pantas/core/content/domain/price_tier.dart';
 
 /// Which price tier each subject sits in, for showing a custom exam's tier.
 ///
