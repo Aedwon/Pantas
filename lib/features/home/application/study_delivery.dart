@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/auth/auth_state.dart';
 import 'package:pantas/core/auth/providers.dart';
+import 'package:pantas/core/storage/data/repos/custom_track_repository.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/storage/track_scope.dart';
@@ -20,10 +21,20 @@ typedef StudySettingsCapture = Future<StudySettingsPublication> Function({
 });
 
 class StudySettingsPublication {
-  StudySettingsPublication(this._publish, {void Function()? cancel})
-      : _cancel = cancel;
+  StudySettingsPublication(
+    this._publish, {
+    void Function()? cancel,
+    Future<void>? settled,
+  })  : _cancel = cancel,
+        settled = settled ?? Future<void>.value();
   final Future<void> Function() _publish;
   final void Function()? _cancel;
+
+  /// Completes when the server has the settings, or fails with what stopped
+  /// it. Calling the publication sends in the background and callers that do
+  /// not read this stay fire-and-forget. The one caller that needs the answer
+  /// reads it after [call] or [apply], never before.
+  final Future<void> settled;
   Future<void> call() => _publish();
   Future<T> apply<T>(Future<T> Function() mutation) async {
     try {
@@ -56,28 +67,44 @@ final studySettingsCaptureProvider = Provider<StudySettingsCapture>((ref) {
       return StudySettingsPublication(() async {});
     }
     final (request, _) = captured;
+    final settled = Completer<void>();
+    // A caller that never reads `settled` must not trigger an unhandled error.
+    unawaited(settled.future.then<void>((_) {}, onError: (Object _) {}));
+    void settle() {
+      if (!settled.isCompleted) settled.complete();
+    }
+
     return StudySettingsPublication(
       () async {
         if (!await request.isCurrent()) {
           intent.cancel();
+          settle();
           return;
         }
         final payload = await readStudySettingsPayload(ref, request.examId);
         if (!await request.isCurrent()) {
           intent.cancel();
+          settle();
           return;
         }
         unawaited(
           intent.publish(request, payload).then<void>(
             (_) {
+              settle();
               ref.read(roadmapRevisionProvider.notifier).bump();
             },
-            onError: (Object error, StackTrace stack) =>
-                unawaited(telemetry.recordError(error, stack)),
+            onError: (Object error, StackTrace stack) {
+              if (!settled.isCompleted) settled.completeError(error, stack);
+              unawaited(telemetry.recordError(error, stack));
+            },
           ),
         );
       },
-      cancel: intent.cancel,
+      cancel: () {
+        intent.cancel();
+        settle();
+      },
+      settled: settled.future,
     );
   };
 });
@@ -100,7 +127,7 @@ Future<(StudyRequest, String)?> _request(Ref ref, {String? examId}) async {
   final original = await SyncActiveContextStore(db).readSnapshot();
   if (original?.context != null && original!.context!.uid != uid) return null;
   final target = examId ?? await prefs.selectedExamId();
-  if (target == null || target.startsWith('exam_custom_')) return null;
+  if (target == null) return null;
   Future<bool> current() async {
     if (!alive ||
         !identical(ref.read(appDatabaseProvider), db) ||
@@ -168,10 +195,9 @@ Future<Map<String, Object?>> readStudySettingsPayload(
 ) async {
   final settings =
       await ref.read(settingsRepositoryProvider).readUserSettings();
-  final scope =
-      await ref.read(customTrackRepositoryProvider).excludedTopicIds(examId);
-  final lessons =
-      await ref.read(customTrackRepositoryProvider).excludedLessonIds(examId);
+  final tracks = ref.read(customTrackRepositoryProvider);
+  final scope = await tracks.excludedTopicIds(examId);
+  final lessons = await tracks.excludedLessonIds(examId);
   final assessed =
       await ref.read(assessmentRepositoryProvider).hasCompletedForExam(examId);
   final date = settings.examDate;
@@ -191,5 +217,15 @@ Future<Map<String, Object?>> readStudySettingsPayload(
     'assessmentCompleted': assessed,
     'carryOverProgress': settings.carryOverProgress,
   };
+  if (isCustomExamId(examId)) {
+    // The name and paper are the student's own. A paper the server would
+    // refuse stays on this device and is left out, so it cannot fail the save.
+    final name = await tracks.name(examId);
+    final blueprint = await tracks.blueprintPayload(examId);
+    payload['customTrack'] = {
+      if (name != null) 'name': name,
+      if (blueprint != null) 'blueprint': blueprint,
+    };
+  }
   return payload;
 }

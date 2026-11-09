@@ -49,3 +49,21 @@ test('content uses current exam coverage, revocation, exact expiry and starts, d
     assert.equal((await ask()).tier, 'free');
   }
 });
+
+test('a student on a custom exam reads a set as Free, exactly as with no exam chosen', async () => {
+  const custom = 'content-access-custom', examId = 'exam_custom_6f1c2d9a-3b4e-4f5a-8b6c-7d8e9f0a1b2c';
+  await db.recursiveDelete(db.doc(`users/${custom}`));
+  await writeContent(db, sets.map(s => s.item), sets.map(s => s.pro), {});
+  const claimed = {uid: custom, token: {pro: true, proUntil: NOW + DAY}};
+  const read = who => serveContent(who, {kind: 'questions', ids: sets.map(s => s.item.id), knownVersions: {}}, deps);
+  const before = await read({uid: custom, token: {}});
+  assert.equal(before.tier, 'free');
+  await db.doc(`users/${custom}/server/settings`).set({examId, examDate: null, studyDays: [1], excludedTopicIds: [], excludedLessonIds: [], updatedAt: NOW});
+  await db.doc(`users/${custom}/server/customTracks/items/${examId}`).set({examId, name: 'Mine', excludedTopicIds: [], excludedLessonIds: [], blueprint: null, createdAt: NOW, updatedAt: NOW});
+  for (const who of [{uid: custom, token: {}}, claimed]) {
+    const after = await read(who);
+    assert.deepEqual(after, before, 'a custom exam changes nothing about what a set returns');
+    assert.equal(JSON.stringify(after).includes('PAID'), false);
+    assert.ok(Object.values(after.items).every(entry => entry.status === 'ok' && /\.f$/.test(entry.version)));
+  }
+});

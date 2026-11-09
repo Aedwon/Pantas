@@ -8,8 +8,8 @@ import {hasLiveProClaim} from './_pro.js';
 import {computeRoadmap} from './roadmap.js';
 import {prepareReviewAnswers} from './serverReviews.js';
 import {assertStudyOwner} from './studyObservations.js';
-import {loadExamContent} from './_examContent.js';
-import {examCatalog} from './revenuecatPasses.js';
+import {loadCorpusCached, loadExamContent} from './_examContent.js';
+import {isCustomExamId, isStudyExamId} from './_customTrack.js';
 import {timed} from './_timed.js';
 
 export {MAX_ANSWERS} from './_answers.js';
@@ -33,13 +33,13 @@ export async function recordSession(auth: Auth, data: unknown, deps: IngestDeps)
   const attributed = body.examId !== undefined || body.origin !== undefined;
   assertStudyOwner(auth.uid, body, attributed);
   const origins = ['today_topic', 'today_interleaved', 'new_questions', 'drill', 'flagged', 'retake', 'inline', 'assessment'];
-  if (attributed && (typeof body.examId !== 'string' || !examCatalog.some(e => e.id === body.examId) ||
+  if (attributed && (!isStudyExamId(body.examId) ||
       typeof body.origin !== 'string' || !origins.includes(body.origin))) {
     throw new HttpsError('invalid-argument', 'Send a known exam and session origin.');
   }
   const sessionId = body.sessionId;
   if (typeof sessionId !== 'string' || !SESSION_ID.test(sessionId)) throw new HttpsError('invalid-argument', 'Bad session id.');
-  const answers = checkAnswers(body?.answers, now, attributed);
+  let answers = checkAnswers(body?.answers, now, attributed);
   const startedAt = checkTime(body?.startedAt, now, 'startedAt');
   const finishedAt = checkTime(body?.finishedAt, now, 'finishedAt');
   if (finishedAt < startedAt) throw new HttpsError('invalid-argument', 'finishedAt is before startedAt.');
@@ -51,18 +51,38 @@ export async function recordSession(auth: Auth, data: unknown, deps: IngestDeps)
   if (!await allowAtMost(auth.uid, 'ingestSession', deps.dailySessions ?? DAILY_SESSIONS, 86_400_000)) {
     throw new HttpsError('resource-exhausted', 'Daily session limit reached. Try again tomorrow.');
   }
+  // A custom exam draws on the whole corpus, and a phone's bundle can hold ids the catalog lacks. Those answers are
+  // dropped and the rest kept, rather than refusing the session. The replay check below compares the sent answers
+  // for the questions the stored session holds, so a later content change cannot refuse an honest replay.
+  // The exam's scope is not applied: narrowing hides figures and never discards what was done.
+  const custom = attributed && isCustomExamId(body.examId);
+  const sent = answers;
+  if (custom) {
+    // The kept corpus can be older than an upload, so an answer is dropped only against a corpus read just now.
+    let ids = new Set((await loadCorpusCached(deps.db, now)).questions.map(q => q.id));
+    if (answers.some(a => !ids.has(a.questionId))) {
+      ids = new Set((await loadCorpusCached(deps.db, now, {fresh: true})).questions.map(q => q.id));
+    }
+    answers = answers.filter(a => ids.has(a.questionId));
+    if (answers.length === 0) return {sessionId, stored: false};
+  }
   const ref = deps.db.doc(`users/${auth.uid}/server/answers/items/${sessionId}`);
   const stored = await deps.db.runTransaction(async (transaction) => {
     const previous = await transaction.get(ref);
     if (previous.exists) {
+      const sameAnswers = () => {
+        const storedAnswers = checkAnswers(previous.get('answers'), now, attributed);
+        const storedIds = new Set(storedAnswers.map(a => a.questionId));
+        return JSON.stringify(storedAnswers) === JSON.stringify(custom ? sent.filter(a => storedIds.has(a.questionId)) : answers);
+      };
       if (attributed && (previous.get('examId') !== body.examId || previous.get('origin') !== body.origin ||
           previous.get('startedAt') !== startedAt || previous.get('finishedAt') !== finishedAt ||
-          previous.get('durationMs') !== durationMs || JSON.stringify(checkAnswers(previous.get('answers'), now, attributed)) !== JSON.stringify(answers))) {
+          previous.get('durationMs') !== durationMs || !sameAnswers())) {
         throw new HttpsError('failed-precondition', 'This session was already recorded with different observations.');
       }
       return false;
     }
-    if (attributed) {
+    if (attributed && !custom) {
       const content = await loadExamContent(deps.db, body.examId as string, now);
       const ids = new Set(content.questions.map(q => q.id));
       if (answers.some(a => !ids.has(a.questionId))) throw new HttpsError('invalid-argument', 'Question is outside this exam.');

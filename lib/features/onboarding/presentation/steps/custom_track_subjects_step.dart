@@ -19,19 +19,36 @@ import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_web_page.dart';
 
+/// The subjects a custom exam can draw on, each with the topics that hold a
+/// question. A topic with none is left out, and so is a subject with no topic
+/// left, so the student is never offered something that cannot be studied. An
+/// empty result is an error: the catalog has not loaded, so the step shows
+/// Try Again instead of an empty list.
 final corpusSubjectsWithTopicsProvider =
     FutureProvider<Map<String, Set<TopicId>>>((ref) async {
   final content = ref.watch(contentRepositoryProvider);
   final exams = (await content.listExams()).where((e) => !e.isCustom);
-  final map = <String, Set<TopicId>>{};
+  final bySubject = <String, Set<TopicId>>{};
   for (final exam in exams) {
     for (final subject in exam.subjects) {
       final topics = await content.topicsBySubject(subject.id);
-      map
+      bySubject
           .putIfAbsent(subject.name, () => <TopicId>{})
           .addAll(topics.map((t) => t.id));
     }
   }
+  final counts = await content.activeQuestionCountsByTopics({
+    for (final topics in bySubject.values) ...topics,
+  });
+  final map = <String, Set<TopicId>>{};
+  for (final entry in bySubject.entries) {
+    final held = {
+      for (final id in entry.value)
+        if ((counts[id] ?? 0) > 0) id,
+    };
+    if (held.isNotEmpty) map[entry.key] = held;
+  }
+  if (map.isEmpty) throw StateError('No subject holds a question.');
   return map;
 });
 
@@ -42,9 +59,16 @@ class CustomTrackSubjectsStep extends ConsumerStatefulWidget {
     this.onBack,
     this.existingTrackId,
     this.onCreated,
+    this.fromSettings = false,
     super.key,
   });
   final String name;
+
+  /// Opened from Settings, where onboarding is already complete. The step
+  /// makes the track and says it is done, and leaves everything else to
+  /// Settings: onboarding stays complete, and the exam is changed by the same
+  /// save that changes it for a listed exam.
+  final bool fromSettings;
 
   /// A track this onboarding already created. Returning here from the date
   /// step reuses it instead of creating a second one.
@@ -112,8 +136,10 @@ class _CustomTrackSubjectsStepState
       final id = await _createOrReuse(repo, subjects, included);
       _createdId = id;
       if (!mounted || generation != _generation) return;
-      await prefs.setCompletedOnboarding(value: false);
-      await prefs.setSelectedExamId(id);
+      if (!widget.fromSettings) {
+        await prefs.setCompletedOnboarding(value: false);
+        await prefs.setSelectedExamId(id);
+      }
       if (!mounted || generation != _generation) return;
       // The exam list was read before this track existed. Without a fresh
       // read, the focus finds no chosen exam and the router never lets the

@@ -53,6 +53,8 @@ void main() {
       '/settings/account/name',
       '/settings/exam',
       '/settings/exam/change',
+      '/settings/exam/custom/name',
+      '/settings/exam/custom/subjects',
       '/settings/exam/upgrade',
       '/settings/exam/transfer',
       '/settings/exam/included',

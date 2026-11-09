@@ -1,12 +1,18 @@
-import 'package:drift/drift.dart';
+import 'package:drift/drift.dart' hide isNull;
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/dev/local_study_reset.dart';
 import 'package:pantas/core/notifications/notification_service.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/core/storage/data/repos/app_preferences_repository.dart';
+import 'package:pantas/core/storage/data/repos/content_repository.dart';
+import 'package:pantas/core/storage/data/repos/custom_track_repository.dart';
 import 'package:pantas/core/sync/local_state_wiper.dart';
 
 import '../../helpers/in_memory_database.dart';
 
 void main() {
+  _customExamSignOutTests();
+
   test('wipeAll cancels notifications before deleting synced state', () async {
     final db = inMemoryDatabase();
     addTearDown(db.close);
@@ -90,6 +96,19 @@ void main() {
     expect(await db.select(db.reviewLogs).get(), isEmpty);
     expect(await db.select(db.trackScopeLocal).get(), isEmpty);
     expect(await db.select(db.customBlueprintsLocal).get(), isEmpty);
+    expect(await db.select(db.customTrackMetaLocal).get(), isEmpty);
+  });
+
+  test('the local study reset removes the custom track name too', () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    await _seedAccountOwnedState(db);
+
+    await resetLocalStudyData(db);
+
+    expect(await db.select(db.customTrackMetaLocal).get(), isEmpty);
+    expect(await db.select(db.trackScopeLocal).get(), isEmpty);
+    expect(await db.select(db.customBlueprintsLocal).get(), isEmpty);
   });
 
   test(
@@ -130,6 +149,121 @@ void main() {
     expect(await db.select(db.topics).get(), hasLength(1));
     expect(await db.select(db.lessons).get(), hasLength(1));
     expect(await db.select(db.questions).get(), hasLength(1));
+  });
+}
+
+const _customId = 'exam_custom_6f1d0a52-3c1b-4c0e-8a52-0f6a3d2c9b11';
+
+Future<void> _select(AppDatabase db, String examId, {bool legacy = false}) {
+  if (legacy) {
+    return db.into(db.appPreferencesLocal).insert(
+          AppPreferencesLocalCompanion.insert(
+            key: 'selected_exam_id',
+            value: examId,
+          ),
+        );
+  }
+  return db.into(db.devicePrefs).insert(
+        DevicePrefsCompanion.insert(key: 'selected_exam_id', value: examId),
+      );
+}
+
+void _customExamSignOutTests() {
+  group('a custom exam does not outlive its account', () {
+    test('a custom selection is cleared from both preference tables', () async {
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      await _select(db, _customId);
+      await _select(db, _customId, legacy: true);
+      await db.into(db.devicePrefs).insert(
+            DevicePrefsCompanion.insert(key: 'other_key', value: 'kept'),
+          );
+
+      await SyncLocalStateWiper(db).wipeAll();
+
+      expect(await AppPreferencesRepository(db).selectedExamId(), isNull);
+      expect(await db.select(db.appPreferencesLocal).get(), isEmpty);
+      expect(
+        (await db.select(db.devicePrefs).get()).map((row) => row.key),
+        ['other_key'],
+      );
+    });
+
+    test('a listed selection is kept', () async {
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      await _select(db, 'cse');
+      await _select(db, 'cse', legacy: true);
+
+      await SyncLocalStateWiper(db).wipeAll();
+
+      expect(
+        (await db.select(db.devicePrefs).get()).single.value,
+        'cse',
+      );
+      expect(
+        (await db.select(db.appPreferencesLocal).get()).single.value,
+        'cse',
+      );
+    });
+
+    test('custom content rows go and listed content rows stay', () async {
+      final db = inMemoryDatabase();
+      final content = inMemoryContentDatabase();
+      addTearDown(db.close);
+      addTearDown(content.close);
+      await seedContentExam(content, examId: 'cse');
+      await seedContentExam(content, examId: _customId, isCustom: true);
+      await seedContentExam(
+        content,
+        examId: 'exam_custom_other',
+        isCustom: true,
+      );
+
+      await SyncLocalStateWiper(
+        db,
+        clearCustomExams: () => deleteCustomContentExams(content),
+      ).wipeAll();
+
+      final ids = (await content.select(content.contentExams).get())
+          .map((row) => row.id)
+          .toList();
+      expect(ids, ['cse']);
+    });
+
+    test('without a content database the wipe still works', () async {
+      final db = inMemoryDatabase();
+      final content = inMemoryContentDatabase();
+      addTearDown(db.close);
+      addTearDown(content.close);
+      await seedContentExam(content, examId: _customId, isCustom: true);
+
+      await SyncLocalStateWiper(db).wipeAll();
+
+      expect(await content.select(content.contentExams).get(), hasLength(1));
+    });
+
+    test('the next account sees no custom exam and no selection', () async {
+      final db = inMemoryDatabase();
+      final content = inMemoryContentDatabase();
+      addTearDown(db.close);
+      addTearDown(content.close);
+      await seedContentExam(content, examId: 'cse');
+      final examId = await CustomTrackRepository(db, content)
+          .create(name: 'Maria exam', includedTopicIds: {});
+      await _select(db, examId);
+
+      await SyncLocalStateWiper(
+        db,
+        clearCustomExams: () => deleteCustomContentExams(content),
+      ).wipeAll();
+      await CustomTrackRepository(db, content).reprojectAll();
+
+      final exams = await ContentRepository(content).listExams();
+      expect(exams.where((exam) => exam.isCustom), isEmpty);
+      expect(exams.map((exam) => exam.id), ['cse']);
+      expect(await AppPreferencesRepository(db).selectedExamId(), isNull);
+    });
   });
 }
 
@@ -313,6 +447,12 @@ Future<void> _seedAccountOwnedState(AppDatabase db) async {
       );
   await db.into(db.trackScopeLocal).insert(
         TrackScopeLocalCompanion.insert(examId: 'cse', topicId: 'topic_1'),
+      );
+  await db.into(db.customTrackMetaLocal).insert(
+        CustomTrackMetaLocalCompanion.insert(
+          examId: 'exam_custom_6f1d0a52-3c1b-4c0e-8a52-0f6a3d2c9b11',
+          name: 'Previous student exam',
+        ),
       );
   await db.into(db.customBlueprintsLocal).insert(
         CustomBlueprintsLocalCompanion.insert(

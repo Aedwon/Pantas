@@ -6,10 +6,10 @@ import {allowAtMost} from './_limits.js';
 import {fromDoc, totalsRef, viewOf} from './_answerTotals.js';
 import type {Answer} from './_answers.js';
 import {ID_PATTERN} from './content.js';
+import {isStudyExamId} from './_customTrack.js';
 import {loadStudyContent, loadGapTags} from './_examContent.js';
 import {mockCoverage} from './mockAccess.js';
 import {phDay, phStamp} from './_phDate.js';
-import {examCatalog} from './revenuecatPasses.js';
 import type {ExamSettings} from './roadmap.js';
 import {assertStudyOwner} from './studyObservations.js';
 import {timed} from './_timed.js';
@@ -25,7 +25,7 @@ export async function readSessionDiagnosis(auth: Auth, data: unknown, deps: Deps
   const body = data as Record<string, unknown>;
   assertStudyOwner(auth.uid, body);
   const {examId, sessionId} = body;
-  if (typeof examId !== 'string' || !examCatalog.some(e => e.id === examId)) throw new HttpsError('invalid-argument', 'Unknown exam.');
+  if (!isStudyExamId(examId)) throw new HttpsError('invalid-argument', 'Unknown exam.');
   if (typeof sessionId !== 'string' || sessionId.length > 128 || !ID_PATTERN.test(sessionId)) throw new HttpsError('invalid-argument', 'Bad session id.');
   if (!await (deps.allow ?? ((uid, key) => allowAtMost(uid, key, 600, 3_600_000)))(auth.uid, 'getSessionDiagnosis')) {
     throw new HttpsError('resource-exhausted', 'Too many attempts. Try again later.');

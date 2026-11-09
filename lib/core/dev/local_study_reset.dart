@@ -19,6 +19,7 @@ Future<void> resetLocalStudyData(
     await db.delete(db.assessmentResultsLocal).go();
     await db.delete(db.attemptsLocal).go();
     await db.delete(db.customBlueprintsLocal).go();
+    await db.delete(db.customTrackMetaLocal).go();
     await db.delete(db.dailyNewCardIntro).go();
     await db.delete(db.roadmapDayLocal).go();
     await db.delete(db.roadmapChangeLogLocal).go();

@@ -22,6 +22,7 @@ import 'package:pantas/features/mock_exam/domain/server_mock_paper.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/mock_session_page.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/mock_setup_route.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/mock_start_route.dart';
+import 'package:pantas/features/mock_exam/presentation/part_transition_page.dart';
 import 'package:pantas/features/mock_exam/presentation/pause_page.dart';
 import 'package:pantas/features/mock_exam/presentation/widgets/mock_finale.dart';
 import 'package:pantas/features/mock_exam/presentation/widgets/mock_skeletons.dart';
@@ -303,7 +304,11 @@ class _ServerMockRouteState extends ConsumerState<ServerMockRoute>
       return;
     }
     _strict?.elapse(step);
-    if (session.timeIsUp &&
+    if (session.byPart) {
+      // The server closes a part, never this screen. At zero it is asked what
+      // happens next, and the answer is shown.
+      session.tick();
+    } else if (session.timeIsUp &&
         !_finishing &&
         !session.submissionRequested &&
         !session.paused) {
@@ -332,30 +337,46 @@ class _ServerMockRouteState extends ConsumerState<ServerMockRoute>
     _tick?.cancel();
     _leaving = true;
     final paper = session.paper;
+    MockFinaleQuestion finaleQuestion(String id) => MockFinaleQuestion(
+          id: id,
+          outcome: session.answers[id]?.chosen == null
+              ? MockFinaleOutcome.blank
+              : session.answers[id]!.correct
+                  ? MockFinaleOutcome.correct
+                  : MockFinaleOutcome.wrong,
+        );
     final input = MockFinaleInput(
       reason: _terminalReason == ServerMockEndReason.strictExit
           ? MockSubmitReason.strictBackground
-          : session.timeIsUp
+          : session.timeIsUp || session.endedByServer
               ? MockSubmitReason.timeUp
               : MockSubmitReason.manual,
-      currentPartIndex: 0,
-      currentQuestionIndex: session.cursor,
-      parts: [
-        MockFinalePart(
-          name: serverMockExamName(paper.examId),
-          questions: [
-            for (final id in paper.questionIds)
-              MockFinaleQuestion(
-                id: id,
-                outcome: session.answers[id]?.chosen == null
-                    ? MockFinaleOutcome.blank
-                    : session.answers[id]!.correct
-                        ? MockFinaleOutcome.correct
-                        : MockFinaleOutcome.wrong,
+      currentPartIndex: session.partIndex,
+      currentQuestionIndex:
+          session.byPart ? session.partPosition - 1 : session.cursor,
+      parts: session.byPart
+          // A paper by part shows its real parts.
+          ? [
+              for (final section in paper.sections)
+                MockFinalePart(
+                  name: section.name,
+                  questions: [
+                    for (final question in section.questions)
+                      finaleQuestion(question.id),
+                  ],
+                ),
+            ]
+          : [
+              MockFinalePart(
+                name: serverMockExamName(
+                  paper.examId,
+                  examName: paper.examName,
+                ),
+                questions: [
+                  for (final id in paper.questionIds) finaleQuestion(id),
+                ],
               ),
-          ],
-        ),
-      ],
+            ],
     );
     ref
       ..invalidate(serverMockResultProvider(paper.mockId))
@@ -425,24 +446,29 @@ class _ServerMockRouteState extends ConsumerState<ServerMockRoute>
     }
     final paper = session.paper;
     final failure = session.failure;
-    final page = session.paused
-        ? PausePage(
-            paper: _lastPaper,
-            partNames: const [''],
-            currentPartIndex: 0,
-            remaining: session.remaining,
-            partLength: paper.limit,
-            answeredCount: session.answers.length,
-            onResume: () => unawaited(session.resume()),
-            onDiscard: () async {
-              if (!await session.discard() || !mounted) return;
-              // The server keeps the paper and restarts the clock on discard,
-              // so the clock would run while nobody is here. Stop it.
-              await session.pause();
-              if (mounted) await _close();
-            },
-          )
-        : (_lastPaper = _paper(session));
+    final page = session.waiting
+        ? _betweenParts(session)
+        : session.paused
+            ? PausePage(
+                paper: _lastPaper,
+                partNames: session.byPart
+                    ? [for (final section in paper.sections) section.name]
+                    : const [''],
+                currentPartIndex: session.partIndex,
+                remaining: session.remaining,
+                partLength: session.partLimit,
+                answeredCount: session.answers.length,
+                onResume: () => unawaited(session.resume()),
+                onDiscard: () async {
+                  if (!await session.discard() || !mounted) return;
+                  // The server keeps the paper and restarts the clock on
+                  // discard, so the clock would run while nobody is here.
+                  // Stop it.
+                  await session.pause();
+                  if (mounted) await _close();
+                },
+              )
+            : (_lastPaper = _paper(session));
     if (failure == null) return page;
     return Stack(
       children: [
@@ -457,6 +483,36 @@ class _ServerMockRouteState extends ConsumerState<ServerMockRoute>
           ),
         ),
       ],
+    );
+  }
+
+  /// A custom exam is named as the Quiz card names it. A listed one keeps its
+  /// own title.
+  static String _examTitle(ServerMockPaper paper) => paper.examName != null
+      ? '${paper.examName} simulation'
+      : switch (paper.examId) {
+          'exam_cse_pro' => 'CSE Professional simulation',
+          'exam_cse_sub' => 'CSE Subprofessional simulation',
+          _ => 'Mock exam',
+        };
+
+  /// The part that just closed has run out or been ended, and the next one
+  /// waits for the student, or for the strict break to end.
+  Widget _betweenParts(ServerMockSession session) {
+    final sections = session.paper.sections;
+    return PartTransitionPage(
+      key: ValueKey('part-transition-${session.partIndex}'),
+      partNames: [for (final section in sections) section.name],
+      nextPartIndex: session.partIndex,
+      answeredQuestions: [
+        for (final question in sections[session.partIndex - 1].questions)
+          session.answers[question.id]?.chosen != null,
+      ],
+      endedEarly: session.endedEarly,
+      onStartNext: () => unawaited(session.startPart()),
+      starting: session.startingPart,
+      breakRemaining: session.breakRemaining,
+      examTitle: _examTitle(session.paper),
     );
   }
 
@@ -480,19 +536,16 @@ class _ServerMockRouteState extends ConsumerState<ServerMockRoute>
       flags: session.flags,
       strictMode: paper.strict,
     );
+    final byPart = session.byPart;
     return MockSessionPage(
       state: state,
-      examTitle: switch (paper.examId) {
-        'exam_cse_pro' => 'CSE Professional simulation',
-        'exam_cse_sub' => 'CSE Subprofessional simulation',
-        _ => 'Mock exam',
-      },
+      examTitle: _examTitle(paper),
       remainingInPart: session.remaining,
-      partLength: paper.limit,
-      partPosition: session.cursor + 1,
-      partTotal: ids.length,
-      canGoPrevious: session.cursor > 0,
-      canGoNext: session.cursor < ids.length - 1,
+      partLength: session.partLimit,
+      partPosition: session.partPosition,
+      partTotal: session.partTotal,
+      canGoPrevious: session.canGoPrevious,
+      canGoNext: session.canGoNext,
       onPrevious: () => session.goTo(session.cursor - 1),
       onNext: () => session.goTo(session.cursor + 1),
       onGoTo: session.goTo,
@@ -508,12 +561,45 @@ class _ServerMockRouteState extends ConsumerState<ServerMockRoute>
               .setPauseWarningSeen(value: seen),
         );
       },
-      oneBlock: true,
-      questionSubjects: {
-        for (final id in ids) id: paper.sectionNameOf(id) ?? '',
-      },
+      oneBlock: !byPart,
+      questionSubjects: byPart
+          ? const {}
+          : {
+              for (final id in ids) id: paper.sectionNameOf(id) ?? '',
+            },
       onSubmitExam: () => unawaited(_leave(ServerMockEndReason.student)),
+      // A paper by part: the part, the parts after it, and how it ends.
+      closedPartCount: session.closedPartCount,
+      currentPartNumber: session.partNumber,
+      partName: byPart ? session.partName : '',
+      partNames: byPart
+          ? [for (final section in paper.sections) section.name]
+          : const [],
+      partStarted: session.startedByServer,
+      upcomingParts: byPart
+          ? [
+              for (var i = session.partIndex + 1;
+                  i < paper.sections.length;
+                  i++)
+                MockUpcomingPart(
+                  number: i + 1,
+                  name: paper.sections[i].name,
+                  count: paper.sections[i].questions.length,
+                ),
+            ]
+          : const [],
+      onEndPartEarly: byPart ? () => unawaited(_endPart(session)) : null,
     );
+  }
+
+  /// Ends the part now. The last part is not ended: the paper is submitted,
+  /// as a student's own submission.
+  Future<void> _endPart(ServerMockSession session) async {
+    if (session.isLastPart) {
+      await _leave(ServerMockEndReason.student);
+    } else {
+      await session.endPart();
+    }
   }
 
   Future<void> _answer(ServerMockSession session, int index) async {

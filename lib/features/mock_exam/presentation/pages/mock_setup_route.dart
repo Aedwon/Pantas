@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/platform/first_screen_ready.dart';
+import 'package:pantas/core/storage/data/repos/custom_track_repository.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
@@ -24,6 +25,10 @@ final mockSetupParsedBlueprintProvider =
         CustomBlueprintRepository(ref.watch(appDatabaseProvider));
     final customRow = await customRepo.read(examId);
     if (customRow == null) return null;
+    final sections = BlueprintSection.parseList(customRow.sectionsJson);
+    // The server times parts apart only for two or more. One part, or none,
+    // runs on the one clock whatever the switch says.
+    final byPart = customRow.sectionsTimedSeparately && sections.length >= 2;
     return ParsedMockBlueprint(
       blueprint: MockBlueprint(
         id: 'custom_$examId',
@@ -31,11 +36,11 @@ final mockSetupParsedBlueprintProvider =
         name: focus.exam!.name,
         durationMinutes: customRow.totalMinutes,
         sectionsJson: customRow.sectionsJson,
-        sectionalTiming: customRow.sectionsTimedSeparately
-            ? SectionalTiming.sectional
-            : SectionalTiming.roamable,
+        sectionalTiming:
+            byPart ? SectionalTiming.sectional : SectionalTiming.roamable,
       ),
-      sections: BlueprintSection.parseList(customRow.sectionsJson),
+      // The student's minutes for a part are the part's own clock.
+      sections: byPart ? sections.map(_withPartClock).toList() : sections,
     );
   }
 
@@ -43,6 +48,16 @@ final mockSetupParsedBlueprintProvider =
   if (result.blueprints.isEmpty) return null;
   return result.blueprints.first;
 });
+
+BlueprintSection _withPartClock(BlueprintSection section) => BlueprintSection(
+      id: section.id,
+      name: section.name,
+      questionCount: section.questionCount,
+      suggestedMinutes: section.suggestedMinutes,
+      topicIds: section.topicIds,
+      topicWeights: section.topicWeights,
+      sectionalMinutes: section.suggestedMinutes,
+    );
 
 final mockSetupQuestionCountProvider =
     FutureProvider.family<int?, String>((ref, examId) async {
@@ -85,6 +100,13 @@ class MockSetupRoute extends ConsumerWidget {
     final notOpen = countAsync.error;
     if (notOpen is ServerMockNotOpen) {
       firstScreenReady(context, ref);
+      // The server has no paper it can build for a custom exam this device
+      // holds a setup for. The setup page is where that is put right: it
+      // shows the limit when the student has narrowed.
+      if (notOpen.noBlueprint && isCustomExamId(examId)) {
+        if (parsedAsync.isLoading) return const MockSetupSkeleton();
+        if (parsedAsync.valueOrNull != null) return const _OpenCustomSetup();
+      }
       return MockNotOpenView(notOpen);
     }
 
@@ -134,6 +156,27 @@ class MockSetupRoute extends ConsumerWidget {
           onStart(parsed.blueprint.id, strictMode: strictMode),
     );
   }
+}
+
+/// Replaces the start page with the custom setup page.
+class _OpenCustomSetup extends StatefulWidget {
+  const _OpenCustomSetup();
+
+  @override
+  State<_OpenCustomSetup> createState() => _OpenCustomSetupState();
+}
+
+class _OpenCustomSetupState extends State<_OpenCustomSetup> {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) context.pushReplacement('/quiz/mock/custom-setup');
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) => const MockSetupSkeleton();
 }
 
 /// Shown instead of setup while the server will not start a mock. The wording

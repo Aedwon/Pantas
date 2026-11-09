@@ -38,6 +38,7 @@ import 'package:pantas/core/platform/local_firebase.dart';
 import 'package:pantas/core/platform/remote_flags_providers.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/storage/track_scope.dart';
 import 'package:pantas/core/telemetry/client_report.dart';
 import 'package:pantas/core/telemetry/error_boundary.dart';
 import 'package:pantas/core/telemetry/firebase_telemetry.dart';
@@ -355,14 +356,18 @@ Future<void> _bootstrap(
     unawaited(
       payments.then<void>((_) {}, onError: (Object _, StackTrace __) {}),
     );
+    (Object, StackTrace)? reprojectFailure;
     if (kIsWeb) {
       // Listen for the browser's install events from the first frame and ask
       // it to keep storage once Pantas runs installed.
       container.read(installPlatformProvider).start();
-      await _startWebContent(container);
+      reprojectFailure = await startWebContent(container);
     }
     PerfTimeline.mark('boot.content');
     await applyPersistedTelemetryConsent(container);
+    if (reprojectFailure case (final error, final stack)) {
+      unawaited(container.read(telemetryProvider).recordError(error, stack));
+    }
     PerfTimeline.mark('boot.consent');
     await registerDevProSwitch(container);
     await registerDevDemoSwitch(container);
@@ -425,13 +430,29 @@ Future<void> _bootstrap(
 /// database, refreshes the catalog, and starts watching sign-out so cached
 /// Pro-only fields are removed. A failure leaves the app running without
 /// content.
-Future<void> _startWebContent(ProviderContainer container) async {
+///
+/// Then puts the student's own custom exams back into that database, which a
+/// reload empties. This runs even if the content above failed, and a failure
+/// of its own is returned, not thrown: the student reaches the picker and finds
+/// the exam under "Your exams". Telemetry consent is not applied yet, so the
+/// caller reports the returned failure once it is.
+@visibleForTesting
+Future<(Object, StackTrace)?> startWebContent(
+  ProviderContainer container,
+) async {
   try {
     await container.read(contentMirrorProvider).start();
     container.read(contentAccessBridgeProvider);
   } catch (error, stack) {
     debugPrint('Web content did not start: $error\n$stack');
   }
+  try {
+    await container.read(customTrackRepositoryProvider).reprojectAll();
+  } catch (error, stack) {
+    debugPrint('Custom exams did not load: ${error.runtimeType}');
+    return (error, stack);
+  }
+  return null;
 }
 
 /// Reads persisted telemetry preference and applies it to the telemetry consent

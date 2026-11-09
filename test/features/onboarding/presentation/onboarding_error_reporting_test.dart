@@ -180,6 +180,13 @@ void main() {
       subjectId: 's1',
       name: 'Algebra',
     );
+    // Only a topic that holds a question is offered.
+    await seedContentQuestion(
+      content,
+      questionId: 'q1',
+      topicId: 't1',
+      examId: 'e1',
+    );
     await pumpStep(
       tester,
       const CustomTrackSubjectsStep(name: 'My exam'),

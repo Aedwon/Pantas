@@ -1,0 +1,338 @@
+{
+ "free": {
+  "settings": {
+   "examId": "exam_cse_pro",
+   "examDate": {
+    "precision": "day",
+    "day": "2026-11-15"
+   },
+   "carryOverProgress": false,
+   "excludedLessonIds": [
+    "lesson-cse-7"
+   ],
+   "excludedTopicIds": [
+    "topic-cse-alpha"
+   ],
+   "studyDays": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "assessmentCompleted": true,
+   "updatedAt": 1792807200000
+  },
+  "roadmap": {
+   "examId": "exam_cse_pro",
+   "serverNow": 1792807200000,
+   "accessRecheckAt": null,
+   "proCovered": false,
+   "tier": "free",
+   "state": "planning",
+   "revision": "4de288c40d533d4b1d12a04091f8560d0b531a6c88790416bbf8a97e84ace4f3",
+   "today": {
+    "day": "2026-10-24",
+    "lessonIds": [
+     "lesson-cse-6"
+    ],
+    "reviewQuestionIds": [],
+    "newQuestionIds": [
+     "cse-1-0"
+    ],
+    "isMockDay": false,
+    "isRestDay": false,
+    "advancedIds": [],
+    "reasons": {
+     "lesson-cse-6": {
+      "kind": "nextUp"
+     }
+    }
+   },
+   "remaining": {
+    "day": "2026-10-24",
+    "lessonIds": [
+     "lesson-cse-6"
+    ],
+    "reviewQuestionIds": [],
+    "newQuestionIds": [
+     "cse-1-0"
+    ],
+    "isMockDay": false,
+    "isRestDay": false,
+    "advancedIds": [],
+    "reasons": {
+     "lesson-cse-6": {
+      "kind": "nextUp"
+     }
+    }
+   },
+   "originalDone": false,
+   "canAdvance": false,
+   "todayTopicOrder": [
+    "topic-cse-beta"
+   ],
+   "weekDays": [
+    {
+     "day": "2026-10-18",
+     "state": "rest"
+    },
+    {
+     "day": "2026-10-19",
+     "state": "missed"
+    },
+    {
+     "day": "2026-10-20",
+     "state": "missed"
+    },
+    {
+     "day": "2026-10-21",
+     "state": "missed"
+    },
+    {
+     "day": "2026-10-22",
+     "state": "missed"
+    },
+    {
+     "day": "2026-10-23",
+     "state": "missed"
+    },
+    {
+     "day": "2026-10-24",
+     "state": "today",
+     "plan": {
+      "day": "2026-10-24",
+      "lessonIds": [
+       "lesson-cse-6"
+      ],
+      "reviewQuestionIds": [],
+      "newQuestionIds": [
+       "cse-1-0"
+      ],
+      "isMockDay": false,
+      "isRestDay": false,
+      "advancedIds": [],
+      "reasons": {
+       "lesson-cse-6": {
+        "kind": "nextUp"
+       }
+      }
+     },
+     "remaining": {
+      "day": "2026-10-24",
+      "lessonIds": [
+       "lesson-cse-6"
+      ],
+      "reviewQuestionIds": [],
+      "newQuestionIds": [
+       "cse-1-0"
+      ],
+      "isMockDay": false,
+      "isRestDay": false,
+      "advancedIds": [],
+      "reasons": {
+       "lesson-cse-6": {
+        "kind": "nextUp"
+       }
+      }
+     }
+    }
+   ],
+   "backlogCapped": false,
+   "homeExtras": {
+    "priorDay": null,
+    "priorWasMockDay": false,
+    "missedWorkToday": false,
+    "studyDays": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     6
+    ],
+    "mockDurationMinutes": 165
+   }
+  },
+  "digest": "{\"examId\":\"exam_cse_pro\",\"examDate\":\"2026-11-15:day\",\"scope\":[\"topic-cse-beta\"],\"excludedLessons\":[\"lesson-cse-7\"],\"content\":\"exam_cse_pro:catalog-v1\",\"assessed\":true,\"mocks\":0,\"studyDays\":\"1,2,3,4,5,6\"}"
+ },
+ "pro": {
+  "settings": {
+   "examId": "exam_cse_pro",
+   "examDate": {
+    "precision": "day",
+    "day": "2026-11-15"
+   },
+   "carryOverProgress": false,
+   "excludedLessonIds": [
+    "lesson-cse-7"
+   ],
+   "excludedTopicIds": [
+    "topic-cse-alpha"
+   ],
+   "studyDays": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "assessmentCompleted": true,
+   "updatedAt": 1792807200000
+  },
+  "roadmap": {
+   "examId": "exam_cse_pro",
+   "serverNow": 1792807200000,
+   "accessRecheckAt": 1792893600000,
+   "proCovered": true,
+   "tier": "pro",
+   "state": "planning",
+   "revision": "4de288c40d533d4b1d12a04091f8560d0b531a6c88790416bbf8a97e84ace4f3",
+   "today": {
+    "day": "2026-10-24",
+    "lessonIds": [
+     "lesson-cse-6"
+    ],
+    "reviewQuestionIds": [],
+    "newQuestionIds": [
+     "cse-1-0"
+    ],
+    "isMockDay": false,
+    "isRestDay": false,
+    "advancedIds": [],
+    "reasons": {
+     "lesson-cse-6": {
+      "kind": "nextUp"
+     }
+    }
+   },
+   "remaining": {
+    "day": "2026-10-24",
+    "lessonIds": [
+     "lesson-cse-6"
+    ],
+    "reviewQuestionIds": [],
+    "newQuestionIds": [
+     "cse-1-0"
+    ],
+    "isMockDay": false,
+    "isRestDay": false,
+    "advancedIds": [],
+    "reasons": {
+     "lesson-cse-6": {
+      "kind": "nextUp"
+     }
+    }
+   },
+   "originalDone": false,
+   "canAdvance": false,
+   "todayTopicOrder": [
+    "topic-cse-beta"
+   ],
+   "weekDays": [
+    {
+     "day": "2026-10-18",
+     "state": "rest"
+    },
+    {
+     "day": "2026-10-19",
+     "state": "missed"
+    },
+    {
+     "day": "2026-10-20",
+     "state": "missed"
+    },
+    {
+     "day": "2026-10-21",
+     "state": "missed"
+    },
+    {
+     "day": "2026-10-22",
+     "state": "missed"
+    },
+    {
+     "day": "2026-10-23",
+     "state": "missed"
+    },
+    {
+     "day": "2026-10-24",
+     "state": "today",
+     "plan": {
+      "day": "2026-10-24",
+      "lessonIds": [
+       "lesson-cse-6"
+      ],
+      "reviewQuestionIds": [],
+      "newQuestionIds": [
+       "cse-1-0"
+      ],
+      "isMockDay": false,
+      "isRestDay": false,
+      "advancedIds": [],
+      "reasons": {
+       "lesson-cse-6": {
+        "kind": "nextUp"
+       }
+      }
+     },
+     "remaining": {
+      "day": "2026-10-24",
+      "lessonIds": [
+       "lesson-cse-6"
+      ],
+      "reviewQuestionIds": [],
+      "newQuestionIds": [
+       "cse-1-0"
+      ],
+      "isMockDay": false,
+      "isRestDay": false,
+      "advancedIds": [],
+      "reasons": {
+       "lesson-cse-6": {
+        "kind": "nextUp"
+       }
+      }
+     }
+    }
+   ],
+   "backlogCapped": false,
+   "homeExtras": {
+    "priorDay": null,
+    "priorWasMockDay": false,
+    "missedWorkToday": false,
+    "studyDays": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     6
+    ],
+    "mockDurationMinutes": 165
+   },
+   "comingUp": {
+    "examDay": "2026-11-15",
+    "reviewOnlyFrom": "2026-11-10",
+    "mockDay": "2026-11-10",
+    "weeksAhead": [
+     {
+      "weekStart": "2026-10-25",
+      "topicIds": [
+       "topic-cse-beta"
+      ]
+     }
+    ],
+    "topicOrder": [
+     "topic-cse-beta"
+    ]
+   },
+   "history": {
+    "changes": [],
+    "next": null
+   }
+  },
+  "digest": "{\"examId\":\"exam_cse_pro\",\"examDate\":\"2026-11-15:day\",\"scope\":[\"topic-cse-beta\"],\"excludedLessons\":[\"lesson-cse-7\"],\"content\":\"exam_cse_pro:catalog-v1\",\"assessed\":true,\"mocks\":0,\"studyDays\":\"1,2,3,4,5,6\"}"
+ }
+}

@@ -17,7 +17,18 @@ abstract interface class ServerMockViewStore {
   });
 }
 
-enum ServerMockOperation { save, pause, resume, discard, submit }
+enum ServerMockOperation {
+  save,
+  pause,
+  resume,
+  discard,
+  submit,
+  startPart,
+  endPart,
+
+  /// Asking the server what it holds, when a by-part clock has run out.
+  read,
+}
 
 /// The last operation the server did not take, kept so Retry sends exactly
 /// what was meant at the time.
@@ -71,7 +82,7 @@ class ServerMockSession extends ChangeNotifier {
         _currentUid = currentUid,
         _elapsed = elapsed,
         _anchor = elapsed(),
-        _cursor = cursor.clamp(0, paper.questionIds.length - 1),
+        _cursor = _firstCursor(paper, cursor),
         _flags = {
           for (final id in flags)
             if (paper.questionIds.contains(id)) id,
@@ -110,6 +121,22 @@ class ServerMockSession extends ChangeNotifier {
   var _submitted = false;
   var _submissionRequested = false;
   Duration? _frozenAt;
+  _Operation? _current;
+  var _endedByServer = false;
+  Duration? _noteSince;
+  var _readFailures = 0;
+  var _nextReadAt = Duration.zero;
+
+  /// How soon the server is asked again after a read that failed or changed
+  /// nothing: one second, doubling up to ten.
+  static const _readGap = Duration(seconds: 1);
+  static const _readGapMost = Duration(seconds: 10);
+
+  /// A pending save goes out at once with less than this left in a part.
+  static const _saveNow = Duration(seconds: 3);
+
+  /// How long "Part N started" stays when the first answer does not end it.
+  static const _noteLasts = Duration(seconds: 15);
 
   ServerMockPaper get paper => _paper;
   String get mockId => _paper.mockId;
@@ -133,25 +160,106 @@ class ServerMockSession extends ChangeNotifier {
   bool get hasPendingWork =>
       _saveTimer != null || _queue.isNotEmpty || _running;
 
-  /// What the clock shows. It stands still while paused or once a pause has
-  /// been asked for, and it never drops below zero.
+  /// What the clock shows. On a by-part paper that is the running part, never
+  /// the paper. It stands still while paused, once a pause has been asked for,
+  /// and while a part waits. It never drops below zero.
   Duration get remaining {
     final frozen = _frozenAt;
     if (frozen != null) return frozen;
-    if (_paper.paused || _submitted) return _paper.remaining;
-    final left = _paper.remaining - (_elapsed() - _anchor);
+    final base = _paper.parts?.remaining ?? _paper.remaining;
+    if (_paper.paused || _submitted || waiting) return base;
+    final left = base - (_elapsed() - _anchor);
     return left.isNegative ? Duration.zero : left;
   }
 
   bool get timeIsUp => remaining == Duration.zero;
 
-  Duration get used => _paper.limit - remaining;
+  /// The length of the part running, or of the whole paper when it has one
+  /// clock.
+  Duration get partLimit => _paper.parts?.limit ?? _paper.limit;
+
+  Duration get used => partLimit - remaining;
+
+  // ---- a paper timed part by part -------------------------------------------
+
+  /// True when the paper's parts are timed one by one. False is one clock.
+  bool get byPart => _paper.parts != null;
+
+  /// A part is waiting for the next to start: the between-parts screen.
+  bool get waiting => _paper.parts?.waiting ?? false;
+
+  /// The student closed the part before the one that waits.
+  bool get endedEarly => _paper.parts?.endedEarly ?? false;
+
+  /// Counting from zero: the part running, or the part waiting to start.
+  int get partIndex => _paper.parts?.index ?? 0;
+
+  /// Counting from one.
+  int get partNumber => partIndex + 1;
+
+  bool get isLastPart => byPart && partIndex == _paper.parts!.count - 1;
+
+  String get partName => _paper.sections[partIndex].name;
+
+  int get closedPartCount => partIndex;
+
+  /// A strict break only: the time until the server starts the next part.
+  /// Null at any other time.
+  Duration? get breakRemaining {
+    final parts = _paper.parts;
+    final startsIn = parts?.startsIn;
+    if (parts == null || !parts.waiting || startsIn == null) return null;
+    if (_submitted) return startsIn;
+    final left = startsIn - (_elapsed() - _anchor);
+    return left.isNegative ? Duration.zero : left;
+  }
+
+  /// The question numbers the student can reach, as indexes in the paper.
+  int get _partFirst => _paper.sectionStart(partIndex);
+  int get _partLast =>
+      _partFirst + _paper.sections[partIndex].questions.length - 1;
+
+  /// Where they are in the part, counting from one.
+  int get partPosition => _cursor - _partFirst + 1;
+  int get partTotal => _partLast - _partFirst + 1;
+  bool get canGoPrevious => _cursor > _partFirst;
+  bool get canGoNext => _cursor < _partLast;
+
+  /// A strict part the server started by itself, seen in this session and not
+  /// yet answered in: the screen says "Part N started" for a short while.
+  bool get startedByServer {
+    final since = _noteSince;
+    return since != null && _elapsed() - since < _noteLasts;
+  }
+
+  /// The server finished the mock on its own clock. Its result is ready.
+  bool get endedByServer => _endedByServer;
+
+  /// A start of the next part is on its way. It cannot be asked for twice.
+  bool get startingPart => _isQueued(ServerMockOperation.startPart);
+
+  bool _isQueued(ServerMockOperation kind) =>
+      _current?.kind == kind ||
+      _queue.any((queued) => queued.kind == kind && !queued.superseded);
+
+  /// The part clock, or a strict break, has run out and only the server can
+  /// say what happens next. The student's input is closed until it does.
+  bool get _clockOut {
+    final parts = _paper.parts;
+    if (parts == null || _submitted) return false;
+    if (parts.waiting) {
+      return _paper.strict && breakRemaining == Duration.zero;
+    }
+    return !_paper.paused && _frozenAt == null && remaining == Duration.zero;
+  }
 
   // ---- what the student does ----------------------------------------------
 
   void goTo(int index) {
-    if (_blocked || _submissionRequested) return;
-    final next = index.clamp(0, _paper.questionIds.length - 1);
+    if (_blocked || _submissionRequested || _closed) return;
+    final next = byPart
+        ? index.clamp(_partFirst, _partLast)
+        : index.clamp(0, _paper.questionIds.length - 1);
     if (next == _cursor) return;
     _cursor = next;
     _remember();
@@ -161,7 +269,8 @@ class ServerMockSession extends ChangeNotifier {
   void toggleFlag(String questionId) {
     if (_blocked ||
         _submissionRequested ||
-        !_paper.questionIds.contains(questionId)) {
+        _closed ||
+        !_isReachable(questionId)) {
       return;
     }
     if (!_flags.add(questionId)) _flags.remove(questionId);
@@ -178,11 +287,12 @@ class ServerMockSession extends ChangeNotifier {
   }) {
     if (_blocked ||
         _submissionRequested ||
+        _closed ||
         _paper.paused ||
         _frozenAt != null) {
       return;
     }
-    if (!_paper.questionIds.contains(questionId) ||
+    if (!_isReachable(questionId) ||
         chosen.isEmpty ||
         chosen.length > ServerMockPaper.maxChosenLength) {
       return;
@@ -196,9 +306,16 @@ class ServerMockSession extends ChangeNotifier {
       ),
     };
     _indexes[questionId] = selectedIndex;
+    _noteSince = null;
     notifyListeners();
     _saveTimer?.cancel();
-    _saveTimer = Timer(saveDelay, _queueSave);
+    // A part about to close cannot wait for the pause in answering: an answer
+    // that reaches the server after the close is lost.
+    if (byPart && remaining < _saveNow) {
+      _queueSave();
+    } else {
+      _saveTimer = Timer(saveDelay, _queueSave);
+    }
   }
 
   /// Sends the pending save now and waits for everything queued.
@@ -208,7 +325,12 @@ class ServerMockSession extends ChangeNotifier {
   }
 
   Future<bool> pause() async {
-    if (_blocked || _submissionRequested || _paper.strict || _paper.paused) {
+    if (_blocked ||
+        _submissionRequested ||
+        _closed ||
+        _paper.strict ||
+        _paper.paused ||
+        waiting) {
       return false;
     }
     _frozenAt = remaining;
@@ -227,9 +349,65 @@ class ServerMockSession extends ChangeNotifier {
 
   /// Clears the answers and restarts the clock on the same paper.
   Future<bool> discard() async {
-    if (_blocked || _submissionRequested || _paper.strict) return false;
+    if (_blocked || _submissionRequested || _closed || _paper.strict) {
+      return false;
+    }
     _cancelSave();
     return _enqueue(_Operation.control(ServerMockOperation.discard));
+  }
+
+  /// Asks the server to start the part that waits. The server owns the clock:
+  /// nothing here starts it. Asking twice sends one request.
+  Future<bool> startPart() async {
+    if (!byPart ||
+        _blocked ||
+        _submissionRequested ||
+        !waiting ||
+        startingPart) {
+      return false;
+    }
+    final started = _enqueue(_Operation.control(ServerMockOperation.startPart));
+    notifyListeners();
+    return started;
+  }
+
+  /// Closes the running part now, which a strict paper never does and the
+  /// last part cannot: that one is submitted instead. A save made a moment
+  /// ago goes first, because the closed part keeps only what the server holds.
+  Future<bool> endPart() async {
+    if (!byPart ||
+        _blocked ||
+        _submissionRequested ||
+        _closed ||
+        _paper.strict ||
+        waiting ||
+        isLastPart) {
+      return false;
+    }
+    if (_saveTimer != null) {
+      _cancelSave();
+      _queueSave();
+    }
+    return _enqueue(_Operation.control(ServerMockOperation.endPart));
+  }
+
+  /// Called on every tick of the screen's clock. On a by-part paper it sends a
+  /// pending save at once when little time is left, and asks the server what
+  /// happens next when a part clock or a strict break reaches zero. The clock
+  /// never closes a part: the server does, and this adopts what it says. One
+  /// paper with one clock does nothing here.
+  void tick() {
+    if (!byPart || _blocked || _submissionRequested) return;
+    if (!waiting &&
+        _saveTimer != null &&
+        !_paper.paused &&
+        remaining < _saveNow) {
+      _cancelSave();
+      _queueSave();
+    }
+    if (!_clockOut || _isQueued(ServerMockOperation.read)) return;
+    if (_elapsed() < _nextReadAt) return;
+    unawaited(_enqueue(_Operation.control(ServerMockOperation.read)));
   }
 
   /// Submits every pinned question: the answers given, and a blank for each
@@ -268,6 +446,27 @@ class ServerMockSession extends ChangeNotifier {
   // ---- internals ----------------------------------------------------------
 
   bool get _blocked => _disposed || stale || _submitted;
+
+  /// Input is closed while the server decides what a clock that ran out
+  /// means, and while no part runs.
+  bool get _closed => _clockOut || waiting;
+
+  /// A question the student can reach now: any on one clock, and the running
+  /// part's on a paper timed by part.
+  bool _isReachable(String questionId) {
+    if (!byPart) return _paper.questionIds.contains(questionId);
+    final index = _paper.questionIds.indexOf(questionId);
+    return index >= _partFirst && index <= _partLast;
+  }
+
+  static int _firstCursor(ServerMockPaper paper, int saved) {
+    final last = paper.questionIds.length - 1;
+    final parts = paper.parts;
+    if (parts == null) return saved.clamp(0, last);
+    final first = paper.sectionStart(parts.index);
+    final end = first + paper.sections[parts.index].questions.length - 1;
+    return saved >= first && saved <= end ? saved : first;
+  }
 
   void _unfreeze() {
     _frozenAt = null;
@@ -332,7 +531,12 @@ class ServerMockSession extends ChangeNotifier {
           operation.done.complete(false);
           continue;
         }
-        await _run(operation);
+        _current = operation;
+        try {
+          await _run(operation);
+        } finally {
+          _current = null;
+        }
       }
     } finally {
       _running = false;
@@ -382,6 +586,8 @@ class ServerMockSession extends ChangeNotifier {
         case ServerMockOperation.pause:
         case ServerMockOperation.resume:
         case ServerMockOperation.discard:
+        case ServerMockOperation.startPart:
+        case ServerMockOperation.endPart:
           final view = await api.control(
             mockId: mockId,
             action: ServerMockAction.values.byName(operation.kind.name),
@@ -391,14 +597,46 @@ class ServerMockSession extends ChangeNotifier {
             _adopt(
               view,
               replaceAnswers: operation.kind == ServerMockOperation.discard,
+              askedToStart: operation.kind == ServerMockOperation.startPart,
             );
             _failedOperation = null;
             _failure = null;
             notifyListeners();
           }
+        case ServerMockOperation.read:
+          final found = await api.read();
+          if (_publishable) {
+            switch (found) {
+              case ServerMockOpen(:final paper):
+                _adopt(paper, replaceAnswers: false);
+              case ServerMockEnded(:final ended):
+                if (ended.mockId != mockId) {
+                  throw const ServerMockFormatException(
+                    'the server ended a different mock',
+                  );
+                }
+                _finishedByServer();
+              case ServerMockNone():
+                _finishedByServer();
+            }
+            _readFailures = 0;
+            _nextReadAt = _elapsed() + _readGap;
+            if (_failedOperation?.kind == ServerMockOperation.read) {
+              _failedOperation = null;
+              _failure = null;
+            }
+            notifyListeners();
+          }
       }
       operation.done.complete(_publishable || _submitted);
     } on Object catch (error) {
+      if (operation.kind == ServerMockOperation.read) {
+        // Ask again later, a little slower each time, so a server that is
+        // down is not asked in a tight loop.
+        _readFailures += 1;
+        final wait = _readGap * (1 << (_readFailures - 1).clamp(0, 4));
+        _nextReadAt = _elapsed() + (wait > _readGapMost ? _readGapMost : wait);
+      }
       if (_publishable) {
         _failedOperation = operation;
         _failure = ServerMockFailure(
@@ -421,13 +659,30 @@ class ServerMockSession extends ChangeNotifier {
     return true;
   }
 
-  void _adopt(ServerMockPaper view, {required bool replaceAnswers}) {
+  /// The server says the mock is over: its result is ready, and nothing more
+  /// is sent.
+  void _finishedByServer() {
+    _submitted = true;
+    _endedByServer = true;
+    _frozenAt = null;
+    _failure = null;
+    _failedOperation = null;
+  }
+
+  void _adopt(
+    ServerMockPaper view, {
+    required bool replaceAnswers,
+    bool askedToStart = false,
+  }) {
+    final before = _paper.parts;
+    final after = view.parts;
     if (view.mockId != _paper.mockId ||
         view.examId != _paper.examId ||
         view.strict != _paper.strict ||
         view.limit != _paper.limit ||
         (!replaceAnswers && view.startedAt != _paper.startedAt) ||
-        !_samePaper(view, _paper)) {
+        !_samePaper(view, _paper) ||
+        !_sameParts(before, after)) {
       throw const ServerMockFormatException(
         'the response changed the pinned paper',
       );
@@ -439,8 +694,54 @@ class ServerMockSession extends ChangeNotifier {
       _indexes.clear();
       _flags.clear();
       _cursor = 0;
+      _noteSince = null;
       _remember();
+      return;
     }
+    if (before == null || after == null) return;
+    if (before.index == after.index && before.waiting == after.waiting) {
+      _cursor = _cursor.clamp(_partFirst, _partLast);
+      return;
+    }
+    // The part changed. Every closed part now has the answers the server
+    // holds, and an answer this browser made too late for it is gone.
+    _adoptClosedParts(view, closed: after.index);
+    // Only a strict part that the server started on its own is announced.
+    _noteSince =
+        view.strict && !after.waiting && !askedToStart ? _elapsed() : null;
+    _cursor = _partFirst;
+    _remember();
+  }
+
+  void _adoptClosedParts(ServerMockPaper view, {required int closed}) {
+    final next = Map.of(_answers);
+    for (var part = 0; part < closed; part++) {
+      for (final question in view.sections[part].questions) {
+        final held = view.answers[question.id];
+        final local = next[question.id];
+        if (held?.chosen == null) {
+          next.remove(question.id);
+          _indexes.remove(question.id);
+          continue;
+        }
+        if (local?.chosen != held!.chosen) _indexes.remove(question.id);
+        next[question.id] = ServerMockLocalAnswer(
+          chosen: held.chosen,
+          correct: held.correct,
+          answeredAt: held.answeredAt,
+        );
+      }
+    }
+    _answers = next;
+  }
+
+  static bool _sameParts(ServerMockParts? first, ServerMockParts? second) {
+    if (first == null || second == null) return first == second;
+    if (first.count != second.count) return false;
+    for (var i = 0; i < first.count; i++) {
+      if (first.limits[i] != second.limits[i]) return false;
+    }
+    return true;
   }
 
   static bool _samePaper(ServerMockPaper first, ServerMockPaper second) {

@@ -6,6 +6,7 @@ import {getFirestore} from 'firebase-admin/firestore';
 import {emptyTotals,addSession,toDoc} from '../lib/_answerTotals.js';
 import {clearExamContentCache} from '../lib/_examContent.js';
 import {core} from '../lib/_core.js';
+import {randomUUID} from 'node:crypto';
 
 const db=getFirestore(),NOW=Date.parse('2026-10-29T10:00:00+08:00'),DAY=86400000,EXAM='exam_cse_pro';
 const auth=uid=>({uid,token:{pro:true,proUntil:NOW+DAY}});
@@ -116,4 +117,46 @@ test('pending does not depend on readable gap content',async()=>{
  await ref.set({payload:'{invalid'});clearExamContentCache();
  try{assert.deepEqual(await read(auth(uid),body(uid),deps()),{status:'pending'});}
  finally{if(previous.exists)await ref.set(previous.data());else await ref.delete();clearExamContentCache();}
+});
+
+// ---- a custom exam: the same catalog read through the index, Free whatever the account holds for a listed exam ----
+const CUSTOM='exam_custom_'+randomUUID();
+const customBody=uid=>({expectedUid:uid,examId:CUSTOM,sessionId:'b4-session'});
+async function seedCustom(uid,{pro=false}={}){
+ const fixture=await seed(uid,{pro});
+ // The listed seed wrote the catalog under the listed exam. A custom exam reads every catalog the index names.
+ await db.doc('content/catalog/items/exam_b4c').set(await db.doc('content/catalog/items/'+EXAM).get().then(d=>d.data()));
+ await db.doc('content/catalog/items/index').set({version:'b4i',payload:JSON.stringify({catalogs:['exam_b4c']})});
+ clearExamContentCache();
+ await db.doc('users/'+uid+'/server/settings').update({examId:CUSTOM});
+ await db.doc('users/'+uid+'/server/answers/items/b4-session').update({examId:CUSTOM});
+ return fixture;
+}
+test('custom Free returns tracedCount only, with no lesson, question, choice or note',async()=>{
+ const uid='b4-custom-free',fixture=await seedCustom(uid);
+ const result=await read(auth(uid),customBody(uid),deps());
+ assert.deepEqual(result,{status:'ok',tier:'free',tracedCount:1});
+ const text=JSON.stringify(result);
+ const secrets=[...fixture.lessons.map(l=>l.id),...fixture.sets.flatMap(s=>s.questions.map(q=>q.id)),...answers.flatMap(a=>a.chosen?[a.chosen]:[]),note];
+ for(const secret of secrets)assert.equal(text.includes(secret),false,secret);
+});
+test('a paid grant and a live Pro claim for a listed exam do not make a custom exam Pro',async()=>{
+ const uid='b4-custom-claim';await seedCustom(uid,{pro:true});
+ await db.doc('users/'+uid+'/grants/paid').set({source:'paymongo',product:'pantas_pass_cse_pro',tier:'civilService',startsAt:NOW-DAY,endsAt:NOW+DAY,state:'active',createdAt:NOW-DAY});
+ assert.deepEqual(await read(auth(uid),customBody(uid),deps()),{status:'ok',tier:'free',tracedCount:1});
+});
+test('a custom session names the exam it was made under, a malformed custom id is Unknown exam, and a wrong exam is refused',async()=>{
+ const uid='b4-custom-errors';await seedCustom(uid);
+ await db.doc('users/'+uid+'/server/answers/items/b4-session').update({examId:'exam_upcat'});
+ assert.equal(await code(read(auth(uid),customBody(uid),deps())),'failed-precondition');
+ await db.doc('users/'+uid+'/server/answers/items/b4-session').update({examId:CUSTOM});
+ await db.doc('users/'+uid+'/server/settings').update({examId:EXAM});
+ assert.equal(await code(read(auth(uid),customBody(uid),deps())),'failed-precondition');
+ for(const examId of ['exam_custom','exam_custom_'+randomUUID().toUpperCase(),'exam_custom_'+randomUUID()+'x']){
+  await assert.rejects(read(auth(uid),{...customBody(uid),examId},deps()),e=>e.code==='invalid-argument'&&e.message==='Unknown exam.');
+ }
+});
+test('custom diagnosis cleanup',async()=>{
+ for(const id of ['index','exam_b4c'])await db.doc('content/catalog/items/'+id).delete();
+ clearExamContentCache();
 });

@@ -5,9 +5,9 @@ import {HttpsError, onCall} from 'firebase-functions/v2/https';
 import {allowAtMost} from './_limits.js';
 import {core} from './_core.js';
 import {loadExamContent, loadStudyContent, loadStudyContentLinks, loadGapTags, scopeLessonContent} from './_examContent.js';
+import {MAX_CUSTOM_TRACKS, checkCustomBlock, customTrackRef, isCustomExamId, isStudyExamId, type CustomBlueprint} from './_customTrack.js';
 import {phDay, phStamp} from './_phDate.js';
 import {hasLiveProClaim} from './_pro.js';
-import {examCatalog} from './revenuecatPasses.js';
 import {completedOn, firstCompletedBefore, loadTotals, sessionTimesOf, totalsIn, viewOf, type AnswerView, type Totals, totalsRef} from './_answerTotals.js';
 import {dueReviewInputs} from './serverReviews.js';
 import {assertStudyOwner} from './studyObservations.js';
@@ -56,7 +56,7 @@ function validDay(value: unknown): value is string {
 export function checkSettings(data: unknown): ExamSettings {
   const body = data as Record<string, unknown> | null;
   const examId = body?.examId;
-  if (typeof examId !== 'string' || !examCatalog.some(exam => exam.id === examId)) throw bad('Unknown exam.');
+  if (!isStudyExamId(examId)) throw bad('Unknown exam.');
   const days = body?.studyDays;
   if (!Array.isArray(days) || days.length < 1 || days.length > 7
       || !days.every((day): day is number => Number.isInteger(day) && day >= 1 && day <= 7)) {
@@ -155,6 +155,18 @@ export async function computeRoadmap(db: Firestore, uid: string, pro: boolean, n
   const snapshot = await settingsRef(db, uid).get();
   if (!snapshot.exists) return null;
   const settings = snapshot.data() as ExamSettings;
+  if (isCustomExamId(settings.examId)) {
+    // A custom exam has no legacy roadmap: `build` would mint `topic_custom_*` ids that match nothing.
+    const input = {expectedUid: uid, examId: settings.examId}, deps = {db, now: () => now, allow: async () => true};
+    try {
+      await readStudyRoadmap({uid}, input, deps);
+      await readStudyInsights({uid}, input, deps);
+    } catch (error) {
+      // A newer save changed the exam, and that save owns the rebuild.
+      if (!(error instanceof HttpsError && error.code === 'failed-precondition')) throw error;
+    }
+    return null;
+  }
   const {roadmap, sessions} = await build(db, uid, settings, pro, now);
   const today = phDay(now);
   await roadmapRef(db, uid).set({computedAt: now, today, pro, examKey: examKey(settings), answerSessions: sessions,
@@ -174,13 +186,42 @@ export async function computeRoadmap(db: Firestore, uid: string, pro: boolean, n
 export async function saveExamSettings(auth: Auth, data: unknown, deps: RoadmapDeps): Promise<{stored: true}> {
   if (!auth) throw new HttpsError('unauthenticated', 'Sign in is required.');
   const requestBody = studyObject(data);
-  assertStudyOwner(auth.uid, requestBody, requestBody.expectedUid !== undefined || requestBody.excludedTopicIds !== undefined || requestBody.excludedLessonIds !== undefined);
+  assertStudyOwner(auth.uid, requestBody, requestBody.expectedUid !== undefined || requestBody.excludedTopicIds !== undefined || requestBody.excludedLessonIds !== undefined ||
+    isCustomExamId(requestBody.examId));
   const settings = checkSettings(data);
   const now = (deps.now ?? Date.now)();
+  const custom = isCustomExamId(settings.examId);
+  const block = custom ? checkCustomBlock(requestBody.customTrack, now) : {};
   if (!await (deps.allow ?? allowDefault)(auth.uid, 'saveExamSettings')) {
     throw new HttpsError('resource-exhausted', 'Too many attempts. Try again later.');
   }
   await deps.db.runTransaction(async tx=>{
+    if (custom) {
+      // Always through the transaction: the track, the cap and the corpus are read before anything is written.
+      const trackRef = customTrackRef(deps.db, auth.uid, settings.examId);
+      const track = await tx.get(trackRef);
+      if (!track.exists && (await tx.get(deps.db.collection(`users/${auth.uid}/server/customTracks/items`)
+          .limit(MAX_CUSTOM_TRACKS + 1))).size >= MAX_CUSTOM_TRACKS) {
+        throw new HttpsError('resource-exhausted', 'You have reached the limit of custom exams.');
+      }
+      const content = await loadStudyContent(deps.db, settings.examId, tx);
+      // A phone's local topic list may hold ids the catalog does not, so unknown ids are dropped, not refused.
+      const known = new Set(content.topics.map(t => t.id)), knownLessons = new Set(content.lessons.map(l => l.id));
+      // A device that sends no list keeps the track's scope, so it can never widen a narrowed track.
+      const topics = (settings.excludedTopicIds ?? (track.get('excludedTopicIds') as string[] | undefined) ?? []).filter(id => known.has(id));
+      const lessons = (settings.excludedLessonIds ?? (track.get('excludedLessonIds') as string[] | undefined) ?? []).filter(id => knownLessons.has(id));
+      if (!content.topics.some(t => !topics.includes(t.id) && content.questions.some(q => q.topicId === t.id))) {
+        throw bad('Choose at least one known topic.');
+      }
+      const old = storedBlueprint(track);
+      const name = track.get('name');
+      tx.set(settingsRef(deps.db, auth.uid), {...settings, excludedTopicIds: topics, excludedLessonIds: lessons, updatedAt: now});
+      tx.set(trackRef, {examId: settings.examId, name: block.name ?? (typeof name === 'string' ? name : null),
+        excludedTopicIds: topics, excludedLessonIds: lessons,
+        blueprint: block.blueprint && (!old || block.blueprint.updatedAt >= old.updatedAt) ? block.blueprint : old,
+        createdAt: track.exists ? track.get('createdAt') : now, updatedAt: now});
+      return;
+    }
     if (settings.excludedTopicIds !== undefined || settings.excludedLessonIds !== undefined) {
       const content = await loadStudyContent(deps.db, settings.examId,tx);
       if (settings.excludedTopicIds?.some(id => !content.topics.some(t => t.id === id)) ||
@@ -224,7 +265,7 @@ async function studyCaller(auth: StudyAuth, data: unknown, deps: RoadmapDeps, ke
   if (!auth) throw new HttpsError('unauthenticated', 'Sign in is required.');
   const body = studyObject(data);
   assertStudyOwner(auth.uid, body);
-  if (typeof body.examId !== 'string' || !examCatalog.some(e => e.id === body.examId)) throw bad('Unknown exam.');
+  if (!isStudyExamId(body.examId)) throw bad('Unknown exam.');
   if (!await (deps.allow ?? allowDefault)(auth.uid, key)) throw new HttpsError('resource-exhausted', 'Too many attempts. Try again later.');
   return {uid: auth.uid, body, now: (deps.now ?? Date.now)()};
 }
@@ -270,9 +311,16 @@ function revisionOf(settings: StudyBody, contentRevision: string, totals: Totals
 }
 async function studyContext(tx: FirebaseFirestore.Transaction, db: Firestore, uid: string, examId: string, now: number) {
   const settings = await tx.get(settingsRef(db, uid));
+  const custom = isCustomExamId(examId);
+  // Only a custom exam reads its track. A listed exam reads its mock blueprint from `content/mocks` as before.
+  const track = custom ? await tx.get(customTrackRef(db, uid, examId)) : null;
   if (!settings.exists) throw new HttpsError('failed-precondition', 'Set your exam first.');
   const config = settings.data() as ExamSettings;
-  if (config.examId !== examId) throw new HttpsError('failed-precondition', 'Your exam changed. Open this screen again.');
+  if (config.examId !== examId) {
+    // With no track for this id the student never set it up here: send them to set it up.
+    if (track && !track.exists) throw new HttpsError('failed-precondition', 'Set your exam first.');
+    throw new HttpsError('failed-precondition', 'Your exam changed. Open this screen again.');
+  }
   const [allContent, totalDoc, reads, reviews, mocks, access, previousDays, blueprint, todayChanges] = await Promise.all([
     loadStudyContent(db, examId, tx), tx.get(totalsRef(db, uid)),
     tx.get(db.collection('users/' + uid + '/server/lessonReads/items')),
@@ -280,11 +328,12 @@ async function studyContext(tx: FirebaseFirestore.Transaction, db: Firestore, ui
     tx.get(db.collection('users/' + uid + '/server/mocks/items').where('submittedAt', '>', 0)),
     mockCoverage(tx, db, uid, now),
     tx.get(studyDays(db, uid).where('examId', '==', examId).orderBy('day', 'desc').limit(14)),
-    tx.get(db.doc('content/mocks/items/' + examId)),
+    track ?? tx.get(db.doc('content/mocks/items/' + examId)),
     tx.get(studyHistory(db, uid).where('examId', '==', examId).where('occurredAt', '>=', dayStart(phDay(now))).where('occurredAt', '<', dayStart(phDay(now)) + DAY_MS)),
   ]);
   const excludedLessons = new Set(config.excludedLessonIds ?? []);
   const content = scopeLessonContent(allContent, config.excludedTopicIds, config.excludedLessonIds);
+  const customBlueprint = track ? storedBlueprint(track) : undefined;
   const totals = await totalsIn(tx, db, uid, totalDoc), topicOf = new Map(content.questions.map(q => [q.id, q.topicId]));
   const answerView = viewOf(totals, topicOf), today = phDay(now);
   const sameDay = previousDays.docs.find(d => d.get('day') === today);
@@ -312,13 +361,14 @@ async function studyContext(tx: FirebaseFirestore.Transaction, db: Firestore, ui
     questions: content.questions, seenQuestionIds: answerView.seenQuestionIds,
     dueReviews: due.map(r => ({...r, due: phStamp(r.due)})),
     scores: answerView.scores, answeredPerActiveDay: answerView.answeredPerActiveDay,
-    mock: {examHasMock: blueprint.exists, proIsActive: pro, lastSubmittedAt: lastMock === null ? null : phStamp(lastMock)},
+    mock: {examHasMock: customBlueprint === undefined ? blueprint.exists : customBlueprint !== null, proIsActive: pro, lastSubmittedAt: lastMock === null ? null : phStamp(lastMock)},
     assessmentCompleted: config.assessmentCompleted ?? answerView.anyAnswers,
     contentRevision: content.revision, anchoredReviewOnlyFrom: sameDate ? prior?.reviewOnlyFrom ?? null : null,
   };
+  // The engine reads the digest into fixed fields and drops any other key, so a new setup is carried in `content`.
   const digest = JSON.stringify({examId, examDate: examDateKey(config), scope: content.topics.map(t => t.id).sort(), excludedLessons: [...excludedLessons].sort(),
-    content: content.revision, assessed: inputs.assessmentCompleted, mocks: relevantMocks.length,
-    studyDays: config.studyDays.join(',')});
+    content: customBlueprint ? content.revision + '|customBlueprint:' + customBlueprint.updatedAt : content.revision,
+    assessed: inputs.assessmentCompleted, mocks: relevantMocks.length, studyDays: config.studyDays.join(',')});
   const readIds = reads.docs.map(d => String(d.get('lessonId')));
   const completion = {readLessonIds: readIds, seenQuestionIds: answerView.seenQuestionIds, reviewedTodayIds: [...completedOn(totals, today).ids]};
   const priorDay: string = priorRow?.get('day') ?? today;
@@ -327,7 +377,12 @@ async function studyContext(tx: FirebaseFirestore.Transaction, db: Firestore, ui
   const input = {inputs, completion, priorCompletion, snapshot: prior, digest, now: phStamp(now), operation: 'read'};
   const state = runCoreState(input);
   return {config, content, totals, reads, reviews, mocks, access, pro, today, inputs, input, state,
-    revision: revisionOf(settings.data()!, content.revision, totals, reads), previousDays, blueprint, todayChanges};
+    revision: revisionOf(settings.data()!, content.revision, totals, reads), previousDays, blueprint, customBlueprint, todayChanges};
+}
+/** The setup stored on a custom track, or null when the student has not saved one. */
+function storedBlueprint(track: FirebaseFirestore.DocumentSnapshot): CustomBlueprint | null {
+  const value = track.get('blueprint');
+  return value && typeof value === 'object' ? value as CustomBlueprint : null;
 }
 function examDateKey(config: ExamSettings) {
   if (!config.examDate) return '';
@@ -377,6 +432,7 @@ function publicToday(context: Awaited<ReturnType<typeof studyContext>>, state: S
     return {day, state: previous.today.isRestDay ? 'rest' : remaining === 0 ? 'done' : remaining === original ? 'missed' : 'partial',
       plan: previous.today, remaining: previous.remaining};
   });
+  const mockMinutes = context.customBlueprint === undefined ? context.blueprint.get('durationMinutes') : context.customBlueprint?.totalMinutes;
   return {examId: context.config.examId, serverNow: now, accessRecheckAt: context.access.recheckAt,
     proCovered: context.pro, tier: context.pro ? 'pro' : 'free', state: state.snapshot.state, revision,
     today: state.today, remaining: state.remaining, originalDone: state.originalDone, canAdvance: state.canAdvance,
@@ -390,8 +446,7 @@ function publicToday(context: Awaited<ReturnType<typeof studyContext>>, state: S
       })(),
       missedWorkToday: [...state.changes, ...context.todayChanges.docs.map(d => JSON.parse(String(d.get('changeJson'))))].some(c => c.cause === 'missedWork'),
       studyDays: context.config.studyDays,
-      mockDurationMinutes: Number.isSafeInteger(context.blueprint.get('durationMinutes')) && Number(context.blueprint.get('durationMinutes')) > 0
-        ? Number(context.blueprint.get('durationMinutes')) : null,
+      mockDurationMinutes: Number.isSafeInteger(mockMinutes) && Number(mockMinutes) > 0 ? Number(mockMinutes) : null,
     },
     ...(context.pro ? {comingUp: {examDay: state.roadmap.examDay, reviewOnlyFrom: state.roadmap.reviewOnlyFrom,
       mockDay: state.roadmap.mockDay, weeksAhead: state.roadmap.weeksAhead, topicOrder: state.roadmap.topicOrder}} : {})};

@@ -6,6 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/auth/auth_state.dart';
 import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/content/content.dart';
+import 'package:pantas/core/storage/data/repos/custom_track_repository.dart';
 import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/features/mock_exam/application/decode_mock_results.dart';
@@ -234,12 +235,17 @@ final mockEarlierResultsProvider =
   return List.unmodifiable(entries);
 });
 
-/// The name a student reads for a server mock's exam, never its raw id.
-String serverMockExamName(String examId) => switch (examId) {
-      'exam_cse_pro' => 'CSE Professional',
-      'exam_cse_sub' => 'CSE Subprofessional',
-      _ => 'Mock exam',
-    };
+/// The name a student reads for a server mock's exam, never its raw id. A
+/// custom exam is named by the student, and the server keeps that name on the
+/// mock. A custom id with no name sent is still not printed.
+String serverMockExamName(String examId, {String? examName}) =>
+    isCustomExamId(examId)
+        ? examName ?? 'Mock exam'
+        : switch (examId) {
+            'exam_cse_pro' => 'CSE Professional',
+            'exam_cse_sub' => 'CSE Subprofessional',
+            _ => 'Mock exam',
+          };
 
 /// Adapts server-owned summary data to the existing presentation without a
 /// local database write. Review uses the pinned server paper separately.
@@ -252,7 +258,7 @@ MockHistoryEntry serverMockHistoryEntry(ServerMockResult row, String uid) {
       userId: uid,
       examId: row.examId,
       blueprintId: row.examId,
-      blueprintName: serverMockExamName(row.examId),
+      blueprintName: serverMockExamName(row.examId, examName: row.examName),
       durationMinutes: row.limitMs ~/ 60000,
       status: row.endedBy == 'strict-exit'
           ? MockAttemptStatus.forfeited

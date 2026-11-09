@@ -4,7 +4,9 @@ import test from 'node:test';
 import {getFirestore} from 'firebase-admin/firestore';
 import {recordSession} from '../lib/ingestSession.js';
 import {lessonItem, questionSetItems, writeContent} from '../lib/contentUpload.js';
-import {clearExamContentCache} from '../lib/_examContent.js';
+import {clearExamContentCache, loadCorpusCached} from '../lib/_examContent.js';
+import {readStudyInsights} from '../lib/studyInsights.js';
+import {randomUUID} from 'node:crypto';
 const db=getFirestore(), now=Date.parse('2026-10-24T10:00:00+08:00'), examId='exam_dost_sei';
 const auth=uid=>({uid,token:{firebase:{sign_in_provider:'anonymous'}}});
 const deps={db,now:()=>now,allow:async()=>true};
@@ -97,4 +99,190 @@ test('ingestSession upgrades existing v1 totals and counts old and new sessions 
  assert.deepEqual([...completedOn(totals,'2026-10-24').ids],['q-new']);
  assert.equal((await ingestSession.run({auth:auth(uid),data:payload})).stored,false);
  assert.deepEqual((await ref.get()).data(),saved);
+});
+
+// ---- a custom exam: any well-formed id is accepted, and the answers are checked against the whole corpus ----
+// Math has m1 and m2, Language has l1 and l2, in two catalogs. zz9 is on neither: a phone's bundle can hold ids the catalog lacks.
+const CUSTOM='exam_custom_'+randomUUID();
+async function customCorpus(){
+ const math={_id:'subj-math',name:'Math',exam:'exam_cx',ordering:1},lang={_id:'subj-lang',name:'Language',exam:'exam_cy',ordering:2};
+ const tMath={_id:'topic-math',name:'Math topic',subject:'subj-math',ordering:1},tLang={_id:'topic-lang',name:'Language topic',subject:'subj-lang',ordering:1};
+ const set=(id,topic,ids)=>({id,topic,lesson:null,exams:['exam_cx','exam_cy'],questions:ids.map(q=>({id:q}))});
+ const put=(id,value)=>db.doc('content/catalog/items/'+id).set({version:'v1',payload:JSON.stringify(value)});
+ await put('index',{subjects:[math,lang],topics:[tMath,tLang],catalogs:['exam_cx','exam_cy']});
+ await put('exam_cx',{id:'exam_cx',sets:[set('set-math','topic-math',['m1','m2'])]});
+ await put('exam_cy',{id:'exam_cy',sets:[set('set-lang','topic-lang',['l1','l2'])]});
+ clearExamContentCache();
+}
+const customBatch=(uid,id,questions,over={})=>({expectedUid:uid,sessionId:id,examId:CUSTOM,origin:'drill',startedAt:now-2000,finishedAt:now,durationMs:2000,
+ answers:questions.map(questionId=>({questionId,chosen:questionId+'_a',correct:true,answeredAt:now,responseMs:1200})),...over});
+const totalsOf=async uid=>(await db.doc('users/'+uid+'/server/answerTotals').get()).data();
+const sessionDoc=(uid,id)=>db.doc('users/'+uid+'/server/answers/items/'+id).get();
+const customSettings=(uid,excludedTopicIds=[])=>db.doc('users/'+uid+'/server/settings').set({examId:CUSTOM,examDate:null,studyDays:[1,2,3,4,5,6,7],
+ assessmentCompleted:true,updatedAt:now,excludedTopicIds,excludedLessonIds:[]});
+// The roadmap rebuild after a stored session logs and swallows its own failure, so a test listens for it.
+async function withoutRebuildErrors(run){
+ const logged=[],original=console.error;console.error=(...args)=>logged.push(args);
+ try{await run();}finally{console.error=original;}
+ assert.deepEqual(logged,[],'the roadmap rebuild did not fail');
+}
+test('a custom corpus is ready',async()=>{await customCorpus();});
+
+test('a custom session is stored with no track document, and seeds reviews and totals like a listed one',async()=>{
+ const uid='cus-obs-store';await db.recursiveDelete(db.doc('users/'+uid));
+ assert.deepEqual(await recordSession(auth(uid),customBatch(uid,'custom-session-1',['m1','l1']),deps),{sessionId:'custom-session-1',stored:true});
+ const row=(await sessionDoc(uid,'custom-session-1')).data();
+ assert.equal(row.examId,CUSTOM);assert.equal(row.origin,'drill');assert.equal(row.answerCount,2);assert.deepEqual(row.answers.map(a=>a.questionId),['m1','l1']);
+ assert.equal((await db.doc('users/'+uid+'/server/customTracks/items/'+CUSTOM).get()).exists,false,'no track document is needed or made');
+ assert.equal((await db.doc('users/'+uid+'/server/reviews/items/m1').get()).exists,true);
+ assert.equal((await totalsOf(uid)).sessions,1);assert.equal((await totalsOf(uid)).answers,2);
+});
+
+test('a replay of a custom session does not count twice',async()=>{
+ const uid='cus-obs-replay';await db.recursiveDelete(db.doc('users/'+uid));
+ const payload=customBatch(uid,'custom-session-2',['m1','m2']);
+ assert.equal((await recordSession(auth(uid),payload,deps)).stored,true);
+ const before=await totalsOf(uid);
+ assert.equal((await recordSession(auth(uid),payload,deps)).stored,false);
+ assert.deepEqual(await totalsOf(uid),before);
+ assert.equal(before.sessions,1);assert.equal(before.answers,2);
+ assert.equal(await code(recordSession(auth(uid),{...payload,durationMs:1},deps)),'failed-precondition');
+ assert.equal(await code(recordSession(auth(uid),customBatch(uid,'custom-session-2',['m1','l2']),deps)),'failed-precondition');
+});
+
+test('an answer whose question is not in the corpus is dropped, and the rest of the session is kept',async()=>{
+ const uid='cus-obs-unknown';await db.recursiveDelete(db.doc('users/'+uid));
+ assert.equal((await recordSession(auth(uid),customBatch(uid,'custom-session-3',['m1','zz9','l2']),deps)).stored,true);
+ const row=(await sessionDoc(uid,'custom-session-3')).data();
+ assert.deepEqual(row.answers.map(a=>a.questionId),['m1','l2']);assert.equal(row.answerCount,2);
+ assert.equal((await totalsOf(uid)).answers,2);
+ assert.equal((await db.doc('users/'+uid+'/server/reviews/items/zz9').get()).exists,false);
+ assert.equal((await db.doc('users/'+uid+'/server/reviews/items/l2').get()).exists,true);
+});
+
+test('a custom session left with nothing after the filter stores nothing at all',async()=>{
+ const uid='cus-obs-empty';await db.recursiveDelete(db.doc('users/'+uid));
+ assert.deepEqual(await recordSession(auth(uid),customBatch(uid,'custom-session-4',['zz9','zz8']),deps),{sessionId:'custom-session-4',stored:false});
+ assert.equal((await sessionDoc(uid,'custom-session-4')).exists,false);
+ assert.equal((await db.doc('users/'+uid+'/server/answerTotals').get()).exists,false);
+ assert.equal((await db.collection('users/'+uid+'/server/reviews/items').get()).size,0);
+ assert.equal((await db.doc('users/'+uid+'/server/studyInsights').get()).exists,false);
+});
+
+test('a replay of a filtered custom session compares the filtered list, so no answer is lost and none is refused',async()=>{
+ const uid='cus-obs-filtered-replay';await db.recursiveDelete(db.doc('users/'+uid));
+ const payload=customBatch(uid,'custom-session-5',['m1','zz9','m2']);
+ assert.equal((await recordSession(auth(uid),payload,deps)).stored,true);
+ assert.equal((await recordSession(auth(uid),payload,deps)).stored,false,'the full payload again is the same session');
+ assert.deepEqual((await sessionDoc(uid,'custom-session-5')).get('answers').map(a=>a.questionId),['m1','m2'],'the stored answers are untouched');
+ assert.equal((await totalsOf(uid)).answers,2);
+ assert.equal(await code(recordSession(auth(uid),customBatch(uid,'custom-session-5',['m1','zz9']),deps)),'failed-precondition','a real difference still fails');
+});
+
+// ---- the corpus changes while instances hold it in memory ----
+// Math is rewritten in place without clearing the cache, as an upload does while a server instance still holds the old corpus.
+const publishMath=ids=>db.doc('content/catalog/items/exam_cx').set({version:'v-'+ids.join(''),
+ payload:JSON.stringify({id:'exam_cx',sets:[{id:'set-math',topic:'topic-math',lesson:null,exams:['exam_cx','exam_cy'],questions:ids.map(q=>({id:q}))}]})});
+const later=minutes=>({...deps,now:()=>now+minutes*60_000});
+
+test('a question published after the cache warmed is stored with its session, and an all-new session is not lost',async()=>{
+ const uid='cus-obs-stale-new';await db.recursiveDelete(db.doc('users/'+uid));
+ await customCorpus();await loadCorpusCached(db,now);
+ await publishMath(['m1','m2','m3','m4']);
+ assert.deepEqual(await recordSession(auth(uid),customBatch(uid,'custom-session-9',['m1','zz9','m3']),deps),{sessionId:'custom-session-9',stored:true});
+ assert.deepEqual((await sessionDoc(uid,'custom-session-9')).get('answers').map(a=>a.questionId),['m1','m3'],'the unknown id is still dropped, the new one kept');
+ assert.equal((await totalsOf(uid)).answers,2);
+ await loadCorpusCached(db,now);
+ assert.deepEqual(await recordSession(auth(uid),customBatch(uid,'custom-session-10',['m4']),deps),{sessionId:'custom-session-10',stored:true});
+ assert.equal((await totalsOf(uid)).answers,3);
+ assert.equal((await totalsOf(uid)).sessions,2);
+ // The same delivery again, after the cache expired, is the same session.
+ assert.deepEqual(await recordSession(auth(uid),customBatch(uid,'custom-session-9',['m1','zz9','m3']),later(6)),{sessionId:'custom-session-9',stored:false});
+ assert.equal((await totalsOf(uid)).answers,3);
+ await customCorpus();
+});
+
+test('a replay is the same session after a question is retired, whether the corpus is read fresh or comes from the cache',async()=>{
+ const uid='cus-obs-retired-replay';await db.recursiveDelete(db.doc('users/'+uid));
+ await customCorpus();
+ const payload=customBatch(uid,'custom-session-11',['m1','m2','l1']);
+ assert.equal((await recordSession(auth(uid),payload,deps)).stored,true);
+ const before=await totalsOf(uid);
+ await publishMath(['m2']);
+ assert.equal((await recordSession(auth(uid),payload,deps)).stored,false,'the cache still holds the old corpus');
+ clearExamContentCache();
+ assert.equal((await recordSession(auth(uid),payload,deps)).stored,false,'a fresh read no longer has m1');
+ assert.equal((await recordSession(auth(uid),payload,deps)).stored,false,'the cache now holds the corpus without m1');
+ assert.deepEqual(await totalsOf(uid),before);
+ assert.deepEqual((await sessionDoc(uid,'custom-session-11')).get('answers').map(a=>a.questionId),['m1','m2','l1']);
+ // A real change is still refused, on a retired question and on a live one.
+ const changed=questionId=>customBatch(uid,'custom-session-11',['m1','m2','l1']).answers.map(a=>a.questionId===questionId?{...a,chosen:'other'}:a);
+ for(const id of ['m1','m2'])assert.equal(await code(recordSession(auth(uid),customBatch(uid,'custom-session-11',[],{answers:changed(id)}),deps)),'failed-precondition',id);
+ assert.equal(await code(recordSession(auth(uid),customBatch(uid,'custom-session-11',['m2','l1']),deps)),'failed-precondition','a different set of answers');
+ await customCorpus();
+});
+
+test('a replay is the same session after content is added, and a session whose answers all retired stores nothing',async()=>{
+ const uid='cus-obs-added-replay';await db.recursiveDelete(db.doc('users/'+uid));
+ await customCorpus();
+ const payload=customBatch(uid,'custom-session-12',['m1','m3']);
+ assert.equal((await recordSession(auth(uid),payload,deps)).stored,true,'m3 is not published yet, so only m1 is kept');
+ assert.deepEqual((await sessionDoc(uid,'custom-session-12')).get('answers').map(a=>a.questionId),['m1']);
+ await publishMath(['m1','m2','m3']);clearExamContentCache();
+ assert.equal((await recordSession(auth(uid),payload,deps)).stored,false,'m3 now exists, but this session was recorded without it');
+ assert.equal((await totalsOf(uid)).answers,1);
+ await publishMath(['m2']);clearExamContentCache();
+ assert.deepEqual(await recordSession(auth(uid),customBatch(uid,'custom-session-13',['m1']),deps),{sessionId:'custom-session-13',stored:false});
+ assert.equal((await sessionDoc(uid,'custom-session-13')).exists,false);
+ assert.equal((await totalsOf(uid)).sessions,1);
+ await customCorpus();
+});
+
+test('a listed exam keeps its strictness, and a malformed custom id is not a known exam',async()=>{
+ const uid='cus-obs-listed';await db.recursiveDelete(db.doc('users/'+uid));
+ const listed={...batch(uid,'listed-strict-1'),answers:[{...batch(uid).answers[0]},{...batch(uid).answers[0],questionId:'missing-q'}]};
+ await assert.rejects(recordSession(auth(uid),listed,deps),e=>e.code==='invalid-argument'&&e.message==='Question is outside this exam.');
+ assert.equal((await sessionDoc(uid,'listed-strict-1')).exists,false);
+ for(const examId of ['exam_custom','exam_custom_'+randomUUID().toUpperCase(),'exam_custom_'+randomUUID()+'x']){
+  await assert.rejects(recordSession(auth(uid),customBatch(uid,'custom-session-6',['m1'],{examId}),deps),
+   e=>e.code==='invalid-argument'&&e.message==='Send a known exam and session origin.');
+ }
+ await assert.rejects(recordSession(auth(uid),customBatch(uid,'custom-session-6',['m1'],{origin:'mock'}),deps),e=>e.code==='invalid-argument');
+ await assert.rejects(recordSession(auth(uid),customBatch('someone-else','custom-session-6',['m1']),deps),e=>e.code==='failed-precondition');
+});
+
+test('scope is not applied at ingest: a session finished before narrowing counts, and a later one on a narrowed subject is kept',async()=>{
+ const uid='cus-obs-scope';await db.recursiveDelete(db.doc('users/'+uid));
+ await customSettings(uid);
+ await withoutRebuildErrors(async()=>{
+  assert.equal((await recordSession(auth(uid),customBatch(uid,'custom-session-7',['m1','l1']),deps)).stored,true);
+ });
+ assert.equal((await db.doc('users/'+uid+'/server/studyInsights').get()).exists,true,'the rebuild after a custom session reads the insights too');
+ assert.equal((await db.doc(`users/${uid}/server/roadmapDays/items/${CUSTOM}:2026-10-24`).get()).exists,true,'and the plan');
+ const view=()=>readStudyInsights(auth(uid),{expectedUid:uid,examId:CUSTOM},deps).then(r=>r.performance.overall);
+ assert.deepEqual(await view(),{correct:2,answered:2});
+ await customSettings(uid,['topic-lang']);
+ assert.deepEqual(await view(),{correct:1,answered:1},'narrowing hides the Language answer');
+ assert.equal((await recordSession(auth(uid),customBatch(uid,'custom-session-8',['l2']),deps)).stored,true,'Language is not ticked, and the session is still stored');
+ assert.equal((await totalsOf(uid)).answers,3);
+ assert.deepEqual(await view(),{correct:1,answered:1});
+ await customSettings(uid,[]);
+ assert.deepEqual(await view(),{correct:3,answered:3},'ticking it again restores every answer');
+});
+
+test('a lesson read with custom settings active is stored and the rebuild does not fail',async()=>{
+ const m=await import('../lib/studyObservations.js');
+ const uid='cus-obs-lesson';await db.recursiveDelete(db.doc('users/'+uid));
+ await customSettings(uid);
+ await withoutRebuildErrors(async()=>{
+  assert.deepEqual(await m.writeLessonRead(auth(uid),{expectedUid:uid,lessonId:'lesson-obs-one',readAt:now-1000},deps),{stored:true});
+ });
+ assert.equal((await db.doc('users/'+uid+'/server/lessonReads/items/lesson-obs-one').get()).get('readAt'),now-1000);
+ assert.equal((await db.doc('users/'+uid+'/server/studyInsights').get()).exists,true);
+ assert.equal((await db.doc(`users/${uid}/server/roadmapDays/items/${CUSTOM}:2026-10-24`).get()).exists,true);
+});
+
+test('custom observations cleanup',async()=>{
+ for(const id of ['index','exam_cx','exam_cy'])await db.doc('content/catalog/items/'+id).delete();
+ clearExamContentCache();
 });

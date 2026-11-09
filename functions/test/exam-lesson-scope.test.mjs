@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import {loadStudyContent} from '../src/_examContent.ts';
+import {loadStudyContent} from '../lib/_examContent.js';
 
 const exam = 'exam_cse_pro';
 const catalog = {
@@ -29,7 +29,7 @@ test('study content keeps only lessons with active exam questions and their pare
 });
 
 test('the same scope rule removes excluded lessons and empty parent topics', async () => {
-  const {scopeLessonContent} = await import('../src/_examContent.ts');
+  const {scopeLessonContent} = await import('../lib/_examContent.js');
   const content = await loadStudyContent(db, exam);
   const scoped = scopeLessonContent(content, [], ['kept']);
   assert.deepEqual(scoped.lessons, []);
@@ -52,7 +52,7 @@ test('lessonless exam questions keep their topic and subject', async () => {
 });
 
 test('excluding every eligible lesson preserves a separate lessonless topic', async () => {
-  const {scopeLessonContent} = await import('../src/_examContent.ts');
+  const {scopeLessonContent} = await import('../lib/_examContent.js');
   const content = {
     topics: [{id: 'algebra'}, {id: 'filing'}, {id: 'empty'}],
     lessons: [{id: 'kept', topicId: 'algebra'}],

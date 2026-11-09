@@ -8,6 +8,7 @@ import {build,saveExamSettings,readStudyRoadmap,advanceStudyRoadmap,readStudyDay
 import {recordSession} from '../lib/ingestSession.js';
 import {readStudyInsights} from '../lib/studyInsights.js';
 import {emptyTotals,toDoc} from '../lib/_answerTotals.js';
+import {readFileSync} from 'node:fs';
 const db=getFirestore(),NOW=Date.parse('2026-10-24T10:00:00+08:00'),EXAM='exam_cse_pro',DAY=86400000;
 const auth=uid=>({uid,token:{firebase:{sign_in_provider:'anonymous'},pro:true,proUntil:NOW+100*DAY}});
 const deps=(at=NOW)=>({db,now:()=>at,allow:async()=>true});
@@ -479,4 +480,51 @@ test('Free can finish and advance three times without a tier cap',async()=>{
   view=await advanceStudyRoadmap(auth(uid),{...body(uid),requestId:'b4-free-advance-'+i,expectedDay:view.today.day,expectedRevision:view.revision},deps());
   assert.equal(view.tier,'free');assert.ok(view.today.advancedIds.length>0);
  }
+});
+
+// ---- listed exams stay exactly as they were ---------------------------------------------------------
+// Captured from the code before custom exams were added, at the fixed clock NOW, then pinned here.
+const baseline=JSON.parse(readFileSync(new URL('./fixtures/listed-cse-baseline.json',import.meta.url),'utf8'));
+async function listedStudent(name,pro){
+ const uid='reg-'+name;await seed(uid);
+ if(pro)await db.doc('users/'+uid+'/grants/trial').set({source:'trial',product:'web_trial',tier:'civilService',startsAt:NOW-DAY,endsAt:NOW+DAY,state:'active',createdAt:NOW-DAY});
+ await saveExamSettings(auth(uid),{expectedUid:uid,examId:EXAM,examDate:{precision:'day',day:'2026-11-15'},studyDays:[5,5,3,1,2,4,6],
+  assessmentCompleted:true,excludedTopicIds:['topic-cse-alpha'],excludedLessonIds:['lesson-cse-7'],carryOverProgress:false},deps());
+ return uid;
+}
+for(const [name,pro] of [['free',false],['pro',true]]){
+ test('a listed '+name+' exam is byte for byte what it was before custom exams: roadmap, stored settings, digest',async()=>{
+  await db.doc('content/catalog/items/index').delete();
+  await db.doc('content/mocks/items/'+EXAM).set({durationMinutes:165});
+  try{
+   const uid=await listedStudent(name,pro);
+   const expected=baseline[name];
+   assert.deepEqual((await db.doc('users/'+uid+'/server/settings').get()).data(),expected.settings);
+   const view=await readStudyRoadmap(auth(uid),body(uid),deps());
+   assert.equal(JSON.stringify(view),JSON.stringify(expected.roadmap));
+   const day=await db.doc('users/'+uid+'/server/roadmapDays/items/'+EXAM+':2026-10-24').get();
+   assert.equal(JSON.parse(day.get('snapshotJson')).digest,expected.digest);
+   assert.equal('customBlueprint'in JSON.parse(expected.digest),false);
+   assert.equal((await db.doc('users/'+uid+'/server/roadmap').get()).exists,true,'a listed exam still keeps the compatibility roadmap');
+  }finally{await db.doc('content/mocks/items/'+EXAM).delete();}
+ });
+}
+test('a listed exam reads its mock blueprint from content/mocks and never touches the custom track path',async()=>{
+ const uid='reg-spy';await seed(uid);await db.doc('content/catalog/items/index').delete();
+ await db.doc('content/mocks/items/'+EXAM).set({durationMinutes:90});
+ const paths=[];
+ const spy=new Proxy(db,{get(target,prop){
+  const value=Reflect.get(target,prop);
+  if(prop==='doc')return path=>{paths.push(path);return target.doc(path);};
+  if(prop==='collection')return path=>{paths.push(path);return target.collection(path);};
+  return typeof value==='function'?value.bind(target):value;
+ }});
+ try{
+  await saveExamSettings(auth(uid),{expectedUid:uid,examId:EXAM,examDate:{precision:'day',day:'2026-11-15'},studyDays:[1,2,3,4,5,6,7]},{...deps(),db:spy});
+  const view=await readStudyRoadmap(auth(uid),body(uid),{...deps(),db:spy});
+  assert.equal(view.homeExtras.mockDurationMinutes,90);
+  assert.ok(paths.includes('content/mocks/items/'+EXAM),'the listed blueprint document is read');
+  assert.equal(paths.some(p=>p.includes('customTracks')),false,'no extra read for a listed exam');
+  assert.equal((await db.collection('users/'+uid+'/server/customTracks/items').get()).size,0,'no write for a listed exam');
+ }finally{await db.doc('content/mocks/items/'+EXAM).delete();}
 });

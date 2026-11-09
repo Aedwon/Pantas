@@ -1,8 +1,10 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/content/exam_subject_groups.dart';
 import 'package:pantas/core/metrics/overall_accuracy.dart';
 import 'package:pantas/core/platform/first_screen_ready.dart';
@@ -15,9 +17,13 @@ import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/storage/track_scope.dart';
 import 'package:pantas/core/ui/leave_page.dart';
+import 'package:pantas/features/home/application/study_delivery.dart';
+import 'package:pantas/features/mock_exam/application/mock_panel_providers.dart';
+import 'package:pantas/features/mock_exam/application/server_mock_results_providers.dart';
 import 'package:pantas/features/mock_exam/data/custom_blueprint_repository.dart';
 import 'package:pantas/features/mock_exam/domain/custom_blueprint.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/custom_mock_setup_page.dart';
+import 'package:pantas/features/mock_exam/presentation/pages/mock_setup_route.dart';
 import 'package:pantas/features/mock_exam/presentation/widgets/mock_skeletons.dart';
 
 final customBlueprintRepositoryProvider = Provider<CustomBlueprintRepository>(
@@ -67,15 +73,13 @@ final customMockSetupDataProvider =
   };
 
   // Counted from the scoped topics, so it follows the track rather than
-  // the whole corpus.
-  final available = await countAvailableQuestions(
+  // the whole corpus. A section draws on one subject, so each is counted.
+  final availableBySubject = await countAvailableBySubject(
     content,
-    [
-      for (final group in groups)
-        for (final topic in group.topics) topic.id,
-    ],
+    topicsBySubject,
     examId: exam.id,
   );
+  final available = availableBySubject.values.fold<int>(0, (a, b) => a + b);
 
   final row = await ref.watch(customBlueprintRepositoryProvider).read(exam.id);
   return CustomMockSetupData(
@@ -83,6 +87,7 @@ final customMockSetupDataProvider =
     subjects: subjects,
     topicsBySubject: topicsBySubject,
     availableQuestions: available,
+    availableBySubject: availableBySubject,
     saved: row == null ? null : savedCustomBlueprint(row, subjects),
   );
 });
@@ -100,6 +105,27 @@ Future<int> countAvailableQuestions(
     examId: examId,
   );
   return grouped.values.fold<int>(0, (sum, rows) => sum + rows.length);
+}
+
+/// How many questions each subject's topics hold for [examId], from the index
+/// rows only. A subject whose topics hold none counts 0.
+Future<Map<SubjectId, int>> countAvailableBySubject(
+  ContentRepository content,
+  Map<SubjectId, List<Topic>> topicsBySubject, {
+  required ExamId examId,
+}) async {
+  final grouped = await content.selectionRowsByTopics(
+    [
+      for (final topics in topicsBySubject.values)
+        for (final topic in topics) topic.id,
+    ],
+    examId: examId,
+  );
+  return {
+    for (final entry in topicsBySubject.entries)
+      entry.key: entry.value
+          .fold<int>(0, (sum, topic) => sum + (grouped[topic.id]?.length ?? 0)),
+  };
 }
 
 /// Reads a saved setup back into what the form shows. The stored sections
@@ -156,19 +182,60 @@ class CustomMockSetupRoute extends ConsumerWidget {
         respectPopScope: false,
       ),
       onTickMoreSubjects: () => context.push('/settings/exam/included'),
-      onSave: (blueprint) async {
-        await ref.read(customBlueprintRepositoryProvider).save(
-              blueprint,
-              topicsBySubject: {
-                for (final entry in data.topicsBySubject.entries)
-                  entry.key: [for (final topic in entry.value) topic.id],
-              },
-              now: DateTime.now(),
-            );
-        if (context.mounted) {
-          leavePage(context, fallback: '/quiz', respectPopScope: false);
-        }
-      },
+      onSave: (blueprint) => _save(context, data, blueprint),
     );
+  }
+}
+
+/// Saves the paper on this device, then hands it to the server.
+///
+/// On the web the student waits for the server, because the panel and the
+/// start page read the paper from there. If the server cannot be reached the
+/// error goes to the page, which stays open with the saved row kept: the next
+/// publish carries it. On a phone the send runs in the background, as for
+/// other settings.
+Future<void> _save(
+  BuildContext context,
+  CustomMockSetupData data,
+  CustomBlueprint blueprint,
+) async {
+  // The student may leave while the server answers, so nothing below reads
+  // through the widget.
+  final container = ProviderScope.containerOf(context, listen: false);
+  final examId = data.examId;
+  final web = container.read(mockUsesServerProvider);
+  final telemetry = container.read(telemetryProvider);
+  try {
+    final publication =
+        await container.read(studySettingsCaptureProvider)(examId: examId);
+    await publication.apply(
+      () => container.read(customBlueprintRepositoryProvider).save(
+            blueprint,
+            topicsBySubject: {
+              for (final entry in data.topicsBySubject.entries)
+                entry.key: [for (final topic in entry.value) topic.id],
+            },
+            now: DateTime.now(),
+          ),
+    );
+    if (web) await publication.settled;
+  } on Object catch (error, stack) {
+    unawaited(telemetry.recordError(error, stack));
+    rethrow;
+  }
+  // The panel, the start page and this page cached the old paper, and the
+  // server's reading of it.
+  container
+    ..invalidate(customMockSetupDataProvider)
+    ..invalidate(customMockSummaryProvider(examId))
+    ..invalidate(mockSetupParsedBlueprintProvider(examId))
+    ..invalidate(mockSetupQuestionCountProvider(examId));
+  if (web) {
+    container
+      ..invalidate(serverMockSetupCountProvider(examId))
+      ..invalidate(serverMockAvailabilityProvider(examId));
+  }
+  if (context.mounted) {
+    leavePage(context, fallback: '/quiz', respectPopScope: false);
   }
 }

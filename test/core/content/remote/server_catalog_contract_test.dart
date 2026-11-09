@@ -1,7 +1,9 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/content/remote/content_cache.dart';
 import 'package:pantas/core/content/remote/content_catalog.dart';
 import 'package:pantas/core/content/remote/content_item.dart';
@@ -9,6 +11,8 @@ import 'package:pantas/core/content/remote/content_mirror.dart';
 import 'package:pantas/core/content/remote/content_remote.dart';
 import 'package:pantas/core/content/remote/content_service.dart';
 import 'package:pantas/core/storage/data/repos/content_repository.dart';
+import 'package:pantas/core/storage/track_scope.dart';
+import 'package:pantas/features/onboarding/presentation/steps/custom_track_subjects_step.dart';
 
 import '../../../helpers/in_memory_database.dart';
 
@@ -172,5 +176,74 @@ void main() {
       reason: 'ids listed in the catalog but missing from their set: '
           '${all.where((id) => !ready.contains(id)).take(5).toList()}',
     );
+  });
+
+  test('the custom picker offers only what holds a question on the server',
+      () async {
+    if (skip != null) return;
+    Map<String, Object?> read(String id) => (jsonDecode(
+          File('${out.path}/catalog/$id.json').readAsStringSync(),
+        ) as Map)
+            .cast<String, Object?>();
+
+    // The topics of every set that carries a question, from the same
+    // documents the server builds a custom exam's corpus from.
+    final served = <String>{};
+    void addSets(ExamCatalog catalog) {
+      for (final set in catalog.sets) {
+        if (set.questions.isNotEmpty) served.add(set.topicId);
+      }
+    }
+
+    for (final examId in parseCatalogIndex(read('index')).catalogs) {
+      final exam = parseExamCatalog(read(examId));
+      addSets(exam);
+      exam.parts.map((part) => parseExamCatalog(read(part))).forEach(addSets);
+    }
+
+    final appDb = inMemoryDatabase();
+    final contentDb = inMemoryContentDatabase();
+    addTearDown(appDb.close);
+    addTearDown(contentDb.close);
+    final service = ContentService(
+      remote: _DiskRemote(out),
+      cache: ContentCache(appDb),
+    );
+    addTearDown(service.dispose);
+    final mirror = ContentMirror(db: contentDb, service: service);
+    addTearDown(mirror.dispose);
+    await mirror.start();
+    await mirror.idle;
+
+    final container = ProviderContainer(
+      overrides: [contentDatabaseProvider.overrideWithValue(contentDb)],
+    );
+    addTearDown(container.dispose);
+    final subjects =
+        await container.read(corpusSubjectsWithTopicsProvider.future);
+
+    // On the web there is no demo data, so a subject with no question is gone.
+    expect(subjects.keys.toSet(), {
+      'Mathematics',
+      'Science',
+      'Language Proficiency (English & Filipino)',
+      'Reading Comprehension (English & Filipino)',
+      'Reasoning',
+      'General Information',
+    });
+    expect(subjects.keys, isNot(contains('Verbal Ability')));
+    final offered = {for (final topics in subjects.values) ...topics};
+    expect(offered, isNotEmpty);
+    final counts = await ContentRepository(contentDb)
+        .activeQuestionCountsByTopics(offered);
+    for (final topicId in offered) {
+      expect(counts[topicId], greaterThan(0), reason: topicId);
+      expect(served, contains(topicId), reason: topicId);
+    }
+
+    // What's Included lists the same ground, one id for each topic name.
+    for (final topic in await corpusTopics(ContentRepository(contentDb))) {
+      expect(served, contains(topic.id), reason: topic.id);
+    }
   });
 }
