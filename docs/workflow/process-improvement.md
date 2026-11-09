@@ -66,6 +66,17 @@ pass 15, retire or merge one first.
    checks the result. His words (Nov 9): "how many times does this have to pop up. has this not been written already? in the pantas-web project? if not, i already told you, you should have an agent write it for me instead. for these texts, have a codex 6.1 Sol High critique it. the angle should be that it's leaning in favor of us, to the extend PH law allows. do not ask me any text of this kind again. i cannot afford a lawyer. i should only check what you drafted" No check can tell when a question to him
    asks for legal text.
 
+6. Every email an agent sends goes to aerol.balayon@gmail.com first: the exact final
+   email (same template, subject, sender and links, personalized for one sample recipient),
+   to that address only. Tell him to check his inbox. Send to the real recipients only after
+   he confirms he received and checked that copy. If he says "send" before the self-test has
+   gone out and he has confirmed it, do not send: send the self-test and remind him first.
+   Covers beta, results, guardian, marketing and one-off transactional sends. Does not cover
+   mail the product sends by itself (sign-in codes, guardian requests). His words (Nov 9):
+   "by the way, i had a thought. when we send out emails, make sure to send it to me first as a prerequisite before sending to anyone else. this rule supersedes me even if i mistakenly request to send it without receiving the thing in my own email first. remind me to check first in my email before you send it, if this makes sense." No single check can cover it: sends run from different scripts and providers, some
+   outside the repository. Each send script must refuse a real send without a recorded
+   self-test of the same email version.
+
 ## Entries
 
 Newest first. When this file passes about 120 lines, move the oldest closed entries to

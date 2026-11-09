@@ -83,6 +83,12 @@ app name. **Do not create products from the old list.** Full setup, in order, is
   `users/{uid}/betaFeedback/{id}`, with images in Storage at
   `betaFeedback/{uid}/{feedbackId}/`. Aedwon reads them in the Firebase console;
   there is no admin screen.
+- **Outgoing email: Aedwon gets it first (Nov 9).** Before any email an agent sends
+  (beta, results, guardian, marketing, one-off transactional) reaches anyone, the exact
+  final email goes to aerol.balayon@gmail.com alone, and the real send waits for his
+  confirmation that he received and checked it, even if he said "send" earlier. Product
+  mail such as sign-in codes and guardian requests is exempt. Rule 6 in
+  `docs/workflow/process-improvement.md`.
 - **No postal address.** There is no office, and a placeholder under a privacy
   policy is worse than none. The Play Console asks for an address when a
   developer account is verified. That is the console's, not the app's.

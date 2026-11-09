@@ -2798,3 +2798,11 @@ Asked by the manager thread on Aedwon's "for the rest of items, please finish th
     6. The founder app, including the Owner inputs tab
 
 - SSOT updated 9 November 2026, 18:35 PHT, sections touched: Home "Current status" (new 9 November status; 3 November status marked SUPERSEDED); Production Readiness Assessment (new top checkpoint for 9 November, 3 November checkpoint renamed SUPERSEDED, 9 November catch-up at the end); Internal Beta Testing Program (9 November status note; one 3 November sentence marked SUPERSEDED). Counts only, no tester data.
+
+## Email self-test before every send (Aedwon, Nov 9)
+
+- **Rule (Aedwon, verbatim, relayed by the manager):** "by the way, i had a thought. when we send out emails, make sure to send it to me first as a prerequisite before sending to anyone else. this rule supersedes me even if i mistakenly request to send it without receiving the thing in my own email first. remind me to check first in my email before you send it, if this makes sense."
+- **What it means:** before any email reaches anyone, the exact final email (same template, subject, sender and links, personalized for one sample recipient) goes to aerol.balayon@gmail.com only, and he is told to check his inbox. The real send waits for his confirmation that he received and checked it. A "send" from him before that confirmation does not count: the agent sends the self-test and reminds him first. Covers beta, results, guardian, marketing and one-off transactional sends; mail the product sends by itself (sign-in codes, guardian requests) is exempt.
+- **Recorded as:** written rule 6 in `docs/workflow/process-improvement.md`, and a line in `docs/OPERATIONS.md` under Contact (the file has no separate email section).
+- **Enforced in:** the beta monitor's private send script (outside the repository) now refuses a real send unless a self-test of the same email version to that address is recorded.
+- **Note:** the Nov 9 "beta is live" reminder went out before this rule existed, without a self-test.
