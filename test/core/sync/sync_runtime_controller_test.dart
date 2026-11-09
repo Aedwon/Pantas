@@ -1088,6 +1088,90 @@ void main() {
       ),
     );
   });
+  // Nov 8 Backup: "Couldn't back up" that Try Again could not clear and a
+  // reload did. A startup error left Sync stopped, so there was no engine
+  // for Try Again to flush.
+  test('Try Again starts Sync again after a startup error', () async {
+    final claim = _FlakyClaimGateway();
+    final h = _Harness(claimGateway: claim);
+    addTearDown(h.close);
+    await h.runtime.update(
+      identity: const SyncIdentity(uid: 'user-1'),
+      entitlement: SyncEntitlement.pro,
+    );
+    expect(h.runtime.status, isA<SyncError>());
+    expect(h.engine.starts, isEmpty);
+
+    await h.runtime.retry();
+
+    expect(claim.calls, 2);
+    expect(h.engine.starts, hasLength(1));
+    expect(h.runtime.status, isNot(isA<SyncError>()));
+  });
+
+  test('Try Again on a running Sync flushes and does not restart', () async {
+    final h = _Harness();
+    addTearDown(h.close);
+    await h.runtime.update(
+      identity: const SyncIdentity(uid: 'user-1'),
+      entitlement: SyncEntitlement.pro,
+    );
+    final starts = h.engine.starts.length;
+    final claims = h.claim.calls;
+
+    await h.runtime.retry();
+
+    expect(h.engine.flushCalls, 1);
+    expect(h.engine.starts, hasLength(starts));
+    expect(h.claim.calls, claims);
+  });
+
+  test('a startup error goes to the web error report', () async {
+    final sender = _ReportSender();
+    final reporter = ClientReporter(
+      sender: sender,
+      context: () => const ClientReportContext(
+        build: 'b',
+        visit: 'return',
+        browser: 'chrome',
+        mobile: false,
+        viewportWidth: 1200,
+      ),
+      timings: () => const [],
+    );
+    ClientReporter.active = reporter;
+    addTearDown(() {
+      ClientReporter.active = null;
+      reporter.dispose();
+    });
+    final h = _Harness(claimGateway: _FlakyClaimGateway());
+    addTearDown(h.close);
+    await h.runtime.update(
+      identity: const SyncIdentity(uid: 'user-1'),
+      entitlement: SyncEntitlement.pro,
+    );
+    reporter
+      ..splashGone()
+      ..firstScreenSettled();
+    await pumpEventQueue();
+
+    final errors = sender.sent.single['errors']! as List<Object?>;
+    expect(
+      errors.map((e) => (e! as Map)['msg']),
+      contains('Bad state: Backup stopped while starting: Bad state: claim'),
+    );
+  });
+}
+
+class _FlakyClaimGateway implements SyncClaimGateway {
+  int calls = 0;
+
+  @override
+  Future<bool> refreshProClaim({required String uid}) async {
+    calls += 1;
+    if (calls == 1) throw StateError('claim');
+    return true;
+  }
 }
 
 class _Harness {

@@ -177,6 +177,9 @@ class RecordingSurface implements SyncRuntimeSurface {
   }
 
   @override
+  Future<void> retry() => forceFlush();
+
+  @override
   Future<void> chooseReconciliation(SyncReconciliationChoice choice) async {}
 
   @override
