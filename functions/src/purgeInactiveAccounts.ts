@@ -1,8 +1,8 @@
 import {getAuth, type Auth, type UserRecord} from 'firebase-admin/auth';
-import {getFirestore, type Firestore} from 'firebase-admin/firestore';
+import {FieldPath, FieldValue, getFirestore, type DocumentReference, type Firestore} from 'firebase-admin/firestore';
 import {logger} from 'firebase-functions';
 import {onSchedule} from 'firebase-functions/v2/scheduler';
-import {deleteUserData} from './deleteUserData.js';
+import {deleteUserData, type DeletionReason} from './deleteUserData.js';
 import {guardianLinkOrigin, guardianMailFrom, guardianMailKey} from './guardianConsent.js';
 import {inactivityWarningMessage, mailerFor, type GuardianMailer} from './guardianMail.js';
 import {hasLiveProClaim} from './_pro.js';
@@ -21,16 +21,22 @@ export const WARNINGS_PER_RUN = 500;
 // Guardian answer records are kept ten years after the newest answer: 10 x 365 days plus 3 leap
 // days (2028, 2032, 2036 fall inside a ten-year span starting in late 2026).
 export const EVIDENCE_KEEP_DAYS = 3653;
+// A pending deletion is retried by the daily run once it is this old, so a live attempt is left alone.
+export const RETRY_AFTER_MS = 3_600_000;
+// Evidence parents checked per run, in each of the two passes (marked parents, legacy parents).
+export const EVIDENCE_PARENTS_PER_RUN = 500;
 
 type InactivityDeps = {
   db: Firestore;
-  auth: Pick<Auth, 'listUsers' | 'getUser' | 'deleteUser'>;
+  auth: Pick<Auth, 'listUsers' | 'getUser' | 'deleteUser' | 'updateUser' | 'revokeRefreshTokens'>;
   mailer: GuardianMailer;
   /** The app address the warning's "Open Pantas" link points to. */
   linkOrigin: string;
   now?: () => number;
   deletionCap?: number;
   warningCap?: number;
+  /** Evidence parents checked per run. */
+  evidenceBudget?: number;
 };
 
 export type InactivityResult = {scanned: number; warned: number; deleted: number};
@@ -63,15 +69,37 @@ export async function runInactivityPass(deps: InactivityDeps): Promise<Inactivit
   const deletionCap = deps.deletionCap ?? DELETIONS_PER_RUN;
   const warningCap = deps.warningCap ?? WARNINGS_PER_RUN;
   const result: InactivityResult = {scanned: 0, warned: 0, deleted: 0};
+  // Deletions started, not finished: a failed deletion may already have erased data, so it counts.
+  let attempts = 0;
 
-  // Rechecks the account just before deleting, in case it was used since the page was read.
-  const deleteNow = async (uid: string, warned = true): Promise<boolean> => {
+  /** Still unused for 730 days, with no Pro running, on a fresh read of the account. */
+  const stillIdleAndUnpaid = async (user: UserRecord): Promise<boolean> => {
+    const last = lastActivity(user);
+    return last !== null && now - last >= INACTIVE_DAYS * DAY_MS && !await proRunning(deps.db, user, now);
+  };
+
+  // Rechecks the account just before deleting, in case it was used or paid since the page was read.
+  // `warnedAt` is the warning the scan relied on, or null for an account that is deleted without one.
+  const deleteNow = async (uid: string, warnedAt: number | null): Promise<boolean> => {
     try {
       const fresh = await deps.auth.getUser(uid);
       const last = lastActivity(fresh);
-      if (fresh.disabled || last === null || now - last < INACTIVE_DAYS * DAY_MS) return false;
-      // An account that gained a verified address since the page was read is owed a warning first.
-      if (!warned && fresh.email && fresh.emailVerified) return false;
+      if (fresh.disabled || last === null || !await stillIdleAndUnpaid(fresh)) return false;
+      if (warnedAt === null) {
+        // An account that gained a verified address since the page was read is owed a warning first.
+        if (fresh.email && fresh.emailVerified) return false;
+      } else if (!(last < warnedAt && now >= warnedAt + WARNING_GRACE_DAYS * DAY_MS)) {
+        return false;
+      }
+      attempts += 1;
+      // Stop new sign-ins and token refreshes, then look once more: a use or a payment that landed
+      // between the first read and the disable must still save the account.
+      await deps.auth.updateUser(uid, {disabled: true});
+      await deps.auth.revokeRefreshTokens(uid);
+      if (!await stillIdleAndUnpaid(await deps.auth.getUser(uid))) {
+        await deps.auth.updateUser(uid, {disabled: false});
+        return false;
+      }
       await deleteUserData(deps.db, deps.auth, uid, 'inactive_24_months', {now: () => now});
       return true;
     } catch (error) {
@@ -80,76 +108,118 @@ export async function runInactivityPass(deps: InactivityDeps): Promise<Inactivit
     }
   };
 
+  // First finish deletions an earlier run or a guardian withdrawal started and did not complete.
+  try {
+    const unfinished = deletionCap > 0
+      ? await deps.db.collection('accountDeletions').where('startedAt', '<', now - RETRY_AFTER_MS)
+        .orderBy('startedAt').limit(deletionCap).get()
+      : {docs: []};
+    for (const task of unfinished.docs) {
+      if (attempts >= deletionCap) break;
+      attempts += 1;
+      try {
+        await deleteUserData(deps.db, deps.auth, task.id, task.get('reason') as DeletionReason, {now: () => now});
+        result.deleted += 1;
+      } catch (error) {
+        logger.error('Pending account deletion failed', {uid: task.id, error: String(error)});
+      }
+    }
+  } catch (error) {
+    logger.error('Pending account deletions not read', {error: String(error)});
+  }
+
+  const handle = async (user: UserRecord): Promise<void> => {
+    // A disabled account is a guardian withdrawal in progress.
+    if (user.disabled) return;
+    const last = lastActivity(user);
+    if (last === null || now - last < WARN_DAYS * DAY_MS) return;
+    if (await proRunning(deps.db, user, now)) return;
+    const idleLongEnough = now - last >= INACTIVE_DAYS * DAY_MS;
+
+    if (!user.email || !user.emailVerified) {
+      // No address to warn: a guest, or an address Google never verified (a Google sign-in can
+      // leave one). Mailing an unverified address could reach someone else, so these accounts
+      // end at 24 months without a warning, as the privacy texts say.
+      if (idleLongEnough && attempts < deletionCap && await deleteNow(user.uid, null)) result.deleted += 1;
+      return;
+    }
+
+    const record = deps.db.doc(`users/${user.uid}/server/inactivity`);
+    const warnedAt = (await record.get()).get('warnedAt');
+    // A warning older than the last use does not count: using the app cancels it.
+    if (typeof warnedAt === 'number' && warnedAt > last) {
+      const due = now >= warnedAt + WARNING_GRACE_DAYS * DAY_MS;
+      if (idleLongEnough && due && attempts < deletionCap && await deleteNow(user.uid, warnedAt)) result.deleted += 1;
+      return;
+    }
+    if (result.warned >= warningCap) return;
+    try {
+      await deps.mailer.send(inactivityWarningMessage({email: user.email,
+        deleteOn: now + WARNING_GRACE_DAYS * DAY_MS, origin: deps.linkOrigin}));
+    } catch (error) {
+      // Record nothing, so the next run tries again. Not-configured mail lands here too.
+      logger.error('Inactivity warning not sent', {uid: user.uid, error: String(error)});
+      return;
+    }
+    await record.set({warnedAt: now});
+    result.warned += 1;
+  };
+
   let pageToken: string | undefined;
   do {
     const page = await deps.auth.listUsers(1000, pageToken);
     for (const user of page.users) {
       result.scanned += 1;
-      if (result.deleted >= deletionCap && result.warned >= warningCap) break;
-      // A disabled account is a guardian withdrawal in progress.
-      if (user.disabled) continue;
-      const last = lastActivity(user);
-      if (last === null || now - last < WARN_DAYS * DAY_MS) continue;
-      if (await proRunning(deps.db, user, now)) continue;
-      const idleLongEnough = now - last >= INACTIVE_DAYS * DAY_MS;
-
-      if (!user.email || !user.emailVerified) {
-        // No address to warn: a guest, or an address Google never verified (a Google sign-in can
-        // leave one). Mailing an unverified address could reach someone else, so these accounts
-        // end at 24 months without a warning, as the privacy texts say.
-        if (idleLongEnough && result.deleted < deletionCap && await deleteNow(user.uid, false)) result.deleted += 1;
-        continue;
-      }
-
-      const record = deps.db.doc(`users/${user.uid}/server/inactivity`);
-      const warnedAt = (await record.get()).get('warnedAt');
-      // A warning older than the last use does not count: using the app cancels it.
-      if (typeof warnedAt === 'number' && warnedAt > last) {
-        const due = now >= warnedAt + WARNING_GRACE_DAYS * DAY_MS;
-        if (idleLongEnough && due && result.deleted < deletionCap && await deleteNow(user.uid)) result.deleted += 1;
-        continue;
-      }
-      if (result.warned >= warningCap) continue;
+      if (attempts >= deletionCap && result.warned >= warningCap) break;
+      // One account's failure must not stop the others.
       try {
-        await deps.mailer.send(inactivityWarningMessage({email: user.email,
-          deleteOn: now + WARNING_GRACE_DAYS * DAY_MS, origin: deps.linkOrigin}));
+        await handle(user);
       } catch (error) {
-        // Record nothing, so the next run tries again. Not-configured mail lands here too.
-        logger.error('Inactivity warning not sent', {uid: user.uid, error: String(error)});
-        continue;
+        logger.error('Inactivity check failed for one account', {uid: user.uid, error: String(error)});
       }
-      await record.set({warnedAt: now});
-      result.warned += 1;
     }
     pageToken = page.pageToken;
-  } while (pageToken && (result.deleted < deletionCap || result.warned < warningCap));
+  } while (pageToken && (attempts < deletionCap || result.warned < warningCap));
   logger.info('purgeInactiveAccounts', result);
   return result;
 }
+
+type EvidenceDeps = {db: Firestore; auth: Pick<Auth, 'getUser'>; now?: () => number; budget?: number};
 
 /**
  * Deletes guardian evidence ten years after its newest answer or purchase attestation, once the
  * account is gone. Evidence with no deletion marker predates the marker: if its account no longer
  * exists, the marker is written now so the ten-year clock, which runs from the newest record, applies.
+ *
+ * Each run checks at most `budget` marked parents, then at most `budget` answer records to find
+ * parents with no marker. A saved cursor resumes where the last run stopped and wraps to the start
+ * when a page comes back short.
  */
-export async function purgeExpiredEvidence(deps: {db: Firestore; auth: Pick<Auth, 'getUser'>; now?: () => number}): Promise<number> {
+export async function purgeExpiredEvidence(deps: EvidenceDeps): Promise<number> {
   const now = (deps.now ?? Date.now)();
+  const budget = deps.budget ?? EVIDENCE_PARENTS_PER_RUN;
+  const state = deps.db.doc('jobState/evidencePurge');
+  const saved = (await state.get()).data() ?? {};
   let removed = 0;
-  // listDocuments also returns parents that exist only as a parent of a subcollection.
-  for (const evidence of await deps.db.collection('guardianConsentEvidence').listDocuments()) {
+
+  const purgeParent = async (evidence: DocumentReference): Promise<void> => {
     try {
+      // Only an account that is really gone releases its evidence. A failed deletion can leave the
+      // marker on an account that still exists.
+      try {
+        await deps.auth.getUser(evidence.id);
+        return;
+      } catch (error) {
+        if (!isMissing(error)) throw error;
+      }
       let deletedAt = (await evidence.get()).get('accountDeletedAt');
       if (typeof deletedAt !== 'number') {
-        try {
-          await deps.auth.getUser(evidence.id);
-          continue; // the account still exists
-        } catch (error) {
-          if (!isMissing(error)) throw error;
-        }
         deletedAt = now;
         await evidence.set({accountDeletedAt: now, reason: 'legacy'}, {merge: true});
       }
-      const [answers, purchases] = await Promise.all([evidence.collection('responses').get(), evidence.collection('purchases').get()]);
+      const [answers, purchases] = await Promise.all([
+        evidence.collection('responses').orderBy('decidedAt', 'desc').limit(1).get(),
+        evidence.collection('purchases').orderBy('attestedAt', 'desc').limit(1).get()]);
       const dates = [...answers.docs.map((row) => row.get('decidedAt')), ...purchases.docs.map((row) => row.get('attestedAt'))]
         .filter((value): value is number => typeof value === 'number');
       const newest = dates.length > 0 ? Math.max(...dates) : deletedAt;
@@ -160,14 +230,51 @@ export async function purgeExpiredEvidence(deps: {db: Firestore; auth: Pick<Auth
     } catch (error) {
       logger.error('Evidence purge failed for one record', {uid: evidence.id, error: String(error)});
     }
+  };
+
+  // Pass one: parents that exist as documents (every one written since the marker was introduced).
+  const parents = deps.db.collection('guardianConsentEvidence').orderBy(FieldPath.documentId());
+  const page = await (typeof saved.cursor === 'string' ? parents.startAfter(saved.cursor) : parents).limit(budget).get();
+  for (const parent of page.docs) await purgeParent(parent.ref);
+  const cursor = page.size >= budget ? page.docs[page.size - 1].id : FieldValue.delete();
+  await state.set({cursor}, {merge: true});
+
+  // Pass two: parents that exist only as the parent of an answer record, found through the answers.
+  const answers = deps.db.collectionGroup('responses').orderBy(FieldPath.documentId());
+  const answerPage = await (typeof saved.legacyCursor === 'string' ? answers.startAfter(deps.db.doc(saved.legacyCursor)) : answers)
+    .limit(budget).get();
+  const seen = new Set<string>();
+  for (const answer of answerPage.docs) {
+    const parent = answer.ref.parent.parent;
+    if (!parent || parent.parent.id !== 'guardianConsentEvidence' || seen.has(parent.id)) continue;
+    seen.add(parent.id);
+    try {
+      // A marked parent belongs to pass one.
+      if (typeof (await parent.get()).get('accountDeletedAt') === 'number') continue;
+    } catch (error) {
+      logger.error('Evidence purge failed for one record', {uid: parent.id, error: String(error)});
+      continue;
+    }
+    await purgeParent(parent);
   }
+  const legacyCursor = answerPage.size >= budget ? answerPage.docs[answerPage.size - 1].ref.path : FieldValue.delete();
+  await state.set({legacyCursor}, {merge: true});
   return removed;
 }
 
-/** The whole daily run: inactive accounts first, then expired evidence. */
+/** The whole daily run: inactive accounts first, then expired evidence. Neither can stop the other. */
 export async function runDailyPass(deps: InactivityDeps): Promise<void> {
-  await runInactivityPass(deps);
-  await purgeExpiredEvidence(deps);
+  try {
+    await runInactivityPass(deps);
+  } catch (error) {
+    logger.error('Inactivity pass failed', {error: String(error)});
+  }
+  try {
+    await purgeExpiredEvidence({db: deps.db, auth: deps.auth, now: deps.now,
+      ...(deps.evidenceBudget === undefined ? {} : {budget: deps.evidenceBudget})});
+  } catch (error) {
+    logger.error('Evidence purge failed', {error: String(error)});
+  }
 }
 
 export const purgeInactiveAccounts = onSchedule(

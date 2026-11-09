@@ -517,6 +517,8 @@ export async function purgeGuardianRecords(db: Firestore, now: number): Promise<
     await db.runTransaction(async (tx) => {
       const data = (await tx.get(row.ref)).data();
       if (!data) return;
+      // A withdrawal in progress stays untouched, whatever its age: the deletion still needs it.
+      if (data.status === 'withdrawn') return;
       const due = data.status === 'pending' ? data.expiresAt
         : typeof data.decidedAt === 'number' ? data.decidedAt + GUARDIAN_WINDOW_MS : null;
       if (typeof due !== 'number' || now < due) return;

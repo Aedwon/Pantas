@@ -72,3 +72,30 @@ test('adults are unaffected and send nothing new', async () => {
     assert.equal((await db.doc(`paymongoOrders/${result.reference}`).get()).get('attestedAt'), undefined);
   }
 });
+
+test('a minor who reuses an open checkout gets the current attestation written to both records', async () => {
+  const uid = 'gc-reuse'; await reset(uid); await consent(uid, 'minor');
+  const d = deps();
+  d.client.getCheckoutSession = async id => ({id, status: 'active', payments: []});
+  const first = await createCheckout(caller(uid), {product, guardianAttestation: {termsVersion: terms}}, d);
+  const later = {...d, now: () => NOW + 60000};
+  const second = await createCheckout(caller(uid), {product, guardianAttestation: {termsVersion: terms}}, later);
+  assert.deepEqual(second, first, 'the same open session is returned');
+  assert.equal(d.calls.length, 1);
+  const checkout = (await db.doc(`paymongoCheckouts/${first.sessionId}`).get()).data();
+  assert.equal(checkout.attestedAt, NOW + 60000);
+  assert.equal(checkout.termsVersion, terms);
+  const order = (await db.doc(`paymongoOrders/${first.reference}`).get()).data();
+  assert.equal(order.attestedAt, NOW + 60000);
+  assert.equal(order.termsVersion, terms);
+});
+
+test('an adult who reuses an open checkout gets no attestation written', async () => {
+  const uid = 'gc-reuse-adult'; await reset(uid);
+  const d = deps();
+  d.client.getCheckoutSession = async id => ({id, status: 'active', payments: []});
+  const first = await createCheckout(caller(uid), {product}, d);
+  await createCheckout(caller(uid), {product}, d);
+  assert.equal('attestedAt' in (await db.doc(`paymongoCheckouts/${first.sessionId}`).get()).data(), false);
+  assert.equal((await db.doc(`paymongoOrders/${first.reference}`).get()).get('attestedAt'), undefined);
+});

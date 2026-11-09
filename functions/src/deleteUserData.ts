@@ -1,5 +1,5 @@
 import type {Auth} from 'firebase-admin/auth';
-import type {Firestore} from 'firebase-admin/firestore';
+import {FieldValue, type Firestore} from 'firebase-admin/firestore';
 import {getStorage} from 'firebase-admin/storage';
 import {writeAuditLog, type assertNamedUser} from './_audit.js';
 import {deleteGuardianRecords} from './guardianConsent.js';
@@ -30,6 +30,14 @@ export async function deleteUserData(
 ): Promise<void> {
   const now = (options.now ?? Date.now)();
   const userRef = db.collection('users').doc(uid);
+
+  // A durable task outside the user tree, written before anything is removed. If a later step fails,
+  // the daily job finishes the deletion from this record, with no guardian link or caller needed.
+  // The first reason and start time stay, so a retry does not look like a new request.
+  const task = db.doc(`accountDeletions/${uid}`);
+  const earlier = await task.get();
+  await task.set({reason: earlier.get('reason') ?? reason, startedAt: earlier.get('startedAt') ?? now,
+    attempts: FieldValue.increment(1)}, {merge: true});
 
   // Older trials have only an account-local record. Preserve eligibility before
   // deleting that record, including when an earlier deletion attempt is retried.
@@ -66,8 +74,14 @@ export async function deleteUserData(
     .deleteFiles({ prefix: `wrapped/${uid}/` });
 
   // The Firebase Auth identity is deleted last so any failed data cleanup
-  // leaves the account recoverable for a retry.
-  await auth.deleteUser(uid);
+  // leaves the account recoverable for a retry. An identity that is already gone
+  // means an earlier attempt got this far, so the rest of the cleanup still counts as done.
+  try {
+    await auth.deleteUser(uid);
+  } catch (error) {
+    if ((error as {code?: string} | null)?.code !== 'auth/user-not-found') throw error;
+  }
+  await task.delete();
 }
 
 /**
@@ -79,16 +93,27 @@ export async function deleteUserData(
 async function keepGuardianEvidence(db: Firestore, uid: string, reason: DeletionReason, now: number): Promise<void> {
   const evidence = db.doc(`guardianConsentEvidence/${uid}`);
   const answers = await evidence.collection('responses').limit(1).get();
-  const checkouts = await db.collection('paymongoCheckouts').where('uid', '==', uid).get();
-  const attested = checkouts.docs.filter((doc) => typeof doc.get('attestedAt') === 'number');
-  if (answers.empty && attested.length === 0) return;
-  const batch = db.batch();
-  for (const doc of attested) {
-    batch.set(evidence.collection('purchases').doc(doc.id), {
-      attestedAt: doc.get('attestedAt'), termsVersion: doc.get('termsVersion') ?? null,
-      reference: doc.get('reference') ?? null, product: doc.get('product') ?? null,
-    });
+  const [checkouts, orders] = await Promise.all([
+    db.collection('paymongoCheckouts').where('uid', '==', uid).get(),
+    db.collection('paymongoOrders').where('uid', '==', uid).get(),
+  ]);
+  // One purchase document per payment reference. A checkout wins over its order because its id is
+  // the stable one; an order whose checkout record was never written (the last step of checkout
+  // failed, yet the payment can still be fulfilled from the order) is kept under its own id.
+  const purchases = new Map<string, {id: string; attestedAt: unknown; termsVersion: unknown; reference: unknown; product: unknown}>();
+  for (const doc of checkouts.docs) {
+    if (typeof doc.get('attestedAt') !== 'number') continue;
+    purchases.set(doc.get('reference') ?? `checkout-${doc.id}`, {id: doc.id, attestedAt: doc.get('attestedAt'),
+      termsVersion: doc.get('termsVersion') ?? null, reference: doc.get('reference') ?? null, product: doc.get('product') ?? null});
   }
+  for (const doc of orders.docs) {
+    if (typeof doc.get('attestedAt') !== 'number' || purchases.has(doc.id)) continue;
+    purchases.set(doc.id, {id: `order-${doc.id}`, attestedAt: doc.get('attestedAt'),
+      termsVersion: doc.get('termsVersion') ?? null, reference: doc.id, product: doc.get('product') ?? null});
+  }
+  if (answers.empty && purchases.size === 0) return;
+  const batch = db.batch();
+  for (const {id, ...fields} of purchases.values()) batch.set(evidence.collection('purchases').doc(id), fields);
   // A retry keeps the first deletion time, so the record does not drift later.
   const existing = (await evidence.get()).get('accountDeletedAt');
   if (typeof existing !== 'number') batch.set(evidence, {accountDeletedAt: now, reason}, {merge: true});

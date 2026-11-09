@@ -86,6 +86,13 @@ export async function createCheckout(auth: Parameters<typeof assertNamedUser>[0]
     if (reserved.state !== 'open') throw new HttpsError('aborted', 'Checkout creation is pending. Try again later.');
     const remote = await deps.client.getCheckoutSession(reserved.sessionId as string);
     if (remote.status === 'active' && !remote.payments.some(p => p.status === 'paid')) {
+      // A minor's current confirmation must reach the records this session is paid against.
+      if (attestation.attestedAt !== undefined) {
+        const update = deps.db.batch();
+        update.update(deps.db.doc(`paymongoCheckouts/${reserved.sessionId as string}`), attestation);
+        update.update(deps.db.doc(`paymongoOrders/${reserved.reference as string}`), attestation);
+        await update.commit();
+      }
       return {checkoutUrl: reserved.checkoutUrl as string, sessionId: reserved.sessionId as string, reference: reserved.reference as string};
     }
     if (remote.status !== 'expired' && !remote.payments.some(p => p.status === 'paid')) {

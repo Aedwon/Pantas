@@ -235,3 +235,13 @@ test('open manage links never expire and revoked ones follow the usual seven day
   await guardian.purgeGuardianRecords(s.db, T0 + 5000 * DAY);
   assert.ok(s.rows.has('guardianTokens/open'));
 });
+
+test('a withdrawn record is left exactly as it is, so an unfinished withdrawal can still be retried', async () => {
+  const withdrawn = {status: 'withdrawn', withdrawnAt: T0 + 2 * DAY, ageGroup: 'minor', decidedAt: T0, sharingAllowed: true,
+    emailHash: 'e', maskedEmail: 'm***@g***.com', tokenHash: 't', sentAt: T0, expiresAt: T0 + 7 * DAY, createdAt: T0};
+  const s = store({[consentPath]: {...withdrawn}});
+  await guardian.purgeGuardianRecords(s.db, T0 + 8 * DAY);
+  assert.deepEqual(s.rows.get(consentPath), withdrawn);
+  await guardian.purgeGuardianRecords(s.db, T0 + 400 * DAY);
+  assert.deepEqual(s.rows.get(consentPath), withdrawn);
+});

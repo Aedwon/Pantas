@@ -20,20 +20,42 @@ function user(uid, {days, refreshDays, email, verified = true, disabled = false,
       ...(refreshDays === undefined ? {} : {lastRefreshTime: ago(refreshDays)})}};
 }
 
-/** A fake Auth with paging, a delete log and a missing-user error like the real one. */
-function fakeAuth(users, pageSize = 2) {
+/**
+ * A fake Auth with paging, a delete log and a missing-user error like the real one. The list hands out
+ * copies, so a change made after the scan is only seen by a fresh getUser, as with the real service.
+ * `hooks.afterList` runs once the page is built; `hooks.afterUpdate` runs after each updateUser.
+ */
+function fakeAuth(users, pageSize = 2, hooks = {}) {
   const all = [...users];
   const gone = new Set();
   const deleted = [];
+  const updates = [];
   const missing = () => Object.assign(new Error('no user'), {code: 'auth/user-not-found'});
-  return {deleted,
+  const snapshot = u => Object.defineProperty(Object.defineProperties({}, Object.getOwnPropertyDescriptors(u)),
+    'metadata', {value: {...u.metadata}, enumerable: true, writable: true, configurable: true});
+  const find = uid => { const found = all.find(u => u.uid === uid); if (!found || gone.has(uid)) throw missing(); return found; };
+  return {deleted, updates, all,
     listUsers: async (max, token) => {
+      if (hooks.listFails) throw new Error('list down');
       const start = token ? Number(token) : 0;
       const end = Math.min(start + Math.min(max, pageSize), all.length);
-      return {users: all.slice(start, end), pageToken: end < all.length ? String(end) : undefined};
+      const page = {users: all.slice(start, end).map(snapshot), pageToken: end < all.length ? String(end) : undefined};
+      await hooks.afterList?.(all);
+      return page;
     },
-    getUser: async uid => { const found = all.find(u => u.uid === uid); if (!found || gone.has(uid)) throw missing(); return found; },
-    deleteUser: async uid => { deleted.push(uid); gone.add(uid); },
+    getUser: async uid => snapshot(find(uid)),
+    updateUser: async (uid, patch) => {
+      const found = find(uid);
+      updates.push([uid, patch]);
+      Object.assign(found, patch);
+      await hooks.afterUpdate?.(found, patch);
+      return snapshot(found);
+    },
+    revokeRefreshTokens: async uid => { find(uid); },
+    deleteUser: async uid => {
+      if (hooks.deleteFails) throw new Error('auth down');
+      find(uid); deleted.push(uid); gone.add(uid);
+    },
   };
 }
 function mailbox({failFor} = {}) {
@@ -44,7 +66,7 @@ function mailbox({failFor} = {}) {
   }}};
 }
 const run = (users, over = {}) => {
-  const auth = fakeAuth(users);
+  const auth = fakeAuth(users, 2, over.hooks);
   const box = mailbox(over);
   const pass = inactive.runInactivityPass({db, auth, mailer: box.mailer, now: () => NOW, linkOrigin: 'https://app.test', ...over});
   return pass.then(result => ({result, auth, box}));
@@ -202,8 +224,8 @@ test('the real deletion path leaves guardian evidence and the deletion reason', 
 
 const YEARS10 = 3653 * DAY;
 const evidenceNow = decidedAt => decidedAt + YEARS10;
-const clear = () => db.recursiveDelete(db.collection('guardianConsentEvidence'));
-const purge = (users, now) => inactive.purgeExpiredEvidence({db, auth: fakeAuth(users), now: () => now});
+const clear = async () => { await db.recursiveDelete(db.collection('guardianConsentEvidence')); await db.doc('jobState/evidencePurge').delete(); };
+const purge = (users, now, budget) => inactive.purgeExpiredEvidence({db, auth: fakeAuth(users), now: () => now, ...(budget ? {budget} : {})});
 const exists = uid => db.doc(`guardianConsentEvidence/${uid}`).listCollections().then(async c =>
   (await db.doc(`guardianConsentEvidence/${uid}`).get()).exists || (await Promise.all(c.map(x => x.limit(1).get()))).some(s => !s.empty));
 
@@ -270,4 +292,209 @@ test('the daily run does both jobs', async () => {
   await inactive.runDailyPass({db, auth, mailer: box.mailer, now: () => NOW, linkOrigin: 'https://app.test'});
   assert.equal(await exists('ev-daily'), false);
   assert.deepEqual(auth.deleted, ['in-daily']);
+});
+
+// ---- Audit fixes: the deletion race, durable deletion, the cap, evidence safety ----------------
+
+const pending = uid => db.doc(`accountDeletions/${uid}`);
+const wipeTasks = async (...uids) => { for (const uid of uids) await pending(uid).delete(); };
+const HOUR = 3600000;
+
+test('a Pro claim that appears between the scan and the delete prevents the deletion', async () => {
+  await wipe('in-race-pro');
+  const claims = {pro: true, proUntil: NOW + DAY};
+  const {auth, result} = await run([user('in-race-pro', {days: 800})],
+    {hooks: {afterList: all => { all[0].customClaims = claims; }}});
+  assert.deepEqual(auth.deleted, []);
+  assert.equal(result.deleted, 0);
+  assert.equal(auth.all[0].disabled, false, 'never disabled');
+});
+
+test('activity that appears before the disable prevents the deletion and leaves the user enabled', async () => {
+  await wipe('in-race-active', 'in-race-warned');
+  await inactivity('in-race-warned').set({warnedAt: NOW - 40 * DAY});
+  const fresh = () => ago(1);
+  const {auth} = await run([user('in-race-active', {days: 800}), user('in-race-warned', {days: 800, email: 'w@mail.com'})],
+    {hooks: {afterList: all => { for (const u of all) u.metadata.lastRefreshTime = fresh(); }}});
+  assert.deepEqual(auth.deleted, []);
+  assert.deepEqual(auth.updates, []);
+  assert.equal(auth.all.every(u => u.disabled === false), true);
+});
+
+test('a guest that gains a verified address after the scan is not deleted without a warning', async () => {
+  await wipe('in-race-mail');
+  const {auth} = await run([user('in-race-mail', {days: 800})],
+    {hooks: {afterList: all => { all[0].email = 'late@mail.com'; all[0].emailVerified = true; }}});
+  assert.deepEqual(auth.deleted, []);
+  assert.deepEqual(auth.updates, []);
+});
+
+test('a warned account whose last use falls after the warning is not deleted, even if still idle for 730 days', async () => {
+  await wipe('in-race-warn');
+  // The scan saw activity 800 days ago and a warning 760 days ago. By the fresh read the account was used 740
+  // days ago: still over 730 idle days, but after the warning, so the warning no longer counts.
+  await inactivity('in-race-warn').set({warnedAt: NOW - 760 * DAY});
+  const {auth} = await run([user('in-race-warn', {days: 800, email: 'w@mail.com'})],
+    {hooks: {afterList: all => { all[0].metadata.lastRefreshTime = ago(740); }}});
+  assert.deepEqual(auth.deleted, []);
+  assert.deepEqual(auth.updates, []);
+});
+
+test('activity or Pro that appears after the disable re-enables the user and skips the deletion', async () => {
+  await wipe('in-after-disable');
+  const {auth, result} = await run([user('in-after-disable', {days: 800})],
+    {hooks: {afterUpdate: (found, patch) => { if (patch.disabled === true) found.customClaims = {pro: true, proUntil: NOW + DAY}; }}});
+  assert.deepEqual(auth.deleted, []);
+  assert.equal(result.deleted, 0);
+  assert.deepEqual(auth.updates.map(([, patch]) => patch), [{disabled: true}, {disabled: false}]);
+  assert.equal(auth.all[0].disabled, false);
+});
+
+test('a deletion that goes ahead disables the user first, then deletes', async () => {
+  await wipe('in-order');
+  const {auth} = await run([user('in-order', {days: 800})]);
+  assert.deepEqual(auth.updates, [['in-order', {disabled: true}]]);
+  assert.deepEqual(auth.deleted, ['in-order']);
+});
+
+test('the cap counts attempts, so failing Auth deletions stop at 200 attempts', async () => {
+  const ids = Array.from({length: 205}, (_, i) => `in-capfail${i}`);
+  await wipe(...ids); await wipeTasks(...ids);
+  const {auth, result} = await run(ids.map(id => user(id, {days: 800})), {hooks: {deleteFails: true}});
+  assert.equal(auth.updates.filter(([, patch]) => patch.disabled === true).length, 200);
+  assert.equal(result.deleted, 0);
+  assert.equal((await db.collection('accountDeletions').where('startedAt', '==', NOW).get()).size >= 200, true);
+  await wipeTasks(...ids);
+});
+
+test('a failed deletion leaves a durable record, and the next daily run finishes it', async () => {
+  await wipe('in-durable'); await wipeTasks('in-durable');
+  await db.doc('users/in-durable/server/x').set({a: 1});
+  const first = await run([user('in-durable', {days: 800})], {hooks: {deleteFails: true}});
+  assert.deepEqual(first.auth.deleted, []);
+  const task = (await pending('in-durable').get()).data();
+  assert.deepEqual(task, {reason: 'inactive_24_months', startedAt: NOW, attempts: 1});
+  // Fifty-nine minutes later nothing is retried yet.
+  const early = await run([user('in-durable', {days: 800, disabled: true})], {now: () => NOW + HOUR - 60000});
+  assert.deepEqual(early.auth.deleted, []);
+  // The next day the disabled account is still in the list, and the record gets it finished.
+  const later = await run([user('in-durable', {days: 801, disabled: true})], {now: () => NOW + DAY});
+  assert.deepEqual(later.auth.deleted, ['in-durable']);
+  assert.equal(later.result.deleted, 1);
+  assert.equal((await pending('in-durable').get()).exists, false, 'removed only after the Auth user is gone');
+});
+
+test('a pending deletion for a user that is already gone finishes the cleanup and removes the record', async () => {
+  await wipe('in-gone'); await wipeTasks('in-gone');
+  await pending('in-gone').set({reason: 'guardian_withdrawal', startedAt: NOW - 2 * HOUR, attempts: 1});
+  await db.doc('users/in-gone/data/x').set({a: 1});
+  const {result} = await run([]);
+  assert.equal((await db.doc('users/in-gone/data/x').get()).exists, false);
+  assert.equal((await pending('in-gone').get()).exists, false);
+  assert.equal(result.deleted, 1);
+});
+
+test('an unfinished deletion keeps its record and counts another attempt', async () => {
+  await wipe('in-twice'); await wipeTasks('in-twice');
+  await pending('in-twice').set({reason: 'user_request', startedAt: NOW - 3 * HOUR, attempts: 1});
+  await run([user('in-twice', {days: 10, disabled: true})], {hooks: {deleteFails: true}});
+  assert.deepEqual((await pending('in-twice').get()).data(), {reason: 'user_request', startedAt: NOW - 3 * HOUR, attempts: 2});
+  await wipeTasks('in-twice'); await wipe('in-twice');
+});
+
+test('pending deletions count against the deletion cap', async () => {
+  const ids = ['in-pcap0', 'in-pcap1', 'in-pcap2'];
+  await wipe(...ids); await wipeTasks(...ids);
+  for (const id of ids) await pending(id).set({reason: 'inactive_24_months', startedAt: NOW - 2 * HOUR, attempts: 1});
+  const {result} = await run([], {deletionCap: 2});
+  assert.equal(result.deleted, 2);
+  assert.equal((await db.collection('accountDeletions').where('reason', '==', 'inactive_24_months')
+    .where('startedAt', '==', NOW - 2 * HOUR).get()).size, 1);
+  await wipeTasks(...ids);
+});
+
+test('evidence is kept while its account survives, even with a marker older than ten years', async () => {
+  await clear();
+  const decided = Date.parse('2026-11-09T10:00:00+08:00');
+  await db.doc('guardianConsentEvidence/ev-marked-live').set({accountDeletedAt: decided, reason: 'user_request'});
+  await db.doc('guardianConsentEvidence/ev-marked-live/responses/r1').set({action: 'confirm', decidedAt: decided});
+  await purge([user('ev-marked-live', {days: 1})], evidenceNow(decided) + 100 * DAY);
+  assert.equal(await exists('ev-marked-live'), true);
+  assert.deepEqual((await db.doc('guardianConsentEvidence/ev-marked-live').get()).data(), {accountDeletedAt: decided, reason: 'user_request'});
+});
+
+function throwingUser(uid) {
+  const u = user(uid, {days: 800});
+  Object.defineProperty(u, 'customClaims', {get() { throw new Error('entitlement read failed'); }, enumerable: true, configurable: true});
+  return u;
+}
+
+test('one user whose read throws does not stop the next user or the evidence purge', async () => {
+  await clear(); await wipe('in-throw', 'in-next');
+  const decided = NOW - (3653 + 1) * DAY;
+  await db.doc('guardianConsentEvidence/ev-after-throw').set({accountDeletedAt: decided, reason: 'user_request'});
+  await db.doc('guardianConsentEvidence/ev-after-throw/responses/r1').set({action: 'confirm', decidedAt: decided});
+  const auth = fakeAuth([throwingUser('in-throw'), user('in-next', {days: 800})]);
+  await inactive.runDailyPass({db, auth, mailer: mailbox().mailer, now: () => NOW, linkOrigin: 'https://app.test'});
+  assert.deepEqual(auth.deleted, ['in-next']);
+  assert.equal(await exists('ev-after-throw'), false);
+});
+
+test('the evidence purge runs even when the whole inactivity pass throws', async () => {
+  await clear();
+  const decided = NOW - (3653 + 1) * DAY;
+  await db.doc('guardianConsentEvidence/ev-after-list').set({accountDeletedAt: decided, reason: 'user_request'});
+  await db.doc('guardianConsentEvidence/ev-after-list/responses/r1').set({action: 'confirm', decidedAt: decided});
+  const auth = fakeAuth([], 2, {listFails: true});
+  await inactive.runDailyPass({db, auth, mailer: mailbox().mailer, now: () => NOW, linkOrigin: 'https://app.test'});
+  assert.equal(await exists('ev-after-list'), false);
+});
+
+test('the evidence purge pages with a budget and a saved cursor: three runs of two cover five parents', async () => {
+  await clear();
+  const decided = Date.parse('2026-11-09T10:00:00+08:00');
+  const ids = ['ev-pg1', 'ev-pg2', 'ev-pg3', 'ev-pg4', 'ev-pg5'];
+  for (const id of ids) {
+    await db.doc(`guardianConsentEvidence/${id}`).set({accountDeletedAt: decided, reason: 'user_request'});
+    await db.doc(`guardianConsentEvidence/${id}/responses/r1`).set({action: 'confirm', decidedAt: decided});
+  }
+  const left = async () => (await Promise.all(ids.map(exists))).filter(Boolean).length;
+  const at = evidenceNow(decided);
+  assert.equal(await purge([], at, 2), 2);
+  assert.equal(await left(), 3);
+  assert.equal(await purge([], at, 2), 2);
+  assert.equal(await left(), 1);
+  assert.equal(await purge([], at, 2), 1);
+  assert.equal(await left(), 0);
+  assert.equal((await db.doc('jobState/evidencePurge').get()).get('cursor') ?? null, null, 'wrapped to the start');
+});
+
+test('the saved cursor skips parents already covered and wraps when a page is short', async () => {
+  await clear();
+  const decided = Date.parse('2026-11-09T10:00:00+08:00');
+  const ids = ['ev-cu1', 'ev-cu2', 'ev-cu3'];
+  for (const id of ids) {
+    await db.doc(`guardianConsentEvidence/${id}`).set({accountDeletedAt: decided, reason: 'user_request'});
+    await db.doc(`guardianConsentEvidence/${id}/responses/r1`).set({action: 'confirm', decidedAt: decided});
+  }
+  // Live accounts are kept, so each run's coverage shows in the cursor and not in deletions.
+  const live = ids.map(id => user(id, {days: 1}));
+  await purge(live, evidenceNow(decided), 2);
+  assert.equal((await db.doc('jobState/evidencePurge').get()).get('cursor'), 'ev-cu2');
+  await purge(live, evidenceNow(decided), 2);
+  assert.equal((await db.doc('jobState/evidencePurge').get()).get('cursor') ?? null, null);
+});
+
+test('legacy parents with no marker are found by paging the responses, within the same budget', async () => {
+  await clear();
+  const decided = Date.parse('2026-11-09T10:00:00+08:00');
+  const ids = ['ev-lg1', 'ev-lg2', 'ev-lg3'];
+  for (const id of ids) await db.doc(`guardianConsentEvidence/${id}/responses/r1`).set({action: 'confirm', decidedAt: decided});
+  const marked = async () => (await Promise.all(ids.map(id => db.doc(`guardianConsentEvidence/${id}`).get()))).filter(d => d.exists).length;
+  await purge([], decided + 30 * DAY, 2);
+  assert.equal(await marked(), 2);
+  assert.equal(typeof (await db.doc('jobState/evidencePurge').get()).get('legacyCursor'), 'string');
+  await purge([], decided + 30 * DAY, 2);
+  assert.equal(await marked(), 3);
+  assert.equal(await exists('ev-lg1'), true, 'kept: the ten years have not passed');
 });

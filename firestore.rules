@@ -380,6 +380,16 @@ service cloud.firestore {
       allow read, write: if false;
     }
 
+    // Deletions that have started and not finished: server only, retried by the daily job.
+    match /accountDeletions/{uid} {
+      allow read, write: if false;
+    }
+
+    // Where a scheduled job stopped: server only.
+    match /jobState/{document=**} {
+      allow read, write: if false;
+    }
+
     match /audit_logs/{logId} {
       allow read, write: if false;
     }

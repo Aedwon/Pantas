@@ -6,6 +6,7 @@ import {getFirestore} from 'firebase-admin/firestore';
 import * as guardian from '../lib/guardianConsent.js';
 import * as deletion from '../lib/deleteUserData.js';
 import * as acceptance from '../lib/setupAcceptance.js';
+import * as inactive from '../lib/purgeInactiveAccounts.js';
 import {identityMarkers} from '../lib/webTrial.js';
 
 // Local emulator fixture only. Production requires the provisioned Functions secret.
@@ -45,6 +46,7 @@ function harness({now = T0, authApi = auth} = {}) {
 async function reset(uid) {
   await db.recursiveDelete(db.doc(`users/${uid}`));
   await db.recursiveDelete(db.doc(`guardianConsentEvidence/${uid}`));
+  await db.doc(`accountDeletions/${uid}`).delete();
   await db.recursiveDelete(db.collection('guardianLimits'));
   for (const row of (await db.collection('guardianTokens').where('uid', '==', uid).get()).docs) await row.ref.delete();
   try { await auth.deleteUser(uid); } catch { /* absent */ }
@@ -318,6 +320,47 @@ test('a withdrawal that fails midway can be finished with the same link', async 
   await assert.rejects(auth.getUser(uid), {code: 'auth/user-not-found'});
   const withdraws = (await rows(`guardianConsentEvidence/${uid}/responses`)).filter(r => r.action === 'withdraw');
   assert.equal(withdraws.length, 1, 'the withdrawal is recorded once');
+});
+
+test('a withdrawal whose cleanup fails after the links are deleted is finished by the next daily run', async () => {
+  const uid = 'dm-withdraw-durable'; await reset(uid);
+  let failOnce = true;
+  const flaky = {getUser: u => auth.getUser(u), updateUser: (u, p) => auth.updateUser(u, p),
+    revokeRefreshTokens: u => auth.revokeRefreshTokens(u),
+    deleteUser: async u => { if (failOnce) { failOnce = false; throw new Error('auth down'); } return auth.deleteUser(u); }};
+  const h = harness({authApi: flaky});
+  const {pageManage} = await confirmedMinor(uid, h, false);
+  await db.doc(`users/${uid}/data/progress`).set({n: 1});
+  h.advance(DAY);
+  await assert.rejects(guardian.withdraw(req('v', {token: pageManage}), h.deps), /auth down/);
+  assert.deepEqual((await db.collection('guardianTokens').where('uid', '==', uid).get()).size, 0, 'the links are gone');
+  assert.deepEqual((await db.doc(`accountDeletions/${uid}`).get()).data(), {reason: 'guardian_withdrawal', startedAt: T0 + DAY, attempts: 1});
+  assert.equal((await auth.getUser(uid)).disabled, true);
+  await inactive.runInactivityPass({db, auth, mailer: {send: async () => {}}, linkOrigin: 'https://app.example.test',
+    now: () => T0 + DAY + 2 * 3600000});
+  await assert.rejects(auth.getUser(uid), {code: 'auth/user-not-found'});
+  assert.equal((await db.doc(`users/${uid}/data/progress`).get()).exists, false);
+  assert.equal((await db.doc(`accountDeletions/${uid}`).get()).exists, false);
+  assert.deepEqual((await db.doc(`guardianConsentEvidence/${uid}`).get()).data(), {accountDeletedAt: T0 + DAY, reason: 'guardian_withdrawal'});
+});
+
+test('an attested order with no checkout record is copied, and an order with a checkout is copied once', async () => {
+  const uid = 'dm-orders'; await reset(uid);
+  await auth.createUser({uid});
+  await db.doc('paymongoOrders/ref-only').set({uid, product: 'pantas_cs_weekly', createdAt: T0, attestedAt: T0 + 7, termsVersion: '2026-11-10', private: 'x'});
+  await db.doc('paymongoOrders/ref-both').set({uid, product: 'pantas_cs_monthly', createdAt: T0, attestedAt: T0 + 5, termsVersion: '2026-11-10', sessionId: 'cs_dm_both'});
+  await db.doc('paymongoCheckouts/cs_dm_both').set({uid, product: 'pantas_cs_monthly', createdAt: T0, attestedAt: T0 + 5, termsVersion: '2026-11-10', reference: 'ref-both'});
+  await db.doc('paymongoOrders/ref-plain').set({uid, product: 'pantas_cs_yearly', createdAt: T0});
+  await db.doc('paymongoOrders/ref-other').set({uid: 'someone-else', product: 'pantas_cs_yearly', createdAt: T0, attestedAt: T0, termsVersion: 'v'});
+  await deletion.deleteUserData(db, auth, uid, 'user_request', {now: () => T0 + 9});
+  const purchases = await db.collection(`guardianConsentEvidence/${uid}/purchases`).get();
+  assert.deepEqual(purchases.docs.map(d => d.id).sort(), ['cs_dm_both', 'order-ref-only']);
+  assert.deepEqual((await db.doc(`guardianConsentEvidence/${uid}/purchases/order-ref-only`).get()).data(),
+    {attestedAt: T0 + 7, termsVersion: '2026-11-10', reference: 'ref-only', product: 'pantas_cs_weekly'});
+  assert.deepEqual((await db.doc(`guardianConsentEvidence/${uid}/purchases/cs_dm_both`).get()).data(),
+    {attestedAt: T0 + 5, termsVersion: '2026-11-10', reference: 'ref-both', product: 'pantas_cs_monthly'});
+  assert.equal((await db.doc('paymongoOrders/ref-only').get()).exists, false, 'the order itself still goes');
+  await db.doc('paymongoOrders/ref-other').delete();
 });
 
 test('markAdult revokes every manage token, switches once and ends the guardian page', async () => {
