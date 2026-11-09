@@ -6,6 +6,10 @@ Tracks long-pole external dependencies and one-time manual configuration. Owner:
 
 Last updated: 2026-05-07
 
+## Pending things and ideas
+
+When Aedwon asks for pending things, include `docs/future/README.md`, the index of archived and pending ideas, alongside the manager queue in the launch log.
+
 ## Day-1 procedural items (Phase A of Plan 1)
 
 | # | Item | Status | Started | Expected complete | Notes |
