@@ -29,3 +29,9 @@ paths = [
   '''docs/superpowers/plans/.*\.md''',
   '''docs/superpowers/specs/.*\.md''',
 ]
+# The staging web app's reCAPTCHA v3 App Check site key. Site keys ship in
+# every page the browser loads and are public by design; the secret key never
+# leaves the Firebase console. Exact string only, so any other key still fails.
+regexes = [
+  '''6Lcp8xUuAAAAAICQRMX8-J2JYzU5dxKsj8Qp3sQa''',
+]
