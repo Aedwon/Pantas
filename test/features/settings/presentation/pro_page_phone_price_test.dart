@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/auth/providers.dart';
+import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/pantas_tag.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/features/paywall/paywall.dart';
 import 'package:pantas/features/settings/presentation/pages/pro_page.dart';
@@ -13,8 +15,9 @@ Future<void> _pump(
   required String weekly,
   required String monthly,
   required String yearly,
+  Size size = const Size(390, 844),
 }) async {
-  tester.view.physicalSize = const Size(390, 844);
+  tester.view.physicalSize = size;
   tester.view.devicePixelRatio = 1;
   addTearDown(tester.view.resetPhysicalSize);
   addTearDown(tester.view.resetDevicePixelRatio);
@@ -120,6 +123,56 @@ void main() {
     expect(rect('Monthly').width, rect('Yearly').width);
     expect(rect('Weekly').bottom, lessThan(rect('Monthly').top));
     expect(rect('Monthly').bottom, lessThan(rect('Yearly').top));
+    expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('the SAVE tag sits on the Yearly tile, clear of Monthly',
+      (tester) async {
+    await _pump(
+      tester,
+      weekly: '\u20b149.00',
+      monthly: '\u20b1149.00',
+      yearly: '\u20b11,199.00',
+    );
+    Rect tile(String label) => tester.getRect(
+          find
+              .ancestor(
+                of: find.text(label),
+                matching: find.byKey(const ValueKey('pro-plan-tile')),
+              )
+              .first,
+        );
+    final tag = tester.getRect(
+      find.ancestor(
+          of: find.text('SAVE 32%'), matching: find.byType(PantasTag)),
+    );
+    // The tag clears the tile above by a gap, not by touching it.
+    expect(tag.top, greaterThanOrEqualTo(tile('Monthly').bottom + 8));
+    expect(tag.center.dy, closeTo(tile('Yearly').top, 12));
+  });
+
+  testWidgets('at 320 wide every plan scrolls clear of the pinned bar',
+      (tester) async {
+    await _pump(
+      tester,
+      weekly: '\u20b149.00',
+      monthly: '\u20b1149.00',
+      yearly: '\u20b11,199.00',
+      size: const Size(320, 568),
+    );
+    expect(find.byKey(const ValueKey('pro-bar-fade')), findsOneWidget);
+    final bar = tester.getRect(find.byType(PantasButton).first);
+    for (final label in ['Weekly', 'Monthly', 'Yearly']) {
+      final plan = find
+          .ancestor(
+            of: find.text(label),
+            matching: find.byKey(const ValueKey('pro-plan-tile')),
+          )
+          .first;
+      await tester.ensureVisible(plan);
+      await tester.pumpAndSettle();
+      expect(tester.getRect(plan).bottom, lessThanOrEqualTo(bar.top));
+    }
     expect(tester.takeException(), isNull);
   });
 }

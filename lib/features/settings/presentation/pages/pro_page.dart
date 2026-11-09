@@ -828,97 +828,99 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                   ),
               ],
             )
-          : SafeArea(
-              top: false,
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(
-                  PantasSpace.s16,
-                  PantasSpace.s14,
-                  PantasSpace.s16,
-                  PantasSpace.s16,
-                ),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    if (showOffers) ...[
-                      if (askGuardian) ...[
+          : _FadedBar(
+              child: SafeArea(
+                top: false,
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(
+                    PantasSpace.s16,
+                    PantasSpace.s14,
+                    PantasSpace.s16,
+                    PantasSpace.s16,
+                  ),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      if (showOffers) ...[
+                        if (askGuardian) ...[
+                          Text(
+                            askGuardianLine,
+                            textAlign: TextAlign.center,
+                            style: context.type.footnote,
+                          ),
+                          const SizedBox(height: PantasSpace.s8),
+                        ],
+                        if (web && anonymous)
+                          PantasButton(
+                            label: 'Continue with Google',
+                            onPressed: () =>
+                                context.push<void>('/settings/account'),
+                          )
+                        else if (exam != null &&
+                            (selectedPackage != null || selectedPass != null))
+                          PantasButton(
+                            label: purchaseLabel,
+                            busy: _busy,
+                            onPressed: _busy
+                                ? null
+                                : () => _purchase(
+                                      selectedPackage,
+                                      selectedPass,
+                                      exam,
+                                      allowTrial: trial && !lapsed,
+                                    ),
+                          ),
+                        if (selectedPass != null && sitting != null) ...[
+                          const SizedBox(height: PantasSpace.s8),
+                          Text(
+                            '${_money(selectedPass.priceString)} once. '
+                            'Ends after the exam on $sittingEnd.',
+                            textAlign: TextAlign.center,
+                            style: context.type.footnote,
+                          ),
+                        ] else if (trial && !lapsed) ...[
+                          const SizedBox(height: PantasSpace.s8),
+                          Text(
+                            web
+                                ? 'No payment needed.'
+                                : 'Then '
+                                    '${_money(selectedPackage.priceString)} '
+                                    'a month. '
+                                    'Cancel any time in Google Play.',
+                            textAlign: TextAlign.center,
+                            style: context.type.footnote,
+                          ),
+                        ],
+                      ],
+                      if (playRenews)
                         Text(
-                          askGuardianLine,
+                          'Your Google Play plan keeps renewing. '
+                          'Cancel it in Google Play if you no longer need it.',
                           textAlign: TextAlign.center,
                           style: context.type.footnote,
                         ),
-                        const SizedBox(height: PantasSpace.s8),
-                      ],
-                      if (web && anonymous)
+                      if (upgrade)
                         PantasButton(
-                          label: 'Continue with Google',
-                          onPressed: () =>
-                              context.push<void>('/settings/account'),
-                        )
-                      else if (exam != null &&
-                          (selectedPackage != null || selectedPass != null))
+                          label: 'Switch on Free',
+                          variant: PantasButtonVariant.tertiary,
+                          onPressed: _busy ? null : _switchOnFree,
+                        ),
+                      if (!upgrade)
                         PantasButton(
-                          label: purchaseLabel,
+                          label: 'Restore Purchases',
+                          variant: PantasButtonVariant.tertiary,
                           busy: _busy,
-                          onPressed: _busy
-                              ? null
-                              : () => _purchase(
-                                    selectedPackage,
-                                    selectedPass,
-                                    exam,
-                                    allowTrial: trial && !lapsed,
-                                  ),
+                          onPressed: _busy ? null : _restore,
                         ),
-                      if (selectedPass != null && sitting != null) ...[
-                        const SizedBox(height: PantasSpace.s8),
+                      if (_feedback != null)
                         Text(
-                          '${_money(selectedPass.priceString)} once. '
-                          'Ends after the exam on $sittingEnd.',
+                          _feedback!,
                           textAlign: TextAlign.center,
                           style: context.type.footnote,
                         ),
-                      ] else if (trial && !lapsed) ...[
-                        const SizedBox(height: PantasSpace.s8),
-                        Text(
-                          web
-                              ? 'No payment needed.'
-                              : 'Then '
-                                  '${_money(selectedPackage.priceString)} '
-                                  'a month. '
-                                  'Cancel any time in Google Play.',
-                          textAlign: TextAlign.center,
-                          style: context.type.footnote,
-                        ),
-                      ],
                     ],
-                    if (playRenews)
-                      Text(
-                        'Your Google Play plan keeps renewing. '
-                        'Cancel it in Google Play if you no longer need it.',
-                        textAlign: TextAlign.center,
-                        style: context.type.footnote,
-                      ),
-                    if (upgrade)
-                      PantasButton(
-                        label: 'Switch on Free',
-                        variant: PantasButtonVariant.tertiary,
-                        onPressed: _busy ? null : _switchOnFree,
-                      ),
-                    if (!upgrade)
-                      PantasButton(
-                        label: 'Restore Purchases',
-                        variant: PantasButtonVariant.tertiary,
-                        busy: _busy,
-                        onPressed: _busy ? null : _restore,
-                      ),
-                    if (_feedback != null)
-                      Text(
-                        _feedback!,
-                        textAlign: TextAlign.center,
-                        style: context.type.footnote,
-                      ),
-                  ],
+                  ),
                 ),
               ),
             ),
@@ -1357,7 +1359,16 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
             )
           else
             for (final (index, tile) in shown.indexed) ...[
-              if (index > 0) const SizedBox(height: PantasSpace.s10),
+              // A tagged tile wears its tag half above its top edge, so the
+              // gap above it grows by that half and the tag stays on its own
+              // tile instead of covering the one before it (D190).
+              if (index > 0)
+                SizedBox(
+                  height: PantasSpace.s10 +
+                      (tile.tag == null
+                          ? PantasSpace.s0
+                          : SelectableTile.tagHeight(context) / PantasSpace.s2),
+                ),
               tile,
             ],
           for (final tile in wide) ...[
@@ -1381,3 +1392,40 @@ String _periodName(PaywallSku sku) => switch (sku) {
       PaywallSku.monthly => 'Monthly',
       PaywallSku.yearly => 'Yearly'
     };
+
+/// The phone's bottom action bar (PhoneFrame `.phone-bottom`): on the page
+/// color, with a fade from transparent so the scrolling plans do not end in a
+/// hard cut under it.
+class _FadedBar extends StatelessWidget {
+  const _FadedBar({required this.child});
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    final page = context.colors.background;
+    return Stack(
+      clipBehavior: Clip.none,
+      children: [
+        Positioned(
+          left: 0,
+          right: 0,
+          top: -PantasSpace.s24,
+          height: PantasSpace.s24,
+          child: IgnorePointer(
+            child: DecoratedBox(
+              key: const ValueKey('pro-bar-fade'),
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [page.withValues(alpha: 0), page],
+                ),
+              ),
+            ),
+          ),
+        ),
+        ColoredBox(color: page, child: child),
+      ],
+    );
+  }
+}
