@@ -1196,8 +1196,11 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
           : () => unawaited(_start(index, summary)),
     );
     final large = MediaQuery.textScalerOf(context).scale(15) > 20;
+    // FloatingBar README, stacked (ruling 5): above 1.5x the bar holds two
+    // rows and becomes a rounded rectangle, so Start does not sit against a
+    // pill's curved end.
     return FloatingBar.content(
-      radius: PantasRadius.full,
+      radius: large ? PantasRadius.xl : PantasRadius.full,
       inset: 0,
       child: Padding(
         padding: const EdgeInsets.fromLTRB(
