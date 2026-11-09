@@ -83,3 +83,7 @@ Removing the earths-motions sidereal-day FIGURE takes away a drawn figure that w
 ### Round 6 result
 
 All 12 open lessons closed: 6 clean (characteristics-of-life, evolution, meiosis-and-genetic-variation, pulleys-and-levers, triangles, functions-and-relations) and 6 minor. Counts: 77 lessons, 17 clean, 60 minor, 0 open. 12 reads, 4 fixer runs, one subagent at a time.
+
+### After round 6 (November 9)
+
+- Astra cost test on structural-stability (high effort): 55,616 tokens, about 2% of one Codex account's weekly quota. It found one valid Blocker: the tipping test compared the weight line with the contact region even for a tilted object, which touches only along its pivot edge. Sonnet rewrote the tilted case to compare with the pivot edge; Example 6's solution was aligned. An independent Opus check passed it after one send-back ("edge or point"; "and nothing holds the object"). 3,313 words.
