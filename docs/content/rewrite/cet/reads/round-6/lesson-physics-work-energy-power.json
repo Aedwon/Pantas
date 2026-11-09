@@ -1,0 +1,16 @@
+{
+  "lesson": "lesson-physics-work-energy-power",
+  "round": 6,
+  "reader": "opus",
+  "verdict": "minor",
+  "findings": [
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "The number $g$ is the acceleration due to gravity.",
+      "problem": "Round-5 L22a still open, and not in this round's one-sentence fix scope. The paragraph that starts here still has six sentences; the round-6 change rewrote one of them without shortening the paragraph. The paragraphs starting 'Energy is never created or destroyed.' and '**Mechanical energy** is $KE+PE$.' have five sentences each. Paragraphs should be one to three short sentences.",
+      "source": "LSG: Formatting rules; checklist L22a; round-5 read L22a"
+    }
+  ],
+  "goodQuotesChecked": 1
+}

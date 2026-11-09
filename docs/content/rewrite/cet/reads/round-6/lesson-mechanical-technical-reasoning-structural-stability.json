@@ -1,0 +1,16 @@
+{
+  "lesson": "lesson-mechanical-technical-reasoning-structural-stability",
+  "round": 6,
+  "reader": "opus",
+  "verdict": "minor",
+  "findings": [
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "That distance is the **lever arm**, a length measured in meters.",
+      "problem": "Still open from round 5. The torque paragraph that holds this sentence has four sentences. Others still have four: 'An object made of several parts fastened together' paragraph, the 'Here $\\tan\\theta$ (the **tangent**)' paragraph, and the paragraph that starts 'Everything above assumes the object is at rest, tilts slowly or moves at a steady speed in a straight line.' The limit is one to three short sentences.",
+      "source": "Checklist L22a; LSG Formatting rules"
+    }
+  ],
+  "goodQuotesChecked": 1
+}

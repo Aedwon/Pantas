@@ -60,3 +60,10 @@ One subagent at a time. The fixer changes only its lesson files. No question fil
 - evolution: clean. The allele-pair rule is scoped to "a diploid organism made by sexual reproduction"; Example 1 takes the 100 copies from the stem; the acquired-trait sentence now says "a body change gained by use".
 - meiosis-and-genetic-variation: clean. The allele-count rule again requires genes on different pairs, and each heterozygous gene "doubles the number of choices".
 - Lead quote check: verdicts match their findings.
+
+### Physics and mechanical (November 9)
+
+- Fixer (Sonnet) read the policy files and the round-5 reads but not the style guide, checklist or writer rules in full (output truncated), and said so. The lead checked each changed sentence.
+- work-energy-power: minor. Static friction now does zero work "if" the gripping surface is at rest (a sufficient condition, no "only if"); the speed-drop sentence is scoped to a throw straight up; "smooth" is defined in Example 4. Open Minor: long paragraphs.
+- pulleys-and-levers: clean. MA as a distance ratio now measures each distance along its force, and the arm ratio is stated for forces at right angles to the bar; Examples 6 and 9 state a horizontal lever and a straight-down load.
+- structural-stability: minor. Even spreading is "one case" that puts the center of gravity at the middle, with the dumbbell as another; the heavier-object rule carries "if the mass is spread the same way"; the lever arm is in meters and torque in newton-meters; weight is defined as a force in newtons; the Example 9 trucks now share one base width. Open Minors: four-sentence paragraphs; the reader noted that "The unit m/s^2 means ..." describes the value of g, not the unit (sent to the next fixer as a one-sentence fix). 3,205 words, split candidate.

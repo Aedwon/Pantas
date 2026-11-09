@@ -33,7 +33,7 @@
     "lessonPath": "content/lessons/science/physics/work-energy-power.md",
     "lessonId": "lesson-physics-work-energy-power",
     "group": "science",
-    "status": "open"
+    "status": "minor"
   },
   {
     "lessonPath": "content/lessons/science/earth-science-astronomy/plate-tectonics.md",
@@ -81,7 +81,7 @@
     "lessonPath": "content/lessons/reasoning/mechanical-technical-reasoning/pulleys-and-levers.md",
     "lessonId": "lesson-mechanical-technical-reasoning-pulleys-and-levers",
     "group": "reasoning",
-    "status": "open"
+    "status": "clean"
   },
   {
     "lessonPath": "content/lessons/reading-comprehension/text-types/short-stories-and-novels.md",
@@ -469,7 +469,7 @@
     "lessonPath": "content/lessons/reasoning/mechanical-technical-reasoning/structural-stability.md",
     "lessonId": "lesson-mechanical-technical-reasoning-structural-stability",
     "group": "reasoning",
-    "status": "open"
+    "status": "minor"
   },
   {
     "lessonPath": "content/lessons/reading-comprehension/text-types/speeches.md",
