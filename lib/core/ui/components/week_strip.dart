@@ -20,6 +20,22 @@ import 'package:pantas/core/ui/web/web_layout.dart';
 
 enum WeekDayState { done, partial, missed, dayOff, today, plain }
 
+/// How many days the phone Home row shows and where the chip goes (D196).
+class WeekWindowPlan {
+  const WeekWindowPlan({
+    required this.days,
+    required this.chipBeside,
+    required this.touching,
+  });
+
+  /// 3 to 5 beside the chip; 1 to 5 with the chip under.
+  final int days;
+  final bool chipBeside;
+
+  /// Five days: zero gap, rings inside.
+  final bool touching;
+}
+
 /// The seven days of the current week (design system WeekStrip): 44 px day
 /// columns, a gap that shrinks from 10 toward 4 as the strip narrows and a
 /// sideways scroll when seven days do not fit. A day with a status shows a
@@ -34,14 +50,65 @@ class WeekStrip extends StatefulWidget {
     this.todayFraction = 0,
     this.selectedDate,
     super.key,
-  }) : assert(states.length == 7, 'A week must have seven days.');
+  })  : assert(states.length == 7, 'A week must have seven days.'),
+        windowStart = null,
+        windowGap = null;
+
+  /// The phone Home row (D196): [states].length days in a row, starting at
+  /// [windowStart] and centered on Today, crossing week boundaries. With
+  /// [windowGap] 0 the cells touch and the rings draw inside; null spreads
+  /// them across the width (4 at least). Nothing scrolls.
+  const WeekStrip.window({
+    required this.today,
+    required this.states,
+    required this.onSelected,
+    required DateTime this.windowStart,
+    this.windowGap,
+    this.todayFraction = 0,
+    this.selectedDate,
+    super.key,
+  }) : assert(states.length > 0, 'A window needs a day.');
   final DateTime today;
   final List<WeekDayState> states;
+  final DateTime? windowStart;
+  final double? windowGap;
   final ValueChanged<DateTime> onSelected;
   final double todayFraction;
   final DateTime? selectedDate;
 
   static const double _cell = PantasSize.weekDay;
+
+  /// The day column width at the current text size (44, or wider at large
+  /// text).
+  static double cellWidth(BuildContext context) => cellFor(_grow(context));
+
+  /// How the phone Home row lays out (D196), for a card [width], day column
+  /// [cell] and exam chip block [chip] (hairline, padding and chip).
+  ///
+  /// Five days with no gap fit beside the chip first; then four, then three,
+  /// each at the 4 minimum gap and 4 clear of the chip. If three do not fit,
+  /// the chip goes under and the strip shows as many days as fit, at most
+  /// five.
+  static WeekWindowPlan plan({
+    required double width,
+    required double cell,
+    required double chip,
+  }) {
+    if (5 * cell + chip <= width) {
+      return const WeekWindowPlan(days: 5, chipBeside: true, touching: true);
+    }
+    for (final n in const [4, 3]) {
+      if (n * cell + (n - 1) * _gapMin + _gapMin + chip <= width) {
+        return WeekWindowPlan(days: n, chipBeside: true, touching: false);
+      }
+    }
+    var n = 5;
+    while (n > 1 && n * cell + (n - 1) * _gapMin > width) {
+      n--;
+    }
+    return WeekWindowPlan(days: n, chipBeside: false, touching: false);
+  }
+
   static const double _gapMax = PantasSpace.s10;
   static const double _gapMin = PantasSpace.s4;
 
@@ -150,7 +217,7 @@ class _WeekStripState extends State<WeekStrip> {
   }
 
   /// The status a day's tooltip states, or null for a day with none.
-  String? _status(int i, DateTime date) => switch (widget.states[i]) {
+  String? _status(WeekDayState state, DateTime date) => switch (state) {
         WeekDayState.today => 'Today',
         WeekDayState.done => 'Done',
         WeekDayState.partial => 'Partly done',
@@ -159,8 +226,37 @@ class _WeekStripState extends State<WeekStrip> {
         WeekDayState.dayOff => null,
       };
 
+  Widget _window(BuildContext context) {
+    final phone = !context.wideWeb;
+    final grow = WeekStrip._grow(context);
+    final cell = WeekStrip.cellFor(grow);
+    final first = widget.windowStart!;
+    final touching = widget.windowGap == 0;
+    final days = [
+      for (var i = 0; i < widget.states.length; i++)
+        _day(
+          context,
+          i,
+          DateTime(first.year, first.month, first.day + i),
+          phone: phone,
+          grow: grow,
+          cellWidth: cell,
+          state: widget.states[i],
+          inset: touching,
+        ),
+    ];
+    return Row(
+      mainAxisSize: touching ? MainAxisSize.min : MainAxisSize.max,
+      mainAxisAlignment:
+          touching ? MainAxisAlignment.start : MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: days,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+    if (widget.windowStart != null) return _window(context);
     final start = PantasDates.weekStart(widget.today);
     final phone = !context.wideWeb;
     return LayoutBuilder(
@@ -187,6 +283,7 @@ class _WeekStripState extends State<WeekStrip> {
                 phone: phone,
                 grow: grow,
                 cellWidth: cell,
+                state: widget.states[i],
               ),
             ],
           ],
@@ -214,13 +311,14 @@ class _WeekStripState extends State<WeekStrip> {
     required bool phone,
     required double grow,
     required double cellWidth,
+    required WeekDayState state,
+    bool inset = false,
   }) {
     final c = context.colors;
-    final state = widget.states[i];
     final today = state == WeekDayState.today;
     final off = state == WeekDayState.dayOff || state == WeekDayState.missed;
     final selected = widget.selectedDate == date;
-    final status = _status(i, date);
+    final status = _status(state, date);
     final radius = BorderRadius.circular(
       phone ? PantasRadius.sm : PantasRadius.md,
     );
@@ -237,7 +335,7 @@ class _WeekStripState extends State<WeekStrip> {
       ),
     );
     final weekday = Text(
-      const ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][i],
+      const ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][date.weekday % 7],
       style: (phone ? PantasType.phoneCaptionSmall : PantasType.webKeyHintSm)
           .copyWith(
         color: today ? c.accent : c.textSecondary,
@@ -277,6 +375,7 @@ class _WeekStripState extends State<WeekStrip> {
         ? PantasDates.heading(date)
         : '${PantasDates.heading(date)}, ${status.toLowerCase()}';
     final ringed = OffsetFocusRing(
+      inset: inset,
       borderRadius: radius,
       color: selected ? c.textPrimary : null,
       child: PressScale(

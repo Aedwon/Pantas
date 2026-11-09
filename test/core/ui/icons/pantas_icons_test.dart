@@ -28,6 +28,7 @@ void main() {
     'toTop': PantasIcons.toTop,
     'expandFigure': PantasIcons.expandFigure,
     'sort': PantasIcons.sort,
+    'caretUpDown': PantasIcons.caretUpDown,
     'contents': PantasIcons.contents,
     'flag': PantasIcons.flag,
     'report': PantasIcons.report,
@@ -86,7 +87,7 @@ void main() {
     final names = RegExp(r'static (?:Widget|IconData) get (\w+)')
         .allMatches(source)
         .map((match) => match.group(1));
-    expect(icons, hasLength(55));
+    expect(icons, hasLength(56));
     expect(names, unorderedEquals(icons.keys));
     expect(names, isNot(contains('locked')));
     expect(names, isNot(contains('lock')));
@@ -826,6 +827,7 @@ void main() {
       'toTop': 0xe08e,
       'expandFigure': 0xe0a6,
       'sort': 0xe140,
+      'caretUpDown': 0xe140,
       'contents': 0xe2f0,
       'flag': 0xe244,
       'addNote': 0xe34a,
@@ -853,7 +855,7 @@ void main() {
       'proSettings': 0xe6a2,
       'profile': 0xe4c2,
     };
-    expect(codepoints, hasLength(46));
+    expect(codepoints, hasLength(47));
     for (final entry in codepoints.entries) {
       final icon = icons[entry.key]! as IconData;
       expect(icon.codePoint, entry.value, reason: entry.key);

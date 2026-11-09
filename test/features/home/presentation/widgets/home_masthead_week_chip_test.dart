@@ -78,9 +78,10 @@ void main() {
   final thursday = DateTime(2026, 10, 15, 20);
 
   for (final scale in [1.0, 2.0]) {
+    // D196: on the phone the full chip stays on one line while at least
+    // three days fit beside it; at large text it goes under the days.
     for (final width in [320.0, 390.0, 520.0]) {
-      testWidgets('under 600 the chip takes its own line at $width, x$scale',
-          (tester) async {
+      testWidgets('phone chip placement at $width, x$scale', (tester) async {
         await _pump(
           tester,
           width: width,
@@ -93,9 +94,17 @@ void main() {
         final chip = tester.getRect(
           find.byKey(const ValueKey('masthead-exam-chip')),
         );
-        expect(chip.top, greaterThanOrEqualTo(strip.bottom));
-        // 4 px in from the strip's left edge, with no rule and no bridge.
-        expect(chip.left - strip.left, 4);
+        if (width == 320) {
+          // Fits three days or drops the chip, by the font's width: the
+          // exact cases are in week_window_test with the app font.
+        } else if (scale == 1) {
+          expect(chip.left, greaterThanOrEqualTo(strip.right - 0.01));
+          expect(chip.top, lessThan(strip.bottom));
+        } else {
+          expect(chip.top, greaterThanOrEqualTo(strip.bottom));
+          // 4 px in from the strip's left edge, with no rule and no bridge.
+          expect(chip.left - strip.left, 4);
+        }
         expect(
           find.byKey(const ValueKey('masthead-bridge-dots')),
           findsNothing,
@@ -127,9 +136,14 @@ void main() {
 
   testWidgets('every day is a 44 wide target', (tester) async {
     await _pump(tester, width: 390, now: thursday, week: _week(4));
-    for (var i = 0; i < 7; i++) {
-      final day = tester.getRect(find.byKey(ValueKey('week-day-$i')));
-      expect(day.width, closeTo(44, .01));
+    // D196: three to five days, depending on the room beside the chip.
+    var shown = 0;
+    for (var i = 0; i < 5; i++) {
+      final key = find.byKey(ValueKey('week-day-$i'));
+      if (key.evaluate().isEmpty) continue;
+      shown++;
+      expect(tester.getRect(key).width, closeTo(44, .01));
     }
+    expect(shown, inInclusiveRange(3, 5));
   });
 }
