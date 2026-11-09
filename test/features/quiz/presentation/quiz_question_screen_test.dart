@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
@@ -13,8 +14,10 @@ import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/choice_row.dart';
 import 'package:pantas/core/ui/components/floating_bar.dart';
 import 'package:pantas/core/ui/components/math_text.dart';
+import 'package:pantas/core/ui/components/new_design/question_grid_sheet.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/toast.dart';
+import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/lesson_text_scale.dart';
 import 'package:pantas/features/quiz/application/quiz_completion_coordinator.dart';
@@ -655,6 +658,72 @@ void main() {
       semantics.dispose();
     }
   });
+
+  for (final (width, scale) in [(390.0, 1.0), (320.0, 1.0), (390.0, 2.0)]) {
+    testWidgets('quiz phone count carries the up-down caret ($width x$scale)',
+        (tester) async {
+      final semantics = tester.ensureSemantics();
+      await pump(
+        tester,
+        scale: scale,
+        size: Size(width, 640),
+        session: QuizSession.start(
+          sessionId: 'caret',
+          examId: 'e',
+          questions: [item(1), item(2), item(3)],
+          startedAt: DateTime.utc(2026),
+        ),
+      );
+      expect(tester.takeException(), isNull);
+      final counter = find.byKey(const ValueKey('quiz-counter'));
+      expect(
+        find.descendant(
+          of: counter,
+          matching: find.byIcon(PantasIcons.caretUpDown),
+        ),
+        findsOneWidget,
+      );
+      expect(
+        find.descendant(of: counter, matching: find.byIcon(PantasIcons.next)),
+        findsNothing,
+      );
+      expect(tester.getSize(counter).height, greaterThanOrEqualTo(44));
+      expect(
+        find.bySemanticsLabel('Question 1 of 3. Open question navigator'),
+        findsOneWidget,
+      );
+      await tester.tap(find.text('1 of 3'));
+      await tester.pumpAndSettle();
+      expect(
+        tester.widget<QuestionGridSheet>(find.byType(QuestionGridSheet)).open,
+        isTrue,
+      );
+      semantics.dispose();
+    });
+  }
+
+  for (final key in [LogicalKeyboardKey.enter, LogicalKeyboardKey.space]) {
+    testWidgets('quiz phone count opens the navigator on ${key.keyLabel}',
+        (tester) async {
+      await pump(
+        tester,
+        session: QuizSession.start(
+          sessionId: 'keys',
+          examId: 'e',
+          questions: [item(1), item(2), item(3)],
+          startedAt: DateTime.utc(2026),
+        ),
+      );
+      Focus.of(tester.element(find.text('1 of 3'))).requestFocus();
+      await tester.pump();
+      await tester.sendKeyEvent(key);
+      await tester.pumpAndSettle();
+      expect(
+        tester.widget<QuestionGridSheet>(find.byType(QuestionGridSheet)).open,
+        isTrue,
+      );
+    });
+  }
 
   for (final missing in [false, true]) {
     testWidgets(

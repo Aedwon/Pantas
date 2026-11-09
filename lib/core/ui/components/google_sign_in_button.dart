@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:pantas/core/ui/components/pantas_button_spec.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 
@@ -21,6 +22,7 @@ class GoogleSignInButton extends StatelessWidget {
     this.label = 'Continue with Google',
     this.busy = false,
     this.expand = false,
+    this.size,
     super.key,
   });
 
@@ -29,11 +31,16 @@ class GoogleSignInButton extends StatelessWidget {
   final bool busy;
   final bool expand;
 
+  /// A size class for a place the field height is too big, such as a card
+  /// footer (`sm`, 42). Null keeps the 48 px field height.
+  final PantasButtonSize? size;
+
   @override
   Widget build(BuildContext context) => WebButton(
         label: label,
         variant: WebButtonVariant.white,
-        height: PantasSize.field,
+        size: size,
+        height: size == null ? PantasSize.field : null,
         expand: expand,
         icon: SvgPicture.string(_googleMark, width: 18, height: 18),
         busy: busy,
