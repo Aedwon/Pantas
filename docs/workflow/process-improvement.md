@@ -53,6 +53,10 @@ pass 15, retire or merge one first.
    the approved screens in the Pantas Web and Pantas Redesign canvases (exported copies in
    `web-design/pantas-handoff/`). Never hand-draw a local HTML board or redraw a screen from
    widget code. No check can judge fidelity: he does the visual check.
+4. Do not ask Aedwon to decide in-app copy that sits in a layout or component he already
+   approved (a Dialog's title and text, a caption, a button label). The lead settles it under
+   his delegation (D191), following the voice rules in `AGENTS.md`, records it, and tells him
+   the wording. Website copy stays his. No check can tell a copy choice from a layout choice.
 
 4. Never ask Aedwon to write legal or policy text (terms, privacy notices, legal bases,
    consent or refund wording). First search `docs/legal/`, `docs/legal-drafts/`, the app's
@@ -66,6 +70,13 @@ pass 15, retire or merge one first.
 
 Newest first. When this file passes about 120 lines, move the oldest closed entries to
 the current decision log.
+
+### Asked him to decide copy in an approved layout (Nov 9)
+
+- His words: "sorry what needs deciding on Decision 4? that's just a copy decision right not a UI one" (relayed by the manager).
+- Wrong: the custom exam tier amendment listed the raise-tier dialog's wording as a decision for him, although the DS4 Dialog already fixed its layout. The board then carried it as "still open" for three rounds.
+- Why it got through: the amendment's decision list treated every visible string as a decision, and nothing separated copy from layout.
+- Fix (written rule 4 above; no check can tell a copy choice from a layout choice): copy inside an approved layout is the lead's call under D191, recorded and reported, not asked.
 
 ### Misread "not clean", and an overstated claim on a board (Nov 9)
 
