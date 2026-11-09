@@ -1,7 +1,8 @@
 # Custom exams get a price tier from their subjects: spec amendment
 
 **Date:** 9 November 2026
-**Status:** Draft for Aedwon's approval. Nothing is built.
+**Status:** Part 1 approved by Aedwon on 9 November 2026, relayed by the manager. Decision 2: A. Decisions 3 and 4 wait for his pick on the board. Nothing is built.
+**Approval, verbatim:** "okay, this is approved on my end, / 2 A / 3 i think this i can better decide if you illustrate / 4 illustrate". Logged on main at 15fcd12f8.
 **Decision that started it (Aedwon, verbatim, relayed by the manager):** "i was thinking if they make their own custom exam, they have a student-only, professional-only or something like that kind of tiering so that we can limit and thus properly price their Pro subscription". Offered A (the subjects decide) or B (the student picks a category). Aedwon: "okay A." Logged on main at b362ba69b, launch log entry "Custom exams get a price tier".
 **Amends:** `docs/superpowers/specs/2026-08-02-custom-exam-track-design.md` Section 1 and `docs/superpowers/specs/2026-11-04-custom-exams-on-web-design.md` choice 2 (1.3), 2.5, 2.7, 2.8, 2.9, 2.17 picks 2 and 6.
 **Prices and tier rules:** `docs/pricing.md` (approved 4 October 2026) and `docs/superpowers/specs/2026-10-06-tier-pricing-design.md`. This amendment adds no price.
@@ -83,14 +84,14 @@ Per your 9 November rule, an agent drafts this text, GPT 6.1 Sol High critiques 
 ## 1.7 Decisions for you
 
 1. **Approve this section.** It includes the Pro page change and the closing of the "no limits" question.
-2. **Five Civil Service-only sets inside Student subjects.** Two Mathematics sets (data interpretation) and three Reasoning sets (clerical ability, verbal logic) are tagged only for CSE.
+2. **Five Civil Service-only sets inside Student subjects.** Decided 9 November: A. Two Mathematics sets (data interpretation) and three Reasoning sets (clerical ability, verbal logic) are tagged only for CSE.
    - A. Keep the subject rule as you chose it (recommended). Those sets stay in a Student custom exam. Their Pro notes still need Civil Service Pro, so the only thing a Student plan gives on them is mock and plan access. Cost: none to build.
    - B. Price by topic instead. Data interpretation and clerical ability become Civil Service. Cost: about one more day, a tier tag on topic rows in What's Included, and a Mathematics or Reasoning tick that can quietly raise the tier.
-3. **How the tier shows on the subjects step.** Options, drawn on the Claude Design board "Custom Exam Tier Picks" (https://claude.ai/artifact/YEtFgMGqFsQ3ukTYShkNvb):
+3. **How the tier shows on the subjects step.** Pending his pick on the board. Options, drawn on the Claude Design board "Custom Exam Tier Picks" (https://claude.ai/artifact/YEtFgMGqFsQ3ukTYShkNvb):
    - A. The line under the list only. Cheapest. The student cannot see which subject raises the tier.
    - B. The line, plus a tag on rows above Student (recommended). One tag today, on General Information.
    - C. A tag on every row. Five "Student" tags that tell the student nothing.
-4. **The raise-tier dialog** in 1.4: its wording and two actions, on the same board.
+4. **The raise-tier dialog** in 1.4, pending his pick on the board: its wording and two actions, on the same board.
 
 ## 1.8 Cost, risk and how it will be judged
 
