@@ -67,6 +67,13 @@ pass 15, retire or merge one first.
 Newest first. When this file passes about 120 lines, move the oldest closed entries to
 the current decision log.
 
+### Custom exam tier boards not clean, and not on DS4 (Nov 9)
+
+- His words: "3B but please improve the placements, i'm currently not liking the options. not clean enough for me. make sure the designs also follow DS4" (relayed by the manager, on the "Custom Exam Tier Picks" canvas).
+- Wrong: the first boards put the tier line as a loose sentence between the subject grid and Continue, overrode the tile grid and laid out the pages with inline styles, redrew the old onboarding rail and logo by hand, and on the phone built checkbox rows from list parts where the system prescribes tiles for two to eight choices. No DS4 placement pattern (fine print, card footer) was used.
+- Why it got through: the lead started from the pre-4.0 `OB_CustomCover` board and read component markup but not `patterns.md`; nobody but the author looked at the boards; and they were never rendered before sending, because the canvas type's "never verify" was followed instead of the Nov 9 screenshot exemption.
+- Fix (required step; no check can judge whether a placement is clean, and the boards live in an artifact, not the repo): before any board goes to Aedwon, (1) every element on it is a DS4 component or pattern, and anything with no system part is labeled as board scaffolding on the canvas; (2) a fresh reviewer who did not draw the boards checks each one against the DS4 READMEs and `patterns.md` and lists departures, and every departure is fixed before sending; (3) one headless capture per board confirms it renders, then the browser is closed. If boards are later kept in the repo, a lint for inline style literals in board files can replace part (2).
+
 ### Legal text asked of him again (Nov 9)
 
 - His words: "how many times does this have to pop up. has this not been written already? in the pantas-web project? if not, i already told you, you should have an agent write it for me instead. for these texts, have a codex 6.1 Sol High critique it. the angle should be that it's leaning in favor of us, to the extend PH law allows. do not ask me any text of this kind again. i cannot afford a lawyer. i should only check what you drafted"
