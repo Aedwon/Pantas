@@ -1,0 +1,24 @@
+{
+  "lesson": "lesson-chemistry-chemical-reactions",
+  "auditor": "astra",
+  "findings": [
+    {
+      "file": "content/lessons/science/chemistry/chemical-reactions.md",
+      "questionId": "",
+      "severity": "Blocker",
+      "quote": "**Combustion** is burning: a fast reaction with oxygen that gives off energy.",
+      "problem": "This definition makes oxygen necessary for combustion. Other oxidizers can support combustion. Hydrogen burns in fluorine without oxygen, so the definition would cause students to reject a valid combustion reaction.",
+      "source": "[NASA, Rocket Laboratory: Laying the Hydrogen Foundation](https://www.nasa.gov/rocket-laboratory-laying-the-hydrogen-foundation/), describes hydrogen engines tested with both oxygen and fluorine."
+    },
+    {
+      "file": "content/lessons/science/chemistry/chemical-reactions.md",
+      "questionId": "",
+      "severity": "Blocker",
+      "quote": "The hydrogen of the fuel still forms water.",
+      "problem": "This is not a general rule for incomplete combustion. With limited oxygen, methane can produce hydrogen gas and carbon monoxide: CH4 + 1/2 O2 → CO + 2H2. The statement incorrectly requires the fuel's hydrogen to become water in every oxygen-limited reaction.",
+      "source": "[U.S. Department of Energy, Hydrogen Production: Natural Gas Reforming](https://www.energy.gov/cmei/fuels/hydrogen-production-natural-gas-reforming), section Partial Oxidation."
+    }
+  ],
+  "questionsChecked": 2,
+  "examplesSolved": 12
+}

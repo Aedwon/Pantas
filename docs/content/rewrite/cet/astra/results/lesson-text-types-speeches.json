@@ -1,0 +1,16 @@
+{
+  "lesson": "lesson-text-types-speeches",
+  "auditor": "astra",
+  "findings": [
+    {
+      "file": "content/lessons/reading-comprehension/text-types/speeches.md",
+      "questionId": "",
+      "severity": "Blocker",
+      "quote": "A number about the speaker, such as years of service, supports ethos instead.",
+      "problem": "Being about the speaker does not make a number an ethos appeal. For example, 'I lost two children in the flood' can appeal to sympathy, making it pathos. Personal income and expense figures can support a logical argument about affordability. Students applying this rule would misclassify appeals. The number's function determines its appeal.",
+      "source": "[Purdue OWL, Using Rhetorical Strategies for Persuasion](https://owl.purdue.edu/owl/general_writing/academic_writing/establishing_arguments/rhetorical_strategies.html), sections Logos, Ethos, and Pathos. Checklist B01."
+    }
+  ],
+  "questionsChecked": 1,
+  "examplesSolved": 15
+}

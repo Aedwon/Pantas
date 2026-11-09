@@ -1,0 +1,32 @@
+{
+  "lesson": "lesson-biology-cellular-metabolism",
+  "auditor": "astra",
+  "findings": [
+    {
+      "file": "content/lessons/science/biology/cellular-metabolism.md",
+      "questionId": "",
+      "severity": "Blocker",
+      "quote": "An enzyme is a protein.",
+      "problem": "Example 4 gives a definite classification for an unspecified enzyme. Some enzymes are catalytic RNA, called ribozymes. Those belong to nucleic acids. The answer contradicts the earlier qualification that almost all enzymes are proteins.",
+      "source": "[Yale School of Medicine: RNA, Reimagined](https://medicine.yale.edu/news-article/rna-reimagined/)"
+    },
+    {
+      "file": "content/lessons/science/biology/cellular-metabolism.md",
+      "questionId": "",
+      "severity": "Blocker",
+      "quote": "An **organic molecule** is a carbon-based molecule built around chains or rings of carbon and hydrogen",
+      "problem": "This definition incorrectly requires a chain or ring. Methane is an organic molecule with one carbon atom bonded to four hydrogen atoms. It has no carbon chain or ring. Students applying this definition would misclassify it.",
+      "source": "[OpenStax Biology, 2.3 Carbon: Hydrocarbons](https://openstax.org/books/biology/pages/2-3-carbon)"
+    },
+    {
+      "file": "content/questions/science/biology/cellular-metabolism.yaml",
+      "questionId": "q-biology-cellular-metabolism-0024",
+      "severity": "Major",
+      "quote": "Living things make sugars, so glucose is an organic molecule.",
+      "problem": "The key is correct, but this explanation uses biological production as the reason for classifying glucose as organic. Living things also produce inorganic substances, including carbon dioxide and water. Organic classification does not depend on whether an organism makes the substance.",
+      "source": "[OpenStax Chemistry 2e, Chapter 20 Introduction](https://openstax.org/books/chemistry-2e/pages/20-introduction)"
+    }
+  ],
+  "questionsChecked": 14,
+  "examplesSolved": 4
+}

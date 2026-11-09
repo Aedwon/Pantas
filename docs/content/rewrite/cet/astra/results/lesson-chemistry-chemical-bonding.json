@@ -1,0 +1,32 @@
+{
+  "lesson": "lesson-chemistry-chemical-bonding",
+  "auditor": "astra",
+  "findings": [
+    {
+      "file": "content/lessons/science/chemistry/chemical-bonding.md",
+      "questionId": "",
+      "severity": "Blocker",
+      "quote": "Here $V$ is the atom's valence electrons, $L$ is the electrons in its lone pairs, and $B$ is the electrons in its bonds.",
+      "problem": "L must count all nonbonding electrons, including unpaired electrons. The stated definition gives incorrect formal charges for radicals such as NO, which this lesson mentions. In its N=O Lewis structure, nitrogen has three nonbonding electrons. Its formal charge is 5−3−4/2=0. Counting only its lone pair gives +1.",
+      "source": "[OpenStax Organic Chemistry, Section 2.3, formal-charge formula and Table 2.2](https://openstax.org/books/organic-chemistry/pages/2-3-formal-charges); [OpenStax Chemistry 2e, Section 7.3, odd-electron molecules](https://openstax.org/books/chemistry-2e/pages/7-3-lewis-symbols-and-structures)."
+    },
+    {
+      "file": "content/lessons/science/chemistry/chemical-bonding.md",
+      "questionId": "",
+      "severity": "Blocker",
+      "quote": "We picture it as a pull of electrons toward the more electronegative atom.",
+      "problem": "This presents electronegativity as an unconditional rule for dipole direction. Carbon monoxide is a counterexample: its negative dipole end is carbon, although oxygen is more electronegative. Applying the stated rule gives the wrong polarity direction for CO.",
+      "source": "[Frenking et al., Electronic structure of CO: An exercise in modern chemical bonding theory, Journal of Computational Chemistry](https://onlinelibrary.wiley.com/doi/full/10.1002/jcc.20477), introduction, property (ii)."
+    },
+    {
+      "file": "content/lessons/science/chemistry/chemical-bonding.md",
+      "questionId": "",
+      "severity": "Blocker",
+      "quote": "Ionic solids conduct electricity when melted or dissolved, because the ions can move, but not as solids.",
+      "problem": "The prohibition on solid-state conduction is false as a general rule. Solid ionic conductors exist. For example, silver iodide in its alpha phase conducts through mobile silver ions while remaining solid. The statement incorrectly makes melting or dissolution necessary for ionic conduction.",
+      "source": "[Accurate description of ion migration in solid-state ion conductors from machine-learning molecular dynamics, Journal of Materials Chemistry A](https://pubs.rsc.org/en/content/articlehtml/2024/ta/d4ta00452c), Section 3.1, silver iodide."
+    }
+  ],
+  "questionsChecked": 2,
+  "examplesSolved": 13
+}

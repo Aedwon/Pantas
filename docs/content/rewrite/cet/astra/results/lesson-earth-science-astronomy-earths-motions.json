@@ -1,0 +1,24 @@
+{
+  "lesson": "lesson-earth-science-astronomy-earths-motions",
+  "auditor": "astra",
+  "findings": [
+    {
+      "file": "content/lessons/science/earth-science-astronomy/earths-motions.md",
+      "questionId": "",
+      "severity": "Blocker",
+      "quote": "Places inside the polar circles, about $66.6^\\circ$ north and south, have at least one day when the Sun does not set and at least one day when it does not rise.",
+      "problem": "Being inside a polar circle does not guarantee a day without sunrise. Atmospheric refraction and the Sun's apparent radius keep part of the Sun visible near the circle even at the winter solstice. Using the USNO sunrise convention, the polar-night boundary is approximately 67.4° latitude. Places at 67° can therefore have midnight sun without any day lacking sunrise.",
+      "source": "[U.S. Naval Observatory: Rise, Set, and Twilight Definitions](https://aa.usno.navy.mil/faq/RST_defs), Technical Definitions. The approximate boundary follows from its 50-arcminute sunrise correction."
+    },
+    {
+      "file": "content/lessons/science/earth-science-astronomy/earths-motions.md",
+      "questionId": "",
+      "severity": "Blocker",
+      "quote": "We see the stars only when the sky is dark, at night, when our side of Earth faces away from the Sun.",
+      "problem": "The night-only rule is false. Bright stars can be visible during a total solar eclipse, while the observer is on Earth's daytime side. Facing away from the Sun is not a necessary condition for seeing stars.",
+      "source": "[NASA: Viewing Solar Eclipses](https://eclipse.gsfc.nasa.gov/SEcirc/SEview.html), which confirms that bright stars become visible during totality."
+    }
+  ],
+  "questionsChecked": 1,
+  "examplesSolved": 8
+}

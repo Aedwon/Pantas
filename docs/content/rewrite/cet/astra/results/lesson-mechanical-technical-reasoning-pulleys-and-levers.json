@@ -1,0 +1,16 @@
+{
+  "lesson": "lesson-mechanical-technical-reasoning-pulleys-and-levers",
+  "auditor": "astra",
+  "findings": [
+    {
+      "file": "content/lessons/reasoning/mechanical-technical-reasoning/pulleys-and-levers.md",
+      "questionId": "",
+      "severity": "Blocker",
+      "quote": "Two supporting segments give MA $2$: the effort is half the load, and the free end moves twice as far as the load.",
+      "problem": "The effort equals half the load's weight only when the load has zero acceleration. The lesson never states this condition. Applying Newton's second law to the moving load gives 2T - mg = ma, so upward acceleration requires T greater than mg/2 even with ideal pulleys. Question 0013 explicitly tests this missing condition.",
+      "source": "[OpenStax, University Physics Volume 1, Section 6.1: equilibrium and Newton's second law](https://openstax.org/books/university-physics-volume-1/pages/6-1-solving-problems-with-newtons-laws)"
+    }
+  ],
+  "questionsChecked": 4,
+  "examplesSolved": 9
+}

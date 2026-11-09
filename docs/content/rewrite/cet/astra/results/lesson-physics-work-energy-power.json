@@ -1,0 +1,24 @@
+{
+  "lesson": "lesson-physics-work-energy-power",
+  "auditor": "astra",
+  "findings": [
+    {
+      "file": "content/lessons/science/physics/work-energy-power.md",
+      "questionId": "",
+      "severity": "Blocker",
+      "quote": "If a motor or a push from outside adds energy, the system is not isolated, and its total energy rises.",
+      "problem": "Incoming energy does not necessarily raise the system's total energy. Energy can leave at the same time. A motor can supply work while an equal amount leaves as heat, leaving stored energy unchanged. The change depends on net energy transfer.",
+      "source": "[OpenStax, College Physics 2e, §15.1: The First Law of Thermodynamics](https://openstax.org/books/college-physics-2e/pages/15-1-the-first-law-of-thermodynamics)."
+    },
+    {
+      "file": "content/lessons/science/physics/work-energy-power.md",
+      "questionId": "",
+      "severity": "Blocker",
+      "quote": "A real machine wastes some energy as heat and sound. So its efficiency is below $100\\%$. Only an ideal machine with no waste reaches $100\\%$.",
+      "problem": "This is false as a general rule for useful-energy efficiency. Heat can be the useful output. Real electric resistance heaters convert electrical input into useful heat at 100% efficiency at the point of use. The statement needs a restriction to machines whose useful output excludes that heat.",
+      "source": "[Australian Government, Heating and cooling, Electric heaters](https://www.energy.gov.au/households/heating-and-cooling)."
+    }
+  ],
+  "questionsChecked": 4,
+  "examplesSolved": 9
+}

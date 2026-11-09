@@ -1,0 +1,24 @@
+{
+  "lesson": "lesson-biology-characteristics-of-life",
+  "auditor": "astra",
+  "findings": [
+    {
+      "file": "content/lessons/science/biology/characteristics-of-life.md",
+      "questionId": "",
+      "severity": "Blocker",
+      "quote": "Such a seed is dormant, so its metabolism is very slow but not zero.",
+      "problem": "The claim that metabolism cannot be zero is false. Sufficiently dried viable seeds can enter reversible metabolic arrest. They resume metabolism after rehydration. Continuous metabolic activity is not required for a dry seed to remain viable.",
+      "source": "[Water content, adenylate kinase, and mitochondria drive adenylate balance in dehydrating and imbibing seeds, Journal of Experimental Botany (2017)](https://pmc.ncbi.nlm.nih.gov/articles/PMC5853452/), abstract and introduction."
+    },
+    {
+      "file": "content/lessons/science/biology/characteristics-of-life.md",
+      "questionId": "",
+      "severity": "Blocker",
+      "quote": "Cells alone are not enough either: a dead leaf or a piece of wood is made of cells, or what is left of them, but shows none of the other properties.",
+      "problem": "Wood does not necessarily lack life processes. Sapwood contains living parenchyma cells that carry out metabolism, store and transport nutrients, and respond to damage. A piece of fresh sapwood can contain these active cells. The statement incorrectly treats all wood as dead.",
+      "source": "[Schenk, Wood: Biology of a living tissue, American Journal of Botany (2018)](https://bsapubs.onlinelibrary.wiley.com/doi/10.1002/ajb2.1039)."
+    }
+  ],
+  "questionsChecked": 2,
+  "examplesSolved": 7
+}

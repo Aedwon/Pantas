@@ -1,0 +1,24 @@
+{
+  "lesson": "lesson-geometry-triangles",
+  "auditor": "astra",
+  "findings": [
+    {
+      "file": "content/lessons/mathematics/geometry/triangles.md",
+      "questionId": "",
+      "severity": "Blocker",
+      "quote": "SSA also fixes one triangle when the given side across from the given angle is at least as long as the other given side.",
+      "problem": "The equality case fails when the given angle is right or obtuse. For example, a = b = 5 and A = 120° satisfy the stated condition, but equal sides require B = 120° too. No triangle exists. The statement incorrectly guarantees one triangle.",
+      "source": "B01; [OpenStax, Algebra and Trigonometry 2e, §10.1](https://openstax.org/books/algebra-and-trigonometry-2e/pages/10-1-non-right-triangles-law-of-sines), SSA outcomes and the 180° angle sum; independent counterexample using equal opposite angles."
+    },
+    {
+      "file": "content/lessons/mathematics/geometry/triangles.md",
+      "questionId": "",
+      "severity": "Blocker",
+      "quote": "A **Pythagorean triple** is three whole numbers that satisfy $a^2 + b^2 = c^2$.",
+      "problem": "Whole numbers include zero. This definition admits (0, 3, 3), which satisfies the equation but cannot form a right triangle. Pythagorean triples require three positive integers.",
+      "source": "B01; [Wolfram MathWorld, Pythagorean Triple](https://mathworld.wolfram.com/PythagoreanTriple.html), definition requiring positive integers."
+    }
+  ],
+  "questionsChecked": 0,
+  "examplesSolved": 10
+}

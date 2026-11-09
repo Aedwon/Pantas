@@ -1,0 +1,32 @@
+{
+  "lesson": "lesson-biology-evolution",
+  "auditor": "astra",
+  "findings": [
+    {
+      "file": "content/lessons/science/biology/evolution.md",
+      "questionId": "",
+      "severity": "Blocker",
+      "quote": "In humans, a male has only one allele for a gene on the X chromosome.",
+      "problem": "This generalization fails for genes in the pseudoautosomal regions. An XY male has two copies of these genes, one on X and one on Y. Students applying this rule would incorrectly count their alleles.",
+      "source": "[MedlinePlus Genetics: X chromosome, Normal Function](https://medlineplus.gov/genetics/chromosome/x/)"
+    },
+    {
+      "file": "content/lessons/science/biology/evolution.md",
+      "questionId": "",
+      "severity": "Blocker",
+      "quote": "In a very large group, luck averages out and drift is small, though never exactly zero.",
+      "problem": "Drift does not guarantee a nonzero frequency change. At a fixed locus, every copy is the same allele, so random sampling cannot change its frequency. Even at a variable locus, a generation can retain exactly the previous frequency by chance.",
+      "source": "[OpenStax, Concepts of Biology, 11.2 Mechanisms of Evolution: Genetic Drift](https://openstax.org/books/concepts-biology/pages/11-2-mechanisms-of-evolution)"
+    },
+    {
+      "file": "content/lessons/science/biology/evolution.md",
+      "questionId": "",
+      "severity": "Blocker",
+      "quote": "Individuals may change during life, but changes gained during life are not passed on. A mutation in the DNA that offspring receive is the exception.",
+      "problem": "Mutation is not the only exception. Some acquired changes can pass to offspring through non-DNA-sequence inheritance. Experiments in C. elegans demonstrated an acquired antiviral response transmitted across generations through small RNAs. The categorical rule wrongly excludes this inheritance.",
+      "source": "[Rechavi, Minevich and Hobert (2011), Transgenerational inheritance of an acquired small RNA-based antiviral response in C. elegans, Cell](https://pubmed.ncbi.nlm.nih.gov/22119442/)"
+    }
+  ],
+  "questionsChecked": 2,
+  "examplesSolved": 7
+}
