@@ -6,7 +6,168 @@
 **Why:** Aedwon asked whether PayMongo was ever tested. It was not. He queued this run:
 "okay, put that in the queue first hehe" (launch log, "PayMongo readiness and the manager queue").
 
-## Verdict
+## Rerun after Aedwon's approval (9 November, 19:25 to 19:55 PHT)
+
+The manager relayed Aedwon's approval to fix the staging setup and rerun ("1. ok"). This section
+supersedes the first-run verdict below. The first run stays as written.
+
+| Step | Result |
+|---|---|
+| 1. Sign in | **Pass** (new staging accounts E, F, G) |
+| 2. Checkout: Monthly by test card, Season Pass by QR Ph "Simulate Payment" | **Pass** |
+| 3. Grant period, Pro unlock, return page | **Pass** |
+| 4. Failed card | **Pass** (first run, unchanged) |
+| 5. Full and partial refund | **Pass** for card payments. QR Ph payments **cannot be refunded** through PayMongo's API (D7) |
+| 6. Duplicate webhook | **Pass** |
+| 7. Web trial | **Pass** (first run, unchanged) |
+
+### Setup changes (approved)
+
+- **Staging webhook created through the API:** `hook_7hTDS2YqdbvnvGrujHn3eULN`, test mode, URL
+  `https://asia-southeast1-pantas-staging.cloudfunctions.net/paymongoWebhook`, events
+  `checkout_session.payment.paid`, `payment.refunded`, `payment.refund.updated`. It stays enabled.
+- **Its signing secret** went straight from the API response into staging `PAYMONGO_WEBHOOK_SECRET`
+  version 2 without being printed. Version 1 (the prod webhook's secret) is still stored but unused.
+- **Return address (D2) fixed by config, not app code:** `PANTAS_APP_ORIGIN=https://staging.pantas.study`
+  added to `functions/.env.pantas-staging` on this branch. Staging is deployed from
+  `web/design-system-4`, so this line must reach that branch, or the next functions deploy from it
+  drops the setting and staging returns to the prod app again.
+- **Redeploy, payment functions only:** a direct Cloud Run update was tried first, to keep the exact
+  Nov 8 build. It failed: the Nov 8 function image had been cleaned out of Artifact Registry. So
+  `createPaymongoCheckout` and `paymongoWebhook` were rebuilt and deployed from this branch
+  (`firebase deploy --config firebase.staging.json --only functions:createPaymongoCheckout,functions:paymongoWebhook`)
+  at 2026-11-09 11:28 UTC. `functions/src` is identical to the Nov 8 deploy. The only other
+  difference is the functions dependency fixes (osv), already merged into `web/design-system-4`.
+  Verified after deploy: the webhook reads secret version 2, and both functions carry
+  `PANTAS_APP_ORIGIN=https://staging.pantas.study`.
+- **Prod test webhook** `hook_xDX1i5zipTnQMnEzad4TPbVx` disabled through the API at 11:29:07 UTC and
+  enabled again at 11:54:18 UTC. Verified afterwards: enabled, same URL, same three events, test mode,
+  identical to the state recorded before.
+
+### Results
+
+**Monthly by card (account E, `bvxshuH4b4UxcdAW0PzaZdAoL063`).** Card `4343 4343 4343 4345` paid
+₱149 with no 3DS step. PayMongo returned the browser to
+`https://staging.pantas.study/pro?checkout=success&ref=...`, which the app kept as
+`/settings/pro?checkout=success&ref=...`. One webhook delivery, 200, about 14 seconds after payment.
+Grant `pay_89YFTBe9n2zfLqLrriiS52R4`: starts at payment, 2026-11-09 19:35:04 PHT, ends
+2026-12-09 19:35:04 PHT. That is one calendar month in Manila time, as `docs/pricing.md` sells
+Monthly. Entitlement record `pro: true`, version 1, claims copied (claimsVersion 1). The app showed
+"You're on Pro. Plan: Monthly. Ends Dec 9, 2026." (sheet 5).
+
+**Season Pass by QR Ph (account F, `Xb8hbZgPhcUm9g6c9asat0ylk5m2`).** "Simulate Payment" opens a
+separate "QRPH Test Payment Page" with Authorize, Fail and Expire. "Authorize Test Payment" paid
+₱499; checkout returned to staging. Grant `pay_qvoXMQvF5UgyRTxK7u2fkegy`: starts at payment, ends
+2027-03-14 23:59:59 PHT, the end of the CSC exam day, matching the pricing record ("valid to the next
+exam date") and the Terms ("ends after that exam's date"). The app showed "Plan: Season Pass. Exam:
+CSE Professional. Ends Mar 14, 2027. A one-time purchase. It ends after the exam and never renews."
+(sheet 6).
+
+**Partial refund.** A ₱74.50 refund (half) on E's Monthly. The grant kept its full end in
+`fullEndsAt` (Dec 9) and `endsAt` moved to 2026-11-24 19:35:04 PHT, exactly half of the 30-day
+length, per the Oct 19 decision. Entitlement version 2.
+
+**Refunds adding up to the full amount.** A second ₱74.50 refund on the same payment. The grant became
+`revoked` (reason `payment.refund.updated`), with both refund ids recorded. Entitlement `pro: false`.
+
+**Single full refund.** E then bought Weekly (₱49, card). Grant 2026-11-09 19:51:39 to
+2026-11-16 19:51:39 PHT (7 days). A ₱49 refund revoked it (reason `payment.refunded`), `pro: false`,
+version 5. The app shows the plans again with "Buy 1 Month for ₱149" (sheet 5).
+
+**Duplicate webhook.** The real paid event `evt_BC6gNpcaRf3hWwdv5FYnZ5kS` was replayed twice, and a
+third event with a new id for the same payment was sent, all correctly signed. All three answered
+200. The ledger still had one grant and the entitlement version stayed at 1. PayMongo also produced
+a natural duplicate: each refund arrived as two events (`payment.refunded` and
+`payment.refund.updated`) in the same second. Each refund was counted once.
+
+**Prod.** Read only, after the prod webhook was enabled again: `paymongoFollowUps`,
+`paymongoRevocations`, `paymongoPayments`, `paymongoOrders` and `webhookEvents` are empty, and prod
+`paymongoWebhook` logged no request on 9 November.
+
+### New defects from the rerun
+
+**D7 (High, needs Aedwon's decision). QR Ph payments cannot be refunded through PayMongo's API.**
+`POST /v1/refunds` for F's QR Ph payment returned `parameter_invalid`: "Refunds are not allowed for
+payments with source type qrph." The refund policy promises full refunds for errors (double charge,
+payment that did not unlock Pro), and the server flags duplicate pass payments for a refund. A
+student who paid by QR Ph cannot be refunded that way, and no refund event would ever revoke the
+grant. Not checked: whether the dashboard allows it, and how live mode behaves. Options: ask PayMongo
+support; refund QR Ph buyers by bank transfer with a manual revoke (needs an admin path, which does
+not exist now); or drop QR Ph from checkout. F's pass stays active on staging.
+
+**D8 (Medium, operations). A refund fails when the available balance is lower than the refund.**
+A one-shot ₱499 refund on G's card-paid pass returned `available_balance_insufficient`: "Refund
+amount is greater than the available payout amount." In live mode, after a payout empties the
+balance, a refund would fail the same way until new payments arrive. The runbook should say so.
+G's pass (`pay_68hLPwvXknkmYFUAgqL8jPzA`) stays active on staging.
+
+**D1 status.** Fixed for this run. Both test webhooks are now enabled, so while prod still runs test
+keys, a staging test payment again reaches prod. Future staging payment runs must disable the prod
+test webhook first, or the code fix in D1 must land. When prod moves to live keys, prod ignores
+test events.
+
+**D2 status.** Fixed on staging (config above).
+
+### What blocks live payments now
+
+1. QR Ph refunds (D7): a decision before selling with QR Ph.
+2. PayMongo live activation, live keys, a live webhook, and one real small payment (path steps 2
+   and 3).
+3. The merchant name on checkout (D3, answer below).
+4. The Terms and refund text for web payments published (path step 4).
+5. The payments re-audit, if still outstanding.
+
+### Merchant name: what PayMongo's docs say
+
+Sources: docs.paymongo.com, read 9 November 2026. PayMongo's site links no separate help center; it
+points to support@paymongo.com and the dashboard's "Reach the Team" chat.
+
+- **Read from the account:** every checkout session reports `merchant` as the personal legal name
+  and `statement_descriptor` as null. `GET /v1/accounts` returned an empty list; it is for platform
+  child accounts. The account's own business profile could not be read with the API.
+- **Can checkout show a trade name?** Not documented. The Checkout Session resource has `merchant`
+  and `statement_descriptor` fields, both "Paymongo Test Account" in the sample, but no page says how
+  they are set, and the create request has no name or descriptor field
+  (`reference/checkout-session-resource.md`, `docs/payment-channels-hosted-checkout.md`).
+- **Card statement:** no statement-descriptor setting is documented.
+- **Where a business name lives:** account activation (KYB) asks for "Legal/trade name and business
+  description" (`docs/account-settings-account-setup.md`). Business type and the upgrade from
+  Individual are under Settings, Business Information (`docs/account-settings-business-types.md`).
+  "Your business type can only be set once."
+- **DTI:** a sole proprietorship account requires the "DTI Certificate of Business Name
+  Registration", the owner's government ID and the BIR Certificate of Registration (Form 2303)
+  (`docs/account-settings-philippine-entities.md`). An Individual account is for "businesses not
+  registered with DTI". The docs do not say outright that a trade name needs DTI. A DTI business name
+  is the document they list for a sole proprietor's business name.
+- **Hiding the personal name, even partly:** not documented.
+- **Payment Pages (Storefront)** do take a page name that customers see and that appears on receipts
+  (`docs/payment-channels-storefront.md`). That is a different product, not Hosted Checkout.
+
+Clicks for Aedwon (no change was made):
+
+1. PayMongo dashboard, Settings, Business Information: check the business type and the business or
+   trade name on file.
+2. If the account is Individual and he wants "Pantas" or "Pantas Online Tutorial Services" shown,
+   that name needs DTI registration first; then upgrade to Sole Proprietorship in the same place with
+   the DTI certificate, BIR 2303 and ID.
+3. Ask PayMongo through "Reach the Team": "Which name does Hosted Checkout show as merchant, and
+   what appears on card statements? Can both be my DTI trade name, without my personal name?"
+
+Not confirmed: which name checkout shows after an upgrade, whether a statement descriptor can be
+set, and whether the personal name can be hidden. Only PayMongo support can confirm these.
+
+### Staging data left by the rerun
+
+Accounts E `bvxshuH4b4UxcdAW0PzaZdAoL063` (Monthly revoked, Weekly revoked), F
+`Xb8hbZgPhcUm9g6c9asat0ylk5m2` (pass active, QR Ph, cannot be refunded), G
+`JPpkb0SWFrRf58i6YtznlGIGfw82` (pass active, card, refund refused for balance). Temporary access
+removed: the App Check debug token "paymongo test-mode rerun (Nov 9; delete after)" was deleted; no
+IAM role was added in the rerun. The staging webhook stays enabled. All browsers were closed.
+
+Sheets 5 and 6 are in the evidence folder:
+`5-card-monthly-and-refunds.png` and `6-qrph-season-pass.png`.
+
+## First run verdict (superseded by the rerun above)
 
 **Partial. The paid flows could not run.** Staging has no PayMongo webhook of its own. The only
 test webhook on the PayMongo account points at **pantas-prod**, and prod's functions run with the
