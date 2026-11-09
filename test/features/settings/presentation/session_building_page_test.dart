@@ -26,8 +26,10 @@ void main() {
 
     expect(find.text('One topic only'), findsOneWidget);
     expect(find.text('Grouped by topic, one topic at a time.'), findsOneWidget);
-    expect(find.textContaining('Interleaved tail', findRichText: true),
-        findsOneWidget);
+    expect(
+      find.textContaining('Interleaved tail', findRichText: true),
+      findsOneWidget,
+    );
     expect(
       find.text('Mostly one topic, some others.'),
       findsOneWidget,
