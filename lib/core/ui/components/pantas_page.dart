@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/onboarding_frame.dart';
+import 'package:pantas/core/ui/components/page_title.dart';
 import 'package:pantas/core/ui/components/tab_bar_visibility.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -198,7 +199,11 @@ class PantasPage extends StatelessWidget {
 
   Widget heading(BuildContext context) => Padding(
         padding: titlePadding,
-        child: Text(title, style: titleStyle ?? context.type.largeTitle),
+        child: PantasTitle(
+          title,
+          style: titleStyle ?? context.type.largeTitle,
+          narrowRule: titleStyle == null,
+        ),
       );
 
   @override
@@ -242,8 +247,9 @@ class PantasPage extends StatelessWidget {
                       child: Semantics(
                         header: true,
                         liveRegion: true,
-                        child: Text(
+                        child: PantasTitle(
                           title,
+                          narrowRule: false,
                           style: settingsPicker
                               ? context.type.pageTitleCompact
                                   .copyWith(height: 1.2)

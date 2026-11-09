@@ -9,6 +9,7 @@ import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/domain/exam_date.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/time/pantas_dates.dart';
+import 'package:pantas/core/ui/components/page_title.dart';
 import 'package:pantas/core/ui/components/pantas_tooltip.dart';
 import 'package:pantas/core/ui/components/progress_ring.dart';
 import 'package:pantas/core/ui/components/week_strip.dart';
@@ -232,7 +233,7 @@ class HomeMasthead extends ConsumerWidget {
         if (notice != null) notice!,
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: PantasSpace.s4),
-          child: Text(
+          child: PantasTitle(
             greeting ?? greetingFor(now, AppLocalizations.of(context)),
             style: context.type.largeTitle,
           ),

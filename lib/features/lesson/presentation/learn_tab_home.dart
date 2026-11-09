@@ -7,6 +7,7 @@ import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
+import 'package:pantas/core/ui/components/page_title.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/components/pantas_sheet.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
@@ -192,7 +193,7 @@ class _StudyTabHomeState extends ConsumerState<StudyTabHome> {
                 Padding(
                   padding:
                       const EdgeInsets.symmetric(horizontal: PantasSpace.s20),
-                  child: Text('Study', style: context.type.largeTitle),
+                  child: PantasTitle('Study', style: context.type.largeTitle),
                 ),
               if (loading) const SizedBox(height: PantasSpace.s24),
               Expanded(
