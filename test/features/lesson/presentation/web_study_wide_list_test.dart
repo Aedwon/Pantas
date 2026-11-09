@@ -380,14 +380,11 @@ void main() {
         expect(tester.getSize(right), Size(column, 36));
         expect(tester.getTopLeft(right).dx - tester.getTopRight(left).dx, 24);
         expect(tester.getTopLeft(right).dy, tester.getTopLeft(left).dy);
-        final header = tester.getRect(
-          find.ancestor(
-            of: find.text('See all'),
-            matching: find.byType(WebTextLink),
-          ),
-        );
+        // The header line is 20 px tall and starts 20 px under the card.
+        // Measured from that line, not the link's text box, whose height
+        // differs by platform.
         expect(
-          tester.getTopLeft(left).dy - header.bottom,
+          tester.getTopLeft(left).dy - (card.bottom + 20 + 20),
           closeTo(4, 0.01),
         );
         // The columns of the bookmarks line up with the subjects below.
