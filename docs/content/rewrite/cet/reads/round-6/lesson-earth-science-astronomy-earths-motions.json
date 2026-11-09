@@ -1,0 +1,16 @@
+{
+  "lesson": "lesson-earth-science-astronomy-earths-motions",
+  "round": 6,
+  "reader": "opus",
+  "verdict": "minor",
+  "findings": [
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "Earth's rotation makes the stars seem to circle around them. Precession, below, explains more.",
+      "problem": "The round-6 fix added the south celestial pole sentence to the celestial-pole paragraph, which now has four sentences ('The **north celestial pole** is ...', 'The **south celestial pole** is ...', this one, and 'Precession, below, explains more.'). The limit is one to three short sentences. The round-6 split of the two paragraphs round 5 named is otherwise done.",
+      "source": "Checklist L22a; LSG: Formatting rules"
+    }
+  ],
+  "goodQuotesChecked": 1
+}

@@ -67,3 +67,19 @@ One subagent at a time. The fixer changes only its lesson files. No question fil
 - work-energy-power: minor. Static friction now does zero work "if" the gripping surface is at rest (a sufficient condition, no "only if"); the speed-drop sentence is scoped to a throw straight up; "smooth" is defined in Example 4. Open Minor: long paragraphs.
 - pulleys-and-levers: clean. MA as a distance ratio now measures each distance along its force, and the arm ratio is stated for forces at right angles to the bar; Examples 6 and 9 state a horizontal lever and a straight-down load.
 - structural-stability: minor. Even spreading is "one case" that puts the center of gravity at the middle, with the dumbbell as another; the heavier-object rule carries "if the mass is spread the same way"; the lever arm is in meters and torque in newton-meters; weight is defined as a force in newtons; the Example 9 trucks now share one base width. Open Minors: four-sentence paragraphs; the reader noted that "The unit m/s^2 means ..." describes the value of g, not the unit (sent to the next fixer as a one-sentence fix). 3,205 words, split candidate.
+
+### Mathematics and earth science (November 9)
+
+- Fixer (Sonnet) read every required file. The lead sent back two points in earths-motions: a duplicate ILLUSTRATION marker, and "do not follow this rule" (unlimited; from the equator a near-pole constellation does follow it), now "can break this rule".
+- triangles: clean. Triples shortcut now requires the sides to match the triple in their roles; Example 5 asks for "all possible measures" and its figure, like Example 7's, now sits after the solution; the proof states the four triangles are congruent by SAS.
+- functions-and-relations: clean. Range of a parabola on all real numbers taught by the sign of $a$, with a worked line; Example 7 names the Polynomials and Quadratic Equations lessons.
+- earths-motions: minor. The six-months rule is scoped to constellations near the Sun's yearly path; both celestial poles are named. The FIGURE marker whose renderer prints "a few extra degrees" was removed; the existing ILLUSTRATION marker beside it ("about 1 degree") now describes the figure alone. Open Minor: a four-sentence paragraph. 3,014 words, split candidate.
+- structural-stability: one sentence changed after its read, at the reader's note: "The value $g = 9.8$ m/s$^2$ means ...". Lead-checked, no further read.
+
+### Figure phase follow-up
+
+Removing the earths-motions sidereal-day FIGURE takes away a drawn figure that was approved on August 25 (`docs/content/illustrations/review.json`, `earths-motions#4`). The renderer requires the label "a few extra degrees", and changing it is app code. Until the figure phase redraws it, the lesson shows no drawing there. The illustration check (`check_lesson_illustrations.py --phase review-ready`) already failed on the branch before round 6 (323 errors, from the rewrite's new markers); round 6 adds one ("expected 4 code FIGURE markers, found 3").
+
+### Round 6 result
+
+All 12 open lessons closed: 6 clean (characteristics-of-life, evolution, meiosis-and-genetic-variation, pulleys-and-levers, triangles, functions-and-relations) and 6 minor. Counts: 77 lessons, 17 clean, 60 minor, 0 open. 12 reads, 4 fixer runs, one subagent at a time.

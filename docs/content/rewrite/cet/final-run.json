@@ -63,7 +63,7 @@
     "lessonPath": "content/lessons/mathematics/geometry/triangles.md",
     "lessonId": "lesson-geometry-triangles",
     "group": "mathematics",
-    "status": "open"
+    "status": "clean"
   },
   {
     "lessonPath": "content/lessons/mathematics/geometry/circles.md",
@@ -231,7 +231,7 @@
     "lessonPath": "content/lessons/science/earth-science-astronomy/earths-motions.md",
     "lessonId": "lesson-earth-science-astronomy-earths-motions",
     "group": "science",
-    "status": "open"
+    "status": "minor"
   },
   {
     "lessonPath": "content/lessons/science/earth-science-astronomy/earths-subsystems.md",
@@ -373,7 +373,7 @@
     "lessonPath": "content/lessons/mathematics/algebra/functions-and-relations.md",
     "lessonId": "lesson-algebra-functions-and-relations",
     "group": "mathematics",
-    "status": "open"
+    "status": "clean"
   },
   {
     "lessonPath": "content/lessons/mathematics/algebra/radicals-and-rationalization.md",
