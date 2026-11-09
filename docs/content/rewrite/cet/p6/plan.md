@@ -36,7 +36,7 @@ November 9, 2026. Policy read from origin/main 1f6907c80. Spec: `docs/superpower
 ## Result (November 9)
 
 - Five Sonnet drafts, one at a time. Merged into the content files as additions only: the 90 CSE entries and 116 existing CSE tags are unchanged (diff shows only the two `rule` lines changed, to record the CET drafting).
-- 77 CET lessons now have entries: 91 links, 8 required and 83 helpful. 27 lessons need no link.
+- 77 CET lessons now have entries: 91 links, 8 required and 83 helpful. 18 lessons need no link.
 - Required links, each checked by the lead against both lessons' text: friction-tension-and-inclines -> dynamics; mirrors-and-lenses -> light-and-optics; interference-diffraction-and-doppler -> waves-and-sound; stoichiometry -> mole-concept; meiosis-and-genetic-variation -> cellular-reproduction; human-body-control-movement-and-defense -> human-anatomy-physiology; laws-of-sines-and-cosines -> basic-trigonometric-ratios; trigonometric-identities -> basic-trigonometric-ratios. Most audit links became helpful because the rewrites now explain the idea locally.
 - Gap tags: 105 drafted, 102 kept. Lead dropped the three acids-bases-ph tags (factor of 10 per pH step), because that lesson teaches the idea itself. Lead sampled the borderline tags (text types, solving right triangles, unit circle, circles); each matches a gap the target lesson teaches.
 - `check_cet_links.rb`: no new errors. The only errors are the 3 known CSE `rc-cs-ct-0005` ones. No cycles; no required link leaves an exam.
