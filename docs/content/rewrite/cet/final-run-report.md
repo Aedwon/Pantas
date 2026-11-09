@@ -311,3 +311,22 @@ Branch `content/cet-finish-r1` from `content/cet-rewrite-r1` at 29fae75fd. Aedwo
 - P7 mock data: no change on this branch. The UPCAT blueprint already says its items and minutes are reported, not published. The ACET blueprint is on the staging lineage only, with a placeholder aptitude time, and after P4 its verbal logic topic has 20 questions for 45 slots. DLSU publishes no DCAT format and UST publishes no USTET items, so no DCAT or USTET blueprint was written. These go on the final list.
 - P8 Astra: started. Plan and cost ruling: `astra/plan.md`.
 - Final-list item found by the checker: CSE question `rc-cs-ct-0005` (choosing-a-title) has three gap tags whose choice texts no longer match any choice. CSE data, not changed here.
+
+## Update, November 9: CET content paused
+
+Aedwon, through the manager: CET content is paused and moved to the end of the queue. Stopped at a clean point; nothing is running.
+
+State:
+- Lessons: 77; 17 clean, 60 minor, 0 open. Round 6 is complete.
+- Exam tags (P4): applied November 5, re-checked November 9 (86 of 86 files match).
+- Question check (P5): complete for CET-only files; the four open notes are closed. 41 CSE-shared files still wait for CSE sign-off.
+- Roadmap inputs (P6): complete.
+- Mock data (P7): no change possible on this branch; three items on the final list.
+- Astra (P8): stage 1 done and fixed (16 lessons incl. the cost test; 20 fixes, independent check passed). 61 lessons not audited.
+- Figures: not started. One pilot brief written (`figure-briefs/mathematics__algebra__functions-and-relations.md`); no SVG drawn.
+
+Resume here, in order:
+1. Refresh policy from main; `codex-pick --status`. Weekly Codex quota resets November 11 at 20:49.
+2. Astra stage 2: `astra/loop.sh` over the 61 lessons not in `astra/results/` (start with parallel-perpendicular-lines and measures-of-variability), keeping total room above the floor. Lead rules each finding (`stage1-rulings.md` bar), Sonnet fixes, independent Opus check.
+3. Figures: about 194 ILLUSTRATION markers in the 77 lessons, plus the earths-motions sidereal-day figure removed in round 6. Run the pilot (2 figures, brief above) first to measure cost. SVG checker: `tools/check_lesson_svgs.py` on `origin/web/lesson-svg-r1`.
+4. P9 review package for Aedwon.

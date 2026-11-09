@@ -23,3 +23,4 @@ November 9, 2026. Policy read from origin/main 1f6907c80. Spec P8: every Blocker
 - Lead rulings (`stage1-rulings.md`): 13 upheld, 7 downgraded to Minor but fixed with one hedge, 4 downgraded with no change. Most upheld findings were narrow general statements the reads had missed (SSA equal-sides case with an obtuse angle, formal charge with an unpaired electron, pulley effort only at steady speed, energy rising "unless" energy leaves).
 - Fixes: Sonnet (64b34ea15); independent Opus check failed 3 of 20, all corrected (c791fbbab) and passed on recheck.
 - Stage 1 is a risk set, not a random sample, so it gives no error rate for the corpus. Stage 2 (60 lessons) runs after the November 11 reset.
+- Paused November 9 at Aedwon's request (through the manager). 61 lessons not yet audited; resume with `loop.sh` on a list of the lessons missing from `results/`.
