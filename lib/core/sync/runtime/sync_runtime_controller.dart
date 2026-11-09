@@ -12,6 +12,7 @@ import 'package:pantas/core/sync/engine/sync_held_generation.dart';
 import 'package:pantas/core/sync/engine/sync_meaningful_progress.dart';
 import 'package:pantas/core/sync/sync_coordinator.dart';
 import 'package:pantas/core/sync/sync_status.dart';
+import 'package:pantas/core/telemetry/client_report.dart';
 
 typedef GenerationRepositoryFactory = GenerationRepository Function(String uid);
 
@@ -61,7 +62,9 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
     required SyncCoordinator coordinator,
     required SyncRuntimeEngine engine,
     Stream<SyncRuntimeEvent>? runtimeEvents,
+    DateTime Function()? now,
   })  : _db = db,
+        _now = now ?? DateTime.now,
         _claimGateway = claimGateway,
         _activeContextStore = activeContextStore,
         _generationRepositoryForUid = generationRepositoryForUid,
@@ -70,7 +73,11 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
     _runtimeEventSubscription = runtimeEvents?.listen(_handleRuntimeEvent);
   }
 
+  /// Prefix of the sync_meta key that holds an account's last backup time.
+  static const lastBackupKeyPrefix = 'last_backup_at:';
+
   final AppDatabase _db;
+  final DateTime Function() _now;
   final SyncClaimGateway _claimGateway;
   final SyncActiveContextStore _activeContextStore;
   final GenerationRepositoryFactory _generationRepositoryForUid;
@@ -613,6 +620,7 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
     final pending = await _db.select(_db.pendingSync).get();
     final failed = pending.where((row) => row.lastError != null).toList();
     if (failed.isNotEmpty) {
+      await _reportFailedRows(failed);
       return SyncError(message: failed.first.lastError);
     }
     final journal = await _db
@@ -633,7 +641,27 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
         markers.isNotEmpty) {
       return Syncing(pendingCount: pending.length);
     }
-    return const SyncUpToDate();
+    return SyncUpToDate(lastSyncedAt: await _settledAt());
+  }
+
+  /// When this account's backup last finished. A settle that follows backing
+  /// up records the current time; a settle with nothing new keeps the time
+  /// already stored. Null until a device's first backup records one.
+  Future<DateTime?> _settledAt() async {
+    final context = await _activeContextStore.readStable();
+    if (context == null) return null;
+    final key = '$lastBackupKeyPrefix${context.uid}';
+    if (_status is Syncing || _status is SyncActivating) {
+      final now = _now().toUtc();
+      await _db.into(_db.syncMeta).insertOnConflictUpdate(
+            SyncMetaCompanion.insert(key: key, value: now.toIso8601String()),
+          );
+      return now;
+    }
+    final row = await (_db.select(_db.syncMeta)
+          ..where((meta) => meta.key.equals(key)))
+        .getSingleOrNull();
+    return row == null ? null : DateTime.tryParse(row.value);
   }
 
   Future<void> _enqueue(Future<void> Function() operation) {
@@ -646,6 +674,30 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
   }
 
   bool _isCurrent(int token) => token == _transitionToken;
+
+  /// Sends a short summary of rows that keep failing to the web error
+  /// report, so a stuck backup can be traced. Rows held for another account
+  /// or another backup cannot be pushed by this one, so they are counted
+  /// apart.
+  Future<void> _reportFailedRows(List<PendingSyncRow> failed) async {
+    final reporter = ClientReporter.active;
+    if (reporter == null) return;
+    final active = await _activeContextStore.readStable();
+    final summary = <String, int>{};
+    for (final row in failed) {
+      final own = active != null &&
+          row.uid == active.uid &&
+          row.generationId == active.generationId;
+      final key = '${own ? 'current' : 'other'} ${row.tableType} '
+          '${row.lastError}';
+      summary[key] = (summary[key] ?? 0) + 1;
+    }
+    final text = summary.entries.map((e) => '${e.key} x${e.value}').join('; ');
+    reporter.recordError(
+      StateError('Backup rows failing: $text'),
+      StackTrace.empty,
+    );
+  }
 
   void _emit(SyncStatus status) {
     _status = status;

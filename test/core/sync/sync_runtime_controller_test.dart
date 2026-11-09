@@ -20,6 +20,7 @@ import 'package:pantas/core/sync/model/sync_document.dart';
 import 'package:pantas/core/sync/runtime/sync_runtime_controller.dart';
 import 'package:pantas/core/sync/sync_coordinator.dart';
 import 'package:pantas/core/sync/sync_status.dart';
+import 'package:pantas/core/telemetry/client_report.dart';
 
 import '../../helpers/in_memory_database.dart';
 
@@ -1016,6 +1017,77 @@ void main() {
     expect(h.runtime.status, isA<SyncError>());
     expect((h.runtime.status as SyncError).message, 'push failed');
   });
+
+  test('a settle after backing up records the backup time', () async {
+    final h = _Harness();
+    addTearDown(h.close);
+    await h.seedUnsettled('outbox');
+    await h.runtime.update(
+      identity: const SyncIdentity(uid: 'user-1'),
+      entitlement: SyncEntitlement.pro,
+    );
+    expect(h.runtime.status, isA<Syncing>());
+    await h.db.delete(h.db.pendingSync).go();
+    await h.db.customStatement('delete from sync_local_mutations');
+    await h.runtime.update(
+      identity: const SyncIdentity(uid: 'user-1'),
+      entitlement: SyncEntitlement.pro,
+    );
+    final status = h.runtime.status;
+    expect(status, isA<SyncUpToDate>());
+    expect((status as SyncUpToDate).lastSyncedAt, isNotNull);
+  });
+
+  test('failed rows are summarized in the web error report', () async {
+    final sender = _ReportSender();
+    final reporter = ClientReporter(
+      sender: sender,
+      context: () => const ClientReportContext(
+        build: 'b',
+        visit: 'return',
+        browser: 'chrome',
+        mobile: false,
+        viewportWidth: 1200,
+      ),
+      timings: () => const [],
+    );
+    ClientReporter.active = reporter;
+    addTearDown(() {
+      ClientReporter.active = null;
+      reporter.dispose();
+    });
+    final h = _Harness();
+    addTearDown(h.close);
+    await h.db.into(h.db.pendingSync).insert(
+          PendingSyncCompanion.insert(
+            uid: const Value('old-user'),
+            generationId: const Value('old-gen'),
+            tableType: 'lesson_progress',
+            rowId: 'failed-outbox',
+            op: 'upsert',
+            queuedAt: DateTime.utc(2026, 8, 30),
+            lastError: const Value('permission-denied'),
+          ),
+        );
+
+    await h.runtime.update(
+      identity: const SyncIdentity(uid: 'user-1'),
+      entitlement: SyncEntitlement.pro,
+    );
+    reporter
+      ..splashGone()
+      ..firstScreenSettled();
+    await pumpEventQueue();
+
+    final errors = sender.sent.single['errors']! as List<Object?>;
+    expect(
+      errors.map((e) => (e! as Map)['msg']),
+      contains(
+        'Bad state: Backup rows failing: '
+        'other lesson_progress permission-denied x1',
+      ),
+    );
+  });
 }
 
 class _Harness {
@@ -1342,4 +1414,11 @@ class _BootstrapTimer implements Timer {
     tick = 1;
     callback();
   }
+}
+
+class _ReportSender implements ClientReportSender {
+  final sent = <Map<String, Object?>>[];
+
+  @override
+  Future<void> send(Map<String, Object?> payload) async => sent.add(payload);
 }
