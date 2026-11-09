@@ -647,11 +647,15 @@ class _CreateAccountButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => context.wideWeb
-      ? WebButton(
-          label: 'Create Free Account',
-          onPressed: onPressed,
-          size: PantasButtonSize.lg,
-          expand: true,
+      // No full-width buttons on wide screens (HANDOFF hard rule, Button
+      // README): the button keeps its natural width.
+      ? Align(
+          alignment: Alignment.centerLeft,
+          child: WebButton(
+            label: 'Create Free Account',
+            onPressed: onPressed,
+            size: PantasButtonSize.lg,
+          ),
         )
       : PantasButton(
           label: 'Create Free Account',
