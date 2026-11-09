@@ -1,0 +1,308 @@
+{
+  "links": {
+    "lesson-geometry-triangles": [
+      {
+        "lesson": "lesson-geometry-basic-geometric-concepts",
+        "strength": "helpful",
+        "reason": "Angle names, linear pairs, midpoints and the supplementary and complementary sums make the angle examples easier. This lesson restates vertical angles and the 180-degree triangle sum."
+      }
+    ],
+    "lesson-geometry-circles": [
+      {
+        "lesson": "lesson-geometry-triangles",
+        "strength": "helpful",
+        "reason": "The tangent, chord and semicircle examples use the Pythagorean theorem and the 30-60-90 triangle, and this lesson restates the theorem but not the special triangle."
+      }
+    ],
+    "lesson-algebra-quadratic-equations": [
+      {
+        "lesson": "lesson-algebra-polynomials",
+        "strength": "helpful",
+        "reason": "Factoring and the difference of squares are easier with prior practice. This lesson shows the factoring steps it uses."
+      },
+      {
+        "lesson": "lesson-algebra-linear-equations-inequalities",
+        "strength": "helpful",
+        "reason": "Solving the linear factors and keeping the inequality direction are easier with prior practice. This lesson works each step in its examples."
+      }
+    ],
+    "lesson-algebra-functions-and-relations": [
+      {
+        "lesson": "lesson-algebra-polynomials",
+        "strength": "helpful",
+        "reason": "The domain example needs factoring a difference of two squares. This lesson names the Polynomials lesson for it and shows the factored form."
+      },
+      {
+        "lesson": "lesson-algebra-quadratic-equations",
+        "strength": "helpful",
+        "reason": "The domain of a composition example needs a quadratic inequality. This lesson names the Quadratic Equations lesson for it and gives a short sign argument."
+      },
+      {
+        "lesson": "lesson-algebra-linear-equations-inequalities",
+        "strength": "helpful",
+        "reason": "Finding an inverse means solving a linear equation for y, and domains need inequality solving. This lesson shows each step."
+      },
+      {
+        "lesson": "lesson-algebra-exponents-and-logarithms",
+        "strength": "helpful",
+        "reason": "The domain rules name logarithms without teaching them. The lesson only lists the restriction, so the Exponents and Logarithms lesson explains the idea."
+      }
+    ],
+    "lesson-algebra-radicals-and-rationalization": [
+      {
+        "lesson": "lesson-algebra-quadratic-equations",
+        "strength": "helpful",
+        "reason": "The radical equation examples factor trinomials such as m squared minus 6m minus 7. This lesson shows that one factoring and names the Quadratic Equations lesson for the full method."
+      },
+      {
+        "lesson": "lesson-algebra-exponents-and-logarithms",
+        "strength": "helpful",
+        "reason": "Rational exponents and powers of variables under a root build on exponent rules. This lesson states the root-to-exponent conversion it needs."
+      }
+    ],
+    "lesson-algebra-sets-and-set-notation": [],
+    "lesson-algebra-systems-of-equations": [
+      {
+        "lesson": "lesson-algebra-linear-equations-inequalities",
+        "strength": "helpful",
+        "reason": "Solving the one-variable equation after substitution, and graphing lines with slope and intercept, are covered in the Linear Equations lesson. This lesson shows the steps it uses."
+      },
+      {
+        "lesson": "lesson-algebra-quadratic-equations",
+        "strength": "helpful",
+        "reason": "The line-and-parabola examples need factoring a quadratic. This lesson factors it in the worked step and names the Quadratic Equations lesson for the full method."
+      }
+    ],
+    "lesson-geometry-basic-geometric-concepts": [],
+    "lesson-geometry-coordinate-geometry": [
+      {
+        "lesson": "lesson-geometry-triangles",
+        "strength": "helpful",
+        "reason": "The distance formula comes from the Pythagorean theorem. This lesson restates the theorem and shows the right triangle."
+      },
+      {
+        "lesson": "lesson-algebra-linear-equations-inequalities",
+        "strength": "helpful",
+        "reason": "Slope, line forms and perpendicular slopes are also taught in the Linear Equations lesson. This lesson teaches them again from the start."
+      }
+    ],
+    "lesson-geometry-parallel-perpendicular-lines": [
+      {
+        "lesson": "lesson-geometry-basic-geometric-concepts",
+        "strength": "helpful",
+        "reason": "Angle types, complementary and supplementary sums, and bisectors are used in the examples. This lesson defines linear pairs and vertical angles itself."
+      }
+    ],
+    "lesson-geometry-quadrilaterals-and-polygons": [
+      {
+        "lesson": "lesson-geometry-parallel-perpendicular-lines",
+        "strength": "helpful",
+        "reason": "The supplementary angles in a parallelogram or trapezoid come from parallel lines cut by a transversal. This lesson states those facts as properties."
+      },
+      {
+        "lesson": "lesson-geometry-triangles",
+        "strength": "helpful",
+        "reason": "The angle sum formula splits a polygon into triangles, and rhombus and square examples use the Pythagorean theorem. This lesson states both facts."
+      }
+    ],
+    "lesson-statistics-and-probability-combinatorics": [
+      {
+        "lesson": "lesson-algebra-sets-and-set-notation",
+        "strength": "helpful",
+        "reason": "Counting groups that overlap is the same idea as counting a union with a Venn diagram. This lesson explains the subtraction of the overlap."
+      }
+    ],
+    "lesson-statistics-and-probability-measures-of-variability": [
+      {
+        "lesson": "lesson-statistics-and-probability-measures-of-central-tendency",
+        "strength": "helpful",
+        "reason": "Every spread measure here starts from the mean. This lesson defines the mean in its first paragraph."
+      }
+    ],
+    "lesson-trigonometry-basic-trigonometric-ratios": [
+      {
+        "lesson": "lesson-geometry-triangles",
+        "strength": "helpful",
+        "reason": "The ratios rest on right triangles, the Pythagorean theorem, similar triangles and the 45-45-90 and 30-60-90 shapes. This lesson restates each one."
+      },
+      {
+        "lesson": "lesson-algebra-radicals-and-rationalization",
+        "strength": "helpful",
+        "reason": "The special-angle values use square roots and removing a root from a denominator. This lesson shows the one multiplication it needs."
+      }
+    ],
+    "lesson-trigonometry-laws-of-sines-and-cosines": [
+      {
+        "lesson": "lesson-trigonometry-basic-trigonometric-ratios",
+        "strength": "required",
+        "reason": "Both laws use sine and cosine as ratios of sides and the exact values at 30, 45 and 60 degrees, and this lesson only starts from them. The Basic Trigonometric Ratios lesson defines them."
+      },
+      {
+        "lesson": "lesson-geometry-triangles",
+        "strength": "helpful",
+        "reason": "The triangle angle sum, the larger-angle-faces-longer-side fact and the triangle inequality are used throughout. This lesson restates each of them."
+      },
+      {
+        "lesson": "lesson-trigonometry-unit-circle",
+        "strength": "helpful",
+        "reason": "The sign of the cosine of an obtuse angle follows from the unit circle. This lesson states the 180-degree formulas without the picture."
+      }
+    ],
+    "lesson-trigonometry-solving-right-triangles": [
+      {
+        "lesson": "lesson-trigonometry-basic-trigonometric-ratios",
+        "strength": "helpful",
+        "reason": "SOH-CAH-TOA and the special-angle values are used from the start. This lesson restates the three ratios and lists the exact values."
+      }
+    ],
+    "lesson-trigonometry-trigonometric-identities": [
+      {
+        "lesson": "lesson-trigonometry-basic-trigonometric-ratios",
+        "strength": "required",
+        "reason": "The lesson uses sine, cosine and tangent and the exact values at 30 and 45 degrees (Example 9) without defining them. The Basic Trigonometric Ratios lesson teaches both."
+      },
+      {
+        "lesson": "lesson-trigonometry-unit-circle",
+        "strength": "helpful",
+        "reason": "Quadrant signs and the point (cos, sin) on the unit circle explain the identities. This lesson summarizes the quadrant signs and names the Unit Circle lesson for the full picture."
+      }
+    ],
+    "lesson-trigonometry-unit-circle": [
+      {
+        "lesson": "lesson-trigonometry-basic-trigonometric-ratios",
+        "strength": "helpful",
+        "reason": "The unit circle extends right-triangle sine and cosine to all angles. This lesson derives the special values itself."
+      },
+      {
+        "lesson": "lesson-geometry-coordinate-geometry",
+        "strength": "helpful",
+        "reason": "Polar-to-rectangular conversion uses coordinates and the distance formula. This lesson names the distance formula without deriving it."
+      },
+      {
+        "lesson": "lesson-trigonometry-angles-and-radian-measure",
+        "strength": "helpful",
+        "reason": "Radians and degree conversion get a full treatment in the Angles and Radian Measure lesson. This lesson teaches the radian shortcut it needs."
+      }
+    ]
+  },
+  "gapTags": {
+    "q-geometry-parallel-perpendicular-lines-0001": {
+      "$22^\\circ$": "lesson-geometry-basic-geometric-concepts"
+    },
+    "q-geometry-parallel-perpendicular-lines-0002": {
+      "$25^\\circ$": "lesson-geometry-basic-geometric-concepts"
+    },
+    "q-geometry-parallel-perpendicular-lines-0019": {
+      "$2x+30+3x-10=90$": "lesson-geometry-basic-geometric-concepts"
+    },
+    "q-geometry-circles-0005": {
+      "$\\sqrt{194}\\text{ cm}$": "lesson-geometry-triangles",
+      "$18\\text{ cm}$": "lesson-geometry-triangles",
+      "$8\\text{ cm}$": "lesson-geometry-triangles"
+    },
+    "q-geometry-circles-0015": {
+      "$36\\text{ cm}$": "lesson-geometry-triangles"
+    },
+    "q-geometry-coordinate-geometry-0001": {
+      "$14$": "lesson-geometry-triangles"
+    },
+    "q-geometry-coordinate-geometry-0005": {
+      "$-\\dfrac{5}{4}$": "lesson-algebra-linear-equations-inequalities",
+      "$\\dfrac{4}{5}$": "lesson-algebra-linear-equations-inequalities"
+    },
+    "q-geometry-coordinate-geometry-0007": {
+      "$-\\dfrac{3}{4}$": "lesson-algebra-linear-equations-inequalities",
+      "$\\dfrac{4}{3}$": "lesson-algebra-linear-equations-inequalities"
+    },
+    "q-geometry-coordinate-geometry-0019": {
+      "$y=2x$ and $y=-2x$.": "lesson-algebra-linear-equations-inequalities"
+    },
+    "q-algebra-quadratic-equations-0005": {
+      "$x=0\\text{ or }x=-4$": "lesson-algebra-polynomials"
+    },
+    "q-algebra-functions-and-relations-0005": {
+      "$x\\le2$": "lesson-algebra-linear-equations-inequalities"
+    },
+    "q-algebra-functions-and-relations-0013": {
+      "$x\\le-1,\\ x\\ne2$": "lesson-algebra-linear-equations-inequalities"
+    },
+    "q-algebra-functions-and-relations-0009": {
+      "$\\dfrac{5x-3}{2}$": "lesson-algebra-linear-equations-inequalities"
+    },
+    "q-algebra-functions-and-relations-0012": {
+      "$\\dfrac{5}{3}$": "lesson-algebra-linear-equations-inequalities"
+    },
+    "q-algebra-radicals-and-rationalization-0008": {
+      "$6xy^4\\sqrt{2x}$": "lesson-algebra-exponents-and-logarithms"
+    },
+    "q-algebra-systems-of-equations-0002": {
+      "$(3, -2)$": "lesson-algebra-linear-equations-inequalities"
+    },
+    "q-algebra-systems-of-equations-0012": {
+      "$-3$": "lesson-algebra-linear-equations-inequalities"
+    },
+    "q-algebra-systems-of-equations-0019": {
+      "No step is incorrect.": "lesson-algebra-linear-equations-inequalities"
+    },
+    "q-algebra-systems-of-equations-0007": {
+      "$1$": "lesson-algebra-quadratic-equations"
+    },
+    "q-trigonometry-basic-trigonometric-ratios-0004": {
+      "$\\sqrt{194}$": "lesson-geometry-triangles"
+    },
+    "q-trigonometry-basic-trigonometric-ratios-0011": {
+      "$\\dfrac{7}{\\sqrt{2}}$": "lesson-geometry-triangles"
+    },
+    "q-trigonometry-laws-of-sines-and-cosines-0008": {
+      "No step is incorrect.": "lesson-trigonometry-unit-circle"
+    },
+    "q-trigonometry-laws-of-sines-and-cosines-0018": {
+      "The third side is longer in the first triangle.": "lesson-trigonometry-unit-circle"
+    },
+    "q-trigonometry-solving-right-triangles-0001": {
+      "$20\\sqrt{3}$ meters": "lesson-trigonometry-basic-trigonometric-ratios",
+      "$10$ meters": "lesson-trigonometry-basic-trigonometric-ratios"
+    },
+    "q-trigonometry-solving-right-triangles-0006": {
+      "$30^\\circ$": "lesson-trigonometry-basic-trigonometric-ratios"
+    },
+    "q-trigonometry-solving-right-triangles-0008": {
+      "$\\cos 35^\\circ$": "lesson-trigonometry-basic-trigonometric-ratios",
+      "$\\tan 35^\\circ$": "lesson-trigonometry-basic-trigonometric-ratios",
+      "$\\sec 35^\\circ$": "lesson-trigonometry-basic-trigonometric-ratios"
+    },
+    "q-trigonometry-solving-right-triangles-0012": {
+      "$\\dfrac{4}{5}$": "lesson-trigonometry-basic-trigonometric-ratios",
+      "$\\dfrac{3}{4}$": "lesson-trigonometry-basic-trigonometric-ratios"
+    },
+    "q-trigonometry-solving-right-triangles-0018": {
+      "$10(\\sqrt{3}-1)$ m": "lesson-trigonometry-basic-trigonometric-ratios"
+    },
+    "q-trigonometry-trigonometric-identities-0001": {
+      "$\\sec \\theta = \\dfrac{1}{\\tan \\theta}$": "lesson-trigonometry-basic-trigonometric-ratios",
+      "$\\cot \\theta = \\dfrac{1}{\\csc \\theta}$": "lesson-trigonometry-basic-trigonometric-ratios"
+    },
+    "q-trigonometry-trigonometric-identities-0003": {
+      "$-\\dfrac{4}{5}$": "lesson-trigonometry-unit-circle"
+    },
+    "q-trigonometry-trigonometric-identities-0008": {
+      "No step is wrong.": "lesson-trigonometry-unit-circle"
+    },
+    "q-trigonometry-trigonometric-identities-0012": {
+      "$-\\sqrt{5}$": "lesson-trigonometry-unit-circle"
+    },
+    "q-trigonometry-trigonometric-identities-0020": {
+      "$\\dfrac{5}{3}$": "lesson-trigonometry-unit-circle"
+    },
+    "q-trigonometry-unit-circle-0001": {
+      "$\\dfrac{\\sqrt{3}}{2}$": "lesson-trigonometry-basic-trigonometric-ratios"
+    },
+    "q-trigonometry-unit-circle-0002": {
+      "$\\dfrac{1}{2}$": "lesson-trigonometry-basic-trigonometric-ratios",
+      "$\\dfrac{\\sqrt{2}}{2}$": "lesson-trigonometry-basic-trigonometric-ratios"
+    },
+    "q-trigonometry-unit-circle-0017": {
+      "$-\\dfrac{3}{4}$": "lesson-trigonometry-basic-trigonometric-ratios"
+    }
+  }
+}

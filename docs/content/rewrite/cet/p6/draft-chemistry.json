@@ -1,0 +1,136 @@
+{
+  "links": {
+    "lesson-chemistry-stoichiometry": [
+      {
+        "lesson": "lesson-chemistry-mole-concept",
+        "strength": "required",
+        "reason": "This lesson uses moles, molar mass and the mass-to-moles step in every example, and only the mole concept lesson teaches what a mole is and how to find molar mass."
+      },
+      {
+        "lesson": "lesson-chemistry-chemical-reactions",
+        "strength": "helpful",
+        "reason": "Mole ratios come from a balanced equation, and that lesson teaches how to balance one. This lesson gives each balanced equation it uses."
+      }
+    ],
+    "lesson-chemistry-chemical-bonding": [
+      {
+        "lesson": "lesson-chemistry-atomic-structure",
+        "strength": "helpful",
+        "reason": "Valence electrons, cations and anions are taught there in full. This lesson restates each one where it uses it."
+      },
+      {
+        "lesson": "lesson-chemistry-periodic-table",
+        "strength": "helpful",
+        "reason": "Electronegativity and its trend across the table are taught there with the reasons. This lesson defines electronegativity and gives the values it needs."
+      }
+    ],
+    "lesson-chemistry-acids-bases-ph": [
+      {
+        "lesson": "lesson-algebra-exponents-and-logarithms",
+        "strength": "helpful",
+        "reason": "The pH formula uses a base-10 logarithm. This lesson explains it as the power of 10 and only needs whole-number powers."
+      },
+      {
+        "lesson": "lesson-chemistry-solutions",
+        "strength": "helpful",
+        "reason": "Molarity, in moles per liter, is taught there in full. This lesson states what the unit M means before using it."
+      }
+    ],
+    "lesson-chemistry-atomic-structure": [],
+    "lesson-chemistry-basic-organic-chemistry": [
+      {
+        "lesson": "lesson-chemistry-chemical-bonding",
+        "strength": "helpful",
+        "reason": "Covalent bonds, polar bonds and hydrogen bonds are taught there in full. This lesson defines each one briefly before using it."
+      }
+    ],
+    "lesson-chemistry-chemical-reactions": [
+      {
+        "lesson": "lesson-chemistry-acids-bases-ph",
+        "strength": "helpful",
+        "reason": "The lesson points to acids and bases for neutralization. It names water formation as a driving force without needing the pH ideas."
+      }
+    ],
+    "lesson-chemistry-gas-laws": [
+      {
+        "lesson": "lesson-chemistry-mole-concept",
+        "strength": "helpful",
+        "reason": "The mole and molar mass are taught there in full. This lesson defines the mole briefly and gives each molar mass it needs."
+      }
+    ],
+    "lesson-chemistry-history-of-the-atom": [
+      {
+        "lesson": "lesson-chemistry-atomic-structure",
+        "strength": "helpful",
+        "reason": "Protons, neutrons, isotopes and average atomic mass are taught there in full. This lesson explains each one briefly for the history."
+      }
+    ],
+    "lesson-chemistry-matter": [],
+    "lesson-chemistry-mixtures-and-separation": [
+      {
+        "lesson": "lesson-chemistry-matter",
+        "strength": "helpful",
+        "reason": "Pure substances, compounds, mixtures and physical separation are introduced there. This lesson defines each one again before it uses it."
+      }
+    ],
+    "lesson-chemistry-mole-concept": [],
+    "lesson-chemistry-nuclear-chemistry": [
+      {
+        "lesson": "lesson-chemistry-atomic-structure",
+        "strength": "helpful",
+        "reason": "The lesson tells the student to review protons and neutrons there. It restates atomic number, mass number and isotopes before using them."
+      }
+    ],
+    "lesson-chemistry-periodic-table": [
+      {
+        "lesson": "lesson-chemistry-atomic-structure",
+        "strength": "helpful",
+        "reason": "Atomic number, protons and ions are taught there in full. This lesson defines atomic number and cations and anions itself."
+      },
+      {
+        "lesson": "lesson-chemistry-quantum-numbers-electron-configuration",
+        "strength": "helpful",
+        "reason": "Shells, subshells and orbitals are taught there in full. This lesson gives a short definition of each and points to that lesson."
+      }
+    ],
+    "lesson-chemistry-solutions": [
+      {
+        "lesson": "lesson-chemistry-mole-concept",
+        "strength": "helpful",
+        "reason": "The mole and molar mass are taught there in full. This lesson has a short section that defines both and shows grams to moles."
+      }
+    ],
+    "lesson-chemistry-thermodynamics-and-kinetics": [
+      {
+        "lesson": "lesson-chemistry-chemical-reactions",
+        "strength": "helpful",
+        "reason": "Reversible equations and coefficients, which set the exponents in K, are easier after balancing. This lesson does not teach balancing."
+      },
+      {
+        "lesson": "lesson-chemistry-solutions",
+        "strength": "helpful",
+        "reason": "Concentration in moles per liter drives the rate law and K. This lesson states that M means mol/L and does not teach molarity."
+      }
+    ]
+  },
+  "gapTags": {
+    "q-chemistry-solutions-0012": {
+      "29.25 M": "lesson-chemistry-mole-concept"
+    },
+    "q-chemistry-stoichiometry-0015": {
+      "Compare gram masses, choose smaller.": "lesson-chemistry-mole-concept"
+    },
+    "q-chemistry-periodic-table-0018": {
+      "Helium has eight electrons in a $1s^8$ configuration.": "lesson-chemistry-quantum-numbers-electron-configuration"
+    },
+    "q-chemistry-acids-bases-ph-0004": {
+      "A has 2 times B’s hydronium level.": "lesson-algebra-exponents-and-logarithms"
+    },
+    "q-chemistry-acids-bases-ph-0015": {
+      "1,000,000 units": "lesson-algebra-exponents-and-logarithms"
+    },
+    "q-chemistry-acids-bases-ph-0020": {
+      "It falls by 10 units.": "lesson-algebra-exponents-and-logarithms"
+    }
+  }
+}

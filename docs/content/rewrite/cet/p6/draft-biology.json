@@ -1,0 +1,122 @@
+{
+  "links": {
+    "lesson-biology-genetics-and-heredity": [
+      {
+        "lesson": "lesson-biology-meiosis-and-genetic-variation",
+        "strength": "helpful",
+        "reason": "The Law of Segregation describes how alleles separate into gametes, and the meiosis lesson shows the chromosome movements that cause it."
+      }
+    ],
+    "lesson-biology-cell-biology": [],
+    "lesson-biology-botany": [
+      {
+        "lesson": "lesson-biology-cellular-metabolism",
+        "strength": "helpful",
+        "reason": "Phloem moves the sugar that photosynthesis makes, and the metabolism lesson explains photosynthesis in full."
+      }
+    ],
+    "lesson-biology-cellular-metabolism": [
+      {
+        "lesson": "lesson-biology-cell-biology",
+        "strength": "helpful",
+        "reason": "Photosynthesis happens in chloroplasts and membranes, and the cell biology lesson describes these organelles and what they do."
+      }
+    ],
+    "lesson-biology-cellular-respiration-and-fermentation": [
+      {
+        "lesson": "lesson-biology-cellular-metabolism",
+        "strength": "helpful",
+        "reason": "This lesson defines ATP, glucose and enzymes itself, but the metabolism lesson gives the photosynthesis side of the comparison and more on enzymes."
+      },
+      {
+        "lesson": "lesson-biology-cell-biology",
+        "strength": "helpful",
+        "reason": "The location of each stage depends on the mitochondrion and cytosol, which the cell biology lesson describes."
+      }
+    ],
+    "lesson-biology-cellular-reproduction": [],
+    "lesson-biology-meiosis-and-genetic-variation": [
+      {
+        "lesson": "lesson-biology-cellular-reproduction",
+        "strength": "required",
+        "reason": "Meiosis uses homologs, sister chromatids, centromeres, haploid and diploid, and mitosis for comparison, and only the cellular reproduction lesson teaches them."
+      }
+    ],
+    "lesson-biology-characteristics-of-life": [
+      {
+        "lesson": "lesson-biology-cell-biology",
+        "strength": "helpful",
+        "reason": "The first property says all life is made of cells, and the cell biology lesson shows what a cell contains and how it works."
+      }
+    ],
+    "lesson-biology-evolution": [
+      {
+        "lesson": "lesson-biology-genetics-and-heredity",
+        "strength": "helpful",
+        "reason": "This lesson defines genes, alleles and gametes itself and only points to the genetics lesson for how inheritance works in full."
+      }
+    ],
+    "lesson-biology-human-anatomy-physiology": [
+      {
+        "lesson": "lesson-biology-cell-biology",
+        "strength": "helpful",
+        "reason": "Gas exchange and reabsorption in the kidney depend on diffusion and membranes, which the cell biology lesson explains."
+      }
+    ],
+    "lesson-biology-human-body-control-movement-and-defense": [
+      {
+        "lesson": "lesson-biology-human-anatomy-physiology",
+        "strength": "required",
+        "reason": "The systems-working-together section and example use the digestive, respiratory, circulatory and urinary systems and blood transport, and this lesson does not teach them."
+      },
+      {
+        "lesson": "lesson-biology-cellular-reproduction",
+        "strength": "helpful",
+        "reason": "The reproductive section uses chromosome numbers, but it also explains that gametes have half the chromosomes, so the lesson is only a help."
+      }
+    ],
+    "lesson-biology-taxonomy-and-classification": [
+      {
+        "lesson": "lesson-biology-cell-biology",
+        "strength": "helpful",
+        "reason": "Classifying by nucleus and cell wall is easier after the cell biology lesson shows what these parts are."
+      }
+    ]
+  },
+  "gapTags": {
+    "q-biology-cellular-reproduction-0003": {
+      "2 nuclei, 46 chromosomes each": "lesson-biology-cellular-reproduction"
+    },
+    "q-biology-cellular-reproduction-0002": {
+      "Mitosis": "lesson-biology-cellular-reproduction"
+    },
+    "q-biology-meiosis-and-genetic-variation-0006": {
+      "Metaphase of mitosis": "lesson-biology-cellular-reproduction"
+    },
+    "q-biology-human-anatomy-physiology-0013": {
+      "Bile; digestive enzymes": "lesson-biology-human-anatomy-physiology",
+      "Bile; stored urine": "lesson-biology-human-anatomy-physiology"
+    },
+    "q-biology-cellular-metabolism-0012": {
+      "They use the same reaction sequence in opposite directions.": "lesson-biology-cellular-metabolism"
+    },
+    "q-biology-cellular-metabolism-0019": {
+      "It captures sunlight to make new glucose for glycolysis.": "lesson-biology-cellular-metabolism"
+    },
+    "q-biology-cellular-metabolism-0018": {
+      "Light-dependent reactions continue; aerobic respiration must stop.": "lesson-biology-cellular-metabolism"
+    },
+    "q-biology-cellular-metabolism-0004": {
+      "Rough endoplasmic reticulum": "lesson-biology-cell-biology",
+      "Nucleus": "lesson-biology-cell-biology"
+    },
+    "q-biology-cellular-metabolism-0003": {
+      "Mitochondrion": "lesson-biology-cell-biology",
+      "Nucleus": "lesson-biology-cell-biology",
+      "Ribosome": "lesson-biology-cell-biology"
+    },
+    "q-biology-genetics-and-heredity-0014": {
+      "Their location removes one allele during fertilization.": "lesson-biology-meiosis-and-genetic-variation"
+    }
+  }
+}

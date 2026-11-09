@@ -1,0 +1,126 @@
+{
+  "links": {
+    "lesson-earth-science-astronomy-plate-tectonics": [
+      {
+        "lesson": "lesson-earth-science-astronomy-layers-of-the-earth",
+        "strength": "helpful",
+        "reason": "Knowing the crust, mantle, lithosphere, and asthenosphere makes plate movement easier to follow. This lesson recaps the layers it uses, so the link is not required."
+      }
+    ],
+    "lesson-earth-science-astronomy-eclipses-and-moon-phases": [],
+    "lesson-earth-science-astronomy-earths-motions": [],
+    "lesson-earth-science-astronomy-earths-subsystems": [],
+    "lesson-earth-science-astronomy-fossils-and-geologic-time": [
+      {
+        "lesson": "lesson-chemistry-nuclear-chemistry",
+        "strength": "helpful",
+        "reason": "Isotopes and radioactive decay sit under radiometric dating. This lesson defines isotope, parent, daughter, and half-life itself, so the link only adds depth."
+      }
+    ],
+    "lesson-earth-science-astronomy-heavenly-bodies": [],
+    "lesson-earth-science-astronomy-stars-and-galaxies": [
+      {
+        "lesson": "lesson-chemistry-nuclear-chemistry",
+        "strength": "helpful",
+        "reason": "Nuclear fusion powers every star. This lesson defines fusion briefly, and the nuclear chemistry lesson shows how nuclei join and release energy."
+      }
+    ],
+    "lesson-earth-science-astronomy-layers-of-the-earth": [
+      {
+        "lesson": "lesson-physics-waves-and-sound",
+        "strength": "helpful",
+        "reason": "P and S waves are longitudinal and transverse waves. This lesson explains how each behaves, and the waves lesson gives the general ideas."
+      }
+    ],
+    "lesson-earth-science-astronomy-minerals-and-rocks": [],
+    "lesson-earth-science-astronomy-origin-of-the-universe": [],
+    "lesson-earth-science-astronomy-water-cycle-oceanography": [
+      {
+        "lesson": "lesson-earth-science-astronomy-eclipses-and-moon-phases",
+        "strength": "helpful",
+        "reason": "Spring and neap tides depend on the Moon phases and the Sun, Earth, and Moon line-up. This lesson describes the line-up, and the phases lesson explains the phases themselves."
+      }
+    ],
+    "lesson-text-types-short-stories-and-novels": [
+      {
+        "lesson": "lesson-comprehension-skills-inferencing-and-conclusions",
+        "strength": "helpful",
+        "reason": "Story analysis needs inferences that stay inside the evidence. This lesson explains inference briefly, and the inference lesson teaches how strong each claim can be."
+      },
+      {
+        "lesson": "lesson-comprehension-skills-authors-purpose-tone-pov",
+        "strength": "helpful",
+        "reason": "Narration, point of view, and author motivation are covered here in brief. The author's purpose lesson treats them in more depth."
+      }
+    ],
+    "lesson-text-types-speeches": [
+      {
+        "lesson": "lesson-comprehension-skills-authors-purpose-tone-pov",
+        "strength": "helpful",
+        "reason": "A speech's purpose and viewpoint are also taught as general reading skills. This lesson defines purpose itself, so the link is optional."
+      },
+      {
+        "lesson": "lesson-comprehension-skills-fact-vs-opinion",
+        "strength": "helpful",
+        "reason": "Judging evidence draws on telling facts, opinions, and forecasts apart. This lesson sets out its own checks for evidence."
+      }
+    ]
+  },
+  "gapTags": {
+    "q-earth-science-astronomy-plate-tectonics-0001": {
+      "Pieces of the crust alone": "lesson-earth-science-astronomy-layers-of-the-earth",
+      "Pieces of liquid mantle material": "lesson-earth-science-astronomy-layers-of-the-earth"
+    },
+    "q-earth-science-astronomy-plate-tectonics-0012": {
+      "S waves (secondary waves)": "lesson-earth-science-astronomy-layers-of-the-earth"
+    },
+    "q-earth-science-astronomy-plate-tectonics-0013": {
+      "P waves (primary waves)": "lesson-earth-science-astronomy-layers-of-the-earth"
+    },
+    "q-earth-science-astronomy-plate-tectonics-0019": {
+      "S waves travel through both solids and liquids equally, so their disappearance must be caused by something other than the outer core.": "lesson-earth-science-astronomy-layers-of-the-earth",
+      "The shadow zone shows that the outer core is solid, not liquid.": "lesson-earth-science-astronomy-layers-of-the-earth"
+    },
+    "q-earth-science-astronomy-layers-of-the-earth-0012": {
+      "S waves travel through the outer core faster than through rock.": "lesson-physics-waves-and-sound"
+    },
+    "q-earth-science-astronomy-layers-of-the-earth-0018": {
+      "It becomes an S wave that crosses the liquid freely.": "lesson-physics-waves-and-sound"
+    },
+    "q-earth-science-astronomy-heavenly-bodies-0017": {
+      "Burning fuel with atmospheric oxygen": "lesson-chemistry-nuclear-chemistry"
+    },
+    "rc-tt-sn-0004": {
+      "Completing a flawless knife before the workshop closes.": "lesson-comprehension-skills-inferencing-and-conclusions"
+    },
+    "rc-tt-sn-0008": {
+      "He has decided the climb cannot involve any risk.": "lesson-comprehension-skills-inferencing-and-conclusions"
+    },
+    "q-text-types-short-stories-and-novels-0014": {
+      "An apology always brings an absent family member back at once.": "lesson-comprehension-skills-inferencing-and-conclusions"
+    },
+    "q-text-types-short-stories-and-novels-0015": {
+      "It guarantees that the next reading circle will have seven people.": "lesson-comprehension-skills-inferencing-and-conclusions"
+    },
+    "q-text-types-short-stories-and-novels-0020": {
+      "He sees the shop destroyed and decides never to repair radios again.": "lesson-comprehension-skills-inferencing-and-conclusions",
+      "He reaches the shelter and learns that every stored tool is undamaged.": "lesson-comprehension-skills-inferencing-and-conclusions"
+    },
+    "q-text-types-short-stories-and-novels-0018": {
+      "It lets Ben tell the story using his own first-person voice.": "lesson-comprehension-skills-authors-purpose-tone-pov",
+      "It explains each neighbor's thoughts as fully as it explains Ben's.": "lesson-comprehension-skills-authors-purpose-tone-pov"
+    },
+    "rc-tt-sp-0004": {
+      "To document the full sequence of the town's disaster recovery.": "lesson-comprehension-skills-authors-purpose-tone-pov"
+    },
+    "rc-tt-sp-0009": {
+      "It provides measured proof of the future size of fish stocks.": "lesson-comprehension-skills-fact-vs-opinion"
+    },
+    "q-text-types-speeches-0019": {
+      "It guarantees that a separate window will remove every delay.": "lesson-comprehension-skills-fact-vs-opinion"
+    },
+    "q-text-types-speeches-0020": {
+      "Treat the canteen staff's account as proof that all delays will end.": "lesson-comprehension-skills-fact-vs-opinion"
+    }
+  }
+}

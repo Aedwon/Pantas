@@ -1,7 +1,7 @@
 {
  "version": 1,
  "date": "2026-10-26",
- "rule": "A wrong choice is tagged with a prerequisite lesson only when its mistake is a gap in that lesson. Drafted by Codex GPT 6.1 Sol from content/lesson-prerequisites.json and the rationales.",
+ "rule": "A wrong choice is tagged with a prerequisite lesson only when its mistake is a gap in that lesson. Drafted by Codex GPT 6.1 Sol from content/lesson-prerequisites.json and the rationales. CET tags (November 9, 2026): drafted by Sonnet 5.5; a tag is dropped when the question's own lesson teaches the idea.",
  "questions": {
   "q-algebra-algebraic-expressions-0003": {
    "$14$": "lesson-arithmetic-number-sense-order-of-operations"
@@ -22,6 +22,18 @@
   "q-algebra-exponents-and-logarithms-0020": {
    "$x=20$": "lesson-algebra-algebraic-expressions"
   },
+  "q-algebra-functions-and-relations-0005": {
+   "$x\\le2$": "lesson-algebra-linear-equations-inequalities"
+  },
+  "q-algebra-functions-and-relations-0009": {
+   "$\\dfrac{5x-3}{2}$": "lesson-algebra-linear-equations-inequalities"
+  },
+  "q-algebra-functions-and-relations-0012": {
+   "$\\dfrac{5}{3}$": "lesson-algebra-linear-equations-inequalities"
+  },
+  "q-algebra-functions-and-relations-0013": {
+   "$x\\le-1,\\ x\\ne2$": "lesson-algebra-linear-equations-inequalities"
+  },
   "q-algebra-linear-equations-inequalities-0005": {
    "$\\dfrac{5}{7}$": "lesson-algebra-algebraic-expressions"
   },
@@ -36,6 +48,24 @@
   },
   "q-algebra-polynomials-0012": {
    "$2x(2x+4)$": "lesson-arithmetic-number-sense-prime-factorization-gcf-lcm"
+  },
+  "q-algebra-quadratic-equations-0005": {
+   "$x=0\\text{ or }x=-4$": "lesson-algebra-polynomials"
+  },
+  "q-algebra-radicals-and-rationalization-0008": {
+   "$6xy^4\\sqrt{2x}$": "lesson-algebra-exponents-and-logarithms"
+  },
+  "q-algebra-systems-of-equations-0002": {
+   "$(3, -2)$": "lesson-algebra-linear-equations-inequalities"
+  },
+  "q-algebra-systems-of-equations-0007": {
+   "$1$": "lesson-algebra-quadratic-equations"
+  },
+  "q-algebra-systems-of-equations-0012": {
+   "$-3$": "lesson-algebra-linear-equations-inequalities"
+  },
+  "q-algebra-systems-of-equations-0019": {
+   "No step is incorrect.": "lesson-algebra-linear-equations-inequalities"
   },
   "q-algebra-types-of-functions-0011": {
    "No horizontal asymptote": "lesson-algebra-polynomials"
@@ -78,6 +108,49 @@
   "q-arithmetic-number-sense-real-imaginary-numbers-0008": {
    "$22 + 7i$": "lesson-arithmetic-number-sense-order-of-operations"
   },
+  "q-biology-cellular-metabolism-0003": {
+   "Mitochondrion": "lesson-biology-cell-biology",
+   "Nucleus": "lesson-biology-cell-biology",
+   "Ribosome": "lesson-biology-cell-biology"
+  },
+  "q-biology-cellular-metabolism-0004": {
+   "Rough endoplasmic reticulum": "lesson-biology-cell-biology",
+   "Nucleus": "lesson-biology-cell-biology"
+  },
+  "q-biology-cellular-metabolism-0012": {
+   "They use the same reaction sequence in opposite directions.": "lesson-biology-cellular-metabolism"
+  },
+  "q-biology-cellular-metabolism-0018": {
+   "Light-dependent reactions continue; aerobic respiration must stop.": "lesson-biology-cellular-metabolism"
+  },
+  "q-biology-cellular-metabolism-0019": {
+   "It captures sunlight to make new glucose for glycolysis.": "lesson-biology-cellular-metabolism"
+  },
+  "q-biology-cellular-reproduction-0002": {
+   "Mitosis": "lesson-biology-cellular-reproduction"
+  },
+  "q-biology-cellular-reproduction-0003": {
+   "2 nuclei, 46 chromosomes each": "lesson-biology-cellular-reproduction"
+  },
+  "q-biology-genetics-and-heredity-0014": {
+   "Their location removes one allele during fertilization.": "lesson-biology-meiosis-and-genetic-variation"
+  },
+  "q-biology-human-anatomy-physiology-0013": {
+   "Bile; digestive enzymes": "lesson-biology-human-anatomy-physiology",
+   "Bile; stored urine": "lesson-biology-human-anatomy-physiology"
+  },
+  "q-biology-meiosis-and-genetic-variation-0006": {
+   "Metaphase of mitosis": "lesson-biology-cellular-reproduction"
+  },
+  "q-chemistry-periodic-table-0018": {
+   "Helium has eight electrons in a $1s^8$ configuration.": "lesson-chemistry-quantum-numbers-electron-configuration"
+  },
+  "q-chemistry-solutions-0012": {
+   "29.25 M": "lesson-chemistry-mole-concept"
+  },
+  "q-chemistry-stoichiometry-0015": {
+   "Compare gram masses, choose smaller.": "lesson-chemistry-mole-concept"
+  },
   "q-code-of-conduct-ra-6713-penalties-and-enforcement-0012": {
    "Section 1": "lesson-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules",
    "Section 3": "lesson-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules",
@@ -99,6 +172,29 @@
    "Protecting donated books from all signs of wear": "lesson-comprehension-skills-main-idea",
    "Selecting the largest possible collection of books": "lesson-comprehension-skills-main-idea"
   },
+  "q-earth-science-astronomy-heavenly-bodies-0017": {
+   "Burning fuel with atmospheric oxygen": "lesson-chemistry-nuclear-chemistry"
+  },
+  "q-earth-science-astronomy-layers-of-the-earth-0012": {
+   "S waves travel through the outer core faster than through rock.": "lesson-physics-waves-and-sound"
+  },
+  "q-earth-science-astronomy-layers-of-the-earth-0018": {
+   "It becomes an S wave that crosses the liquid freely.": "lesson-physics-waves-and-sound"
+  },
+  "q-earth-science-astronomy-plate-tectonics-0001": {
+   "Pieces of the crust alone": "lesson-earth-science-astronomy-layers-of-the-earth",
+   "Pieces of liquid mantle material": "lesson-earth-science-astronomy-layers-of-the-earth"
+  },
+  "q-earth-science-astronomy-plate-tectonics-0012": {
+   "S waves (secondary waves)": "lesson-earth-science-astronomy-layers-of-the-earth"
+  },
+  "q-earth-science-astronomy-plate-tectonics-0013": {
+   "P waves (primary waves)": "lesson-earth-science-astronomy-layers-of-the-earth"
+  },
+  "q-earth-science-astronomy-plate-tectonics-0019": {
+   "S waves travel through both solids and liquids equally, so their disappearance must be caused by something other than the outer core.": "lesson-earth-science-astronomy-layers-of-the-earth",
+   "The shadow zone shows that the outer core is solid, not liquid.": "lesson-earth-science-astronomy-layers-of-the-earth"
+  },
   "q-earth-science-astronomy-weather-and-climate-0013": {
    "Its particles have very low kinetic energy.": "lesson-physics-thermodynamics",
    "Gas temperature determines contact heating regardless of density.": "lesson-physics-thermodynamics"
@@ -110,8 +206,39 @@
    "Combining separated waste so every material follows the same disposal route": "lesson-environment-management-environmental-concepts",
    "Replacing household sorting with a rule that all waste must arrive mixed": "lesson-environment-management-environmental-concepts"
   },
+  "q-geometry-circles-0005": {
+   "$\\sqrt{194}\\text{ cm}$": "lesson-geometry-triangles",
+   "$18\\text{ cm}$": "lesson-geometry-triangles",
+   "$8\\text{ cm}$": "lesson-geometry-triangles"
+  },
+  "q-geometry-circles-0015": {
+   "$36\\text{ cm}$": "lesson-geometry-triangles"
+  },
+  "q-geometry-coordinate-geometry-0001": {
+   "$14$": "lesson-geometry-triangles"
+  },
+  "q-geometry-coordinate-geometry-0005": {
+   "$-\\dfrac{5}{4}$": "lesson-algebra-linear-equations-inequalities",
+   "$\\dfrac{4}{5}$": "lesson-algebra-linear-equations-inequalities"
+  },
+  "q-geometry-coordinate-geometry-0007": {
+   "$-\\dfrac{3}{4}$": "lesson-algebra-linear-equations-inequalities",
+   "$\\dfrac{4}{3}$": "lesson-algebra-linear-equations-inequalities"
+  },
+  "q-geometry-coordinate-geometry-0019": {
+   "$y=2x$ and $y=-2x$.": "lesson-algebra-linear-equations-inequalities"
+  },
   "q-geometry-measurement-0007": {
    "$104\\pi\\text{ cm}^2$": "lesson-algebra-algebraic-expressions"
+  },
+  "q-geometry-parallel-perpendicular-lines-0001": {
+   "$22^\\circ$": "lesson-geometry-basic-geometric-concepts"
+  },
+  "q-geometry-parallel-perpendicular-lines-0002": {
+   "$25^\\circ$": "lesson-geometry-basic-geometric-concepts"
+  },
+  "q-geometry-parallel-perpendicular-lines-0019": {
+   "$2x+30+3x-10=90$": "lesson-geometry-basic-geometric-concepts"
   },
   "q-grammar-and-structure-modifiers-0009": {
    "While approaching the gate, the barking of a dog startled Liza.": "lesson-grammar-and-structure-phrases-and-clauses"
@@ -173,6 +300,61 @@
   "q-philippine-constitution-the-three-branches-and-their-powers-0018": {
    "The override fails because the House needs at least 225 votes.": "lesson-arithmetic-number-sense-fractions-decimals-percentages"
   },
+  "q-physics-dynamics-0024": {
+   "4.3 m/s^2": "lesson-physics-scalars-and-vectors"
+  },
+  "q-physics-fluid-mechanics-0020": {
+   "$12000\\,\\mathrm{Pa}$": "lesson-physics-work-energy-power"
+  },
+  "q-physics-friction-tension-and-inclines-0004": {
+   "$10\\,\\mathrm{N}$": "lesson-physics-dynamics"
+  },
+  "q-physics-friction-tension-and-inclines-0006": {
+   "It equals the weight.": "lesson-physics-dynamics"
+  },
+  "q-physics-friction-tension-and-inclines-0014": {
+   "$2.37\\,\\mathrm{m/s^2}$": "lesson-physics-dynamics",
+   "$1.41\\,\\mathrm{m/s^2}$": "lesson-physics-dynamics"
+  },
+  "q-physics-light-and-optics-0003": {
+   "In parallel with no change from their original direction": "lesson-physics-light-and-optics"
+  },
+  "q-physics-light-and-optics-0018": {
+   "Wavelength": "lesson-physics-waves-and-sound"
+  },
+  "q-physics-light-and-optics-0020": {
+   "$1.67\\times10^6\\,\\mathrm m$": "lesson-physics-waves-and-sound"
+  },
+  "q-physics-light-and-optics-0032": {
+   "It brings them together because air has a lower n than water": "lesson-physics-light-and-optics"
+  },
+  "q-physics-light-and-optics-0045": {
+   "$0.50\\,\\mathrm m$": "lesson-physics-waves-and-sound"
+  },
+  "q-physics-scalars-and-vectors-0008": {
+   "$(10,10\\sqrt3)\\,\\mathrm N$": "lesson-trigonometry-basic-trigonometric-ratios"
+  },
+  "q-physics-scalars-and-vectors-0011": {
+   "The horizontal component for every angle definition": "lesson-trigonometry-basic-trigonometric-ratios"
+  },
+  "q-physics-two-dimensional-motion-0003": {
+   "$17\\,\\mathrm{m/s}$": "lesson-physics-scalars-and-vectors",
+   "$7\\,\\mathrm{m/s}$": "lesson-physics-scalars-and-vectors"
+  },
+  "q-physics-two-dimensional-motion-0008": {
+   "Yes, an outward force must balance gravity during orbit.": "lesson-physics-dynamics",
+   "No, because a satellite needs no force at constant speed.": "lesson-physics-dynamics"
+  },
+  "q-physics-two-dimensional-motion-0009": {
+   "The full speed of $25\\,\\mathrm{m/s}$ in both equations": "lesson-physics-scalars-and-vectors"
+  },
+  "q-physics-waves-and-sound-0013": {
+   "Yes, pitch is another name for propagation speed": "lesson-physics-waves-and-sound"
+  },
+  "q-physics-waves-and-sound-0025": {
+   "Sound has a higher frequency than light, so it bends more at the corner": "lesson-physics-waves-and-sound",
+   "Sound travels faster than light, so it turns the corner first": "lesson-physics-waves-and-sound"
+  },
   "q-spatial-abstract-reasoning-figure-matrices-0002": {
    "Circle with four dots": "lesson-spatial-abstract-reasoning-figure-series",
    "Circle with three dots": "lesson-spatial-abstract-reasoning-figure-series"
@@ -213,6 +395,26 @@
   "q-statistics-and-probability-data-analysis-graphs-0017": {
    "P250": "lesson-arithmetic-number-sense-fractions-decimals-percentages"
   },
+  "q-text-types-short-stories-and-novels-0014": {
+   "An apology always brings an absent family member back at once.": "lesson-comprehension-skills-inferencing-and-conclusions"
+  },
+  "q-text-types-short-stories-and-novels-0015": {
+   "It guarantees that the next reading circle will have seven people.": "lesson-comprehension-skills-inferencing-and-conclusions"
+  },
+  "q-text-types-short-stories-and-novels-0018": {
+   "It lets Ben tell the story using his own first-person voice.": "lesson-comprehension-skills-authors-purpose-tone-pov",
+   "It explains each neighbor's thoughts as fully as it explains Ben's.": "lesson-comprehension-skills-authors-purpose-tone-pov"
+  },
+  "q-text-types-short-stories-and-novels-0020": {
+   "He sees the shop destroyed and decides never to repair radios again.": "lesson-comprehension-skills-inferencing-and-conclusions",
+   "He reaches the shelter and learns that every stored tool is undamaged.": "lesson-comprehension-skills-inferencing-and-conclusions"
+  },
+  "q-text-types-speeches-0019": {
+   "It guarantees that a separate window will remove every delay.": "lesson-comprehension-skills-fact-vs-opinion"
+  },
+  "q-text-types-speeches-0020": {
+   "Treat the canteen staff's account as proof that all delays will end.": "lesson-comprehension-skills-fact-vs-opinion"
+  },
   "q-text-types-visual-media-0015": {
    "To predict that the shop will earn more in every following month.": "lesson-comprehension-skills-inferencing-and-conclusions"
   },
@@ -226,6 +428,63 @@
   "q-text-types-visual-media-0020": {
    "It establishes that Mara secretly removed the timetable herself.": "lesson-comprehension-skills-inferencing-and-conclusions",
    "It guarantees that Gio will never post another club notice.": "lesson-comprehension-skills-inferencing-and-conclusions"
+  },
+  "q-trigonometry-basic-trigonometric-ratios-0004": {
+   "$\\sqrt{194}$": "lesson-geometry-triangles"
+  },
+  "q-trigonometry-basic-trigonometric-ratios-0011": {
+   "$\\dfrac{7}{\\sqrt{2}}$": "lesson-geometry-triangles"
+  },
+  "q-trigonometry-laws-of-sines-and-cosines-0008": {
+   "No step is incorrect.": "lesson-trigonometry-unit-circle"
+  },
+  "q-trigonometry-laws-of-sines-and-cosines-0018": {
+   "The third side is longer in the first triangle.": "lesson-trigonometry-unit-circle"
+  },
+  "q-trigonometry-solving-right-triangles-0001": {
+   "$20\\sqrt{3}$ meters": "lesson-trigonometry-basic-trigonometric-ratios",
+   "$10$ meters": "lesson-trigonometry-basic-trigonometric-ratios"
+  },
+  "q-trigonometry-solving-right-triangles-0006": {
+   "$30^\\circ$": "lesson-trigonometry-basic-trigonometric-ratios"
+  },
+  "q-trigonometry-solving-right-triangles-0008": {
+   "$\\cos 35^\\circ$": "lesson-trigonometry-basic-trigonometric-ratios",
+   "$\\tan 35^\\circ$": "lesson-trigonometry-basic-trigonometric-ratios",
+   "$\\sec 35^\\circ$": "lesson-trigonometry-basic-trigonometric-ratios"
+  },
+  "q-trigonometry-solving-right-triangles-0012": {
+   "$\\dfrac{4}{5}$": "lesson-trigonometry-basic-trigonometric-ratios",
+   "$\\dfrac{3}{4}$": "lesson-trigonometry-basic-trigonometric-ratios"
+  },
+  "q-trigonometry-solving-right-triangles-0018": {
+   "$10(\\sqrt{3}-1)$ m": "lesson-trigonometry-basic-trigonometric-ratios"
+  },
+  "q-trigonometry-trigonometric-identities-0001": {
+   "$\\sec \\theta = \\dfrac{1}{\\tan \\theta}$": "lesson-trigonometry-basic-trigonometric-ratios",
+   "$\\cot \\theta = \\dfrac{1}{\\csc \\theta}$": "lesson-trigonometry-basic-trigonometric-ratios"
+  },
+  "q-trigonometry-trigonometric-identities-0003": {
+   "$-\\dfrac{4}{5}$": "lesson-trigonometry-unit-circle"
+  },
+  "q-trigonometry-trigonometric-identities-0008": {
+   "No step is wrong.": "lesson-trigonometry-unit-circle"
+  },
+  "q-trigonometry-trigonometric-identities-0012": {
+   "$-\\sqrt{5}$": "lesson-trigonometry-unit-circle"
+  },
+  "q-trigonometry-trigonometric-identities-0020": {
+   "$\\dfrac{5}{3}$": "lesson-trigonometry-unit-circle"
+  },
+  "q-trigonometry-unit-circle-0001": {
+   "$\\dfrac{\\sqrt{3}}{2}$": "lesson-trigonometry-basic-trigonometric-ratios"
+  },
+  "q-trigonometry-unit-circle-0002": {
+   "$\\dfrac{1}{2}$": "lesson-trigonometry-basic-trigonometric-ratios",
+   "$\\dfrac{\\sqrt{2}}{2}$": "lesson-trigonometry-basic-trigonometric-ratios"
+  },
+  "q-trigonometry-unit-circle-0017": {
+   "$-\\dfrac{3}{4}$": "lesson-trigonometry-basic-trigonometric-ratios"
   },
   "q-verbal-logic-assumptions-and-conclusions-0003": {
    "Maria has already been appointed to civil service.": "lesson-logical-verbal-reasoning-syllogisms-and-deductive-logic"
@@ -271,6 +530,18 @@
    "Rice arrives through local ports.": "lesson-comprehension-skills-fact-vs-opinion",
    "Smallholder farmers grow rice in Nueva Ecija.": "lesson-comprehension-skills-fact-vs-opinion",
    "The editorial proposes a fifty percent fertilizer subsidy.": "lesson-comprehension-skills-fact-vs-opinion"
+  },
+  "rc-tt-sn-0004": {
+   "Completing a flawless knife before the workshop closes.": "lesson-comprehension-skills-inferencing-and-conclusions"
+  },
+  "rc-tt-sn-0008": {
+   "He has decided the climb cannot involve any risk.": "lesson-comprehension-skills-inferencing-and-conclusions"
+  },
+  "rc-tt-sp-0004": {
+   "To document the full sequence of the town's disaster recovery.": "lesson-comprehension-skills-authors-purpose-tone-pov"
+  },
+  "rc-tt-sp-0009": {
+   "It provides measured proof of the future size of fish stocks.": "lesson-comprehension-skills-fact-vs-opinion"
   },
   "rc-tt-vm-0009": {
    "Proof that commuters receive the driver's fuel income": "lesson-comprehension-skills-inferencing-and-conclusions",

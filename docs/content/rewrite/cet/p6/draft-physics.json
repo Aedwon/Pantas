@@ -1,0 +1,209 @@
+{
+  "links": {
+    "lesson-physics-kinematics": [
+      {
+        "lesson": "lesson-algebra-linear-equations-inequalities",
+        "strength": "helpful",
+        "reason": "Slope as rise over run makes the motion graphs easier to read. This lesson explains slope in the graph section, so the link is optional."
+      }
+    ],
+    "lesson-physics-electricity-and-magnetism": [],
+    "lesson-physics-work-energy-power": [
+      {
+        "lesson": "lesson-physics-kinematics",
+        "strength": "helpful",
+        "reason": "Acceleration and the falling speed of 9.8 m/s each second are easier with kinematics. This lesson explains both briefly where it uses them."
+      },
+      {
+        "lesson": "lesson-physics-dynamics",
+        "strength": "helpful",
+        "reason": "Net force and constant velocity are easier with Newton's laws. This lesson restates that zero net force means no change in velocity."
+      },
+      {
+        "lesson": "lesson-mechanical-technical-reasoning-pulleys-and-levers",
+        "strength": "helpful",
+        "reason": "The efficiency section names effort, load and the ideal case, which that lesson explains in full. This lesson defines the efficiency formula itself."
+      }
+    ],
+    "lesson-mechanical-technical-reasoning-pulleys-and-levers": [
+      {
+        "lesson": "lesson-trigonometry-basic-trigonometric-ratios",
+        "strength": "helpful",
+        "reason": "The angled-force section uses sine. This lesson gives the sine definition and the two values it needs."
+      }
+    ],
+    "lesson-physics-dynamics": [
+      {
+        "lesson": "lesson-physics-scalars-and-vectors",
+        "strength": "helpful",
+        "reason": "Splitting a force into parts along each axis is taught there in full. This lesson gives the cosine and sine rule it needs."
+      },
+      {
+        "lesson": "lesson-physics-kinematics",
+        "strength": "helpful",
+        "reason": "Acceleration as the rate of change of velocity comes from kinematics. This lesson restates it where the second law needs it."
+      }
+    ],
+    "lesson-physics-friction-tension-and-inclines": [
+      {
+        "lesson": "lesson-physics-dynamics",
+        "strength": "required",
+        "reason": "This lesson uses Newton's second law, weight, the normal force and free-body diagrams in every example, and only the dynamics lesson teaches them."
+      }
+    ],
+    "lesson-physics-fluid-mechanics": [],
+    "lesson-physics-fluid-flow-continuity-and-bernoulli": [
+      {
+        "lesson": "lesson-physics-fluid-mechanics",
+        "strength": "helpful",
+        "reason": "Density, pressure and pressure at depth are taught there. This lesson defines each one briefly before using it."
+      },
+      {
+        "lesson": "lesson-physics-work-energy-power",
+        "strength": "helpful",
+        "reason": "Bernoulli's equation is an energy balance with kinetic and potential energy for each unit of volume. This lesson names both terms but does not derive them."
+      }
+    ],
+    "lesson-physics-light-and-optics": [
+      {
+        "lesson": "lesson-physics-waves-and-sound",
+        "strength": "helpful",
+        "reason": "The relation v = f times wavelength comes from the waves lesson. This lesson defines frequency and wavelength before using it."
+      },
+      {
+        "lesson": "lesson-trigonometry-basic-trigonometric-ratios",
+        "strength": "helpful",
+        "reason": "Snell's law uses the sine of an angle and its inverse. This lesson explains both for the angles it needs."
+      }
+    ],
+    "lesson-physics-mirrors-and-lenses": [
+      {
+        "lesson": "lesson-physics-light-and-optics",
+        "strength": "required",
+        "reason": "The lesson uses the law of reflection for mirrors and the index of refraction and bending at a boundary for lenses, and it does not teach them. It tells the student to read the light lesson first."
+      }
+    ],
+    "lesson-physics-momentum-and-impulse": [
+      {
+        "lesson": "lesson-physics-dynamics",
+        "strength": "helpful",
+        "reason": "Force, net force and Newton's third law explain why internal forces cancel. This lesson restates each idea where it uses it."
+      },
+      {
+        "lesson": "lesson-physics-work-energy-power",
+        "strength": "helpful",
+        "reason": "Kinetic energy is needed to classify collisions. This lesson gives the formula and uses it in its own examples."
+      }
+    ],
+    "lesson-physics-scalars-and-vectors": [
+      {
+        "lesson": "lesson-trigonometry-basic-trigonometric-ratios",
+        "strength": "helpful",
+        "reason": "Resolving a vector uses sine, cosine and tangent. This lesson defines all three and gives SOH-CAH-TOA."
+      },
+      {
+        "lesson": "lesson-trigonometry-unit-circle",
+        "strength": "helpful",
+        "reason": "The unit circle explains the signs of sine and cosine beyond 90 degrees. This lesson works the quadrant signs out itself."
+      }
+    ],
+    "lesson-physics-thermodynamics": [
+      {
+        "lesson": "lesson-physics-work-energy-power",
+        "strength": "helpful",
+        "reason": "The first law treats heat and work as energy transfers, which is easier after energy and work are taught. This lesson defines work for a gas and the sign rule."
+      }
+    ],
+    "lesson-physics-two-dimensional-motion": [
+      {
+        "lesson": "lesson-physics-kinematics",
+        "strength": "helpful",
+        "reason": "Free fall and constant acceleration come from kinematics. This lesson writes the position and velocity equations it uses."
+      },
+      {
+        "lesson": "lesson-physics-scalars-and-vectors",
+        "strength": "helpful",
+        "reason": "Launch components come from resolving a vector. This lesson gives the cosine and sine rule it needs."
+      },
+      {
+        "lesson": "lesson-physics-dynamics",
+        "strength": "helpful",
+        "reason": "The inward net force in circular motion applies Newton's second law. This lesson restates the law where it uses it."
+      }
+    ],
+    "lesson-physics-units-and-measurements": [],
+    "lesson-physics-waves-and-sound": [],
+    "lesson-physics-interference-diffraction-and-doppler": [
+      {
+        "lesson": "lesson-physics-waves-and-sound",
+        "strength": "required",
+        "reason": "The lesson uses wavelength, frequency, wave speed and v = f times wavelength without defining them, and the waves lesson teaches them. It tells the student to read that lesson first."
+      }
+    ],
+    "lesson-mechanical-technical-reasoning-fluid-pressure": [],
+    "lesson-mechanical-technical-reasoning-structural-stability": [
+      {
+        "lesson": "lesson-trigonometry-basic-trigonometric-ratios",
+        "strength": "helpful",
+        "reason": "The tipping angle uses the tangent. This lesson defines the tangent and the inverse tangent key."
+      }
+    ]
+  },
+  "gapTags": {
+    "q-physics-friction-tension-and-inclines-0006": {
+      "It equals the weight.": "lesson-physics-dynamics"
+    },
+    "q-physics-friction-tension-and-inclines-0014": {
+      "$2.37\\,\\mathrm{m/s^2}$": "lesson-physics-dynamics",
+      "$1.41\\,\\mathrm{m/s^2}$": "lesson-physics-dynamics"
+    },
+    "q-physics-friction-tension-and-inclines-0004": {
+      "$10\\,\\mathrm{N}$": "lesson-physics-dynamics"
+    },
+    "q-physics-light-and-optics-0003": {
+      "In parallel with no change from their original direction": "lesson-physics-light-and-optics"
+    },
+    "q-physics-light-and-optics-0032": {
+      "It brings them together because air has a lower n than water": "lesson-physics-light-and-optics"
+    },
+    "q-physics-waves-and-sound-0013": {
+      "Yes, pitch is another name for propagation speed": "lesson-physics-waves-and-sound"
+    },
+    "q-physics-waves-and-sound-0025": {
+      "Sound has a higher frequency than light, so it bends more at the corner": "lesson-physics-waves-and-sound",
+      "Sound travels faster than light, so it turns the corner first": "lesson-physics-waves-and-sound"
+    },
+    "q-physics-dynamics-0024": {
+      "4.3 m/s^2": "lesson-physics-scalars-and-vectors"
+    },
+    "q-physics-two-dimensional-motion-0003": {
+      "$17\\,\\mathrm{m/s}$": "lesson-physics-scalars-and-vectors",
+      "$7\\,\\mathrm{m/s}$": "lesson-physics-scalars-and-vectors"
+    },
+    "q-physics-two-dimensional-motion-0009": {
+      "The full speed of $25\\,\\mathrm{m/s}$ in both equations": "lesson-physics-scalars-and-vectors"
+    },
+    "q-physics-two-dimensional-motion-0008": {
+      "Yes, an outward force must balance gravity during orbit.": "lesson-physics-dynamics",
+      "No, because a satellite needs no force at constant speed.": "lesson-physics-dynamics"
+    },
+    "q-physics-scalars-and-vectors-0008": {
+      "$(10,10\\sqrt3)\\,\\mathrm N$": "lesson-trigonometry-basic-trigonometric-ratios"
+    },
+    "q-physics-scalars-and-vectors-0011": {
+      "The horizontal component for every angle definition": "lesson-trigonometry-basic-trigonometric-ratios"
+    },
+    "q-physics-light-and-optics-0020": {
+      "$1.67\\times10^6\\,\\mathrm m$": "lesson-physics-waves-and-sound"
+    },
+    "q-physics-light-and-optics-0045": {
+      "$0.50\\,\\mathrm m$": "lesson-physics-waves-and-sound"
+    },
+    "q-physics-light-and-optics-0018": {
+      "Wavelength": "lesson-physics-waves-and-sound"
+    },
+    "q-physics-fluid-mechanics-0020": {
+      "$12000\\,\\mathrm{Pa}$": "lesson-physics-work-energy-power"
+    }
+  }
+}

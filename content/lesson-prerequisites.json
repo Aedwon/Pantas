@@ -1,7 +1,7 @@
 {
  "version": 1,
  "date": "2026-10-26",
- "rule": "required: the lesson cannot be followed without an idea the other teaches and it does not; helpful: easier with it. Authored order is never a reason. Drafted by Codex GPT 6.1 Sol from the current lessons and the audit's map; every required link reviewed by the Claude lead.",
+ "rule": "required: the lesson cannot be followed without an idea the other teaches and it does not; helpful: easier with it. Authored order is never a reason. Drafted by Codex GPT 6.1 Sol from the current lessons and the audit's map; every required link reviewed by the Claude lead. CET lessons (November 9, 2026): drafted by Sonnet 5.5 from the current lessons and the audit map; every required link reviewed by the Claude lead.",
  "lessons": {
   "lesson-algebra-algebraic-expressions": [
    {
@@ -22,6 +22,28 @@
     "reason": "Expression simplification and equation practice make the symbolic exponent examples easier. Their worked steps provide enough local guidance."
    }
   ],
+  "lesson-algebra-functions-and-relations": [
+   {
+    "lesson": "lesson-algebra-polynomials",
+    "strength": "helpful",
+    "reason": "The domain example needs factoring a difference of two squares. This lesson names the Polynomials lesson for it and shows the factored form."
+   },
+   {
+    "lesson": "lesson-algebra-quadratic-equations",
+    "strength": "helpful",
+    "reason": "The domain of a composition example needs a quadratic inequality. This lesson names the Quadratic Equations lesson for it and gives a short sign argument."
+   },
+   {
+    "lesson": "lesson-algebra-linear-equations-inequalities",
+    "strength": "helpful",
+    "reason": "Finding an inverse means solving a linear equation for y, and domains need inequality solving. This lesson shows each step."
+   },
+   {
+    "lesson": "lesson-algebra-exponents-and-logarithms",
+    "strength": "helpful",
+    "reason": "The domain rules name logarithms without teaching them. The lesson only lists the restriction, so the Exponents and Logarithms lesson explains the idea."
+   }
+  ],
   "lesson-algebra-linear-equations-inequalities": [
    {
     "lesson": "lesson-algebra-algebraic-expressions",
@@ -34,6 +56,43 @@
     "lesson": "lesson-arithmetic-number-sense-prime-factorization-gcf-lcm",
     "strength": "helpful",
     "reason": "Finding numerical common factors is easier with prior GCF practice. This lesson defines polynomial GCF and demonstrates extraction."
+   }
+  ],
+  "lesson-algebra-quadratic-equations": [
+   {
+    "lesson": "lesson-algebra-polynomials",
+    "strength": "helpful",
+    "reason": "Factoring and the difference of squares are easier with prior practice. This lesson shows the factoring steps it uses."
+   },
+   {
+    "lesson": "lesson-algebra-linear-equations-inequalities",
+    "strength": "helpful",
+    "reason": "Solving the linear factors and keeping the inequality direction are easier with prior practice. This lesson works each step in its examples."
+   }
+  ],
+  "lesson-algebra-radicals-and-rationalization": [
+   {
+    "lesson": "lesson-algebra-quadratic-equations",
+    "strength": "helpful",
+    "reason": "The radical equation examples factor trinomials such as m squared minus 6m minus 7. This lesson shows that one factoring and names the Quadratic Equations lesson for the full method."
+   },
+   {
+    "lesson": "lesson-algebra-exponents-and-logarithms",
+    "strength": "helpful",
+    "reason": "Rational exponents and powers of variables under a root build on exponent rules. This lesson states the root-to-exponent conversion it needs."
+   }
+  ],
+  "lesson-algebra-sets-and-set-notation": [],
+  "lesson-algebra-systems-of-equations": [
+   {
+    "lesson": "lesson-algebra-linear-equations-inequalities",
+    "strength": "helpful",
+    "reason": "Solving the one-variable equation after substitution, and graphing lines with slope and intercept, are covered in the Linear Equations lesson. This lesson shows the steps it uses."
+   },
+   {
+    "lesson": "lesson-algebra-quadratic-equations",
+    "strength": "helpful",
+    "reason": "The line-and-parabola examples need factoring a quadratic. This lesson factors it in the worked step and names the Quadratic Equations lesson for the full method."
    }
   ],
   "lesson-algebra-types-of-functions": [
@@ -110,6 +169,41 @@
     "reason": "Formula evaluation benefits from powers and signed-arithmetic practice. The earlier required exponent-laws link is unnecessary for the examples used."
    }
   ],
+  "lesson-biology-botany": [
+   {
+    "lesson": "lesson-biology-cellular-metabolism",
+    "strength": "helpful",
+    "reason": "Phloem moves the sugar that photosynthesis makes, and the metabolism lesson explains photosynthesis in full."
+   }
+  ],
+  "lesson-biology-cell-biology": [],
+  "lesson-biology-cellular-metabolism": [
+   {
+    "lesson": "lesson-biology-cell-biology",
+    "strength": "helpful",
+    "reason": "Photosynthesis happens in chloroplasts and membranes, and the cell biology lesson describes these organelles and what they do."
+   }
+  ],
+  "lesson-biology-cellular-reproduction": [],
+  "lesson-biology-cellular-respiration-and-fermentation": [
+   {
+    "lesson": "lesson-biology-cellular-metabolism",
+    "strength": "helpful",
+    "reason": "This lesson defines ATP, glucose and enzymes itself, but the metabolism lesson gives the photosynthesis side of the comparison and more on enzymes."
+   },
+   {
+    "lesson": "lesson-biology-cell-biology",
+    "strength": "helpful",
+    "reason": "The location of each stage depends on the mitochondrion and cytosol, which the cell biology lesson describes."
+   }
+  ],
+  "lesson-biology-characteristics-of-life": [
+   {
+    "lesson": "lesson-biology-cell-biology",
+    "strength": "helpful",
+    "reason": "The first property says all life is made of cells, and the cell biology lesson shows what a cell contains and how it works."
+   }
+  ],
   "lesson-biology-ecology": [
    {
     "lesson": "lesson-arithmetic-number-sense-fractions-decimals-percentages",
@@ -120,6 +214,165 @@
     "lesson": "lesson-biology-cellular-metabolism",
     "strength": "helpful",
     "reason": "Understanding photosynthesis and respiration makes carbon cycling easier. Ecology explains their relevant roles itself."
+   }
+  ],
+  "lesson-biology-evolution": [
+   {
+    "lesson": "lesson-biology-genetics-and-heredity",
+    "strength": "helpful",
+    "reason": "This lesson defines genes, alleles and gametes itself and only points to the genetics lesson for how inheritance works in full."
+   }
+  ],
+  "lesson-biology-genetics-and-heredity": [
+   {
+    "lesson": "lesson-biology-meiosis-and-genetic-variation",
+    "strength": "helpful",
+    "reason": "The Law of Segregation describes how alleles separate into gametes, and the meiosis lesson shows the chromosome movements that cause it."
+   }
+  ],
+  "lesson-biology-human-anatomy-physiology": [
+   {
+    "lesson": "lesson-biology-cell-biology",
+    "strength": "helpful",
+    "reason": "Gas exchange and reabsorption in the kidney depend on diffusion and membranes, which the cell biology lesson explains."
+   }
+  ],
+  "lesson-biology-human-body-control-movement-and-defense": [
+   {
+    "lesson": "lesson-biology-human-anatomy-physiology",
+    "strength": "required",
+    "reason": "The systems-working-together section and example use the digestive, respiratory, circulatory and urinary systems and blood transport, and this lesson does not teach them."
+   },
+   {
+    "lesson": "lesson-biology-cellular-reproduction",
+    "strength": "helpful",
+    "reason": "The reproductive section uses chromosome numbers, but it also explains that gametes have half the chromosomes, so the lesson is only a help."
+   }
+  ],
+  "lesson-biology-meiosis-and-genetic-variation": [
+   {
+    "lesson": "lesson-biology-cellular-reproduction",
+    "strength": "required",
+    "reason": "Meiosis uses homologs, sister chromatids, centromeres, haploid and diploid, and mitosis for comparison, and only the cellular reproduction lesson teaches them."
+   }
+  ],
+  "lesson-biology-taxonomy-and-classification": [
+   {
+    "lesson": "lesson-biology-cell-biology",
+    "strength": "helpful",
+    "reason": "Classifying by nucleus and cell wall is easier after the cell biology lesson shows what these parts are."
+   }
+  ],
+  "lesson-chemistry-acids-bases-ph": [
+   {
+    "lesson": "lesson-algebra-exponents-and-logarithms",
+    "strength": "helpful",
+    "reason": "The pH formula uses a base-10 logarithm. This lesson explains it as the power of 10 and only needs whole-number powers."
+   },
+   {
+    "lesson": "lesson-chemistry-solutions",
+    "strength": "helpful",
+    "reason": "Molarity, in moles per liter, is taught there in full. This lesson states what the unit M means before using it."
+   }
+  ],
+  "lesson-chemistry-atomic-structure": [],
+  "lesson-chemistry-basic-organic-chemistry": [
+   {
+    "lesson": "lesson-chemistry-chemical-bonding",
+    "strength": "helpful",
+    "reason": "Covalent bonds, polar bonds and hydrogen bonds are taught there in full. This lesson defines each one briefly before using it."
+   }
+  ],
+  "lesson-chemistry-chemical-bonding": [
+   {
+    "lesson": "lesson-chemistry-atomic-structure",
+    "strength": "helpful",
+    "reason": "Valence electrons, cations and anions are taught there in full. This lesson restates each one where it uses it."
+   },
+   {
+    "lesson": "lesson-chemistry-periodic-table",
+    "strength": "helpful",
+    "reason": "Electronegativity and its trend across the table are taught there with the reasons. This lesson defines electronegativity and gives the values it needs."
+   }
+  ],
+  "lesson-chemistry-chemical-reactions": [
+   {
+    "lesson": "lesson-chemistry-acids-bases-ph",
+    "strength": "helpful",
+    "reason": "The lesson points to acids and bases for neutralization. It names water formation as a driving force without needing the pH ideas."
+   }
+  ],
+  "lesson-chemistry-gas-laws": [
+   {
+    "lesson": "lesson-chemistry-mole-concept",
+    "strength": "helpful",
+    "reason": "The mole and molar mass are taught there in full. This lesson defines the mole briefly and gives each molar mass it needs."
+   }
+  ],
+  "lesson-chemistry-history-of-the-atom": [
+   {
+    "lesson": "lesson-chemistry-atomic-structure",
+    "strength": "helpful",
+    "reason": "Protons, neutrons, isotopes and average atomic mass are taught there in full. This lesson explains each one briefly for the history."
+   }
+  ],
+  "lesson-chemistry-matter": [],
+  "lesson-chemistry-mixtures-and-separation": [
+   {
+    "lesson": "lesson-chemistry-matter",
+    "strength": "helpful",
+    "reason": "Pure substances, compounds, mixtures and physical separation are introduced there. This lesson defines each one again before it uses it."
+   }
+  ],
+  "lesson-chemistry-mole-concept": [],
+  "lesson-chemistry-nuclear-chemistry": [
+   {
+    "lesson": "lesson-chemistry-atomic-structure",
+    "strength": "helpful",
+    "reason": "The lesson tells the student to review protons and neutrons there. It restates atomic number, mass number and isotopes before using them."
+   }
+  ],
+  "lesson-chemistry-periodic-table": [
+   {
+    "lesson": "lesson-chemistry-atomic-structure",
+    "strength": "helpful",
+    "reason": "Atomic number, protons and ions are taught there in full. This lesson defines atomic number and cations and anions itself."
+   },
+   {
+    "lesson": "lesson-chemistry-quantum-numbers-electron-configuration",
+    "strength": "helpful",
+    "reason": "Shells, subshells and orbitals are taught there in full. This lesson gives a short definition of each and points to that lesson."
+   }
+  ],
+  "lesson-chemistry-solutions": [
+   {
+    "lesson": "lesson-chemistry-mole-concept",
+    "strength": "helpful",
+    "reason": "The mole and molar mass are taught there in full. This lesson has a short section that defines both and shows grams to moles."
+   }
+  ],
+  "lesson-chemistry-stoichiometry": [
+   {
+    "lesson": "lesson-chemistry-mole-concept",
+    "strength": "required",
+    "reason": "This lesson uses moles, molar mass and the mass-to-moles step in every example, and only the mole concept lesson teaches what a mole is and how to find molar mass."
+   },
+   {
+    "lesson": "lesson-chemistry-chemical-reactions",
+    "strength": "helpful",
+    "reason": "Mole ratios come from a balanced equation, and that lesson teaches how to balance one. This lesson gives each balanced equation it uses."
+   }
+  ],
+  "lesson-chemistry-thermodynamics-and-kinetics": [
+   {
+    "lesson": "lesson-chemistry-chemical-reactions",
+    "strength": "helpful",
+    "reason": "Reversible equations and coefficients, which set the exponents in K, are easier after balancing. This lesson does not teach balancing."
+   },
+   {
+    "lesson": "lesson-chemistry-solutions",
+    "strength": "helpful",
+    "reason": "Concentration in moles per liter drives the rate law and K. This lesson states that M means mol/L and does not teach molarity."
    }
   ],
   "lesson-clerical-ability-alphabetic-filing-rules": [],
@@ -169,6 +422,47 @@
    }
   ],
   "lesson-data-interpretation-tables-and-charts": [],
+  "lesson-earth-science-astronomy-earths-motions": [],
+  "lesson-earth-science-astronomy-earths-subsystems": [],
+  "lesson-earth-science-astronomy-eclipses-and-moon-phases": [],
+  "lesson-earth-science-astronomy-fossils-and-geologic-time": [
+   {
+    "lesson": "lesson-chemistry-nuclear-chemistry",
+    "strength": "helpful",
+    "reason": "Isotopes and radioactive decay sit under radiometric dating. This lesson defines isotope, parent, daughter, and half-life itself, so the link only adds depth."
+   }
+  ],
+  "lesson-earth-science-astronomy-heavenly-bodies": [],
+  "lesson-earth-science-astronomy-layers-of-the-earth": [
+   {
+    "lesson": "lesson-physics-waves-and-sound",
+    "strength": "helpful",
+    "reason": "P and S waves are longitudinal and transverse waves. This lesson explains how each behaves, and the waves lesson gives the general ideas."
+   }
+  ],
+  "lesson-earth-science-astronomy-minerals-and-rocks": [],
+  "lesson-earth-science-astronomy-origin-of-the-universe": [],
+  "lesson-earth-science-astronomy-plate-tectonics": [
+   {
+    "lesson": "lesson-earth-science-astronomy-layers-of-the-earth",
+    "strength": "helpful",
+    "reason": "Knowing the crust, mantle, lithosphere, and asthenosphere makes plate movement easier to follow. This lesson recaps the layers it uses, so the link is not required."
+   }
+  ],
+  "lesson-earth-science-astronomy-stars-and-galaxies": [
+   {
+    "lesson": "lesson-chemistry-nuclear-chemistry",
+    "strength": "helpful",
+    "reason": "Nuclear fusion powers every star. This lesson defines fusion briefly, and the nuclear chemistry lesson shows how nuclei join and release energy."
+   }
+  ],
+  "lesson-earth-science-astronomy-water-cycle-oceanography": [
+   {
+    "lesson": "lesson-earth-science-astronomy-eclipses-and-moon-phases",
+    "strength": "helpful",
+    "reason": "Spring and neap tides depend on the Moon phases and the Sun, Earth, and Moon line-up. This lesson describes the line-up, and the phases lesson explains the phases themselves."
+   }
+  ],
   "lesson-earth-science-astronomy-weather-and-climate": [
    {
     "lesson": "lesson-physics-thermodynamics",
@@ -198,12 +492,58 @@
     "reason": "Knowing the four DRRM areas makes matching disaster actions to the law easier. This lesson briefly explains the areas itself."
    }
   ],
+  "lesson-geometry-basic-geometric-concepts": [],
+  "lesson-geometry-circles": [
+   {
+    "lesson": "lesson-geometry-triangles",
+    "strength": "helpful",
+    "reason": "The tangent, chord and semicircle examples use the Pythagorean theorem and the 30-60-90 triangle, and this lesson restates the theorem but not the special triangle."
+   }
+  ],
+  "lesson-geometry-coordinate-geometry": [
+   {
+    "lesson": "lesson-geometry-triangles",
+    "strength": "helpful",
+    "reason": "The distance formula comes from the Pythagorean theorem. This lesson restates the theorem and shows the right triangle."
+   },
+   {
+    "lesson": "lesson-algebra-linear-equations-inequalities",
+    "strength": "helpful",
+    "reason": "Slope, line forms and perpendicular slopes are also taught in the Linear Equations lesson. This lesson teaches them again from the start."
+   }
+  ],
   "lesson-geometry-logic-and-reasoning": [],
   "lesson-geometry-measurement": [
    {
     "lesson": "lesson-algebra-algebraic-expressions",
     "strength": "helpful",
     "reason": "Substitution and simple equation practice make measurement formulas easier. The examples show their required calculations step by step."
+   }
+  ],
+  "lesson-geometry-parallel-perpendicular-lines": [
+   {
+    "lesson": "lesson-geometry-basic-geometric-concepts",
+    "strength": "helpful",
+    "reason": "Angle types, complementary and supplementary sums, and bisectors are used in the examples. This lesson defines linear pairs and vertical angles itself."
+   }
+  ],
+  "lesson-geometry-quadrilaterals-and-polygons": [
+   {
+    "lesson": "lesson-geometry-parallel-perpendicular-lines",
+    "strength": "helpful",
+    "reason": "The supplementary angles in a parallelogram or trapezoid come from parallel lines cut by a transversal. This lesson states those facts as properties."
+   },
+   {
+    "lesson": "lesson-geometry-triangles",
+    "strength": "helpful",
+    "reason": "The angle sum formula splits a polygon into triangles, and rhombus and square examples use the Pythagorean theorem. This lesson states both facts."
+   }
+  ],
+  "lesson-geometry-triangles": [
+   {
+    "lesson": "lesson-geometry-basic-geometric-concepts",
+    "strength": "helpful",
+    "reason": "Angle names, linear pairs, midpoints and the supplementary and complementary sums make the angle examples easier. This lesson restates vertical angles and the 180-degree triangle sum."
    }
   ],
   "lesson-grammar-and-structure-filipino-verb-aspect-and-focus": [],
@@ -299,6 +639,21 @@
     "reason": "Recognizing close meanings, opposites, and differences in strength makes relationship matching easier. The lesson explains these relationships sufficiently itself."
    }
   ],
+  "lesson-mechanical-technical-reasoning-fluid-pressure": [],
+  "lesson-mechanical-technical-reasoning-pulleys-and-levers": [
+   {
+    "lesson": "lesson-trigonometry-basic-trigonometric-ratios",
+    "strength": "helpful",
+    "reason": "The angled-force section uses sine. This lesson gives the sine definition and the two values it needs."
+   }
+  ],
+  "lesson-mechanical-technical-reasoning-structural-stability": [
+   {
+    "lesson": "lesson-trigonometry-basic-trigonometric-ratios",
+    "strength": "helpful",
+    "reason": "The tipping angle uses the tangent. This lesson defines the tangent and the inverse tangent key."
+   }
+  ],
   "lesson-peace-and-human-rights-human-rights-fundamentals": [],
   "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law": [
    {
@@ -346,6 +701,139 @@
     "reason": "Knowing the special election-of-citizenship rule clarifies natural-born qualifications across offices. This lesson defines natural-born status but refers elsewhere for that exception."
    }
   ],
+  "lesson-physics-dynamics": [
+   {
+    "lesson": "lesson-physics-scalars-and-vectors",
+    "strength": "helpful",
+    "reason": "Splitting a force into parts along each axis is taught there in full. This lesson gives the cosine and sine rule it needs."
+   },
+   {
+    "lesson": "lesson-physics-kinematics",
+    "strength": "helpful",
+    "reason": "Acceleration as the rate of change of velocity comes from kinematics. This lesson restates it where the second law needs it."
+   }
+  ],
+  "lesson-physics-electricity-and-magnetism": [],
+  "lesson-physics-fluid-flow-continuity-and-bernoulli": [
+   {
+    "lesson": "lesson-physics-fluid-mechanics",
+    "strength": "helpful",
+    "reason": "Density, pressure and pressure at depth are taught there. This lesson defines each one briefly before using it."
+   },
+   {
+    "lesson": "lesson-physics-work-energy-power",
+    "strength": "helpful",
+    "reason": "Bernoulli's equation is an energy balance with kinetic and potential energy for each unit of volume. This lesson names both terms but does not derive them."
+   }
+  ],
+  "lesson-physics-fluid-mechanics": [],
+  "lesson-physics-friction-tension-and-inclines": [
+   {
+    "lesson": "lesson-physics-dynamics",
+    "strength": "required",
+    "reason": "This lesson uses Newton's second law, weight, the normal force and free-body diagrams in every example, and only the dynamics lesson teaches them."
+   }
+  ],
+  "lesson-physics-interference-diffraction-and-doppler": [
+   {
+    "lesson": "lesson-physics-waves-and-sound",
+    "strength": "required",
+    "reason": "The lesson uses wavelength, frequency, wave speed and v = f times wavelength without defining them, and the waves lesson teaches them. It tells the student to read that lesson first."
+   }
+  ],
+  "lesson-physics-kinematics": [
+   {
+    "lesson": "lesson-algebra-linear-equations-inequalities",
+    "strength": "helpful",
+    "reason": "Slope as rise over run makes the motion graphs easier to read. This lesson explains slope in the graph section, so the link is optional."
+   }
+  ],
+  "lesson-physics-light-and-optics": [
+   {
+    "lesson": "lesson-physics-waves-and-sound",
+    "strength": "helpful",
+    "reason": "The relation v = f times wavelength comes from the waves lesson. This lesson defines frequency and wavelength before using it."
+   },
+   {
+    "lesson": "lesson-trigonometry-basic-trigonometric-ratios",
+    "strength": "helpful",
+    "reason": "Snell's law uses the sine of an angle and its inverse. This lesson explains both for the angles it needs."
+   }
+  ],
+  "lesson-physics-mirrors-and-lenses": [
+   {
+    "lesson": "lesson-physics-light-and-optics",
+    "strength": "required",
+    "reason": "The lesson uses the law of reflection for mirrors and the index of refraction and bending at a boundary for lenses, and it does not teach them. It tells the student to read the light lesson first."
+   }
+  ],
+  "lesson-physics-momentum-and-impulse": [
+   {
+    "lesson": "lesson-physics-dynamics",
+    "strength": "helpful",
+    "reason": "Force, net force and Newton's third law explain why internal forces cancel. This lesson restates each idea where it uses it."
+   },
+   {
+    "lesson": "lesson-physics-work-energy-power",
+    "strength": "helpful",
+    "reason": "Kinetic energy is needed to classify collisions. This lesson gives the formula and uses it in its own examples."
+   }
+  ],
+  "lesson-physics-scalars-and-vectors": [
+   {
+    "lesson": "lesson-trigonometry-basic-trigonometric-ratios",
+    "strength": "helpful",
+    "reason": "Resolving a vector uses sine, cosine and tangent. This lesson defines all three and gives SOH-CAH-TOA."
+   },
+   {
+    "lesson": "lesson-trigonometry-unit-circle",
+    "strength": "helpful",
+    "reason": "The unit circle explains the signs of sine and cosine beyond 90 degrees. This lesson works the quadrant signs out itself."
+   }
+  ],
+  "lesson-physics-thermodynamics": [
+   {
+    "lesson": "lesson-physics-work-energy-power",
+    "strength": "helpful",
+    "reason": "The first law treats heat and work as energy transfers, which is easier after energy and work are taught. This lesson defines work for a gas and the sign rule."
+   }
+  ],
+  "lesson-physics-two-dimensional-motion": [
+   {
+    "lesson": "lesson-physics-kinematics",
+    "strength": "helpful",
+    "reason": "Free fall and constant acceleration come from kinematics. This lesson writes the position and velocity equations it uses."
+   },
+   {
+    "lesson": "lesson-physics-scalars-and-vectors",
+    "strength": "helpful",
+    "reason": "Launch components come from resolving a vector. This lesson gives the cosine and sine rule it needs."
+   },
+   {
+    "lesson": "lesson-physics-dynamics",
+    "strength": "helpful",
+    "reason": "The inward net force in circular motion applies Newton's second law. This lesson restates the law where it uses it."
+   }
+  ],
+  "lesson-physics-units-and-measurements": [],
+  "lesson-physics-waves-and-sound": [],
+  "lesson-physics-work-energy-power": [
+   {
+    "lesson": "lesson-physics-kinematics",
+    "strength": "helpful",
+    "reason": "Acceleration and the falling speed of 9.8 m/s each second are easier with kinematics. This lesson explains both briefly where it uses them."
+   },
+   {
+    "lesson": "lesson-physics-dynamics",
+    "strength": "helpful",
+    "reason": "Net force and constant velocity are easier with Newton's laws. This lesson restates that zero net force means no change in velocity."
+   },
+   {
+    "lesson": "lesson-mechanical-technical-reasoning-pulleys-and-levers",
+    "strength": "helpful",
+    "reason": "The efficiency section names effort, load and the ideal case, which that lesson explains in full. This lesson defines the efficiency formula itself."
+   }
+  ],
   "lesson-spatial-abstract-reasoning-figure-grouping": [],
   "lesson-spatial-abstract-reasoning-figure-matrices": [
    {
@@ -370,6 +858,13 @@
     "reason": "Combined-event calculations require fraction multiplication, simplification, and subtraction. This lesson teaches probability rules but assumes those arithmetic methods."
    }
   ],
+  "lesson-statistics-and-probability-combinatorics": [
+   {
+    "lesson": "lesson-algebra-sets-and-set-notation",
+    "strength": "helpful",
+    "reason": "Counting groups that overlap is the same idea as counting a union with a Venn diagram. This lesson explains the subtraction of the overlap."
+   }
+  ],
   "lesson-statistics-and-probability-data-analysis-graphs": [
    {
     "lesson": "lesson-arithmetic-number-sense-fractions-decimals-percentages",
@@ -383,6 +878,13 @@
    }
   ],
   "lesson-statistics-and-probability-measures-of-central-tendency": [],
+  "lesson-statistics-and-probability-measures-of-variability": [
+   {
+    "lesson": "lesson-statistics-and-probability-measures-of-central-tendency",
+    "strength": "helpful",
+    "reason": "Every spread measure here starts from the mean. This lesson defines the mean in its first paragraph."
+   }
+  ],
   "lesson-text-types-essays-editorials-articles": [
    {
     "lesson": "lesson-comprehension-skills-authors-purpose-tone-pov",
@@ -402,6 +904,30 @@
     "reason": "Recognizing figurative comparisons and repeated sounds makes poetic interpretation easier. Poetry defines each device before applying it."
    }
   ],
+  "lesson-text-types-short-stories-and-novels": [
+   {
+    "lesson": "lesson-comprehension-skills-inferencing-and-conclusions",
+    "strength": "helpful",
+    "reason": "Story analysis needs inferences that stay inside the evidence. This lesson explains inference briefly, and the inference lesson teaches how strong each claim can be."
+   },
+   {
+    "lesson": "lesson-comprehension-skills-authors-purpose-tone-pov",
+    "strength": "helpful",
+    "reason": "Narration, point of view, and author motivation are covered here in brief. The author's purpose lesson treats them in more depth."
+   }
+  ],
+  "lesson-text-types-speeches": [
+   {
+    "lesson": "lesson-comprehension-skills-authors-purpose-tone-pov",
+    "strength": "helpful",
+    "reason": "A speech's purpose and viewpoint are also taught as general reading skills. This lesson defines purpose itself, so the link is optional."
+   },
+   {
+    "lesson": "lesson-comprehension-skills-fact-vs-opinion",
+    "strength": "helpful",
+    "reason": "Judging evidence draws on telling facts, opinions, and forecasts apart. This lesson sets out its own checks for evidence."
+   }
+  ],
   "lesson-text-types-visual-media": [
    {
     "lesson": "lesson-arithmetic-number-sense-fractions-decimals-percentages",
@@ -412,6 +938,71 @@
     "lesson": "lesson-comprehension-skills-inferencing-and-conclusions",
     "strength": "helpful",
     "reason": "Matching conclusions to evidence helps students interpret cartoons without adding unsupported claims. Visual Media explains this principle itself."
+   }
+  ],
+  "lesson-trigonometry-basic-trigonometric-ratios": [
+   {
+    "lesson": "lesson-geometry-triangles",
+    "strength": "helpful",
+    "reason": "The ratios rest on right triangles, the Pythagorean theorem, similar triangles and the 45-45-90 and 30-60-90 shapes. This lesson restates each one."
+   },
+   {
+    "lesson": "lesson-algebra-radicals-and-rationalization",
+    "strength": "helpful",
+    "reason": "The special-angle values use square roots and removing a root from a denominator. This lesson shows the one multiplication it needs."
+   }
+  ],
+  "lesson-trigonometry-laws-of-sines-and-cosines": [
+   {
+    "lesson": "lesson-trigonometry-basic-trigonometric-ratios",
+    "strength": "required",
+    "reason": "Both laws use sine and cosine as ratios of sides and the exact values at 30, 45 and 60 degrees, and this lesson only starts from them. The Basic Trigonometric Ratios lesson defines them."
+   },
+   {
+    "lesson": "lesson-geometry-triangles",
+    "strength": "helpful",
+    "reason": "The triangle angle sum, the larger-angle-faces-longer-side fact and the triangle inequality are used throughout. This lesson restates each of them."
+   },
+   {
+    "lesson": "lesson-trigonometry-unit-circle",
+    "strength": "helpful",
+    "reason": "The sign of the cosine of an obtuse angle follows from the unit circle. This lesson states the 180-degree formulas without the picture."
+   }
+  ],
+  "lesson-trigonometry-solving-right-triangles": [
+   {
+    "lesson": "lesson-trigonometry-basic-trigonometric-ratios",
+    "strength": "helpful",
+    "reason": "SOH-CAH-TOA and the special-angle values are used from the start. This lesson restates the three ratios and lists the exact values."
+   }
+  ],
+  "lesson-trigonometry-trigonometric-identities": [
+   {
+    "lesson": "lesson-trigonometry-basic-trigonometric-ratios",
+    "strength": "required",
+    "reason": "The lesson uses sine, cosine and tangent and the exact values at 30 and 45 degrees (Example 9) without defining them. The Basic Trigonometric Ratios lesson teaches both."
+   },
+   {
+    "lesson": "lesson-trigonometry-unit-circle",
+    "strength": "helpful",
+    "reason": "Quadrant signs and the point (cos, sin) on the unit circle explain the identities. This lesson summarizes the quadrant signs and names the Unit Circle lesson for the full picture."
+   }
+  ],
+  "lesson-trigonometry-unit-circle": [
+   {
+    "lesson": "lesson-trigonometry-basic-trigonometric-ratios",
+    "strength": "helpful",
+    "reason": "The unit circle extends right-triangle sine and cosine to all angles. This lesson derives the special values itself."
+   },
+   {
+    "lesson": "lesson-geometry-coordinate-geometry",
+    "strength": "helpful",
+    "reason": "Polar-to-rectangular conversion uses coordinates and the distance formula. This lesson names the distance formula without deriving it."
+   },
+   {
+    "lesson": "lesson-trigonometry-angles-and-radian-measure",
+    "strength": "helpful",
+    "reason": "Radians and degree conversion get a full treatment in the Angles and Radian Measure lesson. This lesson teaches the radian shortcut it needs."
    }
   ],
   "lesson-verbal-logic-assumptions-and-conclusions": [
