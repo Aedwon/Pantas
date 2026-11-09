@@ -143,7 +143,9 @@ void main() {
     await mouse
         .moveTo(tester.getCenter(find.byKey(const ValueKey('week-day-4'))));
     await tester.pump(const Duration(milliseconds: 800));
-    expect(find.byType(Tooltip), findsWidgets);
+    // Nothing shows: this day has no status.
+    expect(find.text('Today'), findsNothing);
+    expect(find.text('Done'), findsNothing);
     expect(find.text('Planned'), findsNothing);
     expect(find.text('No study'), findsNothing);
   });

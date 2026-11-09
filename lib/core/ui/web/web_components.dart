@@ -10,6 +10,7 @@ import 'package:pantas/core/ui/components/offset_focus_ring.dart';
 import 'package:pantas/core/ui/components/pantas_button_parts.dart';
 import 'package:pantas/core/ui/components/pantas_button_spec.dart';
 import 'package:pantas/core/ui/components/pantas_icon_button.dart';
+import 'package:pantas/core/ui/components/roving_focus.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/motion/press_scale.dart';
 import 'package:pantas/core/ui/motion/selection_motion.dart';
@@ -1002,7 +1003,14 @@ class WebSegmentedControl extends StatelessWidget {
   static const double _segment = PantasSize.btnXs - PantasSpace.s2;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) => RovingFocus(
+        count: labels.length,
+        tabStop: selected,
+        onSelect: onChanged,
+        builder: _track,
+      );
+
+  Widget _track(BuildContext context, List<FocusNode> nodes) {
     final t = context.webTokens;
     // On touch the segments are 44 high themselves; a transparent border keeps
     // the drawn segment 34 inside a 38 well (D190 item 2).
@@ -1128,6 +1136,7 @@ class WebSegmentedControl extends StatelessWidget {
                               selected: selected == i,
                               inMutuallyExclusiveGroup: true,
                               child: TextButton(
+                                focusNode: nodes[i],
                                 onPressed: () => onChanged(i),
                                 style: ButtonStyle(
                                   animationDuration:

@@ -1,10 +1,14 @@
+import 'dart:async';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart';
 import 'package:pantas/core/time/pantas_dates.dart';
 import 'package:pantas/core/ui/components/offset_focus_ring.dart';
-import 'package:pantas/core/ui/components/pantas_shadows.dart';
+import 'package:pantas/core/ui/components/pantas_tooltip.dart';
 import 'package:pantas/core/ui/components/progress_ring.dart';
+import 'package:pantas/core/ui/components/roving_focus.dart';
 import 'package:pantas/core/ui/motion/press_scale.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_border.dart';
@@ -26,6 +30,14 @@ enum WeekDayState { done, partial, missed, dayOff, today, plain }
 /// tooltip after `dur-tooltip` on a fine pointer, and at once on keyboard
 /// focus; the tooltip lives in the overlay, outside the scroller, so the
 /// scroller cannot clip it. The card and the ExamChip belong to the screen.
+///
+/// Keyboard: Tab reaches the selected day only. Left and Right choose the
+/// next day, Home and End the first and the last day shown. The tooltip is
+/// one bubble above the strip, at the hovered or focused day and clamped to
+/// the strip. Hover and focus are tracked apart and it stays while either
+/// holds. The hover zone is the strip, the tooltip and the 8 point bridge
+/// between them, and Esc dismisses it (WCAG 1.4.13). It is hidden from
+/// screen readers: each day's name already ends with its status.
 class WeekStrip extends StatefulWidget {
   const WeekStrip({
     required this.today,
@@ -138,15 +150,57 @@ class WeekStrip extends StatefulWidget {
   State<WeekStrip> createState() => _WeekStripState();
 }
 
-class _WeekStripState extends State<WeekStrip> {
+class _WeekStripState extends State<WeekStrip>
+    with SingleTickerProviderStateMixin {
   ScrollController? _scroll;
-  final List<GlobalKey<TooltipState>> _tips =
-      List.generate(7, (_) => GlobalKey<TooltipState>());
+  final _stripKey = GlobalKey();
+  final List<GlobalKey> _dayKeys = List.generate(7, (_) => GlobalKey());
+  final _portal = OverlayPortalController();
+  late final AnimationController _fade;
+
+  /// The day under the pointer while it is in the hover zone, and the day
+  /// with keyboard focus. They are tracked apart: the tooltip stays while
+  /// either holds.
+  int? _hover;
+  int? _focus;
+
+  /// True once the hover delay has passed, so moving to another day swaps
+  /// the tooltip at once.
+  bool _hoverShown = false;
+  Timer? _timer;
+
+  /// The day the tooltip is on, or null while it is hidden. [_last] keeps the
+  /// day while it fades out.
+  int? _shown;
+  int _last = 0;
+  bool _overStrip = false;
+  bool _overTip = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _fade = AnimationController(vsync: this, duration: PantasDurations.short2)
+      ..addStatusListener((status) {
+        if (status == AnimationStatus.dismissed && _portal.isShowing) {
+          _portal.hide();
+        }
+      });
+  }
 
   @override
   void dispose() {
+    _timer?.cancel();
+    HardwareKeyboard.instance.removeHandler(_escape);
+    _fade.dispose();
     _scroll?.dispose();
     super.dispose();
+  }
+
+  @override
+  void didUpdateWidget(WeekStrip oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    final shown = _shown;
+    if (shown != null && _statusAt(shown) == null) _show(null);
   }
 
   /// The status a day's tooltip states, or null for a day with none.
@@ -159,51 +213,209 @@ class _WeekStripState extends State<WeekStrip> {
         WeekDayState.dayOff => null,
       };
 
+  DateTime _dateAt(int i) {
+    final start = PantasDates.weekStart(widget.today);
+    return DateTime(start.year, start.month, start.day + i);
+  }
+
+  String? _statusAt(int i) => _status(i, _dateAt(i));
+
+  /// The one day Tab reaches: the selected day, or Today when the selection
+  /// is outside this week.
+  int get _tabStop {
+    for (var i = 0; i < 7; i++) {
+      if (widget.selectedDate == _dateAt(i)) return i;
+    }
+    final today = widget.states.indexOf(WeekDayState.today);
+    return today < 0 ? 0 : today;
+  }
+
+  void _show(int? day) {
+    if (day == _shown) return;
+    if (day != null) _last = day;
+    setState(() => _shown = day);
+    if (day == null) {
+      HardwareKeyboard.instance.removeHandler(_escape);
+      unawaited(_fade.reverse());
+    } else {
+      if (_shown != null && !_portal.isShowing) _portal.show();
+      HardwareKeyboard.instance
+        ..removeHandler(_escape)
+        ..addHandler(_escape);
+      unawaited(_fade.forward());
+    }
+  }
+
+  /// Esc hides the tooltip without moving focus or the pointer. The key is
+  /// consumed only while a tooltip is up.
+  bool _escape(KeyEvent event) {
+    if (event is! KeyDownEvent ||
+        event.logicalKey != LogicalKeyboardKey.escape ||
+        _shown == null) {
+      return false;
+    }
+    _timer?.cancel();
+    _hoverShown = false;
+    _show(null);
+    return true;
+  }
+
+  void _hoverDay(int i) {
+    _hover = i;
+    _timer?.cancel();
+    if (_statusAt(i) == null) {
+      _hoverShown = false;
+      _show(_focus);
+    } else if (_hoverShown) {
+      _show(i);
+    } else {
+      _timer = Timer(PantasDurations.tooltip, () {
+        if (!mounted || _hover != i) return;
+        _hoverShown = true;
+        _show(i);
+      });
+    }
+  }
+
+  void _syncHover() {
+    if (_overStrip || _overTip) return;
+    _hover = null;
+    _hoverShown = false;
+    _timer?.cancel();
+    _show(_focus);
+  }
+
+  /// Exits are delivered before the enters of the same pointer move, so the
+  /// zone is judged after both: crossing from the strip onto the tooltip
+  /// never leaves it.
+  void _zone({bool? strip, bool? tip}) {
+    if (strip != null) _overStrip = strip;
+    if (tip != null) _overTip = tip;
+    scheduleMicrotask(() {
+      if (mounted) _syncHover();
+    });
+  }
+
+  void _focusDay(int i, {required bool focused}) {
+    if (focused) {
+      if (!webKeyboardFocus({WidgetState.focused}) || _statusAt(i) == null) {
+        return;
+      }
+      _focus = i;
+      _show(i);
+    } else if (_focus == i) {
+      _focus = null;
+      _show(_hoverShown ? _hover : null);
+    }
+  }
+
+  Widget _tip(BuildContext context) {
+    final strip = _stripKey.currentContext?.findRenderObject();
+    final day = _dayKeys[_last].currentContext?.findRenderObject();
+    final overlay = Overlay.maybeOf(context)?.context.findRenderObject();
+    final status = _statusAt(_last);
+    if (strip is! RenderBox ||
+        day is! RenderBox ||
+        overlay is! RenderBox ||
+        !strip.attached ||
+        !day.attached ||
+        status == null) {
+      return const SizedBox.shrink();
+    }
+    final origin = overlay.globalToLocal(strip.localToGlobal(Offset.zero));
+    final center = overlay.globalToLocal(
+      day.localToGlobal(day.size.center(Offset.zero)),
+    );
+    return Positioned.fill(
+      child: CustomSingleChildLayout(
+        delegate: _StripTipLayout(
+          strip: origin & strip.size,
+          centerX: center.dx,
+        ),
+        child: FadeTransition(
+          opacity: _fade,
+          child: ExcludeSemantics(
+            // The hover zone includes the tooltip and its 8 point bridge.
+            child: MouseRegion(
+              onEnter: (_) => _zone(tip: true),
+              onExit: (_) => _zone(tip: false),
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: PantasSpace.s8),
+                child: PantasTooltipBubble(message: status),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    final start = PantasDates.weekStart(widget.today);
     final phone = !context.wideWeb;
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        final grow = WeekStrip._grow(context);
-        final cell = WeekStrip.cellFor(grow);
-        final gap = WeekStrip.gapFor(constraints.maxWidth, cell);
-        final content = cell * 7 + gap * 6;
-        final scrolls =
-            constraints.hasBoundedWidth && content > constraints.maxWidth;
-        _scroll ??= ScrollController(
-          initialScrollOffset: (widget.today.weekday % 7) * (cell + gap),
-        );
-        final row = Row(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            for (var i = 0; i < 7; i++) ...[
-              if (i > 0) SizedBox(width: gap),
-              _day(
-                context,
-                i,
-                DateTime(start.year, start.month, start.day + i),
-                phone: phone,
-                grow: grow,
-                cellWidth: cell,
-              ),
-            ],
-          ],
-        );
-        return Align(
-          alignment: Alignment.centerLeft,
-          child: SingleChildScrollView(
-            controller: _scroll,
-            scrollDirection: Axis.horizontal,
-            // Focus rings reach 4 px outside a day: they may leave the box
-            // only while nothing scrolls.
-            clipBehavior: scrolls ? Clip.hardEdge : Clip.none,
-            physics: scrolls ? null : const NeverScrollableScrollPhysics(),
-            child: row,
+    return RovingFocus(
+      count: 7,
+      tabStop: _tabStop,
+      wrap: false,
+      vertical: false,
+      onSelect: (i) => widget.onSelected(_dateAt(i)),
+      builder: (context, nodes) => OverlayPortal(
+        controller: _portal,
+        overlayChildBuilder: _tip,
+        child: MouseRegion(
+          onEnter: (_) => _zone(strip: true),
+          onExit: (_) => _zone(strip: false),
+          child: LayoutBuilder(
+            builder: (context, constraints) {
+              final grow = WeekStrip._grow(context);
+              final cell = WeekStrip.cellFor(grow);
+              final gap = WeekStrip.gapFor(constraints.maxWidth, cell);
+              final content = cell * 7 + gap * 6;
+              final scrolls =
+                  constraints.hasBoundedWidth && content > constraints.maxWidth;
+              _scroll ??= ScrollController(
+                initialScrollOffset: (widget.today.weekday % 7) * (cell + gap),
+              );
+              final row = Semantics(
+                role: SemanticsRole.tabBar,
+                explicitChildNodes: true,
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    for (var i = 0; i < 7; i++) ...[
+                      if (i > 0) SizedBox(width: gap),
+                      _day(
+                        context,
+                        i,
+                        _dateAt(i),
+                        phone: phone,
+                        grow: grow,
+                        cellWidth: cell,
+                        node: nodes[i],
+                      ),
+                    ],
+                  ],
+                ),
+              );
+              return Align(
+                key: _stripKey,
+                alignment: Alignment.centerLeft,
+                child: SingleChildScrollView(
+                  controller: _scroll,
+                  scrollDirection: Axis.horizontal,
+                  // Focus rings reach 4 px outside a day: they may leave the
+                  // box only while nothing scrolls.
+                  clipBehavior: scrolls ? Clip.hardEdge : Clip.none,
+                  physics:
+                      scrolls ? null : const NeverScrollableScrollPhysics(),
+                  child: row,
+                ),
+              );
+            },
           ),
-        );
-      },
+        ),
+      ),
     );
   }
 
@@ -214,6 +426,7 @@ class _WeekStripState extends State<WeekStrip> {
     required bool phone,
     required double grow,
     required double cellWidth,
+    required FocusNode node,
   }) {
     final c = context.colors;
     final state = widget.states[i];
@@ -285,14 +498,9 @@ class _WeekStripState extends State<WeekStrip> {
           type: MaterialType.transparency,
           child: InkWell(
             key: ValueKey('week-day-$i'),
+            focusNode: node,
             onTap: () => widget.onSelected(date),
-            onFocusChange: (focused) {
-              if (focused &&
-                  webKeyboardFocus({WidgetState.focused}) &&
-                  status != null) {
-                _tips[i].currentState?.ensureTooltipVisible();
-              }
-            },
+            onFocusChange: (focused) => _focusDay(i, focused: focused),
             borderRadius: radius,
             hoverColor: c.surfaceHover,
             focusColor: Colors.transparent,
@@ -353,37 +561,44 @@ class _WeekStripState extends State<WeekStrip> {
         ),
       ),
     );
-    Widget cell = ringed;
-    if (status != null) {
-      cell = Tooltip(
-        key: _tips[i],
-        message: status,
-        excludeFromSemantics: true,
-        waitDuration: PantasDurations.tooltip,
-        triggerMode: TooltipTriggerMode.manual,
-        preferBelow: false,
-        verticalOffset: cellWidth / 2 + PantasSpace.s16,
-        constraints: const BoxConstraints(maxWidth: PantasSize.tooltipMax),
-        padding: const EdgeInsets.symmetric(
-          horizontal: PantasSpace.s8,
-          vertical: PantasSpace.s4,
-        ),
-        decoration: BoxDecoration(
-          color: c.toastBg,
-          borderRadius: BorderRadius.circular(PantasRadius.sm),
-          boxShadow: context.shadows.toast,
-        ),
-        textStyle: PantasType.webCaption.copyWith(color: c.toastText),
-        child: ringed,
-      );
-    }
     return Semantics(
+      key: _dayKeys[i],
+      role: SemanticsRole.tab,
       label: label,
       selected: selected,
-      button: true,
       excludeSemantics: true,
       onTap: () => widget.onSelected(date),
-      child: cell,
+      child: MouseRegion(
+        onEnter: (_) => _hoverDay(i),
+        child: ringed,
+      ),
     );
   }
+}
+
+/// Places the strip's tooltip above the strip, centered on the hovered or
+/// focused day and kept inside the strip (the README's `--x` rule).
+class _StripTipLayout extends SingleChildLayoutDelegate {
+  _StripTipLayout({required this.strip, required this.centerX});
+
+  final Rect strip;
+  final double centerX;
+
+  @override
+  BoxConstraints getConstraintsForChild(BoxConstraints constraints) =>
+      constraints.loosen();
+
+  @override
+  Offset getPositionForChild(Size size, Size childSize) {
+    final room = math.max(0, strip.width - childSize.width);
+    final left = (centerX - childSize.width / 2).clamp(
+      strip.left,
+      strip.left + room,
+    );
+    return Offset(left, strip.top - childSize.height);
+  }
+
+  @override
+  bool shouldRelayout(_StripTipLayout oldDelegate) =>
+      oldDelegate.strip != strip || oldDelegate.centerX != centerX;
 }
