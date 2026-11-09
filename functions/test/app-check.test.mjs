@@ -40,7 +40,7 @@ const httpFunctions = calls(/\bonRequest\(/g).filter((c) => c.name);
 // Payment, trial, deletion, export, admin and paid-mock actions: one use per token.
 const REPLAY_PROTECTED = [
   'createPaymongoCheckout', 'startWebTrial', 'setBetaPro', 'getBetaAccess', 'deleteAccount', 'exportData',
-  'recomputePassEnds', 'startMock', 'updateMockReview', 'sendGuardianLink', 'answerGuardianRequest', 'requestSignInCode', 'verifySignInCode', 'exchangeGoogleSignIn',
+  'recomputePassEnds', 'startMock', 'updateMockReview', 'sendGuardianLink', 'answerGuardianRequest', 'setGuardianSharing', 'withdrawGuardianPermission', 'requestSignInCode', 'verifySignInCode', 'exchangeGoogleSignIn',
 ];
 
 test('the source scan finds exactly the callables the deploy entry exposes', () => {

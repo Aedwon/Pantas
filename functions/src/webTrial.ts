@@ -1,7 +1,7 @@
 import {createHmac} from 'node:crypto';
 import {defineSecret} from 'firebase-functions/params';
 import {FieldValue, getFirestore, type Firestore} from 'firebase-admin/firestore';
-import {getAuth, type Auth} from 'firebase-admin/auth';
+import {getAuth, type Auth, type UserRecord} from 'firebase-admin/auth';
 import {HttpsError, onCall} from 'firebase-functions/v2/https';
 import {assertFreshAppCheck, enforceAppCheck} from './_appCheck.js';
 import {assertNamedUser} from './_audit.js';
@@ -47,7 +47,31 @@ export function identityMarkers(auth: Parameters<typeof assertNamedUser>[0], db:
     values.push(...verifiedEmails);
   }
   if (values.length === 0) throw refused();
-  return [...new Set(values)].map(value => db.doc(`trialUsedIdentities/${createHmac('sha256', key).update(value).digest('hex')}`));
+  return markerRefs(db, key, values);
+}
+
+const markerRefs = (db: Firestore, key: string, values: string[]) =>
+  [...new Set(values)].map(value => db.doc(`trialUsedIdentities/${createHmac('sha256', key).update(value).digest('hex')}`));
+
+/**
+ * The same markers for a server job that has no request token: built from the Auth record, with
+ * the same values and hashing as `identityMarkers`. A token names one sign-in provider; the record
+ * lists every linked one, so an account with several providers gets all of them here. Returns
+ * nothing when the record holds no verified identity (the callable refuses that case instead).
+ */
+export function identityMarkersForUser(user: Pick<UserRecord, 'email' | 'emailVerified' | 'providerData'>, db: Firestore) {
+  const key = trialIdentityKey.value();
+  if (!key) throw new HttpsError('failed-precondition', 'Trial eligibility is unavailable.');
+  const values: string[] = [];
+  if (user.emailVerified && typeof user.email === 'string') {
+    values.push(...[user.email.toLowerCase(), canonicalEmail(user.email)].map(email => JSON.stringify(['email', email])));
+  }
+  for (const info of user.providerData) {
+    // Email-and-password sign-in is the `email` identity above, never a provider marker.
+    if (info.providerId === 'password' || !info.uid) continue;
+    values.push(JSON.stringify(['provider', info.providerId, info.uid]));
+  }
+  return markerRefs(db, key, values);
 }
 
 export type TrialDeps = {db: Firestore; auth: Pick<Auth, 'getUser' | 'setCustomUserClaims'>;

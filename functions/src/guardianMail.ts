@@ -33,6 +33,8 @@ export type GuardianMailInput = {
   guardianName: string;
   guardianEmail: string;
   link: string;
+  /** Opens the manage page. Only works once the guardian has confirmed. */
+  manageLink?: string;
   expiresAt: number;
 };
 
@@ -51,7 +53,9 @@ export function guardianMessage(input: GuardianMailInput): GuardianMessage {
   const notice = 'Opening the link alone does not confirm.';
   const label = 'Review and Confirm';
   const expiry = `The link expires on ${expiryLabel(input.expiresAt)}. Not their parent or guardian? Ignore this email.`;
-  const text = [heading, greeting, lead, notice, `${label}: ${input.link}`, expiry].join('\n\n');
+  const manageLabel = 'Manage permission (after you confirm): ';
+  const text = [heading, greeting, lead, notice, `${label}: ${input.link}`,
+    ...(input.manageLink ? [`${manageLabel}${input.manageLink}`] : []), expiry].join('\n\n');
   const p = (value: string): string =>
     `<p style="margin:0 0 16px;font-size:16px;line-height:1.6">${escapeHtml(value)}</p>`;
   const html = `<!doctype html><html lang="en"><head><meta charset="utf-8">` +
@@ -60,8 +64,35 @@ export function guardianMessage(input: GuardianMailInput): GuardianMessage {
     `<div style="max-width:560px;margin:0 auto"><h1 style="margin:0 0 20px;font-size:24px;line-height:1.25">${escapeHtml(heading)}</h1>` +
     `${p(greeting)}${p(lead)}${p(notice)}` +
     `<p style="margin:8px 0 24px"><a href="${escapeHtml(input.link)}" style="display:inline-block;padding:12px 24px;border-radius:12px;background:${accent};color:#FFFFFF;font-size:16px;font-weight:600;text-decoration:none">${label}</a></p>` +
+    (input.manageLink
+      ? `<p style="margin:0 0 16px;font-size:14px;line-height:1.6">${manageLabel}` +
+        `<a href="${escapeHtml(input.manageLink)}" style="color:${accent}">${escapeHtml(input.manageLink)}</a></p>` : '') +
     `<p style="margin:0;font-size:13px;line-height:1.6;color:${muted}">${escapeHtml(expiry)}</p></div></body></html>`;
   return {to: input.guardianEmail, subject, text, html};
+}
+
+export type InactivityWarningInput = {email: string; deleteOn: number; origin: string};
+
+/** The warning sent 30 days before an unused account is deleted. */
+export function inactivityWarningMessage(input: InactivityWarningInput): GuardianMessage {
+  const date = expiryLabel(input.deleteOn);
+  const link = input.origin.replace(/\/$/, '');
+  const subject = `Your Pantas account will be deleted on ${date}`;
+  const lead = 'You have not used Pantas for almost two years. We delete accounts after two years without use, ' +
+    `so your account and study records will be deleted on ${date}.`;
+  const action = 'To keep your account, open Pantas and sign in before then.';
+  const label = 'Open Pantas';
+  const footer = 'Questions? Reply to this email or write to support@pantas.study.';
+  const text = [lead, action, `${label}: ${link}`, footer].join('\n\n');
+  const p = (value: string): string =>
+    `<p style="margin:0 0 16px;font-size:16px;line-height:1.6">${escapeHtml(value)}</p>`;
+  const html = `<!doctype html><html lang="en"><head><meta charset="utf-8">` +
+    `<meta name="viewport" content="width=device-width,initial-scale=1"></head>` +
+    `<body style="margin:0;padding:24px 16px;background:#FBF9F4;color:${ink};font-family:${font}">` +
+    `<div style="max-width:560px;margin:0 auto">${p(lead)}${p(action)}` +
+    `<p style="margin:8px 0 24px"><a href="${escapeHtml(link)}" style="display:inline-block;padding:12px 24px;border-radius:12px;background:${accent};color:#FFFFFF;font-size:16px;font-weight:600;text-decoration:none">${label}</a></p>` +
+    `<p style="margin:0;font-size:13px;line-height:1.6;color:${muted}">${escapeHtml(footer)}</p></div></body></html>`;
+  return {to: input.email, subject, text, html};
 }
 
 /** `Name <addr>` is used as written. A bare address gets the default name `Pantas`. */
