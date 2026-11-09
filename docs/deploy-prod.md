@@ -226,3 +226,25 @@ custom token for the client to sign in with.
 - Smoke test: request a code, enter it, confirm sign-in. Then enter a wrong code and
   confirm the tries count down, and confirm a second request within 60 seconds does
   not send another email.
+
+## 12. Ship design system 4.0 (only after Aedwon says "ship it")
+
+Aedwon decided the redesign ships during the beta, after his own staging check and his explicit
+"ship it" (launch log, Nov 9). Ship the exact SHA staging served when he checked it.
+
+- **Deploy the functions and the web app together.** The interim legal texts moved the guardian
+  document versions to 2026-11-10 in the app (`lib/features/legal/domain/legal_document.dart`) and
+  in the functions (`functions/src/guardianConsent.ts`). If only one side deploys, the guardian page
+  refuses confirmations with "Reload the page to review the current terms." Run the IAM preflight
+  (section 8), deploy functions, then hosting, back to back from the same checkout, then confirm a
+  guardian confirmation works with an owner test pair.
+- **Check the "Updated" date.** The three legal documents say "Updated November 10, 2026". If the
+  ship happens before November 10 Manila time, change the date to the ship date (app and functions
+  versions together) and rerun CI first.
+- **Check out detached at the SHA and verify it** before building, as for staging:
+  `git checkout --detach <sha> && test "$(git rev-parse HEAD)" = <sha>`.
+- **After the deploy:** the live checks in section 8 and section 10, plus Home > Continue Lesson
+  opens a lesson, Settings > Lesson Text Size shows its preview, and Settings > Accessibility >
+  Keyboard Shortcuts turns letter keys off on wide screens.
+- **Staging only, not prod:** the App Check debug token the lead registered on pantas-staging for
+  the visual pass is deleted when the pass ends; prod never gets one.
