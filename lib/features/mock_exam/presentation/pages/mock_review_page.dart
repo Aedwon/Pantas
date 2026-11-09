@@ -27,6 +27,7 @@ import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
+import 'package:pantas/core/ui/web/letter_shortcuts.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_key_focus.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -309,12 +310,11 @@ class _MockReviewPageState extends ConsumerState<MockReviewPage> {
       ),
     );
     if (!wide) return page;
-    return CallbackShortcuts(
+    return LetterShortcuts(
+      also: {const SingleActivator(LogicalKeyboardKey.escape): back},
       bindings: {
-        const SingleActivator(LogicalKeyboardKey.escape): back,
         if (viewed != null && savedFlags.hasValue)
-          const SingleActivator(LogicalKeyboardKey.keyF): () =>
-              _toggleFlag(viewed.question.id),
+          'f': () => _toggleFlag(viewed.question.id),
       },
       child: KeyFocusKeeper(child: page),
     );
@@ -1442,15 +1442,10 @@ class _ReasonPanelState extends State<_ReasonPanel> {
       }
     }
 
-    return CallbackShortcuts(
+    return LetterShortcuts(
       bindings: {
-        for (final (i, key) in [
-          LogicalKeyboardKey.digit1,
-          LogicalKeyboardKey.digit2,
-          LogicalKeyboardKey.digit3,
-          LogicalKeyboardKey.digit4,
-        ].indexed)
-          SingleActivator(key): () {
+        for (final (i, key) in const ['1', '2', '3', '4'].indexed)
+          key: () {
             if (FocusManager.instance.primaryFocus?.context?.widget
                 is EditableText) {
               return;

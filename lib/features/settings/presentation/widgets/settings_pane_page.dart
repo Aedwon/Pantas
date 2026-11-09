@@ -154,6 +154,7 @@ class SettingsPanePage extends StatelessWidget {
                 'Practice' =>
                   Icon(PantasIcons.practice, size: 22, color: t.colors.accent),
                 'Appearance' => _grayGlyph(t, PantasIcons.appearance),
+                'Accessibility' => _grayGlyph(t, Icon(PantasIcons.keyboard)),
                 'About' => _grayGlyph(t, PantasIcons.about),
                 _ => null,
               }
@@ -436,7 +437,7 @@ class SettingsNavigation extends ConsumerWidget {
           leading: glyph,
           onPressed: () => open(path),
           divider: divider ??
-              (label != 'Appearance' &&
+              (label != 'Accessibility' &&
                   label != 'Pantas Pro' &&
                   label != 'About'),
         );
@@ -546,6 +547,11 @@ class SettingsNavigation extends ConsumerWidget {
                   ThemePreference.dark => 'Dark',
                   ThemePreference.system => 'Automatic',
                 },
+              ),
+              row(
+                'Accessibility',
+                '/settings/accessibility',
+                _grayGlyph(t, Icon(PantasIcons.keyboard)),
               ),
             ],
           ),

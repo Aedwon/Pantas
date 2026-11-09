@@ -5,17 +5,21 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/content/domain/mock_blueprint.dart';
 import 'package:pantas/core/storage/domain/choice.dart';
 import 'package:pantas/core/storage/domain/question.dart';
+import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/half_ring_gauge.dart';
 import 'package:pantas/core/ui/components/pantas_switch.dart';
 import 'package:pantas/core/ui/components/review_list.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/letter_shortcuts.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_debrief_loading.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/mock_exam/application/mock_start_providers.dart';
 import 'package:pantas/features/mock_exam/mock_exam.dart';
 import 'package:pantas/features/mock_exam/presentation/mock_hourglass.dart';
+
+import '../../../helpers/in_memory_database.dart';
 
 const blueprint = ParsedMockBlueprint(
   blueprint: MockBlueprint(
@@ -152,6 +156,64 @@ void main() {
       await tester.tap(find.textContaining('Closest to the real exam'));
       await tester.pump();
       expect(find.textContaining('No pausing'), findsOneWidget);
+    });
+    testWidgets(
+        'review: F flags with the setting on and not with it off '
+        '($dark)', (tester) async {
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      for (final lettersOn in [true, false]) {
+        final db = inMemoryDatabase();
+        addTearDown(db.close);
+        await pumpWide(
+          tester,
+          LetterShortcutsScope(
+            enabled: lettersOn,
+            child: ProviderScope(
+              key: ValueKey(lettersOn),
+              overrides: [
+                appDatabaseProvider.overrideWithValue(db),
+                mockReviewProvider.overrideWith(
+                  (ref, id) async => const [
+                    ReviewEntry(
+                      number: 1,
+                      question: question,
+                      isFlagged: false,
+                      subjectName: 'Numerical Ability',
+                      label: 'A wrong question',
+                      labelIsStem: false,
+                      chosenChoiceId: 'b',
+                    ),
+                  ],
+                ),
+                mockMarkedQuestionIdsProvider
+                    .overrideWith((ref, id) async => <String>{}),
+                mockOfferHandledProvider.overrideWith((ref, id) async => true),
+                mockReviewAnswersProvider
+                    .overrideWith((ref, id) async => <String, MockAnswer>{}),
+              ],
+              child: const MockReviewPage(attemptId: 'a', proIsActive: false),
+            ),
+          ),
+          dark: dark,
+        );
+        await tester.pumpAndSettle();
+        await tester.tap(find.text('All 1'));
+        await tester.pump();
+        await tester.tap(find.text('A wrong question'));
+        await tester.pumpAndSettle();
+        await tester.sendKeyEvent(LogicalKeyboardKey.keyF);
+        await tester.pumpAndSettle();
+        expect(
+          await QuestionFlagsRepository(db).isFlagged('q'),
+          lettersOn,
+          reason: 'F with the setting ${lettersOn ? 'on' : 'off'}',
+        );
+        // Esc is not a character key and still leaves the viewer.
+        await tester.sendKeyEvent(LogicalKeyboardKey.escape);
+        await tester.pumpAndSettle();
+        expect(find.text('CORRECT ANSWER'), findsNothing);
+      }
     });
     testWidgets('wide wrong and correct review, Pro and Free ($dark)',
         (tester) async {
@@ -378,6 +440,69 @@ void main() {
       expect(controller.offset, 200);
       expect(mask, findsOneWidget);
       expect(tester.takeException(), isNull);
+    });
+    testWidgets('with Keyboard Shortcuts off the letters do nothing ($dark)',
+        (tester) async {
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      var flagged = 0;
+      var next = 0;
+      var paused = 0;
+      int? picked;
+      await pumpWide(
+        tester,
+        LetterShortcutsScope(
+          enabled: false,
+          child: ProviderScope(
+            overrides: [
+              hydratedMockQuestionProvider.overrideWith(
+                (ref, id) async => const HydratedMockQuestion(question, null),
+              ),
+            ],
+            child: MockSessionPage(
+              state: const MockSessionInProgress(
+                attemptId: 'a',
+                durationSeconds: 5400,
+                questionIds: ['q', 'q2'],
+                currentIndex: 0,
+                elapsedSeconds: 0,
+                answers: {},
+                flags: {},
+                strictMode: false,
+              ),
+              remainingInPart: const Duration(minutes: 30),
+              partPosition: 1,
+              partTotal: 2,
+              oneBlock: true,
+              canGoPrevious: false,
+              canGoNext: true,
+              onPrevious: () {},
+              onNext: () => next++,
+              onAnswer: (value) => picked = value,
+              onToggleFlag: () => flagged++,
+              onPause: () => paused++,
+              onSubmitExam: () {},
+            ),
+          ),
+        ),
+        dark: dark,
+      );
+      await tester.pumpAndSettle();
+      for (final key in [
+        LogicalKeyboardKey.keyA,
+        LogicalKeyboardKey.keyB,
+        LogicalKeyboardKey.keyF,
+        LogicalKeyboardKey.keyP,
+      ]) {
+        await tester.sendKeyEvent(key);
+      }
+      expect(picked, isNull);
+      expect(flagged, 0);
+      expect(paused, 0);
+      expect(find.text("Real exams don't pause."), findsNothing);
+      // Arrow keys are not character keys and keep working.
+      await tester.sendKeyEvent(LogicalKeyboardKey.arrowRight);
+      expect(next, 1);
     });
     testWidgets('wide paper panel, flag, keyboard and submit ($dark)',
         (tester) async {

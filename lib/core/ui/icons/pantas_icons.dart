@@ -97,6 +97,8 @@ abstract final class PantasIcons {
       const IconData(0xe2ca, fontFamily: 'Phosphor');
   static IconData get edit => const IconData(0xe3b4, fontFamily: 'Phosphor');
   static IconData get share => const IconData(0xeaf0, fontFamily: 'Phosphor');
+  static IconData get keyboard =>
+      const IconData(0xe2d8, fontFamily: 'Phosphor');
   static IconData get exam => const IconData(0xe47c, fontFamily: 'Phosphor');
   static IconData get practice =>
       const IconData(0xe74e, fontFamily: 'Phosphor');

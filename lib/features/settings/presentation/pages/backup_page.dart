@@ -144,33 +144,12 @@ class _BackupPageState extends ConsumerState<BackupPage> {
           ],
         ),
         const SizedBox(height: PantasSpace.s24),
-        // The hidden copy is the widest the button gets (spinner and label),
-        // so the button keeps one width in every state.
-        Align(
-          alignment: AlignmentDirectional.centerStart,
-          child: Stack(
-            children: [
-              const ExcludeSemantics(
-                child: IgnorePointer(
-                  child: TickerMode(
-                    // A still spinner sizes the guide without animating.
-                    enabled: false,
-                    child: Opacity(
-                      opacity: 0,
-                      child: PantasButton(label: 'Back Up Now', busy: true),
-                    ),
-                  ),
-                ),
-              ),
-              Positioned.fill(
-                child: PantasButton(
-                  label: failed ? 'Try Again' : 'Back Up Now',
-                  busy: busy,
-                  onPressed: canFlush ? _backUp : null,
-                ),
-              ),
-            ],
-          ),
+        // Full width, and the button locks its width while busy, so it keeps
+        // one size in every state.
+        PantasButton(
+          label: failed ? 'Try Again' : 'Back Up Now',
+          busy: busy,
+          onPressed: canFlush ? _backUp : null,
         ),
       ],
     );
