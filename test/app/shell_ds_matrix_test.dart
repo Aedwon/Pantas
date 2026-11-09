@@ -68,7 +68,7 @@ void main() {
 
   dsMatrix(
     'wide email sign-in heading stays on one line',
-    (context) => _scope(const EmailSignInPage(beta: false)),
+    (context) => _scope(const EmailSignInPage()),
     scroll: false,
     cells: const [
       DsCell(1100, 1, dark: false),

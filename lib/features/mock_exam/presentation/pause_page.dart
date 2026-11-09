@@ -738,131 +738,135 @@ class _PartList extends StatelessWidget {
     final minRow = math.max(50, lineHeight + 4).toDouble();
     // Left padding 6 and 4, right 16 and 4, the 24 marker and a 14 gap.
     const sideSpace = 6.0 + 4 + 16 + 4 + PantasSpace.s24 + PantasSpace.s14;
-    return LayoutBuilder(builder: (context, constraints) {
-      // A part name wraps (README Type, text scaling), so each row is as tall as
-      // its name needs and never shorter than the one-line row.
-      final nameStyle = context.type.body.copyWith(fontWeight: FontWeight.w600);
-      final heights = <double>[
-        for (final name in names)
-          () {
-            final painter = TextPainter(
-              text: TextSpan(text: name, style: nameStyle),
-              textDirection: Directionality.of(context),
-              textScaler: scaler,
-            )..layout(maxWidth: math.max(0, constraints.maxWidth - sideSpace));
-            final h = painter.height;
-            painter.dispose();
-            return h <= lineHeight + 1 ? minRow : h + (minRow - lineHeight);
-          }(),
-      ];
-      final before =
-          heights.take(currentIndex).fold<double>(0, (a, h) => a + h);
-      return DecoratedBox(
-        decoration: BoxDecoration(
-          color: c.surface,
-          borderRadius: BorderRadius.circular(PantasRadius.lg),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(
-            PantasSpace.s6,
-            PantasSpace.s14,
-            PantasSpace.s16,
-            PantasSpace.s14,
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        // A part name wraps (README Type, text scaling), so each row is as
+        // tall as its name needs and never shorter than the one-line row.
+        final nameStyle =
+            context.type.body.copyWith(fontWeight: FontWeight.w600);
+        final heights = <double>[
+          for (final name in names)
+            () {
+              final painter = TextPainter(
+                text: TextSpan(text: name, style: nameStyle),
+                textDirection: Directionality.of(context),
+                textScaler: scaler,
+              )..layout(
+                  maxWidth: math.max(0, constraints.maxWidth - sideSpace));
+              final h = painter.height;
+              painter.dispose();
+              return h <= lineHeight + 1 ? minRow : h + (minRow - lineHeight);
+            }(),
+        ];
+        final before =
+            heights.take(currentIndex).fold<double>(0, (a, h) => a + h);
+        return DecoratedBox(
+          decoration: BoxDecoration(
+            color: c.surface,
+            borderRadius: BorderRadius.circular(PantasRadius.lg),
           ),
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: PantasSpace.s4),
-            child: Stack(
-              children: [
-                Column(
-                  children: [
-                    for (var i = 0; i < names.length; i++)
-                      SizedBox(
-                        height: heights[i],
-                        child: Row(
-                          children: [
-                            SizedBox(
-                              width: PantasSpace.s24,
-                              height: heights[i],
-                              child: Stack(
-                                clipBehavior: Clip.none,
-                                alignment: Alignment.center,
-                                children: [
-                                  if (i < names.length - 1)
-                                    Positioned(
-                                      top: heights[i] / 2 + 12,
-                                      bottom: -12,
-                                      child: Container(
-                                        width: 2,
+            padding: const EdgeInsets.fromLTRB(
+              PantasSpace.s6,
+              PantasSpace.s14,
+              PantasSpace.s16,
+              PantasSpace.s14,
+            ),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: PantasSpace.s4),
+              child: Stack(
+                children: [
+                  Column(
+                    children: [
+                      for (var i = 0; i < names.length; i++)
+                        SizedBox(
+                          height: heights[i],
+                          child: Row(
+                            children: [
+                              SizedBox(
+                                width: PantasSpace.s24,
+                                height: heights[i],
+                                child: Stack(
+                                  clipBehavior: Clip.none,
+                                  alignment: Alignment.center,
+                                  children: [
+                                    if (i < names.length - 1)
+                                      Positioned(
+                                        top: heights[i] / 2 + 12,
+                                        bottom: -12,
+                                        child: Container(
+                                          width: 2,
+                                          color: i < currentIndex
+                                              ? c.accentFill
+                                              : c.separator,
+                                        ),
+                                      ),
+                                    Container(
+                                      width: 24,
+                                      height: 24,
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
                                         color: i < currentIndex
                                             ? c.accentFill
-                                            : c.separator,
+                                            : c.surface,
+                                        border: i < currentIndex
+                                            ? null
+                                            : Border.all(
+                                                color: i == currentIndex
+                                                    ? c.accentFill
+                                                    : c.separator,
+                                                width: 2,
+                                              ),
                                       ),
+                                      child: i < currentIndex
+                                          ? Icon(
+                                              PantasIcons.check,
+                                              size: 13,
+                                              color: c.onAccent,
+                                            )
+                                          : null,
                                     ),
-                                  Container(
-                                    width: 24,
-                                    height: 24,
-                                    decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      color: i < currentIndex
-                                          ? c.accentFill
-                                          : c.surface,
-                                      border: i < currentIndex
-                                          ? null
-                                          : Border.all(
-                                              color: i == currentIndex
-                                                  ? c.accentFill
-                                                  : c.separator,
-                                              width: 2,
-                                            ),
-                                    ),
-                                    child: i < currentIndex
-                                        ? Icon(
-                                            PantasIcons.check,
-                                            size: 13,
-                                            color: c.onAccent,
-                                          )
-                                        : null,
-                                  ),
-                                ],
-                              ),
-                            ),
-                            const SizedBox(width: PantasSpace.s14),
-                            Expanded(
-                              child: Text(
-                                names[i],
-                                style: context.type.body.copyWith(
-                                  fontWeight: i == currentIndex
-                                      ? FontWeight.w600
-                                      : FontWeight.w400,
-                                  color: i < currentIndex
-                                      ? c.secondaryLabel
-                                      : c.label,
+                                  ],
                                 ),
                               ),
-                            ),
-                          ],
+                              const SizedBox(width: PantasSpace.s14),
+                              Expanded(
+                                child: Text(
+                                  names[i],
+                                  style: context.type.body.copyWith(
+                                    fontWeight: i == currentIndex
+                                        ? FontWeight.w600
+                                        : FontWeight.w400,
+                                    color: i < currentIndex
+                                        ? c.secondaryLabel
+                                        : c.label,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
+                    ],
+                  ),
+                  Positioned(
+                    left: 4,
+                    top: 0,
+                    child: Transform.translate(
+                      key: const ValueKey('pause-part-arrow'),
+                      offset: Offset(0, before + heights[currentIndex] / 2 - 7),
+                      child: CustomPaint(
+                        size: const Size(12, 14),
+                        painter: _Arrow(c.accentFill),
                       ),
-                  ],
-                ),
-                Positioned(
-                  left: 4,
-                  top: 0,
-                  child: Transform.translate(
-                    key: const ValueKey('pause-part-arrow'),
-                    offset: Offset(0, before + heights[currentIndex] / 2 - 7),
-                    child: CustomPaint(
-                      size: const Size(12, 14),
-                      painter: _Arrow(c.accentFill),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
-        ),
-      );
-    });
+        );
+      },
+    );
   }
 }
 
