@@ -102,6 +102,7 @@ class CustomTrackRow {
     required this.blueprint,
     required this.createdAt,
     required this.updatedAt,
+    this.priceTier,
   });
 
   factory CustomTrackRow.fromJson(Object? json) {
@@ -120,10 +121,17 @@ class CustomTrackRow {
           : CustomTrackBlueprintRow.fromJson(map['blueprint']),
       createdAt: _jsonInt(map['createdAt'], 'createdAt'),
       updatedAt: _jsonInt(map['updatedAt'], 'updatedAt'),
+      priceTier: map['priceTier'] == null
+          ? null
+          : _jsonText(map['priceTier'], 'priceTier'),
     );
   }
 
   final ExamId examId;
+
+  /// The tier the server works out from the subjects the exam keeps, spelled
+  /// as the catalog spells it. Null on a reply from a server that sends none.
+  final String? priceTier;
 
   /// Null when the server never received a name for this exam.
   final String? name;

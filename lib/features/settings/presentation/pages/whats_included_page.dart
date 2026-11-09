@@ -2,7 +2,9 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:pantas/app/telemetry_providers.dart';
+import 'package:pantas/core/content/data/custom_subject_tiers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/metrics/overall_accuracy.dart';
 import 'package:pantas/core/platform/first_screen_ready.dart';
@@ -13,6 +15,7 @@ import 'package:pantas/core/storage/domain/topic.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/storage/track_scope.dart';
+import 'package:pantas/core/ui/components/centered_dialog.dart';
 import 'package:pantas/core/ui/components/scope_picker.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/leave_page.dart';
@@ -20,16 +23,21 @@ import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/home/application/study_delivery.dart';
+import 'package:pantas/features/paywall/application/paywall_providers.dart';
+import 'package:pantas/features/paywall/domain/coverage.dart';
+import 'package:pantas/features/paywall/domain/entitlement.dart';
+import 'package:pantas/features/paywall/domain/price_tier.dart';
 import 'package:pantas/features/settings/presentation/widgets/settings_pane_page.dart';
 
-final whatsIncludedDataProvider = FutureProvider.family<
-    ({
-      Exam exam,
-      List<ScopeSubject> subjects,
-      Set<TopicId> excluded,
-      Set<LessonId> excludedLessons
-    }),
-    ExamId>((ref, examId) async {
+typedef WhatsIncludedScope = ({
+  Exam exam,
+  List<ScopeSubject> subjects,
+  Set<TopicId> excluded,
+  Set<LessonId> excludedLessons
+});
+
+final whatsIncludedDataProvider =
+    FutureProvider.family<WhatsIncludedScope, ExamId>((ref, examId) async {
   final content = ref.watch(contentRepositoryProvider);
   final excluded = await ref.watch(trackScopeProvider(examId).future);
   final exam = (await content.listExams()).firstWhere((e) => e.id == examId);
@@ -89,6 +97,48 @@ final whatsIncludedDataProvider = FutureProvider.family<
     ]
   );
 });
+
+/// The topics a set of ticked ids keeps. A topic with lessons is kept while
+/// one of its lessons is ticked, and a topic with none while it is ticked.
+Set<TopicId> _includedTopics(
+  List<ScopeSubject> subjects,
+  Set<String> selected,
+) =>
+    {
+      for (final subject in subjects)
+        for (final topic in subject.topics)
+          if (topic.lessons.isEmpty
+              ? selected.contains(topic.id)
+              : topic.lessons.any((l) => selected.contains(l.id)))
+            topic.id,
+    };
+
+String _tierLine(
+  CustomSubjectTiers tiers,
+  List<ScopeSubject> subjects,
+  Set<String> selected,
+) {
+  final tier = tiers.tierOf(_includedTopics(subjects, selected));
+  return 'Studying is free. For Pro, this is a '
+      '${CustomSubjectTiers.levelLabel(tier)} exam.';
+}
+
+/// The subjects with the "-level" mark on each one above Student.
+List<ScopeSubject> _markedSubjects(
+  List<ScopeSubject> subjects,
+  CustomSubjectTiers tiers,
+) =>
+    [
+      for (final subject in subjects)
+        ScopeSubject(
+          title: subject.title,
+          topics: subject.topics,
+          mark: switch (tiers.tierOf([for (final t in subject.topics) t.id])) {
+            PriceTier.student => null,
+            final tier => CustomSubjectTiers.levelLabel(tier),
+          },
+        ),
+    ];
 
 class WhatsIncludedPage extends ConsumerStatefulWidget {
   const WhatsIncludedPage({super.key});
@@ -153,9 +203,85 @@ class _WhatsIncludedPageState extends ConsumerState<WhatsIncludedPage> {
     }
   }
 
+  /// A tick on a custom exam that would lift its tier above what the student's
+  /// plan covers waits for an answer. Undo Change drops the tick: nothing is
+  /// written, and the ticks stay as saved. See Plans opens the Pro page, also
+  /// with nothing written. Returns true when the change may be saved.
+  Future<bool> _confirmRaise({
+    required Exam exam,
+    required List<ScopeSubject> subjects,
+    required Set<String> current,
+    required Set<String> next,
+  }) async {
+    final CustomSubjectTiers tiers;
+    try {
+      tiers = await ref.read(customSubjectTiersProvider.future);
+    } on Object {
+      // Not knowing the tier must not block a save. The server decides
+      // coverage either way.
+      return true;
+    }
+    final before = tiers.tierOf(_includedTopics(subjects, current));
+    final after = tiers.tierOf(_includedTopics(subjects, next));
+    if (after.index <= before.index) return true;
+    Entitlement entitlement;
+    try {
+      entitlement = await ref.read(entitlementProvider.future);
+    } on Object {
+      entitlement = const Entitlement.free();
+    }
+    final plan = entitlement.tier ?? entitlement.coverage().tier;
+    if (!entitlement.proIsActive || plan == null || tierCovers(plan, after)) {
+      return true;
+    }
+    if (!mounted) return false;
+    final level = CustomSubjectTiers.levelLabel(after);
+    final answer = await showDialog<bool>(
+      context: context,
+      barrierColor: context.colors.scrim,
+      builder: (context) => CenteredDialog(
+        title: '${exam.shortName} becomes a $level exam',
+        message: 'Your ${CustomSubjectTiers.levelName(plan)} plan does not '
+            'cover $level exams, so unlimited mocks, days ahead in your plan '
+            'and Pro study figures stop on ${exam.shortName}. Wrong-choice '
+            'notes stay on questions that '
+            '${CustomSubjectTiers.levelLabel(plan)} exams also use.',
+        primaryLabel: 'See Plans',
+        secondaryLabel: 'Undo Change',
+        onConfirm: () => Navigator.of(context).pop(true),
+        onCancel: () => Navigator.of(context).pop(false),
+      ),
+    );
+    if ((answer ?? false) && mounted) {
+      unawaited(context.push<void>('/settings/pro'));
+    }
+    return false;
+  }
+
+  Future<void> _change(
+    String examId,
+    WhatsIncludedScope scope,
+    Set<String> current,
+    Set<String> next, {
+    required Set<TopicId> hidden,
+  }) async {
+    if (scope.exam.isCustom &&
+        !await _confirmRaise(
+          exam: scope.exam,
+          subjects: scope.subjects,
+          current: current,
+          next: next,
+        )) {
+      return;
+    }
+    if (!mounted) return;
+    await _save(examId, scope.subjects, next, hidden: hidden);
+  }
+
   @override
   Widget build(BuildContext context) {
     final focus = ref.watch(activeExamFocusProvider);
+    final tiers = ref.watch(customSubjectTiersProvider).valueOrNull;
     final examId = focus.valueOrNull?.exam?.id;
     final data =
         examId == null ? null : ref.watch(whatsIncludedDataProvider(examId));
@@ -217,21 +343,39 @@ class _WhatsIncludedPageState extends ConsumerState<WhatsIncludedPage> {
                   IgnorePointer(
                     ignoring: _saving,
                     child: ScopePicker(
-                      subjects: scope.subjects,
+                      subjects: scope.exam.isCustom && tiers != null
+                          ? _markedSubjects(scope.subjects, tiers)
+                          : scope.subjects,
                       settingsRows: true,
                       selectedIds: selected,
                       minimumSelectionMessage:
                           'At least one topic stays ticked.',
-                      onChanged: (selected) => unawaited(
-                        _save(
+                      onChanged: (next) => unawaited(
+                        _change(
                           examId!,
-                          scope.subjects,
+                          scope,
                           selected,
+                          next,
                           hidden: hidden,
                         ),
                       ),
                     ),
                   ),
+                  if (scope.exam.isCustom && tiers != null)
+                    Padding(
+                      padding: context.wideWeb
+                          ? EdgeInsets.zero
+                          : const EdgeInsets.fromLTRB(
+                              PantasSpace.s16,
+                              PantasSpace.s6,
+                              PantasSpace.s16,
+                              PantasSpace.s0,
+                            ),
+                      child: Text(
+                        _tierLine(tiers, scope.subjects, selected),
+                        style: context.type.footnote,
+                      ),
+                    ),
                   Padding(
                     padding: context.wideWeb
                         ? EdgeInsets.zero

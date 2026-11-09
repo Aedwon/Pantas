@@ -30,6 +30,7 @@ class OnboardingWebPage extends StatelessWidget {
     this.detailLineHeight = 1.4,
     this.topPadding = PantasSpace.s4,
     this.focusTarget,
+    this.onEnter,
     super.key,
   });
   final String title;
@@ -56,6 +57,10 @@ class OnboardingWebPage extends StatelessWidget {
   /// Web only: the step's text field. The field is drawn as the active input,
   /// so it is the one that holds focus, and typing works with no click first.
   final FocusNode? focusTarget;
+
+  /// Web only: what Enter does when the step's main button sits in the body
+  /// (a card footer) and not in [bottom].
+  final VoidCallback? onEnter;
 
   @override
   Widget build(BuildContext context) {
@@ -96,7 +101,12 @@ class OnboardingWebPage extends StatelessWidget {
         const SingleActivator(
           LogicalKeyboardKey.enter,
           includeRepeats: false,
-        ): primary.onPressed!,
+        ): primary.onPressed!
+      else if (primary == null && onEnter != null)
+        const SingleActivator(
+          LogicalKeyboardKey.enter,
+          includeRepeats: false,
+        ): onEnter!,
     };
     if (host != null) {
       // The top bar and steps list stay on screen in the onboarding frame.

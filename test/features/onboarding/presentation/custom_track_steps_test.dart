@@ -5,11 +5,18 @@ import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/data/repos/custom_track_repository.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/ui/components/card_footer.dart';
+import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/pantas_tag.dart';
+import 'package:pantas/core/ui/components/selectable_tile.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/onboarding/presentation/steps/custom_track_name_step.dart';
 import 'package:pantas/features/onboarding/presentation/steps/custom_track_subjects_step.dart';
 
+import '../../../helpers/custom_subject_tiers_fixture.dart';
 import '../../../helpers/in_memory_database.dart';
 
 void main() {
@@ -88,6 +95,26 @@ void main() {
         examId: exam,
       );
     }
+    // A subject the tier table places above Student.
+    await seedContentSubject(
+      contentDb,
+      subjectId: 'sub5',
+      examId: 'exam2',
+      name: 'General Information',
+      ordering: 4,
+    );
+    await seedContentTopic(
+      contentDb,
+      topicId: 'topic_upcat_philippine_constitution',
+      subjectId: 'sub5',
+      name: 'Constitution',
+    );
+    await seedContentQuestion(
+      contentDb,
+      questionId: 'q5',
+      topicId: 'topic_upcat_philippine_constitution',
+      examId: 'exam2',
+    );
     // Held in the catalog with no questions: a topic inside Mathematics, and
     // a whole subject.
     await seedContentTopic(
@@ -274,6 +301,104 @@ void main() {
 
       final selectedId = await AppPreferencesRepository(db).selectedExamId();
       expect(selectedId, equals(custom.id));
+    });
+  });
+
+  group('CustomTrackSubjectsStep tier', () {
+    const student = 'Studying is free. For Pro, this is a Student-level exam.';
+    const civil =
+        'Studying is free. For Pro, this is a Civil Service-level exam.';
+
+    Future<void> pumpStep(WidgetTester tester, {required bool wide}) async {
+      debugWebPlatformOverride = wide;
+      addTearDown(() => debugWebPlatformOverride = null);
+      tester.view.physicalSize =
+          wide ? const Size(1440, 900) : const Size(390, 844);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      await tester.pumpWidget(
+        ProviderScope(
+          overrides: [
+            appDatabaseProvider.overrideWithValue(db),
+            contentDatabaseProvider.overrideWithValue(contentDb),
+            shippedCustomSubjectTiers(
+              studentTopics: ['top1', 'top2', 'top3', 'top4', 'top5'],
+            ),
+          ],
+          child: MaterialApp(
+            theme: buildLightTheme(web: wide),
+            home: const CustomTrackSubjectsStep(name: 'PUP CET'),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+    }
+
+    for (final wide in [true, false]) {
+      final layout = wide ? 'wide' : 'phone';
+
+      testWidgets('$layout: tiles sit in a card closed by the footer',
+          (tester) async {
+        await pumpStep(tester, wide: wide);
+
+        expect(find.byType(SelectableTile), findsNWidgets(3));
+        expect(
+          find.descendant(
+            of: find.byType(WebCard),
+            matching: find.byType(SelectableTile),
+          ),
+          findsNWidgets(3),
+        );
+        expect(
+          find.descendant(
+            of: find.byType(CardFooter),
+            matching: find.text('Continue'),
+          ),
+          findsOneWidget,
+        );
+        expect(find.byType(ListRow), findsNothing);
+      });
+
+      testWidgets('$layout: only General Information adds the level mark',
+          (tester) async {
+        await pumpStep(tester, wide: wide);
+
+        expect(find.text('2 topics'), findsOneWidget);
+        expect(find.text('1 topic'), findsOneWidget); // Science
+        expect(find.text('1 topic · Civil Service-level'), findsOneWidget);
+        expect(find.textContaining('Student-level'), findsNothing);
+        expect(find.byType(PantasTag), findsNothing);
+      });
+
+      testWidgets('$layout: the footer line follows the ticks', (tester) async {
+        await pumpStep(tester, wide: wide);
+        expect(find.text('Studying is free.'), findsOneWidget);
+
+        await tester.tap(find.text('Mathematics'));
+        await tester.pumpAndSettle();
+        expect(find.text(student), findsOneWidget);
+
+        await tester.tap(find.text('General Information'));
+        await tester.pumpAndSettle();
+        expect(find.text(civil), findsOneWidget);
+        expect(find.text(student), findsNothing);
+
+        await tester.tap(find.text('General Information'));
+        await tester.pumpAndSettle();
+        expect(find.text(student), findsOneWidget);
+      });
+    }
+
+    testWidgets('phone: the footer button keeps its natural width',
+        (tester) async {
+      await pumpStep(tester, wide: false);
+      await tester.tap(find.text('Mathematics'));
+      await tester.pumpAndSettle();
+
+      final button = tester.getSize(find.byType(PantasButton));
+      final footer = tester.getSize(find.byType(CardFooter));
+      expect(button.width, lessThan(footer.width * 0.7));
     });
   });
 }

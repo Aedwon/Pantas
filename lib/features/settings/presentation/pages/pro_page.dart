@@ -3,11 +3,11 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/auth/providers.dart';
+import 'package:pantas/core/content/data/custom_subject_tiers.dart';
 import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/storage/age_gate.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
@@ -28,6 +28,7 @@ import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/home/application/study_delivery.dart';
+import 'package:pantas/features/paywall/application/custom_track_tier.dart';
 import 'package:pantas/features/paywall/application/paywall_providers.dart';
 import 'package:pantas/features/paywall/data/web_payment_gateway.dart';
 import 'package:pantas/features/paywall/domain/coverage.dart';
@@ -565,28 +566,56 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
     final entitlement =
         ref.watch(entitlementProvider).valueOrNull ?? const Entitlement.free();
     final upgrade = widget.targetExam != null;
-    final covered =
-        upgrade ? false : ref.watch(proForActiveExamProvider).valueOrNull;
     final web = ref.watch(paymentsOnWebProvider);
     final anonymous =
         ref.watch(isAnonymousProvider).unwrapPrevious().valueOrNull ?? true;
-    final exam = widget.targetExam ??
-        ref.watch(activeProCatalogEntryProvider).valueOrNull;
-    // A custom track is always Free. Its Pro page shows no offers and says so.
-    final trackName = upgrade
+    final customExam = upgrade
         ? null
         : ref.watch(
             activeExamFocusProvider.select((focus) {
               final active = focus.valueOrNull?.exam;
-              return active != null && active.isCustom ? active.name : null;
+              return active != null && active.isCustom ? active : null;
             }),
           );
-    final custom = trackName != null;
+    final custom = customExam != null;
+    final customTierAsync = custom
+        ? ref.watch(activeCustomTrackTierProvider).unwrapPrevious()
+        : null;
+    final customTier = customTierAsync?.valueOrNull;
+    // A custom exam's tier decides its paywall. Until it is known there is no
+    // paywall at all, never a guessed one.
+    final customTierUnknown = custom && customTier == null;
+    final trackName = customExam?.name;
+    final exam = widget.targetExam ??
+        (customExam != null && customTier != null
+            ? customCatalogEntry(
+                examId: customExam.id,
+                name: customExam.name,
+                tier: customTier.tier,
+              )
+            : custom
+                ? null
+                : ref.watch(activeProCatalogEntryProvider).valueOrNull);
+    final covered = upgrade
+        ? false
+        : custom
+            ? (customTierUnknown
+                ? null
+                : (ref.watch(proForActiveExamProvider).valueOrNull ?? false) ||
+                    entitlement.coversExam(
+                      customExam.id,
+                      examTier: customTier!.tier,
+                    ))
+            : ref.watch(proForActiveExamProvider).valueOrNull;
     final offering = (upgrade
             ? ref.watch(unfilteredPaywallOfferingProvider)
             : ref.watch(paywallOfferingProvider))
         .unwrapPrevious();
-    firstScreenReady(context, ref, ready: !offering.isLoading);
+    firstScreenReady(
+      context,
+      ref,
+      ready: !offering.isLoading && !(customTierAsync?.isLoading ?? false),
+    );
     final paused = entitlement.state == EntitlementState.paused;
     final packages = (offering.valueOrNull?.recognizedPackages
             .where(
@@ -702,7 +731,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
         ? ''
         : '${_periodName(pendingPackage.sku)}, '
             '${_money(pendingPackage.priceString)}. ';
-    final showOffers = !custom && covered == false && !paused && !waiting;
+    final showOffers = covered == false && !paused && !waiting;
     // Message only: it adds no check of who pays and blocks nothing.
     final askGuardian =
         showOffers && ref.watch(ageGroupProvider).valueOrNull == 'minor';
@@ -724,6 +753,15 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                             : 'Subscribe for '
                                 '${_money(selectedPackage.priceString)} '
                                 'a ${_period(selectedPackage.sku)}';
+    final whyLine = customTier == null || trackName == null
+        ? null
+        : Text(
+            _tierLine(trackName, customTier),
+            style: context.wideWeb
+                ? context.webTokens.sub
+                : context.type.subhead
+                    .copyWith(color: context.colors.textSecondary),
+          );
     return SettingsPanePage(
       section: 'Pantas Pro',
       title: context.wideWeb ? 'Pantas Pro' : '',
@@ -950,12 +988,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
               ),
             ),
           ),
-        if (custom) ...[
-          const _CustomProHero(key: ValueKey('pro-hero')),
-          SizedBox(height: context.wideWeb ? 24 : 22),
-          _CustomFreeCard(name: trackName),
-          SizedBox(height: context.wideWeb ? 24 : 22),
-        ] else if (context.wideWeb && !upgrade) ...[
+        if (context.wideWeb && !upgrade) ...[
           WebProHero(
             heading: owned
                 ? "You're on Pro."
@@ -1070,6 +1103,10 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
               ),
           const SizedBox(height: PantasSpace.s24),
         ],
+        if (!showOffers && whyLine != null) ...[
+          whyLine,
+          const SizedBox(height: PantasSpace.s20),
+        ],
         if (paused) const ProPausedLine(),
         if (!upgrade &&
             (entitlement.proIsActive || paused) &&
@@ -1182,6 +1219,15 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                     : context.type.sectionHeader,
               ),
             ),
+          if (whyLine != null) ...[
+            Padding(
+              padding: EdgeInsets.only(
+                left: context.wideWeb ? PantasSpace.s4 : PantasSpace.s0,
+                top: PantasSpace.s4,
+              ),
+              child: whyLine,
+            ),
+          ],
           SizedBox(
             height: context.wideWeb ? PantasSpace.s6 : PantasSpace.s12,
           ),
@@ -1237,7 +1283,8 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                   : () => setState(() => _selected = pass.productId),
             ),
           ],
-          if (passes.isEmpty &&
+          if (!custom &&
+              passes.isEmpty &&
               sitting == null &&
               exam?.priceTier == 'Civil Service') ...[
             const SizedBox(height: PantasSpace.s20),
@@ -1261,6 +1308,16 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
               variant: PantasButtonVariant.secondary,
               onPressed: () =>
                   ref.invalidate(unfilteredPaywallOfferingProvider),
+            ),
+        ],
+        if (customTierUnknown) ...[
+          if (customTierAsync?.isLoading ?? false)
+            const Text('Loading subscriptions...')
+          else
+            PantasButton(
+              label: 'Try Again',
+              variant: PantasButtonVariant.secondary,
+              onPressed: () => ref.invalidate(activeCustomTrackTierProvider),
             ),
         ],
         if (!web &&
@@ -1386,266 +1443,14 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
   }
 }
 
-/// Each Pro benefit with its own icon, in the boards' order (Settings kind pro,
-/// v B). The icons are the Phosphor glyphs the boards draw.
-List<(IconData, String)> _proBenefits() => [
-      (PantasIcons.unlimitedMocks, 'Unlimited mock exams'),
-      (PantasIcons.answerNotes, 'Notes on why your answer was wrong'),
-      (PantasIcons.studyHabits, 'The figures behind your study habits'),
-      (PantasIcons.proBackup, "Progress that's always backed up"),
-      (PantasIcons.topicResults, 'Results by topic and lesson'),
-    ];
-
-/// The sales card a custom track keeps. It has no offers, price or buy button.
-/// Wide is board `Settings` and phone is `SettingsPh`, both kind pro, v B.
-class _CustomProHero extends StatelessWidget {
-  const _CustomProHero({super.key});
-
-  static const _heading = "See exactly what's losing you points.";
-  static const _sparkle = '<svg viewBox="0 0 24 24" fill="none" '
-      'stroke="#F4D06F" stroke-width="1.8" stroke-linecap="round" '
-      'stroke-linejoin="round"><path d="M11 3.5 12.6 8.4 17.5 10 12.6 11.6 '
-      '11 16.5 9.4 11.6 4.5 10l4.9-1.6z"/><path d="M18 15.5l.7 2 2 .7-2 '
-      '.7-.7 2-.7-2-2-.7 2-.7z"/></svg>';
-
-  @override
-  Widget build(BuildContext context) =>
-      context.wideWeb ? _wide(context) : _phone(context);
-
-  Widget _wide(BuildContext context) {
-    final t = context.webTokens;
-    final heading = Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          'PANTAS PRO',
-          style: t.sm.copyWith(
-            color: t.colors.accent,
-            fontWeight: FontWeight.w700,
-            letterSpacing: .52,
-          ),
-        ),
-        const SizedBox(height: 8),
-        Text(_heading, style: t.h2),
-      ],
-    );
-    final benefits = Padding(
-      padding: const EdgeInsets.only(top: 4),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          for (final (index, benefit) in _proBenefits().indexed) ...[
-            if (index > 0) const SizedBox(height: 8),
-            Row(
-              children: [
-                Icon(benefit.$1, size: 21, color: t.colors.accent),
-                const SizedBox(width: 12),
-                Expanded(
-                  child: Text(benefit.$2, style: t.style(16, height: 1.3)),
-                ),
-              ],
-            ),
-          ],
-        ],
-      ),
-    );
-    return Container(
-      padding: const EdgeInsets.fromLTRB(26, 26, 26, 24),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [t.colors.surface, t.colors.surface, t.colors.accentTint],
-          stops: const [0, .55, 1],
-        ),
-      ),
-      // The dark edge takes up no room: the card is the same size in both
-      // themes.
-      foregroundDecoration: t.dark
-          ? BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-              border: Border.all(color: t.cardEdge),
-            )
-          : null,
-      child: LayoutBuilder(
-        builder: (context, constraints) => constraints.maxWidth < 544
-            ? Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [heading, const SizedBox(height: 24), benefits],
-              )
-            : Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Expanded(child: heading),
-                  const SizedBox(width: 24),
-                  Expanded(child: benefits),
-                ],
-              ),
-      ),
-    );
+/// The one line that says why a custom exam sits in its tier.
+String _tierLine(String name, CustomTrackTier tier) {
+  final level = CustomSubjectTiers.levelLabel(tier.tier);
+  final because = tier.becauseOf;
+  if (tier.tier == PriceTier.student || because == null) {
+    return '$name is a $level exam.';
   }
-
-  Widget _phone(BuildContext context) {
-    const onGreen = Colors.white;
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 24),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(22),
-        // The board's 160 degree gradient.
-        gradient: const LinearGradient(
-          begin: Alignment(-.342, -.94),
-          end: Alignment(.342, .94),
-          colors: [Color(0xFF14937D), Color(0xFF0B7A68), Color(0xFF0A5A4C)],
-          stops: [0, .45, 1],
-        ),
-        boxShadow: const [
-          BoxShadow(
-            color: Color(0x380B7A68),
-            blurRadius: 34,
-            offset: Offset(0, 14),
-          ),
-        ],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              ExcludeSemantics(
-                child: SvgPicture.string(_sparkle, width: 20, height: 20),
-              ),
-              const SizedBox(width: 8),
-              Text(
-                'PANTAS PRO',
-                style: context.type.footnote.copyWith(
-                  color: onGreen,
-                  fontWeight: FontWeight.w700,
-                  letterSpacing: 1.3,
-                  height: 1,
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 16),
-          Semantics(
-            header: true,
-            child: Text(
-              _heading,
-              style: context.type.pageTitleCompact.copyWith(
-                color: onGreen,
-                letterSpacing: -.56,
-                height: 1.14,
-              ),
-            ),
-          ),
-          const SizedBox(height: 16),
-          for (final (index, benefit) in _proBenefits().indexed) ...[
-            if (index > 0) const SizedBox(height: 13),
-            Row(
-              children: [
-                Icon(benefit.$1, size: 21, color: const Color(0xFFBFF0E4)),
-                const SizedBox(width: 12),
-                Expanded(
-                  child: Text(
-                    benefit.$2,
-                    style: context.type.subhead.copyWith(color: onGreen),
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ],
-      ),
-    );
-  }
-}
-
-/// Below the sales card on a custom track: the track is free, and a listed exam
-/// is where a Pro plan comes from.
-class _CustomFreeCard extends StatelessWidget {
-  const _CustomFreeCard({required this.name});
-  final String name;
-
-  void _change(BuildContext context) =>
-      unawaited(context.push<void>('/settings/exam/change'));
-
-  @override
-  Widget build(BuildContext context) {
-    if (context.wideWeb) {
-      final t = context.webTokens;
-      return SettingsSection(
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
-            child: Row(
-              children: [
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        '$name is free to study.',
-                        style: t.style(
-                          17,
-                          weight: FontWeight.w600,
-                          height: 24 / 17,
-                        ),
-                      ),
-                      Text(
-                        'Pro plans come with a listed exam.',
-                        style: t.sub,
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(width: 20),
-                WebButton(
-                  label: 'Change Exam',
-                  variant: WebButtonVariant.secondary,
-                  sidePadding: 20,
-                  onPressed: () => _change(context),
-                ),
-              ],
-            ),
-          ),
-        ],
-      );
-    }
-    return SettingsSection(
-      children: [
-        Padding(
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Text(
-                '$name is free to study.',
-                style: context.type.emphasized.copyWith(height: 23 / 17),
-              ),
-              const SizedBox(height: 2),
-              Text(
-                'Pro plans come with a listed exam.',
-                style: context.type.subhead.copyWith(
-                  color: context.colors.secondaryLabel,
-                  height: 1.45,
-                ),
-              ),
-              const SizedBox(height: 12),
-              PantasButton(
-                label: 'Change Exam',
-                variant: PantasButtonVariant.secondary,
-                height: 44,
-                fontSize: 16,
-                radius: 12,
-                onPressed: () => _change(context),
-              ),
-            ],
-          ),
-        ),
-      ],
-    );
-  }
+  return '$name is a $level exam because it includes $because.';
 }
 
 String _period(PaywallSku sku) => switch (sku) {

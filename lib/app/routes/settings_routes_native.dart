@@ -13,7 +13,6 @@ import 'package:pantas/core/storage/age_gate.dart';
 import 'package:pantas/core/storage/data/repos/custom_track_repository.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
-import 'package:pantas/core/storage/track_scope.dart';
 import 'package:pantas/core/sync/local_state_wiper.dart';
 import 'package:pantas/core/ui/components/centered_dialog.dart';
 import 'package:pantas/core/ui/leave_page.dart';
@@ -31,6 +30,7 @@ import 'package:pantas/features/legal/presentation/legal_document_page.dart';
 import 'package:pantas/features/onboarding/presentation/exam_picker_screen.dart';
 import 'package:pantas/features/onboarding/presentation/steps/custom_track_name_step.dart';
 import 'package:pantas/features/onboarding/presentation/steps/custom_track_subjects_step.dart';
+import 'package:pantas/features/paywall/application/custom_track_tier.dart';
 import 'package:pantas/features/paywall/domain/switch_outcome.dart';
 import 'package:pantas/features/paywall/paywall.dart';
 import 'package:pantas/features/settings/application/carry_over_providers.dart';
@@ -101,11 +101,14 @@ List<RouteBase> settingsRoutes(Ref ref) => [
         path: '/settings/exam/upgrade',
         builder: (context, state) => Consumer(
           builder: (context, ref, _) {
-            final target = ref
-                .watch(examPickerCatalogProvider)
-                .valueOrNull
-                ?.where((e) => e.id == state.uri.queryParameters['target'])
-                .firstOrNull;
+            final targetId = state.uri.queryParameters['target'];
+            final target = targetId != null && isCustomExamId(targetId)
+                ? ref.watch(customSwitchTargetProvider(targetId)).valueOrNull
+                : ref
+                    .watch(examPickerCatalogProvider)
+                    .valueOrNull
+                    ?.where((e) => e.id == targetId)
+                    .firstOrNull;
             if (target == null) return const ChangeExamPage();
             return ProPage(
               targetExam: target,
@@ -349,8 +352,18 @@ class _ChangeExamPageState extends ConsumerState<ChangeExamPage> {
 
         final focus = await ref.read(activeExamFocusProvider.future);
         final catalog = ref.read(examPickerCatalogProvider).valueOrNull;
-        final from = catalog?.where((e) => e.id == focus.exam?.id).firstOrNull;
-        final to = catalog?.where((e) => e.id == examId).firstOrNull;
+        // A custom exam takes the tier of the subjects it keeps, from the
+        // client table, so it is compared like a listed exam of that tier.
+        Future<ExamCatalogEntry?> entry(String? id) async {
+          if (id == null) return null;
+          if (isCustomExamId(id)) {
+            return ref.read(customSwitchTargetProvider(id).future);
+          }
+          return catalog?.where((e) => e.id == id).firstOrNull;
+        }
+
+        final from = await entry(focus.exam?.id);
+        final to = await entry(examId);
         if (from != null && to != null) {
           final entitlement = await ref.read(entitlementProvider.future);
           final outcome = switchOutcome(from, to, entitlement);
@@ -379,23 +392,6 @@ class _ChangeExamPageState extends ConsumerState<ChangeExamPage> {
               ).toString(),
             );
             if (proceed != true || !context.mounted) return;
-          }
-        }
-        if (isCustomExamId(examId)) {
-          // A student's own exam is free to study. A paying student is told
-          // so before moving to one, and the track keeps its place in the list.
-          final entitlement = await ref.read(entitlementProvider.future);
-          if (entitlement.proIsActive) {
-            final name =
-                await ref.read(customTrackRepositoryProvider).name(examId);
-            if (name == null) throw StateError('Unknown custom exam');
-            if (!context.mounted) return;
-            final confirmed = await _confirmSwitch(
-              context,
-              title: 'Your plan stays with your account',
-              message: "On $name you'll be on Free. Switch back any time.",
-            );
-            if (confirmed != true) return;
           }
         }
         await saveTarget();

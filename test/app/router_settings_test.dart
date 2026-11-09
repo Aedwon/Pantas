@@ -24,6 +24,7 @@ import 'package:pantas/features/settings/presentation/pages/delete_account_page.
 import 'package:pantas/features/settings/presentation/pages/exam_page.dart';
 import 'package:pantas/features/settings/settings.dart';
 
+import '../helpers/custom_subject_tiers_fixture.dart';
 import '../helpers/in_memory_database.dart';
 
 // ignore_for_file: cascade_invocations
@@ -179,6 +180,7 @@ void main() {
                 .overrideWith((ref) => Stream.value(catalog!)),
             entitlementProvider.overrideWith((_) => Stream.value(entitlement)),
             carryableCountProvider.overrideWith((ref, id) async => 0),
+            shippedCustomSubjectTiers(studentTopics: ['t1']),
           ],
           child: const App(flavor: Flavor.dev),
         ),
@@ -278,45 +280,22 @@ void main() {
       productId: 'pantas_cs_monthly',
       expiresAt: DateTime.utc(2030),
     );
-    const warning = 'Your plan stays with your account';
+    final studentPlan = Entitlement(
+      plan: EntitlementPlan.monthly,
+      productId: 'pantas_pro_monthly',
+      expiresAt: DateTime.utc(2030),
+    );
+    // The old "On <name> you'll be on Free" dialog is gone for every case.
+    const oldWarning = 'Your plan stays with your account';
 
     testWidgets(
-        'a paying student is warned before a new exam, and Cancel changes '
-        'nothing', (tester) async {
+        'a paying student making a Student-level exam on a Civil Service plan '
+        'switches with no warning', (tester) async {
       final router = await pumpSettingsPicker(tester, entitlement: paying);
       final prefs = AppPreferencesRepository(db);
       await makeExam(tester, router);
-      expect(find.text(warning), findsOneWidget);
-      expect(
-        find.text("On My Exam you'll be on Free. Switch back any time."),
-        findsOneWidget,
-      );
-      await tester.tap(
-        find.descendant(
-          of: find.byType(CenteredDialog),
-          matching: find.text('Cancel'),
-        ),
-      );
-      await tester.pumpAndSettle();
-      expect(find.text(warning), findsNothing);
-      expect(location(router), '/settings/exam/change');
-      expect(await prefs.selectedExamId(), 'exam_cse_pro');
-      expect(await prefs.hasCompletedOnboarding(), isTrue);
-    });
-
-    testWidgets('a paying student who switches is on the new exam',
-        (tester) async {
-      final router = await pumpSettingsPicker(tester, entitlement: paying);
-      final prefs = AppPreferencesRepository(db);
-      await makeExam(tester, router);
-      expect(find.text(warning), findsOneWidget);
-      await tester.tap(
-        find.descendant(
-          of: find.byType(CenteredDialog),
-          matching: find.text('Switch'),
-        ),
-      );
-      await tester.pumpAndSettle();
+      expect(find.text(oldWarning), findsNothing);
+      expect(find.byType(CenteredDialog), findsNothing);
       expect(location(router), '/settings/exam');
       expect(await prefs.selectedExamId(), startsWith('exam_custom_'));
       expect(await prefs.hasCompletedOnboarding(), isTrue);
@@ -340,14 +319,125 @@ void main() {
             );
       });
 
-      testWidgets("a paying student is warned, with the exam's name",
-          (tester) async {
+      /// Gives Bar Exam a General Information topic, which lifts it to Civil
+      /// Service. The topic id is the one the shipped table places there.
+      Future<void> addCivilServiceTopic() async {
+        await seedContentSubject(
+          contentDb,
+          subjectId: 's_gi',
+          examId: 'exam_cse_pro',
+          name: 'General Information',
+        );
+        await seedContentTopic(
+          contentDb,
+          topicId: 'topic_upcat_philippine_constitution',
+          subjectId: 's_gi',
+          name: 'Philippine Constitution',
+        );
+        await seedContentQuestion(
+          contentDb,
+          questionId: 'q_gi',
+          topicId: 'topic_upcat_philippine_constitution',
+          examId: 'exam_cse_pro',
+        );
+      }
+
+      Future<void> startOnUpcat() async {
+        await seedContentExam(
+          contentDb,
+          examId: 'exam_upcat',
+          code: 'UPCAT',
+          name: 'UPCAT',
+          shortName: 'UPCAT',
+        );
+        await AppPreferencesRepository(db).setSelectedExamId('exam_upcat');
+      }
+
+      testWidgets(
+          'a lower or same tier keeps Pro with no warning on a Civil Service '
+          'plan', (tester) async {
         final router = await pumpSettingsPicker(tester, entitlement: paying);
         await tester.tap(find.text('Bar Exam'));
         await tester.pumpAndSettle();
-        expect(find.text(warning), findsOneWidget);
+        expect(find.text(oldWarning), findsNothing);
+        expect(find.byType(CenteredDialog), findsNothing);
+        expect(location(router), '/settings/exam');
         expect(
-          find.text("On Bar Exam you'll be on Free. Switch back any time."),
+          await AppPreferencesRepository(db).selectedExamId(),
+          'exam_custom_x',
+        );
+      });
+
+      testWidgets('the same tier on a Civil Service exam shows nothing',
+          (tester) async {
+        await addCivilServiceTopic();
+        final router = await pumpSettingsPicker(tester, entitlement: paying);
+        await tester.tap(find.text('Bar Exam'));
+        await tester.pumpAndSettle();
+        expect(find.byType(CenteredDialog), findsNothing);
+        expect(location(router), '/settings/exam');
+        expect(
+          await AppPreferencesRepository(db).selectedExamId(),
+          'exam_custom_x',
+        );
+      });
+
+      testWidgets('a Student plan moving to a Student-level exam sees nothing',
+          (tester) async {
+        await startOnUpcat();
+        final router =
+            await pumpSettingsPicker(tester, entitlement: studentPlan);
+        await tester.tap(find.text('Bar Exam'));
+        await tester.pumpAndSettle();
+        expect(find.byType(CenteredDialog), findsNothing);
+        expect(location(router), '/settings/exam');
+        expect(
+          await AppPreferencesRepository(db).selectedExamId(),
+          'exam_custom_x',
+        );
+      });
+
+      testWidgets(
+          'a higher-tier custom exam shows the upgrade path, and Switch on '
+          'Free completes the switch', (tester) async {
+        await addCivilServiceTopic();
+        await startOnUpcat();
+        final router =
+            await pumpSettingsPicker(tester, entitlement: studentPlan);
+        await tester.tap(find.text('Bar Exam'));
+        await tester.pumpAndSettle();
+        expect(location(router), startsWith('/settings/exam/upgrade'));
+        expect(find.text('Bar Exam has its own price tier'), findsOneWidget);
+        expect(find.byType(CenteredDialog), findsNothing);
+        expect(
+          await AppPreferencesRepository(db).selectedExamId(),
+          'exam_upcat',
+        );
+        await tester.tap(find.text('Switch on Free'));
+        await tester.pumpAndSettle();
+        expect(location(router), '/settings/exam');
+        expect(
+          await AppPreferencesRepository(db).selectedExamId(),
+          'exam_custom_x',
+        );
+      });
+
+      testWidgets('a pass holder still sees the pass warning', (tester) async {
+        final router = await pumpSettingsPicker(
+          tester,
+          entitlement: Entitlement(
+            plan: EntitlementPlan.free,
+            passes: {'exam_cse_pro': DateTime.utc(2030)},
+          ),
+        );
+        await tester.tap(find.text('Bar Exam'));
+        await tester.pumpAndSettle();
+        expect(
+          find.text('Your pass stays with CSE Professional'),
+          findsOneWidget,
+        );
+        expect(
+          find.textContaining("On Bar Exam you'll be on Free."),
           findsOneWidget,
         );
         expect(
@@ -366,6 +456,7 @@ void main() {
           await AppPreferencesRepository(db).selectedExamId(),
           'exam_custom_x',
         );
+        expect(location(router), isNot(startsWith('/settings/exam/upgrade')));
       });
 
       testWidgets('a free student is not warned', (tester) async {
