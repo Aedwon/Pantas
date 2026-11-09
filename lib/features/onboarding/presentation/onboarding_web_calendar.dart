@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
 import 'package:pantas/core/time/date_entry_validator.dart';
+import 'package:pantas/core/ui/components/date_grid_focus.dart';
 import 'package:pantas/core/ui/components/month_first_date_picker.dart';
 import 'package:pantas/core/ui/components/typed_date_field.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
@@ -38,18 +38,12 @@ class OnboardingWebCalendar extends StatefulWidget {
 }
 
 class _OnboardingWebCalendarState extends State<OnboardingWebCalendar> {
-  /// One focus node per day of the shown month (day 1 is index 0), so the
-  /// arrow keys can move between the cells and only one is a Tab stop.
-  final List<FocusNode> _dayNodes = [
-    for (var day = 1; day <= 31; day++)
-      FocusNode(debugLabel: 'calendar day $day'),
-  ];
+  /// Focus and keys for the day cells, shared with the other wide date grids.
+  final DateGridFocus _grid = DateGridFocus();
 
   @override
   void dispose() {
-    for (final node in _dayNodes) {
-      node.dispose();
-    }
+    _grid.dispose();
     super.dispose();
   }
 
@@ -62,58 +56,12 @@ class _OnboardingWebCalendarState extends State<OnboardingWebCalendar> {
         lastAllowed: _lastAllowed,
       );
 
-  /// The first day of the month that may be chosen, or null.
-  int? _firstAllowedDay(int year, int month) {
-    final last = DateTime(year, month + 1, 0).day;
-    for (var day = 1; day <= last; day++) {
-      if (_allowed(year, month, day)) return day;
-    }
-    return null;
-  }
-
-  /// Date grid keys (DatePicker README): Left and Right one day, Up and Down
-  /// one week, Home and End the first and last allowed day. Keys move focus
-  /// and stay inside the month shown; Enter or Space chooses.
-  KeyEventResult _onDayKey(int year, int month, KeyEvent event) {
-    if (event is KeyUpEvent) return KeyEventResult.ignored;
-    final keys = HardwareKeyboard.instance;
-    if (keys.isControlPressed || keys.isAltPressed || keys.isMetaPressed) {
-      return KeyEventResult.ignored;
-    }
-    final last = DateTime(year, month + 1, 0).day;
-    var from = 0;
-    for (var day = 1; day <= last; day++) {
-      if (_dayNodes[day - 1].hasFocus) from = day;
-    }
-    if (from == 0) return KeyEventResult.ignored;
-    final first = _firstAllowedDay(year, month);
-    if (first == null) return KeyEventResult.ignored;
-    var lastAllowed = last;
-    while (lastAllowed > first && !_allowed(year, month, lastAllowed)) {
-      lastAllowed--;
-    }
-    final key = event.logicalKey;
-    final int target;
-    if (key == LogicalKeyboardKey.arrowLeft) {
-      target = from - 1;
-    } else if (key == LogicalKeyboardKey.arrowRight) {
-      target = from + 1;
-    } else if (key == LogicalKeyboardKey.arrowUp) {
-      target = from - DateTime.daysPerWeek;
-    } else if (key == LogicalKeyboardKey.arrowDown) {
-      target = from + DateTime.daysPerWeek;
-    } else if (key == LogicalKeyboardKey.home) {
-      target = first;
-    } else if (key == LogicalKeyboardKey.end) {
-      target = lastAllowed;
-    } else {
-      return KeyEventResult.ignored;
-    }
-    if (target >= first && target <= lastAllowed && target != from) {
-      _dayNodes[target - 1].requestFocus();
-    }
-    return KeyEventResult.handled;
-  }
+  int? _firstAllowedDay(int year, int month) => DateGridFocus.firstAllowedDay(
+        year,
+        month,
+        firstAllowed: widget.today,
+        lastAllowed: _lastAllowed,
+      );
 
   MonthFirstDate get value => widget.value;
   DateTime get today => widget.today;
@@ -266,9 +214,7 @@ class _OnboardingWebCalendarState extends State<OnboardingWebCalendar> {
           ? value.day
           : null;
       final tabStop = chosenDay ?? _firstAllowedDay(year, monthNumber);
-      for (var d = 1; d <= 31; d++) {
-        _dayNodes[d - 1].skipTraversal = d != tabStop;
-      }
+      _grid.setTabStop(tabStop);
       return Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -308,7 +254,13 @@ class _OnboardingWebCalendarState extends State<OnboardingWebCalendar> {
             child: Focus(
               canRequestFocus: false,
               skipTraversal: true,
-              onKeyEvent: (node, event) => _onDayKey(year, monthNumber, event),
+              onKeyEvent: (node, event) => _grid.onKey(
+                event,
+                year: year,
+                month: monthNumber,
+                firstAllowed: widget.today,
+                lastAllowed: _lastAllowed,
+              ),
               child: grid(
                 [
                   for (var n = 0; n < first; n++) const SizedBox.shrink(),
@@ -326,7 +278,7 @@ class _OnboardingWebCalendarState extends State<OnboardingWebCalendar> {
                               ),
                       picked: value.day == d,
                       isToday: DateTime(year, monthNumber, d) == today,
-                      focusNode: _dayNodes[d - 1],
+                      focusNode: _grid.nodeFor(d),
                       name: DateFormat('MMMM d, y', 'en_US')
                           .format(DateTime(year, monthNumber, d)),
                     ),

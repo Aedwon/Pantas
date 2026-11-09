@@ -235,8 +235,9 @@ class _PantasSelectState<T> extends State<PantasSelect<T>>
     } else if (key == LogicalKeyboardKey.enter) {
       _pick(_active);
     } else if (key == LogicalKeyboardKey.tab) {
+      // Closing returns focus to the button (Select README, Keyboard).
       _hide();
-      return KeyEventResult.ignored;
+      _focus.requestFocus();
     } else {
       return KeyEventResult.ignored;
     }

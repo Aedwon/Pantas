@@ -4,8 +4,11 @@ import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/domain/exam_date.dart';
+import 'package:pantas/core/time/date_entry_validator.dart';
+import 'package:pantas/core/ui/components/date_grid_focus.dart';
 import 'package:pantas/core/ui/components/month_first_date_picker.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/typed_date_field.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
@@ -201,7 +204,11 @@ class _HomeExamDateSheetState extends State<HomeExamDateSheet> {
 /// The same month-first value as the phone picker, laid out beside a calendar.
 /// Sizes follow the web date boards: a 160 px month column of 77 by 38 tiles
 /// in two columns beside a 14 px padded calendar panel with 42 by 32 day cells.
-class HomeWebDatePicker extends StatelessWidget {
+///
+/// It is its own layout, not the onboarding calendar, but it shares that
+/// calendar's pieces: the typed field above the grids, the date grid keys and
+/// the full cell names.
+class HomeWebDatePicker extends StatefulWidget {
   const HomeWebDatePicker({
     required this.value,
     required this.today,
@@ -217,6 +224,30 @@ class HomeWebDatePicker extends StatelessWidget {
   static const _panelHeight = 259.0;
 
   @override
+  State<HomeWebDatePicker> createState() => _HomeWebDatePickerState();
+}
+
+class _HomeWebDatePickerState extends State<HomeWebDatePicker> {
+  final DateGridFocus _grid = DateGridFocus();
+
+  MonthFirstDate get value => widget.value;
+  DateTime get today => widget.today;
+  ValueChanged<MonthFirstDate> get onChanged => widget.onChanged;
+  bool get requireDay => widget.requireDay;
+  static const _panelHeight = HomeWebDatePicker._panelHeight;
+
+  @override
+  void dispose() {
+    _grid.dispose();
+    super.dispose();
+  }
+
+  bool _allowed(int day) => DateEntryValidator.isAllowed(
+        DateTime(value.year, value.month!, day),
+        firstAllowed: today,
+      );
+
+  @override
   Widget build(BuildContext context) {
     final t = context.webTokens;
     final month = value.month;
@@ -226,11 +257,27 @@ class HomeWebDatePicker extends StatelessWidget {
                 DateTime(value.year, month + 1, 0).day +
                 6) ~/
             7;
+    if (month != null) {
+      final chosen =
+          value.day != null && _allowed(value.day!) ? value.day : null;
+      _grid.setTabStop(
+        chosen ??
+            DateGridFocus.firstAllowedDay(
+              value.year,
+              month,
+              firstAllowed: today,
+            ),
+      );
+    }
     final calendar = month == null
         ? const SizedBox.shrink()
         : Container(
             key: const ValueKey('home-web-calendar'),
-            height: requireDay ? null : _panelHeight,
+            // The board height is a least height, so larger text grows the
+            // panel instead of overflowing it.
+            constraints: requireDay
+                ? null
+                : const BoxConstraints(minHeight: _panelHeight),
             padding: const EdgeInsets.all(PantasSpace.s14),
             decoration: BoxDecoration(
               color: t.colors.bgPage,
@@ -273,25 +320,47 @@ class HomeWebDatePicker extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: PantasSpace.s4),
-                for (var week = 0; week < weeks; week++) ...[
-                  if (week > 0) const SizedBox(height: PantasSpace.s2),
-                  Row(
-                    children: [
-                      for (var weekday = 0; weekday < 7; weekday++) ...[
-                        if (weekday > 0) const SizedBox(width: PantasSpace.s2),
-                        Expanded(
-                          child: _day(
-                            context,
-                            week * 7 +
-                                weekday -
-                                DateTime(value.year, month).weekday % 7 +
-                                1,
+                Semantics(
+                  label: DateFormat('MMMM y', 'en_US')
+                      .format(DateTime(value.year, month)),
+                  container: true,
+                  explicitChildNodes: true,
+                  child: Focus(
+                    canRequestFocus: false,
+                    skipTraversal: true,
+                    onKeyEvent: (node, event) => _grid.onKey(
+                      event,
+                      year: value.year,
+                      month: month,
+                      firstAllowed: today,
+                    ),
+                    child: Column(
+                      children: [
+                        for (var week = 0; week < weeks; week++) ...[
+                          if (week > 0) const SizedBox(height: PantasSpace.s2),
+                          Row(
+                            children: [
+                              for (var weekday = 0; weekday < 7; weekday++) ...[
+                                if (weekday > 0)
+                                  const SizedBox(width: PantasSpace.s2),
+                                Expanded(
+                                  child: _day(
+                                    context,
+                                    week * 7 +
+                                        weekday -
+                                        DateTime(value.year, month).weekday %
+                                            7 +
+                                        1,
+                                  ),
+                                ),
+                              ],
+                            ],
                           ),
-                        ),
+                        ],
                       ],
-                    ],
+                    ),
                   ),
-                ],
+                ),
               ],
             ),
           );
@@ -347,6 +416,17 @@ class HomeWebDatePicker extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
+        // The typed field sits above the grids (DatePicker, Placement).
+        TypedDateField(
+          value: month == null || value.day == null
+              ? null
+              : DateTime(value.year, month, value.day!),
+          firstAllowed: today,
+          onChanged: (date) => onChanged(
+            MonthFirstDate(year: date.year, month: date.month, day: date.day),
+          ),
+        ),
+        const SizedBox(height: PantasSpace.s16),
         if (requireDay && month != null)
           calendar
         else
@@ -403,36 +483,52 @@ class HomeWebDatePicker extends StatelessWidget {
       return const SizedBox(height: PantasSpace.s32);
     }
     final date = DateTime(value.year, month, day);
-    final past = date.isBefore(DateTime(today.year, today.month, today.day));
+    final past = !_allowed(day);
     final selected = day == value.day;
     final t = context.webTokens;
     return SizedBox(
       height: PantasSpace.s32,
       child: Semantics(
+        label: DateFormat('MMMM d, y', 'en_US').format(date),
+        button: true,
         selected: selected,
-        child: HomeTapArea(
-          key: ValueKey('date-day-$day'),
-          onTap: past
-              ? null
-              : () => onChanged(
-                    MonthFirstDate(year: value.year, month: month, day: day),
+        enabled: !past,
+        excludeSemantics: true,
+        onTap: past
+            ? null
+            : () => onChanged(
+                  MonthFirstDate(year: value.year, month: month, day: day),
+                ),
+        // The focus node is the cell's locator: it owns no focus itself, and
+        // only the Tab stop lets Tab reach the control inside.
+        child: Focus(
+          focusNode: _grid.nodeFor(day),
+          canRequestFocus: false,
+          descendantsAreTraversable: _grid.isTabStop(day),
+          child: HomeTapArea(
+            key: ValueKey('date-day-$day'),
+            onTap: past
+                ? null
+                : () => onChanged(
+                      MonthFirstDate(year: value.year, month: month, day: day),
+                    ),
+            borderRadius: BorderRadius.circular(selected ? 99 : 8),
+            child: DecoratedBox(
+              decoration: BoxDecoration(
+                color: selected ? t.colors.accentFill : Colors.transparent,
+                borderRadius: BorderRadius.circular(selected ? 99 : 8),
+              ),
+              child: Center(
+                child: Text(
+                  '$day',
+                  style: PantasType.webRowSub.copyWith(
+                    fontWeight: selected ? FontWeight.w700 : FontWeight.w400,
+                    color: past
+                        ? t.colors.textSecondary
+                        : selected
+                            ? t.colors.onAccent
+                            : t.colors.textPrimary,
                   ),
-          borderRadius: BorderRadius.circular(selected ? 99 : 8),
-          child: DecoratedBox(
-            decoration: BoxDecoration(
-              color: selected ? t.colors.accentFill : Colors.transparent,
-              borderRadius: BorderRadius.circular(selected ? 99 : 8),
-            ),
-            child: Center(
-              child: Text(
-                '$day',
-                style: PantasType.webRowSub.copyWith(
-                  fontWeight: selected ? FontWeight.w700 : FontWeight.w400,
-                  color: past
-                      ? t.colors.textSecondary
-                      : selected
-                          ? t.colors.onAccent
-                          : t.colors.textPrimary,
                 ),
               ),
             ),

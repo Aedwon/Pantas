@@ -297,6 +297,34 @@ void main() {
       );
     });
 
+    testWidgets('Tab closes the list and returns focus to the button',
+        (tester) async {
+      // Another control follows, so a stray Tab would have somewhere to go.
+      await pumpDs(
+        tester,
+        dsCells.first,
+        Column(
+          children: [
+            _select(searchable: true),
+            TextButton(onPressed: () {}, child: const Text('After')),
+          ],
+        ),
+      );
+      await tester.tap(find.byKey(const ValueKey('select-button')));
+      await tester.pumpAndSettle();
+      await tester.sendKeyEvent(LogicalKeyboardKey.tab);
+      await tester.pumpAndSettle();
+      expect(find.byKey(const ValueKey('select-list')), findsNothing);
+      final focused = FocusManager.instance.primaryFocus!.context!;
+      expect(
+        find.descendant(
+          of: find.byElementPredicate((e) => e == focused),
+          matching: find.byKey(const ValueKey('select-button')),
+        ),
+        findsOneWidget,
+      );
+    });
+
     testWidgets('the search starts empty each time the list opens',
         (tester) async {
       await openSearch(tester);

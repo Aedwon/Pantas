@@ -262,4 +262,68 @@ void main() {
     );
     expect(out.text, '11/28');
   });
+
+  group('caret', () {
+    final formatter = TypedDateField.formatters.first;
+
+    test('a mid-text delete keeps the caret where the user edits', () {
+      final out = formatter.formatEditUpdate(
+        const TextEditingValue(text: '01/05/2026'),
+        const TextEditingValue(
+          text: '01/0/2026',
+          selection: TextSelection.collapsed(offset: 4),
+        ),
+      );
+      expect(out.text, '01/02/026');
+      expect(out.selection.baseOffset, 4);
+    });
+
+    test('a mid-text delete does not pad the part being edited', () {
+      final out = formatter.formatEditUpdate(
+        const TextEditingValue(text: '11/28/2026'),
+        const TextEditingValue(
+          text: '11/2/2026',
+          selection: TextSelection.collapsed(offset: 4),
+        ),
+      );
+      expect(out.text, isNot(contains('00')));
+      expect(out.selection.baseOffset, 4);
+    });
+
+    test('a digit typed in the middle keeps the caret after it', () {
+      final out = formatter.formatEditUpdate(
+        const TextEditingValue(text: '11/28'),
+        const TextEditingValue(
+          text: '111/28',
+          selection: TextSelection.collapsed(offset: 2),
+        ),
+      );
+      expect(out.text, '11/12/8');
+      expect(out.selection.baseOffset, 2);
+    });
+
+    test('typing at the end still puts the caret at the end', () {
+      final out = formatter.formatEditUpdate(
+        const TextEditingValue(text: '11/2'),
+        const TextEditingValue(
+          text: '11/28',
+          selection: TextSelection.collapsed(offset: 5),
+        ),
+      );
+      expect(out.text, '11/28');
+      expect(out.selection.baseOffset, 5);
+    });
+
+    test('a paste puts the caret at the end', () {
+      final out = formatter.formatEditUpdate(
+        TextEditingValue.empty,
+        const TextEditingValue(
+          text: '1/5/2027',
+          selection: TextSelection.collapsed(offset: 8),
+        ),
+      );
+      expect(out.text, '01/05/2027');
+      expect(out.selection.baseOffset, 10);
+    });
+  });
 }

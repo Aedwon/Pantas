@@ -50,10 +50,28 @@ class _DateMaskFormatter extends TextInputFormatter {
     TextEditingValue oldValue,
     TextEditingValue newValue,
   ) {
-    final masked = DateEntryValidator.mask(newValue.text);
+    final raw = newValue.text;
+    // A single-character edit inside the text must not rewrite the part being
+    // edited; a paste, or a slash typed at the end, finishes the parts.
+    final single = (raw.length - oldValue.text.length).abs() <= 1;
+    final pad = !single || raw.endsWith('/');
+    final masked = DateEntryValidator.mask(raw, pad: pad);
+    final offset = newValue.selection.baseOffset;
+    final atEnd = offset < 0 || offset >= raw.length;
+    var caret = masked.length;
+    if (!atEnd && !pad) {
+      // Keep the caret after the same number of digits.
+      final before = raw.substring(0, offset).replaceAll(RegExp('[^0-9]'), '');
+      var seen = 0;
+      caret = 0;
+      while (caret < masked.length && seen < before.length) {
+        if (masked[caret] != '/') seen++;
+        caret++;
+      }
+    }
     return TextEditingValue(
       text: masked,
-      selection: TextSelection.collapsed(offset: masked.length),
+      selection: TextSelection.collapsed(offset: caret),
     );
   }
 }

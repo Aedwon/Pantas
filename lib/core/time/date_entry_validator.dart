@@ -95,10 +95,11 @@ abstract final class DateEntryValidator {
 
   /// Shapes typed or pasted text into `MM/DD/YYYY` as it is entered: digits
   /// only, a slash after the month and the day, at most eight digits. A pasted
-  /// "1/5/2026" keeps its parts and becomes "01/05/2026".
-  static String mask(String raw) {
+  /// "1/5/2026" keeps its parts and becomes "01/05/2026". With `pad` false a
+  /// one-digit part is left alone, for an edit inside the text.
+  static String mask(String raw, {bool pad = true}) {
     var digits = raw.replaceAll(RegExp('[^0-9]'), '');
-    if (raw.contains('/')) {
+    if (pad && raw.contains('/')) {
       final parts = raw.split('/').map(
             (p) => p.replaceAll(RegExp('[^0-9]'), ''),
           );
