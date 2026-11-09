@@ -2753,3 +2753,32 @@ Aedwon's 17 requests: `docs/superpowers/plans/pwa-launch/nov3-requests.md`. Appr
 - Item 14: the Quiz panel error in the screenshot did not reproduce across seven student and plan combinations. Not confirmed fixed.
 - Item 16: repaint causes fixed and pinned by tests. iPhone frame rate unmeasured; use `?localFps=1` on the local run. Item 9 thresholds need real mouse and trackpad tuning.
 - Phone segmented control's unselected label is about 4.3:1 contrast, under AA 4.5, as in the approved preview. Waiting on Aedwon.
+
+## Design system 4.0 visual pass, round 1 (lead, delegated by Aedwon, Nov 9)
+
+Aedwon delegated this pass ("you can go do the visual pass on my behalf"); his own check of staging
+still gates prod. Method: headless Chromium against https://staging.pantas.study at 4519627d9, one
+sheet per screen with 390x844 and 1440x900 in light and dark, 390 at 200% text and 320x568 (48
+screens), plus six mock exam screens rendered offscreen in Flutter tests with sample data (a mock
+needs a signed-in account the capture cannot create). Three fresh Sonnet reviewers judged the sheets
+against `design/system/` READMEs, rendered component previews and the approved boards. Not captured:
+beta feedback, the beta gate, update-required and guardian waiting (they redirect for this account),
+and Pro-only states (no Pro account on staging; Pro Backup states are covered by tests only).
+
+Findings and status (fixed on `ds4/visual-fixes-r1`, merged f1daed494; each fix has a test that failed first):
+- [important] FIXED. Page titles split mid-word at 200% text (Home greeting, Performance, Tendencies, Accessibility, lesson title, exam names). The D180 step-down now applies in the shared title.
+- [important] FIXED. Row titles ended in "..." where ListRow says they wrap (Custom quiz topics, What's Included, Change Exam, Accessibility, About, exam picker, mock setup and pause). Rows wrap by default; one-line board titles that stay cut now show a Tooltip with the full text (R3-O10).
+- [important] FIXED. Study day tiles split labels at 200%; at 320 the row scrolls, as the README allows.
+- [important] FIXED. WeekStrip squashed the date at 200%; cells keep 44px up to 1.3x and grow only beyond it.
+- [important] FIXED. Gauge figure overlapped the arc at 200% (assessment and mock results).
+- [important] FIXED. SegmentedControl cut "Lessons" and "Flagged" at 200%; the chosen segment scrolls into view.
+- [important] FIXED. "Create Free Account" was full width on wide (Quiz hub); natural width now, still the accent primary button.
+- [important] FIXED. Phone Explanation did not match `.xpl-phone` (badge, "Correct answer").
+- [important] FIXED. Paywall: the SAVE tag overlapped the Monthly tile and the pinned bar had no fade.
+- [polish] FIXED. Onboarding date tile and the Settings exam date chip clipped at 200%; phone onboarding name fields had no label; the Custom quiz Start bar at large text.
+- [polish] FIXED. "Recommended" in Session building is an inline Tag after the row title (Tag README placement).
+- [polish] FIXED. "Continue with email" is "Continue with Email". The Text Size label is "Lesson Text Size" (Slider README).
+- [important] FIXED. Phone Performance (Free) and Tendencies were blank or unlabeled where wide was not.
+- Not defects (lead rulings): Backup shows one paragraph for Free and signed-out web (approved note); an unknown URL opens Home (router behavior); Plan history equals Plan on phone (Nov 5 decision); the mock's hollow squares and phone key hint were artifacts of the offscreen render (icon fonts not loaded; no hint provider).
+- DECISION NEEDED (Aedwon): Settings group order. `patterns.md` says Your exam, Account, Appearance, Accessibility, Pro, About; the app puts the Pro group first at every width. Moving it lowers the Pro offer, so it is his call. Left as is.
+- Text Size live preview built as board option A (Aedwon chose "A"). Deviation: the sample stem uses straight quotes, because an existing Settings check (QA 5Q-4) bans curly quotes there.
