@@ -10,7 +10,10 @@ import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/storage/track_scope.dart';
+import 'package:pantas/core/sync/engine/pending_queue.dart';
+import 'package:pantas/core/sync/engine/pull_pipeline.dart';
 import 'package:pantas/core/sync/engine/sync_active_context_store.dart';
+import 'package:pantas/core/sync/model/sync_document.dart';
 import 'package:pantas/core/time/study_days.dart';
 import 'package:pantas/features/home/application/study_delivery.dart';
 import 'package:pantas/features/home/application/study_remote_providers.dart';
@@ -23,6 +26,88 @@ import '../../../helpers/in_memory_database.dart';
 import '../../../helpers/pump_app.dart';
 
 void main() {
+  // Nov 8 Backup records its time in sync_meta after every backup. That is
+  // bookkeeping, and counting it made Home call its server reads again after
+  // each answer was backed up.
+  // Manager review, Nov 9: ignoring the backup time also dropped the only
+  // refresh Your record and the plan got after another device's changes.
+  test('a row from another device moves the study core epoch', () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final container = ProviderContainer(
+      overrides: [appDatabaseProvider.overrideWithValue(db)],
+    );
+    addTearDown(container.dispose);
+    final seen = <int>[];
+    container.listen<AsyncValue<int>>(
+      studyCoreEpochProvider,
+      (_, next) => next.whenData(seen.add),
+      fireImmediately: true,
+    );
+    await pumpEventQueue();
+    expect(seen, [0]);
+
+    await PullPipeline(
+      db: db,
+      queue: PendingQueue(db),
+      uid: 'user-1',
+      generationId: 'g',
+      deviceId: 'this-device',
+    ).applyCompleteSnapshot(
+      generationId: 'g',
+      collection: 'lesson_progress',
+      documents: [
+        SyncDocument(
+          id: 'lesson-1',
+          data: {
+            'lessonId': 'lesson-1',
+            'readAt': '2026-11-09T08:00:00.000Z',
+            'updatedAt': DateTime.utc(2026, 11, 9, 8),
+            'originDeviceId': 'other-device',
+            'mutationId': 'other-1',
+            'deleted': false,
+            'schemaVersion': 1,
+          },
+        ),
+      ],
+    );
+    await pumpEventQueue();
+    expect(seen.last, greaterThan(0));
+  });
+
+  test('the backup time does not move the study core epoch', () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final container = ProviderContainer(
+      overrides: [appDatabaseProvider.overrideWithValue(db)],
+    );
+    addTearDown(container.dispose);
+    final seen = <int>[];
+    container.listen<AsyncValue<int>>(
+      studyCoreEpochProvider,
+      (_, next) => next.whenData(seen.add),
+      fireImmediately: true,
+    );
+    await pumpEventQueue();
+    expect(seen, [0]);
+
+    await db.into(db.syncMeta).insertOnConflictUpdate(
+          SyncMetaCompanion.insert(
+            key: 'last_backup_at:user-1',
+            value: '2026-11-09T00:00:00.000Z',
+          ),
+        );
+    await pumpEventQueue();
+    expect(seen, [0]);
+
+    // Any other bookkeeping, such as a full pull marker, still counts.
+    await db.into(db.syncMeta).insertOnConflictUpdate(
+          SyncMetaCompanion.insert(key: 'pending_full_pull', value: '1'),
+        );
+    await pumpEventQueue();
+    expect(seen.last, greaterThan(0));
+  });
+
   test('a changed token fails the read in hand and renews the reader',
       () async {
     final db = inMemoryDatabase();

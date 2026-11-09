@@ -347,7 +347,107 @@ void main() {
       DateTime.utc(2026, 8, 29, 20),
     );
   });
+  // A row another device wrote changes the student's local data without any
+  // feature repository knowing. The marker is what local readers (Your
+  // record, the plan) listen to; this device's own echoes do not move it.
+  test("a snapshot with another device's row moves the remote change marker",
+      () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final pull = _pull(db, PendingQueue(db));
+
+    await pull.applyCompleteSnapshot(
+      generationId: generationId,
+      collection: 'lesson_progress',
+      documents: [
+        _document(
+          'lesson-1',
+          readAt: DateTime.utc(2026, 11, 9, 8),
+          updatedAt: DateTime.utc(2026, 11, 9, 8),
+          mutationId: 'other-1',
+          originDeviceId: 'device-2',
+        ),
+      ],
+    );
+    expect(await _remoteMarker(db), '1');
+
+    // The same snapshot again changes nothing.
+    await pull.applyCompleteSnapshot(
+      generationId: generationId,
+      collection: 'lesson_progress',
+      documents: [
+        _document(
+          'lesson-1',
+          readAt: DateTime.utc(2026, 11, 9, 8),
+          updatedAt: DateTime.utc(2026, 11, 9, 8),
+          mutationId: 'other-1',
+          originDeviceId: 'device-2',
+        ),
+      ],
+    );
+    expect(await _remoteMarker(db), '1');
+  });
+
+  test("this device's own echo leaves the remote change marker alone",
+      () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final queue = PendingQueue(db);
+    await _putLesson(db, 'lesson-1', DateTime.utc(2026, 11, 9, 8));
+    await queue.enqueueGenerationBound(
+      uid: uid,
+      generationId: generationId,
+      tableType: 'lesson_progress',
+      rowId: 'lesson-1',
+      op: PendingSyncOp.upsert,
+      baseState: 'knownAbsent',
+      baseUpdatedAt: null,
+      mutationId: 'mine-1',
+      queuedAt: DateTime.utc(2026, 11, 9, 8),
+    );
+
+    await _pull(db, queue).applyCompleteSnapshot(
+      generationId: generationId,
+      collection: 'lesson_progress',
+      documents: [
+        _document(
+          'lesson-1',
+          readAt: DateTime.utc(2026, 11, 9, 8),
+          updatedAt: DateTime.utc(2026, 11, 9, 8, 1),
+          mutationId: 'mine-1',
+          originDeviceId: deviceId,
+        ),
+      ],
+    );
+    expect(await _remoteMarker(db), isNull);
+  });
+
+  test('a row another device removed moves the marker once', () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    await _putLesson(db, 'lesson-1', DateTime.utc(2026, 8, 29, 19));
+    await SyncRowMetaRepository(db).acceptKnownVersion(
+      collection: 'lesson_progress',
+      rowId: 'lesson-1',
+      updatedAt: DateTime.utc(2026, 8, 29, 20),
+    );
+    final pull = _pull(db, PendingQueue(db));
+    for (var i = 0; i < 2; i++) {
+      await pull.applyCompleteSnapshot(
+        generationId: generationId,
+        collection: 'lesson_progress',
+        documents: const [],
+      );
+    }
+    expect(await _remoteMarker(db), '1');
+  });
 }
+
+Future<String?> _remoteMarker(AppDatabase db) async =>
+    (await (db.select(db.syncMeta)
+              ..where((m) => m.key.equals(PullPipeline.remoteChangeKey)))
+            .getSingleOrNull())
+        ?.value;
 
 PullPipeline _pull(AppDatabase db, PendingQueue queue) => PullPipeline(
       db: db,
