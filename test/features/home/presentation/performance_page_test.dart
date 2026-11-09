@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/ui/components/pro_tag.dart';
 import 'package:pantas/core/ui/components/sort_cycle_button.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/home/application/performance/performance_provider.dart';
@@ -33,6 +34,27 @@ void main() {
           onBack: () {},
         ),
       );
+  testWidgets('a Free phone shows what the wide page shows', (tester) async {
+    await tester.pumpWidget(show(pro: false));
+    await tester.pumpAndSettle();
+    // The line under the title, the Pro marks on the locked views and the
+    // card that opens Pro, on the Subjects view too.
+    expect(
+      find.text("Accuracy across everything you've answered."),
+      findsOneWidget,
+    );
+    expect(find.byType(ProMark), findsNWidgets(2));
+    expect(find.text('Go deeper with Pro'), findsOneWidget);
+    expect(find.text('Unlock with Pro'), findsOneWidget);
+  });
+
+  testWidgets('a Pro phone has no Pro marks and no card', (tester) async {
+    await tester.pumpWidget(show());
+    await tester.pumpAndSettle();
+    expect(find.byType(ProMark), findsNothing);
+    expect(find.text('Go deeper with Pro'), findsNothing);
+  });
+
   testWidgets(
       'Topics start weakest first, omit unanswered, cycle strongest then name',
       (tester) async {
@@ -82,12 +104,14 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('Subject · 4 answered'), findsOneWidget);
   });
-  testWidgets('Free Subjects view is a plain list with no invitation',
+  testWidgets('Free Subjects view lists subjects and shows the invitation',
       (tester) async {
+    // The phone shows what the wide page shows (lead ruling, Nov 9): the
+    // Pro card under the list on every view for a Free account.
     await tester.pumpWidget(show(pro: false));
     await tester.pumpAndSettle();
     expect(find.text('Math'), findsOneWidget);
-    expect(find.text('Go deeper with Pro'), findsNothing);
+    expect(find.text('Go deeper with Pro'), findsOneWidget);
   });
   testWidgets('Free Topics replaces the list with one card and dims sort',
       (tester) async {

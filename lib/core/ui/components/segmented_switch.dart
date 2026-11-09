@@ -3,6 +3,7 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/pantas_shadows.dart';
+import 'package:pantas/core/ui/components/pro_tag.dart';
 import 'package:pantas/core/ui/motion/selection_motion.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
@@ -93,6 +94,7 @@ class SegmentedSwitch extends StatelessWidget {
     required this.labels,
     required this.selected,
     required this.onChanged,
+    this.proMarks = const [],
     super.key,
   })  : bookmarks = false,
         enabled = true,
@@ -111,9 +113,14 @@ class SegmentedSwitch extends StatelessWidget {
     required this.onChanged,
     this.enabled = true,
     super.key,
-  }) : bookmarks = true;
+  })  : bookmarks = true,
+        proMarks = const [];
   final bool bookmarks;
   final bool enabled;
+
+  /// Segment indexes that carry the Pro mark after their label (a Free
+  /// student's locked views, as on the wide switch).
+  final List<int> proMarks;
   final List<String> labels;
   final int selected;
   final ValueChanged<int> onChanged;
@@ -170,7 +177,25 @@ class SegmentedSwitch extends StatelessWidget {
       return width;
     }
 
-    final widest = labels.map(natural).reduce(math.max) + PantasSpace.s24;
+    // The Pro mark is its own text on a 6 px side padding, 6 px after the
+    // label.
+    double markWidth() {
+      final painter = TextPainter(
+        text: const TextSpan(text: 'Pro', style: PantasType.webPro),
+        textDirection: Directionality.of(context),
+        textScaler: textScaler,
+        maxLines: 1,
+      )..layout();
+      final width = painter.width + PantasSpace.s12 + PantasSpace.s6;
+      painter.dispose();
+      return width;
+    }
+
+    final widest = [
+          for (final (i, label) in labels.indexed)
+            natural(label) + (proMarks.contains(i) ? markWidth() : 0),
+        ].reduce(math.max) +
+        PantasSpace.s24;
     return LayoutBuilder(
       builder: (context, constraints) {
         final need = widest * labels.length + PantasSpace.s4;
@@ -293,13 +318,24 @@ class SegmentedSwitch extends StatelessWidget {
                         color: i == selected
                             ? colors.textPrimary
                             : colors.textOnFill,
-                        builder: (context, color, _) => Text(
-                          labels[i],
-                          maxLines: 1,
-                          softWrap: false,
-                          textAlign: TextAlign.center,
-                          style: _label(color, selected: i == selected),
-                        ),
+                        builder: (context, color, _) {
+                          final label = Text(
+                            labels[i],
+                            maxLines: 1,
+                            softWrap: false,
+                            textAlign: TextAlign.center,
+                            style: _label(color, selected: i == selected),
+                          );
+                          if (!proMarks.contains(i)) return label;
+                          return Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              label,
+                              const SizedBox(width: PantasSpace.s6),
+                              const ProMark(),
+                            ],
+                          );
+                        },
                       ),
                     ),
                   ),

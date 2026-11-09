@@ -150,6 +150,20 @@ class _PerformancePageState extends State<PerformancePage> {
       onBack: widget.onBack,
       bottomInset: 104,
       children: [
+        // The same line the wide page puts under the title.
+        Padding(
+          padding: const EdgeInsets.fromLTRB(
+            PantasSpace.s4,
+            PantasSpace.s0,
+            PantasSpace.s4,
+            PantasSpace.s16,
+          ),
+          child: Text(
+            "Accuracy across everything you've answered.",
+            style: context.type.subhead
+                .copyWith(color: context.colors.textSecondary),
+          ),
+        ),
         if (accuracy != null) ...[
           // Boards (DT_Free, DT_TopicsA): the ring starts 4 px lower; the
           // switch is 6 px lower on the Pro Topics and Lessons views.
@@ -173,6 +187,11 @@ class _PerformancePageState extends State<PerformancePage> {
                   'Topics',
                   if (widget.data.lessonLevelAvailable) 'Lessons',
                 ],
+                // As on the wide page: a Free account sees the Pro mark on
+                // the Topics and Lessons views.
+                proMarks: widget.pro
+                    ? const []
+                    : [1, if (widget.data.lessonLevelAvailable) 2],
                 selected: level,
                 onChanged: (level) => setState(() {
                   _level = level;
@@ -308,7 +327,7 @@ class _PerformancePageState extends State<PerformancePage> {
               ],
             ),
           ),
-        if (gated) ...[
+        if (!widget.pro) ...[
           // Board (DT_Free): the card starts 7 px higher, content centered
           // under a 26 px sparkle.
           const SizedBox(height: PantasSpace.s12),
