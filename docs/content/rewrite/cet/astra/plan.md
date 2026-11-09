@@ -19,3 +19,7 @@ November 9, 2026. Policy read from origin/main 1f6907c80. Spec P8: every Blocker
 (Appended per stage.)
 
 - structural-stability (cost test): 1 Blocker, upheld by the lead (a tilted object's tipping test compared the weight line with the contact region instead of the pivot edge). Fixed in 50d2d5a3e and 23407d24f, independent Opus check passed.
+- Stage 1 (November 9, 21:12 to 21:36): 15 lessons audited before total room fell to 18%; parallel-perpendicular-lines and measures-of-variability wait for stage 2. 24 findings (22 Blocker, 2 Major) in 13 lessons; functions-and-relations and quadrilaterals-and-polygons had none. Each job took about 2 minutes and about 1.5% of one account's week.
+- Lead rulings (`stage1-rulings.md`): 13 upheld, 7 downgraded to Minor but fixed with one hedge, 4 downgraded with no change. Most upheld findings were narrow general statements the reads had missed (SSA equal-sides case with an obtuse angle, formal charge with an unpaired electron, pulley effort only at steady speed, energy rising "unless" energy leaves).
+- Fixes: Sonnet (64b34ea15); independent Opus check failed 3 of 20, all corrected (c791fbbab) and passed on recheck.
+- Stage 1 is a risk set, not a random sample, so it gives no error rate for the corpus. Stage 2 (60 lessons) runs after the November 11 reset.
