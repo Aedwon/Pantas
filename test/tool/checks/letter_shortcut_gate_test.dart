@@ -54,4 +54,53 @@ const l = SingleActivator(LogicalKeyboardKey.arrowLeft);
       isEmpty,
     );
   });
+
+  test('a numpad digit fails', () {
+    final found = findUngatedLetterKeys({
+      'lib/a.dart': 'const d = SingleActivator(LogicalKeyboardKey.numpad3);',
+    });
+    expect(found.single.message, contains('numpad3'));
+  });
+
+  test('a CharacterActivator fails', () {
+    final found = findUngatedLetterKeys({
+      'lib/a.dart': "final c = {const CharacterActivator('f'): flag};",
+    });
+    expect(found.single.message, contains('CharacterActivator'));
+  });
+
+  test('reading an event character fails, except the select type-ahead', () {
+    const code = 'void k(KeyEvent e) { if (e.character == "f") flag(); }';
+    final found = findUngatedLetterKeys({
+      'lib/a.dart': code,
+      'lib/core/ui/components/pantas_select.dart': code,
+    });
+    expect(found, hasLength(2));
+    expect(
+      found.where((v) => v.acceptedBecause == null).single.where,
+      'lib/a.dart:1',
+    );
+  });
+
+  test('a modifier on a different call does not exempt a letter', () {
+    final found = findUngatedLetterKeys({
+      'lib/a.dart': '''
+const keys = [LogicalKeyboardKey.keyA];
+const k = SingleActivator(LogicalKeyboardKey.keyK, control: true);
+''',
+    });
+    expect(found.single.where, 'lib/a.dart:1');
+  });
+
+  test('a letter and a modified key in one map: only the letter fails', () {
+    final found = findUngatedLetterKeys({
+      'lib/a.dart': '''
+final m = {
+  const SingleActivator(LogicalKeyboardKey.keyF): flag,
+  const SingleActivator(LogicalKeyboardKey.keyK, meta: true): search,
+};
+''',
+    });
+    expect(found.single.where, 'lib/a.dart:2');
+  });
 }

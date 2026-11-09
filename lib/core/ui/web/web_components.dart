@@ -148,7 +148,7 @@ class WebButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final c = context.webTokens.colors;
-    final showKeyHint = keyHint != null && WebKeyboardHints.visibleOf(context);
+    final showKeyHint = keyHintShown(context, keyHint);
     final (pairKind, pairTone) = _pair;
     final sizeClass = size ??
         (pill

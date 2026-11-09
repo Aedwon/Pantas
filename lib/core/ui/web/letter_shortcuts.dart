@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/ui/web/web_keyboard_hints.dart';
 
 /// The Settings > Accessibility > Keyboard Shortcuts switch (WCAG 2.1.4).
 ///
@@ -75,6 +76,13 @@ class LetterShortcutsScope extends InheritedWidget {
 /// character-key shortcut ("F", "B", "2"). "Esc", "Enter", "Ctrl K" and the
 /// arrows are not.
 bool isCharacterKeyHint(String text) => RegExp(r'^[A-Za-z0-9]$').hasMatch(text);
+
+/// Whether a key hint for [hint] should take room: key hints are visible and
+/// a letter hint is not for a shortcut that is switched off.
+bool keyHintShown(BuildContext context, String? hint) =>
+    hint != null &&
+    WebKeyboardHints.visibleOf(context) &&
+    (!isCharacterKeyHint(hint) || LetterShortcutsScope.enabledOf(context));
 
 /// A control's name with its letter shortcut in brackets ("Flag (F)"). The
 /// letter drops out while Keyboard Shortcuts is off.

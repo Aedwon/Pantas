@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/ui/components/pantas_button_spec.dart';
 import 'package:pantas/core/ui/components/pantas_tooltip.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/letter_shortcuts.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_key_focus.dart';
@@ -131,6 +133,57 @@ void main() {
       for (final label in ['Esc', 'Enter', 'Ctrl K']) {
         expect(find.text(label), findsOneWidget, reason: label);
       }
+    });
+  });
+
+  group('buttons', () {
+    Future<Size> sizeOf(
+      WidgetTester tester, {
+      required bool on,
+      String? keyHint,
+      PantasButtonKind kind = PantasButtonKind.tertiary,
+    }) async {
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: buildLightTheme(web: true),
+          home: LetterShortcutsScope(
+            enabled: on,
+            child: Scaffold(
+              body: Center(
+                child: WebButton(
+                  label: 'Flag',
+                  kind: kind,
+                  keyHint: keyHint,
+                  onPressed: () {},
+                ),
+              ),
+            ),
+          ),
+        ),
+      );
+      await tester.pump();
+      return tester.getSize(find.byType(WebButton));
+    }
+
+    testWidgets('a letter hint takes no room while the letters are off',
+        (tester) async {
+      for (final kind in [
+        PantasButtonKind.tertiary,
+        PantasButtonKind.primary,
+      ]) {
+        final bare = await sizeOf(tester, on: false, kind: kind);
+        final off = await sizeOf(tester, on: false, keyHint: 'F', kind: kind);
+        expect(off, bare, reason: '$kind');
+        final on = await sizeOf(tester, on: true, keyHint: 'F', kind: kind);
+        expect(on.width, greaterThan(bare.width), reason: '$kind with hint');
+      }
+    });
+
+    testWidgets('an Enter hint keeps its room while the letters are off',
+        (tester) async {
+      final bare = await sizeOf(tester, on: false);
+      final enter = await sizeOf(tester, on: false, keyHint: 'Enter');
+      expect(enter.width, greaterThan(bare.width));
     });
   });
 
