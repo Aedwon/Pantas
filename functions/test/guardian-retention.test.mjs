@@ -4,7 +4,7 @@ import * as guardian from '../lib/guardianConsent.js';
 
 const DAY = 86400000;
 const T0 = Date.parse('2026-11-09T00:00:00+08:00');
-const versions = {privacy: '2026-11-10', terms: '2026-11-10', teens: '2026-11-10'};
+const versions = {privacy: '2026-11-11', terms: '2026-11-11', teens: '2026-11-11'};
 const app = {appId: 'app', token: {}, alreadyConsumed: false};
 const request = (data) => ({auth: {uid: 'visitor'}, app, data});
 

@@ -32,8 +32,10 @@ export const GUARDIAN_WINDOW_MS = 7 * 86_400_000;
 const DAY_MS = 86_400_000;
 
 // These identify the published documents and the confirmation page wording.
+// Placeholder date: set to the real publish date in the same release as the
+// new texts, and keep equal to guardianDocumentVersions in the app (spec choice 14).
 export const GUARDIAN_DOCUMENT_VERSIONS = {
-  privacy: '2026-11-10', terms: '2026-11-10', teens: '2026-11-10',
+  privacy: '2026-11-11', terms: '2026-11-11', teens: '2026-11-11',
 } as const;
 export const GUARDIAN_NOTICE_WORDING_VERSION = '2026-11-11';
 /** The version of the line the age step shows above the birth-year field. */

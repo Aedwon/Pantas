@@ -11,7 +11,7 @@ const T0 = Date.parse('2026-11-02T10:00:00+08:00');
 const DAY = 86400000;
 const anon = uid => ({uid, token: {firebase: {sign_in_provider: 'anonymous'}}});
 const app = {appId: 'app', token: {}, alreadyConsumed: false};
-const documentVersions = {privacy: '2026-11-10', terms: '2026-11-10', teens: '2026-11-10'};
+const documentVersions = {privacy: '2026-11-11', terms: '2026-11-11', teens: '2026-11-11'};
 const req = (uid, data, extra = {}) => ({auth: anon(uid), app, data: data?.decision
   ? {documentVersions, noticeWordingVersion: '2026-11-11', ...data} : data, ...extra});
 const code = async promise => { try { await promise; return 'ok'; } catch (e) { assert.equal(typeof e.code, 'string', String(e)); return e.code; } };

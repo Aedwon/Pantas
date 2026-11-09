@@ -20,7 +20,7 @@ const T0 = Date.parse('2026-11-09T10:00:00+08:00');
 const DAY = 86400000;
 const anon = uid => ({uid, token: {firebase: {sign_in_provider: 'anonymous'}}});
 const app = {appId: 'app', token: {}, alreadyConsumed: false};
-const versions = {privacy: '2026-11-10', terms: '2026-11-10', teens: '2026-11-10'};
+const versions = {privacy: '2026-11-11', terms: '2026-11-11', teens: '2026-11-11'};
 const req = (uid, data, extra = {}) => ({auth: anon(uid), app, data, ...extra});
 const answer = (token, over = {}) => ({token, decision: 'confirm', agreed: true,
   documentVersions: versions, noticeWordingVersion: '2026-11-11', ...over});
@@ -90,12 +90,12 @@ test('attested checkouts are copied with four fields only; others are not', asyn
   const uid = 'dm-purchase'; await reset(uid);
   await auth.createUser({uid});
   await db.doc('paymongoCheckouts/cs_dm_a').set({uid, product: 'pantas_cs_monthly', createdAt: T0,
-    attestedAt: T0 + 5, termsVersion: '2026-11-10', reference: 'ref-a', sessionPrivate: 'x'});
+    attestedAt: T0 + 5, termsVersion: '2026-11-11', reference: 'ref-a', sessionPrivate: 'x'});
   await db.doc('paymongoCheckouts/cs_dm_b').set({uid, product: 'pantas_cs_yearly', createdAt: T0});
   await db.doc('paymongoCheckouts/cs_dm_other').set({uid: 'someone-else', attestedAt: T0, termsVersion: 'v', reference: 'r', product: 'p'});
   await deletion.deleteUserData(db, auth, uid, 'guardian_withdrawal', {now: () => T0 + 9});
   assert.deepEqual((await db.doc(`guardianConsentEvidence/${uid}/purchases/cs_dm_a`).get()).data(),
-    {attestedAt: T0 + 5, termsVersion: '2026-11-10', reference: 'ref-a', product: 'pantas_cs_monthly'});
+    {attestedAt: T0 + 5, termsVersion: '2026-11-11', reference: 'ref-a', product: 'pantas_cs_monthly'});
   assert.equal((await db.doc(`guardianConsentEvidence/${uid}/purchases/cs_dm_b`).get()).exists, false);
   assert.equal((await db.doc(`guardianConsentEvidence/${uid}/purchases/cs_dm_other`).get()).exists, false);
   assert.equal((await db.doc(`guardianConsentEvidence/${uid}`).get()).get('reason'), 'guardian_withdrawal');
@@ -334,7 +334,8 @@ test('a withdrawal whose cleanup fails after the links are deleted is finished b
   h.advance(DAY);
   await assert.rejects(guardian.withdraw(req('v', {token: pageManage}), h.deps), /auth down/);
   assert.deepEqual((await db.collection('guardianTokens').where('uid', '==', uid).get()).size, 0, 'the links are gone');
-  assert.deepEqual((await db.doc(`accountDeletions/${uid}`).get()).data(), {reason: 'guardian_withdrawal', startedAt: T0 + DAY, nextRetryAt: T0 + DAY + 3600000, attempts: 1});
+  assert.deepEqual((await db.doc(`accountDeletions/${uid}`).get()).data(), {reason: 'guardian_withdrawal', startedAt: T0 + DAY, nextRetryAt: T0 + DAY + 3600000, attempts: 1,
+    reasons: ['guardian_withdrawal'], destructiveAt: T0 + DAY});
   assert.equal((await auth.getUser(uid)).disabled, true);
   await inactive.runInactivityPass({db, auth, mailer: {send: async () => {}}, linkOrigin: 'https://app.example.test',
     now: () => T0 + DAY + 2 * 3600000});
@@ -347,18 +348,18 @@ test('a withdrawal whose cleanup fails after the links are deleted is finished b
 test('an attested order with no checkout record is copied, and an order with a checkout is copied once', async () => {
   const uid = 'dm-orders'; await reset(uid);
   await auth.createUser({uid});
-  await db.doc('paymongoOrders/ref-only').set({uid, product: 'pantas_cs_weekly', createdAt: T0, attestedAt: T0 + 7, termsVersion: '2026-11-10', private: 'x'});
-  await db.doc('paymongoOrders/ref-both').set({uid, product: 'pantas_cs_monthly', createdAt: T0, attestedAt: T0 + 5, termsVersion: '2026-11-10', sessionId: 'cs_dm_both'});
-  await db.doc('paymongoCheckouts/cs_dm_both').set({uid, product: 'pantas_cs_monthly', createdAt: T0, attestedAt: T0 + 5, termsVersion: '2026-11-10', reference: 'ref-both'});
+  await db.doc('paymongoOrders/ref-only').set({uid, product: 'pantas_cs_weekly', createdAt: T0, attestedAt: T0 + 7, termsVersion: '2026-11-11', private: 'x'});
+  await db.doc('paymongoOrders/ref-both').set({uid, product: 'pantas_cs_monthly', createdAt: T0, attestedAt: T0 + 5, termsVersion: '2026-11-11', sessionId: 'cs_dm_both'});
+  await db.doc('paymongoCheckouts/cs_dm_both').set({uid, product: 'pantas_cs_monthly', createdAt: T0, attestedAt: T0 + 5, termsVersion: '2026-11-11', reference: 'ref-both'});
   await db.doc('paymongoOrders/ref-plain').set({uid, product: 'pantas_cs_yearly', createdAt: T0});
   await db.doc('paymongoOrders/ref-other').set({uid: 'someone-else', product: 'pantas_cs_yearly', createdAt: T0, attestedAt: T0, termsVersion: 'v'});
   await deletion.deleteUserData(db, auth, uid, 'user_request', {now: () => T0 + 9});
   const purchases = await db.collection(`guardianConsentEvidence/${uid}/purchases`).get();
   assert.deepEqual(purchases.docs.map(d => d.id).sort(), ['cs_dm_both', 'order-ref-only']);
   assert.deepEqual((await db.doc(`guardianConsentEvidence/${uid}/purchases/order-ref-only`).get()).data(),
-    {attestedAt: T0 + 7, termsVersion: '2026-11-10', reference: 'ref-only', product: 'pantas_cs_weekly'});
+    {attestedAt: T0 + 7, termsVersion: '2026-11-11', reference: 'ref-only', product: 'pantas_cs_weekly'});
   assert.deepEqual((await db.doc(`guardianConsentEvidence/${uid}/purchases/cs_dm_both`).get()).data(),
-    {attestedAt: T0 + 5, termsVersion: '2026-11-10', reference: 'ref-both', product: 'pantas_cs_monthly'});
+    {attestedAt: T0 + 5, termsVersion: '2026-11-11', reference: 'ref-both', product: 'pantas_cs_monthly'});
   assert.equal((await db.doc('paymongoOrders/ref-only').get()).exists, false, 'the order itself still goes');
   await db.doc('paymongoOrders/ref-other').delete();
 });

@@ -387,7 +387,8 @@ test('a failed deletion leaves a durable record, and the next daily run finishes
   const first = await run([user('in-durable', {days: 800})], {hooks: {deleteFails: true}});
   assert.deepEqual(first.auth.deleted, []);
   const task = (await pending('in-durable').get()).data();
-  assert.deepEqual(task, {reason: 'inactive_24_months', startedAt: NOW, nextRetryAt: NOW + HOUR, attempts: 1});
+  assert.deepEqual(task, {reason: 'inactive_24_months', startedAt: NOW, nextRetryAt: NOW + HOUR, attempts: 1,
+    reasons: ['inactive_24_months'], destructiveAt: NOW});
   // Fifty-nine minutes later nothing is retried yet.
   const early = await run([user('in-durable', {days: 800, disabled: true})], {now: () => NOW + HOUR - 60000});
   assert.deepEqual(early.auth.deleted, []);
@@ -412,7 +413,8 @@ test('an unfinished deletion keeps its record and counts another attempt', async
   await wipe('in-twice'); await wipeTasks('in-twice');
   await pending('in-twice').set({reason: 'user_request', startedAt: NOW - 3 * HOUR, nextRetryAt: NOW - 2 * HOUR, attempts: 1});
   await run([user('in-twice', {days: 10, disabled: true})], {hooks: {deleteFails: true}});
-  assert.deepEqual((await pending('in-twice').get()).data(), {reason: 'user_request', startedAt: NOW - 3 * HOUR, nextRetryAt: NOW + HOUR, attempts: 2});
+  assert.deepEqual((await pending('in-twice').get()).data(), {reason: 'user_request', startedAt: NOW - 3 * HOUR, nextRetryAt: NOW + HOUR, attempts: 2,
+    reasons: ['user_request'], destructiveAt: NOW});
   await wipeTasks('in-twice'); await wipe('in-twice');
 });
 
@@ -426,6 +428,19 @@ test('a stalled inactivity deletion is dropped and the account given back if Pro
   assert.equal(auth.all[0].disabled, false);
   assert.equal((await pending('in-paid-retry').get()).exists, false);
   assert.equal((await db.doc('users/in-paid-retry/server/x').get()).exists, true);
+});
+
+test('with paid access running, a stalled deletion is still finished once data was removed or a guardian asked', async () => {
+  const ids = ['in-paid-started', 'in-paid-withdrawn'];
+  await wipe(...ids); await wipeTasks(...ids);
+  await pending('in-paid-started').set({reason: 'inactive_24_months', reasons: ['inactive_24_months'],
+    startedAt: NOW - 2 * HOUR, nextRetryAt: NOW - HOUR, destructiveAt: NOW - 2 * HOUR, attempts: 1});
+  await pending('in-paid-withdrawn').set({reason: 'inactive_24_months', reasons: ['inactive_24_months', 'guardian_withdrawal'],
+    startedAt: NOW - 2 * HOUR, nextRetryAt: NOW - HOUR, attempts: 1});
+  const paid = {pro: true, proUntil: NOW + DAY};
+  const {auth} = await run(ids.map(id => user(id, {days: 800, disabled: true, claims: paid})));
+  assert.deepEqual(auth.deleted.sort(), [...ids].sort());
+  assert.equal(auth.updates.some(([, patch]) => patch.disabled === false), false, 'never given back');
 });
 
 test('a task that keeps failing moves to the back, so the others still get their turn', async () => {

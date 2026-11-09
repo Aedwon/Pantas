@@ -42,7 +42,10 @@ export async function deleteUserData(
   // Each attempt moves the next retry back, so a task that keeps failing goes to the end of the
   // queue and cannot starve newer ones.
   await task.set({reason: earlier.get('reason') ?? reason, startedAt: earlier.get('startedAt') ?? now,
-    nextRetryAt: now + DELETION_RETRY_MS, attempts: FieldValue.increment(1)}, {merge: true});
+    nextRetryAt: now + DELETION_RETRY_MS, attempts: FieldValue.increment(1),
+    // Every caller's reason is kept, so a withdrawal or a user's own request is never mistaken for
+    // an inactivity deletion that may be called off.
+    reasons: FieldValue.arrayUnion(reason)}, {merge: true});
 
   // Older trials have only an account-local record. Preserve eligibility before
   // deleting that record, including when an earlier deletion attempt is retried.
@@ -56,6 +59,8 @@ export async function deleteUserData(
   }
   await keepGuardianEvidence(db, uid, reason, now);
   await writeAuditLog({uid, event: 'accountDeleted', metadata: {reason}});
+  // From here on the account loses data, so a stalled deletion must be finished, never called off.
+  await task.set({destructiveAt: earlier.get('destructiveAt') ?? now}, {merge: true});
   await retirePublicId(db, uid);
   await deleteGuardianRecords(db, uid);
   await db.recursiveDelete(userRef);

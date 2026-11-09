@@ -136,9 +136,12 @@ export async function runInactivityPass(deps: InactivityDeps): Promise<Inactivit
       if (attempts >= deletionCap) break;
       const reason = task.get('reason') as DeletionReason;
       try {
-        // An inactivity deletion that stalled is dropped if the account now has paid access: the
-        // account stays disabled only while its deletion is pending, so it is given back.
-        if (reason === 'inactive_24_months') {
+        // An inactivity deletion that stalled before any data was removed is dropped if the account
+        // now has paid access, and the account is given back. A withdrawal or the user's own request
+        // is always finished, and so is any deletion that already removed data.
+        const reasons = (task.get('reasons') as DeletionReason[] | undefined) ?? [reason];
+        const onlyInactivity = reasons.every((r) => r === 'inactive_24_months');
+        if (onlyInactivity && task.get('destructiveAt') === undefined) {
           const current = await deps.auth.getUser(task.id).catch((error: unknown) => {
             if (isMissing(error)) return null;
             throw error;
