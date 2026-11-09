@@ -196,50 +196,54 @@ class PullPipeline {
     final entry = _activeEntry(collection);
     final presentIds = <String>{};
     var fromElsewhere = 0;
-
-    for (final document in documents) {
-      presentIds.add(document.id);
-      final result = await applyDocument(
-        generationId: generationId,
-        collection: collection,
-        document: document,
-      );
-      if (result == PullApplyResult.applied &&
-          document.originDeviceId != _deviceId) {
-        fromElsewhere++;
+    // In a finally: rows applied before a later row fails stay applied, and
+    // their next snapshot is ignored, so this is their only notice.
+    try {
+      for (final document in documents) {
+        presentIds.add(document.id);
+        final result = await applyDocument(
+          generationId: generationId,
+          collection: collection,
+          document: document,
+        );
+        if (result == PullApplyResult.applied &&
+            document.originDeviceId != _deviceId) {
+          fromElsewhere++;
+        }
       }
-    }
 
-    final knownRows = await _db.customSelect(
-      'select row_id from sync_row_meta where collection = ?',
-      variables: [Variable<String>(collection)],
-    ).get();
-    for (final row in knownRows) {
-      final rowId = row.read<String>('row_id');
-      if (presentIds.contains(rowId)) continue;
+      final knownRows = await _db.customSelect(
+        'select row_id from sync_row_meta where collection = ?',
+        variables: [Variable<String>(collection)],
+      ).get();
+      for (final row in knownRows) {
+        final rowId = row.read<String>('row_id');
+        if (presentIds.contains(rowId)) continue;
 
-      final pending = await _queue.findGenerationBound(
-        uid: _uid,
-        generationId: _generationId,
-        tableType: collection,
-        rowId: rowId,
-      );
-      if (pending != null &&
-          pending.op == PendingSyncOp.upsert.name &&
-          pending.baseState == SyncCausalBaseState.knownAbsent.storageValue) {
-        continue;
+        final pending = await _queue.findGenerationBound(
+          uid: _uid,
+          generationId: _generationId,
+          tableType: collection,
+          rowId: rowId,
+        );
+        if (pending != null &&
+            pending.op == PendingSyncOp.upsert.name &&
+            pending.baseState == SyncCausalBaseState.knownAbsent.storageValue) {
+          continue;
+        }
+        // The same create, still in the journal before the outbox.
+        if (await _isJournaledCreate(collection, rowId)) continue;
+
+        final before = await _rowMeta.readAcceptedBase(
+          collection: collection,
+          rowId: rowId,
+        );
+        await entry.adapter.applyKnownAbsent(db: _db, rowId: rowId);
+        if (before?.state != SyncCausalBaseState.knownAbsent) fromElsewhere++;
       }
-      // The same create, still in the journal before the outbox.
-      if (await _isJournaledCreate(collection, rowId)) continue;
-
-      final before = await _rowMeta.readAcceptedBase(
-        collection: collection,
-        rowId: rowId,
-      );
-      await entry.adapter.applyKnownAbsent(db: _db, rowId: rowId);
-      if (before?.state != SyncCausalBaseState.knownAbsent) fromElsewhere++;
+    } finally {
+      if (fromElsewhere > 0) await _noteRemoteChange();
     }
-    if (fromElsewhere > 0) await _noteRemoteChange();
 
     await _db.transaction(() async {
       for (final rowId in await _waitingRowIds(collection)) {
@@ -455,6 +459,8 @@ class PullPipeline {
             originDeviceId: current.originDeviceId,
           );
         }
+        // The newer row came from elsewhere; its snapshot will be ignored.
+        if (current?.originDeviceId != _deviceId) await _noteRemoteChange();
     }
   }
 
