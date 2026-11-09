@@ -16,6 +16,7 @@ import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_button_spec.dart';
 import 'package:pantas/core/ui/components/pantas_icon_button.dart';
 import 'package:pantas/core/ui/components/pantas_timer.dart';
+import 'package:pantas/core/ui/components/question_count.dart';
 import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/figures/question_figure.dart';
@@ -383,12 +384,6 @@ class _MockSessionPageState extends State<MockSessionPage> {
       glyph: PantasIcons.back,
       onPressed: widget.canGoPrevious ? widget.onPrevious : null,
     );
-    final gridButton = PantasIconButton(
-      key: const ValueKey('mock-grid'),
-      tooltip: 'Questions',
-      icon: PantasIcons.questionsSheet,
-      onPressed: () => setState(() => _gridOpen = true),
-    );
     final nextButton = PantasIconButton(
       key: const ValueKey('mock-next'),
       tooltip: last
@@ -406,6 +401,16 @@ class _MockSessionPageState extends State<MockSessionPage> {
     final counterStyle = PantasType.webLink.copyWith(
       color: c.textPrimary,
       fontFeatures: const [FontFeature.tabularFigures()],
+    );
+    // NF_Text idea 3: the count opens the question navigator, and an up-down
+    // caret after it says so. It replaces the old grid button.
+    final countButton = QuestionCountButton(
+      key: const ValueKey('mock-grid'),
+      text: counter,
+      style: counterStyle,
+      semanticLabel: 'Question ${widget.partPosition} of ${widget.partTotal}. '
+          'Open question navigator',
+      onPressed: () => setState(() => _gridOpen = true),
     );
     final header = ConstrainedBox(
       key: const ValueKey('mock-header'),
@@ -544,7 +549,11 @@ class _MockSessionPageState extends State<MockSessionPage> {
                       textDirection: Directionality.of(context),
                     )..layout();
                     final needed = counterMetrics.width +
-                        3 * PantasSize.iconBtn +
+                        // Caret, its gap and the button's side padding.
+                        16 +
+                        PantasSpace.s8 +
+                        QuestionCount.padding.horizontal +
+                        2 * PantasSize.iconBtn +
                         2 * PantasSpace.s12;
                     final available = constraints.maxWidth -
                         2 * PantasLayout.gutterPhone -
@@ -556,20 +565,13 @@ class _MockSessionPageState extends State<MockSessionPage> {
                             child: Column(
                               mainAxisSize: MainAxisSize.min,
                               children: [
-                                Text(
-                                  counter,
-                                  textAlign: TextAlign.center,
-                                  style: counterStyle,
-                                ),
+                                countButton,
                                 const SizedBox(height: PantasSpace.s8),
                                 Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Row(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [prev, gridButton],
-                                    ),
+                                    prev,
                                     nextButton,
                                   ],
                                 ),
@@ -579,11 +581,9 @@ class _MockSessionPageState extends State<MockSessionPage> {
                         // MK_Paper: previous and the question list at the left,
                         // the counter in the middle, next at the right.
                         : FloatingBar(
-                            left: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [prev, gridButton],
-                            ),
+                            left: prev,
                             counter: counter,
+                            counterWidget: countButton,
                             right: nextButton,
                           );
                     return Padding(

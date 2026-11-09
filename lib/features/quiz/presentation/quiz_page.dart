@@ -24,6 +24,7 @@ import 'package:pantas/core/ui/components/new_design/question_grid_sheet.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_icon_button.dart';
 import 'package:pantas/core/ui/components/pro_paused_line.dart';
+import 'package:pantas/core/ui/components/question_count.dart';
 import 'package:pantas/core/ui/components/report_form.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
@@ -1382,34 +1383,18 @@ class _QuizPageState extends ConsumerState<QuizPage> {
           key: const ValueKey('quiz-counter'),
           onTap: enabled ? open : null,
           child: Padding(
-            padding: const EdgeInsets.only(
-              left: PantasSpace.s10,
-              right: PantasSpace.s4,
-            ),
+            padding: QuestionCount.padding,
             child: ConstrainedBox(
               constraints: const BoxConstraints(minHeight: 44),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Flexible(
-                    child: Text(
-                      '${index + 1} of $total',
-                      style: PantasType.phoneExplanation.copyWith(
-                        fontWeight: FontWeight.w600,
-                        color: context.colors.textPrimary,
-                      ),
-                    ),
+              child: Center(
+                widthFactor: 1,
+                child: QuestionCount(
+                  text: '${index + 1} of $total',
+                  style: PantasType.phoneExplanation.copyWith(
+                    fontWeight: FontWeight.w600,
+                    color: context.colors.textPrimary,
                   ),
-                  const SizedBox(width: PantasSpace.s4),
-                  RotatedBox(
-                    quarterTurns: 1,
-                    child: Icon(
-                      PantasIcons.next,
-                      size: 14,
-                      color: context.colors.borderControl,
-                    ),
-                  ),
-                ],
+                ),
               ),
             ),
           ),

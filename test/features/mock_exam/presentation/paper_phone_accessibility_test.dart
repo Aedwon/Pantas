@@ -8,6 +8,7 @@ import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/core/ui/components/floating_bar.dart';
 import 'package:pantas/core/ui/components/new_design/question_grid_sheet.dart';
 import 'package:pantas/core/ui/figures/chart_figure.dart';
+import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/mock_exam/application/mock_start_providers.dart';
 import 'package:pantas/features/mock_exam/domain/mock_session_state.dart';
@@ -184,12 +185,15 @@ void main() {
           expect(tester.takeException(), isNull);
           expect(find.byType(ChartFigure), findsOneWidget);
           expect(find.text('A reading passage'), findsOneWidget);
-          final counter = tester.getRect(find.text('125 of 250'));
-          expect(counter.center.dx, closeTo(width / 2, .1));
+          // The count and its caret are one button in the middle of the bar.
+          expect(find.byKey(const ValueKey('mock-grid')), findsOneWidget);
+          final counter =
+              tester.getRect(find.byKey(const ValueKey('mock-grid')));
+          expect(counter.center.dx, closeTo(width / 2, 12));
           if (scale == 1) {
             expect(tester.getSize(find.byType(FloatingBar)).height, 64);
           }
-          final controls = ['mock-prev', 'mock-grid', 'mock-flag', 'mock-next'];
+          final controls = ['mock-prev', 'mock-flag', 'mock-next'];
           final rectangles = [
             for (final key in controls)
               tester.getRect(find.byKey(ValueKey(key))),
@@ -205,17 +209,9 @@ void main() {
               expect(rectangle.overlaps(rectangles[j]), isFalse);
             }
             await tester.tap(find.byKey(ValueKey(controls[i])));
-            if (controls[i] == 'mock-grid') {
-              await tester.pumpAndSettle();
-              final grid = tester.widget<QuestionGridSheet>(
-                find.byType(QuestionGridSheet),
-              );
-              expect(grid.open, isTrue);
-              grid.onDismiss();
-              await tester.pumpAndSettle();
-            }
           }
           expect(actions, ['previous', 'flag', 'next']);
+          expect(counter.height, greaterThanOrEqualTo(44));
           await tester.scrollUntilVisible(
             find.text(_lastChoice),
             250,
@@ -234,5 +230,88 @@ void main() {
         });
       }
     }
+  }
+
+  for (final (width, scale) in [(390.0, 1.0), (320.0, 1.0), (390.0, 2.0)]) {
+    testWidgets(
+        'mock phone bar: the count opens the navigator '
+        '($width x$scale)', (tester) async {
+      final semantics = tester.ensureSemantics();
+      tester.view.devicePixelRatio = 1;
+      tester.view.physicalSize = Size(width, 640);
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      await tester.pumpWidget(
+        ProviderScope(
+          overrides: [
+            hydratedMockQuestionProvider.overrideWith((ref, id) => _question()),
+          ],
+          child: MaterialApp(
+            theme: buildLightTheme(),
+            builder: (context, child) => MediaQuery(
+              data: MediaQuery.of(context).copyWith(
+                textScaler: TextScaler.linear(scale),
+                disableAnimations: true,
+              ),
+              child: child!,
+            ),
+            home: MockSessionPage(
+              state: MockSessionInProgress(
+                attemptId: 'paper',
+                durationSeconds: 11400,
+                questionIds: [for (var i = 1; i <= 250; i++) 'q$i'],
+                currentIndex: 124,
+                elapsedSeconds: 0,
+                answers: const {},
+                flags: const {},
+                strictMode: false,
+              ),
+              remainingInPart: const Duration(hours: 3),
+              partPosition: 125,
+              partTotal: 250,
+              partName: 'Verbal Ability',
+              oneBlock: true,
+              canGoPrevious: true,
+              canGoNext: true,
+              onPrevious: () {},
+              onNext: () {},
+              onAnswer: (_) {},
+              onToggleFlag: () {},
+              onPause: () {},
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+      expect(tester.takeException(), isNull);
+      // The grid button is gone; the count carries an up-down caret.
+      expect(find.byTooltip('Questions'), findsNothing);
+      final button = find.byKey(const ValueKey('mock-grid'));
+      expect(
+        find.descendant(
+          of: button,
+          matching: find.byIcon(PantasIcons.caretUpDown),
+        ),
+        findsOneWidget,
+      );
+      expect(tester.getSize(button).height, greaterThanOrEqualTo(44));
+      expect(tester.getSize(button).width, greaterThanOrEqualTo(44));
+      // Its name is one phrase; the caret adds nothing to it.
+      expect(
+        find.bySemanticsLabel('Question 125 of 250. Open question navigator'),
+        findsOneWidget,
+      );
+      expect(
+        find.bySemanticsLabel(RegExp('caret', caseSensitive: false)),
+        findsNothing,
+      );
+      await tester.tap(find.text('125 of 250'));
+      await tester.pumpAndSettle();
+      expect(
+        tester.widget<QuestionGridSheet>(find.byType(QuestionGridSheet)).open,
+        isTrue,
+      );
+      semantics.dispose();
+    });
   }
 }

@@ -61,6 +61,10 @@ abstract final class PantasIcons {
   static IconData get toTop => const IconData(0xe08e, fontFamily: 'Phosphor');
   static IconData get expandFigure =>
       const IconData(0xe0a6, fontFamily: 'Phosphor');
+
+  /// Phosphor caret-up-down: the count's cue that it opens a list.
+  static IconData get caretUpDown =>
+      const IconData(0xe140, fontFamily: 'Phosphor');
   static IconData get sort => const IconData(0xe140, fontFamily: 'Phosphor');
   static IconData get contents =>
       const IconData(0xe2f0, fontFamily: 'Phosphor');

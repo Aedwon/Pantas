@@ -261,7 +261,7 @@ void main() {
 
   for (final scale in [1.5, 2.0]) {
     testWidgets(
-        'Name and Pantas ID rows stack, not overflow, in a 468 detail pane (828 page) '
+        'Name and Pantas ID rows do not overflow in a 468 detail pane '
         'at $scale text', (tester) async {
       await _pump(
         tester,
