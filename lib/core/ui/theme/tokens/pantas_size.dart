@@ -78,7 +78,7 @@ abstract final class PantasSize {
 
   /// QuestionNavigator flag dot (11), the accent dot at a chip's top right;
   /// the Mock session legend dot for Flagged uses it too. New in 4.1.0
-  /// (D193).
+  /// (D194).
   static const double flagDot = 11;
 
   /// Phone tab bar height.
