@@ -388,22 +388,23 @@ class _PantasDataTableState extends State<PantasDataTable> {
           ),
         );
       }
-      return Semantics(
-        header: true,
-        child: Container(
-          width: widths[c],
-          height: headHeight,
-          // The sort button pulls 6 px into the padding, so its text lines up.
-          padding: pad(c).copyWith(
-            left: pad(c).left - (column.sortable ? PantasSpace.s6 : 0),
-          ),
-          alignment: column.numeric
-              ? AlignmentDirectional.bottomEnd
-              : AlignmentDirectional.bottomStart,
-          decoration: BoxDecoration(border: Border(bottom: hairline)),
-          child: child,
+      final cellWidget = Container(
+        width: widths[c],
+        height: headHeight,
+        // The sort button pulls 6 px into the padding, so its text lines up.
+        padding: pad(c).copyWith(
+          left: pad(c).left - (column.sortable ? PantasSpace.s6 : 0),
         ),
+        alignment: column.numeric
+            ? AlignmentDirectional.bottomEnd
+            : AlignmentDirectional.bottomStart,
+        decoration: BoxDecoration(border: Border(bottom: hairline)),
+        child: child,
       );
+      // A header with no label repeats another column; screen readers skip it.
+      return column.label.isEmpty
+          ? ExcludeSemantics(child: cellWidget)
+          : Semantics(header: true, child: cellWidget);
     }
 
     String? labelOf(Object? cell) => cell is PantasTableCell

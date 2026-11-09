@@ -294,6 +294,7 @@ void main() {
       expect(find.text('Geometry'), findsOneWidget);
       expect(tester.getSize(topics).height, greaterThan(0));
       expect(tester.widget<RotationTransition>(rotor()).turns.value, .5);
+      expect(tester.hasRunningAnimations, isFalse);
     });
   });
 }

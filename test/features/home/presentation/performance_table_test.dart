@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/ui/components/accuracy_bar.dart';
 import 'package:pantas/core/ui/components/data_table.dart';
 import 'package:pantas/core/ui/components/score_breakdown_row.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -84,6 +85,13 @@ void main() {
       expect(find.text('1 topic'), findsOneWidget);
       expect(find.text('60%'), findsOneWidget);
       expect(find.text('SUBJECT'), findsOneWidget);
+      expect(find.text('ACCURACY'), findsOneWidget);
+      expect(find.text('SCORE'), findsNothing);
+      // The bar is 160 wide on a wide row.
+      expect(
+        tester.getSize(find.byType(AccuracyBar).first).width,
+        160,
+      );
       expect(find.text('0%'), findsNothing);
     });
   }

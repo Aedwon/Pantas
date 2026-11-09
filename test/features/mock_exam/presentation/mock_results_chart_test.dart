@@ -11,6 +11,7 @@ import 'mock_results_page_test.dart' show result;
 /// The "Versus past results" chart draws the points the page has, on the
 /// shared Chart, at every width, theme and text scale.
 void main() {
+  formatTests();
   tearDown(() => debugWebPlatformOverride = null);
   const past = [
     MockPastPoint(percent: 50, label: 'Sep 5'),
@@ -58,10 +59,10 @@ void main() {
       // Every earlier mock and this one are points on the chart or in its
       // table; at default text size all three fit and print their values.
       if (cell.scale == 1) {
-        for (final text in ['Sep 5', 'Sep 19', 'Today', '50%', '60%']) {
+        for (final text in ['Sep 5', 'Sep 19', 'Today', '50.0%', '60.0%']) {
           expect(
             find.descendant(of: chart, matching: find.text(text)),
-            text == '50%' ? findsNWidgets(2) : findsOneWidget,
+            findsOneWidget,
             reason: text,
           );
         }
@@ -70,7 +71,7 @@ void main() {
       expect(
         find.descendant(
           of: chart,
-          matching: find.textContaining('ranged from 50% to 61.2%'),
+          matching: find.textContaining('ranged from 50.0% to 61.2%'),
         ),
         findsOneWidget,
       );
@@ -82,5 +83,25 @@ void main() {
       mockPastSummary(const [PantasChartPoint(label: 'Today', value: 61.2)]),
       'One result so far.',
     );
+  });
+}
+
+void formatTests() {
+  testWidgets('the Today value keeps one decimal, as the old chart did',
+      (tester) async {
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: buildLightTheme(),
+        home: Scaffold(
+          body: mockPastChart(
+            const [MockPastPoint(percent: 50, label: 'Sep 5')],
+            currentPercent: 68,
+            currentLabel: 'Today',
+          ),
+        ),
+      ),
+    );
+    expect(find.text('68.0%'), findsOneWidget);
+    expect(find.text('50.0%'), findsOneWidget);
   });
 }

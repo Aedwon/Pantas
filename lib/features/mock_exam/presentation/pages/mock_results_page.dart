@@ -814,9 +814,15 @@ Widget mockPastChart(
   double? time,
   bool web = false,
 }) {
+  // Every value prints with one decimal, as this chart always did.
+  PantasChartPoint point(String label, double percent) => PantasChartPoint(
+        label: label,
+        value: percent,
+        valueText: '${percent.toStringAsFixed(1)}%',
+      );
   final points = [
-    for (final p in past) PantasChartPoint(label: p.label, value: p.percent),
-    PantasChartPoint(label: currentLabel, value: currentPercent),
+    for (final p in past) point(p.label, p.percent),
+    point(currentLabel, currentPercent),
   ];
   return PantasChart(
     title: 'Past results',
@@ -860,7 +866,7 @@ String mockPastSummary(List<PantasChartPoint> points) {
   final values = [for (final p in points) p.value!];
   final low = values.reduce(math.min);
   final high = values.reduce(math.max);
-  String show(double v) => PantasChartPoint(label: '', value: v).printed!;
+  String show(double v) => '${v.toStringAsFixed(1)}%';
   return 'Your last ${points.length} mocks ranged from ${show(low)} to '
       '${show(high)}. The latest is ${points.last.printed}.';
 }

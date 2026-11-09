@@ -423,10 +423,16 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
   /// opens its topics in place, right under it; a topic or lesson row opens its
   /// panel; a Free subject row leads to Pro. Accuracy is always a measured
   /// value: a row with no answers is not listed.
-  Widget _table(BuildContext context) {
+  Widget _table(BuildContext context) => LayoutBuilder(
+        builder: (context, box) => _tableFor(context, box.maxWidth),
+      );
+
+  Widget _tableFor(BuildContext context, double width) {
     final t = context.webTokens;
     final level = widget.level;
     final rows = widget.rows;
+    // The bar is 80 wide on a row 600 or less wide, 160 otherwise.
+    final barWidth = width > 600 ? _barColumn : _barColumn / 2;
     final topics = <int, List<PerformanceRow>>{
       if (level == 0)
         for (var i = 0; i < rows.length; i++) i: _topicsFor(rows[i].id),
@@ -469,10 +475,10 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
         if (level > 0 || topic) '${row.answered} answered' else '',
         PantasTableCell.widget(
           SizedBox(
-            width: _barColumn,
+            width: barWidth,
             child: AccuracyBar.topicRows(accuracy: row.accuracy!),
           ),
-          width: _barColumn,
+          width: barWidth,
         ),
         '${(row.accuracy! * 100).round()}%',
         chevron(row, topic: topic),
@@ -482,8 +488,8 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
     final columns = [
       PantasTableColumn(['Subject', 'Topic', 'Lesson'][level]),
       const PantasTableColumn('Answered', numeric: true),
-      const PantasTableColumn('Accuracy'),
-      const PantasTableColumn('Score', numeric: true),
+      const PantasTableColumn(''),
+      const PantasTableColumn('Accuracy', numeric: true),
       const PantasTableColumn(''),
     ];
     final selected = rows.indexWhere((r) => r.id == _openTopic);
