@@ -6,7 +6,7 @@ void main() {
     final document = legalDocumentFallbacks['teens'];
     expect(document, isNotNull);
     expect(document!.title, 'Notice for teens');
-    expect(document.updatedAt, DateTime.utc(2026, 11, 9));
+    expect(document.updatedAt, DateTime.utc(2026, 11, 10));
     final text =
         document.sections.map((s) => '${s.heading}\n${s.body}').join('\n');
     expect(text, contains('This notice is for teens ages 13 to 17'));
@@ -14,7 +14,10 @@ void main() {
       text,
       contains('I withdraw my permission for my child to use Pantas.'),
     );
-    expect(text, contains('730 days from the first trial grant'));
+    expect(
+      text,
+      contains('Account and payment audit records: 730 days after the event.'),
+    );
     expect(text, contains('dpo@pantas.study'));
     for (final omitted in [
       'Owner note',
@@ -41,8 +44,14 @@ void main() {
       subscriptions,
       contains('Web purchases do not renew automatically.'),
     );
-    expect(subscriptions, contains('The November 9 to 15, 2026 beta is free.'));
-    expect(subscriptions, contains('These limits do not remove any refund'));
+    expect(
+      subscriptions,
+      contains('Weekly, Yearly and Season Passes have no trial.'),
+    );
+    expect(
+      subscriptions,
+      contains('do not limit any remedy Philippine law gives you'),
+    );
     final limits = sections
         .singleWhere(
           (s) => s.heading == 'Use of the app and limits of responsibility',
@@ -60,12 +69,28 @@ void main() {
     final document = legalDocumentFallbacks['privacy']!;
     expect(
       document.sections.map((s) => s.heading),
-      ['What we collect', 'What we never do', 'Your rights'],
+      [
+        'Who this is for',
+        'Who runs Pantas',
+        'Why we ask your age',
+        'What we collect',
+        'How Pantas uses your answers',
+        'Optional usage sharing',
+        'Speed and error reports',
+        'Where your data goes',
+        'Your rights',
+        'Withdrawing permission or deleting data',
+        'How long we keep data',
+        'Why we may use your data',
+        'Keeping data safe',
+        'Changes to this policy',
+      ],
     );
     expect(
-        document.sections.last.body,
-        'You can see, correct or delete your data at any time. '
-        'Contact our data protection officer from About.');
+      document.sections.last.body,
+      'When we change this policy, we update it here and change the date '
+      'at the top.',
+    );
   });
 
   test('terms fallback has stable title and last updated date', () {
@@ -73,7 +98,7 @@ void main() {
 
     expect(document, isNotNull);
     expect(document!.title, 'Terms of Service');
-    expect(document.updatedAt, DateTime.utc(2026, 11, 9));
+    expect(document.updatedAt, DateTime.utc(2026, 11, 10));
   });
 
   test('terms fallback includes intellectual property clause', () {
@@ -117,41 +142,50 @@ void main() {
       expect(
         sections[at + 1].body,
         'To find slow screens and errors, the web app sends short technical '
-        'reports: how long loading steps took, your browser type, and error '
-        'details. These reports do not include your account ID, your '
-        'answers, or lesson content. Google keeps them for 30 days.',
+        'reports. They include the app version, whether this is a first '
+        'visit, a return visit or the first visit after an update, your '
+        'browser family, your screen-size group, loading times, and error '
+        'messages, counts and locations in our code. We filter common '
+        'identifiers, such as email addresses, before a report is sent. '
+        'Error text may still contain personal information. We do not '
+        'deliberately include your answers or lesson content.\n\n'
+        'Reports have no dedicated account ID or IP address field. Sending '
+        'a report uses your sign-in session, including a guest session, to '
+        'check the request and to limit how many reports are sent. '
+        "Google's connection logs for these reports also record your IP "
+        'address and full browser details. We do not use them to identify '
+        'you.\n\n'
+        'We keep these report logs for 30 days. These reports are on for '
+        'everyone who uses the web app and are separate from optional usage '
+        'sharing. To object, email dpo@pantas.study.',
       );
     });
 
-    test(
-        'Where your data goes names Google Cloud logs after the Analytics '
-        'sentence', () {
+    test('Where your data goes names Google Cloud for speed and error reports',
+        () {
       final body =
           sections.singleWhere((s) => s.heading == 'Where your data goes').body;
-      const analytics = 'Optional usage reports use Firebase Analytics, with '
-          'Crashlytics error reporting on the phone app.';
-      const logs =
-          'Speed and error reports from the web app go to Google Cloud logs.';
-      expect(body, contains('$analytics $logs\n\n'));
+      expect(
+        body,
+        contains(
+          '\u2022 Google (Firebase and Google Cloud): accounts, our servers, '
+          'optional usage reports, and speed and error reports.',
+        ),
+      );
     });
 
     test('the legal basis for speed and error reports is the approved line',
         () {
-      final basis = sections
-          .skipWhile((s) => s.heading != 'Why the law allows these uses')
-          .toList();
-      final line = basis
-          .singleWhere((s) => s.heading == 'Speed and error reports (web)');
+      final basis =
+          sections.singleWhere((s) => s.heading == 'Why we may use your data');
       expect(
-        line.body,
-        'Legitimate interests under Section 12(f), to keep the app working '
-        'and fast. The reports carry no account identity, answers, or '
-        'learning performance.',
+        basis.body,
+        contains(
+          '\u2022 Speed and error reports, security records, guardian '
+          'requests and trial codes: our legitimate interest in keeping '
+          'Pantas working, safe and fair. We keep each to what we need.',
+        ),
       );
-      final consent = basis.indexWhere(
-        (s) => s.heading == 'Optional usage and error reporting',
-      );
-      expect(basis.indexOf(line), consent + 1);
     });
 
     test('no notice uses an em dash', () {

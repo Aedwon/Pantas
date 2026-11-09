@@ -30,7 +30,7 @@ const DAY_MS = 86_400_000;
 
 // These identify the published documents and the confirmation page wording.
 export const GUARDIAN_DOCUMENT_VERSIONS = {
-  privacy: '2026-11-09', terms: '2026-11-09', teens: '2026-11-09',
+  privacy: '2026-11-10', terms: '2026-11-10', teens: '2026-11-10',
 } as const;
 export const GUARDIAN_NOTICE_WORDING_VERSION = '2026-11-09';
 
