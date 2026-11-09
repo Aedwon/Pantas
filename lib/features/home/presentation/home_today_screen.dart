@@ -138,6 +138,19 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
   /// account and Sync core in [_boundary]; a move drops it at once.
   HomeTodayData? _shown;
 
+  /// The question work once its preparation has finished, with the preparation
+  /// it came from. Home draws from the plan before this is set.
+  TodayQuestionWork? _ready;
+  Future<TodayQuestionWork>? _readyFrom;
+
+  /// The prepared work for [data], or null while it is still being prepared.
+  TodayQuestionWork? _workOf(HomeTodayData data) =>
+      data.questionWork ??
+      (data.questionPreparation != null &&
+              identical(data.questionPreparation, _readyFrom)
+          ? _ready
+          : null);
+
   /// The account and Sync core this screen is on.
   late HomeBoundary _boundary;
 
@@ -185,6 +198,22 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
           if (!mounted || !identical(request, _request)) return;
           _pending = false;
           _shown = data;
+          final preparation = data.questionPreparation;
+          if (preparation != null) {
+            // A failure is shown where the work is used, not here.
+            unawaited(
+              preparation.then<void>(
+                (work) {
+                  if (!mounted || !identical(request, _request)) return;
+                  setState(() {
+                    _ready = work;
+                    _readyFrom = preparation;
+                  });
+                },
+                onError: (Object _, StackTrace __) {},
+              ),
+            );
+          }
           _rebuildIfPlanMoved(data);
         },
         onError: (Object error, StackTrace __) {
@@ -377,8 +406,36 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
     }
   }
 
+  /// Runs [then] once the questions are ready. A preparation that failed is
+  /// reported and Home is read again.
+  Future<void> _afterPrepared(HomeTodayData data, VoidCallback then) async {
+    final generation = _generation;
+    final preparation = data.questionPreparation!;
+    final TodayQuestionWork work;
+    try {
+      work = await preparation;
+    } on Object catch (error, stack) {
+      if (!mounted) return;
+      unawaited(ref.read(telemetryProvider).recordError(error, stack));
+      if (_current()) _retry();
+      return;
+    }
+    if (!_current() || generation != _generation) return;
+    // Recorded here too: a reload may have replaced the request meanwhile and
+    // dropped its own copy, and [then] must find the work, not wait again.
+    setState(() {
+      _ready = work;
+      _readyFrom = preparation;
+    });
+    then();
+  }
+
   void _openReviews(HomeTodayData data) {
-    final work = data.questionWork;
+    final work = _workOf(data);
+    if (work == null && data.questionPreparation != null) {
+      unawaited(_afterPrepared(data, () => _openReviews(data)));
+      return;
+    }
     if (work != null && work.reviewSizes.length == 1) {
       unawaited(_start(data, TodayQuestionKind.reviews));
     } else {
@@ -387,7 +444,11 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
   }
 
   void _openNew(HomeTodayData data) {
-    final work = data.questionWork;
+    final work = _workOf(data);
+    if (work == null && data.questionPreparation != null) {
+      unawaited(_afterPrepared(data, () => _openNew(data)));
+      return;
+    }
     if (work != null &&
         work.newRows.length == 1 &&
         work.newQuestions.isNotEmpty) {
@@ -398,7 +459,10 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
   }
 
   Future<void> _start(HomeTodayData data, TodayQuestionKind kind) async {
-    if (_busy || data.questionWork == null) return;
+    if (_busy ||
+        (data.questionWork == null && data.questionPreparation == null)) {
+      return;
+    }
     final generation = _generation;
     bool current() => _current() && generation == _generation;
     setState(() {
@@ -408,9 +472,10 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
     });
     final telemetry = ref.read(telemetryProvider);
     try {
+      final work = data.questionWork ?? await data.questionPreparation!;
       await ref
           .read(todayQuestionLauncherProvider)
-          .start(data.questionWork!, kind: kind, isAlive: current);
+          .start(work, kind: kind, isAlive: current);
       if (!mounted || !current()) return;
       _dismiss();
       await context
@@ -681,8 +746,8 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
       HomeTodayKind.examDay => HomeExamDay(
           examShortName: data.examShortName,
           onPlan: () => unawaited(context.push<void>('/plan')),
-          reviewsTotal: data.questionWork?.reviewsTotal ?? 0,
-          reviewsDone: data.questionWork?.reviewsDone ?? 0,
+          reviewsTotal: data.questionCounts?.reviewsTotal ?? 0,
+          reviewsDone: data.questionCounts?.reviewsDone ?? 0,
           busy: _busy,
           onRow: () => _openReviews(data),
           onStart: () => unawaited(_start(data, TodayQuestionKind.reviews)),
@@ -775,7 +840,8 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
   }
 
   Widget _list(HomeTodayData data, HomeTodayView view) {
-    final work = data.questionWork;
+    final work = _workOf(data);
+    final counts = data.questionCounts;
     final originals = data.lessons.where((l) => !l.advanced).length;
     final questions = [
       ...data.today.snapshot.plan.reviewQuestionIds,
@@ -786,10 +852,10 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
       web: context.webPlatform,
       onPlan: () => unawaited(context.push<void>('/plan')),
       lessons: data.lessons,
-      reviewsDone: work?.reviewsDone ?? 0,
-      reviewsTotal: work?.reviewsTotal ?? 0,
-      newDone: work?.newDone ?? 0,
-      newTotal: work?.newTotal ?? 0,
+      reviewsDone: counts?.reviewsDone ?? 0,
+      reviewsTotal: counts?.reviewsTotal ?? 0,
+      newDone: counts?.newDone ?? 0,
+      newTotal: counts?.newTotal ?? 0,
       canAdvance: data.canAdvance,
       isMockDay: data.today.snapshot.plan.isMockDay,
       mockSubtitle: data.extras.mock?.subtitle,
@@ -809,7 +875,7 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
       onNew: () => _openNew(data),
       onStartReviews: () => unawaited(_start(data, TodayQuestionKind.reviews)),
       onStartNew: () => unawaited(_start(data, TodayQuestionKind.newQuestions)),
-      reviewsStarted: work?.storedReviews != null,
+      reviewsStarted: counts?.storedReviews != null,
       // Task 6 adds the plan route. Until it exists nothing pushes to it, so
       // the link is not drawn.
       onAdvance: () => unawaited(_advance()),
@@ -863,7 +929,7 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
   Widget _contents(HomeTodayData data) {
     final sheet =
         context.wideWeb ? HomeWebQuestionsSheet.new : TodayQuestionsSheet.new;
-    final work = data.questionWork;
+    final work = _workOf(data);
     final reviews = _sheet == 'reviews';
     final lessons = _sheet == 'lesson' || _sheet == 'lessons';
     final next = _sheet == 'lesson'
@@ -953,7 +1019,18 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
             : null,
       );
     }
-    if (work == null) return const SizedBox.shrink();
+    if (work == null) {
+      // The questions could not be prepared. Trying again reads Home anew.
+      return _failed
+          ? StateView(
+              message: 'Could not start your quiz.',
+              onRetry: () {
+                _dismiss();
+                _retryNow();
+              },
+            )
+          : const SizedBox.shrink();
+    }
     return sheet(
       title: reviews ? 'Reviews' : 'New questions',
       done: reviews ? work.reviewsDone : work.newDone,

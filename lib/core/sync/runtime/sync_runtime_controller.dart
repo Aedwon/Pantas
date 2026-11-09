@@ -88,6 +88,8 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
 
   Future<void> _serialTail = Future<void>.value();
   SyncStatus _status = const SyncOff();
+  SyncIdentity? _identity;
+  SyncEntitlement? _entitlement;
   _PendingReconciliation? _pendingReconciliation;
   int _transitionToken = 0;
   int _runtimeEventToken = 0;
@@ -106,6 +108,8 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
     required SyncEntitlement entitlement,
   }) async {
     final token = ++_transitionToken;
+    _identity = identity;
+    _entitlement = entitlement;
     _cancelBootstrapRetry();
     _pendingReconciliation = null;
     // At once, so the new account's first changes are not tied to the old one.
@@ -137,6 +141,21 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
       await _forgetOtherAccountsGeneration(identity);
       await _activate(identity: identity, token: token);
     });
+  }
+
+  /// Back Up Now and Try Again. A running Sync flushes. A Sync that stopped
+  /// on an error while starting has no engine to flush, so it starts again
+  /// for the same account, as a reload would.
+  Future<void> retry() {
+    final identity = _identity;
+    final entitlement = _entitlement;
+    if (!_activeSync &&
+        _status is SyncError &&
+        identity != null &&
+        entitlement != null) {
+      return update(identity: identity, entitlement: entitlement);
+    }
+    return _engine.forceFlush();
   }
 
   Future<void> chooseReconciliation(SyncReconciliationChoice choice) {
@@ -700,6 +719,15 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
   }
 
   void _emit(SyncStatus status) {
+    // A failure before the engine runs stops Sync until Try Again or a
+    // reload, so it is worth a line in the web error report. Rows that keep
+    // failing are reported on their own, and a running engine retries itself.
+    if (status is SyncError && !_activeSync) {
+      ClientReporter.active?.recordError(
+        StateError('Backup stopped while starting: ${status.message}'),
+        StackTrace.empty,
+      );
+    }
     _status = status;
     if (!_statusController.isClosed) {
       _statusController.add(status);

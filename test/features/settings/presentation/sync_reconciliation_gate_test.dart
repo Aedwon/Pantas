@@ -113,5 +113,8 @@ class GateRuntime implements SyncRuntimeSurface {
   Future<void> forceFlush() async {}
 
   @override
+  Future<void> retry() => forceFlush();
+
+  @override
   Future<void> quiesce({required bool flush}) async {}
 }

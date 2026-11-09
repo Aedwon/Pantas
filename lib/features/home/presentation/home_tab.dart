@@ -229,7 +229,7 @@ class _SelectedExamHomeState extends ConsumerState<_SelectedExamHome> {
         intro: data != null && view?.kind == HomeTodayKind.examDay
             ? HomeExamDayIntro(
                 examShortName: data.examShortName,
-                reviewsTotal: data.questionWork?.reviewsTotal ?? 0,
+                reviewsTotal: data.questionCounts?.reviewsTotal ?? 0,
               )
             : null,
         notice: !notices ||

@@ -22,28 +22,17 @@ import 'package:uuid/uuid.dart';
 
 enum TodayQuestionKind { reviews, newQuestions }
 
-class TodayQuestionWork {
-  const TodayQuestionWork({
-    required this.examId,
+/// What Home shows about today's questions without their bodies: the counts.
+/// They come from the plan and the stored Reviews batch, both local reads.
+class TodayQuestionStatus {
+  const TodayQuestionStatus({
     required this.today,
-    required this.preparedReviews,
     required this.storedReviews,
-    required this.newQuestions,
     required this.reviewProgress,
-    required this.newRows,
-    required this.guard,
   });
-  final String examId;
   final RoadmapToday today;
-  final PreparedReviewBatch preparedReviews;
   final StoredReviewBatch? storedReviews;
-  final List<Question> newQuestions;
   final List<int> reviewProgress;
-  final List<({String title, int done, int total})> newRows;
-  final Future<bool> Function() guard;
-  List<int> get reviewSizes =>
-      storedReviews?.chunks.map((c) => c.length).toList() ??
-      preparedReviews.chunks.map((c) => c.length).toList();
   int get reviewsTotal => storedReviews == null
       ? today.snapshot.plan.reviewQuestionIds.length
       : storedReviews!.chunks.fold(0, (sum, c) => sum + c.length);
@@ -52,6 +41,27 @@ class TodayQuestionWork {
       : reviewProgress.fold(0, (sum, n) => sum + n);
   int get newTotal => today.snapshot.plan.newQuestionIds.length;
   int get newDone => newTotal - today.remaining.newQuestionIds.length;
+}
+
+class TodayQuestionWork extends TodayQuestionStatus {
+  const TodayQuestionWork({
+    required this.examId,
+    required super.today,
+    required this.preparedReviews,
+    required super.storedReviews,
+    required this.newQuestions,
+    required super.reviewProgress,
+    required this.newRows,
+    required this.guard,
+  });
+  final String examId;
+  final PreparedReviewBatch preparedReviews;
+  final List<Question> newQuestions;
+  final List<({String title, int done, int total})> newRows;
+  final Future<bool> Function() guard;
+  List<int> get reviewSizes =>
+      storedReviews?.chunks.map((c) => c.length).toList() ??
+      preparedReviews.chunks.map((c) => c.length).toList();
 }
 
 final todayQuestionLauncherProvider = Provider<TodayQuestionLauncher>((ref) {
@@ -91,6 +101,47 @@ class TodayQuestionLauncher {
     );
   }
 
+  /// The stored Reviews batch and how far each of its sessions has gone.
+  /// Home reads this with the plan; [load] reads the same thing, so the counts
+  /// on the first frame and the prepared work cannot disagree.
+  Future<TodayQuestionStatus> readStatus(
+    RoadmapToday today,
+    String examId,
+  ) async {
+    final scope = ref
+        .read(quizReviewBatchRepositoryProvider)
+        .capture(quizLocalUserId, examId);
+    if (scope == null) throw StateError('Quiz owner unavailable');
+    return _status(scope, today);
+  }
+
+  Future<TodayQuestionStatus> _status(
+    ReviewBatchScope scope,
+    RoadmapToday today,
+  ) async {
+    final stored =
+        await ref.read(quizReviewBatchRepositoryProvider).readCurrent(scope);
+    final progress = <int>[];
+    if (stored != null) {
+      final db = ref.read(appDatabaseProvider);
+      for (final id in stored.sessionIds) {
+        final row = await (db.select(db.quizSessions)
+              ..where((r) => r.id.equals(id)))
+            .getSingleOrNull();
+        if (row == null && id != stored.sessionIds[stored.current]) {
+          progress.add(0);
+        } else {
+          progress.add(row?.outcomes.length ?? 0);
+        }
+      }
+    }
+    return TodayQuestionStatus(
+      today: today,
+      storedReviews: stored,
+      reviewProgress: progress,
+    );
+  }
+
   Future<TodayQuestionWork> load(
     String examId, {
     Future<Future<bool> Function()>? originalGuard,
@@ -114,21 +165,9 @@ class TodayQuestionLauncher {
     unawaited(
       hydration.then<void>((_) {}, onError: (Object _, StackTrace __) {}),
     );
-    final stored = await batches.readCurrent(scope);
-    final progress = <int>[];
-    if (stored != null) {
-      final db = ref.read(appDatabaseProvider);
-      for (final id in stored.sessionIds) {
-        final row = await (db.select(db.quizSessions)
-              ..where((r) => r.id.equals(id)))
-            .getSingleOrNull();
-        if (row == null && id != stored.sessionIds[stored.current]) {
-          progress.add(0);
-        } else {
-          progress.add(row?.outcomes.length ?? 0);
-        }
-      }
-    }
+    final status = await _status(scope, today);
+    final stored = status.storedReviews;
+    final progress = status.reviewProgress;
     final prefs = await ref.read(quizPreferencesRepositoryProvider).read();
     final hydrated = await hydration;
     final reviewQuestions = hydrated[0];

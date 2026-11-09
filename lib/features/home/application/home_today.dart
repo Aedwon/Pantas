@@ -20,13 +20,26 @@ class HomeTodayData {
     required List<HomeTodayLesson> lessons,
     required this.questionWork,
     required this.canAdvance,
+    this.questionStatus,
+    this.questionPreparation,
     this.examName = '',
     this.examShortName = '',
     this.extras = const HomeDayExtras(),
   }) : lessons = List.unmodifiable(lessons);
   final RoadmapToday today;
   final List<HomeTodayLesson> lessons;
+
+  /// The prepared question work, when it was ready at build time.
   final TodayQuestionWork? questionWork;
+
+  /// The counts, read with the plan so Home can draw before any question body
+  /// is ready.
+  final TodayQuestionStatus? questionStatus;
+
+  /// Question preparation still running when Home was built. Starting a
+  /// session awaits this same preparation instead of starting another.
+  final Future<TodayQuestionWork>? questionPreparation;
+  TodayQuestionStatus? get questionCounts => questionWork ?? questionStatus;
   final bool canAdvance;
   final String examName;
   final String examShortName;
@@ -48,25 +61,24 @@ final homeTodayLoaderProvider = Provider<HomeTodayLoader>((ref) {
     final server = ref.read(studyUsesServerProvider);
     final guard = await originalGuard;
     if (!await guard()) throw StateError('Home owner changed');
-    // Question bodies take the longest to prepare. Start them now and build
-    // the rest of Home from the same plan meanwhile, instead of one after the
-    // other. Holding the plan keeps both readers on one server request.
+    // Question bodies take the longest to prepare. Start them now and draw
+    // Home from the plan meanwhile; starting a session awaits this same
+    // preparation. Holding the plan keeps both readers on one server request,
+    // and it is held until the preparation has read it.
     final hold = ref.container.listen(roadmapTodayProvider(examId), (_, __) {});
-    try {
-      final pendingWork = ref.read(todayQuestionLauncherProvider).load(
-            examId,
-            originalGuard: originalGuard,
-          );
-      // Awaited below; this only keeps an early failure here from also being
-      // reported as unhandled.
-      unawaited(
-        pendingWork.then<void>((_) {}, onError: (Object _, StackTrace __) {}),
-      );
-      final today = await ref.read(roadmapTodayProvider(examId).future);
-      return await _assemble(ref, examId, server, guard, today, pendingWork);
-    } finally {
-      hold.close();
-    }
+    final launcher = ref.read(todayQuestionLauncherProvider);
+    final pendingWork = launcher.load(examId, originalGuard: originalGuard);
+    // A failure surfaces where the preparation is used. This only keeps it
+    // from also being reported as unhandled, and releases the hold.
+    unawaited(
+      pendingWork
+          .then<void>((_) {}, onError: (Object _, StackTrace __) {})
+          .whenComplete(hold.close),
+    );
+    final today = await ref.read(roadmapTodayProvider(examId).future);
+    final status = launcher.readStatus(today, examId);
+    unawaited(status.then<void>((_) {}, onError: (Object _, StackTrace __) {}));
+    return _assemble(ref, examId, server, guard, today, status, pendingWork);
   };
 });
 
@@ -76,6 +88,7 @@ Future<HomeTodayData> _assemble(
   bool server,
   Future<bool> Function() guard,
   RoadmapToday today,
+  Future<TodayQuestionStatus> pendingStatus,
   Future<TodayQuestionWork> pendingWork,
 ) async {
   final contentDb = ref.read(contentDatabaseProvider);
@@ -151,12 +164,14 @@ Future<HomeTodayData> _assemble(
             return blueprints.firstOrNull?.durationMinutes;
           },
         );
-  final work = await pendingWork;
+  final status = await pendingStatus;
   if (!await guard()) throw StateError('Home owner changed');
   return HomeTodayData(
     today: today,
     lessons: lessons,
-    questionWork: work,
+    questionWork: null,
+    questionStatus: status,
+    questionPreparation: pendingWork,
     canAdvance: canAdvance,
     examName: exam?.name ?? '',
     examShortName: shortName,
