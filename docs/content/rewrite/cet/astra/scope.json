@@ -1,0 +1,763 @@
+{
+  "lesson-chemistry-stoichiometry": {
+    "lesson": "content/lessons/science/chemistry/stoichiometry.md",
+    "questions": "content/questions/science/chemistry/stoichiometry.yaml",
+    "exists": true,
+    "auditIds": [
+      "q-chemistry-stoichiometry-0006",
+      "q-chemistry-stoichiometry-0012"
+    ]
+  },
+  "lesson-chemistry-chemical-bonding": {
+    "lesson": "content/lessons/science/chemistry/chemical-bonding.md",
+    "questions": "content/questions/science/chemistry/chemical-bonding.yaml",
+    "exists": true,
+    "auditIds": [
+      "q-chemistry-chemical-bonding-0004",
+      "q-chemistry-chemical-bonding-0015"
+    ]
+  },
+  "lesson-chemistry-acids-bases-ph": {
+    "lesson": "content/lessons/science/chemistry/acids-bases-ph.md",
+    "questions": "content/questions/science/chemistry/acids-bases-ph.yaml",
+    "exists": true,
+    "auditIds": []
+  },
+  "lesson-physics-kinematics": {
+    "lesson": "content/lessons/science/physics/kinematics.md",
+    "questions": "content/questions/science/physics/kinematics.yaml",
+    "exists": true,
+    "auditIds": []
+  },
+  "lesson-physics-electricity-and-magnetism": {
+    "lesson": "content/lessons/science/physics/electricity-and-magnetism.md",
+    "questions": "content/questions/science/physics/electricity-and-magnetism.yaml",
+    "exists": true,
+    "auditIds": []
+  },
+  "lesson-physics-work-energy-power": {
+    "lesson": "content/lessons/science/physics/work-energy-power.md",
+    "questions": "content/questions/science/physics/work-energy-power.yaml",
+    "exists": true,
+    "auditIds": [
+      "q-physics-work-energy-power-0006",
+      "q-physics-work-energy-power-0009",
+      "q-physics-work-energy-power-0014",
+      "q-physics-work-energy-power-0019"
+    ]
+  },
+  "lesson-earth-science-astronomy-plate-tectonics": {
+    "lesson": "content/lessons/science/earth-science-astronomy/plate-tectonics.md",
+    "questions": "content/questions/science/earth-science-astronomy/plate-tectonics.yaml",
+    "exists": true,
+    "auditIds": [
+      "q-earth-science-astronomy-plate-tectonics-0003",
+      "q-earth-science-astronomy-plate-tectonics-0010",
+      "q-earth-science-astronomy-plate-tectonics-0014"
+    ]
+  },
+  "lesson-earth-science-astronomy-eclipses-and-moon-phases": {
+    "lesson": "content/lessons/science/earth-science-astronomy/eclipses-and-moon-phases.md",
+    "questions": "content/questions/science/earth-science-astronomy/eclipses-and-moon-phases.yaml",
+    "exists": true,
+    "auditIds": []
+  },
+  "lesson-biology-genetics-and-heredity": {
+    "lesson": "content/lessons/science/biology/genetics-and-heredity.md",
+    "questions": "content/questions/science/biology/genetics-and-heredity.yaml",
+    "exists": true,
+    "auditIds": [
+      "q-biology-genetics-and-heredity-0012",
+      "q-biology-genetics-and-heredity-0013"
+    ]
+  },
+  "lesson-biology-cell-biology": {
+    "lesson": "content/lessons/science/biology/cell-biology.md",
+    "questions": "content/questions/science/biology/cell-biology.yaml",
+    "exists": true,
+    "auditIds": [
+      "q-biology-cell-biology-0019"
+    ]
+  },
+  "lesson-geometry-triangles": {
+    "lesson": "content/lessons/mathematics/geometry/triangles.md",
+    "questions": "content/questions/mathematics/geometry/triangles.yaml",
+    "exists": true,
+    "auditIds": []
+  },
+  "lesson-geometry-circles": {
+    "lesson": "content/lessons/mathematics/geometry/circles.md",
+    "questions": "content/questions/mathematics/geometry/circles.yaml",
+    "exists": true,
+    "auditIds": []
+  },
+  "lesson-algebra-quadratic-equations": {
+    "lesson": "content/lessons/mathematics/algebra/quadratic-equations.md",
+    "questions": "content/questions/mathematics/algebra/quadratic-equations.yaml",
+    "exists": true,
+    "auditIds": []
+  },
+  "lesson-mechanical-technical-reasoning-pulleys-and-levers": {
+    "lesson": "content/lessons/reasoning/mechanical-technical-reasoning/pulleys-and-levers.md",
+    "questions": "content/questions/reasoning/mechanical-technical-reasoning/pulleys-and-levers.yaml",
+    "exists": true,
+    "auditIds": [
+      "q-mechanical-technical-reasoning-pulleys-and-levers-0007",
+      "q-mechanical-technical-reasoning-pulleys-and-levers-0011",
+      "q-mechanical-technical-reasoning-pulleys-and-levers-0012",
+      "q-mechanical-technical-reasoning-pulleys-and-levers-0013"
+    ]
+  },
+  "lesson-text-types-short-stories-and-novels": {
+    "lesson": "content/lessons/reading-comprehension/text-types/short-stories-and-novels.md",
+    "questions": "content/questions/reading-comprehension/text-types/short-stories-and-novels.yaml",
+    "exists": true,
+    "auditIds": []
+  },
+  "lesson-biology-botany": {
+    "lesson": "content/lessons/science/biology/botany.md",
+    "questions": "content/questions/science/biology/botany.yaml",
+    "exists": true,
+    "auditIds": [
+      "q-biology-botany-0012"
+    ]
+  },
+  "lesson-biology-cellular-metabolism": {
+    "lesson": "content/lessons/science/biology/cellular-metabolism.md",
+    "questions": "content/questions/science/biology/cellular-metabolism.yaml",
+    "exists": true,
+    "auditIds": [
+      "q-biology-cellular-metabolism-0021",
+      "q-biology-cellular-metabolism-0022",
+      "q-biology-cellular-metabolism-0023",
+      "q-biology-cellular-metabolism-0024",
+      "q-biology-cellular-metabolism-0025",
+      "q-biology-cellular-metabolism-0026",
+      "q-biology-cellular-metabolism-0027",
+      "q-biology-cellular-metabolism-0028",
+      "q-biology-cellular-metabolism-0029",
+      "q-biology-cellular-metabolism-0030",
+      "q-biology-cellular-metabolism-0031",
+      "q-biology-cellular-metabolism-0032",
+      "q-biology-cellular-metabolism-0033",
+      "q-biology-cellular-metabolism-0034"
+    ]
+  },
+  "lesson-biology-cellular-respiration-and-fermentation": {
+    "lesson": "content/lessons/science/biology/cellular-respiration-and-fermentation.md",
+    "questions": "content/questions/science/biology/cellular-respiration-and-fermentation.yaml",
+    "exists": true,
+    "auditIds": [
+      "q-biology-cellular-respiration-and-fermentation-0001",
+      "q-biology-cellular-respiration-and-fermentation-0002",
+      "q-biology-cellular-respiration-and-fermentation-0003",
+      "q-biology-cellular-respiration-and-fermentation-0004",
+      "q-biology-cellular-respiration-and-fermentation-0005",
+      "q-biology-cellular-respiration-and-fermentation-0006"
+    ]
+  },
+  "lesson-biology-cellular-reproduction": {
+    "lesson": "content/lessons/science/biology/cellular-reproduction.md",
+    "questions": "content/questions/science/biology/cellular-reproduction.yaml",
+    "exists": true,
+    "auditIds": [
+      "q-biology-cellular-reproduction-0021",
+      "q-biology-cellular-reproduction-0022",
+      "q-biology-cellular-reproduction-0023",
+      "q-biology-cellular-reproduction-0024",
+      "q-biology-cellular-reproduction-0025",
+      "q-biology-cellular-reproduction-0026",
+      "q-biology-cellular-reproduction-0027",
+      "q-biology-cellular-reproduction-0028",
+      "q-biology-cellular-reproduction-0029",
+      "q-biology-cellular-reproduction-0030",
+      "q-biology-cellular-reproduction-0031"
+    ]
+  },
+  "lesson-biology-meiosis-and-genetic-variation": {
+    "lesson": "content/lessons/science/biology/meiosis-and-genetic-variation.md",
+    "questions": "content/questions/science/biology/meiosis-and-genetic-variation.yaml",
+    "exists": true,
+    "auditIds": [
+      "q-biology-meiosis-and-genetic-variation-0001",
+      "q-biology-meiosis-and-genetic-variation-0002",
+      "q-biology-meiosis-and-genetic-variation-0003",
+      "q-biology-meiosis-and-genetic-variation-0004",
+      "q-biology-meiosis-and-genetic-variation-0005",
+      "q-biology-meiosis-and-genetic-variation-0006",
+      "q-biology-meiosis-and-genetic-variation-0007",
+      "q-biology-meiosis-and-genetic-variation-0008",
+      "q-biology-meiosis-and-genetic-variation-0009"
+    ]
+  },
+  "lesson-biology-characteristics-of-life": {
+    "lesson": "content/lessons/science/biology/characteristics-of-life.md",
+    "questions": "content/questions/science/biology/characteristics-of-life.yaml",
+    "exists": true,
+    "auditIds": [
+      "q-biology-characteristics-of-life-0007",
+      "q-biology-characteristics-of-life-0013"
+    ]
+  },
+  "lesson-biology-evolution": {
+    "lesson": "content/lessons/science/biology/evolution.md",
+    "questions": "content/questions/science/biology/evolution.yaml",
+    "exists": true,
+    "auditIds": [
+      "q-biology-evolution-0004",
+      "q-biology-evolution-0014"
+    ]
+  },
+  "lesson-biology-human-anatomy-physiology": {
+    "lesson": "content/lessons/science/biology/human-anatomy-physiology.md",
+    "questions": "content/questions/science/biology/human-anatomy-physiology.yaml",
+    "exists": true,
+    "auditIds": [
+      "q-biology-human-anatomy-physiology-0021",
+      "q-biology-human-anatomy-physiology-0022",
+      "q-biology-human-anatomy-physiology-0023",
+      "q-biology-human-anatomy-physiology-0024",
+      "q-biology-human-anatomy-physiology-0025",
+      "q-biology-human-anatomy-physiology-0026",
+      "q-biology-human-anatomy-physiology-0027",
+      "q-biology-human-anatomy-physiology-0028",
+      "q-biology-human-anatomy-physiology-0029",
+      "q-biology-human-anatomy-physiology-0030"
+    ]
+  },
+  "lesson-biology-human-body-control-movement-and-defense": {
+    "lesson": "content/lessons/science/biology/human-body-control-movement-and-defense.md",
+    "questions": "content/questions/science/biology/human-body-control-movement-and-defense.yaml",
+    "exists": true,
+    "auditIds": [
+      "q-biology-human-body-control-movement-and-defense-0001",
+      "q-biology-human-body-control-movement-and-defense-0002",
+      "q-biology-human-body-control-movement-and-defense-0003",
+      "q-biology-human-body-control-movement-and-defense-0004",
+      "q-biology-human-body-control-movement-and-defense-0005",
+      "q-biology-human-body-control-movement-and-defense-0006",
+      "q-biology-human-body-control-movement-and-defense-0007",
+      "q-biology-human-body-control-movement-and-defense-0008",
+      "q-biology-human-body-control-movement-and-defense-0009",
+      "q-biology-human-body-control-movement-and-defense-0010"
+    ]
+  },
+  "lesson-biology-taxonomy-and-classification": {
+    "lesson": "content/lessons/science/biology/taxonomy-and-classification.md",
+    "questions": "content/questions/science/biology/taxonomy-and-classification.yaml",
+    "exists": true,
+    "auditIds": [
+      "q-biology-taxonomy-and-classification-0016"
+    ]
+  },
+  "lesson-chemistry-atomic-structure": {
+    "lesson": "content/lessons/science/chemistry/atomic-structure.md",
+    "questions": "content/questions/science/chemistry/atomic-structure.yaml",
+    "exists": true,
+    "auditIds": []
+  },
+  "lesson-chemistry-basic-organic-chemistry": {
+    "lesson": "content/lessons/science/chemistry/basic-organic-chemistry.md",
+    "questions": "content/questions/science/chemistry/basic-organic-chemistry.yaml",
+    "exists": true,
+    "auditIds": [
+      "q-chemistry-basic-organic-chemistry-0012",
+      "q-chemistry-basic-organic-chemistry-0014"
+    ]
+  },
+  "lesson-chemistry-chemical-reactions": {
+    "lesson": "content/lessons/science/chemistry/chemical-reactions.md",
+    "questions": "content/questions/science/chemistry/chemical-reactions.yaml",
+    "exists": true,
+    "auditIds": [
+      "q-chemistry-chemical-reactions-0017",
+      "q-chemistry-chemical-reactions-0018"
+    ]
+  },
+  "lesson-chemistry-gas-laws": {
+    "lesson": "content/lessons/science/chemistry/gas-laws.md",
+    "questions": "content/questions/science/chemistry/gas-laws.yaml",
+    "exists": true,
+    "auditIds": []
+  },
+  "lesson-chemistry-history-of-the-atom": {
+    "lesson": "content/lessons/science/chemistry/history-of-the-atom.md",
+    "questions": "content/questions/science/chemistry/history-of-the-atom.yaml",
+    "exists": true,
+    "auditIds": []
+  },
+  "lesson-chemistry-matter": {
+    "lesson": "content/lessons/science/chemistry/matter.md",
+    "questions": "content/questions/science/chemistry/matter.yaml",
+    "exists": true,
+    "auditIds": [
+      "q-chemistry-matter-0018"
+    ]
+  },
+  "lesson-chemistry-mixtures-and-separation": {
+    "lesson": "content/lessons/science/chemistry/mixtures-and-separation.md",
+    "questions": "content/questions/science/chemistry/mixtures-and-separation.yaml",
+    "exists": true,
+    "auditIds": [
+      "q-chemistry-mixtures-and-separation-0013",
+      "q-chemistry-mixtures-and-separation-0014"
+    ]
+  },
+  "lesson-chemistry-mole-concept": {
+    "lesson": "content/lessons/science/chemistry/mole-concept.md",
+    "questions": "content/questions/science/chemistry/mole-concept.yaml",
+    "exists": true,
+    "auditIds": []
+  },
+  "lesson-chemistry-nuclear-chemistry": {
+    "lesson": "content/lessons/science/chemistry/nuclear-chemistry.md",
+    "questions": "content/questions/science/chemistry/nuclear-chemistry.yaml",
+    "exists": true,
+    "auditIds": [
+      "q-chemistry-nuclear-chemistry-0011",
+      "q-chemistry-nuclear-chemistry-0014"
+    ]
+  },
+  "lesson-chemistry-periodic-table": {
+    "lesson": "content/lessons/science/chemistry/periodic-table.md",
+    "questions": "content/questions/science/chemistry/periodic-table.yaml",
+    "exists": true,
+    "auditIds": [
+      "q-chemistry-periodic-table-0004",
+      "q-chemistry-periodic-table-0019"
+    ]
+  },
+  "lesson-chemistry-solutions": {
+    "lesson": "content/lessons/science/chemistry/solutions.md",
+    "questions": "content/questions/science/chemistry/solutions.yaml",
+    "exists": true,
+    "auditIds": [
+      "q-chemistry-solutions-0006",
+      "q-chemistry-solutions-0007",
+      "q-chemistry-solutions-0008",
+      "q-chemistry-solutions-0015"
+    ]
+  },
+  "lesson-chemistry-thermodynamics-and-kinetics": {
+    "lesson": "content/lessons/science/chemistry/thermodynamics-and-kinetics.md",
+    "questions": "content/questions/science/chemistry/thermodynamics-and-kinetics.yaml",
+    "exists": true,
+    "auditIds": [
+      "q-chemistry-thermodynamics-and-kinetics-0016"
+    ]
+  },
+  "lesson-earth-science-astronomy-earths-motions": {
+    "lesson": "content/lessons/science/earth-science-astronomy/earths-motions.md",
+    "questions": "content/questions/science/earth-science-astronomy/earths-motions.yaml",
+    "exists": true,
+    "auditIds": [
+      "q-earth-science-astronomy-earths-motions-0008"
+    ]
+  },
+  "lesson-earth-science-astronomy-earths-subsystems": {
+    "lesson": "content/lessons/science/earth-science-astronomy/earths-subsystems.md",
+    "questions": "content/questions/science/earth-science-astronomy/earths-subsystems.yaml",
+    "exists": true,
+    "auditIds": [
+      "q-earth-science-astronomy-earths-subsystems-0006",
+      "q-earth-science-astronomy-earths-subsystems-0007",
+      "q-earth-science-astronomy-earths-subsystems-0013",
+      "q-earth-science-astronomy-earths-subsystems-0015",
+      "q-earth-science-astronomy-earths-subsystems-0018",
+      "q-earth-science-astronomy-earths-subsystems-0020"
+    ]
+  },
+  "lesson-earth-science-astronomy-fossils-and-geologic-time": {
+    "lesson": "content/lessons/science/earth-science-astronomy/fossils-and-geologic-time.md",
+    "questions": "content/questions/science/earth-science-astronomy/fossils-and-geologic-time.yaml",
+    "exists": true,
+    "auditIds": [
+      "q-earth-science-astronomy-fossils-and-geologic-time-0002",
+      "q-earth-science-astronomy-fossils-and-geologic-time-0021"
+    ]
+  },
+  "lesson-earth-science-astronomy-heavenly-bodies": {
+    "lesson": "content/lessons/science/earth-science-astronomy/heavenly-bodies.md",
+    "questions": "content/questions/science/earth-science-astronomy/heavenly-bodies.yaml",
+    "exists": true,
+    "auditIds": [
+      "q-earth-science-astronomy-heavenly-bodies-0015",
+      "q-earth-science-astronomy-heavenly-bodies-0021",
+      "q-earth-science-astronomy-heavenly-bodies-0022",
+      "q-earth-science-astronomy-heavenly-bodies-0023",
+      "q-earth-science-astronomy-heavenly-bodies-0024"
+    ]
+  },
+  "lesson-earth-science-astronomy-stars-and-galaxies": {
+    "lesson": "content/lessons/science/earth-science-astronomy/stars-and-galaxies.md",
+    "questions": "content/questions/science/earth-science-astronomy/stars-and-galaxies.yaml",
+    "exists": true,
+    "auditIds": [
+      "q-earth-science-astronomy-heavenly-bodies-0020",
+      "q-earth-science-astronomy-stars-and-galaxies-0001",
+      "q-earth-science-astronomy-stars-and-galaxies-0002",
+      "q-earth-science-astronomy-stars-and-galaxies-0003",
+      "q-earth-science-astronomy-stars-and-galaxies-0004",
+      "q-earth-science-astronomy-stars-and-galaxies-0005",
+      "q-earth-science-astronomy-stars-and-galaxies-0006",
+      "q-earth-science-astronomy-stars-and-galaxies-0007",
+      "q-earth-science-astronomy-stars-and-galaxies-0008",
+      "q-earth-science-astronomy-stars-and-galaxies-0009",
+      "q-earth-science-astronomy-stars-and-galaxies-0010",
+      "q-earth-science-astronomy-stars-and-galaxies-0011",
+      "q-earth-science-astronomy-stars-and-galaxies-0012",
+      "q-earth-science-astronomy-stars-and-galaxies-0013",
+      "q-earth-science-astronomy-stars-and-galaxies-0014",
+      "q-earth-science-astronomy-stars-and-galaxies-0015",
+      "q-earth-science-astronomy-stars-and-galaxies-0016"
+    ]
+  },
+  "lesson-earth-science-astronomy-layers-of-the-earth": {
+    "lesson": "content/lessons/science/earth-science-astronomy/layers-of-the-earth.md",
+    "questions": "content/questions/science/earth-science-astronomy/layers-of-the-earth.yaml",
+    "exists": true,
+    "auditIds": []
+  },
+  "lesson-earth-science-astronomy-minerals-and-rocks": {
+    "lesson": "content/lessons/science/earth-science-astronomy/minerals-and-rocks.md",
+    "questions": "content/questions/science/earth-science-astronomy/minerals-and-rocks.yaml",
+    "exists": true,
+    "auditIds": [
+      "q-earth-science-astronomy-minerals-and-rocks-0006",
+      "q-earth-science-astronomy-minerals-and-rocks-0018"
+    ]
+  },
+  "lesson-earth-science-astronomy-origin-of-the-universe": {
+    "lesson": "content/lessons/science/earth-science-astronomy/origin-of-the-universe.md",
+    "questions": "content/questions/science/earth-science-astronomy/origin-of-the-universe.yaml",
+    "exists": true,
+    "auditIds": [
+      "q-earth-science-astronomy-origin-of-the-universe-0002",
+      "q-earth-science-astronomy-origin-of-the-universe-0007"
+    ]
+  },
+  "lesson-earth-science-astronomy-water-cycle-oceanography": {
+    "lesson": "content/lessons/science/earth-science-astronomy/water-cycle-oceanography.md",
+    "questions": "content/questions/science/earth-science-astronomy/water-cycle-oceanography.yaml",
+    "exists": true,
+    "auditIds": [
+      "q-earth-science-astronomy-water-cycle-oceanography-0003",
+      "q-earth-science-astronomy-water-cycle-oceanography-0016",
+      "q-earth-science-astronomy-water-cycle-oceanography-0019"
+    ]
+  },
+  "lesson-physics-dynamics": {
+    "lesson": "content/lessons/science/physics/dynamics.md",
+    "questions": "content/questions/science/physics/dynamics.yaml",
+    "exists": true,
+    "auditIds": [
+      "q-physics-dynamics-0013",
+      "q-physics-dynamics-0021",
+      "q-physics-dynamics-0022",
+      "q-physics-dynamics-0023",
+      "q-physics-dynamics-0024",
+      "q-physics-dynamics-0025",
+      "q-physics-dynamics-0026"
+    ]
+  },
+  "lesson-physics-friction-tension-and-inclines": {
+    "lesson": "content/lessons/science/physics/friction-tension-and-inclines.md",
+    "questions": "content/questions/science/physics/friction-tension-and-inclines.yaml",
+    "exists": true,
+    "auditIds": [
+      "q-physics-friction-tension-and-inclines-0001",
+      "q-physics-friction-tension-and-inclines-0002",
+      "q-physics-friction-tension-and-inclines-0003",
+      "q-physics-friction-tension-and-inclines-0004",
+      "q-physics-friction-tension-and-inclines-0005",
+      "q-physics-friction-tension-and-inclines-0006",
+      "q-physics-friction-tension-and-inclines-0007",
+      "q-physics-friction-tension-and-inclines-0008",
+      "q-physics-friction-tension-and-inclines-0009",
+      "q-physics-friction-tension-and-inclines-0010",
+      "q-physics-friction-tension-and-inclines-0011",
+      "q-physics-friction-tension-and-inclines-0012",
+      "q-physics-friction-tension-and-inclines-0013",
+      "q-physics-friction-tension-and-inclines-0014"
+    ]
+  },
+  "lesson-physics-fluid-mechanics": {
+    "lesson": "content/lessons/science/physics/fluid-mechanics.md",
+    "questions": "content/questions/science/physics/fluid-mechanics.yaml",
+    "exists": true,
+    "auditIds": [
+      "q-physics-fluid-mechanics-0009",
+      "q-physics-fluid-mechanics-0021",
+      "q-physics-fluid-mechanics-0022",
+      "q-physics-fluid-mechanics-0023",
+      "q-physics-fluid-mechanics-0024"
+    ]
+  },
+  "lesson-physics-fluid-flow-continuity-and-bernoulli": {
+    "lesson": "content/lessons/science/physics/fluid-flow-continuity-and-bernoulli.md",
+    "questions": "content/questions/science/physics/fluid-flow-continuity-and-bernoulli.yaml",
+    "exists": true,
+    "auditIds": [
+      "q-physics-fluid-flow-continuity-and-bernoulli-0001",
+      "q-physics-fluid-flow-continuity-and-bernoulli-0002",
+      "q-physics-fluid-flow-continuity-and-bernoulli-0003",
+      "q-physics-fluid-flow-continuity-and-bernoulli-0004",
+      "q-physics-fluid-flow-continuity-and-bernoulli-0005",
+      "q-physics-fluid-flow-continuity-and-bernoulli-0006",
+      "q-physics-fluid-flow-continuity-and-bernoulli-0007",
+      "q-physics-fluid-flow-continuity-and-bernoulli-0008",
+      "q-physics-fluid-flow-continuity-and-bernoulli-0009",
+      "q-physics-fluid-flow-continuity-and-bernoulli-0010",
+      "q-physics-fluid-flow-continuity-and-bernoulli-0011",
+      "q-physics-fluid-flow-continuity-and-bernoulli-0012",
+      "q-physics-fluid-flow-continuity-and-bernoulli-0013",
+      "q-physics-fluid-flow-continuity-and-bernoulli-0014",
+      "q-physics-fluid-flow-continuity-and-bernoulli-0015",
+      "q-physics-fluid-flow-continuity-and-bernoulli-0016"
+    ]
+  },
+  "lesson-physics-light-and-optics": {
+    "lesson": "content/lessons/science/physics/light-and-optics.md",
+    "questions": "content/questions/science/physics/light-and-optics.yaml",
+    "exists": true,
+    "auditIds": [
+      "q-physics-light-and-optics-0007",
+      "q-physics-light-and-optics-0011",
+      "q-physics-light-and-optics-0020",
+      "q-physics-light-and-optics-0041",
+      "q-physics-light-and-optics-0042",
+      "q-physics-light-and-optics-0043",
+      "q-physics-light-and-optics-0044",
+      "q-physics-light-and-optics-0045"
+    ]
+  },
+  "lesson-physics-mirrors-and-lenses": {
+    "lesson": "content/lessons/science/physics/mirrors-and-lenses.md",
+    "questions": "content/questions/science/physics/mirrors-and-lenses.yaml",
+    "exists": true,
+    "auditIds": [
+      "q-physics-light-and-optics-0021",
+      "q-physics-light-and-optics-0022",
+      "q-physics-light-and-optics-0023",
+      "q-physics-light-and-optics-0024",
+      "q-physics-light-and-optics-0025",
+      "q-physics-light-and-optics-0026",
+      "q-physics-light-and-optics-0027",
+      "q-physics-light-and-optics-0028",
+      "q-physics-light-and-optics-0029",
+      "q-physics-light-and-optics-0030",
+      "q-physics-light-and-optics-0031",
+      "q-physics-light-and-optics-0032",
+      "q-physics-light-and-optics-0033",
+      "q-physics-light-and-optics-0034",
+      "q-physics-light-and-optics-0035"
+    ]
+  },
+  "lesson-physics-momentum-and-impulse": {
+    "lesson": "content/lessons/science/physics/momentum-and-impulse.md",
+    "questions": "content/questions/science/physics/momentum-and-impulse.yaml",
+    "exists": true,
+    "auditIds": []
+  },
+  "lesson-physics-scalars-and-vectors": {
+    "lesson": "content/lessons/science/physics/scalars-and-vectors.md",
+    "questions": "content/questions/science/physics/scalars-and-vectors.yaml",
+    "exists": true,
+    "auditIds": []
+  },
+  "lesson-physics-thermodynamics": {
+    "lesson": "content/lessons/science/physics/thermodynamics.md",
+    "questions": "content/questions/science/physics/thermodynamics.yaml",
+    "exists": true,
+    "auditIds": [
+      "q-physics-thermodynamics-0010"
+    ]
+  },
+  "lesson-physics-two-dimensional-motion": {
+    "lesson": "content/lessons/science/physics/two-dimensional-motion.md",
+    "questions": "content/questions/science/physics/two-dimensional-motion.yaml",
+    "exists": true,
+    "auditIds": [
+      "q-physics-two-dimensional-motion-0010",
+      "q-physics-two-dimensional-motion-0012"
+    ]
+  },
+  "lesson-physics-units-and-measurements": {
+    "lesson": "content/lessons/science/physics/units-and-measurements.md",
+    "questions": "content/questions/science/physics/units-and-measurements.yaml",
+    "exists": true,
+    "auditIds": []
+  },
+  "lesson-physics-waves-and-sound": {
+    "lesson": "content/lessons/science/physics/waves-and-sound.md",
+    "questions": "content/questions/science/physics/waves-and-sound.yaml",
+    "exists": true,
+    "auditIds": [
+      "q-physics-waves-and-sound-0004",
+      "q-physics-waves-and-sound-0005",
+      "q-physics-waves-and-sound-0007",
+      "q-physics-waves-and-sound-0008",
+      "q-physics-waves-and-sound-0041",
+      "q-physics-waves-and-sound-0042",
+      "q-physics-waves-and-sound-0043",
+      "q-physics-waves-and-sound-0044",
+      "q-physics-waves-and-sound-0045"
+    ]
+  },
+  "lesson-physics-interference-diffraction-and-doppler": {
+    "lesson": "content/lessons/science/physics/interference-diffraction-and-doppler.md",
+    "questions": "content/questions/science/physics/interference-diffraction-and-doppler.yaml",
+    "exists": true,
+    "auditIds": [
+      "q-physics-waves-and-sound-0009",
+      "q-physics-waves-and-sound-0010",
+      "q-physics-waves-and-sound-0021",
+      "q-physics-waves-and-sound-0022",
+      "q-physics-waves-and-sound-0023",
+      "q-physics-waves-and-sound-0024",
+      "q-physics-waves-and-sound-0025",
+      "q-physics-waves-and-sound-0026",
+      "q-physics-waves-and-sound-0027",
+      "q-physics-waves-and-sound-0028",
+      "q-physics-waves-and-sound-0029",
+      "q-physics-waves-and-sound-0030",
+      "q-physics-waves-and-sound-0031",
+      "q-physics-waves-and-sound-0032",
+      "q-physics-waves-and-sound-0033",
+      "q-physics-waves-and-sound-0034",
+      "q-physics-waves-and-sound-0035"
+    ]
+  },
+  "lesson-algebra-functions-and-relations": {
+    "lesson": "content/lessons/mathematics/algebra/functions-and-relations.md",
+    "questions": "content/questions/mathematics/algebra/functions-and-relations.yaml",
+    "exists": true,
+    "auditIds": []
+  },
+  "lesson-algebra-radicals-and-rationalization": {
+    "lesson": "content/lessons/mathematics/algebra/radicals-and-rationalization.md",
+    "questions": "content/questions/mathematics/algebra/radicals-and-rationalization.yaml",
+    "exists": true,
+    "auditIds": []
+  },
+  "lesson-algebra-sets-and-set-notation": {
+    "lesson": "content/lessons/mathematics/algebra/sets-and-set-notation.md",
+    "questions": "content/questions/mathematics/algebra/sets-and-set-notation.yaml",
+    "exists": true,
+    "auditIds": []
+  },
+  "lesson-algebra-systems-of-equations": {
+    "lesson": "content/lessons/mathematics/algebra/systems-of-equations.md",
+    "questions": "content/questions/mathematics/algebra/systems-of-equations.yaml",
+    "exists": true,
+    "auditIds": []
+  },
+  "lesson-geometry-basic-geometric-concepts": {
+    "lesson": "content/lessons/mathematics/geometry/basic-geometric-concepts.md",
+    "questions": "content/questions/mathematics/geometry/basic-geometric-concepts.yaml",
+    "exists": true,
+    "auditIds": [
+      "q-geometry-basic-geometric-concepts-0014"
+    ]
+  },
+  "lesson-geometry-coordinate-geometry": {
+    "lesson": "content/lessons/mathematics/geometry/coordinate-geometry.md",
+    "questions": "content/questions/mathematics/geometry/coordinate-geometry.yaml",
+    "exists": true,
+    "auditIds": []
+  },
+  "lesson-geometry-parallel-perpendicular-lines": {
+    "lesson": "content/lessons/mathematics/geometry/parallel-perpendicular-lines.md",
+    "questions": "content/questions/mathematics/geometry/parallel-perpendicular-lines.yaml",
+    "exists": true,
+    "auditIds": []
+  },
+  "lesson-geometry-quadrilaterals-and-polygons": {
+    "lesson": "content/lessons/mathematics/geometry/quadrilaterals-and-polygons.md",
+    "questions": "content/questions/mathematics/geometry/quadrilaterals-and-polygons.yaml",
+    "exists": true,
+    "auditIds": []
+  },
+  "lesson-statistics-and-probability-combinatorics": {
+    "lesson": "content/lessons/mathematics/statistics-and-probability/combinatorics.md",
+    "questions": "content/questions/mathematics/statistics-and-probability/combinatorics.yaml",
+    "exists": true,
+    "auditIds": []
+  },
+  "lesson-statistics-and-probability-measures-of-variability": {
+    "lesson": "content/lessons/mathematics/statistics-and-probability/measures-of-variability.md",
+    "questions": "content/questions/mathematics/statistics-and-probability/measures-of-variability.yaml",
+    "exists": true,
+    "auditIds": [
+      "q-statistics-and-probability-measures-of-variability-0004",
+      "q-statistics-and-probability-measures-of-variability-0005",
+      "q-statistics-and-probability-measures-of-variability-0012"
+    ]
+  },
+  "lesson-trigonometry-basic-trigonometric-ratios": {
+    "lesson": "content/lessons/mathematics/trigonometry/basic-trigonometric-ratios.md",
+    "questions": "content/questions/mathematics/trigonometry/basic-trigonometric-ratios.yaml",
+    "exists": true,
+    "auditIds": []
+  },
+  "lesson-trigonometry-laws-of-sines-and-cosines": {
+    "lesson": "content/lessons/mathematics/trigonometry/laws-of-sines-and-cosines.md",
+    "questions": "content/questions/mathematics/trigonometry/laws-of-sines-and-cosines.yaml",
+    "exists": true,
+    "auditIds": [
+      "q-trigonometry-laws-of-sines-and-cosines-0019"
+    ]
+  },
+  "lesson-trigonometry-solving-right-triangles": {
+    "lesson": "content/lessons/mathematics/trigonometry/solving-right-triangles.md",
+    "questions": "content/questions/mathematics/trigonometry/solving-right-triangles.yaml",
+    "exists": true,
+    "auditIds": [
+      "q-trigonometry-solving-right-triangles-0011",
+      "q-trigonometry-solving-right-triangles-0013",
+      "q-trigonometry-solving-right-triangles-0016"
+    ]
+  },
+  "lesson-trigonometry-trigonometric-identities": {
+    "lesson": "content/lessons/mathematics/trigonometry/trigonometric-identities.md",
+    "questions": "content/questions/mathematics/trigonometry/trigonometric-identities.yaml",
+    "exists": true,
+    "auditIds": []
+  },
+  "lesson-trigonometry-unit-circle": {
+    "lesson": "content/lessons/mathematics/trigonometry/unit-circle.md",
+    "questions": "content/questions/mathematics/trigonometry/unit-circle.yaml",
+    "exists": true,
+    "auditIds": [
+      "q-trigonometry-unit-circle-0011"
+    ]
+  },
+  "lesson-mechanical-technical-reasoning-fluid-pressure": {
+    "lesson": "content/lessons/reasoning/mechanical-technical-reasoning/fluid-pressure.md",
+    "questions": "content/questions/reasoning/mechanical-technical-reasoning/fluid-pressure.yaml",
+    "exists": true,
+    "auditIds": [
+      "q-mechanical-technical-reasoning-fluid-pressure-0001",
+      "q-mechanical-technical-reasoning-fluid-pressure-0006",
+      "q-mechanical-technical-reasoning-fluid-pressure-0018",
+      "q-mechanical-technical-reasoning-fluid-pressure-0019"
+    ]
+  },
+  "lesson-mechanical-technical-reasoning-structural-stability": {
+    "lesson": "content/lessons/reasoning/mechanical-technical-reasoning/structural-stability.md",
+    "questions": "content/questions/reasoning/mechanical-technical-reasoning/structural-stability.yaml",
+    "exists": true,
+    "auditIds": [
+      "q-mechanical-technical-reasoning-structural-stability-0011",
+      "q-mechanical-technical-reasoning-structural-stability-0017"
+    ]
+  },
+  "lesson-text-types-speeches": {
+    "lesson": "content/lessons/reading-comprehension/text-types/speeches.md",
+    "questions": "content/questions/reading-comprehension/text-types/speeches.yaml",
+    "exists": true,
+    "auditIds": [
+      "q-text-types-speeches-0015"
+    ]
+  }
+}

@@ -293,3 +293,14 @@ No more read rounds are planned. The 12 open lessons go to the Astra audit and A
 ## Update, November 5: exam tags (P4)
 
 Applied the audit's Level 1 CET tags to 86 question files (`tags-pass.md`, `tag-changes.json`). Lessons per exam: UPCAT 136 to 131, ACET 86 to 80, DCAT 136 to 90, USTET 145 to 110. Three files the audit did not tag were resolved from the exam maps, and split lessons took their parent's tags. The UPCAT mock lost its precalculus topic, since no UPCAT lesson remains there; Mathematics is now split evenly over five topics. For the final list: the ACET blueprint (on staging only) has 20 verbal logic questions for 45 slots after this change (0 before), and helpful roadmap links now point outside ACET (4), DCAT (6) and USTET (6).
+
+## Update, November 9: round 6 closes the open lessons
+
+Branch `content/cet-finish-r1` from `content/cet-rewrite-r1` at 29fae75fd. Aedwon, through the manager thread: "for the rest of items, please finish them". Plan and per-lesson results: `round-6.md`.
+
+- Round 6 changed only the sentences each round-5 finding named, with stated conditions instead of new absolutes, then one fresh Opus read per lesson, one at a time.
+- All 12 open lessons closed: 6 clean, 6 minor. No round-6 read found a Blocker or Major.
+- Counts: 77 lessons, 17 clean, 60 minor, 0 open.
+- Split candidates by length: chemical-reactions (3,308), structural-stability (3,206), earths-motions (3,014).
+- The earths-motions sidereal-day FIGURE was removed because its renderer prints "a few extra degrees" (true value about 1 degree). The drawing, approved on August 25, is gone until the figure phase redraws it.
+- Exam tags (P4): re-checked on November 9; all 86 files still match `tag-changes.json`.
