@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
@@ -13,6 +14,79 @@ import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
+
+/// A track wider than its row scrolls sideways (SegmentedControl README) and
+/// keeps the selected segment in view, so the chosen view is never the one
+/// scrolled off.
+class _SelectedInView extends StatefulWidget {
+  const _SelectedInView({
+    required this.selected,
+    required this.count,
+    required this.width,
+    required this.child,
+  });
+
+  final int selected;
+  final int count;
+  final double width;
+  final Widget child;
+
+  @override
+  State<_SelectedInView> createState() => _SelectedInViewState();
+}
+
+class _SelectedInViewState extends State<_SelectedInView> {
+  final _controller = ScrollController();
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance
+        .addPostFrameCallback((_) => _reveal(animate: false));
+  }
+
+  @override
+  void didUpdateWidget(_SelectedInView oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.selected != widget.selected) {
+      WidgetsBinding.instance.addPostFrameCallback((_) => _reveal());
+    }
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  /// Centers the selected segment in the row, as far as the track allows.
+  void _reveal({bool animate = true}) {
+    if (!mounted || !_controller.hasClients) return;
+    final position = _controller.position;
+    final cell = (widget.width - PantasSpace.s4) / widget.count;
+    final center = PantasSpace.s2 + cell * (widget.selected + .5);
+    final target = (center - position.viewportDimension / 2)
+        .clamp(0.0, position.maxScrollExtent);
+    if (!animate || MediaQuery.disableAnimationsOf(context)) {
+      _controller.jumpTo(target);
+    } else {
+      unawaited(
+        _controller.animateTo(
+          target,
+          duration: PantasDurations.flip,
+          curve: PantasCurves.house,
+        ),
+      );
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) => SingleChildScrollView(
+        controller: _controller,
+        scrollDirection: Axis.horizontal,
+        child: SizedBox(width: widget.width, child: widget.child),
+      );
+}
 
 class SegmentedSwitch extends StatelessWidget {
   const SegmentedSwitch({
@@ -166,9 +240,11 @@ class SegmentedSwitch extends StatelessWidget {
           ],
         );
         if (!scrolls) return track;
-        return SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: SizedBox(width: need, child: track),
+        return _SelectedInView(
+          selected: selected,
+          count: labels.length,
+          width: need,
+          child: track,
         );
       },
     );
