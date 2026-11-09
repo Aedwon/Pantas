@@ -87,15 +87,24 @@ class SessionBuildingPage extends ConsumerWidget {
                 mutuallyExclusive: true,
                 title: _orderingTitle(ordering),
                 subtitle: _orderingSubtitle(ordering),
-                footer: ordering.isRecommended
-                    // A system Tag under the row title, one row at every
-                    // width (lead ruling, Nov 9).
-                    ? const Padding(
-                        padding: EdgeInsets.only(top: PantasSpace.s6),
-                        child: Align(
-                          alignment: Alignment.centerLeft,
-                          child: PantasTag('Recommended'),
-                        ),
+                // Tag README: right after the row title, 6 px gap and a 2 px
+                // baseline lift, wrapping with the title at large text.
+                richTitle: ordering.isRecommended
+                    ? TextSpan(
+                        children: [
+                          TextSpan(text: _orderingTitle(ordering)),
+                          const WidgetSpan(
+                            alignment: PlaceholderAlignment.baseline,
+                            baseline: TextBaseline.alphabetic,
+                            child: Padding(
+                              padding: EdgeInsets.only(
+                                left: PantasSpace.s6,
+                                bottom: PantasSpace.s2,
+                              ),
+                              child: PantasTag('Recommended'),
+                            ),
+                          ),
+                        ],
                       )
                     : null,
                 variant: ListRowVariant.check,

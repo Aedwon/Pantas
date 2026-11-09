@@ -38,10 +38,14 @@ class SettingsRow extends StatelessWidget {
     this.subtitleStyle,
     this.valueWidget,
     this.dividerInset = 0,
+    this.richTitle,
     super.key,
   });
 
   final String title;
+
+  /// A title with a mark after it (check and radio rows).
+  final InlineSpan? richTitle;
   final ListRowVariant variant;
   final String? value;
   final String? subtitle;
@@ -78,6 +82,7 @@ class SettingsRow extends StatelessWidget {
     if (variant == ListRowVariant.check || variant == ListRowVariant.radio) {
       return ListRow(
         title: title,
+        richTitle: richTitle,
         variant: variant,
         selected: selected,
         onTap: onTap,
