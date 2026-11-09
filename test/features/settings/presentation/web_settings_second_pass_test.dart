@@ -342,8 +342,10 @@ void main() {
         findsOneWidget,
       );
       expect(find.text('One topic only'), findsOneWidget);
-      expect(find.textContaining('Interleaved tail', findRichText: true),
-          findsOneWidget);
+      expect(
+        find.textContaining('Interleaved tail', findRichText: true),
+        findsOneWidget,
+      );
       expect(find.text('Fully mixed'), findsOneWidget);
       expect(tester.takeException(), isNull);
     });
