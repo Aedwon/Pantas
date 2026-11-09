@@ -91,7 +91,12 @@ class _ValueWheelState extends State<ValueWheel> {
   @override
   void didUpdateWidget(ValueWheel oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (oldWidget.selectedIndex != widget.selectedIndex && _scroll.hasClients) {
+    // Only a change from outside (keys, a typed value) moves the wheel. While
+    // the learner flings, each passed row is reported as the selection and
+    // comes back here; jumping to it then would end the fling after one row.
+    if (oldWidget.selectedIndex != widget.selectedIndex &&
+        _scroll.hasClients &&
+        _scroll.selectedItem != widget.selectedIndex) {
       _jumpVertical(widget.selectedIndex);
     }
     if (oldWidget.selectedIndex != widget.selectedIndex &&
