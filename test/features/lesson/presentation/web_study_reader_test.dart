@@ -800,7 +800,7 @@ void main() {
         ],
       );
       await tester.pumpAndSettle();
-      expect(find.text('RECENTLY OPENED'), findsNothing);
+      expect(find.text('Recently Opened'), findsNothing);
       expect(find.byType(TextField), findsOneWidget);
       expect(tester.takeException(), isNull);
     });
@@ -834,7 +834,7 @@ void main() {
         ],
       );
       await tester.pumpAndSettle();
-      expect(find.text('RECENTLY OPENED'), findsOneWidget);
+      expect(find.text('Recently Opened'), findsOneWidget);
       final surface = tester.widget<Material>(
         find
             .ancestor(
@@ -847,7 +847,7 @@ void main() {
       expect((surface.shape! as RoundedRectangleBorder).side, BorderSide.none);
       await tester.enterText(find.byType(TextField), 'plate');
       await tester.pumpAndSettle();
-      expect(find.text('2 LESSONS'), findsOneWidget);
+      expect(find.text('2 Lessons'), findsOneWidget);
       await tester.sendKeyEvent(LogicalKeyboardKey.arrowDown);
       await tester.pump();
       expect(

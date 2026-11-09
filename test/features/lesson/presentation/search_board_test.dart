@@ -60,7 +60,7 @@ void main() {
           ),
         );
         await tester.pumpAndSettle();
-        final label = tester.widget<Text>(find.text('1 LESSON'));
+        final label = tester.widget<Text>(find.text('1 Lesson'));
         expect(label.style!.fontSize, 13);
         expect(label.style!.fontWeight, FontWeight.w600);
         expect(label.style!.height, 1.35);

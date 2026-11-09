@@ -64,6 +64,11 @@ void main() {
     'about': PantasIcons.about,
     'proSettings': PantasIcons.proSettings,
     'profile': PantasIcons.profile,
+    'info': PantasIcons.info,
+    'warning': PantasIcons.warning,
+    'bookOpen': PantasIcons.bookOpen,
+    'magnifyingGlassPlus': PantasIcons.magnifyingGlassPlus,
+    'brain': PantasIcons.brain,
   };
   testWidgets('custom icons use the charcoal dark foreground', (tester) async {
     for (final icon in icons.values.whereType<Widget>()) {
@@ -86,10 +91,25 @@ void main() {
     final names = RegExp(r'static (?:Widget|IconData) get (\w+)')
         .allMatches(source)
         .map((match) => match.group(1));
-    expect(icons, hasLength(55));
+    expect(icons, hasLength(60));
     expect(names, unorderedEquals(icons.keys));
     expect(names, isNot(contains('locked')));
     expect(names, isNot(contains('lock')));
+  });
+  test('the reader glyphs are the Phosphor Regular codepoints', () {
+    // Read from the bundled Phosphor.ttf (byte for byte the font that ships
+    // in phosphor_flutter 2.1.0, which names each codepoint).
+    final glyphs = {
+      PantasIcons.info: 0xe2ce,
+      PantasIcons.warning: 0xe4e0,
+      PantasIcons.bookOpen: 0xe0e6,
+      PantasIcons.magnifyingGlassPlus: 0xe310,
+      PantasIcons.brain: 0xe74e,
+    };
+    for (final entry in glyphs.entries) {
+      expect(entry.key.codePoint, entry.value);
+      expect(entry.key.fontFamily, 'Phosphor');
+    }
   });
   testWidgets('questionsSheet light preserves the approved 24-point shape',
       (tester) async {

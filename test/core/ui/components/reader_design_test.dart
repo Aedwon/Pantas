@@ -344,8 +344,9 @@ void main() {
         final inset = config.wide ? 24.0 : 16.0;
         final cardLeft = tester.getTopLeft(cards.first).dx;
         expect(
+          // The 18 px book icon and its gap of 8 come first.
           tester.getTopLeft(find.text('Example 1')).dx - cardLeft,
-          inset + 1,
+          inset + 1 + 18 + 8,
         );
         expect(
           tester.getTopLeft(find.text('Example 1')).dy -
@@ -430,18 +431,25 @@ void main() {
         expect(find.text('SOLUTION'), findsOneWidget);
         expect(find.text('Natural numbers begin at 1.'), findsOneWidget);
 
-        // The panel is flush with the card's edges and deeper than the card.
+        // The panel is inset from the card's edges (ReaderBlock README):
+        // reader-deep, radius md, 14 by 16, 4 above.
         final panel = find.byKey(const ValueKey('reader-solution-panel'));
         final panelRect = tester.getRect(panel);
         final card = tester.getRect(
           find.byKey(const ValueKey('reader-example-card')).first,
         );
-        expect(panelRect.left, card.left + 1);
-        expect(panelRect.right, card.right - 1);
-        final decoration =
-            tester.widget<Container>(panel).decoration! as BoxDecoration;
+        expect(panelRect.left, card.left + 1 + inset);
+        expect(panelRect.right, card.right - 1 - inset);
+        final box2 = tester.widget<Container>(panel);
+        final decoration = box2.decoration! as BoxDecoration;
         expect(decoration.color, c.readerDeep);
-        expect((decoration.border! as Border).top.color, c.separator);
+        expect(decoration.borderRadius, BorderRadius.circular(12));
+        expect(decoration.border, isNull);
+        expect(
+          box2.padding,
+          const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+        );
+        expect(box2.margin, const EdgeInsets.only(top: 4));
 
         // Step numbers share a 22 px column and align.
         final one = tester.getTopLeft(find.text('1.')).dx;

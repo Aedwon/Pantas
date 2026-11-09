@@ -33,6 +33,16 @@ abstract final class PantasIcons {
         _ => regular,
       };
 
+  // Reader and search glyphs (R22). Codepoints read from the bundled
+  // Phosphor.ttf (Regular), never guessed.
+  static IconData get info => const IconData(0xe2ce, fontFamily: 'Phosphor');
+  static IconData get warning => const IconData(0xe4e0, fontFamily: 'Phosphor');
+  static IconData get bookOpen =>
+      const IconData(0xe0e6, fontFamily: 'Phosphor');
+  static IconData get magnifyingGlassPlus =>
+      const IconData(0xe310, fontFamily: 'Phosphor');
+  static IconData get brain => const IconData(0xe74e, fontFamily: 'Phosphor');
+
   static IconData get unlimitedMocks =>
       const IconData(0xe634, fontFamily: 'Phosphor');
   static IconData get answerNotes =>

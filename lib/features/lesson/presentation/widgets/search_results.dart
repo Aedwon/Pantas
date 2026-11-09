@@ -45,7 +45,7 @@ class SearchResults extends ConsumerWidget {
                   for (final lesson in topic.lessons) lesson.id: topic.name,
           };
           return _ResultGroup(
-            label: 'RECENTLY OPENED',
+            label: 'Recently Opened',
             delay: const Duration(milliseconds: 100),
             children: [
               for (final lesson in lessons.take(3))
@@ -133,7 +133,7 @@ class SearchResults extends ConsumerWidget {
         }
         return _ResultGroup(
           label:
-              '${results.length} ${results.length == 1 ? 'LESSON' : 'LESSONS'}',
+              '${results.length} ${results.length == 1 ? 'Lesson' : 'Lessons'}',
           children: [
             for (final hit in results) _HitRow(hit: hit, query: query),
           ],

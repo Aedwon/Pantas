@@ -348,13 +348,13 @@ void main() {
         (tester) async {
       await openSearch(tester);
       await tester.pumpAndSettle();
-      expect(find.text('RECENTLY OPENED'), findsOneWidget);
-      expect(fade(tester, find.text('RECENTLY OPENED')), 1);
+      expect(find.text('Recently Opened'), findsOneWidget);
+      expect(fade(tester, find.text('Recently Opened')), 1);
       await tester.enterText(find.byType(TextField), 'plate');
-      for (var i = 0; i < 5 && find.text('2 LESSONS').evaluate().isEmpty; i++) {
+      for (var i = 0; i < 5 && find.text('2 Lessons').evaluate().isEmpty; i++) {
         await tester.pump();
       }
-      final results = find.text('2 LESSONS');
+      final results = find.text('2 Lessons');
       expect(fade(tester, results), 0);
       await after(tester, 100);
       expect(between(fade(tester, results)), isTrue);
@@ -367,7 +367,7 @@ void main() {
       await tester.pump();
       await tester.pump();
       await tester.pump();
-      final recent = find.text('RECENTLY OPENED');
+      final recent = find.text('Recently Opened');
       expect(recent, findsOneWidget);
       await after(tester, 60);
       expect(fade(tester, recent), 0);
@@ -383,14 +383,14 @@ void main() {
       await openSearch(tester, reduced: true);
       await tester.pump();
       await tester.pump();
-      expect(find.text('RECENTLY OPENED'), findsOneWidget);
+      expect(find.text('Recently Opened'), findsOneWidget);
       await after(tester, 75);
       expect(between(fade(tester, find.byType(TextField))), isTrue);
       final resting = tester.getTopLeft(find.byType(TextField)).dy;
       await after(tester, 75);
       await tester.pump();
       expect(fade(tester, find.byType(TextField)), 1);
-      expect(fade(tester, find.text('RECENTLY OPENED')), 1);
+      expect(fade(tester, find.text('Recently Opened')), 1);
       expect(tester.getTopLeft(find.byType(TextField)).dy, resting);
       await tester.sendKeyEvent(LogicalKeyboardKey.escape);
       await tester.pump();

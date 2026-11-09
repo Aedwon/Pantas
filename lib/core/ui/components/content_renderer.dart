@@ -12,6 +12,7 @@ import 'package:pantas/core/platform/route_leave_guard.dart';
 import 'package:pantas/core/ui/components/lesson_svg.dart';
 import 'package:pantas/core/ui/components/math_support.dart';
 import 'package:pantas/core/ui/components/math_text.dart';
+import 'package:pantas/core/ui/components/pantas_shadows.dart';
 import 'package:pantas/core/ui/components/reader_blocks.dart';
 import 'package:pantas/core/ui/figures/figure_registry.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
@@ -520,19 +521,39 @@ class ContentRenderer extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           if (label != null) ...[
-            Text(
-              label,
-              style: PantasType.webLink.copyWith(
-                color: warn ? c.readerMistakeText : c.readerNoteText,
+            _blockHead(
+              icon: warn ? PantasIcons.warning : PantasIcons.info,
+              iconColor: warn ? c.readerMistake : c.accentTintText,
+              label: Text(
+                label,
+                style: PantasType.webLink.copyWith(
+                  color: warn ? c.readerMistakeText : c.readerNoteText,
+                ),
               ),
             ),
-            const SizedBox(height: PantasSpace.s6),
+            const SizedBox(height: PantasSpace.s8),
           ],
           body,
         ],
       ),
     );
   }
+
+  /// The head of a reader block: an 18 px icon, bare, gap 8, then the title.
+  static Widget _blockHead({
+    required IconData icon,
+    required Color iconColor,
+    required Widget label,
+  }) =>
+      Row(
+        children: [
+          ExcludeSemantics(
+            child: Icon(icon, size: PantasSpace.s18, color: iconColor),
+          ),
+          const SizedBox(width: PantasSpace.s8),
+          Expanded(child: label),
+        ],
+      );
 
   Widget table(BuildContext context, Map<String, Object?> block) {
     final raw = block['rows'];
@@ -1233,21 +1254,26 @@ class _ExampleCardState extends State<_ExampleCard> {
     Widget? region;
     if (solution != null) {
       if (_open) {
-        final panel = Focus(
-          focusNode: _panel,
-          child: Container(
-            key: const ValueKey('reader-solution-panel'),
-            padding: EdgeInsets.fromLTRB(
-              side,
-              wide ? PantasSpace.s18 : PantasSpace.s16,
-              side,
-              wide ? PantasSpace.s14 : PantasSpace.s10,
+        // The inset panel of the ReaderBlock README: reader-deep, radius md,
+        // 14 by 16, 4 above, set in from the card edges.
+        final panel = Padding(
+          padding:
+              EdgeInsets.fromLTRB(side, PantasSpace.s0, side, PantasSpace.s18),
+          child: Focus(
+            focusNode: _panel,
+            child: Container(
+              key: const ValueKey('reader-solution-panel'),
+              margin: const EdgeInsets.only(top: PantasSpace.s4),
+              padding: const EdgeInsets.symmetric(
+                horizontal: PantasSpace.s16,
+                vertical: PantasSpace.s14,
+              ),
+              decoration: BoxDecoration(
+                color: c.readerDeep,
+                borderRadius: BorderRadius.circular(PantasRadius.md),
+              ),
+              child: solution,
             ),
-            decoration: BoxDecoration(
-              color: c.readerDeep,
-              border: Border(top: BorderSide(color: c.separator)),
-            ),
-            child: solution,
           ),
         );
         region = still
@@ -1316,9 +1342,13 @@ class _ExampleCardState extends State<_ExampleCard> {
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Text(
-                  widget.label,
-                  style: PantasType.webEyebrow.copyWith(color: c.accent),
+                ContentRenderer._blockHead(
+                  icon: PantasIcons.bookOpen,
+                  iconColor: c.readerStrong,
+                  label: Text(
+                    widget.label,
+                    style: PantasType.webEyebrow.copyWith(color: c.accent),
+                  ),
                 ),
                 const SizedBox(height: PantasSpace.s4),
                 widget.title,
@@ -1405,7 +1435,7 @@ class _FigureFrame extends StatelessWidget {
     this.labelViewer = false,
   });
 
-  /// Height of the strip above a phone figure that holds the expand button.
+  /// Height of the strip below a phone figure that holds the zoom badge.
   static const _expandStrip = PantasSpace.s40;
 
   final bool reader;
@@ -1503,14 +1533,14 @@ class _FigureFrame extends StatelessWidget {
                 children: [
                   Container(
                     width: reader && context.wideWeb ? double.infinity : null,
-                    // The expand button sits in the frame's top-right corner.
+                    // The zoom badge sits in the frame's bottom-right corner.
                     // Wide web keeps it in the 22 px padding; on a phone the
                     // frame has none, so the button gets a strip of its own
                     // and never lands on a label of the figure.
                     padding: reader && context.wideWeb
                         ? const EdgeInsets.all(PantasSpace.s20)
                         : expandable
-                            ? const EdgeInsets.only(top: _expandStrip)
+                            ? const EdgeInsets.only(bottom: _expandStrip)
                             : null,
                     alignment:
                         reader && context.wideWeb ? Alignment.center : null,
@@ -1538,9 +1568,9 @@ class _FigureFrame extends StatelessWidget {
                   if (expandable)
                     Positioned(
                       right: 1,
-                      top: 1,
+                      bottom: 1,
                       child: SizedBox.square(
-                        dimension: 44,
+                        dimension: PantasSize.iconBtn,
                         child: IconButton(
                           tooltip: 'Expand figure',
                           onPressed: () => expand(context),
@@ -1549,23 +1579,16 @@ class _FigureFrame extends StatelessWidget {
                             width: PantasSize.iconBtnSm,
                             height: PantasSize.iconBtnSm,
                             decoration: BoxDecoration(
-                              shape: context.wideWeb
-                                  ? BoxShape.rectangle
-                                  : BoxShape.circle,
-                              borderRadius: context.wideWeb
-                                  ? BorderRadius.circular(PantasRadius.sm)
-                                  : null,
-                              color: context.wideWeb
-                                  ? context.colors.background
-                                  : context.colors.shadow.withValues(alpha: .5),
+                              color: context.colors.surface,
+                              borderRadius:
+                                  BorderRadius.circular(PantasRadius.sm),
+                              boxShadow: context.shadows.popover,
                             ),
                             alignment: Alignment.center,
                             child: Icon(
-                              PantasIcons.expandFigure,
-                              size: 16,
-                              color: context.wideWeb
-                                  ? context.colors.secondaryLabel
-                                  : context.colors.onFigureViewer,
+                              PantasIcons.magnifyingGlassPlus,
+                              size: PantasSpace.s16,
+                              color: context.colors.secondaryLabel,
                             ),
                           ),
                         ),

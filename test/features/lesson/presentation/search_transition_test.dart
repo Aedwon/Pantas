@@ -80,7 +80,7 @@ void main() {
       expect(tester.widget<Opacity>(incoming).opacity, 0);
       await tester.pump(const Duration(milliseconds: 150));
       expect(tester.widget<Opacity>(incoming).opacity, closeTo(.942275, .001));
-      final header = find.text('RECENTLY OPENED');
+      final header = find.text('Recently Opened');
       expect(find.ancestor(of: header, matching: incoming), findsOneWidget);
       await tester.pumpAndSettle();
       await tester.tap(find.text('Cancel'));
@@ -91,7 +91,7 @@ void main() {
             .opacity,
         1,
       );
-      expect(find.text('RECENTLY OPENED'), findsNothing);
+      expect(find.text('Recently Opened'), findsNothing);
     } finally {
       semantics.dispose();
     }

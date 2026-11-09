@@ -321,8 +321,11 @@ void main() {
         ],
       );
       await tester.pumpAndSettle();
-      expect(find.text('RECENTLY OPENED'), findsNothing);
-      expect(find.text('↑ ↓ to move · Enter to open'), findsNothing);
+      expect(find.text('Recently Opened'), findsNothing);
+      expect(
+        find.text('Up and Down to move, Enter to open, Esc to close'),
+        findsNothing,
+      );
       expect(find.byType(TextField), findsOneWidget);
     });
 
