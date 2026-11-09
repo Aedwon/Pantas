@@ -6,7 +6,6 @@ import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
-import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/guardian/application/guardian_providers.dart';
 import 'package:pantas/features/guardian/data/guardian_gateway.dart';
 import 'package:pantas/features/guardian/domain/guardian_consent.dart';
@@ -128,9 +127,9 @@ class _OnboardingGuardianStepState
             controller: _name,
             focusNode: _nameFocus,
             label: "Parent or guardian's name",
-            // Wide web draws the label above the field, so the placeholder
-            // gives an example instead of repeating it.
-            hint: context.wideWeb ? 'Full name' : null,
+            // The label is drawn above the field at every width, so the
+            // placeholder gives an example instead of repeating it.
+            hint: 'Full name',
             autofillHints: const [AutofillHints.name],
             textInputAction: TextInputAction.next,
             onChanged: (_) => setState(() {}),
@@ -139,7 +138,7 @@ class _OnboardingGuardianStepState
           OnboardingNameField(
             controller: _email,
             label: "Parent or guardian's email",
-            hint: context.wideWeb ? 'name@example.com' : null,
+            hint: 'name@example.com',
             keyboardType: TextInputType.emailAddress,
             textCapitalization: TextCapitalization.none,
             maxLength: 254,
