@@ -11,12 +11,16 @@ class SettingsSection extends StatelessWidget {
     required this.children,
     this.header,
     this.footer,
+    this.cardFooter,
     super.key,
   });
 
   final List<Widget> children;
   final String? header;
   final String? footer;
+
+  /// A `CardFooter` closing the card. Wide web only: the phone card has none.
+  final Widget? cardFooter;
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +44,7 @@ class SettingsSection extends StatelessWidget {
         WebCard(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: children,
+            children: [...children, if (cardFooter != null) cardFooter!],
           ),
         ),
         if (footer != null)

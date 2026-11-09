@@ -12,9 +12,11 @@ import 'package:pantas/core/auth/sign_in_result.dart';
 import 'package:pantas/core/error/app_exception.dart';
 import 'package:pantas/core/sync/providers.dart';
 import 'package:pantas/core/ui/components/avatar.dart';
+import 'package:pantas/core/ui/components/card_footer.dart';
 import 'package:pantas/core/ui/components/centered_dialog.dart';
 import 'package:pantas/core/ui/components/google_sign_in_button.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/pantas_button_spec.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/leave_page.dart';
@@ -32,6 +34,9 @@ import 'package:pantas/features/settings/presentation/widgets/settings_pane_page
 import 'package:pantas/features/settings/presentation/widgets/settings_row.dart';
 import 'package:pantas/features/settings/presentation/widgets/settings_section.dart';
 import 'package:pantas/features/settings/settings.dart';
+
+const _note = 'Your progress stays in this browser. '
+    'Signing in gives you an account you can come back to.';
 
 class AccountPage extends ConsumerStatefulWidget {
   const AccountPage({super.key});
@@ -125,8 +130,39 @@ class _AccountPageState extends ConsumerState<AccountPage> {
         description: 'Your name, sign-in and backup.',
         children: [
           SettingsSection(
+            cardFooter: user != null
+                ? null
+                : CardFooter(
+                    caption: 'You get your own Pantas ID when you sign in.',
+                    // Two buttons are about 423 wide at 1.0 text.
+                    actionMinWidth: 423,
+                    action: Wrap(
+                      spacing: PantasSpace.s12,
+                      runSpacing: PantasSpace.s12,
+                      alignment: WrapAlignment.end,
+                      children: [
+                        if (web)
+                          WebButton(
+                            label: 'Continue with Email',
+                            kind: PantasButtonKind.secondary,
+                            size: PantasButtonSize.sm,
+                            onPressed: _signingIn
+                                ? null
+                                : () => push('/auth/email-link'),
+                          ),
+                        GoogleSignInButton(
+                          label: _signingIn
+                              ? 'Signing in…'
+                              : 'Continue with Google',
+                          size: PantasButtonSize.sm,
+                          busy: _signingIn,
+                          onPressed: _signingIn ? null : _signIn,
+                        ),
+                      ],
+                    ),
+                  ),
             footer: user == null
-                ? 'You get your own Pantas ID when you sign in.'
+                ? null
                 : digits == null
                     ? "It shows up the next time you're online."
                     : 'This is safe to share publicly.',
@@ -171,31 +207,20 @@ class _AccountPageState extends ConsumerState<AccountPage> {
           ),
           const SizedBox(height: PantasSpace.s24),
           if (user == null) ...[
-            GoogleSignInButton(
-              label: _signingIn ? 'Signing in…' : 'Continue with Google',
-              busy: _signingIn,
-              onPressed: _signingIn ? null : _signIn,
-            ),
-            if (web) ...[
-              const SizedBox(height: PantasSpace.s12),
-              WebButton(
-                label: 'Continue with Email',
-                variant: WebButtonVariant.secondary,
-                onPressed: _signingIn ? null : () => push('/auth/email-link'),
-              ),
-            ],
-            const SizedBox(height: PantasSpace.s12),
-            Text(
-              _errorMessage ??
-                  'Your progress stays in this browser. '
-                      'Signing in gives you an account you can come back to.',
-              style: t.sm,
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: PantasSpace.s16),
+              child: Text(_errorMessage ?? _note, style: t.sm),
             ),
             const SizedBox(height: PantasSpace.s24),
-            WebButton(
-              label: 'Delete My Data',
-              variant: WebButtonVariant.dangerOutline,
-              onPressed: () => push('/settings/account/delete'),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: WebButton(
+                label: 'Delete My Data',
+                kind: PantasButtonKind.tertiary,
+                tone: PantasButtonTone.critical,
+                size: PantasButtonSize.sm,
+                onPressed: () => push('/settings/account/delete'),
+              ),
             ),
           ] else ...[
             ...[
