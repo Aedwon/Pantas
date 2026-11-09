@@ -30,4 +30,11 @@ void main() {
     expect(findDraftingText(docs('SECTION 13(A)')), hasLength(1));
     expect(findDraftingText(docs('ok', title: 'Drafts')), hasLength(1));
   });
+
+  test('notes meant for the owner fail', () {
+    expect(
+      findDraftingText(docs('Owner note: confirm the inbox first.')),
+      hasLength(1),
+    );
+  });
 }

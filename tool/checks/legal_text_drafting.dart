@@ -3,7 +3,9 @@ import 'package:pantas/features/legal/domain/legal_document.dart';
 
 import 'check.dart';
 
-final _drafting = RegExp(r'\bdraft|Section 13\(a\)', caseSensitive: false);
+// The Nov 5 drafts also carried "Owner note" paragraphs meant only for Aedwon.
+final _drafting =
+    RegExp(r'\bdraft|Section 13\(a\)|\bowner note', caseSensitive: false);
 
 class LegalTextDraftingCheck extends Check {
   const LegalTextDraftingCheck();
