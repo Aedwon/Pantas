@@ -67,6 +67,13 @@ pass 15, retire or merge one first.
 Newest first. When this file passes about 120 lines, move the oldest closed entries to
 the current decision log.
 
+### Misread "not clean", and an overstated claim on a board (Nov 9)
+
+- His words: "go with Placement 2. "shows every price note this way" can you please show me this / also when I said not clean enough, i meant the placement of Civil Service tag. it has a oval background that is also colored. idk i don't like that" (relayed by the manager).
+- Wrong: (1) his earlier "not clean enough" was about the Civil Service tag's filled oval, but the lead redrew where the tier line sits and kept the same tag; (2) the board note said the fine-print line "sits where every price note in the app sits", which is overstated: DS4 and the approved boards use fine print for trial, renewal and pass-end lines under a paywall or upgrade button, while prices sit inside plan tiles and limit notes sit in card text.
+- Why it got through: the complaint named a quality, not an element, and the lead picked the element without saying so; and no step checked a board's comparative wording against the sources.
+- Fix (required step; neither can be checked by a tool): (1) when a rejection does not name the element, the next board varies each visible element on its own and labels which element each option changes; (2) any "every", "always", "like X" or "the same as" on a board names where it is true, or is cut. Both are added to the reviewer's brief for board reviews from now on.
+
 ### Custom exam tier boards not clean, and not on DS4 (Nov 9)
 
 - His words: "3B but please improve the placements, i'm currently not liking the options. not clean enough for me. make sure the designs also follow DS4" (relayed by the manager, on the "Custom Exam Tier Picks" canvas).
