@@ -398,3 +398,16 @@ Aedwon's answer, verbatim (relayed by the manager): "1. okay do what you recomme
 
 Result: Posts is a separate spec later. Balanced for the whole app. Owner inputs ship first, in
 their own worktree, then Support, Numbers and Inbox. Build only after he approves the spec.
+
+## November 10, 2026: lead rulings while drawing the DS4 boards (D191, final)
+
+1. **Grants carry a price level.** Grants have a `tier`, so Grant Pro asks for a level (Student,
+   Civil Service, Licensure, PSHS-NCE), defaulting to the student's exam.
+2. **Remove Pro and Delete Data confirm in a DS4 Dialog**, not the side sheet chosen on Nov 2,
+   because DS4 `patterns.md` confirms destructive actions in a Dialog. Grant Pro and refunds keep
+   the side sheet. Shown on the boards for his approval.
+3. **Choice controls follow DS4:** six or fewer options use Radio groups or a SegmentedControl.
+4. **The staging switch is a menu** on the account block ("Switch to Production", "Sign Out").
+5. **Five parts DS4 lacks** are drawn from DS4 tokens and marked on the boards: G1 nav counts,
+   G2 the account menu trigger, G3 the Pro coverage timeline, G4 the sign-in layout, G5 big-number
+   tiles on Numbers.
