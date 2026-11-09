@@ -2,7 +2,7 @@ import {getAuth, type Auth, type UserRecord} from 'firebase-admin/auth';
 import {FieldPath, FieldValue, getFirestore, type DocumentReference, type Firestore} from 'firebase-admin/firestore';
 import {logger} from 'firebase-functions';
 import {onSchedule} from 'firebase-functions/v2/scheduler';
-import {deleteUserData, type DeletionReason} from './deleteUserData.js';
+import {DELETION_RETRY_MS, deleteUserData, type DeletionReason} from './deleteUserData.js';
 import {guardianLinkOrigin, guardianMailFrom, guardianMailKey} from './guardianConsent.js';
 import {inactivityWarningMessage, mailerFor, type GuardianMailer} from './guardianMail.js';
 import {hasLiveProClaim} from './_pro.js';
@@ -21,8 +21,10 @@ export const WARNINGS_PER_RUN = 500;
 // Guardian answer records are kept ten years after the newest answer: 10 x 365 days plus 3 leap
 // days (2028, 2032, 2036 fall inside a ten-year span starting in late 2026).
 export const EVIDENCE_KEEP_DAYS = 3653;
-// A pending deletion is retried by the daily run once it is this old, so a live attempt is left alone.
-export const RETRY_AFTER_MS = 3_600_000;
+// A pending deletion is retried by the daily run an hour after its last attempt, so a live attempt is
+// left alone. At most this many retries run per day, so failing tasks cannot use up the whole cap.
+export const RETRY_AFTER_MS = DELETION_RETRY_MS;
+export const RETRIES_PER_RUN = 50;
 // Evidence parents checked per run, in each of the two passes (marked parents, legacy parents).
 export const EVIDENCE_PARENTS_PER_RUN = 500;
 
@@ -34,6 +36,8 @@ type InactivityDeps = {
   linkOrigin: string;
   now?: () => number;
   deletionCap?: number;
+  /** Stalled deletions retried per run. */
+  retryCap?: number;
   warningCap?: number;
   /** Evidence parents checked per run. */
   evidenceBudget?: number;
@@ -81,6 +85,7 @@ export async function runInactivityPass(deps: InactivityDeps): Promise<Inactivit
   // Rechecks the account just before deleting, in case it was used or paid since the page was read.
   // `warnedAt` is the warning the scan relied on, or null for an account that is deleted without one.
   const deleteNow = async (uid: string, warnedAt: number | null): Promise<boolean> => {
+    let disabledHere = false;
     try {
       const fresh = await deps.auth.getUser(uid);
       const last = lastActivity(fresh);
@@ -95,6 +100,7 @@ export async function runInactivityPass(deps: InactivityDeps): Promise<Inactivit
       // Stop new sign-ins and token refreshes, then look once more: a use or a payment that landed
       // between the first read and the disable must still save the account.
       await deps.auth.updateUser(uid, {disabled: true});
+      disabledHere = true;
       await deps.auth.revokeRefreshTokens(uid);
       if (!await stillIdleAndUnpaid(await deps.auth.getUser(uid))) {
         await deps.auth.updateUser(uid, {disabled: false});
@@ -104,21 +110,47 @@ export async function runInactivityPass(deps: InactivityDeps): Promise<Inactivit
       return true;
     } catch (error) {
       if (!isMissing(error)) logger.error('Inactive account deletion failed', {uid, error: String(error)});
+      // Disabled by this run but no deletion record to finish it: give the account back, or it would
+      // stay locked forever, since the scan skips disabled accounts.
+      if (disabledHere) {
+        try {
+          if (!(await deps.db.doc(`accountDeletions/${uid}`).get()).exists) {
+            await deps.auth.updateUser(uid, {disabled: false});
+          }
+        } catch (restoreError) {
+          logger.error('Could not re-enable an account after a failed deletion', {uid, error: String(restoreError)});
+        }
+      }
       return false;
     }
   };
 
   // First finish deletions an earlier run or a guardian withdrawal started and did not complete.
   try {
-    const unfinished = deletionCap > 0
-      ? await deps.db.collection('accountDeletions').where('startedAt', '<', now - RETRY_AFTER_MS)
-        .orderBy('startedAt').limit(deletionCap).get()
+    const retryCap = Math.min(deletionCap, deps.retryCap ?? RETRIES_PER_RUN);
+    const unfinished = retryCap > 0
+      ? await deps.db.collection('accountDeletions').where('nextRetryAt', '<=', now)
+        .orderBy('nextRetryAt').limit(retryCap).get()
       : {docs: []};
     for (const task of unfinished.docs) {
       if (attempts >= deletionCap) break;
-      attempts += 1;
+      const reason = task.get('reason') as DeletionReason;
       try {
-        await deleteUserData(deps.db, deps.auth, task.id, task.get('reason') as DeletionReason, {now: () => now});
+        // An inactivity deletion that stalled is dropped if the account now has paid access: the
+        // account stays disabled only while its deletion is pending, so it is given back.
+        if (reason === 'inactive_24_months') {
+          const current = await deps.auth.getUser(task.id).catch((error: unknown) => {
+            if (isMissing(error)) return null;
+            throw error;
+          });
+          if (current && await proRunning(deps.db, current, now)) {
+            await deps.auth.updateUser(task.id, {disabled: false});
+            await task.ref.delete();
+            continue;
+          }
+        }
+        attempts += 1;
+        await deleteUserData(deps.db, deps.auth, task.id, reason, {now: () => now});
         result.deleted += 1;
       } catch (error) {
         logger.error('Pending account deletion failed', {uid: task.id, error: String(error)});

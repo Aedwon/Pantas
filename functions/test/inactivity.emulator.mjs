@@ -51,7 +51,10 @@ function fakeAuth(users, pageSize = 2, hooks = {}) {
       await hooks.afterUpdate?.(found, patch);
       return snapshot(found);
     },
-    revokeRefreshTokens: async uid => { find(uid); },
+    revokeRefreshTokens: async uid => {
+      if (hooks.revokeFails) throw new Error('auth down');
+      find(uid);
+    },
     deleteUser: async uid => {
       if (hooks.deleteFails) throw new Error('auth down');
       find(uid); deleted.push(uid); gone.add(uid);
@@ -80,6 +83,8 @@ test('the inactivity limit is 24 months as 730 days, with the warning at 700', (
 });
 
 test('an account at 22 months is left alone', async () => {
+  // Start clean: other suites in the same emulator run may leave pending deletion records.
+  await db.recursiveDelete(db.collection('accountDeletions'));
   await wipe('in-22');
   const {result, box, auth} = await run([user('in-22', {days: 670, email: 'a@mail.com'})]);
   assert.equal(box.sent.length, 0);
@@ -350,6 +355,15 @@ test('activity or Pro that appears after the disable re-enables the user and ski
   assert.equal(auth.all[0].disabled, false);
 });
 
+test('a failure after the disable and before the deletion starts gives the account back', async () => {
+  await wipe('in-revoke-fails');
+  const {auth, result} = await run([user('in-revoke-fails', {days: 800})], {hooks: {revokeFails: true}});
+  assert.deepEqual(auth.deleted, []);
+  assert.equal(result.deleted, 0);
+  assert.equal(auth.all[0].disabled, false, 'not left locked');
+  assert.equal((await db.doc('accountDeletions/in-revoke-fails').get()).exists, false);
+});
+
 test('a deletion that goes ahead disables the user first, then deletes', async () => {
   await wipe('in-order');
   const {auth} = await run([user('in-order', {days: 800})]);
@@ -373,7 +387,7 @@ test('a failed deletion leaves a durable record, and the next daily run finishes
   const first = await run([user('in-durable', {days: 800})], {hooks: {deleteFails: true}});
   assert.deepEqual(first.auth.deleted, []);
   const task = (await pending('in-durable').get()).data();
-  assert.deepEqual(task, {reason: 'inactive_24_months', startedAt: NOW, attempts: 1});
+  assert.deepEqual(task, {reason: 'inactive_24_months', startedAt: NOW, nextRetryAt: NOW + HOUR, attempts: 1});
   // Fifty-nine minutes later nothing is retried yet.
   const early = await run([user('in-durable', {days: 800, disabled: true})], {now: () => NOW + HOUR - 60000});
   assert.deepEqual(early.auth.deleted, []);
@@ -386,7 +400,7 @@ test('a failed deletion leaves a durable record, and the next daily run finishes
 
 test('a pending deletion for a user that is already gone finishes the cleanup and removes the record', async () => {
   await wipe('in-gone'); await wipeTasks('in-gone');
-  await pending('in-gone').set({reason: 'guardian_withdrawal', startedAt: NOW - 2 * HOUR, attempts: 1});
+  await pending('in-gone').set({reason: 'guardian_withdrawal', startedAt: NOW - 2 * HOUR, nextRetryAt: NOW - HOUR, attempts: 1});
   await db.doc('users/in-gone/data/x').set({a: 1});
   const {result} = await run([]);
   assert.equal((await db.doc('users/in-gone/data/x').get()).exists, false);
@@ -396,16 +410,42 @@ test('a pending deletion for a user that is already gone finishes the cleanup an
 
 test('an unfinished deletion keeps its record and counts another attempt', async () => {
   await wipe('in-twice'); await wipeTasks('in-twice');
-  await pending('in-twice').set({reason: 'user_request', startedAt: NOW - 3 * HOUR, attempts: 1});
+  await pending('in-twice').set({reason: 'user_request', startedAt: NOW - 3 * HOUR, nextRetryAt: NOW - 2 * HOUR, attempts: 1});
   await run([user('in-twice', {days: 10, disabled: true})], {hooks: {deleteFails: true}});
-  assert.deepEqual((await pending('in-twice').get()).data(), {reason: 'user_request', startedAt: NOW - 3 * HOUR, attempts: 2});
+  assert.deepEqual((await pending('in-twice').get()).data(), {reason: 'user_request', startedAt: NOW - 3 * HOUR, nextRetryAt: NOW + HOUR, attempts: 2});
   await wipeTasks('in-twice'); await wipe('in-twice');
+});
+
+test('a stalled inactivity deletion is dropped and the account given back if Pro is now running', async () => {
+  await wipe('in-paid-retry'); await wipeTasks('in-paid-retry');
+  await db.doc('users/in-paid-retry/server/x').set({a: 1});
+  await pending('in-paid-retry').set({reason: 'inactive_24_months', startedAt: NOW - 2 * HOUR, nextRetryAt: NOW - HOUR, attempts: 1});
+  const {auth, result} = await run([user('in-paid-retry', {days: 800, disabled: true, claims: {pro: true, proUntil: NOW + DAY}})]);
+  assert.deepEqual(auth.deleted, []);
+  assert.equal(result.deleted, 0);
+  assert.equal(auth.all[0].disabled, false);
+  assert.equal((await pending('in-paid-retry').get()).exists, false);
+  assert.equal((await db.doc('users/in-paid-retry/server/x').get()).exists, true);
+});
+
+test('a task that keeps failing moves to the back, so the others still get their turn', async () => {
+  const ids = ['in-rot0', 'in-rot1'];
+  await wipe(...ids); await wipeTasks(...ids);
+  await pending('in-rot0').set({reason: 'user_request', startedAt: NOW - 5 * HOUR, nextRetryAt: NOW - 4 * HOUR, attempts: 3});
+  await pending('in-rot1').set({reason: 'user_request', startedAt: NOW - 2 * HOUR, nextRetryAt: NOW - HOUR, attempts: 1});
+  const users = () => [user('in-rot0', {days: 10, disabled: true}), user('in-rot1', {days: 10, disabled: true})];
+  const first = await run(users(), {retryCap: 1, hooks: {deleteFails: true}});
+  assert.equal((await pending('in-rot0').get()).get('attempts'), 4, 'oldest tried first');
+  const second = await run(users(), {retryCap: 1, now: () => NOW + DAY});
+  assert.deepEqual(second.auth.deleted, ['in-rot1'], 'the newer task is not starved');
+  assert.deepEqual(first.auth.deleted, []);
+  await wipeTasks(...ids);
 });
 
 test('pending deletions count against the deletion cap', async () => {
   const ids = ['in-pcap0', 'in-pcap1', 'in-pcap2'];
   await wipe(...ids); await wipeTasks(...ids);
-  for (const id of ids) await pending(id).set({reason: 'inactive_24_months', startedAt: NOW - 2 * HOUR, attempts: 1});
+  for (const id of ids) await pending(id).set({reason: 'inactive_24_months', startedAt: NOW - 2 * HOUR, nextRetryAt: NOW - HOUR, attempts: 1});
   const {result} = await run([], {deletionCap: 2});
   assert.equal(result.deleted, 2);
   assert.equal((await db.collection('accountDeletions').where('reason', '==', 'inactive_24_months')

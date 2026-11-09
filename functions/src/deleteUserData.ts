@@ -7,6 +7,9 @@ import {retirePublicId} from './publicId.js';
 import {clearPassOwnership} from './revenuecatPasses.js';
 import {identityMarkers, identityMarkersForUser} from './webTrial.js';
 
+/** A pending deletion is retried by the daily run once this long has passed since its last attempt. */
+export const DELETION_RETRY_MS = 3_600_000;
+
 /** Why an account was deleted. Kept on the guardian evidence marker. */
 export type DeletionReason = 'user_request' | 'guardian_withdrawal' | 'inactive_24_months';
 
@@ -36,8 +39,10 @@ export async function deleteUserData(
   // The first reason and start time stay, so a retry does not look like a new request.
   const task = db.doc(`accountDeletions/${uid}`);
   const earlier = await task.get();
+  // Each attempt moves the next retry back, so a task that keeps failing goes to the end of the
+  // queue and cannot starve newer ones.
   await task.set({reason: earlier.get('reason') ?? reason, startedAt: earlier.get('startedAt') ?? now,
-    attempts: FieldValue.increment(1)}, {merge: true});
+    nextRetryAt: now + DELETION_RETRY_MS, attempts: FieldValue.increment(1)}, {merge: true});
 
   // Older trials have only an account-local record. Preserve eligibility before
   // deleting that record, including when an earlier deletion attempt is retried.

@@ -334,7 +334,7 @@ test('a withdrawal whose cleanup fails after the links are deleted is finished b
   h.advance(DAY);
   await assert.rejects(guardian.withdraw(req('v', {token: pageManage}), h.deps), /auth down/);
   assert.deepEqual((await db.collection('guardianTokens').where('uid', '==', uid).get()).size, 0, 'the links are gone');
-  assert.deepEqual((await db.doc(`accountDeletions/${uid}`).get()).data(), {reason: 'guardian_withdrawal', startedAt: T0 + DAY, attempts: 1});
+  assert.deepEqual((await db.doc(`accountDeletions/${uid}`).get()).data(), {reason: 'guardian_withdrawal', startedAt: T0 + DAY, nextRetryAt: T0 + DAY + 3600000, attempts: 1});
   assert.equal((await auth.getUser(uid)).disabled, true);
   await inactive.runInactivityPass({db, auth, mailer: {send: async () => {}}, linkOrigin: 'https://app.example.test',
     now: () => T0 + DAY + 2 * 3600000});
