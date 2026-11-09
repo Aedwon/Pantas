@@ -304,3 +304,10 @@ Branch `content/cet-finish-r1` from `content/cet-rewrite-r1` at 29fae75fd. Aedwo
 - Split candidates by length: chemical-reactions (3,308), structural-stability (3,206), earths-motions (3,014).
 - The earths-motions sidereal-day FIGURE was removed because its renderer prints "a few extra degrees" (true value about 1 degree). The drawing, approved on August 25, is gone until the figure phase redraws it.
 - Exam tags (P4): re-checked on November 9; all 86 files still match `tag-changes.json`.
+
+## Update, November 9: P6, P7 and the start of P8
+
+- P6 roadmap inputs: all 77 CET lessons now have link entries (91 links, 8 required, 83 helpful) and 102 new gap tags. Additions only; CSE entries unchanged. Record: `p6/plan.md`. Checker: `tools/content_rewrite/check_cet_links.rb` (the export that enforces these rules is on the roadmap lineage, not this branch).
+- P7 mock data: no change on this branch. The UPCAT blueprint already says its items and minutes are reported, not published. The ACET blueprint is on the staging lineage only, with a placeholder aptitude time, and after P4 its verbal logic topic has 20 questions for 45 slots. DLSU publishes no DCAT format and UST publishes no USTET items, so no DCAT or USTET blueprint was written. These go on the final list.
+- P8 Astra: started. Plan and cost ruling: `astra/plan.md`.
+- Final-list item found by the checker: CSE question `rc-cs-ct-0005` (choosing-a-title) has three gap tags whose choice texts no longer match any choice. CSE data, not changed here.
