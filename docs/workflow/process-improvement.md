@@ -58,7 +58,7 @@ pass 15, retire or merge one first.
    his delegation (D191), following the voice rules in `AGENTS.md`, records it, and tells him
    the wording. Website copy stays his. No check can tell a copy choice from a layout choice.
 
-4. Never ask Aedwon to write legal or policy text (terms, privacy notices, legal bases,
+5. Never ask Aedwon to write legal or policy text (terms, privacy notices, legal bases,
    consent or refund wording). First search `docs/legal/`, `docs/legal-drafts/`, the app's
    legal documents on the integration branch and the pantas-web project; use what exists as
    the base. If text is missing, an agent drafts it to favor Pantas as far as Philippine law
@@ -102,7 +102,7 @@ the current decision log.
 - Why it got through: the Nov 5 QA ruling said "legal text is not rewritten by agents", and
   nothing told agents to search for existing drafts or to draft and critique legal text
   themselves.
-- Fix: written rule 4. No check can tell when a question to him asks for legal text. The
+- Fix: written rule 5. No check can tell when a question to him asks for legal text. The
   three texts were redrafted, critiqued by Codex Sol at high effort and put in one review
   file, `docs/legal/drafts/2026-11-09-legal-texts-review.md` on `docs/legal-texts-r1`
   (1eb945a93).
