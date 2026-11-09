@@ -54,8 +54,11 @@ void main() {
     final source = File('lib/features/legal/domain/legal_document.dart')
         .readAsStringSync();
 
-    expect(source, contains('see, correct or delete your data'));
-    expect(source, contains('data protection officer from About.'));
+    // The full Privacy Policy (Nov 10 interim) replaced the three-line stub.
+    // Join adjacent string literals so a phrase can span source lines.
+    final text = source.replaceAll(RegExp(r'''['"]\s*\n\s*['"]'''), '');
+    expect(text, contains('ask us to fix wrong details'));
+    expect(text, contains('Send requests to dpo@pantas.study.'));
     final about =
         File('lib/features/settings/presentation/pages/about_page.dart')
             .readAsStringSync();
