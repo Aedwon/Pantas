@@ -82,6 +82,13 @@ pass 15, retire or merge one first.
 Newest first. When this file passes about 120 lines, move the oldest closed entries to
 the current decision log.
 
+### Founder boards: refund buttons and Numbers missed what he needs (Nov 10)
+
+- His words: "terrible placement of buttons, optimize this to be more elegant and intuitive" (refund card board) and "i'm not satisfied with what statistics are shown here, and how they're shown. i should be able to see things like MAU DAU or something, users per exam, marketing things, etc. they're missing / what i'm pertaining to are data that would be useful to me to make decisions. this idea is still cloudy in my head and i don't have the vocabulary to express it, but i need data to base my decisions off of" (Numbers board).
+- Wrong: the refund board stacked two numbered buttons in the drawer footer ("1. Copy Payment ID", "2. Open PayMongo") beside Cancel, so a step list was dressed as actions. Numbers showed only what data was easy to read (Nov 2 "Core numbers"), never what decisions he makes with it.
+- Why it got through: the DS4 review checked rules (classes, colors, control types), not whether each overlay reads as one clear action; and the Nov 2 Numbers question offered data sources, not his decisions.
+- Fix (required steps; neither can be judged by a tool): (1) every board review also answers "what is the one action here, and does the layout make it obvious?" and flags a footer with more than one primary or numbered buttons; (2) any dashboard or stats screen starts by listing the decisions he makes with it and the question each number answers, and he confirms that list before metrics are chosen.
+
 ### Asked him to decide copy in an approved layout (Nov 9)
 
 - His words: "sorry what needs deciding on Decision 4? that's just a copy decision right not a UI one" (relayed by the manager).
