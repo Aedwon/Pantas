@@ -1,0 +1,52 @@
+name: Set up the app (one attempt)
+description: Flutter with caching, generated code, and the built content asset. Called by setup-app, which retries it once.
+
+inputs:
+  content-hit:
+    description: 'true when the content asset cache was restored, so the build is skipped.'
+    default: 'false'
+
+runs:
+  using: composite
+  steps:
+    - name: Set up Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        channel: stable
+        flutter-version: '3.44.6'
+        cache: true
+
+    - name: pub get
+      shell: bash
+      run: flutter pub get
+
+    - name: Generate code
+      # Always runs, also after a .dart_tool/build restore. build_runner
+      # compares its inputs by content and rebuilds only what changed.
+      shell: bash
+      run: |
+        dart run build_runner build --delete-conflicting-outputs
+        flutter gen-l10n
+
+    - name: Build the content asset
+      # Gitignored and built, never committed. Without it `flutter
+      # analyze` warns that a declared asset is missing and exits 1, and
+      # the bundled-database test has nothing to open. Built from the corpus.
+      # Skipped when the content cache was restored.
+      if: inputs.content-hit != 'true'
+      shell: bash
+      run: |
+        mkdir -p build
+        dart run tools/build_content_export/build_content_export.dart build/export.json --assets-out assets/seed
+        dart run tools/build_content_seed/seed_writer.dart \
+          build/export.json \
+          assets/seed/content.db
+
+    - name: Declare the unsigned manifest files
+      # The signed package needs release keys. Non-web asset bundles only need
+      # these declared files to exist, and no test reads their bytes. Runs
+      # after a content cache restore too.
+      shell: bash
+      run: |
+        mkdir -p assets/seed
+        touch assets/seed/content.manifest.json assets/seed/content.manifest.sig

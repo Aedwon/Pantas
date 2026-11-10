@@ -55,11 +55,34 @@ jobs:
           tail -40 build/run.log
           exit 1
 
+      - name: Restore the emulator jars
+        # Saved by the functions job in ci.yml. This workflow only restores.
+        uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
+        with:
+          path: ~/.cache/firebase/emulators
+          key: firebase-emulators-${{ runner.os }}-${{ hashFiles('functions/package-lock.json') }}
+
+      - name: Restore the browser
+        id: browser
+        uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-1.49.1-chromium
+
       - name: Install the browser
         working-directory: tool/journeys
         run: |
           npm install --no-audit --no-fund --no-save playwright@1.49.1
           npx playwright install --with-deps chromium
+
+      - name: Save the browser
+        # The one job that saves this cache.
+        if: steps.browser.outputs.cache-hit != 'true'
+        continue-on-error: true
+        uses: actions/cache/save@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
+        with:
+          path: ~/.cache/ms-playwright
+          key: ${{ steps.browser.outputs.cache-primary-key }}
 
       - name: Run the journeys
         run: node tool/journeys/journeys.mjs
