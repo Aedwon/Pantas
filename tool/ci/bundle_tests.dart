@@ -3,10 +3,10 @@
 // CI speed plan S8: docs/superpowers/plans/2026-11-08-ci-speed.md.
 //
 // Usage:
-//   dart tool/ci/bundle_tests.dart --shard K [--shards 8] [--bundles 4]
+//   dart tool/ci/bundle_tests.dart --shard K [--shards 8] [--bundles 3] [--font-bundles 2]
 //       writes build/test_bundles/shardK_bundleN_test.dart and prints the
 //       entry points to run, one per line: the bundles, then the single files
-//   dart tool/ci/bundle_tests.dart --check [--shards 8] [--bundles 4]
+//   dart tool/ci/bundle_tests.dart --check [--shards 8] [--bundles 3] [--font-bundles 2]
 //       checks that every test file runs exactly once across all shards,
 //       bundled or single
 //   dart tool/ci/bundle_tests.dart --report [--shards 8]
@@ -28,7 +28,8 @@ import 'dart:io';
 
 import 'shard_tests.dart';
 
-const _defaultBundles = 4;
+const _defaultBundles = 3;
+const _defaultFontBundles = 2;
 const _bundleDir = 'build/test_bundles';
 const _excludesPath = 'tool/ci/bundle_excludes.txt';
 
@@ -49,8 +50,6 @@ final Map<String, RegExp> _reasons = <String, RegExp>{
     r'Directory\.current\s*=|\bexit\(',
   ),
   'reads the environment': RegExp(r'Platform\.environment'),
-  'loads fonts into the shared engine':
-      RegExp('FontLoader|loadFont|GoogleFonts'),
   'compares golden files by path': RegExp(
     'matchesGoldenFile|goldenFileComparator|autoUpdateGoldenFiles',
   ),
@@ -59,6 +58,16 @@ final Map<String, RegExp> _reasons = <String, RegExp>{
     r'SharedPreferences\.setMock|PlatformDispatcher\.instance',
   ),
 };
+
+/// Files that load fonts, directly or through the DS helpers, change what
+/// every later text measurement in the same process sees. They share bundles
+/// with each other and never with plain files.
+final RegExp _fontClass = RegExp(
+  r'FontLoader|loadFont|GoogleFonts|ds_matrix\.dart|onboarding_steps_harness\.dart',
+);
+
+/// True when [source] belongs in a font bundle.
+bool loadsFonts(String source) => _fontClass.hasMatch(source);
 
 /// The reason [source] has to stay a single file, or null when it can join a
 /// bundle.
@@ -103,34 +112,49 @@ ShardPlan planShard(
   List<String> files,
   Map<String, double> timings,
   int bundleCount,
+  int fontBundleCount,
   String? Function(String file) reasonOf,
+  bool Function(String file) fontOf,
 ) {
   final singles = <String>[];
-  final joinable = <String>[];
+  final plain = <String>[];
+  final font = <String>[];
   for (final file in files) {
-    (reasonOf(file) == null ? joinable : singles).add(file);
+    if (reasonOf(file) != null) {
+      singles.add(file);
+    } else {
+      (fontOf(file) ? font : plain).add(file);
+    }
   }
   final median = medianOf(timings.values);
   double timeOf(String f) => timings[f] ?? median;
-  joinable.sort((a, b) {
-    final byTime = timeOf(b).compareTo(timeOf(a));
-    return byTime != 0 ? byTime : a.compareTo(b);
-  });
-  final bundles = List<List<String>>.generate(bundleCount, (_) => <String>[]);
-  final loads = List<double>.filled(bundleCount, 0);
-  for (final file in joinable) {
-    var lightest = 0;
-    for (var i = 1; i < bundleCount; i++) {
-      if (loads[i] < loads[lightest]) lightest = i;
+
+  List<List<String>> balance(List<String> group, int count) {
+    group.sort((a, b) {
+      final byTime = timeOf(b).compareTo(timeOf(a));
+      return byTime != 0 ? byTime : a.compareTo(b);
+    });
+    final bundles = List<List<String>>.generate(count, (_) => <String>[]);
+    final loads = List<double>.filled(count, 0);
+    for (final file in group) {
+      var lightest = 0;
+      for (var i = 1; i < count; i++) {
+        if (loads[i] < loads[lightest]) lightest = i;
+      }
+      bundles[lightest].add(file);
+      loads[lightest] += timeOf(file);
     }
-    bundles[lightest].add(file);
-    loads[lightest] += timeOf(file);
+    for (final bundle in bundles) {
+      bundle.sort();
+    }
+    return bundles.where((b) => b.isNotEmpty).toList();
   }
-  for (final bundle in bundles) {
-    bundle.sort();
-  }
+
   singles.sort();
-  return ShardPlan(bundles.where((b) => b.isNotEmpty).toList(), singles);
+  return ShardPlan(
+    [...balance(plain, bundleCount), ...balance(font, fontBundleCount)],
+    singles,
+  );
 }
 
 /// The source of one bundle entry file written to [_bundleDir].
@@ -154,6 +178,7 @@ void main(List<String> args) {
   int? shard;
   var shards = 8;
   var bundles = _defaultBundles;
+  var fontBundles = _defaultFontBundles;
   var check = false;
   var report = false;
   for (var i = 0; i < args.length; i++) {
@@ -164,6 +189,8 @@ void main(List<String> args) {
         shards = int.parse(args[++i]);
       case '--bundles':
         bundles = int.parse(args[++i]);
+      case '--font-bundles':
+        fontBundles = int.parse(args[++i]);
       case '--check':
         check = true;
       case '--report':
@@ -194,6 +221,9 @@ void main(List<String> args) {
     for (final file in files)
       file: excludes[file] ?? singleReason(File(file).readAsStringSync()),
   };
+  final fonts = <String, bool>{
+    for (final file in files) file: loadsFonts(File(file).readAsStringSync()),
+  };
   String? reasonOf(String file) => reasons[file];
 
   if (report) {
@@ -213,7 +243,14 @@ void main(List<String> args) {
 
   final plans = [
     for (final shardFiles in split)
-      planShard(shardFiles, timings, bundles, reasonOf),
+      planShard(
+        shardFiles,
+        timings,
+        bundles,
+        fontBundles,
+        reasonOf,
+        (file) => fonts[file]!,
+      ),
   ];
 
   if (check) {
