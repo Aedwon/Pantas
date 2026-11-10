@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 260" width="360" height="260">
+<title>Horizontal line test: y = x² meets the line y = 4 twice, so it is not one-to-one; y = x³ meets it once, so it is one-to-one</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+</defs>
+<rect width="360" height="260" rx="14" fill="url(#bg)"/>
+<text x="108" y="34" text-anchor="middle" font-family="Geist, sans-serif" font-size="17" font-weight="700" fill="#010101"><tspan font-family="KaTeX_Math, serif" font-weight="400">y</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400" dx="2">= </tspan><tspan font-family="KaTeX_Math, serif" font-weight="400">x</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">²</tspan></text>
+<text x="277" y="34" text-anchor="middle" font-family="Geist, sans-serif" font-size="17" font-weight="700" fill="#010101"><tspan font-family="KaTeX_Math, serif" font-weight="400">y</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400" dx="2">= </tspan><tspan font-family="KaTeX_Math, serif" font-weight="400">x</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">³</tspan></text>
+<rect x="16" y="46" width="184" height="160" rx="8" fill="#010101" fill-opacity="0.05" stroke="#020202" stroke-width="1" stroke-opacity="0.4"/>
+<rect x="208" y="46" width="136" height="160" rx="8" fill="#010101" fill-opacity="0.05" stroke="#020202" stroke-width="1" stroke-opacity="0.4"/>
+<line x1="22" y1="190" x2="194" y2="190" stroke="#020202" stroke-width="1.5"/>
+<line x1="108" y1="52" x2="108" y2="200" stroke="#020202" stroke-width="1.5"/>
+<path d="M66.6 84.2 Q108 295.8 149.4 84.2" fill="none" stroke="#010101" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="22" y1="110" x2="194" y2="110" stroke="#050505" stroke-width="2.5" stroke-linecap="round"/>
+<circle cx="72" cy="110" r="5" fill="#050505"/>
+<circle cx="144" cy="110" r="5" fill="#050505"/>
+<text x="63" y="102" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#050505"><tspan font-family="KaTeX_Main, serif" font-weight="400">(−2, 4)</tspan></text>
+<text x="153" y="102" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#050505"><tspan font-family="KaTeX_Main, serif" font-weight="400">(2, 4)</tspan></text>
+<text x="194" y="132" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#050505"><tspan font-family="KaTeX_Math, serif" font-weight="400">y</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400" dx="1">= 4</tspan></text>
+<text x="108" y="232" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#010101">not one-to-one</text>
+<line x1="216" y1="136" x2="338" y2="136" stroke="#020202" stroke-width="1.5"/>
+<line x1="261" y1="52" x2="261" y2="200" stroke="#020202" stroke-width="1.5"/>
+<polyline points="213.0,172.9 219.6,159.7 226.1,150.1 232.7,143.6 239.2,139.4 245.8,137.2 252.4,136.2 258.9,136.0 265.5,136.0 272.1,135.5 278.6,134.2 285.2,131.3 291.8,126.3 298.3,118.7 304.9,107.8 311.4,93.2 318.0,74.3" fill="none" stroke="#010101" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="216" y1="100" x2="338" y2="100" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<circle cx="308.6" cy="100" r="5" fill="#010101"/>
+<text x="218" y="94" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#020202"><tspan font-family="KaTeX_Math, serif" font-weight="400">y</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400" dx="1">= 4</tspan></text>
+<text x="277" y="232" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#010101">one-to-one</text>
+</svg>
