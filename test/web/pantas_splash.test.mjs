@@ -278,3 +278,16 @@ test('the page marks page.helpers after the helper scripts and before the app st
   assert.ok(loader > 0, 'page.loader mark present');
   assert.ok(loader < bootstrap.indexOf('_flutter.loader.load'));
 });
+
+// Aedwon, staging check: the logo and wordmark sat too far down on his phone.
+// Centering plus 16% bottom padding puts the group's center at 42% of the
+// height. The Welcome screen is a separate block and keeps its own layout.
+test('the splash group centers at 42% of the height, using dvh with a vh fallback', () => {
+  const html = readFileSync(new URL('../../web/index.html', import.meta.url), 'utf8');
+  const rule = html.slice(html.indexOf('#pantas-splash {'));
+  const block = rule.slice(0, rule.indexOf('}'));
+  assert.match(block, /justify-content:\s*center/);
+  const vh = block.indexOf('padding-bottom: 16vh;');
+  const dvh = block.indexOf('padding-bottom: 16dvh;');
+  assert.ok(vh > 0 && dvh > vh, 'vh fallback comes before dvh');
+});
