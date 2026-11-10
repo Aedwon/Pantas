@@ -18,14 +18,29 @@ function cseLesson() {
   return export_.lesson.find(l => l.isActive !== false && tagged.has(l._id));
 }
 
+// A page.evaluate that runs while the page navigates throws this. The local
+// reset page (tools/local/panel/local-reset.html) clears storage and then
+// moves on to the app, and the app's own first-run check can redirect to it,
+// so a poll can land in the middle of that move. It means "not yet": poll
+// again. Any other error still fails the journey at once.
+const NAVIGATING = /Execution context was destroyed, most likely because of a navigation/;
+
 async function until(what, test, seconds, page) {
   const end = Date.now() + seconds * 1000;
+  let navigating = 0;
   while (Date.now() < end) {
-    const value = await test();
+    let value;
+    try {
+      value = await test();
+    } catch (error) {
+      if (!NAVIGATING.test(error.message)) throw error;
+      navigating++;
+    }
     if (value) return value;
     await page.waitForTimeout(500);
   }
-  throw new Error(`Timed out after ${seconds}s waiting for ${what}`);
+  throw new Error(`Timed out after ${seconds}s waiting for ${what}` +
+    (navigating ? ` (${navigating} polls hit a page navigation)` : ''));
 }
 
 const semanticsOn = page => page.evaluate(() =>
