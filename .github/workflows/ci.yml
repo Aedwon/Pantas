@@ -69,7 +69,8 @@ jobs:
         run: |
           dart tool/ci/shard_tests.dart --check --shards 8
           dart tool/ci/bundle_tests.dart --check --shards 8 --bundles 4
-          dart tool/ci/bundle_tests.dart --report | head -12 | tee -a "$GITHUB_STEP_SUMMARY"
+          dart tool/ci/bundle_tests.dart --report > bundle-report.txt
+          head -14 bundle-report.txt | tee -a "$GITHUB_STEP_SUMMARY"
 
       - name: gitleaks
         # On a manual run the action scans the whole history, which holds old

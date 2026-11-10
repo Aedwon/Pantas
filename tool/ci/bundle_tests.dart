@@ -37,19 +37,23 @@ const _excludesPath = 'tool/ci/bundle_excludes.txt';
 final Map<String, RegExp> _reasons = <String, RegExp>{
   'library annotation':
       RegExp(r'^@(TestOn|Tags|Timeout|Skip)\b', multiLine: true),
-  'not a plain void main()': RegExp(r'^(?!void main\(\) )', multiLine: true),
   'starts a process': RegExp(r'\bProcess\.(run|runSync|start)\b|\bProcess\b'),
-  'sets the target platform': RegExp(r'debugDefaultTargetPlatformOverride'),
+  'sets the target platform': RegExp('debugDefaultTargetPlatformOverride'),
   'sets FlutterError handlers': RegExp(r'FlutterError\.(onError|presentError)'),
-  'sets HttpOverrides': RegExp(r'HttpOverrides'),
+  'sets HttpOverrides': RegExp('HttpOverrides'),
   'mocks a method channel': RegExp(
-    r'setMockMethodCallHandler|setMockMessageHandler|setMockStreamHandler|'
-    r'TestDefaultBinaryMessengerBinding',
+    'setMockMethodCallHandler|setMockMessageHandler|setMockStreamHandler|'
+    'TestDefaultBinaryMessengerBinding',
   ),
   'changes the working directory or exits': RegExp(
     r'Directory\.current\s*=|\bexit\(',
   ),
   'reads the environment': RegExp(r'Platform\.environment'),
+  'loads fonts into the shared engine':
+      RegExp('FontLoader|loadFont|GoogleFonts'),
+  'compares golden files by path': RegExp(
+    'matchesGoldenFile|goldenFileComparator|autoUpdateGoldenFiles',
+  ),
   'sets other global state': RegExp(
     r'debugPrint\s*=|Intl\.defaultLocale\s*=|timeDilation\s*=|runZoned|'
     r'SharedPreferences\.setMock|PlatformDispatcher\.instance',
@@ -59,16 +63,10 @@ final Map<String, RegExp> _reasons = <String, RegExp>{
 /// The reason [source] has to stay a single file, or null when it can join a
 /// bundle.
 String? singleReason(String source) {
-  final annotation = _reasons['library annotation']!;
-  if (annotation.hasMatch(source)) return 'library annotation';
   if (!RegExp(r'^void main\(\) ', multiLine: true).hasMatch(source)) {
     return 'not a plain void main()';
   }
   for (final entry in _reasons.entries) {
-    if (entry.key == 'library annotation' ||
-        entry.key == 'not a plain void main()') {
-      continue;
-    }
     if (entry.value.hasMatch(source)) return entry.key;
   }
   return null;
@@ -246,8 +244,9 @@ void main(List<String> args) {
       stdout.writeln('bundle partition ok');
       return;
     }
-    problems.sort();
-    problems.forEach(stderr.writeln);
+    problems
+      ..sort()
+      ..forEach(stderr.writeln);
     exit(1);
   }
 
