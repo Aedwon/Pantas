@@ -198,10 +198,9 @@ You confirm or change this list; the screens are then drawn to answer it.
 ### What you approve
 
 - This Part 1.
-- The DS4 boards. Version 13 on the founder app canvas covers Owner Inputs and Support. Revised
-  boards follow for your three comments, the four-item menu, Growth and Content, each reviewed and
-  rendered before you see them. The built app must match the approved boards.
-  Canvas: https://claude.ai/artifact/8TwdfQP8rcvMrD6uopYC3k
+- The 32 DS4 boards on the "DS4" page of the founder app canvas, version 15:
+  https://claude.ai/artifact/8TwdfQP8rcvMrD6uopYC3k. The built app must match them on the screens
+  they show. Screens not drawn (the Posts tab, the Errors list) get their own boards first.
 
 ### How completion is judged
 
@@ -442,12 +441,14 @@ Read on `web/design-system-4` at 89559a2e2 unless stated.
 
 ### Boards
 
-Canvas "Pantas Founder App" (https://claude.ai/artifact/8TwdfQP8rcvMrD6uopYC3k), page "DS4", 20
-boards prefixed `D4`, version 13 (id 1794241164-6272). Before Aedwon saw them: an independent DS4
-review (14 findings, all fixed) and one headless render per board. DS4 bug B1: the bundle styles
-`.dtable tbody th` like a column header, so boards use `td` for row headings until DS4 fixes it; the
-build follows whichever the bundle supports at build time. Board gaps and their rulings are listed on the
-canvas notes and in the log. The earlier Green frame boards stay on their pages as history.
+Canvas "Pantas Founder App" (https://claude.ai/artifact/8TwdfQP8rcvMrD6uopYC3k), page "DS4", 32
+boards prefixed `D4`, version 15 (id 1794293118-9eca). Two independent DS4 reviews (round 1: 14
+findings; round 2: 19 findings) were fixed, and every board was rendered headless once per round.
+Gaps G1 to G8 are marked in the board markup and listed in the canvas note. DS4 bug B1: the bundle
+styles `.dtable tbody th` like a column header, so boards use `td` for row headings until DS4 fixes
+it. Scaffolding rule D1 insets fieldset legends to match Field labels (a DS4 mismatch). Growth sample
+data is one consistent set for Oct 12 to Nov 10. The step count on the student sign-up question is
+illustrative; it sits right after account creation.
 
 ### Tests at the seams
 
