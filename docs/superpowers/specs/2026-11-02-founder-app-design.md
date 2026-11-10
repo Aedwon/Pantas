@@ -331,7 +331,7 @@ Read on `web/design-system-4` at 89559a2e2 unless stated.
 10. **Founder log.** Firestore `founderLog/{id}` on each project: `at`, `action`, `uid`, `email`
     (absent for deletions), `reason`, `note`, `details`. Rules deny all client access. Written before
     an action as `pending` and updated to `done` or `failed`, so a crash leaves a trace.
-11. **Numbers.** Sign-ups from Auth creation times (listUsers paged, counted per period); payments and
+11. **Growth numbers (health part).** Sign-ups from Auth creation times (listUsers paged, counted per period); payments and
     refunds from `paymongoPayments` and grant `refunds`; failed payments from a new
     `payment.failed` webhook case writing `paymongoFailures/{eventId}` (no grant change); server
     errors from `fn_timing` lines with `outcome: 'error'`; web app errors from `client_telemetry`
@@ -343,7 +343,7 @@ Read on `web/design-system-4` at 89559a2e2 unless stated.
     and new ones, removes each from `quiz_question_reports` after success, and keeps it on failure.
     Wording (lead's copy call, written rule 4): "Report sent. Thank you." and, when offline, "Saved.
     It will send when you are back online." Rules deny client reads.
-13. **Inbox.** Lists `questionReports` by `status` (New, Needs Fix, Done). "Needs Fix" sets `toFix` and
+13. **Content reports (formerly Inbox).** Lists `questionReports` by `status` (New, Needs Fix, Done). "Needs Fix" sets `toFix` and
     appends the report to `~/Library/Application Support/Pantas Founder/content-fixes.json`, which
     content sessions read (pointer in `docs/OPERATIONS.md`). "Dismiss" sets `dismissed`. Marking fixed
     is done by the content session through the app's local file and later by Aedwon in the Inbox.
@@ -442,13 +442,8 @@ canvas notes and in the log. The earlier Green frame boards stay on their pages 
 
 ### Order
 
-1. **Owner Inputs release:** app shell, window, local server with the launch secret, Google sign-in
-   and token exchange, Owner Inputs tab with the file and key saving, the `docs/OPERATIONS.md`
-   pointer. Own worktree and branch.
-2. **Support, Numbers, Inbox:** shared core extractions in `functions/src`, founder grant type,
-   deletion path, founder log, refund flows, Numbers, report sender and Inbox, staging switch.
-3. **Outside audit:** Codex GPT 6 Astra through `codex-pick`, on money and deletion paths, before any
-   prod deploy. Findings fixed and re-checked.
-4. **Deploys:** staging first; prod only with Aedwon's go.
-
-Each step needs one local build at a time and one subagent at a time while the Mac is under load.
+As Part 1, "Build order". Step 1 runs in its own worktree and branch. Steps 2 (pantas-web and app
+source capture) and 6 (Posts) get their own plans; step 6 also its own brainstorm and boards. The
+outside audit (Codex GPT 6 Astra through `codex-pick`) covers money, deletion and the attribution
+endpoints before any production deploy. One local build and one subagent at a time while the Mac is
+under load.
