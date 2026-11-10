@@ -38,6 +38,7 @@ Columns:
 | E-007 | Nov 10 | CI speed plan: setup and coverage | CI/infra | CI speed plan, not started | n/a | not recorded | Fable 5.2 | 2 to 4 h | not given | not started | not started | | | | | | |
 | E-008 | Nov 10 | CI speed plan: duplicate run fix | CI/infra | CI speed plan, not started | n/a | not recorded | Fable 5.2 | 30 min | not given | not started | not started | | | | | | |
 | E-009 | Nov 10 | CI speed plan: slow tests and bundling | CI/infra | CI speed plan, not started | n/a | not recorded | Fable 5.2 | 1 to 1.5 days | not given | not started | not started | | | | | | |
+| E-010 | Nov 10 | Ship design system 4.0 17c8b5710 to prod (functions for the guardian versions plus hosting), live checks, 15-minute watch | deploy | DS4 lead | Opus 5.5 | not recorded | not given (the estimate rule came after) | not given | not given | Nov 10 16:52 | Nov 10 17:13 | 21 min | about 6 min (gates, diff, preflight, two deploys, live check); the rest was builds and the watch | none (CI was already green) | none | n/a | |
 
 Notes:
 
