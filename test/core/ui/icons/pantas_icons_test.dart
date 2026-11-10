@@ -44,6 +44,7 @@ void main() {
     'streak': PantasIcons.streak,
     'restDay': PantasIcons.restDay,
     'addDate': PantasIcons.addDate,
+    'calendarBlank': PantasIcons.calendarBlank,
     'pro': PantasIcons.pro,
     'progressError': PantasIcons.progressError,
     'appError': PantasIcons.appError,
@@ -87,7 +88,7 @@ void main() {
     final names = RegExp(r'static (?:Widget|IconData) get (\w+)')
         .allMatches(source)
         .map((match) => match.group(1));
-    expect(icons, hasLength(56));
+    expect(icons, hasLength(57));
     expect(names, unorderedEquals(icons.keys));
     expect(names, isNot(contains('locked')));
     expect(names, isNot(contains('lock')));
