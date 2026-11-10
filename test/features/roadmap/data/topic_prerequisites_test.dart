@@ -6,6 +6,7 @@ import 'package:pantas/core/content/content_database.dart';
 import 'package:pantas/features/roadmap/data/topic_prerequisites.dart';
 
 import '../../../../tools/build_content_seed/seed_writer.dart';
+import '../../../helpers/prebuilt_content.dart';
 
 void main() {
   late Set<String> shippedTopicIds;
@@ -18,16 +19,18 @@ void main() {
     final export = File('${fixtureDirectory.path}/export.json');
     final seed = File('${fixtureDirectory.path}/content.db');
 
-    final result = await Process.run('dart', [
-      'run',
-      'tools/build_content_export/build_content_export.dart',
-      export.path,
-    ]);
-    expect(
-      result.exitCode,
-      0,
-      reason: '${result.stdout}${result.stderr}',
-    );
+    if (!copyPrebuiltExport(export)) {
+      final result = await Process.run('dart', [
+        'run',
+        'tools/build_content_export/build_content_export.dart',
+        export.path,
+      ]);
+      expect(
+        result.exitCode,
+        0,
+        reason: '${result.stdout}${result.stderr}',
+      );
+    }
     await writeContentSeed(inputJson: export, outputDb: seed);
 
     final db = ContentDatabase(NativeDatabase(seed));

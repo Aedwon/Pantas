@@ -122,11 +122,15 @@ _Plan? _planFor(String id, DateTime now) {
 /// onboarding page is then rebuilt so its flow resumes at the target step, and
 /// the step reads its seed. Throws if the app does not become ready within
 /// [wait]; the bridge logs that and the app stays where it was.
+///
+/// [seedWindow] is how long the seed stays readable after the step opens. Only
+/// tests shorten it.
 Future<void> applyOnboardingPreset(
   ProviderContainer container,
   String id, {
   DateTime? now,
   Duration wait = const Duration(seconds: 20),
+  Duration seedWindow = const Duration(seconds: 2),
 }) async {
   final today = DateUtils.dateOnly(now ?? DateTime.now());
   final plan = _planFor(id, today);
@@ -153,7 +157,7 @@ Future<void> applyOnboardingPreset(
   // Open only on settled answers, so the first build is the right step.
   await container.read(onboardingProgressProvider.future).timeout(wait);
   await container.read(activeExamFocusProvider.future).timeout(wait);
-  await _open(container, plan);
+  await _open(container, plan, seedWindow);
 }
 
 Future<void> _answerAge(ProviderContainer container) async {
@@ -222,7 +226,11 @@ DateTime _daysAhead(DateTime today, int days) =>
 /// Rebuilds the onboarding page, then lets the target step read its seed. The
 /// page keeps its flow while it stays on the same address, so it is left for a
 /// neighbouring onboarding screen first.
-Future<void> _open(ProviderContainer container, _Plan plan) async {
+Future<void> _open(
+  ProviderContainer container,
+  _Plan plan,
+  Duration seedWindow,
+) async {
   final router = container.read(routerProvider);
   if (plan.route == '/onboarding') {
     const stopover = '/onboarding/custom/name';
@@ -233,7 +241,7 @@ Future<void> _open(ProviderContainer container, _Plan plan) async {
   router.go(plan.route);
   await _settle(router, plan.route);
   // Long enough for a rebuild caused by the refreshed answers to read it too.
-  await Future<void>.delayed(const Duration(seconds: 2));
+  await Future<void>.delayed(seedWindow);
   localPresetSeed.value = null;
 }
 
