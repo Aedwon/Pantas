@@ -54,7 +54,7 @@ final legalDocumentFallbacks = <String, LegalDocument>{
             'current age in full years. We use it once, on your device, to '
             'decide whether you can use Pantas and whether a parent or '
             'guardian must consent. Based on the age you enter, Pantas blocks '
-            'use if you are under 13 and requires your parent or guardian\'s '
+            "use if you are under 13 and requires your parent or guardian's "
             'consent if you are 13 to 17. We use your age only on your '
             'device without saving it and keep only the resulting age group '
             'there. Our servers never receive your age.',
@@ -198,8 +198,9 @@ final legalDocumentFallbacks = <String, LegalDocument>{
       LegalSection(
         heading: 'Why we may use your data',
         body: '• Age check: needed to decide whether a guardian must confirm '
-            'before you use Pantas. We use your age only on your device without '
-            'saving it and keep only the resulting age group there.\n• Account and payment records: we need them to provide '
+            'before you use Pantas. We use your age only on your device '
+            'without saving it and keep only the resulting age group there.'
+            '\n• Account and payment records: we need them to provide '
             'the service you asked for.\n• Study records: your specific '
             'permission, given at setup when you agree to the Terms and this '
             'Privacy Policy. Answers and results can relate to education.\n• '
@@ -377,10 +378,11 @@ final legalDocumentFallbacks = <String, LegalDocument>{
             'current age in full years. We use it once, on your device, to '
             'decide whether you can use Pantas and whether a parent or '
             'guardian must consent. Based on the age you enter, Pantas blocks '
-            'use if you are under 13 and requires your parent or guardian\'s '
+            "use if you are under 13 and requires your parent or guardian's "
             'consent if you are 13 to 17. We use your age only on your '
             'device without saving it and keep only the resulting age group '
-            'there. Our servers never receive your age.\n\nIf you are in the under-18 group, we record that on our '
+            'there. Our servers never receive your age.\n\n'
+            'If you are in the under-18 group, we record that on our '
             "servers with your guardian's request, so a parent or guardian "
             'can confirm.',
       ),
@@ -572,8 +574,9 @@ final legalDocumentFallbacks = <String, LegalDocument>{
       LegalSection(
         heading: 'Why we may use your data',
         body: '• Age check: needed to decide whether a guardian must confirm '
-            'before you use Pantas. We use your age only on your device without '
-            'saving it and keep only the resulting age group there. For '
+            'before you use Pantas. We use your age only on your device '
+            'without saving it and keep only the resulting age group there. '
+            'For '
             "an under-18 account, your guardian's permission covers the "
             'age-group record.\n• Account and payment records: we need them '
             'to provide the service you asked for.\n• Study records: your '
