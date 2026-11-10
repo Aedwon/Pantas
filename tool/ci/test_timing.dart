@@ -131,14 +131,28 @@ TimingReport analyzeReporterLines(Iterable<String> lines, {String? root}) {
         final time = decoded['time'];
         final open = id is int ? tests.remove(id) : null;
         if (open == null || time is! int) break;
-        final path = suitePaths[open.suiteId];
-        if (path == null) break;
+        final suitePath = suitePaths[open.suiteId];
+        if (suitePath == null) break;
         final elapsed = time - open.startMs;
-        final timing = report.files.putIfAbsent(path, () => FileTiming(path));
-        if (open.name.startsWith('loading ')) {
-          timing.loadMs += elapsed;
+        if (_loadingEntry.hasMatch(open.name)) {
+          report.files
+              .putIfAbsent(suitePath, () => FileTiming(suitePath))
+              .loadMs += elapsed;
           break;
         }
+        // A test in a bundle (tool/ci/bundle_tests.dart) is named
+        // "<member path> <name>". Report it under the member's path and its
+        // own name, so identities match a run of the single files.
+        var path = suitePath;
+        var name = open.name;
+        if (suitePath.startsWith(_bundlePrefix)) {
+          final member = _bundleMember.firstMatch(open.name);
+          if (member != null) {
+            path = member.group(1)!;
+            name = member.group(2) ?? '';
+          }
+        }
+        final timing = report.files.putIfAbsent(path, () => FileTiming(path));
         timing.runMs += elapsed;
         // Hidden entries are setUpAll and tearDownAll. Their time counts,
         // but they are not tests.
@@ -146,7 +160,7 @@ TimingReport analyzeReporterLines(Iterable<String> lines, {String? root}) {
         report.identities.add(
           TestIdentity(
             path: path,
-            name: open.name,
+            name: name,
             outcome: decoded['result'] as String? ?? 'unknown',
             skipped: decoded['skipped'] == true,
           ),
@@ -155,6 +169,16 @@ TimingReport analyzeReporterLines(Iterable<String> lines, {String? root}) {
   }
   return report;
 }
+
+/// The reporter's own entry for loading a suite: "loading <path>.dart". A
+/// real test whose name starts with "loading " is not one of these.
+final _loadingEntry = RegExp(r'^loading \S+\.dart$');
+
+const _bundlePrefix = 'build/test_bundles/';
+
+/// A bundled test's name: the member path, then the rest. A hidden setUpAll
+/// or tearDownAll of a member has the path and "(setUpAll)" after it.
+final _bundleMember = RegExp(r'^(test/\S+\.dart)(?: (.*))?$', dotAll: true);
 
 class _OpenTest {
   _OpenTest({required this.suiteId, required this.name, required this.startMs});
