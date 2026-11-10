@@ -214,12 +214,9 @@ void main(List<String> args) {
       root: root,
     );
     for (final entry in part.files.entries) {
-      final merged = report.files.putIfAbsent(
-        entry.key,
-        () => FileTiming(entry.key),
-      );
-      merged.loadMs += entry.value.loadMs;
-      merged.runMs += entry.value.runMs;
+      report.files.putIfAbsent(entry.key, () => FileTiming(entry.key))
+        ..loadMs += entry.value.loadMs
+        ..runMs += entry.value.runMs;
     }
     report.identities.addAll(part.identities);
   }
@@ -234,11 +231,12 @@ void main(List<String> args) {
   }
 
   final skipped = report.identities.where((i) => i.skipped).length;
-  stdout.writeln(
-    'files: ${report.files.length}  tests: ${report.testCount}  '
-    'skipped: $skipped',
-  );
-  stdout.writeln('slowest $top files (load + run, seconds):');
+  stdout
+    ..writeln(
+      'files: ${report.files.length}  tests: ${report.testCount}  '
+      'skipped: $skipped',
+    )
+    ..writeln('slowest $top files (load + run, seconds):');
   for (final file in report.slowest(top)) {
     stdout.writeln(
       '  ${(file.totalMs / 1000).toStringAsFixed(1).padLeft(7)}  '

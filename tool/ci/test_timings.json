@@ -1,0 +1,5564 @@
+{
+  "files": {
+    "test/app/app_boot_test.dart": {
+      "load_ms": 1171,
+      "run_ms": 2139,
+      "total_ms": 3310
+    },
+    "test/app/auth_bootstrap_test.dart": {
+      "load_ms": 933,
+      "run_ms": 97,
+      "total_ms": 1030
+    },
+    "test/app/beta_access_prewarm_test.dart": {
+      "load_ms": 1058,
+      "run_ms": 119,
+      "total_ms": 1177
+    },
+    "test/app/beta_gate_test.dart": {
+      "load_ms": 1399,
+      "run_ms": 1663,
+      "total_ms": 3062
+    },
+    "test/app/beta_waiting_page_test.dart": {
+      "load_ms": 1014,
+      "run_ms": 3024,
+      "total_ms": 4038
+    },
+    "test/app/bootstrap_recovery_test.dart": {
+      "load_ms": 1080,
+      "run_ms": 1669,
+      "total_ms": 2749
+    },
+    "test/app/bootstrap_startup_order_test.dart": {
+      "load_ms": 632,
+      "run_ms": 25,
+      "total_ms": 657
+    },
+    "test/app/content_access_bridge_test.dart": {
+      "load_ms": 1017,
+      "run_ms": 442,
+      "total_ms": 1459
+    },
+    "test/app/deferred_mock_routes_test.dart": {
+      "load_ms": 984,
+      "run_ms": 1298,
+      "total_ms": 2282
+    },
+    "test/app/deferred_route_cache_test.dart": {
+      "load_ms": 1075,
+      "run_ms": 883,
+      "total_ms": 1958
+    },
+    "test/app/deferred_route_test.dart": {
+      "load_ms": 915,
+      "run_ms": 1063,
+      "total_ms": 1978
+    },
+    "test/app/deferred_settings_routes_test.dart": {
+      "load_ms": 1274,
+      "run_ms": 1208,
+      "total_ms": 2482
+    },
+    "test/app/direct_load_back_test.dart": {
+      "load_ms": 1104,
+      "run_ms": 4256,
+      "total_ms": 5360
+    },
+    "test/app/firebase_bootstrap_test.dart": {
+      "load_ms": 1139,
+      "run_ms": 49,
+      "total_ms": 1188
+    },
+    "test/app/legal_direct_load_test.dart": {
+      "load_ms": 941,
+      "run_ms": 2932,
+      "total_ms": 3873
+    },
+    "test/app/lesson_route_web_placement_test.dart": {
+      "load_ms": 1091,
+      "run_ms": 47,
+      "total_ms": 1138
+    },
+    "test/app/mock_entitlement_override_test.dart": {
+      "load_ms": 1639,
+      "run_ms": 232,
+      "total_ms": 1871
+    },
+    "test/app/no_scroll_bars_test.dart": {
+      "load_ms": 1081,
+      "run_ms": 2581,
+      "total_ms": 3662
+    },
+    "test/app/onboarding_browser_back_test.dart": {
+      "load_ms": 1250,
+      "run_ms": 3016,
+      "total_ms": 4266
+    },
+    "test/app/onboarding_legal_links_test.dart": {
+      "load_ms": 925,
+      "run_ms": 5943,
+      "total_ms": 6868
+    },
+    "test/app/onboarding_no_tabs_test.dart": {
+      "load_ms": 1039,
+      "run_ms": 1261,
+      "total_ms": 2300
+    },
+    "test/app/router_mock_panel_test.dart": {
+      "load_ms": 1276,
+      "run_ms": 4643,
+      "total_ms": 5919
+    },
+    "test/app/router_onboarding_completion_test.dart": {
+      "load_ms": 1123,
+      "run_ms": 4867,
+      "total_ms": 5990
+    },
+    "test/app/router_paths_preserved_test.dart": {
+      "load_ms": 942,
+      "run_ms": 53,
+      "total_ms": 995
+    },
+    "test/app/router_redirect_test.dart": {
+      "load_ms": 1381,
+      "run_ms": 9595,
+      "total_ms": 10976
+    },
+    "test/app/router_settings_test.dart": {
+      "load_ms": 1033,
+      "run_ms": 1228,
+      "total_ms": 2261
+    },
+    "test/app/router_tab_bar_test.dart": {
+      "load_ms": 1128,
+      "run_ms": 3620,
+      "total_ms": 4748
+    },
+    "test/app/settings_pane_motion_test.dart": {
+      "load_ms": 1020,
+      "run_ms": 6417,
+      "total_ms": 7437
+    },
+    "test/app/shell_ds_matrix_test.dart": {
+      "load_ms": 1249,
+      "run_ms": 44283,
+      "total_ms": 45532
+    },
+    "test/app/sign_in_test.dart": {
+      "load_ms": 1211,
+      "run_ms": 7308,
+      "total_ms": 8519
+    },
+    "test/app/start_location_routes_test.dart": {
+      "load_ms": 901,
+      "run_ms": 52,
+      "total_ms": 953
+    },
+    "test/app/start_location_test.dart": {
+      "load_ms": 1106,
+      "run_ms": 164,
+      "total_ms": 1270
+    },
+    "test/app/startup_gates_test.dart": {
+      "load_ms": 1389,
+      "run_ms": 126,
+      "total_ms": 1515
+    },
+    "test/app/study_route_test.dart": {
+      "load_ms": 1215,
+      "run_ms": 11259,
+      "total_ms": 12474
+    },
+    "test/app/study_search_reopen_test.dart": {
+      "load_ms": 1160,
+      "run_ms": 3130,
+      "total_ms": 4290
+    },
+    "test/app/study_topic_history_test.dart": {
+      "load_ms": 1389,
+      "run_ms": 2330,
+      "total_ms": 3719
+    },
+    "test/app/sync_runtime_bootstrap_test.dart": {
+      "load_ms": 848,
+      "run_ms": 497,
+      "total_ms": 1345
+    },
+    "test/app/sync_runtime_composition_test.dart": {
+      "load_ms": 858,
+      "run_ms": 395,
+      "total_ms": 1253
+    },
+    "test/app/telemetry_consent_bootstrap_test.dart": {
+      "load_ms": 958,
+      "run_ms": 393,
+      "total_ms": 1351
+    },
+    "test/app/web_address_test.dart": {
+      "load_ms": 1167,
+      "run_ms": 78,
+      "total_ms": 1245
+    },
+    "test/app/web_route_shell_focus_test.dart": {
+      "load_ms": 983,
+      "run_ms": 1135,
+      "total_ms": 2118
+    },
+    "test/app/web_route_shell_state_test.dart": {
+      "load_ms": 1079,
+      "run_ms": 846,
+      "total_ms": 1925
+    },
+    "test/app/web_routes_above_lesson_test.dart": {
+      "load_ms": 11239,
+      "run_ms": 50,
+      "total_ms": 11289
+    },
+    "test/app/welcome_handover_app_test.dart": {
+      "load_ms": 1233,
+      "run_ms": 1876,
+      "total_ms": 3109
+    },
+    "test/core/auth/auth_repository_collision_test.dart": {
+      "load_ms": 860,
+      "run_ms": 36,
+      "total_ms": 896
+    },
+    "test/core/auth/auth_repository_google_test.dart": {
+      "load_ms": 1082,
+      "run_ms": 45,
+      "total_ms": 1127
+    },
+    "test/core/auth/auth_repository_privacy_test.dart": {
+      "load_ms": 870,
+      "run_ms": 43,
+      "total_ms": 913
+    },
+    "test/core/auth/auth_repository_sign_out_test.dart": {
+      "load_ms": 848,
+      "run_ms": 40,
+      "total_ms": 888
+    },
+    "test/core/auth/auth_repository_test.dart": {
+      "load_ms": 860,
+      "run_ms": 50,
+      "total_ms": 910
+    },
+    "test/core/auth/auth_state_test.dart": {
+      "load_ms": 900,
+      "run_ms": 27,
+      "total_ms": 927
+    },
+    "test/core/auth/beta_access_test.dart": {
+      "load_ms": 1183,
+      "run_ms": 117,
+      "total_ms": 1300
+    },
+    "test/core/auth/email_code_auth_test.dart": {
+      "load_ms": 1034,
+      "run_ms": 192,
+      "total_ms": 1226
+    },
+    "test/core/auth/email_link_auth_test.dart": {
+      "load_ms": 1182,
+      "run_ms": 72,
+      "total_ms": 1254
+    },
+    "test/core/auth/firebase_auth_functions_gateway_test.dart": {
+      "load_ms": 1160,
+      "run_ms": 39,
+      "total_ms": 1199
+    },
+    "test/core/auth/firebase_auth_gateway_test.dart": {
+      "load_ms": 967,
+      "run_ms": 114,
+      "total_ms": 1081
+    },
+    "test/core/auth/firebase_google_sign_in_gateway_test.dart": {
+      "load_ms": 894,
+      "run_ms": 60,
+      "total_ms": 954
+    },
+    "test/core/auth/google_existing_account_test.dart": {
+      "load_ms": 1275,
+      "run_ms": 156,
+      "total_ms": 1431
+    },
+    "test/core/auth/providers_test.dart": {
+      "load_ms": 1137,
+      "run_ms": 81,
+      "total_ms": 1218
+    },
+    "test/core/auth/public_id_provider_test.dart": {
+      "load_ms": 827,
+      "run_ms": 101,
+      "total_ms": 928
+    },
+    "test/core/content/blueprint_placeholder_test.dart": {
+      "load_ms": 978,
+      "run_ms": 87,
+      "total_ms": 1065
+    },
+    "test/core/content/bundle/content_asset_test.dart": {
+      "load_ms": 722,
+      "run_ms": 74,
+      "total_ms": 796
+    },
+    "test/core/content/bundle/protected_content_installer_test.dart": {
+      "load_ms": 1573,
+      "run_ms": 3005,
+      "total_ms": 4578
+    },
+    "test/core/content/bundle/seed_installer_test.dart": {
+      "load_ms": 1037,
+      "run_ms": 76,
+      "total_ms": 1113
+    },
+    "test/core/content/content_database_migration_test.dart": {
+      "load_ms": 878,
+      "run_ms": 85,
+      "total_ms": 963
+    },
+    "test/core/content/content_database_query_plan_test.dart": {
+      "load_ms": 1392,
+      "run_ms": 171,
+      "total_ms": 1563
+    },
+    "test/core/content/content_database_test.dart": {
+      "load_ms": 838,
+      "run_ms": 442,
+      "total_ms": 1280
+    },
+    "test/core/content/content_providers_test.dart": {
+      "load_ms": 1300,
+      "run_ms": 8731,
+      "total_ms": 10031
+    },
+    "test/core/content/content_seed_version_test.dart": {
+      "load_ms": 884,
+      "run_ms": 28,
+      "total_ms": 912
+    },
+    "test/core/content/data/exam_catalog_repository_test.dart": {
+      "load_ms": 912,
+      "run_ms": 183,
+      "total_ms": 1095
+    },
+    "test/core/content/exam_subject_groups_test.dart": {
+      "load_ms": 1221,
+      "run_ms": 38,
+      "total_ms": 1259
+    },
+    "test/core/content/mathematics_note_b_completeness_test.dart": {
+      "load_ms": 641,
+      "run_ms": 217,
+      "total_ms": 858
+    },
+    "test/core/content/note_b_reaches_the_seed_test.dart": {
+      "load_ms": 1130,
+      "run_ms": 9103,
+      "total_ms": 10233
+    },
+    "test/core/content/reading_comprehension_roundtrip_test.dart": {
+      "load_ms": 1056,
+      "run_ms": 9152,
+      "total_ms": 10208
+    },
+    "test/core/content/remote/content_catalog_test.dart": {
+      "load_ms": 843,
+      "run_ms": 42,
+      "total_ms": 885
+    },
+    "test/core/content/remote/content_checks_test.dart": {
+      "load_ms": 1461,
+      "run_ms": 395,
+      "total_ms": 1856
+    },
+    "test/core/content/remote/content_mirror_checks_test.dart": {
+      "load_ms": 845,
+      "run_ms": 332,
+      "total_ms": 1177
+    },
+    "test/core/content/remote/content_mirror_overlap_test.dart": {
+      "load_ms": 867,
+      "run_ms": 277,
+      "total_ms": 1144
+    },
+    "test/core/content/remote/content_mirror_test.dart": {
+      "load_ms": 1144,
+      "run_ms": 855,
+      "total_ms": 1999
+    },
+    "test/core/content/remote/content_service_providers_test.dart": {
+      "load_ms": 872,
+      "run_ms": 289,
+      "total_ms": 1161
+    },
+    "test/core/content/remote/content_service_test.dart": {
+      "load_ms": 930,
+      "run_ms": 387,
+      "total_ms": 1317
+    },
+    "test/core/content/remote/lesson_markdown_2f_test.dart": {
+      "load_ms": 903,
+      "run_ms": 70,
+      "total_ms": 973
+    },
+    "test/core/content/remote/lesson_markdown_test.dart": {
+      "load_ms": 1156,
+      "run_ms": 310,
+      "total_ms": 1466
+    },
+    "test/core/content/remote/question_set_mapper_test.dart": {
+      "load_ms": 940,
+      "run_ms": 51,
+      "total_ms": 991
+    },
+    "test/core/content/remote/server_catalog_contract_test.dart": {
+      "load_ms": 1132,
+      "run_ms": 57,
+      "total_ms": 1189
+    },
+    "test/core/content/remote/web_content_overrides_test.dart": {
+      "load_ms": 853,
+      "run_ms": 353,
+      "total_ms": 1206
+    },
+    "test/core/content/repos/content_fetch_hook_test.dart": {
+      "load_ms": 1242,
+      "run_ms": 435,
+      "total_ms": 1677
+    },
+    "test/core/content/repos/content_repos_test.dart": {
+      "load_ms": 936,
+      "run_ms": 466,
+      "total_ms": 1402
+    },
+    "test/core/content/repos/future_content_repos_test.dart": {
+      "load_ms": 1123,
+      "run_ms": 201,
+      "total_ms": 1324
+    },
+    "test/core/content/sanity/groq_queries_test.dart": {
+      "load_ms": 703,
+      "run_ms": 46,
+      "total_ms": 749
+    },
+    "test/core/content/sanity/parsers/doctype_parsers_test.dart": {
+      "load_ms": 1156,
+      "run_ms": 62,
+      "total_ms": 1218
+    },
+    "test/core/content/sanity/parsers/mock_blueprint_parser_test.dart": {
+      "load_ms": 857,
+      "run_ms": 62,
+      "total_ms": 919
+    },
+    "test/core/content/sanity/parsers/portable_text_parser_test.dart": {
+      "load_ms": 920,
+      "run_ms": 30,
+      "total_ms": 950
+    },
+    "test/core/content/sanity/sanity_client_test.dart": {
+      "load_ms": 660,
+      "run_ms": 70,
+      "total_ms": 730
+    },
+    "test/core/content/security/content_key_store_test.dart": {
+      "load_ms": 916,
+      "run_ms": 68,
+      "total_ms": 984
+    },
+    "test/core/content/security/content_package_manifest_test.dart": {
+      "load_ms": 1142,
+      "run_ms": 42,
+      "total_ms": 1184
+    },
+    "test/core/content/security/content_package_verifier_test.dart": {
+      "load_ms": 877,
+      "run_ms": 363,
+      "total_ms": 1240
+    },
+    "test/core/content/security/content_signing_keys_test.dart": {
+      "load_ms": 846,
+      "run_ms": 26,
+      "total_ms": 872
+    },
+    "test/core/content/security/sqlite3mc_content_profile_test.dart": {
+      "load_ms": 1129,
+      "run_ms": 83,
+      "total_ms": 1212
+    },
+    "test/core/content/sync/content_sync_coordinator_test.dart": {
+      "load_ms": 912,
+      "run_ms": 183,
+      "total_ms": 1095
+    },
+    "test/core/content/sync/sync_throttle_test.dart": {
+      "load_ms": 901,
+      "run_ms": 30,
+      "total_ms": 931
+    },
+    "test/core/content/tables/content_passages_test.dart": {
+      "load_ms": 852,
+      "run_ms": 136,
+      "total_ms": 988
+    },
+    "test/core/dev/dev_pro_switch_test.dart": {
+      "load_ms": 892,
+      "run_ms": 81,
+      "total_ms": 973
+    },
+    "test/core/dev/local_onboarding_presets_test.dart": {
+      "load_ms": 1074,
+      "run_ms": 83187,
+      "total_ms": 84261
+    },
+    "test/core/dev/local_panel_bridge_test.dart": {
+      "load_ms": 1047,
+      "run_ms": 1649,
+      "total_ms": 2696
+    },
+    "test/core/dev/local_sample_students_test.dart": {
+      "load_ms": 1361,
+      "run_ms": 5084,
+      "total_ms": 6445
+    },
+    "test/core/dev/local_student_startup_test.dart": {
+      "load_ms": 1159,
+      "run_ms": 307,
+      "total_ms": 1466
+    },
+    "test/core/error/app_error_recovery_test.dart": {
+      "load_ms": 1111,
+      "run_ms": 941,
+      "total_ms": 2052
+    },
+    "test/core/error/result_test.dart": {
+      "load_ms": 953,
+      "run_ms": 123,
+      "total_ms": 1076
+    },
+    "test/core/error/state_patterns_test.dart": {
+      "load_ms": 2008,
+      "run_ms": 832,
+      "total_ms": 2840
+    },
+    "test/core/fsrs/default_weights_test.dart": {
+      "load_ms": 944,
+      "run_ms": 31,
+      "total_ms": 975
+    },
+    "test/core/fsrs/fsrs_reference_crosscheck_test.dart": {
+      "load_ms": 1239,
+      "run_ms": 35,
+      "total_ms": 1274
+    },
+    "test/core/fsrs/fsrs_scheduler_golden_test.dart": {
+      "load_ms": 1178,
+      "run_ms": 39,
+      "total_ms": 1217
+    },
+    "test/core/fsrs/fsrs_scheduler_invariants_test.dart": {
+      "load_ms": 1281,
+      "run_ms": 36,
+      "total_ms": 1317
+    },
+    "test/core/fsrs/fsrs_scheduler_lapse_test.dart": {
+      "load_ms": 1063,
+      "run_ms": 28,
+      "total_ms": 1091
+    },
+    "test/core/fsrs/fsrs_scheduler_new_card_test.dart": {
+      "load_ms": 1047,
+      "run_ms": 32,
+      "total_ms": 1079
+    },
+    "test/core/fsrs/fsrs_scheduler_review_test.dart": {
+      "load_ms": 1158,
+      "run_ms": 46,
+      "total_ms": 1204
+    },
+    "test/core/fsrs/fsrs_scheduler_test.dart": {
+      "load_ms": 1063,
+      "run_ms": 31,
+      "total_ms": 1094
+    },
+    "test/core/fsrs/fsrs_version_migration_test.dart": {
+      "load_ms": 1158,
+      "run_ms": 42,
+      "total_ms": 1200
+    },
+    "test/core/fsrs/rating_heuristic_test.dart": {
+      "load_ms": 976,
+      "run_ms": 29,
+      "total_ms": 1005
+    },
+    "test/core/fsrs/rating_test.dart": {
+      "load_ms": 1132,
+      "run_ms": 32,
+      "total_ms": 1164
+    },
+    "test/core/platform/app_check_test.dart": {
+      "load_ms": 949,
+      "run_ms": 82,
+      "total_ms": 1031
+    },
+    "test/core/platform/callable_options_test.dart": {
+      "load_ms": 836,
+      "run_ms": 58,
+      "total_ms": 894
+    },
+    "test/core/platform/first_screen_ready_test.dart": {
+      "load_ms": 1153,
+      "run_ms": 673,
+      "total_ms": 1826
+    },
+    "test/core/platform/install/install_controller_test.dart": {
+      "load_ms": 1110,
+      "run_ms": 79,
+      "total_ms": 1189
+    },
+    "test/core/platform/install/install_platform_test.dart": {
+      "load_ms": 1004,
+      "run_ms": 102,
+      "total_ms": 1106
+    },
+    "test/core/platform/remote_flags_test.dart": {
+      "load_ms": 973,
+      "run_ms": 157,
+      "total_ms": 1130
+    },
+    "test/core/storage/age_gate_test.dart": {
+      "load_ms": 923,
+      "run_ms": 226,
+      "total_ms": 1149
+    },
+    "test/core/storage/data/app_database_test.dart": {
+      "load_ms": 1202,
+      "run_ms": 160,
+      "total_ms": 1362
+    },
+    "test/core/storage/data/custom_track_migration_test.dart": {
+      "load_ms": 1143,
+      "run_ms": 236,
+      "total_ms": 1379
+    },
+    "test/core/storage/data/durable_writes_test.dart": {
+      "load_ms": 1398,
+      "run_ms": 282,
+      "total_ms": 1680
+    },
+    "test/core/storage/data/mock_attempt_schema_test.dart": {
+      "load_ms": 906,
+      "run_ms": 245,
+      "total_ms": 1151
+    },
+    "test/core/storage/data/passages_schema_test.dart": {
+      "load_ms": 1055,
+      "run_ms": 335,
+      "total_ms": 1390
+    },
+    "test/core/storage/data/preference_migration_test.dart": {
+      "load_ms": 1098,
+      "run_ms": 168,
+      "total_ms": 1266
+    },
+    "test/core/storage/data/quiz_session_schema_test.dart": {
+      "load_ms": 1001,
+      "run_ms": 238,
+      "total_ms": 1239
+    },
+    "test/core/storage/data/report_queue_test.dart": {
+      "load_ms": 899,
+      "run_ms": 244,
+      "total_ms": 1143
+    },
+    "test/core/storage/data/repos/age_group_preferences_test.dart": {
+      "load_ms": 896,
+      "run_ms": 216,
+      "total_ms": 1112
+    },
+    "test/core/storage/data/repos/app_preferences_repository_test.dart": {
+      "load_ms": 943,
+      "run_ms": 436,
+      "total_ms": 1379
+    },
+    "test/core/storage/data/repos/assessment_repository_test.dart": {
+      "load_ms": 1119,
+      "run_ms": 242,
+      "total_ms": 1361
+    },
+    "test/core/storage/data/repos/attempts_repository_active_days_test.dart": {
+      "load_ms": 1043,
+      "run_ms": 270,
+      "total_ms": 1313
+    },
+    "test/core/storage/data/repos/attempts_repository_count_test.dart": {
+      "load_ms": 853,
+      "run_ms": 196,
+      "total_ms": 1049
+    },
+    "test/core/storage/data/repos/attempts_repository_history_test.dart": {
+      "load_ms": 1136,
+      "run_ms": 267,
+      "total_ms": 1403
+    },
+    "test/core/storage/data/repos/attempts_repository_notes_test.dart": {
+      "load_ms": 879,
+      "run_ms": 297,
+      "total_ms": 1176
+    },
+    "test/core/storage/data/repos/attempts_repository_outcomes_test.dart": {
+      "load_ms": 966,
+      "run_ms": 292,
+      "total_ms": 1258
+    },
+    "test/core/storage/data/repos/attempts_repository_pace_test.dart": {
+      "load_ms": 1178,
+      "run_ms": 341,
+      "total_ms": 1519
+    },
+    "test/core/storage/data/repos/attempts_repository_test.dart": {
+      "load_ms": 974,
+      "run_ms": 261,
+      "total_ms": 1235
+    },
+    "test/core/storage/data/repos/content_repository_search_test.dart": {
+      "load_ms": 1145,
+      "run_ms": 207,
+      "total_ms": 1352
+    },
+    "test/core/storage/data/repos/content_repository_selection_test.dart": {
+      "load_ms": 1140,
+      "run_ms": 416,
+      "total_ms": 1556
+    },
+    "test/core/storage/data/repos/content_repository_test.dart": {
+      "load_ms": 1181,
+      "run_ms": 307,
+      "total_ms": 1488
+    },
+    "test/core/storage/data/repos/content_repository_topics_by_exam_test.dart": {
+      "load_ms": 1045,
+      "run_ms": 185,
+      "total_ms": 1230
+    },
+    "test/core/storage/data/repos/custom_track_repository_test.dart": {
+      "load_ms": 960,
+      "run_ms": 394,
+      "total_ms": 1354
+    },
+    "test/core/storage/data/repos/lesson_bookmarks_repository_test.dart": {
+      "load_ms": 1133,
+      "run_ms": 459,
+      "total_ms": 1592
+    },
+    "test/core/storage/data/repos/lesson_progress_repository_test.dart": {
+      "load_ms": 919,
+      "run_ms": 455,
+      "total_ms": 1374
+    },
+    "test/core/storage/data/repos/question_flags_repository_test.dart": {
+      "load_ms": 1000,
+      "run_ms": 467,
+      "total_ms": 1467
+    },
+    "test/core/storage/data/repos/quiz_nudge_repository_test.dart": {
+      "load_ms": 1099,
+      "run_ms": 300,
+      "total_ms": 1399
+    },
+    "test/core/storage/data/repos/review_state_repository_test.dart": {
+      "load_ms": 1117,
+      "run_ms": 251,
+      "total_ms": 1368
+    },
+    "test/core/storage/data/repos/streak_repository_test.dart": {
+      "load_ms": 1209,
+      "run_ms": 181,
+      "total_ms": 1390
+    },
+    "test/core/storage/data/seeder_withdrawal_test.dart": {
+      "load_ms": 1390,
+      "run_ms": 165,
+      "total_ms": 1555
+    },
+    "test/core/storage/data/sync_schema_test.dart": {
+      "load_ms": 809,
+      "run_ms": 234,
+      "total_ms": 1043
+    },
+    "test/core/storage/data/tables/lesson_bookmarks_migration_test.dart": {
+      "load_ms": 1060,
+      "run_ms": 178,
+      "total_ms": 1238
+    },
+    "test/core/storage/data/tables/question_flags_migration_test.dart": {
+      "load_ms": 896,
+      "run_ms": 165,
+      "total_ms": 1061
+    },
+    "test/core/storage/data/user_metrics_archetype_schema_test.dart": {
+      "load_ms": 1213,
+      "run_ms": 187,
+      "total_ms": 1400
+    },
+    "test/core/storage/data/user_metrics_artifact_schema_test.dart": {
+      "load_ms": 1010,
+      "run_ms": 186,
+      "total_ms": 1196
+    },
+    "test/core/storage/domain/attempt_json_test.dart": {
+      "load_ms": 1087,
+      "run_ms": 32,
+      "total_ms": 1119
+    },
+    "test/core/storage/domain/attempt_origins_test.dart": {
+      "load_ms": 993,
+      "run_ms": 66,
+      "total_ms": 1059
+    },
+    "test/core/storage/domain/attempt_test.dart": {
+      "load_ms": 1140,
+      "run_ms": 26,
+      "total_ms": 1166
+    },
+    "test/core/storage/domain/choice_order_test.dart": {
+      "load_ms": 1181,
+      "run_ms": 62,
+      "total_ms": 1243
+    },
+    "test/core/storage/domain/choice_test.dart": {
+      "load_ms": 1228,
+      "run_ms": 21,
+      "total_ms": 1249
+    },
+    "test/core/storage/domain/exam_date_test.dart": {
+      "load_ms": 1170,
+      "run_ms": 43,
+      "total_ms": 1213
+    },
+    "test/core/storage/domain/exam_test.dart": {
+      "load_ms": 1024,
+      "run_ms": 24,
+      "total_ms": 1048
+    },
+    "test/core/storage/domain/lesson_test.dart": {
+      "load_ms": 1135,
+      "run_ms": 34,
+      "total_ms": 1169
+    },
+    "test/core/storage/domain/model_json_roundtrip_test.dart": {
+      "load_ms": 953,
+      "run_ms": 42,
+      "total_ms": 995
+    },
+    "test/core/storage/domain/passage_grouping_test.dart": {
+      "load_ms": 899,
+      "run_ms": 32,
+      "total_ms": 931
+    },
+    "test/core/storage/domain/question_test.dart": {
+      "load_ms": 845,
+      "run_ms": 30,
+      "total_ms": 875
+    },
+    "test/core/storage/domain/review_state_test.dart": {
+      "load_ms": 897,
+      "run_ms": 27,
+      "total_ms": 924
+    },
+    "test/core/storage/domain/subject_test.dart": {
+      "load_ms": 1140,
+      "run_ms": 20,
+      "total_ms": 1160
+    },
+    "test/core/storage/domain/topic_test.dart": {
+      "load_ms": 923,
+      "run_ms": 28,
+      "total_ms": 951
+    },
+    "test/core/storage/selected_exam_focus_test.dart": {
+      "load_ms": 941,
+      "run_ms": 338,
+      "total_ms": 1279
+    },
+    "test/core/storage/shared_subject_scope_test.dart": {
+      "load_ms": 1137,
+      "run_ms": 1443,
+      "total_ms": 2580
+    },
+    "test/core/storage/track_scope_test.dart": {
+      "load_ms": 1447,
+      "run_ms": 473,
+      "total_ms": 1920
+    },
+    "test/core/sync/backoff_policy_test.dart": {
+      "load_ms": 797,
+      "run_ms": 27,
+      "total_ms": 824
+    },
+    "test/core/sync/bootstrap/full_pull_test.dart": {
+      "load_ms": 889,
+      "run_ms": 617,
+      "total_ms": 1506
+    },
+    "test/core/sync/bootstrap/full_push_test.dart": {
+      "load_ms": 1213,
+      "run_ms": 538,
+      "total_ms": 1751
+    },
+    "test/core/sync/claim_expiry_test.dart": {
+      "load_ms": 910,
+      "run_ms": 38,
+      "total_ms": 948
+    },
+    "test/core/sync/cloud_progress_gateway_test.dart": {
+      "load_ms": 1251,
+      "run_ms": 30,
+      "total_ms": 1281
+    },
+    "test/core/sync/collection_registry_test.dart": {
+      "load_ms": 955,
+      "run_ms": 34,
+      "total_ms": 989
+    },
+    "test/core/sync/custom_track_authority_test.dart": {
+      "load_ms": 1127,
+      "run_ms": 377,
+      "total_ms": 1504
+    },
+    "test/core/sync/custom_track_projection_test.dart": {
+      "load_ms": 950,
+      "run_ms": 277,
+      "total_ms": 1227
+    },
+    "test/core/sync/firebase_firestore_gateway_test.dart": {
+      "load_ms": 987,
+      "run_ms": 101,
+      "total_ms": 1088
+    },
+    "test/core/sync/firebase_sync_functions_gateway_test.dart": {
+      "load_ms": 810,
+      "run_ms": 35,
+      "total_ms": 845
+    },
+    "test/core/sync/firestore_gateway_contract_test.dart": {
+      "load_ms": 930,
+      "run_ms": 47,
+      "total_ms": 977
+    },
+    "test/core/sync/generation_repository_test.dart": {
+      "load_ms": 866,
+      "run_ms": 44,
+      "total_ms": 910
+    },
+    "test/core/sync/local_state_wiper_test.dart": {
+      "load_ms": 885,
+      "run_ms": 357,
+      "total_ms": 1242
+    },
+    "test/core/sync/local_sync_mutation_recorder_test.dart": {
+      "load_ms": 1194,
+      "run_ms": 339,
+      "total_ms": 1533
+    },
+    "test/core/sync/mapping/assessment_mapper_test.dart": {
+      "load_ms": 891,
+      "run_ms": 32,
+      "total_ms": 923
+    },
+    "test/core/sync/mapping/attempt_mapper_test.dart": {
+      "load_ms": 839,
+      "run_ms": 51,
+      "total_ms": 890
+    },
+    "test/core/sync/mapping/custom_blueprint_mapper_test.dart": {
+      "load_ms": 885,
+      "run_ms": 23,
+      "total_ms": 908
+    },
+    "test/core/sync/mapping/design_fields_roundtrip_test.dart": {
+      "load_ms": 975,
+      "run_ms": 31,
+      "total_ms": 1006
+    },
+    "test/core/sync/mapping/fsrs_card_mapper_test.dart": {
+      "load_ms": 889,
+      "run_ms": 24,
+      "total_ms": 913
+    },
+    "test/core/sync/mapping/lesson_bookmark_mapper_test.dart": {
+      "load_ms": 861,
+      "run_ms": 32,
+      "total_ms": 893
+    },
+    "test/core/sync/mapping/lesson_progress_mapper_test.dart": {
+      "load_ms": 1223,
+      "run_ms": 37,
+      "total_ms": 1260
+    },
+    "test/core/sync/mapping/mock_attempt_mapper_test.dart": {
+      "load_ms": 870,
+      "run_ms": 21,
+      "total_ms": 891
+    },
+    "test/core/sync/mapping/preferences_mapper_test.dart": {
+      "load_ms": 1087,
+      "run_ms": 32,
+      "total_ms": 1119
+    },
+    "test/core/sync/mapping/question_flag_mapper_test.dart": {
+      "load_ms": 868,
+      "run_ms": 44,
+      "total_ms": 912
+    },
+    "test/core/sync/mapping/review_log_mapper_test.dart": {
+      "load_ms": 1083,
+      "run_ms": 24,
+      "total_ms": 1107
+    },
+    "test/core/sync/mapping/track_scope_mapper_test.dart": {
+      "load_ms": 1102,
+      "run_ms": 38,
+      "total_ms": 1140
+    },
+    "test/core/sync/meaningful_progress_test.dart": {
+      "load_ms": 848,
+      "run_ms": 279,
+      "total_ms": 1127
+    },
+    "test/core/sync/pending_queue_test.dart": {
+      "load_ms": 766,
+      "run_ms": 273,
+      "total_ms": 1039
+    },
+    "test/core/sync/producers/core_local_producers_test.dart": {
+      "load_ms": 902,
+      "run_ms": 568,
+      "total_ms": 1470
+    },
+    "test/core/sync/producers/remaining_local_producers_test.dart": {
+      "load_ms": 851,
+      "run_ms": 302,
+      "total_ms": 1153
+    },
+    "test/core/sync/production_sync_runtime_engine_test.dart": {
+      "load_ms": 907,
+      "run_ms": 10776,
+      "total_ms": 11683
+    },
+    "test/core/sync/providers_test.dart": {
+      "load_ms": 953,
+      "run_ms": 122,
+      "total_ms": 1075
+    },
+    "test/core/sync/pull_pipeline_test.dart": {
+      "load_ms": 788,
+      "run_ms": 377,
+      "total_ms": 1165
+    },
+    "test/core/sync/push_pipeline_test.dart": {
+      "load_ms": 772,
+      "run_ms": 376,
+      "total_ms": 1148
+    },
+    "test/core/sync/silent_sync_test.dart": {
+      "load_ms": 958,
+      "run_ms": 5780,
+      "total_ms": 6738
+    },
+    "test/core/sync/sync_account_transition_gateway_test.dart": {
+      "load_ms": 924,
+      "run_ms": 31,
+      "total_ms": 955
+    },
+    "test/core/sync/sync_active_context_store_test.dart": {
+      "load_ms": 959,
+      "run_ms": 299,
+      "total_ms": 1258
+    },
+    "test/core/sync/sync_collection_adapter_test.dart": {
+      "load_ms": 829,
+      "run_ms": 248,
+      "total_ms": 1077
+    },
+    "test/core/sync/sync_coordinator_test.dart": {
+      "load_ms": 1043,
+      "run_ms": 28,
+      "total_ms": 1071
+    },
+    "test/core/sync/sync_eligibility_test.dart": {
+      "load_ms": 1210,
+      "run_ms": 26,
+      "total_ms": 1236
+    },
+    "test/core/sync/sync_engine_listener_test.dart": {
+      "load_ms": 1115,
+      "run_ms": 27,
+      "total_ms": 1142
+    },
+    "test/core/sync/sync_engine_test.dart": {
+      "load_ms": 914,
+      "run_ms": 198,
+      "total_ms": 1112
+    },
+    "test/core/sync/sync_new_row_binding_test.dart": {
+      "load_ms": 1234,
+      "run_ms": 6715,
+      "total_ms": 7949
+    },
+    "test/core/sync/sync_outbox_promoter_test.dart": {
+      "load_ms": 917,
+      "run_ms": 304,
+      "total_ms": 1221
+    },
+    "test/core/sync/sync_runtime_controller_test.dart": {
+      "load_ms": 1222,
+      "run_ms": 1147,
+      "total_ms": 2369
+    },
+    "test/core/sync/sync_schema_test.dart": {
+      "load_ms": 1085,
+      "run_ms": 250,
+      "total_ms": 1335
+    },
+    "test/core/sync/sync_status_test.dart": {
+      "load_ms": 760,
+      "run_ms": 25,
+      "total_ms": 785
+    },
+    "test/core/telemetry/client_report_test.dart": {
+      "load_ms": 1043,
+      "run_ms": 272,
+      "total_ms": 1315
+    },
+    "test/core/telemetry/crash_reporting_test.dart": {
+      "load_ms": 899,
+      "run_ms": 80,
+      "total_ms": 979
+    },
+    "test/core/telemetry/error_boundary_test.dart": {
+      "load_ms": 1132,
+      "run_ms": 50,
+      "total_ms": 1182
+    },
+    "test/core/telemetry/gated_telemetry_test.dart": {
+      "load_ms": 945,
+      "run_ms": 90,
+      "total_ms": 1035
+    },
+    "test/core/telemetry/perf_timeline_test.dart": {
+      "load_ms": 998,
+      "run_ms": 333,
+      "total_ms": 1331
+    },
+    "test/core/telemetry/question_answered_test.dart": {
+      "load_ms": 1378,
+      "run_ms": 60,
+      "total_ms": 1438
+    },
+    "test/core/telemetry/telemetry_test.dart": {
+      "load_ms": 1219,
+      "run_ms": 119,
+      "total_ms": 1338
+    },
+    "test/core/time/date_entry_validator_test.dart": {
+      "load_ms": 1005,
+      "run_ms": 52,
+      "total_ms": 1057
+    },
+    "test/core/time/local_day_test.dart": {
+      "load_ms": 1134,
+      "run_ms": 36,
+      "total_ms": 1170
+    },
+    "test/core/time/pantas_dates_test.dart": {
+      "load_ms": 1127,
+      "run_ms": 67,
+      "total_ms": 1194
+    },
+    "test/core/time/study_days_test.dart": {
+      "load_ms": 921,
+      "run_ms": 787,
+      "total_ms": 1708
+    },
+    "test/core/ui/components/accessibility_test.dart": {
+      "load_ms": 954,
+      "run_ms": 1106,
+      "total_ms": 2060
+    },
+    "test/core/ui/components/accuracy_bar_steps_test.dart": {
+      "load_ms": 1045,
+      "run_ms": 1102,
+      "total_ms": 2147
+    },
+    "test/core/ui/components/answer_reveal_phone_test.dart": {
+      "load_ms": 1002,
+      "run_ms": 840,
+      "total_ms": 1842
+    },
+    "test/core/ui/components/audit_avatar_fallback_test.dart": {
+      "load_ms": 948,
+      "run_ms": 946,
+      "total_ms": 1894
+    },
+    "test/core/ui/components/audit_color_tokens_test.dart": {
+      "load_ms": 1006,
+      "run_ms": 1098,
+      "total_ms": 2104
+    },
+    "test/core/ui/components/audit_dialog_spacing_test.dart": {
+      "load_ms": 1082,
+      "run_ms": 1245,
+      "total_ms": 2327
+    },
+    "test/core/ui/components/audit_grid_dim_test.dart": {
+      "load_ms": 952,
+      "run_ms": 1008,
+      "total_ms": 1960
+    },
+    "test/core/ui/components/audit_horizontal_wheel_test.dart": {
+      "load_ms": 972,
+      "run_ms": 1428,
+      "total_ms": 2400
+    },
+    "test/core/ui/components/audit_image_recovery_test.dart": {
+      "load_ms": 1491,
+      "run_ms": 959,
+      "total_ms": 2450
+    },
+    "test/core/ui/components/audit_math_markdown_test.dart": {
+      "load_ms": 914,
+      "run_ms": 1032,
+      "total_ms": 1946
+    },
+    "test/core/ui/components/audit_progress_motion_test.dart": {
+      "load_ms": 1226,
+      "run_ms": 982,
+      "total_ms": 2208
+    },
+    "test/core/ui/components/audit_question_spacing_test.dart": {
+      "load_ms": 952,
+      "run_ms": 781,
+      "total_ms": 1733
+    },
+    "test/core/ui/components/audit_question_states_test.dart": {
+      "load_ms": 1004,
+      "run_ms": 1139,
+      "total_ms": 2143
+    },
+    "test/core/ui/components/audit_scope_board_test.dart": {
+      "load_ms": 1179,
+      "run_ms": 1561,
+      "total_ms": 2740
+    },
+    "test/core/ui/components/audit_search_keyboard_test.dart": {
+      "load_ms": 959,
+      "run_ms": 1462,
+      "total_ms": 2421
+    },
+    "test/core/ui/components/audit_toast_focus_test.dart": {
+      "load_ms": 964,
+      "run_ms": 871,
+      "total_ms": 1835
+    },
+    "test/core/ui/components/card_footer_test.dart": {
+      "load_ms": 1258,
+      "run_ms": 1428,
+      "total_ms": 2686
+    },
+    "test/core/ui/components/centered_dialog_ds_test.dart": {
+      "load_ms": 1240,
+      "run_ms": 2259,
+      "total_ms": 3499
+    },
+    "test/core/ui/components/centered_dialog_escape_test.dart": {
+      "load_ms": 1335,
+      "run_ms": 1025,
+      "total_ms": 2360
+    },
+    "test/core/ui/components/check_mark_test.dart": {
+      "load_ms": 1160,
+      "run_ms": 973,
+      "total_ms": 2133
+    },
+    "test/core/ui/components/chip_motion_test.dart": {
+      "load_ms": 1238,
+      "run_ms": 1232,
+      "total_ms": 2470
+    },
+    "test/core/ui/components/containers_completion_test.dart": {
+      "load_ms": 1011,
+      "run_ms": 2871,
+      "total_ms": 3882
+    },
+    "test/core/ui/components/content_completion_test.dart": {
+      "load_ms": 1145,
+      "run_ms": 2823,
+      "total_ms": 3968
+    },
+    "test/core/ui/components/content_fallback_contrast_test.dart": {
+      "load_ms": 1041,
+      "run_ms": 786,
+      "total_ms": 1827
+    },
+    "test/core/ui/components/content_tables_test.dart": {
+      "load_ms": 943,
+      "run_ms": 1626,
+      "total_ms": 2569
+    },
+    "test/core/ui/components/contents_glyph_reader_test.dart": {
+      "load_ms": 1176,
+      "run_ms": 760,
+      "total_ms": 1936
+    },
+    "test/core/ui/components/data_table_test.dart": {
+      "load_ms": 740,
+      "run_ms": 1594,
+      "total_ms": 2334
+    },
+    "test/core/ui/components/date_wheels_ds_test.dart": {
+      "load_ms": 1306,
+      "run_ms": 3497,
+      "total_ms": 4803
+    },
+    "test/core/ui/components/destructive_contrast_test.dart": {
+      "load_ms": 984,
+      "run_ms": 1378,
+      "total_ms": 2362
+    },
+    "test/core/ui/components/disabled_action_label_test.dart": {
+      "load_ms": 1018,
+      "run_ms": 1258,
+      "total_ms": 2276
+    },
+    "test/core/ui/components/exam_name_line_test.dart": {
+      "load_ms": 1206,
+      "run_ms": 599,
+      "total_ms": 1805
+    },
+    "test/core/ui/components/exam_picker_extensions_test.dart": {
+      "load_ms": 968,
+      "run_ms": 1336,
+      "total_ms": 2304
+    },
+    "test/core/ui/components/figure_credit_test.dart": {
+      "load_ms": 1098,
+      "run_ms": 1266,
+      "total_ms": 2364
+    },
+    "test/core/ui/components/figure_frame_button_test.dart": {
+      "load_ms": 920,
+      "run_ms": 1087,
+      "total_ms": 2007
+    },
+    "test/core/ui/components/figure_viewer_back_test.dart": {
+      "load_ms": 1200,
+      "run_ms": 1636,
+      "total_ms": 2836
+    },
+    "test/core/ui/components/figure_viewer_test.dart": {
+      "load_ms": 1000,
+      "run_ms": 3385,
+      "total_ms": 4385
+    },
+    "test/core/ui/components/floating_bar_content_test.dart": {
+      "load_ms": 1104,
+      "run_ms": 696,
+      "total_ms": 1800
+    },
+    "test/core/ui/components/floating_bar_motion_override_test.dart": {
+      "load_ms": 1152,
+      "run_ms": 995,
+      "total_ms": 2147
+    },
+    "test/core/ui/components/full_state_board_test.dart": {
+      "load_ms": 1213,
+      "run_ms": 1061,
+      "total_ms": 2274
+    },
+    "test/core/ui/components/gallery_board_polish_test.dart": {
+      "load_ms": 1211,
+      "run_ms": 1380,
+      "total_ms": 2591
+    },
+    "test/core/ui/components/gallery_test.dart": {
+      "load_ms": 1473,
+      "run_ms": 2958,
+      "total_ms": 4431
+    },
+    "test/core/ui/components/gauge_ring_ds_test.dart": {
+      "load_ms": 1245,
+      "run_ms": 1742,
+      "total_ms": 2987
+    },
+    "test/core/ui/components/grouped_section_test.dart": {
+      "load_ms": 1447,
+      "run_ms": 958,
+      "total_ms": 2405
+    },
+    "test/core/ui/components/half_ring_gauge_large_text_test.dart": {
+      "load_ms": 1026,
+      "run_ms": 958,
+      "total_ms": 1984
+    },
+    "test/core/ui/components/half_ring_gauge_quiz_count_test.dart": {
+      "load_ms": 984,
+      "run_ms": 1215,
+      "total_ms": 2199
+    },
+    "test/core/ui/components/half_ring_gauge_test.dart": {
+      "load_ms": 911,
+      "run_ms": 1212,
+      "total_ms": 2123
+    },
+    "test/core/ui/components/hold_to_repeat_test.dart": {
+      "load_ms": 897,
+      "run_ms": 751,
+      "total_ms": 1648
+    },
+    "test/core/ui/components/inline_math_baseline_test.dart": {
+      "load_ms": 1268,
+      "run_ms": 2737,
+      "total_ms": 4005
+    },
+    "test/core/ui/components/inputs_completion_test.dart": {
+      "load_ms": 979,
+      "run_ms": 5015,
+      "total_ms": 5994
+    },
+    "test/core/ui/components/install_card_test.dart": {
+      "load_ms": 1320,
+      "run_ms": 1640,
+      "total_ms": 2960
+    },
+    "test/core/ui/components/install_ds_test.dart": {
+      "load_ms": 1330,
+      "run_ms": 2062,
+      "total_ms": 3392
+    },
+    "test/core/ui/components/lesson_svg_test.dart": {
+      "load_ms": 1059,
+      "run_ms": 8634,
+      "total_ms": 9693
+    },
+    "test/core/ui/components/list_row_coming_soon_test.dart": {
+      "load_ms": 1064,
+      "run_ms": 1111,
+      "total_ms": 2175
+    },
+    "test/core/ui/components/list_row_ds_test.dart": {
+      "load_ms": 1561,
+      "run_ms": 2679,
+      "total_ms": 4240
+    },
+    "test/core/ui/components/list_row_title_widget_test.dart": {
+      "load_ms": 1100,
+      "run_ms": 1129,
+      "total_ms": 2229
+    },
+    "test/core/ui/components/list_row_value_fit_test.dart": {
+      "load_ms": 983,
+      "run_ms": 986,
+      "total_ms": 1969
+    },
+    "test/core/ui/components/math_accessibility_test.dart": {
+      "load_ms": 1083,
+      "run_ms": 1494,
+      "total_ms": 2577
+    },
+    "test/core/ui/components/math_numerals_test.dart": {
+      "load_ms": 1048,
+      "run_ms": 1033,
+      "total_ms": 2081
+    },
+    "test/core/ui/components/math_support_test.dart": {
+      "load_ms": 940,
+      "run_ms": 49,
+      "total_ms": 989
+    },
+    "test/core/ui/components/mock_gauge_reveal_test.dart": {
+      "load_ms": 1289,
+      "run_ms": 715,
+      "total_ms": 2004
+    },
+    "test/core/ui/components/mock_shared_contract_test.dart": {
+      "load_ms": 1054,
+      "run_ms": 1458,
+      "total_ms": 2512
+    },
+    "test/core/ui/components/month_first_typed_date_test.dart": {
+      "load_ms": 1247,
+      "run_ms": 6054,
+      "total_ms": 7301
+    },
+    "test/core/ui/components/neutral_button_test.dart": {
+      "load_ms": 1002,
+      "run_ms": 1573,
+      "total_ms": 2575
+    },
+    "test/core/ui/components/notice_strip_ds_test.dart": {
+      "load_ms": 1254,
+      "run_ms": 3121,
+      "total_ms": 4375
+    },
+    "test/core/ui/components/onboarding_date_extensions_test.dart": {
+      "load_ms": 1315,
+      "run_ms": 3086,
+      "total_ms": 4401
+    },
+    "test/core/ui/components/onboarding_extensions_test.dart": {
+      "load_ms": 1065,
+      "run_ms": 1720,
+      "total_ms": 2785
+    },
+    "test/core/ui/components/page_title_test.dart": {
+      "load_ms": 1017,
+      "run_ms": 1231,
+      "total_ms": 2248
+    },
+    "test/core/ui/components/pantas_button_test.dart": {
+      "load_ms": 1155,
+      "run_ms": 3331,
+      "total_ms": 4486
+    },
+    "test/core/ui/components/pantas_field_test.dart": {
+      "load_ms": 1225,
+      "run_ms": 1833,
+      "total_ms": 3058
+    },
+    "test/core/ui/components/pantas_icon_button_test.dart": {
+      "load_ms": 1264,
+      "run_ms": 2345,
+      "total_ms": 3609
+    },
+    "test/core/ui/components/pantas_page_short_window_test.dart": {
+      "load_ms": 1094,
+      "run_ms": 945,
+      "total_ms": 2039
+    },
+    "test/core/ui/components/pantas_popover_test.dart": {
+      "load_ms": 1075,
+      "run_ms": 3024,
+      "total_ms": 4099
+    },
+    "test/core/ui/components/pantas_select_test.dart": {
+      "load_ms": 1015,
+      "run_ms": 1851,
+      "total_ms": 2866
+    },
+    "test/core/ui/components/pantas_sheet_test.dart": {
+      "load_ms": 1474,
+      "run_ms": 1476,
+      "total_ms": 2950
+    },
+    "test/core/ui/components/pantas_sheet_wide_test.dart": {
+      "load_ms": 1007,
+      "run_ms": 1067,
+      "total_ms": 2074
+    },
+    "test/core/ui/components/pantas_slider_test.dart": {
+      "load_ms": 999,
+      "run_ms": 1372,
+      "total_ms": 2371
+    },
+    "test/core/ui/components/pantas_switch_ds_test.dart": {
+      "load_ms": 1005,
+      "run_ms": 2128,
+      "total_ms": 3133
+    },
+    "test/core/ui/components/pantas_switch_test.dart": {
+      "load_ms": 887,
+      "run_ms": 1439,
+      "total_ms": 2326
+    },
+    "test/core/ui/components/pantas_tag_test.dart": {
+      "load_ms": 1073,
+      "run_ms": 2100,
+      "total_ms": 3173
+    },
+    "test/core/ui/components/pantas_tooltip_test.dart": {
+      "load_ms": 1238,
+      "run_ms": 1718,
+      "total_ms": 2956
+    },
+    "test/core/ui/components/paused_quiz_notice_test.dart": {
+      "load_ms": 1280,
+      "run_ms": 1020,
+      "total_ms": 2300
+    },
+    "test/core/ui/components/phone_date_calendar_test.dart": {
+      "load_ms": 1328,
+      "run_ms": 14374,
+      "total_ms": 15702
+    },
+    "test/core/ui/components/placeholder_figure_test.dart": {
+      "load_ms": 1016,
+      "run_ms": 817,
+      "total_ms": 1833
+    },
+    "test/core/ui/components/plain_stem_label_test.dart": {
+      "load_ms": 1000,
+      "run_ms": 763,
+      "total_ms": 1763
+    },
+    "test/core/ui/components/practice_page_extensions_test.dart": {
+      "load_ms": 964,
+      "run_ms": 974,
+      "total_ms": 1938
+    },
+    "test/core/ui/components/practice_scope_extensions_test.dart": {
+      "load_ms": 968,
+      "run_ms": 1124,
+      "total_ms": 2092
+    },
+    "test/core/ui/components/pro_paused_line_test.dart": {
+      "load_ms": 1146,
+      "run_ms": 815,
+      "total_ms": 1961
+    },
+    "test/core/ui/components/progress_bar_timer_test.dart": {
+      "load_ms": 1049,
+      "run_ms": 1873,
+      "total_ms": 2922
+    },
+    "test/core/ui/components/progress_completion_test.dart": {
+      "load_ms": 1312,
+      "run_ms": 1665,
+      "total_ms": 2977
+    },
+    "test/core/ui/components/pull_ring_test.dart": {
+      "load_ms": 1253,
+      "run_ms": 1187,
+      "total_ms": 2440
+    },
+    "test/core/ui/components/question_stem_emphasis_test.dart": {
+      "load_ms": 1040,
+      "run_ms": 1115,
+      "total_ms": 2155
+    },
+    "test/core/ui/components/quiz_row_extensions_test.dart": {
+      "load_ms": 902,
+      "run_ms": 919,
+      "total_ms": 1821
+    },
+    "test/core/ui/components/reader_2f_test.dart": {
+      "load_ms": 1061,
+      "run_ms": 1963,
+      "total_ms": 3024
+    },
+    "test/core/ui/components/reader_blocks_test.dart": {
+      "load_ms": 1035,
+      "run_ms": 3099,
+      "total_ms": 4134
+    },
+    "test/core/ui/components/reader_content_extensions_test.dart": {
+      "load_ms": 1255,
+      "run_ms": 2028,
+      "total_ms": 3283
+    },
+    "test/core/ui/components/reader_contents_sheet_variant_test.dart": {
+      "load_ms": 1240,
+      "run_ms": 1496,
+      "total_ms": 2736
+    },
+    "test/core/ui/components/reader_design_test.dart": {
+      "load_ms": 1094,
+      "run_ms": 5275,
+      "total_ms": 6369
+    },
+    "test/core/ui/components/report_form_test.dart": {
+      "load_ms": 1000,
+      "run_ms": 2073,
+      "total_ms": 3073
+    },
+    "test/core/ui/components/review_list_test.dart": {
+      "load_ms": 1139,
+      "run_ms": 1732,
+      "total_ms": 2871
+    },
+    "test/core/ui/components/review_model_test.dart": {
+      "load_ms": 1116,
+      "run_ms": 37,
+      "total_ms": 1153
+    },
+    "test/core/ui/components/row_dialog_accessibility_test.dart": {
+      "load_ms": 1051,
+      "run_ms": 1317,
+      "total_ms": 2368
+    },
+    "test/core/ui/components/row_titles_wrap_test.dart": {
+      "load_ms": 992,
+      "run_ms": 1623,
+      "total_ms": 2615
+    },
+    "test/core/ui/components/score_breakdown_row_test.dart": {
+      "load_ms": 1041,
+      "run_ms": 1037,
+      "total_ms": 2078
+    },
+    "test/core/ui/components/search_field_states_test.dart": {
+      "load_ms": 967,
+      "run_ms": 1904,
+      "total_ms": 2871
+    },
+    "test/core/ui/components/section_header_test.dart": {
+      "load_ms": 1019,
+      "run_ms": 1613,
+      "total_ms": 2632
+    },
+    "test/core/ui/components/segmented_ds_test.dart": {
+      "load_ms": 1006,
+      "run_ms": 1296,
+      "total_ms": 2302
+    },
+    "test/core/ui/components/segmented_motion_test.dart": {
+      "load_ms": 1256,
+      "run_ms": 1367,
+      "total_ms": 2623
+    },
+    "test/core/ui/components/segmented_switch_large_text_test.dart": {
+      "load_ms": 977,
+      "run_ms": 1014,
+      "total_ms": 1991
+    },
+    "test/core/ui/components/segmented_switch_pro_fit_test.dart": {
+      "load_ms": 958,
+      "run_ms": 814,
+      "total_ms": 1772
+    },
+    "test/core/ui/components/segmented_switch_test.dart": {
+      "load_ms": 919,
+      "run_ms": 1683,
+      "total_ms": 2602
+    },
+    "test/core/ui/components/selectable_tile_test.dart": {
+      "load_ms": 1341,
+      "run_ms": 2950,
+      "total_ms": 4291
+    },
+    "test/core/ui/components/selection_row_ds_test.dart": {
+      "load_ms": 1032,
+      "run_ms": 3059,
+      "total_ms": 4091
+    },
+    "test/core/ui/components/selection_row_states_test.dart": {
+      "load_ms": 1217,
+      "run_ms": 1094,
+      "total_ms": 2311
+    },
+    "test/core/ui/components/selection_row_unification_test.dart": {
+      "load_ms": 1198,
+      "run_ms": 877,
+      "total_ms": 2075
+    },
+    "test/core/ui/components/shared_board_corrections_test.dart": {
+      "load_ms": 950,
+      "run_ms": 894,
+      "total_ms": 1844
+    },
+    "test/core/ui/components/skeleton_ds_test.dart": {
+      "load_ms": 1274,
+      "run_ms": 2038,
+      "total_ms": 3312
+    },
+    "test/core/ui/components/skeleton_fade_test.dart": {
+      "load_ms": 1211,
+      "run_ms": 1275,
+      "total_ms": 2486
+    },
+    "test/core/ui/components/skeleton_reveal_test.dart": {
+      "load_ms": 1165,
+      "run_ms": 805,
+      "total_ms": 1970
+    },
+    "test/core/ui/components/sort_cycle_button_test.dart": {
+      "load_ms": 1033,
+      "run_ms": 1748,
+      "total_ms": 2781
+    },
+    "test/core/ui/components/stat_row_avatar_chip_ds_test.dart": {
+      "load_ms": 1496,
+      "run_ms": 2377,
+      "total_ms": 3873
+    },
+    "test/core/ui/components/state_patterns_test.dart": {
+      "load_ms": 1223,
+      "run_ms": 1142,
+      "total_ms": 2365
+    },
+    "test/core/ui/components/state_view_bookmark_layout_test.dart": {
+      "load_ms": 1056,
+      "run_ms": 749,
+      "total_ms": 1805
+    },
+    "test/core/ui/components/state_view_ds_test.dart": {
+      "load_ms": 941,
+      "run_ms": 2154,
+      "total_ms": 3095
+    },
+    "test/core/ui/components/states_completion_test.dart": {
+      "load_ms": 1397,
+      "run_ms": 1516,
+      "total_ms": 2913
+    },
+    "test/core/ui/components/structure_completion_test.dart": {
+      "load_ms": 1152,
+      "run_ms": 3013,
+      "total_ms": 4165
+    },
+    "test/core/ui/components/study_map_extensions_test.dart": {
+      "load_ms": 1236,
+      "run_ms": 1050,
+      "total_ms": 2286
+    },
+    "test/core/ui/components/study_map_tokens_test.dart": {
+      "load_ms": 880,
+      "run_ms": 27,
+      "total_ms": 907
+    },
+    "test/core/ui/components/study_search_extensions_test.dart": {
+      "load_ms": 982,
+      "run_ms": 1400,
+      "total_ms": 2382
+    },
+    "test/core/ui/components/study_state_extensions_test.dart": {
+      "load_ms": 1050,
+      "run_ms": 1605,
+      "total_ms": 2655
+    },
+    "test/core/ui/components/task_status_test.dart": {
+      "load_ms": 994,
+      "run_ms": 1297,
+      "total_ms": 2291
+    },
+    "test/core/ui/components/toast_ds_test.dart": {
+      "load_ms": 1001,
+      "run_ms": 1624,
+      "total_ms": 2625
+    },
+    "test/core/ui/components/today_questions_test.dart": {
+      "load_ms": 941,
+      "run_ms": 1001,
+      "total_ms": 1942
+    },
+    "test/core/ui/components/typed_date_field_test.dart": {
+      "load_ms": 1050,
+      "run_ms": 3273,
+      "total_ms": 4323
+    },
+    "test/core/ui/components/value_wheel_fling_test.dart": {
+      "load_ms": 1158,
+      "run_ms": 1208,
+      "total_ms": 2366
+    },
+    "test/core/ui/components/web_button_feedback_test.dart": {
+      "load_ms": 1010,
+      "run_ms": 925,
+      "total_ms": 1935
+    },
+    "test/core/ui/components/week_strip_ds_test.dart": {
+      "load_ms": 1249,
+      "run_ms": 2221,
+      "total_ms": 3470
+    },
+    "test/core/ui/enter_repeat_test.dart": {
+      "load_ms": 1169,
+      "run_ms": 1169,
+      "total_ms": 2338
+    },
+    "test/core/ui/figures/chart_figure_ds_test.dart": {
+      "load_ms": 754,
+      "run_ms": 1390,
+      "total_ms": 2144
+    },
+    "test/core/ui/figures/figure_drawing_fixes_test.dart": {
+      "load_ms": 802,
+      "run_ms": 984,
+      "total_ms": 1786
+    },
+    "test/core/ui/figures/lesson_figure_widget_test.dart": {
+      "load_ms": 994,
+      "run_ms": 1973,
+      "total_ms": 2967
+    },
+    "test/core/ui/figures/lesson_original_code_a_test.dart": {
+      "load_ms": 1049,
+      "run_ms": 1271,
+      "total_ms": 2320
+    },
+    "test/core/ui/figures/lesson_original_code_b_test.dart": {
+      "load_ms": 938,
+      "run_ms": 1154,
+      "total_ms": 2092
+    },
+    "test/core/ui/figures/lesson_reasoning_figure_variants_test.dart": {
+      "load_ms": 1195,
+      "run_ms": 968,
+      "total_ms": 2163
+    },
+    "test/core/ui/figures/question_figure_test.dart": {
+      "load_ms": 1109,
+      "run_ms": 2241,
+      "total_ms": 3350
+    },
+    "test/core/ui/icons/appearance_stroke_test.dart": {
+      "load_ms": 1079,
+      "run_ms": 35,
+      "total_ms": 1114
+    },
+    "test/core/ui/icons/pantas_icons_test.dart": {
+      "load_ms": 1008,
+      "run_ms": 628,
+      "total_ms": 1636
+    },
+    "test/core/ui/leave_page_test.dart": {
+      "load_ms": 1249,
+      "run_ms": 1480,
+      "total_ms": 2729
+    },
+    "test/core/ui/misc_ds_test.dart": {
+      "load_ms": 1065,
+      "run_ms": 4083,
+      "total_ms": 5148
+    },
+    "test/core/ui/motion/fading_color_test.dart": {
+      "load_ms": 1004,
+      "run_ms": 592,
+      "total_ms": 1596
+    },
+    "test/core/ui/motion/motion_constants_test.dart": {
+      "load_ms": 799,
+      "run_ms": 29,
+      "total_ms": 828
+    },
+    "test/core/ui/motion/overlay_focus_return_test.dart": {
+      "load_ms": 1027,
+      "run_ms": 1735,
+      "total_ms": 2762
+    },
+    "test/core/ui/motion/pane_transition_test.dart": {
+      "load_ms": 1222,
+      "run_ms": 1240,
+      "total_ms": 2462
+    },
+    "test/core/ui/motion/pantas_curves_test.dart": {
+      "load_ms": 1013,
+      "run_ms": 83,
+      "total_ms": 1096
+    },
+    "test/core/ui/motion/pantas_durations_test.dart": {
+      "load_ms": 704,
+      "run_ms": 20,
+      "total_ms": 724
+    },
+    "test/core/ui/motion/pantas_effects_test.dart": {
+      "load_ms": 1411,
+      "run_ms": 984,
+      "total_ms": 2395
+    },
+    "test/core/ui/motion/press_scale_test.dart": {
+      "load_ms": 1004,
+      "run_ms": 963,
+      "total_ms": 1967
+    },
+    "test/core/ui/motion/press_scale_wiring_test.dart": {
+      "load_ms": 628,
+      "run_ms": 137,
+      "total_ms": 765
+    },
+    "test/core/ui/motion/view_swap_test.dart": {
+      "load_ms": 1232,
+      "run_ms": 929,
+      "total_ms": 2161
+    },
+    "test/core/ui/motion/view_swap_wiring_test.dart": {
+      "load_ms": 765,
+      "run_ms": 89,
+      "total_ms": 854
+    },
+    "test/core/ui/motion/web_overlay_motion_test.dart": {
+      "load_ms": 990,
+      "run_ms": 1199,
+      "total_ms": 2189
+    },
+    "test/core/ui/motion/web_page_transitions_test.dart": {
+      "load_ms": 700,
+      "run_ms": 1060,
+      "total_ms": 1760
+    },
+    "test/core/ui/placeholders_test.dart": {
+      "load_ms": 666,
+      "run_ms": 134,
+      "total_ms": 800
+    },
+    "test/core/ui/reader_rise_route_test.dart": {
+      "load_ms": 996,
+      "run_ms": 1697,
+      "total_ms": 2693
+    },
+    "test/core/ui/reader_route_cover_test.dart": {
+      "load_ms": 935,
+      "run_ms": 1081,
+      "total_ms": 2016
+    },
+    "test/core/ui/reader_transition_test.dart": {
+      "load_ms": 1194,
+      "run_ms": 934,
+      "total_ms": 2128
+    },
+    "test/core/ui/skeleton_layout_test.dart": {
+      "load_ms": 1125,
+      "run_ms": 2473,
+      "total_ms": 3598
+    },
+    "test/core/ui/straight_apostrophes_test.dart": {
+      "load_ms": 712,
+      "run_ms": 184,
+      "total_ms": 896
+    },
+    "test/core/ui/theme/app_text_scale_test.dart": {
+      "load_ms": 1045,
+      "run_ms": 452,
+      "total_ms": 1497
+    },
+    "test/core/ui/theme/app_theme_test.dart": {
+      "load_ms": 1012,
+      "run_ms": 193,
+      "total_ms": 1205
+    },
+    "test/core/ui/theme/font_licenses_test.dart": {
+      "load_ms": 889,
+      "run_ms": 52,
+      "total_ms": 941
+    },
+    "test/core/ui/theme/fonts_declared_test.dart": {
+      "load_ms": 1294,
+      "run_ms": 59,
+      "total_ms": 1353
+    },
+    "test/core/ui/theme/lesson_text_scale_test.dart": {
+      "load_ms": 1247,
+      "run_ms": 796,
+      "total_ms": 2043
+    },
+    "test/core/ui/theme/pantas_colors_test.dart": {
+      "load_ms": 951,
+      "run_ms": 41,
+      "total_ms": 992
+    },
+    "test/core/ui/theme/pantas_shape_test.dart": {
+      "load_ms": 671,
+      "run_ms": 18,
+      "total_ms": 689
+    },
+    "test/core/ui/theme/pantas_theme_api_test.dart": {
+      "load_ms": 746,
+      "run_ms": 670,
+      "total_ms": 1416
+    },
+    "test/core/ui/theme/pantas_theme_test.dart": {
+      "load_ms": 734,
+      "run_ms": 808,
+      "total_ms": 1542
+    },
+    "test/core/ui/theme/pantas_type_test.dart": {
+      "load_ms": 763,
+      "run_ms": 57,
+      "total_ms": 820
+    },
+    "test/core/ui/theme/raw_control_fallback_test.dart": {
+      "load_ms": 1023,
+      "run_ms": 894,
+      "total_ms": 1917
+    },
+    "test/core/ui/theme/reader_full_width_test.dart": {
+      "load_ms": 1079,
+      "run_ms": 316,
+      "total_ms": 1395
+    },
+    "test/core/ui/web/command_key_label_test.dart": {
+      "load_ms": 1110,
+      "run_ms": 19,
+      "total_ms": 1129
+    },
+    "test/core/ui/web/letter_shortcuts_test.dart": {
+      "load_ms": 1288,
+      "run_ms": 1203,
+      "total_ms": 2491
+    },
+    "test/core/ui/web/web_actions_test.dart": {
+      "load_ms": 1203,
+      "run_ms": 2629,
+      "total_ms": 3832
+    },
+    "test/core/ui/web/web_answer_keys_test.dart": {
+      "load_ms": 984,
+      "run_ms": 1252,
+      "total_ms": 2236
+    },
+    "test/core/ui/web/web_back_link_shape_test.dart": {
+      "load_ms": 930,
+      "run_ms": 1310,
+      "total_ms": 2240
+    },
+    "test/core/ui/web/web_card_row_ds_test.dart": {
+      "load_ms": 1343,
+      "run_ms": 2893,
+      "total_ms": 4236
+    },
+    "test/core/ui/web/web_components_test.dart": {
+      "load_ms": 1027,
+      "run_ms": 2114,
+      "total_ms": 3141
+    },
+    "test/core/ui/web/web_full_notice_test.dart": {
+      "load_ms": 970,
+      "run_ms": 921,
+      "total_ms": 1891
+    },
+    "test/core/ui/web/web_key_focus_enter_test.dart": {
+      "load_ms": 1183,
+      "run_ms": 996,
+      "total_ms": 2179
+    },
+    "test/core/ui/web/web_key_focus_test.dart": {
+      "load_ms": 1003,
+      "run_ms": 1734,
+      "total_ms": 2737
+    },
+    "test/core/ui/web/web_keyboard_focus_ring_test.dart": {
+      "load_ms": 1017,
+      "run_ms": 1423,
+      "total_ms": 2440
+    },
+    "test/core/ui/web/web_layout_test.dart": {
+      "load_ms": 651,
+      "run_ms": 23,
+      "total_ms": 674
+    },
+    "test/core/ui/web/web_layout_theme_test.dart": {
+      "load_ms": 1253,
+      "run_ms": 805,
+      "total_ms": 2058
+    },
+    "test/core/ui/web/web_motion_test.dart": {
+      "load_ms": 1053,
+      "run_ms": 2528,
+      "total_ms": 3581
+    },
+    "test/core/ui/web/web_overlays_ds_test.dart": {
+      "load_ms": 1224,
+      "run_ms": 1665,
+      "total_ms": 2889
+    },
+    "test/core/ui/web/web_responsive_test.dart": {
+      "load_ms": 1010,
+      "run_ms": 1219,
+      "total_ms": 2229
+    },
+    "test/core/ui/web/web_row_motion_test.dart": {
+      "load_ms": 1235,
+      "run_ms": 1270,
+      "total_ms": 2505
+    },
+    "test/core/ui/web/web_segmented_labels_test.dart": {
+      "load_ms": 995,
+      "run_ms": 1398,
+      "total_ms": 2393
+    },
+    "test/core/ui/web/web_settings_avatar_test.dart": {
+      "load_ms": 1041,
+      "run_ms": 1095,
+      "total_ms": 2136
+    },
+    "test/core/ui/web/web_settings_loading_test.dart": {
+      "load_ms": 933,
+      "run_ms": 1027,
+      "total_ms": 1960
+    },
+    "test/core/ui/web/web_sweep_5q_test.dart": {
+      "load_ms": 1260,
+      "run_ms": 1645,
+      "total_ms": 2905
+    },
+    "test/core/ui/web/web_sweep_5r_test.dart": {
+      "load_ms": 970,
+      "run_ms": 1445,
+      "total_ms": 2415
+    },
+    "test/core/ui/web/web_tokens_test.dart": {
+      "load_ms": 695,
+      "run_ms": 171,
+      "total_ms": 866
+    },
+    "test/core/ui/web_row_test.dart": {
+      "load_ms": 935,
+      "run_ms": 1127,
+      "total_ms": 2062
+    },
+    "test/features/assessment/domain/models/topic_mastery_test.dart": {
+      "load_ms": 968,
+      "run_ms": 118,
+      "total_ms": 1086
+    },
+    "test/features/assessment/domain/services/assessment_question_selector_test.dart": {
+      "load_ms": 1218,
+      "run_ms": 528,
+      "total_ms": 1746
+    },
+    "test/features/assessment/domain/use_cases/complete_assessment_test.dart": {
+      "load_ms": 865,
+      "run_ms": 821,
+      "total_ms": 1686
+    },
+    "test/features/assessment/domain/use_cases/start_assessment_test.dart": {
+      "load_ms": 879,
+      "run_ms": 411,
+      "total_ms": 1290
+    },
+    "test/features/assessment/presentation/assessment_handoff_test.dart": {
+      "load_ms": 948,
+      "run_ms": 6726,
+      "total_ms": 7674
+    },
+    "test/features/assessment/presentation/assessment_page_test.dart": {
+      "load_ms": 986,
+      "run_ms": 4190,
+      "total_ms": 5176
+    },
+    "test/features/assessment/presentation/assessment_results_page_test.dart": {
+      "load_ms": 1277,
+      "run_ms": 3042,
+      "total_ms": 4319
+    },
+    "test/features/assessment/presentation/web_assessment_5r_test.dart": {
+      "load_ms": 1083,
+      "run_ms": 1953,
+      "total_ms": 3036
+    },
+    "test/features/assessment/presentation/web_assessment_enter_test.dart": {
+      "load_ms": 1480,
+      "run_ms": 1083,
+      "total_ms": 2563
+    },
+    "test/features/assessment/presentation/web_assessment_routes_test.dart": {
+      "load_ms": 1029,
+      "run_ms": 3020,
+      "total_ms": 4049
+    },
+    "test/features/assessment/presentation/web_assessment_test.dart": {
+      "load_ms": 1240,
+      "run_ms": 1517,
+      "total_ms": 2757
+    },
+    "test/features/beta_feedback/application/beta_day_reporter_test.dart": {
+      "load_ms": 1174,
+      "run_ms": 3667,
+      "total_ms": 4841
+    },
+    "test/features/beta_feedback/application/beta_feedback_providers_test.dart": {
+      "load_ms": 892,
+      "run_ms": 51,
+      "total_ms": 943
+    },
+    "test/features/beta_feedback/data/firebase_beta_feedback_api_test.dart": {
+      "load_ms": 1025,
+      "run_ms": 133,
+      "total_ms": 1158
+    },
+    "test/features/beta_feedback/data/picker_beta_image_source_test.dart": {
+      "load_ms": 1009,
+      "run_ms": 54,
+      "total_ms": 1063
+    },
+    "test/features/beta_feedback/presentation/exit_survey_page_test.dart": {
+      "load_ms": 1239,
+      "run_ms": 6177,
+      "total_ms": 7416
+    },
+    "test/features/beta_feedback/presentation/feedback_matrix_test.dart": {
+      "load_ms": 971,
+      "run_ms": 6311,
+      "total_ms": 7282
+    },
+    "test/features/beta_feedback/presentation/feedback_page_test.dart": {
+      "load_ms": 1147,
+      "run_ms": 7110,
+      "total_ms": 8257
+    },
+    "test/features/beta_feedback/presentation/feedback_shell_test.dart": {
+      "load_ms": 1016,
+      "run_ms": 2786,
+      "total_ms": 3802
+    },
+    "test/features/beta_feedback/presentation/reward_card_test.dart": {
+      "load_ms": 1316,
+      "run_ms": 4757,
+      "total_ms": 6073
+    },
+    "test/features/beta_feedback/presentation/sent_feedback_page_test.dart": {
+      "load_ms": 1223,
+      "run_ms": 1633,
+      "total_ms": 2856
+    },
+    "test/features/guardian/balanced_text_test.dart": {
+      "load_ms": 985,
+      "run_ms": 597,
+      "total_ms": 1582
+    },
+    "test/features/guardian/guardian_confirm_page_test.dart": {
+      "load_ms": 1349,
+      "run_ms": 2378,
+      "total_ms": 3727
+    },
+    "test/features/guardian/guardian_consent_test.dart": {
+      "load_ms": 991,
+      "run_ms": 35,
+      "total_ms": 1026
+    },
+    "test/features/guardian/guardian_controller_test.dart": {
+      "load_ms": 996,
+      "run_ms": 329,
+      "total_ms": 1325
+    },
+    "test/features/guardian/guardian_gateway_test.dart": {
+      "load_ms": 1017,
+      "run_ms": 120,
+      "total_ms": 1137
+    },
+    "test/features/guardian/guardian_waiting_page_test.dart": {
+      "load_ms": 1077,
+      "run_ms": 3323,
+      "total_ms": 4400
+    },
+    "test/features/home/application/home_day_extras_test.dart": {
+      "load_ms": 950,
+      "run_ms": 42,
+      "total_ms": 992
+    },
+    "test/features/home/application/home_notices_test.dart": {
+      "load_ms": 944,
+      "run_ms": 248,
+      "total_ms": 1192
+    },
+    "test/features/home/application/home_today_launch_test.dart": {
+      "load_ms": 1023,
+      "run_ms": 6108,
+      "total_ms": 7131
+    },
+    "test/features/home/application/home_today_loader_test.dart": {
+      "load_ms": 982,
+      "run_ms": 3477,
+      "total_ms": 4459
+    },
+    "test/features/home/application/home_today_main_button_test.dart": {
+      "load_ms": 1266,
+      "run_ms": 8981,
+      "total_ms": 10247
+    },
+    "test/features/home/application/how_you_work_provider_test.dart": {
+      "load_ms": 915,
+      "run_ms": 7234,
+      "total_ms": 8149
+    },
+    "test/features/home/application/miss_causes_provider_test.dart": {
+      "load_ms": 940,
+      "run_ms": 569,
+      "total_ms": 1509
+    },
+    "test/features/home/application/performance/performance_provider_test.dart": {
+      "load_ms": 1105,
+      "run_ms": 1373,
+      "total_ms": 2478
+    },
+    "test/features/home/application/performance/performance_view_provider_test.dart": {
+      "load_ms": 1026,
+      "run_ms": 508,
+      "total_ms": 1534
+    },
+    "test/features/home/application/performance/performance_weighting_test.dart": {
+      "load_ms": 1258,
+      "run_ms": 2393,
+      "total_ms": 3651
+    },
+    "test/features/home/application/performance/table_order_prefs_test.dart": {
+      "load_ms": 891,
+      "run_ms": 408,
+      "total_ms": 1299
+    },
+    "test/features/home/application/performance/topic_accuracy_provider_test.dart": {
+      "load_ms": 877,
+      "run_ms": 580,
+      "total_ms": 1457
+    },
+    "test/features/home/application/performance/topic_detail_test.dart": {
+      "load_ms": 939,
+      "run_ms": 510,
+      "total_ms": 1449
+    },
+    "test/features/home/application/plan_coming_up_test.dart": {
+      "load_ms": 950,
+      "run_ms": 23,
+      "total_ms": 973
+    },
+    "test/features/home/application/plan_data_test.dart": {
+      "load_ms": 1164,
+      "run_ms": 56,
+      "total_ms": 1220
+    },
+    "test/features/home/application/record_provider_test.dart": {
+      "load_ms": 1119,
+      "run_ms": 1050,
+      "total_ms": 2169
+    },
+    "test/features/home/application/record_server_history_test.dart": {
+      "load_ms": 859,
+      "run_ms": 281,
+      "total_ms": 1140
+    },
+    "test/features/home/application/record_sunday_test.dart": {
+      "load_ms": 969,
+      "run_ms": 239,
+      "total_ms": 1208
+    },
+    "test/features/home/application/server_tendencies_test.dart": {
+      "load_ms": 817,
+      "run_ms": 27,
+      "total_ms": 844
+    },
+    "test/features/home/application/server_today_test.dart": {
+      "load_ms": 1051,
+      "run_ms": 94,
+      "total_ms": 1145
+    },
+    "test/features/home/application/settling_retry_test.dart": {
+      "load_ms": 1007,
+      "run_ms": 192,
+      "total_ms": 1199
+    },
+    "test/features/home/application/study_coverage_test.dart": {
+      "load_ms": 976,
+      "run_ms": 64,
+      "total_ms": 1040
+    },
+    "test/features/home/application/study_remote_providers_test.dart": {
+      "load_ms": 1224,
+      "run_ms": 1928,
+      "total_ms": 3152
+    },
+    "test/features/home/application/web_study_seam_test.dart": {
+      "load_ms": 1270,
+      "run_ms": 137,
+      "total_ms": 1407
+    },
+    "test/features/home/data/plan_history_reader_test.dart": {
+      "load_ms": 1023,
+      "run_ms": 42,
+      "total_ms": 1065
+    },
+    "test/features/home/data/study_api_test.dart": {
+      "load_ms": 1165,
+      "run_ms": 47,
+      "total_ms": 1212
+    },
+    "test/features/home/data/study_observations_test.dart": {
+      "load_ms": 1163,
+      "run_ms": 433,
+      "total_ms": 1596
+    },
+    "test/features/home/data/study_read_cache_test.dart": {
+      "load_ms": 1278,
+      "run_ms": 184,
+      "total_ms": 1462
+    },
+    "test/features/home/data/study_snapshot_reader_test.dart": {
+      "load_ms": 1018,
+      "run_ms": 379,
+      "total_ms": 1397
+    },
+    "test/features/home/data/study_writes_test.dart": {
+      "load_ms": 1188,
+      "run_ms": 56,
+      "total_ms": 1244
+    },
+    "test/features/home/domain/home_day_note_test.dart": {
+      "load_ms": 886,
+      "run_ms": 42,
+      "total_ms": 928
+    },
+    "test/features/home/domain/home_mock_row_test.dart": {
+      "load_ms": 945,
+      "run_ms": 20,
+      "total_ms": 965
+    },
+    "test/features/home/domain/home_today_view_test.dart": {
+      "load_ms": 1081,
+      "run_ms": 53,
+      "total_ms": 1134
+    },
+    "test/features/home/domain/lesson_day_context_test.dart": {
+      "load_ms": 1157,
+      "run_ms": 37,
+      "total_ms": 1194
+    },
+    "test/features/home/domain/study_models_test.dart": {
+      "load_ms": 861,
+      "run_ms": 49,
+      "total_ms": 910
+    },
+    "test/features/home/presentation/accuracy_axis_test.dart": {
+      "load_ms": 831,
+      "run_ms": 20,
+      "total_ms": 851
+    },
+    "test/features/home/presentation/deep_link_ready_test.dart": {
+      "load_ms": 1259,
+      "run_ms": 1463,
+      "total_ms": 2722
+    },
+    "test/features/home/presentation/home_controls_hover_test.dart": {
+      "load_ms": 1010,
+      "run_ms": 1329,
+      "total_ms": 2339
+    },
+    "test/features/home/presentation/home_screens_matrix_test.dart": {
+      "load_ms": 1425,
+      "run_ms": 10200,
+      "total_ms": 11625
+    },
+    "test/features/home/presentation/home_tab_test.dart": {
+      "load_ms": 1063,
+      "run_ms": 6030,
+      "total_ms": 7093
+    },
+    "test/features/home/presentation/home_today_refresh_test.dart": {
+      "load_ms": 930,
+      "run_ms": 1768,
+      "total_ms": 2698
+    },
+    "test/features/home/presentation/home_today_screen_test.dart": {
+      "load_ms": 1067,
+      "run_ms": 3920,
+      "total_ms": 4987
+    },
+    "test/features/home/presentation/home_week_strip_provider_test.dart": {
+      "load_ms": 1199,
+      "run_ms": 21,
+      "total_ms": 1220
+    },
+    "test/features/home/presentation/performance_page_test.dart": {
+      "load_ms": 1348,
+      "run_ms": 2596,
+      "total_ms": 3944
+    },
+    "test/features/home/presentation/performance_screen_test.dart": {
+      "load_ms": 989,
+      "run_ms": 2895,
+      "total_ms": 3884
+    },
+    "test/features/home/presentation/performance_titles_test.dart": {
+      "load_ms": 974,
+      "run_ms": 1939,
+      "total_ms": 2913
+    },
+    "test/features/home/presentation/plan_day_page_test.dart": {
+      "load_ms": 1031,
+      "run_ms": 1460,
+      "total_ms": 2491
+    },
+    "test/features/home/presentation/plan_day_today_frame_test.dart": {
+      "load_ms": 1265,
+      "run_ms": 2845,
+      "total_ms": 4110
+    },
+    "test/features/home/presentation/plan_page_test.dart": {
+      "load_ms": 974,
+      "run_ms": 2173,
+      "total_ms": 3147
+    },
+    "test/features/home/presentation/plan_reader_web_test.dart": {
+      "load_ms": 1021,
+      "run_ms": 2038,
+      "total_ms": 3059
+    },
+    "test/features/home/presentation/plan_screen_test.dart": {
+      "load_ms": 1164,
+      "run_ms": 3264,
+      "total_ms": 4428
+    },
+    "test/features/home/presentation/plan_web_frame_test.dart": {
+      "load_ms": 990,
+      "run_ms": 792,
+      "total_ms": 1782
+    },
+    "test/features/home/presentation/plan_web_test.dart": {
+      "load_ms": 1091,
+      "run_ms": 4873,
+      "total_ms": 5964
+    },
+    "test/features/home/presentation/practice_launcher_test.dart": {
+      "load_ms": 978,
+      "run_ms": 1182,
+      "total_ms": 2160
+    },
+    "test/features/home/presentation/record_page_test.dart": {
+      "load_ms": 1191,
+      "run_ms": 960,
+      "total_ms": 2151
+    },
+    "test/features/home/presentation/record_screen_test.dart": {
+      "load_ms": 1575,
+      "run_ms": 1229,
+      "total_ms": 2804
+    },
+    "test/features/home/presentation/tendencies_page_test.dart": {
+      "load_ms": 1067,
+      "run_ms": 1788,
+      "total_ms": 2855
+    },
+    "test/features/home/presentation/topic_detail_page_test.dart": {
+      "load_ms": 1051,
+      "run_ms": 1597,
+      "total_ms": 2648
+    },
+    "test/features/home/presentation/topic_not_found_test.dart": {
+      "load_ms": 1027,
+      "run_ms": 934,
+      "total_ms": 1961
+    },
+    "test/features/home/presentation/web/home_cards_test.dart": {
+      "load_ms": 983,
+      "run_ms": 921,
+      "total_ms": 1904
+    },
+    "test/features/home/presentation/web/home_exam_tile_test.dart": {
+      "load_ms": 1340,
+      "run_ms": 1371,
+      "total_ms": 2711
+    },
+    "test/features/home/presentation/web/home_header_wide_test.dart": {
+      "load_ms": 1029,
+      "run_ms": 2392,
+      "total_ms": 3421
+    },
+    "test/features/home/presentation/web/home_notice_polish_test.dart": {
+      "load_ms": 1012,
+      "run_ms": 1650,
+      "total_ms": 2662
+    },
+    "test/features/home/presentation/web/home_quiet_states_test.dart": {
+      "load_ms": 1067,
+      "run_ms": 1505,
+      "total_ms": 2572
+    },
+    "test/features/home/presentation/web/home_web_overlay_motion_test.dart": {
+      "load_ms": 1226,
+      "run_ms": 1719,
+      "total_ms": 2945
+    },
+    "test/features/home/presentation/web/home_wide_test.dart": {
+      "load_ms": 1088,
+      "run_ms": 6107,
+      "total_ms": 7195
+    },
+    "test/features/home/presentation/web/web_hover_5q_test.dart": {
+      "load_ms": 993,
+      "run_ms": 1028,
+      "total_ms": 2021
+    },
+    "test/features/home/presentation/web_performance_screen_test.dart": {
+      "load_ms": 1289,
+      "run_ms": 3930,
+      "total_ms": 5219
+    },
+    "test/features/home/presentation/web_performance_sort_keyboard_test.dart": {
+      "load_ms": 1320,
+      "run_ms": 1956,
+      "total_ms": 3276
+    },
+    "test/features/home/presentation/web_performance_test.dart": {
+      "load_ms": 976,
+      "run_ms": 3060,
+      "total_ms": 4036
+    },
+    "test/features/home/presentation/web_record_tendencies_test.dart": {
+      "load_ms": 1097,
+      "run_ms": 6238,
+      "total_ms": 7335
+    },
+    "test/features/home/presentation/week_window_test.dart": {
+      "load_ms": 1087,
+      "run_ms": 2726,
+      "total_ms": 3813
+    },
+    "test/features/home/presentation/widgets/accuracy_line_test.dart": {
+      "load_ms": 979,
+      "run_ms": 795,
+      "total_ms": 1774
+    },
+    "test/features/home/presentation/widgets/home_exam_date_sheet_test.dart": {
+      "load_ms": 1230,
+      "run_ms": 2496,
+      "total_ms": 3726
+    },
+    "test/features/home/presentation/widgets/home_exam_day_test.dart": {
+      "load_ms": 1279,
+      "run_ms": 1033,
+      "total_ms": 2312
+    },
+    "test/features/home/presentation/widgets/home_install_slot_test.dart": {
+      "load_ms": 1010,
+      "run_ms": 1668,
+      "total_ms": 2678
+    },
+    "test/features/home/presentation/widgets/home_masthead_test.dart": {
+      "load_ms": 931,
+      "run_ms": 1488,
+      "total_ms": 2419
+    },
+    "test/features/home/presentation/widgets/home_masthead_week_chip_test.dart": {
+      "load_ms": 1326,
+      "run_ms": 1685,
+      "total_ms": 3011
+    },
+    "test/features/home/presentation/widgets/home_notice_strip_test.dart": {
+      "load_ms": 1013,
+      "run_ms": 2284,
+      "total_ms": 3297
+    },
+    "test/features/home/presentation/widgets/home_performance_card_test.dart": {
+      "load_ms": 932,
+      "run_ms": 1164,
+      "total_ms": 2096
+    },
+    "test/features/home/presentation/widgets/home_performance_section_test.dart": {
+      "load_ms": 926,
+      "run_ms": 904,
+      "total_ms": 1830
+    },
+    "test/features/home/presentation/widgets/home_state_card_test.dart": {
+      "load_ms": 1035,
+      "run_ms": 1252,
+      "total_ms": 2287
+    },
+    "test/features/home/presentation/widgets/home_today_checklist_test.dart": {
+      "load_ms": 1483,
+      "run_ms": 2957,
+      "total_ms": 4440
+    },
+    "test/features/legal/application/legal_providers_test.dart": {
+      "load_ms": 1145,
+      "run_ms": 38,
+      "total_ms": 1183
+    },
+    "test/features/legal/domain/legal_document_test.dart": {
+      "load_ms": 932,
+      "run_ms": 47,
+      "total_ms": 979
+    },
+    "test/features/legal/presentation/legal_document_page_test.dart": {
+      "load_ms": 910,
+      "run_ms": 1247,
+      "total_ms": 2157
+    },
+    "test/features/lesson/application/bookmark_providers_test.dart": {
+      "load_ms": 810,
+      "run_ms": 905,
+      "total_ms": 1715
+    },
+    "test/features/lesson/application/exam_lesson_scope_test.dart": {
+      "load_ms": 953,
+      "run_ms": 829,
+      "total_ms": 1782
+    },
+    "test/features/lesson/application/lesson_search_providers_test.dart": {
+      "load_ms": 878,
+      "run_ms": 726,
+      "total_ms": 1604
+    },
+    "test/features/lesson/application/read_marking_test.dart": {
+      "load_ms": 1230,
+      "run_ms": 16826,
+      "total_ms": 18056
+    },
+    "test/features/lesson/application/reader_providers_test.dart": {
+      "load_ms": 761,
+      "run_ms": 545,
+      "total_ms": 1306
+    },
+    "test/features/lesson/application/study_map_providers_test.dart": {
+      "load_ms": 763,
+      "run_ms": 560,
+      "total_ms": 1323
+    },
+    "test/features/lesson/data/bookmark_prefs_repository_test.dart": {
+      "load_ms": 987,
+      "run_ms": 588,
+      "total_ms": 1575
+    },
+    "test/features/lesson/data/reader_position_repository_test.dart": {
+      "load_ms": 1722,
+      "run_ms": 650,
+      "total_ms": 2372
+    },
+    "test/features/lesson/domain/bookmark_order_test.dart": {
+      "load_ms": 760,
+      "run_ms": 25,
+      "total_ms": 785
+    },
+    "test/features/lesson/domain/build_search_snippet_test.dart": {
+      "load_ms": 957,
+      "run_ms": 34,
+      "total_ms": 991
+    },
+    "test/features/lesson/domain/build_study_map_test.dart": {
+      "load_ms": 792,
+      "run_ms": 55,
+      "total_ms": 847
+    },
+    "test/features/lesson/domain/decide_ending_test.dart": {
+      "load_ms": 854,
+      "run_ms": 59,
+      "total_ms": 913
+    },
+    "test/features/lesson/domain/portable_text_plain_test.dart": {
+      "load_ms": 770,
+      "run_ms": 28,
+      "total_ms": 798
+    },
+    "test/features/lesson/domain/use_cases/get_lesson_test.dart": {
+      "load_ms": 991,
+      "run_ms": 36,
+      "total_ms": 1027
+    },
+    "test/features/lesson/domain/use_cases/get_topic_lessons_test.dart": {
+      "load_ms": 873,
+      "run_ms": 33,
+      "total_ms": 906
+    },
+    "test/features/lesson/domain/use_cases/mark_lesson_read_test.dart": {
+      "load_ms": 889,
+      "run_ms": 37,
+      "total_ms": 926
+    },
+    "test/features/lesson/presentation/bookmarks_section_test.dart": {
+      "load_ms": 979,
+      "run_ms": 1331,
+      "total_ms": 2310
+    },
+    "test/features/lesson/presentation/bookmarks_sheet_test.dart": {
+      "load_ms": 1101,
+      "run_ms": 16351,
+      "total_ms": 17452
+    },
+    "test/features/lesson/presentation/content_limit_test.dart": {
+      "load_ms": 1029,
+      "run_ms": 1856,
+      "total_ms": 2885
+    },
+    "test/features/lesson/presentation/contents_board_test.dart": {
+      "load_ms": 1364,
+      "run_ms": 2648,
+      "total_ms": 4012
+    },
+    "test/features/lesson/presentation/ending_board_test.dart": {
+      "load_ms": 1079,
+      "run_ms": 1606,
+      "total_ms": 2685
+    },
+    "test/features/lesson/presentation/learn_tab_home_test.dart": {
+      "load_ms": 1040,
+      "run_ms": 2587,
+      "total_ms": 3627
+    },
+    "test/features/lesson/presentation/lesson_page_progress_test.dart": {
+      "load_ms": 1093,
+      "run_ms": 1920,
+      "total_ms": 3013
+    },
+    "test/features/lesson/presentation/lesson_page_test.dart": {
+      "load_ms": 1692,
+      "run_ms": 5843,
+      "total_ms": 7535
+    },
+    "test/features/lesson/presentation/pinned_topic_bar_test.dart": {
+      "load_ms": 1216,
+      "run_ms": 685,
+      "total_ms": 1901
+    },
+    "test/features/lesson/presentation/pull_to_advance_test.dart": {
+      "load_ms": 1074,
+      "run_ms": 1750,
+      "total_ms": 2824
+    },
+    "test/features/lesson/presentation/quiz_entry_test.dart": {
+      "load_ms": 1100,
+      "run_ms": 1499,
+      "total_ms": 2599
+    },
+    "test/features/lesson/presentation/reader_bar_test.dart": {
+      "load_ms": 960,
+      "run_ms": 1526,
+      "total_ms": 2486
+    },
+    "test/features/lesson/presentation/reader_body_board_test.dart": {
+      "load_ms": 1168,
+      "run_ms": 1789,
+      "total_ms": 2957
+    },
+    "test/features/lesson/presentation/reader_boundary_test.dart": {
+      "load_ms": 976,
+      "run_ms": 6323,
+      "total_ms": 7299
+    },
+    "test/features/lesson/presentation/reader_full_width_layout_test.dart": {
+      "load_ms": 1370,
+      "run_ms": 3412,
+      "total_ms": 4782
+    },
+    "test/features/lesson/presentation/reader_gap_test.dart": {
+      "load_ms": 1332,
+      "run_ms": 1427,
+      "total_ms": 2759
+    },
+    "test/features/lesson/presentation/reader_rail_test.dart": {
+      "load_ms": 1004,
+      "run_ms": 1122,
+      "total_ms": 2126
+    },
+    "test/features/lesson/presentation/reader_raw_controls_test.dart": {
+      "load_ms": 1063,
+      "run_ms": 1340,
+      "total_ms": 2403
+    },
+    "test/features/lesson/presentation/reader_reveal_test.dart": {
+      "load_ms": 975,
+      "run_ms": 1711,
+      "total_ms": 2686
+    },
+    "test/features/lesson/presentation/reader_section_labels_test.dart": {
+      "load_ms": 931,
+      "run_ms": 1363,
+      "total_ms": 2294
+    },
+    "test/features/lesson/presentation/reader_states_test.dart": {
+      "load_ms": 1270,
+      "run_ms": 1416,
+      "total_ms": 2686
+    },
+    "test/features/lesson/presentation/search_board_test.dart": {
+      "load_ms": 979,
+      "run_ms": 1052,
+      "total_ms": 2031
+    },
+    "test/features/lesson/presentation/search_field_bar_test.dart": {
+      "load_ms": 1358,
+      "run_ms": 2048,
+      "total_ms": 3406
+    },
+    "test/features/lesson/presentation/search_results_test.dart": {
+      "load_ms": 993,
+      "run_ms": 1260,
+      "total_ms": 2253
+    },
+    "test/features/lesson/presentation/search_transition_test.dart": {
+      "load_ms": 948,
+      "run_ms": 1655,
+      "total_ms": 2603
+    },
+    "test/features/lesson/presentation/study_head_block_test.dart": {
+      "load_ms": 1034,
+      "run_ms": 903,
+      "total_ms": 1937
+    },
+    "test/features/lesson/presentation/study_map_page_test.dart": {
+      "load_ms": 1951,
+      "run_ms": 805,
+      "total_ms": 2756
+    },
+    "test/features/lesson/presentation/study_reader_ds_matrix_test.dart": {
+      "load_ms": 1340,
+      "run_ms": 42108,
+      "total_ms": 43448
+    },
+    "test/features/lesson/presentation/study_states_board_test.dart": {
+      "load_ms": 991,
+      "run_ms": 1699,
+      "total_ms": 2690
+    },
+    "test/features/lesson/presentation/study_topic_section_test.dart": {
+      "load_ms": 967,
+      "run_ms": 5879,
+      "total_ms": 6846
+    },
+    "test/features/lesson/presentation/topic_ending_page_test.dart": {
+      "load_ms": 1184,
+      "run_ms": 1168,
+      "total_ms": 2352
+    },
+    "test/features/lesson/presentation/web_bookmarks_pointer_test.dart": {
+      "load_ms": 898,
+      "run_ms": 2151,
+      "total_ms": 3049
+    },
+    "test/features/lesson/presentation/web_bookmarks_test.dart": {
+      "load_ms": 1467,
+      "run_ms": 4204,
+      "total_ms": 5671
+    },
+    "test/features/lesson/presentation/web_lesson_motion_test.dart": {
+      "load_ms": 1178,
+      "run_ms": 5224,
+      "total_ms": 6402
+    },
+    "test/features/lesson/presentation/web_pull_label_test.dart": {
+      "load_ms": 910,
+      "run_ms": 634,
+      "total_ms": 1544
+    },
+    "test/features/lesson/presentation/web_pull_to_advance_test.dart": {
+      "load_ms": 1243,
+      "run_ms": 5421,
+      "total_ms": 6664
+    },
+    "test/features/lesson/presentation/web_reader_2f_test.dart": {
+      "load_ms": 1050,
+      "run_ms": 3643,
+      "total_ms": 4693
+    },
+    "test/features/lesson/presentation/web_reader_notice_motion_test.dart": {
+      "load_ms": 1023,
+      "run_ms": 1939,
+      "total_ms": 2962
+    },
+    "test/features/lesson/presentation/web_reader_qa_b_test.dart": {
+      "load_ms": 1327,
+      "run_ms": 3032,
+      "total_ms": 4359
+    },
+    "test/features/lesson/presentation/web_reader_wheel_test.dart": {
+      "load_ms": 1003,
+      "run_ms": 2365,
+      "total_ms": 3368
+    },
+    "test/features/lesson/presentation/web_study_map_motion_test.dart": {
+      "load_ms": 1261,
+      "run_ms": 5190,
+      "total_ms": 6451
+    },
+    "test/features/lesson/presentation/web_study_order_test.dart": {
+      "load_ms": 1107,
+      "run_ms": 2212,
+      "total_ms": 3319
+    },
+    "test/features/lesson/presentation/web_study_reader_test.dart": {
+      "load_ms": 1080,
+      "run_ms": 5975,
+      "total_ms": 7055
+    },
+    "test/features/lesson/presentation/web_study_wide_list_test.dart": {
+      "load_ms": 1159,
+      "run_ms": 4846,
+      "total_ms": 6005
+    },
+    "test/features/metrics/archetypes/archetype_identity_test.dart": {
+      "load_ms": 1048,
+      "run_ms": 31,
+      "total_ms": 1079
+    },
+    "test/features/metrics/archetypes/archetype_resolver_test.dart": {
+      "load_ms": 943,
+      "run_ms": 67,
+      "total_ms": 1010
+    },
+    "test/features/metrics/archetypes/archetype_templates_test.dart": {
+      "load_ms": 998,
+      "run_ms": 105,
+      "total_ms": 1103
+    },
+    "test/features/metrics/atoms/atom_rotation_test.dart": {
+      "load_ms": 1127,
+      "run_ms": 50,
+      "total_ms": 1177
+    },
+    "test/features/metrics/atoms/home_atoms_test.dart": {
+      "load_ms": 835,
+      "run_ms": 40,
+      "total_ms": 875
+    },
+    "test/features/metrics/data/user_metrics_archetype_repository_test.dart": {
+      "load_ms": 1067,
+      "run_ms": 164,
+      "total_ms": 1231
+    },
+    "test/features/metrics/domain/metrics_window_resolver_test.dart": {
+      "load_ms": 986,
+      "run_ms": 237,
+      "total_ms": 1223
+    },
+    "test/features/metrics/domain/tendency_confidence_test.dart": {
+      "load_ms": 896,
+      "run_ms": 70,
+      "total_ms": 966
+    },
+    "test/features/metrics/providers/current_archetype_provider_test.dart": {
+      "load_ms": 870,
+      "run_ms": 827,
+      "total_ms": 1697
+    },
+    "test/features/metrics/providers/home_atom_provider_test.dart": {
+      "load_ms": 866,
+      "run_ms": 303,
+      "total_ms": 1169
+    },
+    "test/features/metrics/providers/metrics_signal_providers_test.dart": {
+      "load_ms": 1178,
+      "run_ms": 350,
+      "total_ms": 1528
+    },
+    "test/features/metrics/signals/attempt_item_reader_test.dart": {
+      "load_ms": 935,
+      "run_ms": 27,
+      "total_ms": 962
+    },
+    "test/features/metrics/signals/carry_over_signals_test.dart": {
+      "load_ms": 1205,
+      "run_ms": 306,
+      "total_ms": 1511
+    },
+    "test/features/metrics/signals/consistency_signal_test.dart": {
+      "load_ms": 1257,
+      "run_ms": 169,
+      "total_ms": 1426
+    },
+    "test/features/metrics/signals/flag_revisit_signal_test.dart": {
+      "load_ms": 1239,
+      "run_ms": 161,
+      "total_ms": 1400
+    },
+    "test/features/metrics/signals/mock_pacing_signal_test.dart": {
+      "load_ms": 965,
+      "run_ms": 162,
+      "total_ms": 1127
+    },
+    "test/features/metrics/signals/mock_payload_reader_test.dart": {
+      "load_ms": 835,
+      "run_ms": 30,
+      "total_ms": 865
+    },
+    "test/features/metrics/signals/mock_stamina_signal_test.dart": {
+      "load_ms": 893,
+      "run_ms": 331,
+      "total_ms": 1224
+    },
+    "test/features/metrics/signals/per_question_speed_signal_test.dart": {
+      "load_ms": 1105,
+      "run_ms": 314,
+      "total_ms": 1419
+    },
+    "test/features/metrics/signals/server_signal_parity_test.dart": {
+      "load_ms": 1288,
+      "run_ms": 995,
+      "total_ms": 2283
+    },
+    "test/features/metrics/signals/session_shape_signal_test.dart": {
+      "load_ms": 889,
+      "run_ms": 177,
+      "total_ms": 1066
+    },
+    "test/features/metrics/signals/study_profile_signals_test.dart": {
+      "load_ms": 930,
+      "run_ms": 963,
+      "total_ms": 1893
+    },
+    "test/features/metrics/signals/subject_affinity_signal_test.dart": {
+      "load_ms": 1099,
+      "run_ms": 283,
+      "total_ms": 1382
+    },
+    "test/features/metrics/signals/time_of_day_signal_test.dart": {
+      "load_ms": 846,
+      "run_ms": 197,
+      "total_ms": 1043
+    },
+    "test/features/mock_exam/application/mock_answer_recorder_test.dart": {
+      "load_ms": 919,
+      "run_ms": 594,
+      "total_ms": 1513
+    },
+    "test/features/mock_exam/application/mock_availability_provider_test.dart": {
+      "load_ms": 1078,
+      "run_ms": 447,
+      "total_ms": 1525
+    },
+    "test/features/mock_exam/application/mock_blueprint_providers_test.dart": {
+      "load_ms": 1143,
+      "run_ms": 170,
+      "total_ms": 1313
+    },
+    "test/features/mock_exam/application/mock_exam_preferences_test.dart": {
+      "load_ms": 884,
+      "run_ms": 240,
+      "total_ms": 1124
+    },
+    "test/features/mock_exam/application/mock_history_contract_test.dart": {
+      "load_ms": 1133,
+      "run_ms": 438,
+      "total_ms": 1571
+    },
+    "test/features/mock_exam/application/mock_persistence_scheduler_test.dart": {
+      "load_ms": 887,
+      "run_ms": 33,
+      "total_ms": 920
+    },
+    "test/features/mock_exam/application/mock_result_access_test.dart": {
+      "load_ms": 803,
+      "run_ms": 31,
+      "total_ms": 834
+    },
+    "test/features/mock_exam/application/mock_session_controller_test.dart": {
+      "load_ms": 948,
+      "run_ms": 60,
+      "total_ms": 1008
+    },
+    "test/features/mock_exam/application/mock_session_parts_test.dart": {
+      "load_ms": 1104,
+      "run_ms": 60,
+      "total_ms": 1164
+    },
+    "test/features/mock_exam/application/server_mock_results_providers_test.dart": {
+      "load_ms": 1290,
+      "run_ms": 510,
+      "total_ms": 1800
+    },
+    "test/features/mock_exam/application/server_mock_session_test.dart": {
+      "load_ms": 964,
+      "run_ms": 1091,
+      "total_ms": 2055
+    },
+    "test/features/mock_exam/application/strict_mode_lifecycle_test.dart": {
+      "load_ms": 942,
+      "run_ms": 31,
+      "total_ms": 973
+    },
+    "test/features/mock_exam/cse_blueprint_test.dart": {
+      "load_ms": 949,
+      "run_ms": 9308,
+      "total_ms": 10257
+    },
+    "test/features/mock_exam/custom_blueprint_roundtrip_test.dart": {
+      "load_ms": 1236,
+      "run_ms": 287,
+      "total_ms": 1523
+    },
+    "test/features/mock_exam/data/blueprint_section_test.dart": {
+      "load_ms": 1124,
+      "run_ms": 65,
+      "total_ms": 1189
+    },
+    "test/features/mock_exam/data/cse_mock_sampling_test.dart": {
+      "load_ms": 1168,
+      "run_ms": 920,
+      "total_ms": 2088
+    },
+    "test/features/mock_exam/data/custom_blueprint_repository_test.dart": {
+      "load_ms": 941,
+      "run_ms": 285,
+      "total_ms": 1226
+    },
+    "test/features/mock_exam/data/mock_attempt_repo_test.dart": {
+      "load_ms": 1064,
+      "run_ms": 266,
+      "total_ms": 1330
+    },
+    "test/features/mock_exam/data/mock_sampler_test.dart": {
+      "load_ms": 917,
+      "run_ms": 53,
+      "total_ms": 970
+    },
+    "test/features/mock_exam/data/server_mock_api_test.dart": {
+      "load_ms": 1084,
+      "run_ms": 93,
+      "total_ms": 1177
+    },
+    "test/features/mock_exam/data/server_mock_results_test.dart": {
+      "load_ms": 1184,
+      "run_ms": 63,
+      "total_ms": 1247
+    },
+    "test/features/mock_exam/data/server_mock_view_cache_test.dart": {
+      "load_ms": 1192,
+      "run_ms": 240,
+      "total_ms": 1432
+    },
+    "test/features/mock_exam/data/task3_mock_blueprints_test.dart": {
+      "load_ms": 800,
+      "run_ms": 81,
+      "total_ms": 881
+    },
+    "test/features/mock_exam/domain/between_parts_recovery_test.dart": {
+      "load_ms": 929,
+      "run_ms": 226,
+      "total_ms": 1155
+    },
+    "test/features/mock_exam/domain/compute_results_test.dart": {
+      "load_ms": 925,
+      "run_ms": 40,
+      "total_ms": 965
+    },
+    "test/features/mock_exam/domain/cooldown_label_test.dart": {
+      "load_ms": 652,
+      "run_ms": 30,
+      "total_ms": 682
+    },
+    "test/features/mock_exam/domain/corpus_ceiling_test.dart": {
+      "load_ms": 1083,
+      "run_ms": 25,
+      "total_ms": 1108
+    },
+    "test/features/mock_exam/domain/custom_blueprint_test.dart": {
+      "load_ms": 911,
+      "run_ms": 41,
+      "total_ms": 952
+    },
+    "test/features/mock_exam/domain/data_scoring_contract_test.dart": {
+      "load_ms": 1543,
+      "run_ms": 278,
+      "total_ms": 1821
+    },
+    "test/features/mock_exam/domain/mock_lifecycle_use_cases_test.dart": {
+      "load_ms": 959,
+      "run_ms": 296,
+      "total_ms": 1255
+    },
+    "test/features/mock_exam/domain/mock_results_test.dart": {
+      "load_ms": 1133,
+      "run_ms": 25,
+      "total_ms": 1158
+    },
+    "test/features/mock_exam/domain/mock_session_snapshot_test.dart": {
+      "load_ms": 921,
+      "run_ms": 32,
+      "total_ms": 953
+    },
+    "test/features/mock_exam/domain/part_clock_test.dart": {
+      "load_ms": 1262,
+      "run_ms": 50,
+      "total_ms": 1312
+    },
+    "test/features/mock_exam/domain/server_mock_paper_test.dart": {
+      "load_ms": 1145,
+      "run_ms": 75,
+      "total_ms": 1220
+    },
+    "test/features/mock_exam/mock_panel_states_test.dart": {
+      "load_ms": 927,
+      "run_ms": 1003,
+      "total_ms": 1930
+    },
+    "test/features/mock_exam/mock_telemetry_test.dart": {
+      "load_ms": 914,
+      "run_ms": 27,
+      "total_ms": 941
+    },
+    "test/features/mock_exam/presentation/approved_details_accessibility_test.dart": {
+      "load_ms": 1282,
+      "run_ms": 1991,
+      "total_ms": 3273
+    },
+    "test/features/mock_exam/presentation/between_parts_route_test.dart": {
+      "load_ms": 1362,
+      "run_ms": 6153,
+      "total_ms": 7515
+    },
+    "test/features/mock_exam/presentation/cse_finale_chart_motion_test.dart": {
+      "load_ms": 959,
+      "run_ms": 676,
+      "total_ms": 1635
+    },
+    "test/features/mock_exam/presentation/cse_finale_motion_test.dart": {
+      "load_ms": 1155,
+      "run_ms": 129,
+      "total_ms": 1284
+    },
+    "test/features/mock_exam/presentation/cse_finale_route_test.dart": {
+      "load_ms": 1154,
+      "run_ms": 1703,
+      "total_ms": 2857
+    },
+    "test/features/mock_exam/presentation/cse_mock_finale_test.dart": {
+      "load_ms": 1222,
+      "run_ms": 2998,
+      "total_ms": 4220
+    },
+    "test/features/mock_exam/presentation/custom_mock_setup_page_test.dart": {
+      "load_ms": 1280,
+      "run_ms": 2702,
+      "total_ms": 3982
+    },
+    "test/features/mock_exam/presentation/end_part_early_test.dart": {
+      "load_ms": 916,
+      "run_ms": 1341,
+      "total_ms": 2257
+    },
+    "test/features/mock_exam/presentation/mock_card_test.dart": {
+      "load_ms": 1299,
+      "run_ms": 2716,
+      "total_ms": 4015
+    },
+    "test/features/mock_exam/presentation/mock_done_destination_test.dart": {
+      "load_ms": 947,
+      "run_ms": 1660,
+      "total_ms": 2607
+    },
+    "test/features/mock_exam/presentation/mock_ds_matrix_test.dart": {
+      "load_ms": 1543,
+      "run_ms": 13022,
+      "total_ms": 14565
+    },
+    "test/features/mock_exam/presentation/mock_finale_test.dart": {
+      "load_ms": 1190,
+      "run_ms": 42,
+      "total_ms": 1232
+    },
+    "test/features/mock_exam/presentation/mock_raw_controls_test.dart": {
+      "load_ms": 1216,
+      "run_ms": 1381,
+      "total_ms": 2597
+    },
+    "test/features/mock_exam/presentation/mock_result_destination_test.dart": {
+      "load_ms": 1055,
+      "run_ms": 2932,
+      "total_ms": 3987
+    },
+    "test/features/mock_exam/presentation/mock_results_page_test.dart": {
+      "load_ms": 974,
+      "run_ms": 1778,
+      "total_ms": 2752
+    },
+    "test/features/mock_exam/presentation/mock_resume_sheet_test.dart": {
+      "load_ms": 942,
+      "run_ms": 832,
+      "total_ms": 1774
+    },
+    "test/features/mock_exam/presentation/mock_review_page_test.dart": {
+      "load_ms": 1005,
+      "run_ms": 5787,
+      "total_ms": 6792
+    },
+    "test/features/mock_exam/presentation/mock_session_page_test.dart": {
+      "load_ms": 1061,
+      "run_ms": 1900,
+      "total_ms": 2961
+    },
+    "test/features/mock_exam/presentation/mock_setup_page_test.dart": {
+      "load_ms": 1006,
+      "run_ms": 1058,
+      "total_ms": 2064
+    },
+    "test/features/mock_exam/presentation/mock_setup_route_server_test.dart": {
+      "load_ms": 1016,
+      "run_ms": 1694,
+      "total_ms": 2710
+    },
+    "test/features/mock_exam/presentation/mock_signup_card_test.dart": {
+      "load_ms": 989,
+      "run_ms": 5440,
+      "total_ms": 6429
+    },
+    "test/features/mock_exam/presentation/mock_start_route_persistence_test.dart": {
+      "load_ms": 1163,
+      "run_ms": 5299,
+      "total_ms": 6462
+    },
+    "test/features/mock_exam/presentation/mock_status_card_test.dart": {
+      "load_ms": 1075,
+      "run_ms": 849,
+      "total_ms": 1924
+    },
+    "test/features/mock_exam/presentation/pages/mock_session_page_test.dart": {
+      "load_ms": 955,
+      "run_ms": 1692,
+      "total_ms": 2647
+    },
+    "test/features/mock_exam/presentation/pages/mock_setup_page_test.dart": {
+      "load_ms": 1209,
+      "run_ms": 1571,
+      "total_ms": 2780
+    },
+    "test/features/mock_exam/presentation/pages/mock_start_preparation_page_test.dart": {
+      "load_ms": 971,
+      "run_ms": 1154,
+      "total_ms": 2125
+    },
+    "test/features/mock_exam/presentation/paper_phone_accessibility_test.dart": {
+      "load_ms": 1075,
+      "run_ms": 5646,
+      "total_ms": 6721
+    },
+    "test/features/mock_exam/presentation/part_transition_page_test.dart": {
+      "load_ms": 945,
+      "run_ms": 1656,
+      "total_ms": 2601
+    },
+    "test/features/mock_exam/presentation/pause_page_test.dart": {
+      "load_ms": 961,
+      "run_ms": 2459,
+      "total_ms": 3420
+    },
+    "test/features/mock_exam/presentation/proctor_toast_test.dart": {
+      "load_ms": 907,
+      "run_ms": 936,
+      "total_ms": 1843
+    },
+    "test/features/mock_exam/presentation/server_mock_retry_test.dart": {
+      "load_ms": 1001,
+      "run_ms": 1223,
+      "total_ms": 2224
+    },
+    "test/features/mock_exam/presentation/server_mock_route_test.dart": {
+      "load_ms": 1141,
+      "run_ms": 7785,
+      "total_ms": 8926
+    },
+    "test/features/mock_exam/presentation/task4_grid_submit_test.dart": {
+      "load_ms": 970,
+      "run_ms": 3060,
+      "total_ms": 4030
+    },
+    "test/features/mock_exam/presentation/task4_paper_contract_test.dart": {
+      "load_ms": 1067,
+      "run_ms": 1312,
+      "total_ms": 2379
+    },
+    "test/features/mock_exam/presentation/task4_paper_motion_test.dart": {
+      "load_ms": 935,
+      "run_ms": 2452,
+      "total_ms": 3387
+    },
+    "test/features/mock_exam/presentation/task4_route_test.dart": {
+      "load_ms": 1258,
+      "run_ms": 2172,
+      "total_ms": 3430
+    },
+    "test/features/mock_exam/presentation/task5_recovery_test.dart": {
+      "load_ms": 980,
+      "run_ms": 1321,
+      "total_ms": 2301
+    },
+    "test/features/mock_exam/presentation/web_custom_mock_setup_test.dart": {
+      "load_ms": 1259,
+      "run_ms": 3693,
+      "total_ms": 4952
+    },
+    "test/features/mock_exam/presentation/web_finale_motion_test.dart": {
+      "load_ms": 1129,
+      "run_ms": 1451,
+      "total_ms": 2580
+    },
+    "test/features/mock_exam/presentation/web_mock_dialog_keys_test.dart": {
+      "load_ms": 1377,
+      "run_ms": 1289,
+      "total_ms": 2666
+    },
+    "test/features/mock_exam/presentation/web_mock_layout_test.dart": {
+      "load_ms": 1098,
+      "run_ms": 7638,
+      "total_ms": 8736
+    },
+    "test/features/mock_exam/presentation/web_mock_motion_test.dart": {
+      "load_ms": 1007,
+      "run_ms": 3461,
+      "total_ms": 4468
+    },
+    "test/features/mock_exam/presentation/web_motion_states_test.dart": {
+      "load_ms": 1441,
+      "run_ms": 5304,
+      "total_ms": 6745
+    },
+    "test/features/mock_exam/presentation/web_pause_motion_test.dart": {
+      "load_ms": 1020,
+      "run_ms": 1370,
+      "total_ms": 2390
+    },
+    "test/features/mock_exam/presentation/web_results_test.dart": {
+      "load_ms": 1283,
+      "run_ms": 1946,
+      "total_ms": 3229
+    },
+    "test/features/mock_exam/presentation/widgets/exam_marks_offer_test.dart": {
+      "load_ms": 1243,
+      "run_ms": 1080,
+      "total_ms": 2323
+    },
+    "test/features/mock_exam/presentation/widgets/score_headline_test.dart": {
+      "load_ms": 1003,
+      "run_ms": 908,
+      "total_ms": 1911
+    },
+    "test/features/mock_exam/upcat_blueprint_test.dart": {
+      "load_ms": 881,
+      "run_ms": 9564,
+      "total_ms": 10445
+    },
+    "test/features/mock_exam/upcat_end_to_end_test.dart": {
+      "load_ms": 1132,
+      "run_ms": 9197,
+      "total_ms": 10329
+    },
+    "test/features/notifications/application/notification_service_test.dart": {
+      "load_ms": 1225,
+      "run_ms": 303,
+      "total_ms": 1528
+    },
+    "test/features/notifications/application/wrapped_trigger_notification_router_test.dart": {
+      "load_ms": 1195,
+      "run_ms": 27,
+      "total_ms": 1222
+    },
+    "test/features/notifications/data/flutter_local_notifications_gateway_test.dart": {
+      "load_ms": 888,
+      "run_ms": 113,
+      "total_ms": 1001
+    },
+    "test/features/notifications/data/notifications_gateway_contract_test.dart": {
+      "load_ms": 944,
+      "run_ms": 56,
+      "total_ms": 1000
+    },
+    "test/features/notifications/domain/exam_countdown_schedule_test.dart": {
+      "load_ms": 1215,
+      "run_ms": 39,
+      "total_ms": 1254
+    },
+    "test/features/notifications/domain/lapse_policy_test.dart": {
+      "load_ms": 1188,
+      "run_ms": 60,
+      "total_ms": 1248
+    },
+    "test/features/notifications/domain/notification_body_composer_test.dart": {
+      "load_ms": 1119,
+      "run_ms": 63,
+      "total_ms": 1182
+    },
+    "test/features/notifications/domain/notification_ceiling_test.dart": {
+      "load_ms": 1046,
+      "run_ms": 41,
+      "total_ms": 1087
+    },
+    "test/features/notifications/domain/notification_payload_test.dart": {
+      "load_ms": 938,
+      "run_ms": 27,
+      "total_ms": 965
+    },
+    "test/features/notifications/domain/reminder_schedule_test.dart": {
+      "load_ms": 1142,
+      "run_ms": 31,
+      "total_ms": 1173
+    },
+    "test/features/notifications/domain/streak_save_policy_test.dart": {
+      "load_ms": 884,
+      "run_ms": 39,
+      "total_ms": 923
+    },
+    "test/features/notifications/presentation/notification_tap_handler_test.dart": {
+      "load_ms": 860,
+      "run_ms": 32,
+      "total_ms": 892
+    },
+    "test/features/notifications/presentation/notification_tap_router_test.dart": {
+      "load_ms": 1228,
+      "run_ms": 683,
+      "total_ms": 1911
+    },
+    "test/features/notifications/presentation/notifications_lifecycle_observer_test.dart": {
+      "load_ms": 1156,
+      "run_ms": 42,
+      "total_ms": 1198
+    },
+    "test/features/notifications/presentation/permission_rationale_page_test.dart": {
+      "load_ms": 1006,
+      "run_ms": 1581,
+      "total_ms": 2587
+    },
+    "test/features/onboarding/application/onboarding_flow_test.dart": {
+      "load_ms": 1266,
+      "run_ms": 41,
+      "total_ms": 1307
+    },
+    "test/features/onboarding/application/onboarding_resume_storage_test.dart": {
+      "load_ms": 946,
+      "run_ms": 459,
+      "total_ms": 1405
+    },
+    "test/features/onboarding/domain/age_policy_test.dart": {
+      "load_ms": 1141,
+      "run_ms": 34,
+      "total_ms": 1175
+    },
+    "test/features/onboarding/onboarding_telemetry_test.dart": {
+      "load_ms": 1140,
+      "run_ms": 942,
+      "total_ms": 2082
+    },
+    "test/features/onboarding/presentation/custom_track_steps_test.dart": {
+      "load_ms": 1002,
+      "run_ms": 2504,
+      "total_ms": 3506
+    },
+    "test/features/onboarding/presentation/exam_picker_chip_width_test.dart": {
+      "load_ms": 1005,
+      "run_ms": 2477,
+      "total_ms": 3482
+    },
+    "test/features/onboarding/presentation/exam_picker_screen_test.dart": {
+      "load_ms": 1321,
+      "run_ms": 9681,
+      "total_ms": 11002
+    },
+    "test/features/onboarding/presentation/exam_row_motion_test.dart": {
+      "load_ms": 1357,
+      "run_ms": 1490,
+      "total_ms": 2847
+    },
+    "test/features/onboarding/presentation/local_preset_seed_steps_test.dart": {
+      "load_ms": 1276,
+      "run_ms": 4327,
+      "total_ms": 5603
+    },
+    "test/features/onboarding/presentation/onboarding_age_gate_step_test.dart": {
+      "load_ms": 1041,
+      "run_ms": 3669,
+      "total_ms": 4710
+    },
+    "test/features/onboarding/presentation/onboarding_age_stepper_test.dart": {
+      "load_ms": 1192,
+      "run_ms": 10375,
+      "total_ms": 11567
+    },
+    "test/features/onboarding/presentation/onboarding_consent_hover_test.dart": {
+      "load_ms": 1272,
+      "run_ms": 1759,
+      "total_ms": 3031
+    },
+    "test/features/onboarding/presentation/onboarding_consent_step_test.dart": {
+      "load_ms": 921,
+      "run_ms": 3277,
+      "total_ms": 4198
+    },
+    "test/features/onboarding/presentation/onboarding_continuous_test.dart": {
+      "load_ms": 1005,
+      "run_ms": 6244,
+      "total_ms": 7249
+    },
+    "test/features/onboarding/presentation/onboarding_custom_back_test.dart": {
+      "load_ms": 1133,
+      "run_ms": 5857,
+      "total_ms": 6990
+    },
+    "test/features/onboarding/presentation/onboarding_custom_to_home_test.dart": {
+      "load_ms": 1199,
+      "run_ms": 4578,
+      "total_ms": 5777
+    },
+    "test/features/onboarding/presentation/onboarding_ds_matrix_test.dart": {
+      "load_ms": 1747,
+      "run_ms": 16411,
+      "total_ms": 18158
+    },
+    "test/features/onboarding/presentation/onboarding_error_reporting_test.dart": {
+      "load_ms": 1008,
+      "run_ms": 2354,
+      "total_ms": 3362
+    },
+    "test/features/onboarding/presentation/onboarding_exam_date_step_test.dart": {
+      "load_ms": 1269,
+      "run_ms": 6703,
+      "total_ms": 7972
+    },
+    "test/features/onboarding/presentation/onboarding_exam_date_tile_test.dart": {
+      "load_ms": 998,
+      "run_ms": 1320,
+      "total_ms": 2318
+    },
+    "test/features/onboarding/presentation/onboarding_finish_hold_test.dart": {
+      "load_ms": 1159,
+      "run_ms": 3463,
+      "total_ms": 4622
+    },
+    "test/features/onboarding/presentation/onboarding_frame_test.dart": {
+      "load_ms": 1083,
+      "run_ms": 5015,
+      "total_ms": 6098
+    },
+    "test/features/onboarding/presentation/onboarding_guardian_step_test.dart": {
+      "load_ms": 1296,
+      "run_ms": 3221,
+      "total_ms": 4517
+    },
+    "test/features/onboarding/presentation/onboarding_launch_step_test.dart": {
+      "load_ms": 1005,
+      "run_ms": 750,
+      "total_ms": 1755
+    },
+    "test/features/onboarding/presentation/onboarding_load_failure_test.dart": {
+      "load_ms": 1187,
+      "run_ms": 2432,
+      "total_ms": 3619
+    },
+    "test/features/onboarding/presentation/onboarding_name_step_test.dart": {
+      "load_ms": 1053,
+      "run_ms": 1981,
+      "total_ms": 3034
+    },
+    "test/features/onboarding/presentation/onboarding_page_test.dart": {
+      "load_ms": 1191,
+      "run_ms": 4365,
+      "total_ms": 5556
+    },
+    "test/features/onboarding/presentation/onboarding_step_focus_test.dart": {
+      "load_ms": 1202,
+      "run_ms": 2080,
+      "total_ms": 3282
+    },
+    "test/features/onboarding/presentation/onboarding_sticky_actions_test.dart": {
+      "load_ms": 1188,
+      "run_ms": 3211,
+      "total_ms": 4399
+    },
+    "test/features/onboarding/presentation/onboarding_study_days_large_text_test.dart": {
+      "load_ms": 1089,
+      "run_ms": 1518,
+      "total_ms": 2607
+    },
+    "test/features/onboarding/presentation/onboarding_study_days_step_test.dart": {
+      "load_ms": 1110,
+      "run_ms": 4610,
+      "total_ms": 5720
+    },
+    "test/features/onboarding/presentation/onboarding_web_completion_test.dart": {
+      "load_ms": 956,
+      "run_ms": 3327,
+      "total_ms": 4283
+    },
+    "test/features/onboarding/presentation/onboarding_welcome_handover_test.dart": {
+      "load_ms": 1201,
+      "run_ms": 1788,
+      "total_ms": 2989
+    },
+    "test/features/onboarding/presentation/onboarding_welcome_step_test.dart": {
+      "load_ms": 949,
+      "run_ms": 1405,
+      "total_ms": 2354
+    },
+    "test/features/onboarding/presentation/web_onboarding_batch2_test.dart": {
+      "load_ms": 943,
+      "run_ms": 2811,
+      "total_ms": 3754
+    },
+    "test/features/onboarding/presentation/web_onboarding_motion_test.dart": {
+      "load_ms": 1264,
+      "run_ms": 3216,
+      "total_ms": 4480
+    },
+    "test/features/onboarding/presentation/web_onboarding_second_pass_test.dart": {
+      "load_ms": 1004,
+      "run_ms": 4987,
+      "total_ms": 5991
+    },
+    "test/features/onboarding/presentation/web_onboarding_states_test.dart": {
+      "load_ms": 1291,
+      "run_ms": 8075,
+      "total_ms": 9366
+    },
+    "test/features/onboarding/presentation/web_onboarding_test.dart": {
+      "load_ms": 1229,
+      "run_ms": 1848,
+      "total_ms": 3077
+    },
+    "test/features/onboarding/presentation/wide_group_chip_motion_test.dart": {
+      "load_ms": 940,
+      "run_ms": 3076,
+      "total_ms": 4016
+    },
+    "test/features/paywall/application/active_exam_coverage_test.dart": {
+      "load_ms": 1248,
+      "run_ms": 257,
+      "total_ms": 1505
+    },
+    "test/features/paywall/application/entitlement_offline_test.dart": {
+      "load_ms": 962,
+      "run_ms": 140,
+      "total_ms": 1102
+    },
+    "test/features/paywall/application/entitlement_reload_test.dart": {
+      "load_ms": 1101,
+      "run_ms": 97,
+      "total_ms": 1198
+    },
+    "test/features/paywall/application/manage_purchase_test.dart": {
+      "load_ms": 1127,
+      "run_ms": 35,
+      "total_ms": 1162
+    },
+    "test/features/paywall/application/offline_window_test.dart": {
+      "load_ms": 1303,
+      "run_ms": 28,
+      "total_ms": 1331
+    },
+    "test/features/paywall/application/payment_runtime_hardening_test.dart": {
+      "load_ms": 915,
+      "run_ms": 137,
+      "total_ms": 1052
+    },
+    "test/features/paywall/application/paywall_controller_hardening_test.dart": {
+      "load_ms": 932,
+      "run_ms": 45,
+      "total_ms": 977
+    },
+    "test/features/paywall/application/paywall_controller_test.dart": {
+      "load_ms": 1476,
+      "run_ms": 31,
+      "total_ms": 1507
+    },
+    "test/features/paywall/application/paywall_providers_test.dart": {
+      "load_ms": 1159,
+      "run_ms": 124,
+      "total_ms": 1283
+    },
+    "test/features/paywall/application/pending_purchase_provider_test.dart": {
+      "load_ms": 884,
+      "run_ms": 143,
+      "total_ms": 1027
+    },
+    "test/features/paywall/application/revenuecat_bootstrap_test.dart": {
+      "load_ms": 917,
+      "run_ms": 99,
+      "total_ms": 1016
+    },
+    "test/features/paywall/application/trial_ending_notifier_test.dart": {
+      "load_ms": 904,
+      "run_ms": 36,
+      "total_ms": 940
+    },
+    "test/features/paywall/application/trusted_clock_test.dart": {
+      "load_ms": 970,
+      "run_ms": 56,
+      "total_ms": 1026
+    },
+    "test/features/paywall/beta_grant_test.dart": {
+      "load_ms": 941,
+      "run_ms": 48,
+      "total_ms": 989
+    },
+    "test/features/paywall/beta_pro_provider_test.dart": {
+      "load_ms": 899,
+      "run_ms": 114,
+      "total_ms": 1013
+    },
+    "test/features/paywall/data/account_identity_test.dart": {
+      "load_ms": 906,
+      "run_ms": 108,
+      "total_ms": 1014
+    },
+    "test/features/paywall/data/cancellation_reconciliation_test.dart": {
+      "load_ms": 865,
+      "run_ms": 57,
+      "total_ms": 922
+    },
+    "test/features/paywall/data/entitlement_snapshot_store_test.dart": {
+      "load_ms": 815,
+      "run_ms": 55,
+      "total_ms": 870
+    },
+    "test/features/paywall/data/live_revenuecat_gateway_hardening_test.dart": {
+      "load_ms": 1356,
+      "run_ms": 116,
+      "total_ms": 1472
+    },
+    "test/features/paywall/data/live_revenuecat_gateway_test.dart": {
+      "load_ms": 896,
+      "run_ms": 29,
+      "total_ms": 925
+    },
+    "test/features/paywall/data/multiple_products_test.dart": {
+      "load_ms": 977,
+      "run_ms": 37,
+      "total_ms": 1014
+    },
+    "test/features/paywall/data/pass_ledger_test.dart": {
+      "load_ms": 1219,
+      "run_ms": 109,
+      "total_ms": 1328
+    },
+    "test/features/paywall/data/payment_client_final_hardening_test.dart": {
+      "load_ms": 782,
+      "run_ms": 161,
+      "total_ms": 943
+    },
+    "test/features/paywall/data/pending_purchase_test.dart": {
+      "load_ms": 991,
+      "run_ms": 111,
+      "total_ms": 1102
+    },
+    "test/features/paywall/data/revenuecat_config_test.dart": {
+      "load_ms": 886,
+      "run_ms": 26,
+      "total_ms": 912
+    },
+    "test/features/paywall/data/revenuecat_gateway_contract_test.dart": {
+      "load_ms": 1162,
+      "run_ms": 43,
+      "total_ms": 1205
+    },
+    "test/features/paywall/data/revenuecat_sdk_test.dart": {
+      "load_ms": 1024,
+      "run_ms": 47,
+      "total_ms": 1071
+    },
+    "test/features/paywall/data/trial_eligibility_test.dart": {
+      "load_ms": 889,
+      "run_ms": 22,
+      "total_ms": 911
+    },
+    "test/features/paywall/data/upgrade_purchase_test.dart": {
+      "load_ms": 741,
+      "run_ms": 20,
+      "total_ms": 761
+    },
+    "test/features/paywall/data/verified_offline_gateway_test.dart": {
+      "load_ms": 908,
+      "run_ms": 6424,
+      "total_ms": 7332
+    },
+    "test/features/paywall/data/web_combined_coverage_test.dart": {
+      "load_ms": 1190,
+      "run_ms": 67,
+      "total_ms": 1257
+    },
+    "test/features/paywall/data/web_payment_gateway_test.dart": {
+      "load_ms": 1018,
+      "run_ms": 302,
+      "total_ms": 1320
+    },
+    "test/features/paywall/domain/coverage_test.dart": {
+      "load_ms": 967,
+      "run_ms": 85,
+      "total_ms": 1052
+    },
+    "test/features/paywall/domain/entitlement_test.dart": {
+      "load_ms": 1071,
+      "run_ms": 39,
+      "total_ms": 1110
+    },
+    "test/features/paywall/domain/payment_hardening_contract_test.dart": {
+      "load_ms": 1052,
+      "run_ms": 40,
+      "total_ms": 1092
+    },
+    "test/features/paywall/domain/payment_results_test.dart": {
+      "load_ms": 822,
+      "run_ms": 25,
+      "total_ms": 847
+    },
+    "test/features/paywall/domain/plan_cost_test.dart": {
+      "load_ms": 903,
+      "run_ms": 44,
+      "total_ms": 947
+    },
+    "test/features/paywall/domain/price_tier_test.dart": {
+      "load_ms": 1183,
+      "run_ms": 176,
+      "total_ms": 1359
+    },
+    "test/features/paywall/domain/pro_specimen_test.dart": {
+      "load_ms": 941,
+      "run_ms": 30,
+      "total_ms": 971
+    },
+    "test/features/paywall/domain/product_price_source_test.dart": {
+      "load_ms": 675,
+      "run_ms": 41,
+      "total_ms": 716
+    },
+    "test/features/paywall/domain/products_test.dart": {
+      "load_ms": 1082,
+      "run_ms": 80,
+      "total_ms": 1162
+    },
+    "test/features/paywall/domain/switch_outcome_test.dart": {
+      "load_ms": 1106,
+      "run_ms": 52,
+      "total_ms": 1158
+    },
+    "test/features/paywall/domain/tier_entitlement_test.dart": {
+      "load_ms": 914,
+      "run_ms": 47,
+      "total_ms": 961
+    },
+    "test/features/paywall/domain/trial_notice_test.dart": {
+      "load_ms": 1011,
+      "run_ms": 28,
+      "total_ms": 1039
+    },
+    "test/features/paywall/domain/whole_pesos_test.dart": {
+      "load_ms": 924,
+      "run_ms": 19,
+      "total_ms": 943
+    },
+    "test/features/paywall/paywall_telemetry_test.dart": {
+      "load_ms": 1487,
+      "run_ms": 39,
+      "total_ms": 1526
+    },
+    "test/features/paywall/presentation/payment_presentation_source_guard_test.dart": {
+      "load_ms": 979,
+      "run_ms": 120,
+      "total_ms": 1099
+    },
+    "test/features/quiz/application/qlp5_evidence_provenance_test.dart": {
+      "load_ms": 1094,
+      "run_ms": 22,
+      "total_ms": 1116
+    },
+    "test/features/quiz/application/qlp5_performance_collector_test.dart": {
+      "load_ms": 1080,
+      "run_ms": 36,
+      "total_ms": 1116
+    },
+    "test/features/quiz/application/quiz_completion_coordinator_test.dart": {
+      "load_ms": 1119,
+      "run_ms": 278,
+      "total_ms": 1397
+    },
+    "test/features/quiz/application/quiz_completion_refresh_test.dart": {
+      "load_ms": 1283,
+      "run_ms": 268,
+      "total_ms": 1551
+    },
+    "test/features/quiz/application/quiz_launch_coordinator_test.dart": {
+      "load_ms": 1107,
+      "run_ms": 94,
+      "total_ms": 1201
+    },
+    "test/features/quiz/application/quiz_launch_lifecycle_test.dart": {
+      "load_ms": 947,
+      "run_ms": 44,
+      "total_ms": 991
+    },
+    "test/features/quiz/application/quiz_performance_instrumentation_test.dart": {
+      "load_ms": 949,
+      "run_ms": 606,
+      "total_ms": 1555
+    },
+    "test/features/quiz/application/quiz_performance_probe_test.dart": {
+      "load_ms": 1195,
+      "run_ms": 30,
+      "total_ms": 1225
+    },
+    "test/features/quiz/application/quiz_provider_semantics_test.dart": {
+      "load_ms": 897,
+      "run_ms": 1293,
+      "total_ms": 2190
+    },
+    "test/features/quiz/application/quiz_providers_review_log_test.dart": {
+      "load_ms": 853,
+      "run_ms": 239,
+      "total_ms": 1092
+    },
+    "test/features/quiz/application/review_batch_scope_test.dart": {
+      "load_ms": 932,
+      "run_ms": 223,
+      "total_ms": 1155
+    },
+    "test/features/quiz/application/roadmap_today_launch_test.dart": {
+      "load_ms": 1020,
+      "run_ms": 2288,
+      "total_ms": 3308
+    },
+    "test/features/quiz/application/session_debrief_provider_test.dart": {
+      "load_ms": 901,
+      "run_ms": 265,
+      "total_ms": 1166
+    },
+    "test/features/quiz/application/today_question_launch_test.dart": {
+      "load_ms": 1232,
+      "run_ms": 799,
+      "total_ms": 2031
+    },
+    "test/features/quiz/application/today_question_ui_test.dart": {
+      "load_ms": 1055,
+      "run_ms": 7322,
+      "total_ms": 8377
+    },
+    "test/features/quiz/application/today_quiz_preparer_test.dart": {
+      "load_ms": 900,
+      "run_ms": 52,
+      "total_ms": 952
+    },
+    "test/features/quiz/data/new_card_intro_repository_test.dart": {
+      "load_ms": 838,
+      "run_ms": 204,
+      "total_ms": 1042
+    },
+    "test/features/quiz/data/quiz_preferences_repository_test.dart": {
+      "load_ms": 852,
+      "run_ms": 253,
+      "total_ms": 1105
+    },
+    "test/features/quiz/data/quiz_session_migration_test.dart": {
+      "load_ms": 885,
+      "run_ms": 129,
+      "total_ms": 1014
+    },
+    "test/features/quiz/data/quiz_session_repository_test.dart": {
+      "load_ms": 1064,
+      "run_ms": 373,
+      "total_ms": 1437
+    },
+    "test/features/quiz/data/repos/practice_preferences_repository_test.dart": {
+      "load_ms": 855,
+      "run_ms": 172,
+      "total_ms": 1027
+    },
+    "test/features/quiz/data/repos/quiz_session_repository_average_test.dart": {
+      "load_ms": 1136,
+      "run_ms": 228,
+      "total_ms": 1364
+    },
+    "test/features/quiz/data/review_batch_repository_test.dart": {
+      "load_ms": 1044,
+      "run_ms": 2136,
+      "total_ms": 3180
+    },
+    "test/features/quiz/data/session_diagnosis_api_test.dart": {
+      "load_ms": 904,
+      "run_ms": 83,
+      "total_ms": 987
+    },
+    "test/features/quiz/domain/build_today_queue_test.dart": {
+      "load_ms": 986,
+      "run_ms": 49,
+      "total_ms": 1035
+    },
+    "test/features/quiz/domain/debrief/session_debrief_test.dart": {
+      "load_ms": 906,
+      "run_ms": 63,
+      "total_ms": 969
+    },
+    "test/features/quiz/domain/models/quiz_ordering_test.dart": {
+      "load_ms": 1065,
+      "run_ms": 27,
+      "total_ms": 1092
+    },
+    "test/features/quiz/domain/models/session_origin_test.dart": {
+      "load_ms": 854,
+      "run_ms": 34,
+      "total_ms": 888
+    },
+    "test/features/quiz/domain/passage_set_filler_test.dart": {
+      "load_ms": 1177,
+      "run_ms": 43,
+      "total_ms": 1220
+    },
+    "test/features/quiz/domain/picker/drill_picker_test.dart": {
+      "load_ms": 1067,
+      "run_ms": 32,
+      "total_ms": 1099
+    },
+    "test/features/quiz/domain/picker/picker_test.dart": {
+      "load_ms": 1181,
+      "run_ms": 40,
+      "total_ms": 1221
+    },
+    "test/features/quiz/domain/picker/practice_adjustment_test.dart": {
+      "load_ms": 956,
+      "run_ms": 37,
+      "total_ms": 993
+    },
+    "test/features/quiz/domain/picker/practice_design_rules_test.dart": {
+      "load_ms": 946,
+      "run_ms": 50,
+      "total_ms": 996
+    },
+    "test/features/quiz/domain/picker/practice_index_test.dart": {
+      "load_ms": 1404,
+      "run_ms": 25,
+      "total_ms": 1429
+    },
+    "test/features/quiz/domain/picker/practice_mode_match_test.dart": {
+      "load_ms": 911,
+      "run_ms": 70,
+      "total_ms": 981
+    },
+    "test/features/quiz/domain/picker/practice_selection_test.dart": {
+      "load_ms": 943,
+      "run_ms": 55,
+      "total_ms": 998
+    },
+    "test/features/quiz/domain/picker/practice_summary_test.dart": {
+      "load_ms": 1132,
+      "run_ms": 52,
+      "total_ms": 1184
+    },
+    "test/features/quiz/domain/quiz_session_test.dart": {
+      "load_ms": 978,
+      "run_ms": 48,
+      "total_ms": 1026
+    },
+    "test/features/quiz/domain/rating_heuristic_test.dart": {
+      "load_ms": 1104,
+      "run_ms": 26,
+      "total_ms": 1130
+    },
+    "test/features/quiz/domain/selectors/fsrs_due_selector_test.dart": {
+      "load_ms": 902,
+      "run_ms": 25,
+      "total_ms": 927
+    },
+    "test/features/quiz/domain/selectors/new_card_selector_test.dart": {
+      "load_ms": 1126,
+      "run_ms": 26,
+      "total_ms": 1152
+    },
+    "test/features/quiz/domain/selectors/recency_filter_test.dart": {
+      "load_ms": 891,
+      "run_ms": 46,
+      "total_ms": 937
+    },
+    "test/features/quiz/domain/selectors/subtopic_filter_test.dart": {
+      "load_ms": 908,
+      "run_ms": 25,
+      "total_ms": 933
+    },
+    "test/features/quiz/domain/selectors/weakness_selector_test.dart": {
+      "load_ms": 1047,
+      "run_ms": 35,
+      "total_ms": 1082
+    },
+    "test/features/quiz/domain/start_quick_quiz_test.dart": {
+      "load_ms": 1062,
+      "run_ms": 372,
+      "total_ms": 1434
+    },
+    "test/features/quiz/domain/streak/streak_evaluator_test.dart": {
+      "load_ms": 909,
+      "run_ms": 386,
+      "total_ms": 1295
+    },
+    "test/features/quiz/domain/use_cases/build_today_plan_test.dart": {
+      "load_ms": 1431,
+      "run_ms": 62,
+      "total_ms": 1493
+    },
+    "test/features/quiz/domain/use_cases/complete_quiz_test.dart": {
+      "load_ms": 1151,
+      "run_ms": 69,
+      "total_ms": 1220
+    },
+    "test/features/quiz/domain/use_cases/count_today_backlog_test.dart": {
+      "load_ms": 942,
+      "run_ms": 41,
+      "total_ms": 983
+    },
+    "test/features/quiz/domain/use_cases/flagged_origin_test.dart": {
+      "load_ms": 1000,
+      "run_ms": 367,
+      "total_ms": 1367
+    },
+    "test/features/quiz/domain/use_cases/flagged_start_missing_test.dart": {
+      "load_ms": 1144,
+      "run_ms": 274,
+      "total_ms": 1418
+    },
+    "test/features/quiz/domain/use_cases/practice_recency_test.dart": {
+      "load_ms": 1129,
+      "run_ms": 634,
+      "total_ms": 1763
+    },
+    "test/features/quiz/domain/use_cases/session_lifecycle_test.dart": {
+      "load_ms": 1597,
+      "run_ms": 606,
+      "total_ms": 2203
+    },
+    "test/features/quiz/domain/use_cases/start_drill_test.dart": {
+      "load_ms": 996,
+      "run_ms": 750,
+      "total_ms": 1746
+    },
+    "test/features/quiz/domain/use_cases/start_inline_lesson_quiz_test.dart": {
+      "load_ms": 909,
+      "run_ms": 796,
+      "total_ms": 1705
+    },
+    "test/features/quiz/domain/use_cases/start_practice_test.dart": {
+      "load_ms": 1081,
+      "run_ms": 519,
+      "total_ms": 1600
+    },
+    "test/features/quiz/domain/use_cases/start_quick_quiz_test.dart": {
+      "load_ms": 896,
+      "run_ms": 52,
+      "total_ms": 948
+    },
+    "test/features/quiz/domain/use_cases/start_retake_test.dart": {
+      "load_ms": 1234,
+      "run_ms": 501,
+      "total_ms": 1735
+    },
+    "test/features/quiz/domain/use_cases/start_today_session_test.dart": {
+      "load_ms": 1238,
+      "run_ms": 512,
+      "total_ms": 1750
+    },
+    "test/features/quiz/domain/use_cases/submit_answer_test.dart": {
+      "load_ms": 1023,
+      "run_ms": 100,
+      "total_ms": 1123
+    },
+    "test/features/quiz/integration_test.dart": {
+      "load_ms": 837,
+      "run_ms": 384,
+      "total_ms": 1221
+    },
+    "test/features/quiz/passage_regression_test.dart": {
+      "load_ms": 1244,
+      "run_ms": 1583,
+      "total_ms": 2827
+    },
+    "test/features/quiz/presentation/completed_quiz_hydration_test.dart": {
+      "load_ms": 869,
+      "run_ms": 282,
+      "total_ms": 1151
+    },
+    "test/features/quiz/presentation/completed_quiz_provider_test.dart": {
+      "load_ms": 1108,
+      "run_ms": 236,
+      "total_ms": 1344
+    },
+    "test/features/quiz/presentation/custom_launch_boundary_test.dart": {
+      "load_ms": 879,
+      "run_ms": 496,
+      "total_ms": 1375
+    },
+    "test/features/quiz/presentation/flagged_launch_boundary_test.dart": {
+      "load_ms": 991,
+      "run_ms": 489,
+      "total_ms": 1480
+    },
+    "test/features/quiz/presentation/flagged_ui_launch_boundary_test.dart": {
+      "load_ms": 1265,
+      "run_ms": 1524,
+      "total_ms": 2789
+    },
+    "test/features/quiz/presentation/launch_page_disposal_test.dart": {
+      "load_ms": 925,
+      "run_ms": 2204,
+      "total_ms": 3129
+    },
+    "test/features/quiz/presentation/pages/flagged_list_page_test.dart": {
+      "load_ms": 1577,
+      "run_ms": 2924,
+      "total_ms": 4501
+    },
+    "test/features/quiz/presentation/practice_index_provider_test.dart": {
+      "load_ms": 891,
+      "run_ms": 387,
+      "total_ms": 1278
+    },
+    "test/features/quiz/presentation/practice_pace_refresh_test.dart": {
+      "load_ms": 1161,
+      "run_ms": 287,
+      "total_ms": 1448
+    },
+    "test/features/quiz/presentation/practice_picker_screen_test.dart": {
+      "load_ms": 1324,
+      "run_ms": 11182,
+      "total_ms": 12506
+    },
+    "test/features/quiz/presentation/practice_row_providers_test.dart": {
+      "load_ms": 938,
+      "run_ms": 513,
+      "total_ms": 1451
+    },
+    "test/features/quiz/presentation/question_flag_providers_test.dart": {
+      "load_ms": 829,
+      "run_ms": 507,
+      "total_ms": 1336
+    },
+    "test/features/quiz/presentation/questions_unavailable_test.dart": {
+      "load_ms": 1287,
+      "run_ms": 1199,
+      "total_ms": 2486
+    },
+    "test/features/quiz/presentation/quick_launch_boundary_test.dart": {
+      "load_ms": 885,
+      "run_ms": 566,
+      "total_ms": 1451
+    },
+    "test/features/quiz/presentation/quiz_browser_back_test.dart": {
+      "load_ms": 1160,
+      "run_ms": 3811,
+      "total_ms": 4971
+    },
+    "test/features/quiz/presentation/quiz_controller_test.dart": {
+      "load_ms": 980,
+      "run_ms": 403,
+      "total_ms": 1383
+    },
+    "test/features/quiz/presentation/quiz_controller_today_launch_test.dart": {
+      "load_ms": 955,
+      "run_ms": 98,
+      "total_ms": 1053
+    },
+    "test/features/quiz/presentation/quiz_controls_hover_test.dart": {
+      "load_ms": 1194,
+      "run_ms": 1464,
+      "total_ms": 2658
+    },
+    "test/features/quiz/presentation/quiz_ds_matrix_test.dart": {
+      "load_ms": 1407,
+      "run_ms": 20330,
+      "total_ms": 21737
+    },
+    "test/features/quiz/presentation/quiz_failure_exit_test.dart": {
+      "load_ms": 1279,
+      "run_ms": 2017,
+      "total_ms": 3296
+    },
+    "test/features/quiz/presentation/quiz_leave_resume_panel_test.dart": {
+      "load_ms": 1200,
+      "run_ms": 2002,
+      "total_ms": 3202
+    },
+    "test/features/quiz/presentation/quiz_note_boundary_test.dart": {
+      "load_ms": 860,
+      "run_ms": 204,
+      "total_ms": 1064
+    },
+    "test/features/quiz/presentation/quiz_note_editor_test.dart": {
+      "load_ms": 1326,
+      "run_ms": 3303,
+      "total_ms": 4629
+    },
+    "test/features/quiz/presentation/quiz_page_chrome_test.dart": {
+      "load_ms": 1131,
+      "run_ms": 3633,
+      "total_ms": 4764
+    },
+    "test/features/quiz/presentation/quiz_page_test.dart": {
+      "load_ms": 1074,
+      "run_ms": 4824,
+      "total_ms": 5898
+    },
+    "test/features/quiz/presentation/quiz_pick_check_test.dart": {
+      "load_ms": 1001,
+      "run_ms": 455,
+      "total_ms": 1456
+    },
+    "test/features/quiz/presentation/quiz_question_screen_test.dart": {
+      "load_ms": 1032,
+      "run_ms": 7674,
+      "total_ms": 8706
+    },
+    "test/features/quiz/presentation/quiz_question_viewer_test.dart": {
+      "load_ms": 1202,
+      "run_ms": 3498,
+      "total_ms": 4700
+    },
+    "test/features/quiz/presentation/quiz_resume_empty_test.dart": {
+      "load_ms": 1176,
+      "run_ms": 1646,
+      "total_ms": 2822
+    },
+    "test/features/quiz/presentation/quiz_resume_test.dart": {
+      "load_ms": 1427,
+      "run_ms": 316,
+      "total_ms": 1743
+    },
+    "test/features/quiz/presentation/quiz_review_boundary_integration_test.dart": {
+      "load_ms": 946,
+      "run_ms": 3383,
+      "total_ms": 4329
+    },
+    "test/features/quiz/presentation/quiz_route_coverage_test.dart": {
+      "load_ms": 948,
+      "run_ms": 1641,
+      "total_ms": 2589
+    },
+    "test/features/quiz/presentation/quiz_session_end_page_test.dart": {
+      "load_ms": 1022,
+      "run_ms": 5561,
+      "total_ms": 6583
+    },
+    "test/features/quiz/presentation/quiz_tab_screen_test.dart": {
+      "load_ms": 1045,
+      "run_ms": 2695,
+      "total_ms": 3740
+    },
+    "test/features/quiz/presentation/quiz_viewer_route_registration_test.dart": {
+      "load_ms": 854,
+      "run_ms": 42,
+      "total_ms": 896
+    },
+    "test/features/quiz/presentation/review_next_boundary_test.dart": {
+      "load_ms": 985,
+      "run_ms": 1004,
+      "total_ms": 1989
+    },
+    "test/features/quiz/presentation/rushed_cause_copy_test.dart": {
+      "load_ms": 1162,
+      "run_ms": 24,
+      "total_ms": 1186
+    },
+    "test/features/quiz/presentation/scoped_content_test.dart": {
+      "load_ms": 1278,
+      "run_ms": 529,
+      "total_ms": 1807
+    },
+    "test/features/quiz/presentation/session_debrief_cards_test.dart": {
+      "load_ms": 1458,
+      "run_ms": 7275,
+      "total_ms": 8733
+    },
+    "test/features/quiz/presentation/session_debrief_completed_plan_test.dart": {
+      "load_ms": 965,
+      "run_ms": 2104,
+      "total_ms": 3069
+    },
+    "test/features/quiz/presentation/session_end_screen_test.dart": {
+      "load_ms": 1191,
+      "run_ms": 3370,
+      "total_ms": 4561
+    },
+    "test/features/quiz/presentation/session_panel_provider_test.dart": {
+      "load_ms": 1164,
+      "run_ms": 872,
+      "total_ms": 2036
+    },
+    "test/features/quiz/presentation/web_custom_quiz_states_test.dart": {
+      "load_ms": 1251,
+      "run_ms": 12000,
+      "total_ms": 13251
+    },
+    "test/features/quiz/presentation/web_quiz_layout_test.dart": {
+      "load_ms": 1229,
+      "run_ms": 2725,
+      "total_ms": 3954
+    },
+    "test/features/quiz/presentation/web_quiz_live_test.dart": {
+      "load_ms": 1108,
+      "run_ms": 25076,
+      "total_ms": 26184
+    },
+    "test/features/quiz/presentation/web_quiz_motion_test.dart": {
+      "load_ms": 1084,
+      "run_ms": 4041,
+      "total_ms": 5125
+    },
+    "test/features/quiz/presentation/web_quiz_picker_test.dart": {
+      "load_ms": 1410,
+      "run_ms": 2358,
+      "total_ms": 3768
+    },
+    "test/features/quiz/presentation/web_quiz_report_test.dart": {
+      "load_ms": 1433,
+      "run_ms": 1760,
+      "total_ms": 3193
+    },
+    "test/features/quiz/presentation/web_quiz_screens_test.dart": {
+      "load_ms": 1096,
+      "run_ms": 3599,
+      "total_ms": 4695
+    },
+    "test/features/quiz/presentation/web_session_results_keys_test.dart": {
+      "load_ms": 1133,
+      "run_ms": 2032,
+      "total_ms": 3165
+    },
+    "test/features/quiz/session_start_telemetry_test.dart": {
+      "load_ms": 1152,
+      "run_ms": 38,
+      "total_ms": 1190
+    },
+    "test/features/review_prompt/review_eligibility_test.dart": {
+      "load_ms": 983,
+      "run_ms": 33,
+      "total_ms": 1016
+    },
+    "test/features/review_prompt/review_prompt_controller_test.dart": {
+      "load_ms": 1047,
+      "run_ms": 36,
+      "total_ms": 1083
+    },
+    "test/features/roadmap/application/read_roadmap_today_test.dart": {
+      "load_ms": 980,
+      "run_ms": 176,
+      "total_ms": 1156
+    },
+    "test/features/roadmap/application/roadmap_controller_test.dart": {
+      "load_ms": 1097,
+      "run_ms": 3171,
+      "total_ms": 4268
+    },
+    "test/features/roadmap/data/roadmap_repositories_test.dart": {
+      "load_ms": 837,
+      "run_ms": 331,
+      "total_ms": 1168
+    },
+    "test/features/roadmap/data/topic_prerequisites_test.dart": {
+      "load_ms": 1134,
+      "run_ms": 5600,
+      "total_ms": 6734
+    },
+    "test/features/roadmap/domain/build_roadmap_test.dart": {
+      "load_ms": 945,
+      "run_ms": 148,
+      "total_ms": 1093
+    },
+    "test/features/roadmap/domain/coverage_property_test.dart": {
+      "load_ms": 843,
+      "run_ms": 21919,
+      "total_ms": 22762
+    },
+    "test/features/roadmap/domain/day_selection_test.dart": {
+      "load_ms": 1010,
+      "run_ms": 106,
+      "total_ms": 1116
+    },
+    "test/features/roadmap/domain/day_snapshot_test.dart": {
+      "load_ms": 914,
+      "run_ms": 149,
+      "total_ms": 1063
+    },
+    "test/features/roadmap/domain/follow_up_test.dart": {
+      "load_ms": 1109,
+      "run_ms": 63,
+      "total_ms": 1172
+    },
+    "test/features/roadmap/domain/lesson_graph_test.dart": {
+      "load_ms": 918,
+      "run_ms": 43,
+      "total_ms": 961
+    },
+    "test/features/roadmap/domain/lesson_mastery_test.dart": {
+      "load_ms": 897,
+      "run_ms": 42,
+      "total_ms": 939
+    },
+    "test/features/roadmap/domain/mock_day_test.dart": {
+      "load_ms": 1134,
+      "run_ms": 120,
+      "total_ms": 1254
+    },
+    "test/features/roadmap/domain/planning_window_anchor_test.dart": {
+      "load_ms": 938,
+      "run_ms": 25,
+      "total_ms": 963
+    },
+    "test/features/roadmap/domain/planning_window_test.dart": {
+      "load_ms": 925,
+      "run_ms": 90,
+      "total_ms": 1015
+    },
+    "test/features/roadmap/domain/prerequisite_queue_test.dart": {
+      "load_ms": 838,
+      "run_ms": 92,
+      "total_ms": 930
+    },
+    "test/features/roadmap/domain/session_diagnosis_test.dart": {
+      "load_ms": 1203,
+      "run_ms": 39,
+      "total_ms": 1242
+    },
+    "test/features/roadmap/domain/sitting_planner_test.dart": {
+      "load_ms": 1407,
+      "run_ms": 94,
+      "total_ms": 1501
+    },
+    "test/features/roadmap/domain/study_days_snapshot_test.dart": {
+      "load_ms": 858,
+      "run_ms": 86,
+      "total_ms": 944
+    },
+    "test/features/roadmap/domain/study_days_test.dart": {
+      "load_ms": 1131,
+      "run_ms": 3319,
+      "total_ms": 4450
+    },
+    "test/features/roadmap/domain/topic_links_test.dart": {
+      "load_ms": 843,
+      "run_ms": 41,
+      "total_ms": 884
+    },
+    "test/features/roadmap/domain/topic_order_test.dart": {
+      "load_ms": 1219,
+      "run_ms": 81,
+      "total_ms": 1300
+    },
+    "test/features/roadmap/domain/week_preview_performance_test.dart": {
+      "load_ms": 838,
+      "run_ms": 62,
+      "total_ms": 900
+    },
+    "test/features/roadmap/domain/week_preview_test.dart": {
+      "load_ms": 927,
+      "run_ms": 98,
+      "total_ms": 1025
+    },
+    "test/features/settings/application/carry_over_providers_test.dart": {
+      "load_ms": 923,
+      "run_ms": 302,
+      "total_ms": 1225
+    },
+    "test/features/settings/application/settings_actions_test.dart": {
+      "load_ms": 1193,
+      "run_ms": 586,
+      "total_ms": 1779
+    },
+    "test/features/settings/application/settings_providers_test.dart": {
+      "load_ms": 843,
+      "run_ms": 1058,
+      "total_ms": 1901
+    },
+    "test/features/settings/application/w4f_trial_label_test.dart": {
+      "load_ms": 805,
+      "run_ms": 80,
+      "total_ms": 885
+    },
+    "test/features/settings/beta_pro_row_test.dart": {
+      "load_ms": 1047,
+      "run_ms": 1827,
+      "total_ms": 2874
+    },
+    "test/features/settings/data/settings_repository_test.dart": {
+      "load_ms": 1177,
+      "run_ms": 520,
+      "total_ms": 1697
+    },
+    "test/features/settings/domain/backup_status_test.dart": {
+      "load_ms": 829,
+      "run_ms": 40,
+      "total_ms": 869
+    },
+    "test/features/settings/domain/delete_account_copy_test.dart": {
+      "load_ms": 1180,
+      "run_ms": 37,
+      "total_ms": 1217
+    },
+    "test/features/settings/domain/session_ordering_test.dart": {
+      "load_ms": 858,
+      "run_ms": 27,
+      "total_ms": 885
+    },
+    "test/features/settings/domain/settings_domain_test.dart": {
+      "load_ms": 838,
+      "run_ms": 26,
+      "total_ms": 864
+    },
+    "test/features/settings/feedback_intent_test.dart": {
+      "load_ms": 794,
+      "run_ms": 26,
+      "total_ms": 820
+    },
+    "test/features/settings/presentation/about_page_test.dart": {
+      "load_ms": 1192,
+      "run_ms": 4147,
+      "total_ms": 5339
+    },
+    "test/features/settings/presentation/accessibility_page_test.dart": {
+      "load_ms": 1034,
+      "run_ms": 2813,
+      "total_ms": 3847
+    },
+    "test/features/settings/presentation/account_offline_copy_test.dart": {
+      "load_ms": 1008,
+      "run_ms": 3004,
+      "total_ms": 4012
+    },
+    "test/features/settings/presentation/account_page_test.dart": {
+      "load_ms": 980,
+      "run_ms": 14430,
+      "total_ms": 15410
+    },
+    "test/features/settings/presentation/account_signed_out_wide_test.dart": {
+      "load_ms": 1023,
+      "run_ms": 45940,
+      "total_ms": 46963
+    },
+    "test/features/settings/presentation/backup_offline_copy_test.dart": {
+      "load_ms": 881,
+      "run_ms": 2978,
+      "total_ms": 3859
+    },
+    "test/features/settings/presentation/carry_over_screen_test.dart": {
+      "load_ms": 1238,
+      "run_ms": 1216,
+      "total_ms": 2454
+    },
+    "test/features/settings/presentation/debug_settings_page_test.dart": {
+      "load_ms": 879,
+      "run_ms": 563,
+      "total_ms": 1442
+    },
+    "test/features/settings/presentation/delete_account_page_test.dart": {
+      "load_ms": 960,
+      "run_ms": 1701,
+      "total_ms": 2661
+    },
+    "test/features/settings/presentation/exam_page_test.dart": {
+      "load_ms": 1070,
+      "run_ms": 8499,
+      "total_ms": 9569
+    },
+    "test/features/settings/presentation/feedback_row_test.dart": {
+      "load_ms": 1018,
+      "run_ms": 2824,
+      "total_ms": 3842
+    },
+    "test/features/settings/presentation/pro_page_guardian_message_test.dart": {
+      "load_ms": 931,
+      "run_ms": 2537,
+      "total_ms": 3468
+    },
+    "test/features/settings/presentation/pro_page_matrix_test.dart": {
+      "load_ms": 1041,
+      "run_ms": 9535,
+      "total_ms": 10576
+    },
+    "test/features/settings/presentation/pro_page_payments_test.dart": {
+      "load_ms": 1146,
+      "run_ms": 4147,
+      "total_ms": 5293
+    },
+    "test/features/settings/presentation/pro_page_phone_price_test.dart": {
+      "load_ms": 1006,
+      "run_ms": 2155,
+      "total_ms": 3161
+    },
+    "test/features/settings/presentation/pro_view_event_test.dart": {
+      "load_ms": 909,
+      "run_ms": 4120,
+      "total_ms": 5029
+    },
+    "test/features/settings/presentation/raw_control_shapes_test.dart": {
+      "load_ms": 978,
+      "run_ms": 1055,
+      "total_ms": 2033
+    },
+    "test/features/settings/presentation/session_building_page_test.dart": {
+      "load_ms": 985,
+      "run_ms": 1667,
+      "total_ms": 2652
+    },
+    "test/features/settings/presentation/settings_account_card_test.dart": {
+      "load_ms": 976,
+      "run_ms": 1150,
+      "total_ms": 2126
+    },
+    "test/features/settings/presentation/settings_detail_pages_test.dart": {
+      "load_ms": 1357,
+      "run_ms": 13525,
+      "total_ms": 14882
+    },
+    "test/features/settings/presentation/settings_ds_matrix_test.dart": {
+      "load_ms": 1459,
+      "run_ms": 19800,
+      "total_ms": 21259
+    },
+    "test/features/settings/presentation/settings_home_page_test.dart": {
+      "load_ms": 1325,
+      "run_ms": 1402,
+      "total_ms": 2727
+    },
+    "test/features/settings/presentation/settings_value_formats_test.dart": {
+      "load_ms": 857,
+      "run_ms": 44,
+      "total_ms": 901
+    },
+    "test/features/settings/presentation/sync_reconciliation_gate_test.dart": {
+      "load_ms": 1171,
+      "run_ms": 1220,
+      "total_ms": 2391
+    },
+    "test/features/settings/presentation/text_size_preview_test.dart": {
+      "load_ms": 1135,
+      "run_ms": 5569,
+      "total_ms": 6704
+    },
+    "test/features/settings/presentation/w4f_account_test.dart": {
+      "load_ms": 954,
+      "run_ms": 2296,
+      "total_ms": 3250
+    },
+    "test/features/settings/presentation/w4f_appearance_test.dart": {
+      "load_ms": 1320,
+      "run_ms": 1882,
+      "total_ms": 3202
+    },
+    "test/features/settings/presentation/w4f_backup_test.dart": {
+      "load_ms": 982,
+      "run_ms": 1556,
+      "total_ms": 2538
+    },
+    "test/features/settings/presentation/w4f_checkout_return_test.dart": {
+      "load_ms": 1189,
+      "run_ms": 1348,
+      "total_ms": 2537
+    },
+    "test/features/settings/presentation/w4f_error_reporting_test.dart": {
+      "load_ms": 1454,
+      "run_ms": 9925,
+      "total_ms": 11379
+    },
+    "test/features/settings/presentation/w4f_exam_test.dart": {
+      "load_ms": 961,
+      "run_ms": 2595,
+      "total_ms": 3556
+    },
+    "test/features/settings/presentation/w4f_lesson_scope_test.dart": {
+      "load_ms": 1255,
+      "run_ms": 1430,
+      "total_ms": 2685
+    },
+    "test/features/settings/presentation/w4f_name_test.dart": {
+      "load_ms": 975,
+      "run_ms": 1859,
+      "total_ms": 2834
+    },
+    "test/features/settings/presentation/w4f_pass_warning_test.dart": {
+      "load_ms": 1268,
+      "run_ms": 1464,
+      "total_ms": 2732
+    },
+    "test/features/settings/presentation/w4f_pending_exam_test.dart": {
+      "load_ms": 1266,
+      "run_ms": 2610,
+      "total_ms": 3876
+    },
+    "test/features/settings/presentation/w4f_practice_test.dart": {
+      "load_ms": 1005,
+      "run_ms": 1381,
+      "total_ms": 2386
+    },
+    "test/features/settings/presentation/w4f_pro_states_test.dart": {
+      "load_ms": 993,
+      "run_ms": 5798,
+      "total_ms": 6791
+    },
+    "test/features/settings/presentation/w4f_pro_test.dart": {
+      "load_ms": 933,
+      "run_ms": 2351,
+      "total_ms": 3284
+    },
+    "test/features/settings/presentation/w4f_root_states_test.dart": {
+      "load_ms": 977,
+      "run_ms": 3385,
+      "total_ms": 4362
+    },
+    "test/features/settings/presentation/w4f_screen_states_test.dart": {
+      "load_ms": 1386,
+      "run_ms": 4896,
+      "total_ms": 6282
+    },
+    "test/features/settings/presentation/w4f_upgrade_checkout_test.dart": {
+      "load_ms": 972,
+      "run_ms": 4894,
+      "total_ms": 5866
+    },
+    "test/features/settings/presentation/web_account_states_test.dart": {
+      "load_ms": 1254,
+      "run_ms": 3300,
+      "total_ms": 4554
+    },
+    "test/features/settings/presentation/web_pro_hero_test.dart": {
+      "load_ms": 973,
+      "run_ms": 1015,
+      "total_ms": 1988
+    },
+    "test/features/settings/presentation/web_pro_states_test.dart": {
+      "load_ms": 901,
+      "run_ms": 7594,
+      "total_ms": 8495
+    },
+    "test/features/settings/presentation/web_settings_layout_test.dart": {
+      "load_ms": 1390,
+      "run_ms": 12599,
+      "total_ms": 13989
+    },
+    "test/features/settings/presentation/web_settings_second_pass_test.dart": {
+      "load_ms": 1085,
+      "run_ms": 13055,
+      "total_ms": 14140
+    },
+    "test/features/settings/presentation/whats_included_page_test.dart": {
+      "load_ms": 1283,
+      "run_ms": 2538,
+      "total_ms": 3821
+    },
+    "test/features/settings/presentation/wide_delete_account_exit_test.dart": {
+      "load_ms": 987,
+      "run_ms": 3405,
+      "total_ms": 4392
+    },
+    "test/features/settings/straight_quotes_test.dart": {
+      "load_ms": 653,
+      "run_ms": 59,
+      "total_ms": 712
+    },
+    "test/features/shell/app_nav_bar_accessibility_test.dart": {
+      "load_ms": 842,
+      "run_ms": 1097,
+      "total_ms": 1939
+    },
+    "test/features/shell/app_shell_test.dart": {
+      "load_ms": 872,
+      "run_ms": 3080,
+      "total_ms": 3952
+    },
+    "test/features/shell/nav_motion_test.dart": {
+      "load_ms": 1034,
+      "run_ms": 1370,
+      "total_ms": 2404
+    },
+    "test/features/shell/presentation/web_shell_tab_order_test.dart": {
+      "load_ms": 980,
+      "run_ms": 1564,
+      "total_ms": 2544
+    },
+    "test/features/shell/shell_ds_matrix_test.dart": {
+      "load_ms": 906,
+      "run_ms": 2308,
+      "total_ms": 3214
+    },
+    "test/features/shell/sidebar_keyboard_test.dart": {
+      "load_ms": 823,
+      "run_ms": 994,
+      "total_ms": 1817
+    },
+    "test/features/shell/tab_content_under_bar_test.dart": {
+      "load_ms": 864,
+      "run_ms": 2934,
+      "total_ms": 3798
+    },
+    "test/features/shell/tab_shell_telemetry_test.dart": {
+      "load_ms": 804,
+      "run_ms": 739,
+      "total_ms": 1543
+    },
+    "test/features/shell/update_required_test.dart": {
+      "load_ms": 847,
+      "run_ms": 1373,
+      "total_ms": 2220
+    },
+    "test/features/shell/web_responsive_shell_test.dart": {
+      "load_ms": 1022,
+      "run_ms": 1116,
+      "total_ms": 2138
+    },
+    "test/features/shell/web_shell_test.dart": {
+      "load_ms": 1040,
+      "run_ms": 1540,
+      "total_ms": 2580
+    },
+    "test/features/shell/web_sidebar_search_test.dart": {
+      "load_ms": 826,
+      "run_ms": 966,
+      "total_ms": 1792
+    },
+    "test/features/wrapped/application/wrapped_batcher_test.dart": {
+      "load_ms": 588,
+      "run_ms": 30,
+      "total_ms": 618
+    },
+    "test/features/wrapped/application/wrapped_composer_test.dart": {
+      "load_ms": 921,
+      "run_ms": 22,
+      "total_ms": 943
+    },
+    "test/features/wrapped/application/wrapped_share_flow_test.dart": {
+      "load_ms": 766,
+      "run_ms": 437,
+      "total_ms": 1203
+    },
+    "test/features/wrapped/application/wrapped_trigger_bus_test.dart": {
+      "load_ms": 565,
+      "run_ms": 56,
+      "total_ms": 621
+    },
+    "test/features/wrapped/artifacts/wrapped_trigger_rules_test.dart": {
+      "load_ms": 580,
+      "run_ms": 29,
+      "total_ms": 609
+    },
+    "test/features/wrapped/data/user_metrics_artifact_repository_test.dart": {
+      "load_ms": 760,
+      "run_ms": 190,
+      "total_ms": 950
+    },
+    "test/features/wrapped/presentation/my_shared_cards_page_test.dart": {
+      "load_ms": 811,
+      "run_ms": 1174,
+      "total_ms": 1985
+    },
+    "test/features/wrapped/presentation/share_privacy_sheet_test.dart": {
+      "load_ms": 846,
+      "run_ms": 703,
+      "total_ms": 1549
+    },
+    "test/features/wrapped/presentation/wrapped_offline_copy_test.dart": {
+      "load_ms": 842,
+      "run_ms": 843,
+      "total_ms": 1685
+    },
+    "test/features/wrapped/presentation/wrapped_reveal_page_test.dart": {
+      "load_ms": 1081,
+      "run_ms": 1116,
+      "total_ms": 2197
+    },
+    "test/features/wrapped/rendering/wrapped_png_renderer_test.dart": {
+      "load_ms": 926,
+      "run_ms": 542,
+      "total_ms": 1468
+    },
+    "test/features/wrapped/rendering/wrapped_share_card_test.dart": {
+      "load_ms": 795,
+      "run_ms": 596,
+      "total_ms": 1391
+    },
+    "test/features/wrapped/share_id_generator_test.dart": {
+      "load_ms": 764,
+      "run_ms": 24,
+      "total_ms": 788
+    },
+    "test/features/wrapped/wrapped_ds_test.dart": {
+      "load_ms": 886,
+      "run_ms": 2337,
+      "total_ms": 3223
+    },
+    "test/features/wrapped/wrapped_share_url_test.dart": {
+      "load_ms": 937,
+      "run_ms": 19,
+      "total_ms": 956
+    },
+    "test/l10n/greeting_test.dart": {
+      "load_ms": 969,
+      "run_ms": 584,
+      "total_ms": 1553
+    },
+    "test/performance/frame_work_test.dart": {
+      "load_ms": 1606,
+      "run_ms": 7581,
+      "total_ms": 9187
+    },
+    "test/tool/android_manifest_release_metadata_test.dart": {
+      "load_ms": 735,
+      "run_ms": 48,
+      "total_ms": 783
+    },
+    "test/tool/android_release_contract_test.dart": {
+      "load_ms": 668,
+      "run_ms": 65,
+      "total_ms": 733
+    },
+    "test/tool/build_content_export_test.dart": {
+      "load_ms": 1420,
+      "run_ms": 6542,
+      "total_ms": 7962
+    },
+    "test/tool/check_coverage_test.dart": {
+      "load_ms": 888,
+      "run_ms": 41,
+      "total_ms": 929
+    },
+    "test/tool/check_no_ai_attribution_test.dart": {
+      "load_ms": 722,
+      "run_ms": 60,
+      "total_ms": 782
+    },
+    "test/tool/checks/bold_stem_test.dart": {
+      "load_ms": 966,
+      "run_ms": 29,
+      "total_ms": 995
+    },
+    "test/tool/checks/design_token_literals_test.dart": {
+      "load_ms": 752,
+      "run_ms": 82,
+      "total_ms": 834
+    },
+    "test/tool/checks/legal_text_drafting_test.dart": {
+      "load_ms": 942,
+      "run_ms": 37,
+      "total_ms": 979
+    },
+    "test/tool/checks/lesson_list_exam_scope_test.dart": {
+      "load_ms": 697,
+      "run_ms": 39,
+      "total_ms": 736
+    },
+    "test/tool/checks/letter_shortcut_gate_test.dart": {
+      "load_ms": 722,
+      "run_ms": 54,
+      "total_ms": 776
+    },
+    "test/tool/checks/mock_blueprint_topics_test.dart": {
+      "load_ms": 962,
+      "run_ms": 32,
+      "total_ms": 994
+    },
+    "test/tool/checks/run_checks_test.dart": {
+      "load_ms": 876,
+      "run_ms": 19,
+      "total_ms": 895
+    },
+    "test/tool/checks/shell_route_push_test.dart": {
+      "load_ms": 805,
+      "run_ms": 54,
+      "total_ms": 859
+    },
+    "test/tool/checks/sync_mutations_typed_read_test.dart": {
+      "load_ms": 987,
+      "run_ms": 32,
+      "total_ms": 1019
+    },
+    "test/tool/ci/test_timing_test.dart": {
+      "load_ms": 703,
+      "run_ms": 34,
+      "total_ms": 737
+    },
+    "test/tool/content_docs_test.dart": {
+      "load_ms": 763,
+      "run_ms": 60,
+      "total_ms": 823
+    },
+    "test/tool/content_export_roundtrip_test.dart": {
+      "load_ms": 1003,
+      "run_ms": 9113,
+      "total_ms": 10116
+    },
+    "test/tool/content_package_asset_contract_test.dart": {
+      "load_ms": 786,
+      "run_ms": 82,
+      "total_ms": 868
+    },
+    "test/tool/content_package_builder_cli_test.dart": {
+      "load_ms": 787,
+      "run_ms": 12013,
+      "total_ms": 12800
+    },
+    "test/tool/content_package_builder_test.dart": {
+      "load_ms": 1063,
+      "run_ms": 486,
+      "total_ms": 1549
+    },
+    "test/tool/content_package_verifier_test.dart": {
+      "load_ms": 1106,
+      "run_ms": 1183,
+      "total_ms": 2289
+    },
+    "test/tool/content_seed_config_test.dart": {
+      "load_ms": 723,
+      "run_ms": 38,
+      "total_ms": 761
+    },
+    "test/tool/content_seed_writer_test.dart": {
+      "load_ms": 915,
+      "run_ms": 3251,
+      "total_ms": 4166
+    },
+    "test/tool/design_system/generate_tokens_test.dart": {
+      "load_ms": 658,
+      "run_ms": 714,
+      "total_ms": 1372
+    },
+    "test/tool/exam_catalog_validation_test.dart": {
+      "load_ms": 1011,
+      "run_ms": 4555,
+      "total_ms": 5566
+    },
+    "test/tool/firebase_collection_defaults_test.dart": {
+      "load_ms": 691,
+      "run_ms": 29,
+      "total_ms": 720
+    },
+    "test/tool/firebase_config_layout_test.dart": {
+      "load_ms": 905,
+      "run_ms": 62,
+      "total_ms": 967
+    },
+    "test/tool/firebase_hosting_headers_test.dart": {
+      "load_ms": 1154,
+      "run_ms": 57,
+      "total_ms": 1211
+    },
+    "test/tool/firebase_indexes_layout_test.dart": {
+      "load_ms": 739,
+      "run_ms": 186,
+      "total_ms": 925
+    },
+    "test/tool/firebase_rules_layout_test.dart": {
+      "load_ms": 717,
+      "run_ms": 56,
+      "total_ms": 773
+    },
+    "test/tool/firebase_setup_docs_test.dart": {
+      "load_ms": 1055,
+      "run_ms": 64,
+      "total_ms": 1119
+    },
+    "test/tool/import_questions/cli_test.dart": {
+      "load_ms": 973,
+      "run_ms": 6700,
+      "total_ms": 7673
+    },
+    "test/tool/import_questions/converter_test.dart": {
+      "load_ms": 1020,
+      "run_ms": 118,
+      "total_ms": 1138
+    },
+    "test/tool/import_questions/passage_converter_test.dart": {
+      "load_ms": 1015,
+      "run_ms": 90,
+      "total_ms": 1105
+    },
+    "test/tool/list_routes_test.dart": {
+      "load_ms": 799,
+      "run_ms": 535,
+      "total_ms": 1334
+    },
+    "test/tool/metrics_boundary_test.dart": {
+      "load_ms": 876,
+      "run_ms": 28,
+      "total_ms": 904
+    },
+    "test/tool/mock_exam_boundary_test.dart": {
+      "load_ms": 762,
+      "run_ms": 88,
+      "total_ms": 850
+    },
+    "test/tool/notifications_boundary_test.dart": {
+      "load_ms": 732,
+      "run_ms": 40,
+      "total_ms": 772
+    },
+    "test/tool/notifications_no_fcm_token_test.dart": {
+      "load_ms": 651,
+      "run_ms": 418,
+      "total_ms": 1069
+    },
+    "test/tool/paywall_boundary_test.dart": {
+      "load_ms": 725,
+      "run_ms": 44,
+      "total_ms": 769
+    },
+    "test/tool/paywall_docs_test.dart": {
+      "load_ms": 730,
+      "run_ms": 31,
+      "total_ms": 761
+    },
+    "test/tool/paywall_release_guard_test.dart": {
+      "load_ms": 904,
+      "run_ms": 149,
+      "total_ms": 1053
+    },
+    "test/tool/question_studio_validators_test.dart": {
+      "load_ms": 763,
+      "run_ms": 377,
+      "total_ms": 1140
+    },
+    "test/tool/quiz_domain_boundary_test.dart": {
+      "load_ms": 787,
+      "run_ms": 38,
+      "total_ms": 825
+    },
+    "test/tool/release_e2e_firebase_contract_test.dart": {
+      "load_ms": 1114,
+      "run_ms": 52,
+      "total_ms": 1166
+    },
+    "test/tool/release_e2e_fixture_test.dart": {
+      "load_ms": 1228,
+      "run_ms": 342,
+      "total_ms": 1570
+    },
+    "test/tool/release_e2e_runner_test.dart": {
+      "load_ms": 804,
+      "run_ms": 9001,
+      "total_ms": 9805
+    },
+    "test/tool/seed_writer_version_contract_test.dart": {
+      "load_ms": 743,
+      "run_ms": 46,
+      "total_ms": 789
+    },
+    "test/tool/settings_boundary_test.dart": {
+      "load_ms": 727,
+      "run_ms": 88,
+      "total_ms": 815
+    },
+    "test/tool/settings_release_guard_test.dart": {
+      "load_ms": 748,
+      "run_ms": 146,
+      "total_ms": 894
+    },
+    "test/tool/study_plan_docs_test.dart": {
+      "load_ms": 644,
+      "run_ms": 36,
+      "total_ms": 680
+    },
+    "test/tool/sync_import_boundary_test.dart": {
+      "load_ms": 911,
+      "run_ms": 60,
+      "total_ms": 971
+    },
+    "test/tool/wrapped_boundary_test.dart": {
+      "load_ms": 653,
+      "run_ms": 249,
+      "total_ms": 902
+    },
+    "test/tools/build_content_export_links_test.dart": {
+      "load_ms": 758,
+      "run_ms": 42054,
+      "total_ms": 42812
+    },
+    "test/tools/build_dev_seed_test.dart": {
+      "load_ms": 701,
+      "run_ms": 1820,
+      "total_ms": 2521
+    },
+    "test/tools/check_lesson_illustrations_test.dart": {
+      "load_ms": 8234,
+      "run_ms": 2322,
+      "total_ms": 10556
+    },
+    "test/tools/lesson_illustration_preview_renderer_test.dart": {
+      "load_ms": 9032,
+      "run_ms": 929,
+      "total_ms": 9961
+    },
+    "test/tools/lesson_svg_assets_test.dart": {
+      "load_ms": 897,
+      "run_ms": 349,
+      "total_ms": 1246
+    },
+    "test/tools/markdown_portable_text_test.dart": {
+      "load_ms": 932,
+      "run_ms": 143,
+      "total_ms": 1075
+    },
+    "test/tools/release/protected_content_release_contract_test.dart": {
+      "load_ms": 699,
+      "run_ms": 33,
+      "total_ms": 732
+    },
+    "test/tools/upload_lesson_assets_test.dart": {
+      "load_ms": 756,
+      "run_ms": 146,
+      "total_ms": 902
+    }
+  }
+}
