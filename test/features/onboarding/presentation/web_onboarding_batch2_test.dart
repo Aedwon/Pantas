@@ -135,9 +135,9 @@ void main() {
     testWidgets('age blocked shows the shared header $dark', (tester) async {
       await pump(
         tester,
-        OnboardingAgeGateStep(currentYear: 2026, onAgeGatePassed: () {}),
+        OnboardingAgeGateStep(onAgeGatePassed: () {}),
       );
-      await tester.enterText(find.byType(TextField), '2020');
+      await tester.enterText(find.byType(TextField), '12');
       await tester.pump();
       await tester.tap(find.text('Continue'));
       await tester.pump(const Duration(milliseconds: 500));
@@ -146,7 +146,7 @@ void main() {
       expect(title.style!.fontWeight, FontWeight.w700);
       expect(find.text('Try a Different Year'), findsNothing);
       expect(
-        find.text('Entered the wrong year? Email contact@pantas.study.'),
+        find.text('Entered the wrong age? Email contact@pantas.study.'),
         findsOneWidget,
       );
     });

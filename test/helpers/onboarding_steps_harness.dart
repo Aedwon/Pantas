@@ -134,7 +134,6 @@ Future<void> pumpFramedStep(
   final catalog = onboardingTestCatalog();
   final widget = switch (step) {
     'age' => OnboardingAgeGateStep(
-        currentYear: 2026,
         onAgeGatePassed: () {},
         onGuardianNeeded: () {},
         onBack: () {},

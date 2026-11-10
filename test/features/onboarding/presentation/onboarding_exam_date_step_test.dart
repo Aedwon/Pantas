@@ -8,6 +8,7 @@ import 'package:pantas/core/ui/components/month_first_date_picker.dart';
 import 'package:pantas/features/onboarding/application/onboarding_flow.dart';
 import 'package:pantas/features/onboarding/presentation/exam_picker_screen.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_exam_date_step.dart';
+import 'package:pantas/features/onboarding/presentation/onboarding_web_page.dart';
 import 'package:pantas/features/settings/data/settings_repository.dart';
 import '../../../helpers/accessibility.dart';
 import '../../../helpers/in_memory_database.dart';
@@ -47,10 +48,12 @@ void main() {
           disableAnimations: true,
         );
         await tester.pumpAndSettle();
+        // The phone step has no subtitle: the labeled field says it.
         expect(
           find.text('Pick the month. Add the day if you know it.'),
-          findsOneWidget,
+          findsNothing,
         );
+        expect(find.text('Exam date'), findsOneWidget);
         // No month is chosen yet: the calendar shows this month, and Continue
         // waits. Going to next month and back chooses this month alone.
         expect(find.text('October 2026'), findsOneWidget);
@@ -67,7 +70,11 @@ void main() {
         await tester.ensureVisible(find.byKey(const ValueKey('date-day-3')));
         await tester.tap(find.byKey(const ValueKey('date-day-3')));
         await tester.pumpAndSettle();
-        expect(find.text('Saturday, October 3 · today'), findsOneWidget);
+        expect(find.text('Saturday, October 3 · today'), findsNothing);
+        expect(
+          tester.widget<TextField>(find.byType(TextField)).controller!.text,
+          '10/03/2026',
+        );
         expect(find.textContaining('what matters most'), findsNothing);
         await tester.tap(find.text('Continue'));
         await tester.pumpAndSettle();
@@ -253,7 +260,7 @@ void main() {
     });
   }
 
-  testWidgets('the selected-day note counts days as the boards draw it',
+  testWidgets('the phone step draws no day line under the grid',
       (tester) async {
     final db = inMemoryDatabase();
     addTearDown(db.close);
@@ -274,21 +281,92 @@ void main() {
     await tester.ensureVisible(find.byTooltip('Next month'));
     await tester.tap(find.byTooltip('Next month'));
     await tester.pumpAndSettle();
-    // A month alone shows no count.
     expect(find.textContaining('days from today'), findsNothing);
     await tester.ensureVisible(find.byKey(const ValueKey('date-day-11')));
     await tester.tap(find.byKey(const ValueKey('date-day-11')));
     await tester.pumpAndSettle();
+    expect(find.textContaining('days from today'), findsNothing);
+    expect(find.textContaining('Wednesday'), findsNothing);
     expect(
-      find.text('Wednesday, November 11 · 39 days from today'),
+      tester.widget<TextField>(find.byType(TextField)).controller!.text,
+      '11/11/2026',
+    );
+    await tester.pumpWidget(const SizedBox.shrink());
+  });
+
+  testWidgets('the step opens with the calendar and the field is a toggle',
+      (tester) async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    await pumpAccessibilitySurface(
+      tester,
+      ProviderScope(
+        overrides: [
+          appDatabaseProvider.overrideWithValue(db),
+          examPickerCatalogProvider
+              .overrideWith((ref) => Stream.value(const [])),
+        ],
+        child: OnboardingExamDateStep(now: today, onCompleted: () {}),
+      ),
+      disableAnimations: true,
+      viewportSize: const Size(390, 844),
+    );
+    await tester.pumpAndSettle();
+    expect(find.byKey(const ValueKey('date-day-3')), findsOneWidget);
+    await tester.tap(find.byType(TextField));
+    await tester.pumpAndSettle();
+    expect(find.byKey(const ValueKey('date-day-3')), findsNothing);
+    await tester.tap(find.byTooltip('Choose a date'));
+    await tester.pumpAndSettle();
+    expect(find.byKey(const ValueKey('date-day-3')), findsOneWidget);
+    await tester.pumpWidget(const SizedBox.shrink());
+  });
+
+  testWidgets('a past or half-typed date holds Continue; Not sure turns it on',
+      (tester) async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    await pumpAccessibilitySurface(
+      tester,
+      ProviderScope(
+        overrides: [
+          appDatabaseProvider.overrideWithValue(db),
+          examPickerCatalogProvider
+              .overrideWith((ref) => Stream.value(const [])),
+        ],
+        child: OnboardingExamDateStep(now: today, onCompleted: () {}),
+      ),
+      disableAnimations: true,
+      viewportSize: const Size(390, 844),
+    );
+    await tester.pumpAndSettle();
+    final continueButton = find.widgetWithText(OnboardingButton, 'Continue');
+    bool continueOn() =>
+        tester.widget<OnboardingButton>(continueButton).onPressed != null;
+    expect(continueOn(), isFalse);
+    await tester.ensureVisible(find.byKey(const ValueKey('date-day-20')));
+    await tester.tap(find.byKey(const ValueKey('date-day-20')));
+    await tester.pumpAndSettle();
+    expect(continueOn(), isTrue);
+    await tester.tap(find.byType(TextField));
+    await tester.enterText(find.byType(TextField), '10012026');
+    await tester.pumpAndSettle();
+    expect(find.text('Pick a date from October 3, 2026.'), findsOneWidget);
+    expect(continueOn(), isFalse);
+    await tester.tap(find.byTooltip('Choose a date'));
+    await tester.pumpAndSettle();
+    await tester.ensureVisible(find.text('Not sure of the day'));
+    await tester.tap(find.text('Not sure of the day'));
+    await tester.pumpAndSettle();
+    expect(
+      find.text("No day yet? We'll plan from today and ask later."),
       findsOneWidget,
     );
-    await tester.tap(find.byTooltip('Previous month'));
-    await tester.pumpAndSettle();
-    await tester.ensureVisible(find.byKey(const ValueKey('date-day-4')));
-    await tester.tap(find.byKey(const ValueKey('date-day-4')));
-    await tester.pumpAndSettle();
-    expect(find.text('Sunday, October 4 · 1 day from today'), findsOneWidget);
+    expect(
+      tester.widget<TextField>(find.byType(TextField)).controller!.text,
+      '',
+    );
+    expect(continueOn(), isTrue);
     await tester.pumpWidget(const SizedBox.shrink());
   });
 

@@ -1,21 +1,19 @@
-/// What a birth year means for access to Pantas.
+/// What an age means for access to Pantas.
 enum AgeOutcome {
-  /// Even the older possible age is below the exam's minimum.
+  /// Below the exam's minimum age.
   underMinimum,
 
-  /// Under 18, or possibly under 18. A parent or guardian must agree.
+  /// Under 18. A parent or guardian must agree.
   minor,
 
-  /// Certainly 18 or older.
+  /// 18 or older.
   adult,
 }
 
-/// The birth-year rules, kept free of any screen so each can be tested.
+/// The age rules, kept free of any screen so each can be tested.
 ///
-/// Only a birth year is asked, so the real age is one of two values. The
-/// student is treated as the older age when checking the minimum, and as the
-/// younger age when checking for adulthood: a year that could mean 17 or 18
-/// counts as a minor.
+/// The student gives an exact age, so there is no ambiguous case: below the
+/// minimum is blocked, under 18 is a minor, and 18 or older is an adult.
 class AgePolicy {
   const AgePolicy({this.minimumAge = _defaultMinimumAge});
 
@@ -33,11 +31,9 @@ class AgePolicy {
 
   final int minimumAge;
 
-  AgeOutcome evaluate({required int birthYear, required int currentYear}) {
-    final olderAge = currentYear - birthYear;
-    final youngerAge = olderAge - 1;
-    if (olderAge < minimumAge) return AgeOutcome.underMinimum;
-    if (youngerAge < adultAge) return AgeOutcome.minor;
+  AgeOutcome evaluateAge(int age) {
+    if (age < minimumAge) return AgeOutcome.underMinimum;
+    if (age < adultAge) return AgeOutcome.minor;
     return AgeOutcome.adult;
   }
 }

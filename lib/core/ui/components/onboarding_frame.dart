@@ -387,7 +387,7 @@ class OnboardingRail extends StatelessWidget {
   final int? progress;
 
   static const labels = [
-    'Birth year',
+    'Your age',
     'Terms',
     'Your exam',
     'Exam date',

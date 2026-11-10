@@ -83,7 +83,7 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
       if (!mounted) return;
       _finished = true;
       ref.read(studyNeedsExamSettingsProvider.notifier).state = false;
-      ref.read(onboardingBirthYearProvider.notifier).state = null;
+      ref.read(onboardingAgeProvider.notifier).state = null;
       unawaited(
         ref.read(telemetryProvider).log(TelemetryEvent.onboardingCompleted),
       );
@@ -383,7 +383,6 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
         return KeyedSubtree(
           key: const ValueKey('ageGate'),
           child: OnboardingAgeGateStep(
-            currentYear: DateTime.now().year,
             onBack: _back,
             onAgeGatePassed: () {
               if (_step == OnboardingStep.age) {

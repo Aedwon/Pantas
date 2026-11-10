@@ -137,7 +137,7 @@ void main() {
   testWidgets('Year: the field holds focus with no click', (tester) async {
     await pump(
       tester,
-      OnboardingAgeGateStep(currentYear: 2026, onAgeGatePassed: () {}),
+      OnboardingAgeGateStep(onAgeGatePassed: () {}),
     );
     final field = tester.widget<TextField>(find.byType(TextField));
     expect(field.focusNode!.hasPrimaryFocus, isTrue);

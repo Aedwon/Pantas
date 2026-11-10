@@ -84,7 +84,7 @@ void main() {
   Future<void> toTermsPhone(WidgetTester tester) async {
     await tester.tap(find.text('Get Started'));
     await tester.pumpAndSettle();
-    await tester.enterText(find.byType(TextField), '2000');
+    await tester.enterText(find.byType(TextField), '30');
     await tester.pump();
     await tester.tap(find.text('Continue'));
     await tester.pumpAndSettle();
@@ -98,19 +98,19 @@ void main() {
     await pumpPage(tester, wide: false);
     await tester.tap(find.text('Get Started'));
     await tester.pumpAndSettle();
-    expect(find.text('When were you born?'), findsOneWidget);
+    expect(find.text('How old are you?'), findsOneWidget);
     final segments = find.byKey(const ValueKey('onboarding-segment'));
     final back = element(tester, find.text('Back'));
     final segment = element(tester, segments);
-    final title = element(tester, find.text('When were you born?'));
+    final title = element(tester, find.text('How old are you?'));
 
-    await tester.enterText(find.byType(TextField), '2000');
+    await tester.enterText(find.byType(TextField), '30');
     await tester.pump();
     await tester.tap(find.text('Continue'));
     await tester.pumpAndSettle();
 
     expect(find.text('Terms and Privacy'), findsOneWidget);
-    expect(find.text('When were you born?'), findsNothing);
+    expect(find.text('How old are you?'), findsNothing);
     expect(identical(element(tester, find.text('Back')), back), isTrue);
     expect(identical(element(tester, segments), segment), isTrue);
     expect(title.mounted, isFalse);
@@ -131,7 +131,7 @@ void main() {
     await toTermsPhone(tester);
     await tester.tap(find.text('Back'));
     await tester.pumpAndSettle();
-    expect(find.text('When were you born?'), findsOneWidget);
+    expect(find.text('How old are you?'), findsOneWidget);
     await tester.binding.handlePopRoute();
     await tester.pumpAndSettle();
     expect(find.text('Welcome to Pantas'), findsOneWidget);
@@ -143,21 +143,21 @@ void main() {
     await pumpPage(tester, wide: true);
     await tester.tap(find.text('Get Started'));
     await tester.pumpAndSettle();
-    expect(find.text('When were you born?'), findsOneWidget);
+    expect(find.text('How old are you?'), findsOneWidget);
     final bar = element(tester, find.byType(WebTopBar));
-    final rail = element(tester, find.text('Birth year'));
-    final title = element(tester, find.text('When were you born?'));
+    final rail = element(tester, find.text('Your age'));
+    final title = element(tester, find.text('How old are you?'));
 
-    await tester.enterText(find.byType(TextField), '2000');
+    await tester.enterText(find.byType(TextField), '30');
     await tester.pump();
     await tester.tap(find.text('Continue'));
     await tester.pumpAndSettle();
 
     expect(find.text('Terms and Privacy'), findsOneWidget);
-    expect(find.text('When were you born?'), findsNothing);
+    expect(find.text('How old are you?'), findsNothing);
     expect(find.byType(WebTopBar), findsOneWidget);
     expect(identical(element(tester, find.byType(WebTopBar)), bar), isTrue);
-    expect(identical(element(tester, find.text('Birth year')), rail), isTrue);
+    expect(identical(element(tester, find.text('Your age')), rail), isTrue);
     expect(title.mounted, isFalse);
     expect(
       find.descendant(
@@ -174,7 +174,7 @@ void main() {
     await pumpPage(tester, wide: true);
     await tester.tap(find.text('Get Started'));
     await tester.pumpAndSettle();
-    await tester.enterText(find.byType(TextField), '2000');
+    await tester.enterText(find.byType(TextField), '30');
     await tester.pump();
     await tester.testTextInput.receiveAction(TextInputAction.done);
     await tester.pumpAndSettle();
@@ -186,7 +186,7 @@ void main() {
     await pumpPage(tester, wide: true);
     await tester.tap(find.text('Get Started'));
     await tester.pumpAndSettle();
-    await tester.enterText(find.byType(TextField), '2020');
+    await tester.enterText(find.byType(TextField), '12');
     await tester.pump();
     await tester.tap(find.text('Continue'));
     await tester.pumpAndSettle();
@@ -201,7 +201,7 @@ void main() {
     await pumpPage(tester, wide: true);
     await tester.tap(find.text('Get Started'));
     await tester.pumpAndSettle();
-    await tester.enterText(find.byType(TextField), '2000');
+    await tester.enterText(find.byType(TextField), '30');
     await tester.pump();
     await tester.tap(find.text('Continue'));
     await tester.pumpAndSettle();
@@ -234,7 +234,7 @@ void main() {
     await pumpPage(tester, wide: true);
     await tester.tap(find.text('Get Started'));
     await tester.pumpAndSettle();
-    await tester.enterText(find.byType(TextField), '2000');
+    await tester.enterText(find.byType(TextField), '30');
     await tester.pump();
     await tester.tap(find.text('Continue'));
     await tester.pumpAndSettle();
@@ -260,7 +260,7 @@ void main() {
     await pumpPage(tester, wide: true, animate: true);
     await tester.tap(find.text('Get Started'));
     await tester.pumpAndSettle();
-    await tester.enterText(find.byType(TextField), '2000');
+    await tester.enterText(find.byType(TextField), '30');
     await tester.pump();
     await tester.tap(find.text('Continue'));
     await tester.pumpAndSettle();

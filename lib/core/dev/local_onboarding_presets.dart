@@ -16,7 +16,7 @@ import 'package:pantas/core/ui/components/month_first_date_picker.dart';
 /// null there whatever the notifier holds.
 class LocalPresetSeed {
   const LocalPresetSeed({
-    this.birthYearText,
+    this.ageText,
     this.customName,
     this.submit = false,
     this.differentDate,
@@ -26,8 +26,8 @@ class LocalPresetSeed {
     this.studyDays,
   });
 
-  /// The age step's year field.
-  final String? birthYearText;
+  /// The age step's number.
+  final String? ageText;
 
   /// The custom exam name step's text.
   final String? customName;
@@ -77,15 +77,15 @@ LocalPresetSeed? takeLocalPresetSeed(bool Function(LocalPresetSeed) wanted) {
   return seed;
 }
 
-/// The age step's seeded year. [submit] runs the step's own Continue after the
+/// The age step's seeded age. [submit] runs the step's own Continue after the
 /// first frame when the seed asks for it.
-int? takeSeededBirthYear(VoidCallback submit) {
-  final seed = takeLocalPresetSeed((s) => s.birthYearText != null);
+int? takeSeededAge(VoidCallback submit) {
+  final seed = takeLocalPresetSeed((s) => s.ageText != null);
   if (seed == null) return null;
   if (seed.submit) {
     WidgetsBinding.instance.addPostFrameCallback((_) => submit());
   }
-  return int.tryParse(seed.birthYearText!);
+  return int.tryParse(seed.ageText!);
 }
 
 /// The custom exam name step's seeded text, with [submit] as above.
