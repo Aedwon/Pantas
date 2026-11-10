@@ -38,7 +38,9 @@ class SyncActiveContextSnapshot {
 class SyncActiveContextStore {
   SyncActiveContextStore(this._db);
 
-  static const _metaKey = 'syncActiveContext';
+  /// The sync_meta row that holds the active context and its token.
+  static const metaKey = 'syncActiveContext';
+  static const _metaKey = metaKey;
   static int _tokenSequence = 0;
 
   final AppDatabase _db;
