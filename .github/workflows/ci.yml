@@ -157,6 +157,11 @@ jobs:
         run: dart tool/ci/shard_tests.dart --shard ${{ matrix.shard }} --shards 8 > shard-files.txt
 
       - name: Unit + widget tests
+        env:
+          # Built once by setup-app. Tests that need the corpus copy these
+          # instead of running the export tools again.
+          PANTAS_CONTENT_EXPORT: ${{ github.workspace }}/build/export.json
+          PANTAS_CONTENT_SEED: ${{ github.workspace }}/assets/seed/content.db
         run: |
           mapfile -t files < shard-files.txt
           test "${#files[@]}" -gt 0

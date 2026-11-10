@@ -17,6 +17,10 @@ import 'package:pantas/features/settings/data/settings_repository.dart';
 
 import '../../helpers/in_memory_database.dart';
 
+/// Long enough for the 10 ms polls below to see the seed, far shorter than the
+/// 2 s the running app keeps it.
+const _window = Duration(milliseconds: 100);
+
 const _ids = [
   'welcome',
   'birthYear',
@@ -124,8 +128,12 @@ void main() {
     }) async {
       LocalPresetSeed? held;
       var done = false;
-      final run = applyOnboardingPreset(target, id, now: at ?? now)
-          .whenComplete(() => done = true);
+      final run = applyOnboardingPreset(
+        target,
+        id,
+        now: at ?? now,
+        seedWindow: _window,
+      ).whenComplete(() => done = true);
       while (!done) {
         held ??= localPresetSeed.value;
         await Future<void>.delayed(const Duration(milliseconds: 10));
@@ -150,7 +158,12 @@ void main() {
       await tester.pumpWidget(MaterialApp.router(routerConfig: router));
       await tester.runAsync(() async {
         for (final id in _ids) {
-          await applyOnboardingPreset(container, id, now: now);
+          await applyOnboardingPreset(
+            container,
+            id,
+            now: now,
+            seedWindow: _window,
+          );
           expect(localPresetSeed.value, isNot(isA<String>()));
         }
         await applyOnboardingPreset(container, 'nothing', now: now);
@@ -213,8 +226,12 @@ void main() {
       await tester.pumpWidget(MaterialApp.router(routerConfig: router));
       await tester.runAsync(() async {
         var done = false;
-        final run = applyOnboardingPreset(container, 'days', now: now)
-            .whenComplete(() => done = true);
+        final run = applyOnboardingPreset(
+          container,
+          'days',
+          now: now,
+          seedWindow: _window,
+        ).whenComplete(() => done = true);
         Set<int>? first;
         Set<int>? second;
         while (!done) {

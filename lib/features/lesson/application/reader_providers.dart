@@ -61,6 +61,7 @@ class ReadMarkingController {
     required this.progressRepository,
     required this.preferencesRepository,
     DateTime Function()? clock,
+    this.dwellFloor = readDwellFloor,
     this.onMarked,
     this.onOpened,
     this.onSaveFailed,
@@ -82,6 +83,10 @@ class ReadMarkingController {
   final void Function({required bool failed})? onSaveFailed;
   final ({double offset, double maxExtent})? Function()? readMetrics;
   final DateTime Function() _clock;
+
+  /// How long a lesson stays open before it can count as read. Only tests
+  /// shorten it.
+  final Duration dwellFloor;
   bool _disposed = false;
   bool _visible = true;
   bool _pendingMark = false;
@@ -131,7 +136,7 @@ class ReadMarkingController {
     if (!_current) return;
     if (_openedAt == null) {
       _openedAt = _clock();
-      _floorTimer = Timer(readDwellFloor, () {
+      _floorTimer = Timer(dwellFloor, () {
         _floorReached = true;
         _evaluate();
       });
@@ -186,7 +191,7 @@ class ReadMarkingController {
       return;
     }
     final elapsed =
-        _floorReached || _clock().difference(_openedAt!) >= readDwellFloor;
+        _floorReached || _clock().difference(_openedAt!) >= dwellFloor;
     if (!_atEnd || !elapsed) return;
     _pendingMark = true;
     unawaited(_markRead());

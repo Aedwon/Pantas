@@ -9,6 +9,8 @@ import 'package:pantas/features/mock_exam/data/blueprint_section.dart';
 import 'package:pantas/features/mock_exam/data/mock_sampler.dart';
 import 'package:pantas/features/mock_exam/domain/mock_session_state.dart';
 
+import '../../helpers/prebuilt_content.dart';
+
 void main() {
   late Directory fixtureDirectory;
   late ContentDatabase db;
@@ -19,17 +21,21 @@ void main() {
         Directory.systemTemp.createTempSync('pantas_upcat_fixture_');
     final export = File('${fixtureDirectory.path}/export.json');
     final dbFile = File('${fixtureDirectory.path}/content.db');
-    await _runDartTool([
-      'run',
-      'tools/build_content_export/build_content_export.dart',
-      export.path,
-    ]);
-    await _runDartTool([
-      'run',
-      'tools/build_content_seed/seed_writer.dart',
-      export.path,
-      dbFile.path,
-    ]);
+    if (!copyPrebuiltExport(export)) {
+      await _runDartTool([
+        'run',
+        'tools/build_content_export/build_content_export.dart',
+        export.path,
+      ]);
+    }
+    if (!copyPrebuiltSeed(dbFile)) {
+      await _runDartTool([
+        'run',
+        'tools/build_content_seed/seed_writer.dart',
+        export.path,
+        dbFile.path,
+      ]);
+    }
     db = ContentDatabase(NativeDatabase(dbFile));
     repo = MockBlueprintRepo(db);
   });

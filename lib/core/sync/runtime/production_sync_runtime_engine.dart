@@ -25,12 +25,15 @@ class ProductionSyncRuntimeEngine implements SyncRuntimeEngine {
     Future<bool> Function()? recoverCustomTrackProjection,
     Stream<void> Function()? onlineEvents,
     Duration localMutationDebounce = const Duration(seconds: 5),
+    Duration retryBaseDelay = const Duration(seconds: 1),
   })  : _db = db,
         _gateway = gateway,
         _activeContextStore = activeContextStore,
         _deviceId = deviceId,
         _recoverCustomTrackProjection = recoverCustomTrackProjection,
         _localMutationDebounce = localMutationDebounce,
+        _retryBaseDelay = retryBaseDelay,
+        _retryDelay = retryBaseDelay,
         _onlineEvents = onlineEvents ?? browser.onlineEvents;
 
   final AppDatabase _db;
@@ -39,6 +42,10 @@ class ProductionSyncRuntimeEngine implements SyncRuntimeEngine {
   final String _deviceId;
   final Future<bool> Function()? _recoverCustomTrackProjection;
   final Duration _localMutationDebounce;
+
+  /// The first retry delay. It doubles after each failed retry, up to 30
+  /// seconds. Only tests shorten it.
+  final Duration _retryBaseDelay;
   final Stream<void> Function() _onlineEvents;
 
   final _events = StreamController<SyncRuntimeEvent>.broadcast();
@@ -53,7 +60,7 @@ class ProductionSyncRuntimeEngine implements SyncRuntimeEngine {
   StreamSubscription<void>? _onlineSubscription;
   Timer? _localMutationTimer;
   Timer? _retryTimer;
-  Duration _retryDelay = const Duration(seconds: 1);
+  Duration _retryDelay;
   bool _awaitingFirstSnapshots = false;
   bool _flushWhenSettled = false;
   Future<void> _serialTail = Future<void>.value();
@@ -259,7 +266,7 @@ class ProductionSyncRuntimeEngine implements SyncRuntimeEngine {
     _offlinePaths.clear();
     _retryTimer?.cancel();
     _retryTimer = null;
-    _retryDelay = const Duration(seconds: 1);
+    _retryDelay = _retryBaseDelay;
     _awaitingFirstSnapshots = false;
     _flushWhenSettled = false;
     final onlineSubscription = _onlineSubscription;
@@ -398,7 +405,7 @@ class ProductionSyncRuntimeEngine implements SyncRuntimeEngine {
           } else {
             _retryTimer?.cancel();
             _retryTimer = null;
-            _retryDelay = const Duration(seconds: 1);
+            _retryDelay = _retryBaseDelay;
           }
         }
       }
@@ -416,8 +423,9 @@ class ProductionSyncRuntimeEngine implements SyncRuntimeEngine {
       if (!_isCurrent(token, uid, generationId)) return;
       unawaited(forceFlush().catchError((Object _, StackTrace __) {}));
     });
-    final seconds = _retryDelay.inSeconds * 2;
-    _retryDelay = Duration(seconds: seconds > 30 ? 30 : seconds);
+    const longest = Duration(seconds: 30);
+    final doubled = _retryDelay * 2;
+    _retryDelay = doubled > longest ? longest : doubled;
   }
 
   void _emitCurrentOutcome() {

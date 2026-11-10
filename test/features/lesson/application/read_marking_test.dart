@@ -63,11 +63,13 @@ void main() {
       examId: 'e1',
       progressRepository: progress,
       preferencesRepository: prefs,
+      // The same path as the 15 s floor, with a floor short enough to wait for.
+      dwellFloor: const Duration(milliseconds: 100),
     );
     addTearDown(c.dispose);
     await c.onOpen();
     c.onScroll(offset: 0, maxExtent: 0);
-    await Future<void>.delayed(readDwellFloor + const Duration(seconds: 1));
+    await Future<void>.delayed(const Duration(milliseconds: 400));
     expect(await progress.isRead('l1'), isTrue);
     c.dispose();
   });

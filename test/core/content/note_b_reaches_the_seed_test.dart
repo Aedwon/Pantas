@@ -4,6 +4,8 @@ import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/content/content_database.dart';
 
+import '../../helpers/prebuilt_content.dart';
+
 /// Note B is what a Pro subscriber buys at the answer reveal, and it lives
 /// in the corpus rather than in the app.
 ///
@@ -24,17 +26,21 @@ void main() {
     final export = File('${fixtureDirectory.path}/export.json');
     plaintextCorpus = File('${fixtureDirectory.path}/content.db');
 
-    await _runDartTool([
-      'run',
-      'tools/build_content_export/build_content_export.dart',
-      export.path,
-    ]);
-    await _runDartTool([
-      'run',
-      'tools/build_content_seed/seed_writer.dart',
-      export.path,
-      plaintextCorpus.path,
-    ]);
+    if (!copyPrebuiltExport(export)) {
+      await _runDartTool([
+        'run',
+        'tools/build_content_export/build_content_export.dart',
+        export.path,
+      ]);
+    }
+    if (!copyPrebuiltSeed(plaintextCorpus)) {
+      await _runDartTool([
+        'run',
+        'tools/build_content_seed/seed_writer.dart',
+        export.path,
+        plaintextCorpus.path,
+      ]);
+    }
   });
 
   tearDownAll(() => fixtureDirectory.deleteSync(recursive: true));

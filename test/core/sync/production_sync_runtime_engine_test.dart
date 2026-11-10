@@ -136,6 +136,8 @@ void main() {
       activeContextStore: context,
       deviceId: 'device-1',
       localMutationDebounce: const Duration(hours: 1),
+      // Half the real 1 s, so every wait below is half what it would be.
+      retryBaseDelay: const Duration(milliseconds: 500),
       recoverCustomTrackProjection: () async {
         recoveries++;
         return true;
@@ -144,15 +146,15 @@ void main() {
     addTearDown(engine.stop);
     await engine.start(uid: 'user-1', generationId: 'gen-1');
     await _waitFor(() async => gateway.attempts == 1);
-    await Future<void>.delayed(const Duration(milliseconds: 1200));
+    await Future<void>.delayed(const Duration(milliseconds: 600));
     expect(gateway.attempts, 2);
     gateway.offline = false;
-    await Future<void>.delayed(const Duration(milliseconds: 1100));
+    await Future<void>.delayed(const Duration(milliseconds: 550));
     expect(gateway.documents, isEmpty);
-    await Future<void>.delayed(const Duration(milliseconds: 1000));
+    await Future<void>.delayed(const Duration(milliseconds: 500));
     expect(gateway.documents, hasLength(1));
     final settledRecoveries = recoveries;
-    await Future<void>.delayed(const Duration(milliseconds: 4200));
+    await Future<void>.delayed(const Duration(milliseconds: 2100));
     expect(recoveries, settledRecoveries);
   });
 
