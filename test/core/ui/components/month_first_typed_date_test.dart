@@ -98,7 +98,7 @@ void main() {
         tester.widget<TextButton>(_day(25)).style!.backgroundColor!.resolve({}),
         isNot(Colors.transparent),
       );
-      expect(find.text('Friday, December 25'), findsOneWidget);
+      expect(_text(tester), '12/25/2026');
       await _drain(tester);
     });
 
@@ -156,7 +156,7 @@ void main() {
       await tester.pump();
       FocusManager.instance.primaryFocus?.unfocus();
       await tester.pumpAndSettle();
-      expect(find.text('Pick Nov 10, 2026 or a later date.'), findsOneWidget);
+      expect(find.text('Pick a date from November 10, 2026.'), findsOneWidget);
       expect(log, isEmpty);
       expect(_host(tester).value.day, 18);
       await _drain(tester);

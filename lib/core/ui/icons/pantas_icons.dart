@@ -54,6 +54,12 @@ abstract final class PantasIcons {
   static IconData get quizTab => const IconData(0xe184, fontFamily: 'Phosphor');
   static IconData get settingsTab =>
       const IconData(0xe272, fontFamily: 'Phosphor');
+
+  /// Phosphor calendar-blank (Regular), the exam date field's calendar button.
+  /// Codepoint 0xe10a from phosphor_flutter 2.1.0, whose Regular font is
+  /// byte-identical to assets/fonts/phosphor/Phosphor.ttf.
+  static IconData get calendarBlank =>
+      const IconData(0xe10a, fontFamily: 'Phosphor');
   static IconData get back => const IconData(0xe138, fontFamily: 'Phosphor');
   static IconData get next => const IconData(0xe13a, fontFamily: 'Phosphor');
   static IconData get close => const IconData(0xe4f6, fontFamily: 'Phosphor');

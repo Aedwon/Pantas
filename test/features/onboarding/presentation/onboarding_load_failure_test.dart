@@ -110,7 +110,7 @@ void main() {
     expect(find.text('Could not load your exam date.'), findsNothing);
     expect(
       find.text('Pick the month. Add the day if you know it.'),
-      findsOneWidget,
+      findsNothing,
     );
   });
 

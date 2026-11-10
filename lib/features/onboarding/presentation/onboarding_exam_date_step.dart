@@ -52,6 +52,9 @@ class _OnboardingExamDateStepState
   bool _loaded = false;
   bool _loadFailed = false;
   bool _declined = false;
+
+  /// The phone field holds text that is not a valid date.
+  bool _unresolved = false;
   bool _saving = false;
   bool _failed = false;
   ExamDate? _retryDate;
@@ -154,8 +157,11 @@ class _OnboardingExamDateStepState
       progress: 4,
       onBack: _back,
       bodyGap: known == null ? PantasSpace.s18 : PantasSpace.s20,
+      // The phone field has no subtitle: the field and its label say it.
       detail: known == null
-          ? 'Pick the month. Add the day if you know it.'
+          ? (context.wideWeb
+              ? 'Pick the month. Add the day if you know it.'
+              : null)
           : "Here's the date we have for this year's ${entry!.shortName}.",
       bottom: OnboardingActions(
         leading: known == null
@@ -170,7 +176,9 @@ class _OnboardingExamDateStepState
           OnboardingButton(
             label: known == null ? 'Continue' : "That's Right",
             busy: _saving,
-            onPressed: !_loaded || _saving || (known == null && date == null)
+            onPressed: !_loaded ||
+                    _saving ||
+                    (known == null && (date == null || _unresolved))
                 ? null
                 : () => _save(known == null ? date : ExamDate.onDay(known)),
           ),
@@ -300,9 +308,8 @@ class _OnboardingExamDateStepState
             MonthFirstDatePicker.onboarding(
               value: value,
               today: _today,
-              dayNote: (day) =>
-                  '${DateFormat('EEEE, MMMM d', 'en_US').format(day)}'
-                  ' · ${_daysFromToday(day.difference(_today).inDays)}',
+              onUnresolvedChanged: (unresolved) =>
+                  setState(() => _unresolved = unresolved),
               onChanged: (next) => setState(() => _value = next),
             ),
         ],
