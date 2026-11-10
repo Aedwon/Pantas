@@ -92,13 +92,13 @@ void main() {
     addTearDown(db.close);
     await pumpStep(
       tester,
-      OnboardingAgeGateStep(currentYear: 2026, onAgeGatePassed: () {}),
+      OnboardingAgeGateStep(onAgeGatePassed: () {}),
       overrides: [
         appDatabaseProvider.overrideWithValue(db),
         appPreferencesRepositoryProvider.overrideWithValue(_FailingPrefs(db)),
       ],
     );
-    await tester.enterText(find.byType(TextField), '2000');
+    await tester.enterText(find.byType(TextField), '30');
     await tester.pump();
     await tester.tap(find.text('Continue'));
     await tester.pumpAndSettle();

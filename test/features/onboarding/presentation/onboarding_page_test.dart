@@ -22,7 +22,7 @@ import '../../../helpers/in_memory_database.dart';
 /// The year field starts on a 14-year-old, who needs a guardian. These tests
 /// are about the steps after the age gate, so they pick an adult year.
 Future<void> continueAsAdult(WidgetTester tester) async {
-  await tester.enterText(find.byType(TextField), '2000');
+  await tester.enterText(find.byType(TextField), '30');
   await tester.pump();
   await tester.tap(find.text('Continue'));
   await tester.pumpAndSettle();
@@ -102,7 +102,7 @@ void main() {
     await tester.pumpAndSettle();
 
     // Step 2: Age gate
-    expect(find.text('When were you born?'), findsOneWidget);
+    expect(find.text('How old are you?'), findsOneWidget);
     await continueAsAdult(tester);
 
     // Step 3: Consent
@@ -153,11 +153,11 @@ void main() {
     expect(find.text('Terms and Privacy'), findsOneWidget);
     await tester.tap(find.text('Back'));
     await tester.pumpAndSettle();
-    expect(find.text('When were you born?'), findsOneWidget);
+    expect(find.text('How old are you?'), findsOneWidget);
     await continueAsAdult(tester);
     await tester.binding.handlePopRoute();
     await tester.pumpAndSettle();
-    expect(find.text('When were you born?'), findsOneWidget);
+    expect(find.text('How old are you?'), findsOneWidget);
     await tester.tap(find.text('Back'));
     await tester.pumpAndSettle();
     expect(find.text('Welcome to Pantas'), findsOneWidget);

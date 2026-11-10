@@ -50,8 +50,8 @@ void main() {
     });
 
     test('a normal build never hands out a seed', () {
-      localPresetSeed.value = const LocalPresetSeed(birthYearText: '2020');
-      expect(takeSeededBirthYear(() {}), isNull);
+      localPresetSeed.value = const LocalPresetSeed(ageText: '12');
+      expect(takeSeededAge(() {}), isNull);
       expect(localPresetSeed.value, isNotNull);
     });
 
@@ -242,9 +242,9 @@ void main() {
       expect(localPresetSeed.value, isNull);
     });
 
-    testWidgets('under13 seeds year 2020 to be submitted', (tester) async {
+    testWidgets('under13 seeds age 12 to be submitted', (tester) async {
       await apply(tester, 'under13');
-      expect(seen!.birthYearText, '2020');
+      expect(seen!.ageText, '12');
       expect(seen!.submit, isTrue);
       expect(await AppPreferencesRepository(db).hasPassedAgeGate(), isFalse);
     });

@@ -53,7 +53,6 @@ void main() {
                 dark ? buildDarkTheme(web: true) : buildLightTheme(web: true),
             home: Scaffold(
               body: OnboardingAgeGateStep(
-                currentYear: 2026,
                 onAgeGatePassed: () {},
               ),
             ),
@@ -61,8 +60,8 @@ void main() {
         ),
       );
       expect(find.bySemanticsLabel('Setup steps'), findsOneWidget);
-      expect(find.text('YEAR'), findsOneWidget);
-      await tester.enterText(find.byType(TextField), '2020');
+      expect(find.text('How old are you?'), findsOneWidget);
+      await tester.enterText(find.byType(TextField), '12');
       await tester.tap(find.text('Continue'));
       await tester.pumpAndSettle();
       expect(find.text("Pantas isn't available yet"), findsOneWidget);

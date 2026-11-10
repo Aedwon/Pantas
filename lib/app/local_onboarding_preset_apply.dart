@@ -72,7 +72,7 @@ _Plan? _planFor(String id, DateTime now) {
     'birthYear' => const _Plan(_Through.nothing),
     'under13' => const _Plan(
         _Through.nothing,
-        seed: LocalPresetSeed(birthYearText: '2020', submit: true),
+        seed: LocalPresetSeed(ageText: '12', submit: true),
       ),
     'terms' => const _Plan(_Through.age),
     'picker' => const _Plan(_Through.terms),

@@ -9,18 +9,21 @@ import 'package:pantas/core/dev/local_onboarding_presets.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/hold_to_repeat.dart';
+import 'package:pantas/core/ui/components/offset_focus_ring.dart';
 import 'package:pantas/core/ui/components/onboarding_frame.dart';
-import 'package:pantas/core/ui/components/pantas_icon_button.dart';
+import 'package:pantas/core/ui/components/pantas_button_spec.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/motion/pantas_effects.dart';
+import 'package:pantas/core/ui/motion/press_scale.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
-import 'package:pantas/core/ui/theme/tokens/pantas_border.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/onboarding/application/onboarding_flow.dart';
@@ -32,13 +35,29 @@ import 'package:pantas/features/onboarding/presentation/onboarding_welcome_step.
 /// sits above the center (board OB_Age_Blocked).
 const double _blockedBottom = 120;
 
-/// Wide web: the year field is this wide (board OB_Age).
-const double _yearFieldWidth = 240;
+// ds-board: Aedwon Idea 3 note, Nov 10. Three taps, each within 1.5 s of the
+// last, show the "Hold + or − to go faster." tip.
+const Duration _tapWindow = Duration(milliseconds: 1500);
+
+// ds-board: Aedwon Idea 3 note, Nov 10. A step slides the new number in by 45%
+// of its height, from the side it came from.
+const double _rollSlide = .45;
+
+// ds-board: Aedwon Idea 3 note, Nov 10. Under reduced motion the number fades
+// in from 40% and does not slide.
+const double _rollFadeFrom = .4;
+
+const int _minAge = 5;
+const int _maxAge = 100;
+const int _startAge = 17;
+const int _quickTaps = 3;
+const int _pageStep = 10;
+
+bool _inRange(int age) => age >= _minAge && age <= _maxAge;
 
 class OnboardingAgeGateStep extends ConsumerStatefulWidget {
   const OnboardingAgeGateStep({
     required this.onAgeGatePassed,
-    required this.currentYear,
     this.onGuardianNeeded,
     this.onBack,
     super.key,
@@ -49,78 +68,102 @@ class OnboardingAgeGateStep extends ConsumerStatefulWidget {
   /// or guardian has to agree first.
   final VoidCallback? onGuardianNeeded;
   final VoidCallback? onBack;
-  final int currentYear;
   @override
   ConsumerState<OnboardingAgeGateStep> createState() =>
       _OnboardingAgeGateStepState();
 }
 
-class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
-  late int _selectedYear = takeSeededBirthYear(
+class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep>
+    with SingleTickerProviderStateMixin {
+  late int _age = takeSeededAge(
         () {
           if (mounted) unawaited(_continue());
         },
       ) ??
-      _rememberedYear ??
-      widget.currentYear - 14;
+      _rememberedAge ??
+      _startAge;
 
-  /// The year chosen earlier in this visit, when it is still a valid choice.
-  int? get _rememberedYear {
-    final year = ref.read(onboardingBirthYearProvider);
-    if (year == null ||
-        year < widget.currentYear - 100 ||
-        year > widget.currentYear) {
-      return null;
-    }
-    return year;
+  /// The age chosen earlier in this visit, when it is still a valid choice.
+  int? get _rememberedAge {
+    final age = ref.read(onboardingAgeProvider);
+    return age != null && _inRange(age) ? age : null;
   }
 
-  late final _yearController = TextEditingController(text: '$_selectedYear');
-  final _yearFocus = FocusNode();
+  late final _controller = TextEditingController(text: '$_age');
+  final _focus = FocusNode();
+
+  /// Rolls the number on each step: 0 is just changed, 1 is settled.
+  late final AnimationController _roll = AnimationController(
+    vsync: this,
+    duration: PantasDurations.short3,
+    value: 1,
+  );
+
+  /// 1 when the last step went up, -1 when it went down.
+  int _rollDirection = 1;
+
+  int _quickTapCount = 0;
+  Timer? _tapTimer;
+  bool _tipShown = false;
+
   @override
   void dispose() {
-    _yearFocus.dispose();
-    _yearController.dispose();
+    _tapTimer?.cancel();
+    _roll.dispose();
+    _focus.dispose();
+    _controller.dispose();
     super.dispose();
   }
 
-  /// Moves the year by [delta] inside the range. Returns false, and changes
-  /// nothing, at the end of the range, which also stops a held button.
-  bool _changeYear(int delta) {
-    final next = (_selectedYear + delta)
-        .clamp(widget.currentYear - 100, widget.currentYear);
-    if (next == _selectedYear && _yearController.text == '$next') return false;
+  int? get _typed => int.tryParse(_controller.text);
+  bool get _valid => _typed != null && _inRange(_typed!);
+
+  /// Shown for any typed number outside the range. An empty field shows
+  /// nothing but still turns Continue off.
+  bool get _outOfRange => _controller.text.isNotEmpty && !_valid;
+
+  /// Moves the age to [target], kept inside the range, and rolls the number.
+  /// Returns false, and changes nothing, when it is already there, which also
+  /// stops a held button.
+  bool _moveTo(int target) {
+    final next = target.clamp(_minAge, _maxAge);
+    if (next == _age && _controller.text == '$next') return false;
     setState(() {
-      _selectedYear = next;
-      _yearController.text = '$_selectedYear';
+      _rollDirection = next >= _age ? 1 : -1;
+      _age = next;
+      _controller.value = TextEditingValue(
+        text: '$next',
+        selection: TextSelection.collapsed(offset: '$next'.length),
+      );
     });
-    unawaited(HapticFeedback.selectionClick());
+    unawaited(_roll.forward(from: 0));
+    unawaited(HapticFeedback.lightImpact());
     return true;
   }
 
-  /// A step button: it steps on press and keeps stepping while held.
-  Widget _stepButton({
-    required String tooltip,
-    required int delta,
-    required PantasIconButtonSize size,
-    required double glyph,
-    required IconData icon,
-    double? extent,
-  }) {
-    return HoldToRepeat(
-      onStep: () => _changeYear(delta),
-      builder: (context, onPressed) {
-        final button = PantasIconButton(
-          size: size,
-          tooltip: tooltip,
-          onPressed: onPressed,
-          icon: Icon(icon, size: glyph),
-        );
-        if (extent == null) return button;
-        // The press area is the whole square, not just the 44 px button.
-        return SizedBox.square(dimension: extent, child: Center(child: button));
-      },
-    );
+  bool _step(int delta) => _moveTo(_age + delta);
+
+  void _typedChanged(String text) {
+    setState(() {
+      final age = int.tryParse(text);
+      if (age != null && _inRange(age)) _age = age;
+    });
+  }
+
+  /// A tap counts toward the tip; a hold clears it.
+  void _released({required bool wasHold}) {
+    if (wasHold) {
+      _tapTimer?.cancel();
+      _quickTapCount = 0;
+      if (_tipShown) setState(() => _tipShown = false);
+      return;
+    }
+    _quickTapCount++;
+    _tapTimer?.cancel();
+    _tapTimer = Timer(_tapWindow, () => _quickTapCount = 0);
+    if (_quickTapCount >= _quickTaps && !_tipShown) {
+      setState(() => _tipShown = true);
+    }
   }
 
   bool _blocked = false;
@@ -150,33 +193,17 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
     }
   }
 
-  int get _earliestYear => widget.currentYear - 100;
-
-  bool get _validYear {
-    final year = int.tryParse(_yearController.text);
-    return year != null && year >= _earliestYear && year <= widget.currentYear;
-  }
-
-  /// Why Continue is off: shown only for a complete four-digit year outside
-  /// the range. A year still being typed, or in range, shows nothing.
-  String? get _rangeHint {
-    final text = _yearController.text;
-    if (text.length < 4 || _validYear) return null;
-    return 'Enter a year from $_earliestYear to ${widget.currentYear}.';
-  }
-
   Future<void> _continue() async {
-    if (_saving || !_validYear) return;
+    if (_saving || !_valid) return;
+    final age = _typed!;
     final policy = AgePolicy.forExam(null);
-    // Memory only, so Back from the next step shows the same year.
-    ref.read(onboardingBirthYearProvider.notifier).state = _selectedYear;
-    final outcome = policy.evaluate(
-      birthYear: _selectedYear,
-      currentYear: widget.currentYear,
-    );
+    // Memory only, so Back from the next step shows the same age.
+    ref.read(onboardingAgeProvider.notifier).state = age;
+    final outcome = policy.evaluateAge(age);
     final telemetry = ref.read(telemetryProvider);
     final prefs = ref.read(appPreferencesRepositoryProvider);
     setState(() {
+      _age = age;
       _saving = true;
       _failed = false;
     });
@@ -191,7 +218,7 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
             });
           }
         case AgeOutcome.minor:
-          // Only the group is kept, never the birth year.
+          // Only the group is kept, never the age.
           await prefs.setAgeGroup('minor');
           ref.invalidate(appPreferencesRepositoryProvider);
           if (mounted) widget.onGuardianNeeded?.call();
@@ -368,165 +395,302 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
         child: page,
       );
     }
-    // The board draws the year field focused, so the step keeps focus on it
-    // and typing and Enter work as soon as the step opens, with no click.
+    // Stepper not in DS4: built from DS4 parts (secondary Button, the display
+    // type, the focus ring, KeyHint).
     final wide = context.wideWeb;
-    final page = OnboardingWebPage(
-      title: 'When were you born?',
+    return OnboardingWebPage(
+      title: 'How old are you?',
       detail: 'We only ask this once and never keep it.',
       progress: 1,
-      // On a phone the keyboard waits for a tap on the field.
-      focusTarget: context.wideWeb ? _yearFocus : null,
+      // On a phone the keyboard waits for a tap on the number.
+      focusTarget: wide ? _focus : null,
       onBack: back,
       bottom: OnboardingButton(
         label: 'Continue',
-        onPressed: _saving || !_validYear ? null : _continue,
+        onPressed: _saving || !_valid ? null : _continue,
         busy: _saving,
       ),
       children: [
-        ...[
-          // Board (OB_Age, OB_Name): the label sits 4 px in from the field.
-          Padding(
-            padding: const EdgeInsets.only(left: PantasSpace.s4),
-            child: Text('YEAR', style: context.webTokens.eb),
-          ),
-          const SizedBox(height: PantasSpace.s8),
-          Align(
-            alignment: Alignment.centerLeft,
-            child: SizedBox(
-              width: wide ? _yearFieldWidth : null,
-              height: wide ? PantasSize.optMin : PantasSize.field,
-              child: OnboardingShortcuts(
-                bindings: {
-                  const SingleActivator(LogicalKeyboardKey.arrowUp): () =>
-                      _changeYear(1),
-                  const SingleActivator(LogicalKeyboardKey.arrowDown): () =>
-                      _changeYear(-1),
+        if (wide) ..._wideBody(context) else ..._phoneBody(context),
+        if (_failed) saveFailureLine(_continue),
+      ],
+    );
+  }
+
+  List<Widget> _phoneBody(BuildContext context) => [
+        const SizedBox(height: PantasSpace.s32),
+        Center(child: _number(context, wide: false)),
+        const SizedBox(height: PantasSpace.s12),
+        _statusLine(context, wide: false),
+        const SizedBox(height: PantasSpace.s24),
+        Row(
+          children: [
+            Expanded(child: _stepButton(context, up: false, wide: false)),
+            const SizedBox(width: PantasSpace.s12),
+            Expanded(child: _stepButton(context, up: true, wide: false)),
+          ],
+        ),
+      ];
+
+  List<Widget> _wideBody(BuildContext context) => [
+        Row(
+          children: [
+            _stepButton(context, up: false, wide: true),
+            const SizedBox(width: PantasSpace.s16),
+            Expanded(child: Center(child: _number(context, wide: true))),
+            const SizedBox(width: PantasSpace.s16),
+            _stepButton(context, up: true, wide: true),
+          ],
+        ),
+        const SizedBox(height: PantasSpace.s16),
+        Wrap(
+          alignment: WrapAlignment.center,
+          crossAxisAlignment: WrapCrossAlignment.center,
+          spacing: PantasSpace.s6,
+          runSpacing: PantasSpace.s6,
+          children: [
+            Text('Type it, or use', style: context.webTokens.sm),
+            const WebKeyHint('\u2191', keyboard: false),
+            const WebKeyHint('\u2193', keyboard: false),
+          ],
+        ),
+        const SizedBox(height: PantasSpace.s8),
+        _statusLine(context, wide: true),
+      ];
+
+  /// The tip or the range message. The line always has its height, so
+  /// Continue does not move when it comes and goes.
+  Widget _statusLine(BuildContext context, {required bool wide}) {
+    final colors = context.colors;
+    final base = wide
+        ? context.webTokens.sm
+        : context.type.footnote.copyWith(color: colors.secondaryLabel);
+    final message = _outOfRange
+        ? 'Enter an age from $_minAge to $_maxAge.'
+        : _tipShown
+            ? 'Hold + or \u2212 to go faster.'
+            : '';
+    return Semantics(
+      liveRegion: true,
+      child: Text(
+        message,
+        textAlign: TextAlign.center,
+        style: _outOfRange ? base.copyWith(color: colors.dangerText) : base,
+      ),
+    );
+  }
+
+  /// The age as one large number you can type into.
+  Widget _number(BuildContext context, {required bool wide}) {
+    final colors = context.colors;
+    final style = (wide ? PantasType.webDisplay : PantasType.phoneDisplayL)
+        .copyWith(color: colors.textPrimary);
+    final scaler = MediaQuery.textScalerOf(context);
+    // Three digits wide, as the board sizes it (3ch), plus room for the caret.
+    double digitsWidth(TextScaler scale) {
+      final painter = TextPainter(
+        text: TextSpan(text: '000', style: style),
+        textDirection: TextDirection.ltr,
+        textScaler: scale,
+      )..layout();
+      final width = painter.width;
+      painter.dispose();
+      return width;
+    }
+
+    const radius = BorderRadius.all(Radius.circular(PantasRadius.md));
+    final reduced = MediaQuery.disableAnimationsOf(context);
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        // At a large text size the number stops growing once it fills the row.
+        final room = constraints.maxWidth - PantasSpace.s8;
+        final natural = digitsWidth(TextScaler.noScaling);
+        final fit = natural <= 0 ? 1.0 : room / natural;
+        final capped = fit.isFinite && fit < scaler.scale(1)
+            ? TextScaler.linear(fit)
+            : scaler;
+        final width = digitsWidth(capped) + PantasSpace.s8;
+        final field = OnboardingShortcuts(
+          bindings: {
+            const SingleActivator(LogicalKeyboardKey.arrowUp): () => _step(1),
+            const SingleActivator(LogicalKeyboardKey.arrowDown): () =>
+                _step(-1),
+            const SingleActivator(LogicalKeyboardKey.pageUp): () =>
+                _step(_pageStep),
+            const SingleActivator(LogicalKeyboardKey.pageDown): () =>
+                _step(-_pageStep),
+            const SingleActivator(LogicalKeyboardKey.home): () =>
+                _moveTo(_minAge),
+            const SingleActivator(LogicalKeyboardKey.end): () =>
+                _moveTo(_maxAge),
+          },
+          child: MediaQuery(
+            data: MediaQuery.of(context).copyWith(textScaler: capped),
+            // Flutter 3.44 cannot name the spinbutton role (its debug checks
+            // reject it), and increase/decrease actions would turn a web text
+            // field into a range input. So the number carries its name and
+            // range, and the step buttons carry the changes.
+            child: Semantics(
+              label: 'Age',
+              minValue: '$_minAge',
+              maxValue: '$_maxAge',
+              child: TextField(
+                // ds-raw: bare age numeral, no label or well (board Idea 3)
+                controller: _controller,
+                focusNode: _focus,
+                keyboardType: TextInputType.number,
+                textInputAction: TextInputAction.done,
+                inputFormatters: [
+                  FilteringTextInputFormatter.digitsOnly,
+                  LengthLimitingTextInputFormatter(3),
+                ],
+                textAlign: TextAlign.center,
+                style: style,
+                onChanged: _typedChanged,
+                onSubmitted: (_) {
+                  if (_valid) unawaited(_continue());
                 },
-                child: TextField(
-                  // ds-raw: no label, stepper suffix
-                  controller: _yearController,
-                  focusNode: _yearFocus,
-                  keyboardType: TextInputType.number,
-                  inputFormatters: [
-                    FilteringTextInputFormatter.digitsOnly,
-                    LengthLimitingTextInputFormatter(4),
-                  ],
-                  style: PantasType.webQuestion
-                      .copyWith(color: context.webTokens.colors.textPrimary),
-                  onChanged: (text) => setState(
-                    () => _selectedYear =
-                        int.tryParse(text) ?? widget.currentYear,
-                  ),
-                  onSubmitted: (_) {
-                    if (int.tryParse(_yearController.text) != null) {
-                      _continue();
-                    }
-                  },
-                  decoration: InputDecoration(
-                    filled: true,
-                    fillColor: context.webTokens.colors.surfaceCard,
-                    contentPadding: const EdgeInsets.symmetric(
-                      horizontal: PantasSpace.s18,
-                      vertical: PantasSpace.s14,
-                    ),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(PantasRadius.lg),
-                      borderSide: BorderSide(
-                        color: context.webTokens.colors.accent,
-                        width: PantasBorder.ringSelected,
-                      ),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(PantasRadius.lg),
-                      borderSide: BorderSide(
-                        color: context.webTokens.colors.accent,
-                        width: PantasBorder.ringSelected,
-                      ),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(PantasRadius.lg),
-                      borderSide: BorderSide(
-                        color: context.webTokens.colors.accent,
-                        width: PantasBorder.ringSelected,
-                      ),
-                    ),
-                    suffixIcon: wide
-                        ? Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              _stepButton(
-                                tooltip: 'Next year',
-                                delta: 1,
-                                size: PantasIconButtonSize.sm,
-                                glyph: PantasSpace.s14,
-                                icon: Icons.keyboard_arrow_up,
-                              ),
-                              _stepButton(
-                                tooltip: 'Earlier year',
-                                delta: -1,
-                                size: PantasIconButtonSize.sm,
-                                glyph: PantasSpace.s14,
-                                icon: Icons.keyboard_arrow_down,
-                              ),
-                            ],
-                          )
-                        : Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              _stepButton(
-                                tooltip: 'Earlier year',
-                                delta: -1,
-                                size: PantasIconButtonSize.standard,
-                                glyph: PantasSize.icon,
-                                icon: Icons.keyboard_arrow_down,
-                                extent: PantasSize.field,
-                              ),
-                              _stepButton(
-                                tooltip: 'Next year',
-                                delta: 1,
-                                size: PantasIconButtonSize.standard,
-                                glyph: PantasSize.icon,
-                                icon: Icons.keyboard_arrow_up,
-                                extent: PantasSize.field,
-                              ),
-                            ],
-                          ),
+                decoration: InputDecoration(
+                  isDense: true,
+                  filled: false,
+                  border: InputBorder.none,
+                  enabledBorder: InputBorder.none,
+                  focusedBorder: InputBorder.none,
+                  contentPadding: EdgeInsets.symmetric(
+                    horizontal: PantasSpace.s4,
+                    vertical: wide ? PantasSpace.s8 : PantasSpace.s0,
                   ),
                 ),
               ),
             ),
           ),
-          const SizedBox(height: PantasSpace.s8),
-          Text(
-            wide ? 'Type it, or use ↑ and ↓.' : 'Type it, or use the arrows.',
-            style: context.webTokens.sm,
-          ),
-          const SizedBox(height: PantasSpace.s6),
-          // The hint always has its line, so Continue keeps its place when the
-          // hint appears and goes (Aedwon: a stable frame). The line is the
-          // hint's own height: 13 px type at 1.45, scaled with the text size.
-          SizedBox(
-            height: MediaQuery.textScalerOf(context).scale(
-                  PantasType.webSmall.fontSize!,
-                ) *
-                PantasType.webSmall.height!,
-            child: _rangeHint == null
-                ? null
-                : Semantics(
-                    liveRegion: true,
-                    child: Text(
-                      _rangeHint!,
-                      style: context.webTokens.sm.copyWith(
-                        color: context.webTokens.colors.dangerText,
-                      ),
+        );
+        return OffsetFocusRing(
+          borderRadius: radius,
+          child: ClipRRect(
+            borderRadius: radius,
+            child: SizedBox(
+              key: const ValueKey('age-roll'),
+              width: width,
+              child: AnimatedBuilder(
+                animation: _roll,
+                child: field,
+                builder: (context, child) {
+                  final t = PantasCurves.move.transform(_roll.value);
+                  return Opacity(
+                    opacity:
+                        reduced ? _rollFadeFrom + (1 - _rollFadeFrom) * t : t,
+                    child: FractionalTranslation(
+                      translation: reduced
+                          ? Offset.zero
+                          : Offset(0, _rollDirection * _rollSlide * (1 - t)),
+                      child: child,
                     ),
-                  ),
+                  );
+                },
+              ),
+            ),
           ),
-        ],
-        if (_failed) saveFailureLine(_continue),
-      ],
+        );
+      },
     );
-    return page;
+  }
+
+  /// A DS4 secondary Button with an icon only: 52 tall and full width on a
+  /// phone, 44 by 44 on wide web. It steps on press and keeps stepping while
+  /// held.
+  Widget _stepButton(
+    BuildContext context, {
+    required bool up,
+    required bool wide,
+  }) {
+    final atLimit = up ? _age >= _maxAge && _valid : _age <= _minAge && _valid;
+    return HoldToRepeat(
+      key: ValueKey(up ? 'age-plus' : 'age-minus'),
+      onStep: () => _step(up ? 1 : -1),
+      onReleased: _released,
+      builder: (context, onPressed) => _StepGlyphButton(
+        label: up ? '1 year older' : '1 year younger',
+        icon: up ? Icons.add : Icons.remove,
+        wide: wide,
+        onPressed: atLimit ? null : onPressed,
+      ),
+    );
+  }
+}
+
+/// The face of a step button: the secondary kind of the design system's
+/// Button, with the glyph centered and the system's press, hover and focus.
+class _StepGlyphButton extends StatelessWidget {
+  const _StepGlyphButton({
+    required this.label,
+    required this.icon,
+    required this.wide,
+    required this.onPressed,
+  });
+  final String label;
+  final IconData icon;
+  final bool wide;
+  final VoidCallback? onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    final metrics = pantasButtonMetrics(
+      wide ? PantasButtonSize.standard : PantasButtonSize.phone,
+      PantasButtonKind.secondary,
+    );
+    final enabled = onPressed != null;
+    final palette = pantasButtonPalette(
+      context.colors,
+      PantasButtonKind.secondary,
+      null,
+      enabled: enabled,
+    );
+    final reduced = MediaQuery.disableAnimationsOf(context);
+    final button = TextButton(
+      onPressed: onPressed,
+      style: ButtonStyle(
+        animationDuration: reduced ? Duration.zero : PantasDurations.short2,
+        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+        visualDensity: VisualDensity.standard,
+        minimumSize: WidgetStatePropertyAll(
+          Size(wide ? PantasSize.btn : 0, metrics.height),
+        ),
+        padding: const WidgetStatePropertyAll(EdgeInsets.zero),
+        backgroundColor: WidgetStateProperty.resolveWith(
+          (s) => enabled &&
+                  ((s.contains(WidgetState.hovered) && wide) ||
+                      s.contains(WidgetState.pressed))
+              ? palette.hoverFill
+              : palette.fill,
+        ),
+        foregroundColor: WidgetStateProperty.resolveWith(
+          (s) => enabled &&
+                  ((s.contains(WidgetState.hovered) && wide) ||
+                      s.contains(WidgetState.pressed))
+              ? palette.hoverLabel
+              : palette.label,
+        ),
+        overlayColor: const WidgetStatePropertyAll(Colors.transparent),
+        side: WidgetStatePropertyAll(palette.ring ?? BorderSide.none),
+        shape: WidgetStatePropertyAll(metrics.shape()),
+      ),
+      child: Icon(icon, size: wide ? PantasSize.icon : PantasSpace.s28),
+    );
+    return Semantics(
+      label: label,
+      button: true,
+      enabled: enabled,
+      onTap: onPressed,
+      excludeSemantics: true,
+      child: PressScale(
+        scale: pantasPressScale,
+        enabled: enabled,
+        child: OffsetFocusRing(
+          borderRadius: BorderRadius.circular(metrics.radius),
+          child: button,
+        ),
+      ),
+    );
   }
 }

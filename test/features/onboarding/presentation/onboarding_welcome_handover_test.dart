@@ -79,7 +79,7 @@ void main() {
     final handover = _FakeHandover(shownThisVisit: true);
     await pumpPage(tester, handover);
 
-    expect(find.text('When were you born?'), findsOneWidget);
+    expect(find.text('How old are you?'), findsOneWidget);
     expect(find.text('Welcome to Pantas'), findsNothing);
     expect(handover.readyCalls, [true]);
   });
@@ -110,7 +110,7 @@ void main() {
     await tester.pumpAndSettle();
 
     // Under the cover nothing of the age step or a second Welcome is drawn.
-    expect(find.text('When were you born?'), findsNothing);
+    expect(find.text('How old are you?'), findsNothing);
     expect(find.text('Welcome to Pantas'), findsNothing);
 
     handover.screenLeft!();
@@ -118,7 +118,7 @@ void main() {
     await tester.pump(const Duration(milliseconds: 120));
 
     final offset = find.byKey(const ValueKey('onboarding-incoming-offset'));
-    expect(find.text('When were you born?'), findsOneWidget);
+    expect(find.text('How old are you?'), findsOneWidget);
     expect(
       tester.widget<Transform>(offset).transform.getTranslation().x,
       greaterThan(0),

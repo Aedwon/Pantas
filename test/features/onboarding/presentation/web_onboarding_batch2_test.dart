@@ -135,9 +135,9 @@ void main() {
     testWidgets('age blocked shows the shared header $dark', (tester) async {
       await pump(
         tester,
-        OnboardingAgeGateStep(currentYear: 2026, onAgeGatePassed: () {}),
+        OnboardingAgeGateStep(onAgeGatePassed: () {}),
       );
-      await tester.enterText(find.byType(TextField), '2020');
+      await tester.enterText(find.byType(TextField), '12');
       await tester.pump();
       await tester.tap(find.text('Continue'));
       await tester.pump(const Duration(milliseconds: 500));
