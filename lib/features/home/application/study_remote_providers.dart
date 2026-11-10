@@ -1,11 +1,6 @@
 import 'dart:async';
 
-import 'package:drift/drift.dart'
-    show
-        BooleanExpressionOperators,
-        OrderingTerm,
-        StringExpressionOperators,
-        TableUpdateQuery;
+import 'package:drift/drift.dart' show OrderingTerm, TableUpdateQuery;
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/app/telemetry_providers.dart';
@@ -13,8 +8,9 @@ import 'package:pantas/core/auth/auth_state.dart';
 import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/sync/engine/pull_pipeline.dart';
 import 'package:pantas/core/sync/engine/sync_active_context_store.dart';
-import 'package:pantas/core/sync/runtime/sync_runtime_controller.dart';
+import 'package:pantas/core/sync/engine/sync_held_generation.dart';
 import 'package:pantas/features/home/application/study_delivery.dart';
 import 'package:pantas/features/home/data/study_api.dart';
 import 'package:pantas/features/home/data/study_observations.dart';
@@ -34,18 +30,30 @@ final studyNeedsExamSettingsProvider = StateProvider<bool>((ref) {
   return false;
 });
 
+/// The sync_meta rows whose change means Home's study data may differ.
+const _studyBoundaryKeys = <String>[
+  SyncActiveContextStore.metaKey,
+  SyncHeldGeneration.generationKey,
+  SyncHeldGeneration.uidKey,
+  PullPipeline.remoteChangeKey,
+];
+
 /// Watch the existing data-boundary envelope. No second owner/cache is stored.
 final studyCoreEpochProvider = StreamProvider.autoDispose<int>((ref) async* {
   final db = ref.watch(appDatabaseProvider);
-  // The backup time is written after every backup and is not part of the
-  // boundary. Counting it re-ran Home's server reads after each backup.
+  // Only rows that mean the owner or the data changed count: the active
+  // context, the local generation and its owner, and the marker Sync moves when another
+  // device's rows arrive. Bookkeeping (snapshot marks, the full pull and
+  // push markers, the backup time, the device id) does not. Counting it
+  // rebuilt the study reader on every sync step and failed Home's plan read
+  // in flight ("Study owner changed"); a first sync writes such rows for
+  // longer than Home retries, so Home showed "Could not load your plan."
+  // (Nov 10, journeys and prod reports). The active context counts: its
+  // token changes only when the owner changes or a full snapshot replaces
+  // the data, and a local wipe removes it.
   Future<String> envelope() async {
     final rows = await (db.select(db.syncMeta)
-          ..where(
-            (meta) => meta.key
-                .like('${SyncRuntimeController.lastBackupKeyPrefix}%')
-                .not(),
-          )
+          ..where((meta) => meta.key.isIn(_studyBoundaryKeys))
           ..orderBy([(meta) => OrderingTerm.asc(meta.key)]))
         .get();
     return rows.map((row) => '${row.key}=${row.value}').join('\n');
