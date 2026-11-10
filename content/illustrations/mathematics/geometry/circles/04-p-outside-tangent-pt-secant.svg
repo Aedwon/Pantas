@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 300" width="360" height="300">
+<title>Point P outside a circle with a tangent PT and a secant P, A, B with PA = 4 and AB = 5</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+</defs>
+<rect width="360" height="300" rx="14" fill="url(#bg)"/>
+<circle cx="230" cy="150" r="95" fill="#010101" fill-opacity="0.07" stroke="#020202" stroke-width="2"/>
+<line x1="40" y1="150" x2="182.4" y2="67.8" stroke="#050505" stroke-width="3.5"/>
+<line x1="40" y1="150" x2="271.3" y2="235.4" stroke="#010101" stroke-width="2.5"/>
+<circle cx="182.4" cy="67.8" r="4" fill="#010101"/>
+<circle cx="142.8" cy="188" r="4" fill="#010101"/>
+<circle cx="271.3" cy="235.4" r="4" fill="#010101"/>
+<circle cx="40" cy="150" r="7" fill="#050505"/>
+<text x="86.6" y="187.7" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">4</tspan></text>
+<text x="202.2" y="230.4" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">5</tspan></text>
+<text x="36" y="177.6" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#010101">P</text>
+<text x="182.4" y="54.4" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#010101">T</text>
+<text x="133.3" y="210" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#010101">A</text>
+<text x="271.3" y="260" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#010101">B</text>
+</svg>

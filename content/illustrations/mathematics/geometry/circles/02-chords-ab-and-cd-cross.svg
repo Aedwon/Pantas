@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 332" width="360" height="332">
+<title>Circle with chords AB and CD crossing at P; AP = 4, PB = 9, CP = 3</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+</defs>
+<rect width="360" height="332" rx="14" fill="url(#bg)"/>
+<circle cx="180" cy="172" r="125" fill="#010101" fill-opacity="0.07" stroke="#020202" stroke-width="2"/>
+<line x1="89" y1="86.3" x2="271" y2="86.3" stroke="#010101" stroke-width="2.5"/>
+<line x1="162.7" y1="48.2" x2="74.3" y2="238.7" stroke="#010101" stroke-width="2.5"/>
+<circle cx="89" cy="86.3" r="4" fill="#010101"/>
+<circle cx="271" cy="86.3" r="4" fill="#010101"/>
+<circle cx="162.7" cy="48.2" r="4" fill="#010101"/>
+<circle cx="74.3" cy="238.7" r="4" fill="#010101"/>
+<circle cx="145" cy="86.3" r="7" fill="#050505"/>
+<text x="110.3" y="105.9" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">4</tspan></text>
+<text x="192.9" y="105.9" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">9</tspan></text>
+<text x="168.7" y="74.1" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">3</tspan></text>
+<text x="72.5" y="82.4" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#010101">A</text>
+<text x="287.5" y="82.4" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#010101">B</text>
+<text x="149.2" y="40.3" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#010101">C</text>
+<text x="55.3" y="244.2" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#010101">D</text>
+<text x="155.4" y="108.2" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">P</text>
+</svg>

@@ -253,8 +253,6 @@ The width is $5$ m. The length is $8$ m, and $5\times8=40$.
 
 Solve $2x^2-5x-3\le0$.
 
-<!-- ILLUSTRATION: parabola y = 2x^2 - 5x - 3 opening up, crossing the x-axis at x = -1/2 and x = 3, with the part of the curve on or below the x-axis between those two points marked -->
-
 **Solution:**
 
 1. Factor and find the roots.
@@ -269,6 +267,8 @@ $$x=-\dfrac12\quad\text{or}\quad x=3$$
 $$-\dfrac12\le x\le3$$
 
 4. Check with $x=0$: $2(0)^2-5(0)-3=-3$, and $-3\le0$ is true.
+
+<!-- ILLUSTRATION: parabola y = 2x^2 - 5x - 3 opening up, crossing the x-axis at x = -1/2 and x = 3, with the part of the curve on or below the x-axis between those two points marked -->
 
 ### #10: Inequality That Is Not Yet Set to Zero
 
@@ -309,8 +309,6 @@ $$D=4^2-4(1)(5)=-4$$
 
 Solve $-x^2+x+6\ge0$.
 
-<!-- ILLUSTRATION: parabola y = -x^2 + x + 6 opening down, crossing the x-axis at x = -2 and x = 3, with the part of the curve on or above the x-axis between those two points marked -->
-
 **Solution:**
 
 1. Factor and find the roots.
@@ -325,6 +323,8 @@ $$x=3\quad\text{or}\quad x=-2$$
 $$-2\le x\le3$$
 
 4. Check with $x=0$: $-(0)^2+0+6=6$, and $6\ge0$ is true.
+
+<!-- ILLUSTRATION: parabola y = -x^2 + x + 6 opening down, crossing the x-axis at x = -2 and x = 3, with the part of the curve on or above the x-axis between those two points marked -->
 
 ### #13: Inequality With a Repeated Root
 
