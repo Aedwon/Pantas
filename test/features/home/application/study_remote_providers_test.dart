@@ -13,6 +13,7 @@ import 'package:pantas/core/storage/track_scope.dart';
 import 'package:pantas/core/sync/engine/pending_queue.dart';
 import 'package:pantas/core/sync/engine/pull_pipeline.dart';
 import 'package:pantas/core/sync/engine/sync_active_context_store.dart';
+import 'package:pantas/core/sync/engine/sync_held_generation.dart';
 import 'package:pantas/core/sync/model/sync_document.dart';
 import 'package:pantas/core/time/study_days.dart';
 import 'package:pantas/features/home/application/study_delivery.dart';
@@ -99,13 +100,83 @@ void main() {
         );
     await pumpEventQueue();
     expect(seen, [0]);
+  });
 
-    // Any other bookkeeping, such as a full pull marker, still counts.
+  // Nov 10: Home showed "Could not load your plan." in the browser journeys
+  // and on prod ("Bad state: Study owner changed" in prod reports). Every
+  // sync bookkeeping write moved this epoch, which rebuilt the study reader
+  // and failed the plan read in flight; a first sync writes such rows for
+  // seconds, longer than Home's retries last. Only rows that mean the owner
+  // or the data changed may move it.
+  test('sync bookkeeping does not move the study core epoch', () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final container = ProviderContainer(
+      overrides: [appDatabaseProvider.overrideWithValue(db)],
+    );
+    addTearDown(container.dispose);
+    final seen = <int>[];
+    container.listen<AsyncValue<int>>(
+      studyCoreEpochProvider,
+      (_, next) => next.whenData(seen.add),
+      fireImmediately: true,
+    );
+    await pumpEventQueue();
+    expect(seen, [0]);
+
+    for (final key in [
+      'pending_full_pull',
+      'pending_full_push',
+      'deviceId',
+    ]) {
+      await db.into(db.syncMeta).insertOnConflictUpdate(
+            SyncMetaCompanion.insert(key: key, value: '1'),
+          );
+    }
+    await SyncHeldGeneration(db).markSnapshotComplete(
+      generationId: 'g',
+      collection: 'lesson_progress',
+    );
+    await SyncHeldGeneration(db).clearSnapshotMarks();
+    await pumpEventQueue();
+    expect(seen, [0]);
+  });
+
+  test('the sync owner and its generation move the study core epoch', () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final container = ProviderContainer(
+      overrides: [appDatabaseProvider.overrideWithValue(db)],
+    );
+    addTearDown(container.dispose);
+    final seen = <int>[];
+    container.listen<AsyncValue<int>>(
+      studyCoreEpochProvider,
+      (_, next) => next.whenData(seen.add),
+      fireImmediately: true,
+    );
+    await pumpEventQueue();
+
+    // The context token is written with a raw statement the table stream
+    // does not see; the read guards catch a token change on their own.
     await db.into(db.syncMeta).insertOnConflictUpdate(
-          SyncMetaCompanion.insert(key: 'pending_full_pull', value: '1'),
+          SyncMetaCompanion.insert(
+            key: SyncHeldGeneration.generationKey,
+            value: 'g2',
+          ),
         );
     await pumpEventQueue();
-    expect(seen.last, greaterThan(0));
+    final afterGeneration = seen.last;
+    expect(afterGeneration, greaterThan(0));
+
+    await db.into(db.syncMeta).insertOnConflictUpdate(
+          SyncMetaCompanion.insert(
+            key: SyncHeldGeneration.uidKey,
+            value: 'user-2',
+          ),
+        );
+    await pumpEventQueue();
+    expect(seen.last, greaterThan(afterGeneration));
   });
 
   test('a changed token fails the read in hand and renews the reader',

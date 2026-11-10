@@ -1098,4 +1098,75 @@ void settlingTests() {
     expect(find.text(message), findsOneWidget);
     expect(calls, 14);
   });
+
+  // Nov 10: the plan reader is kept alive, so a read that failed while the
+  // owner settled held "Study owner changed" and every retry, and Try Again,
+  // got the same cached error back ("Could not load your plan." in the
+  // journeys and on prod). A settling retry must read the plan afresh.
+  testWidgets(
+      'a settling retry and Try Again rebuild the cached plan readers '
+      'instead of reusing their error', (tester) async {
+    var readerBuilds = 0;
+    var roadmapBuilds = 0;
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: [
+          homeBoundaryProvider.overrideWithValue(
+            const HomeBoundary(owner: 'test', core: 'test'),
+          ),
+          activeExamFocusProvider.overrideWith(
+            (ref) async => const ActiveExamFocus.selected(
+              Exam(
+                id: 'e1',
+                code: 'CSE',
+                name: 'Civil Service',
+                shortName: 'CSE',
+                language: 'en',
+                isActive: true,
+                subjects: [],
+              ),
+            ),
+          ),
+          studySnapshotReaderProvider.overrideWith((ref, examId) async {
+            readerBuilds++;
+            throw StateError('Study owner changed');
+          }),
+          serverStudyRoadmapProvider.overrideWith((ref, examId) async* {
+            ref.keepAlive();
+            roadmapBuilds++;
+            await ref.watch(studySnapshotReaderProvider(examId).future);
+          }),
+          homeTodayLoaderProvider.overrideWith(
+            (ref) => (examId, guard) async {
+              await ref.read(serverStudyRoadmapProvider(examId).future);
+              throw StateError('unreachable');
+            },
+          ),
+          todayQuestionLauncherProvider.overrideWith(_Launcher.new),
+        ],
+        child: MaterialApp(
+          theme: buildLightTheme(),
+          home: HomeTodayScreen(
+            examId: 'e1',
+            pageBuilder: (today, _) => Scaffold(body: today),
+          ),
+        ),
+      ),
+    );
+    await tester.pump();
+    expect(readerBuilds, 1);
+    expect(roadmapBuilds, 1);
+    // The first settling retry runs after 150 ms.
+    await tester.pump(const Duration(milliseconds: 200));
+    await tester.pump();
+    expect(readerBuilds, 2);
+    expect(roadmapBuilds, 2);
+    await tester.pump(const Duration(seconds: 9));
+    await tester.pump();
+    expect(find.text(message), findsOneWidget);
+    final before = readerBuilds;
+    await tester.tap(find.text('Try Again'));
+    await tester.pump();
+    expect(readerBuilds, before + 1);
+  });
 }
