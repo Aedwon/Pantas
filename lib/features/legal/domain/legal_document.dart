@@ -50,12 +50,14 @@ final legalDocumentFallbacks = <String, LegalDocument>{
       ),
       LegalSection(
         heading: 'Why we ask your age',
-        body: 'When you set up Pantas, we ask for your birth year. We use it '
-            'once, on your device, to decide whether a parent or guardian '
-            'must confirm. If your birth year means you could still be 17, we '
-            'ask a guardian to confirm. We keep only the resulting age group, '
-            'on your device. The birth year is not saved, and our servers '
-            'never receive it.',
+        body: 'When you set up Pantas, we ask you to enter your correct '
+            'current age in full years. We use it once, on your device, to '
+            'decide whether you can use Pantas and whether a parent or '
+            'guardian must consent. Based on the age you enter, Pantas blocks '
+            'use if you are under 13 and requires your parent or guardian\'s '
+            'consent if you are 13 to 17. We use your age only on your '
+            'device without saving it and keep only the resulting age group '
+            'there. Our servers never receive your age.',
       ),
       LegalSection(
         heading: 'What we collect',
@@ -196,8 +198,8 @@ final legalDocumentFallbacks = <String, LegalDocument>{
       LegalSection(
         heading: 'Why we may use your data',
         body: '• Age check: needed to decide whether a guardian must confirm '
-            'before you use Pantas. The birth year and age group stay on your '
-            'device.\n• Account and payment records: we need them to provide '
+            'before you use Pantas. We use your age only on your device without '
+            'saving it and keep only the resulting age group there.\n• Account and payment records: we need them to provide '
             'the service you asked for.\n• Study records: your specific '
             'permission, given at setup when you agree to the Terms and this '
             'Privacy Policy. Answers and results can relate to education.\n• '
@@ -371,12 +373,14 @@ final legalDocumentFallbacks = <String, LegalDocument>{
       ),
       LegalSection(
         heading: 'Why we ask your age',
-        body: 'When you set up Pantas, we ask for your birth year. We use it '
-            'once, on your device, to decide whether a parent or guardian '
-            'must confirm. If your birth year means you could still be 17, we '
-            'ask a guardian to confirm. We keep only the resulting age group. '
-            'The birth year is not saved, and our servers never receive '
-            'it.\n\nIf you are in the under-18 group, we record that on our '
+        body: 'When you set up Pantas, we ask you to enter your correct '
+            'current age in full years. We use it once, on your device, to '
+            'decide whether you can use Pantas and whether a parent or '
+            'guardian must consent. Based on the age you enter, Pantas blocks '
+            'use if you are under 13 and requires your parent or guardian\'s '
+            'consent if you are 13 to 17. We use your age only on your '
+            'device without saving it and keep only the resulting age group '
+            'there. Our servers never receive your age.\n\nIf you are in the under-18 group, we record that on our '
             "servers with your guardian's request, so a parent or guardian "
             'can confirm.',
       ),
@@ -568,7 +572,8 @@ final legalDocumentFallbacks = <String, LegalDocument>{
       LegalSection(
         heading: 'Why we may use your data',
         body: '• Age check: needed to decide whether a guardian must confirm '
-            'before you use Pantas. The birth year stays on your device. For '
+            'before you use Pantas. We use your age only on your device without '
+            'saving it and keep only the resulting age group there. For '
             "an under-18 account, your guardian's permission covers the "
             'age-group record.\n• Account and payment records: we need them '
             'to provide the service you asked for.\n• Study records: your '
