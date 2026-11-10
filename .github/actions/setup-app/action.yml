@@ -1,37 +1,78 @@
 name: Set up the app
-description: Flutter with caching, generated code, and the built content asset.
+description: Flutter with caching, generated code, and the built content asset. Retries once on failure. CI speed plan S3.
+
+inputs:
+  save:
+    description: >-
+      'true' saves the build_runner and content caches. Exactly one job per
+      workflow passes it. Every other job only restores.
+    default: 'false'
 
 runs:
   using: composite
   steps:
-    - name: Set up Flutter
-      uses: subosito/flutter-action@v2
+    - name: Restore build_runner state
+      # Prefix key plus the commit SHA, so the saver writes a fresh entry and
+      # every other run restores the newest one by prefix.
+      id: build-runner
+      uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
       with:
-        channel: stable
-        flutter-version: '3.44.6'
-        cache: true
+        path: .dart_tool/build
+        key: build-runner-${{ runner.os }}-flutter-3.44.6-${{ hashFiles('pubspec.lock', 'build.yaml') }}-${{ github.sha }}
+        restore-keys: |
+          build-runner-${{ runner.os }}-flutter-3.44.6-${{ hashFiles('pubspec.lock', 'build.yaml') }}-
 
-    - name: pub get
-      shell: bash
-      run: flutter pub get
+    - name: Restore the content asset
+      # Keyed on what the content build reads: the content, the build tools,
+      # and the parsers and database they import from lib/core/content. Not
+      # all of lib/**, so it hits on most code pushes.
+      id: content
+      uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
+      with:
+        path: |
+          build/export.json
+          assets/seed
+        key: content-asset-${{ runner.os }}-${{ hashFiles('content/**', 'tools/**', 'lib/core/content/**', 'pubspec.lock', 'build.yaml') }}
 
-    - name: Generate code
+    - name: Set up (first attempt)
+      id: first
+      continue-on-error: true
+      uses: ./.github/actions/setup-app/inner
+      with:
+        content-hit: ${{ steps.content.outputs.cache-hit }}
+
+    - name: Set up (retry after a failed first attempt)
+      if: steps.first.outcome == 'failure'
+      uses: ./.github/actions/setup-app/inner
+      with:
+        content-hit: ${{ steps.content.outputs.cache-hit }}
+
+    - name: Fingerprint the generated output
+      # Hashes every ignored generated file plus the content export, so a run
+      # that restored caches can be compared byte for byte with a cold one.
       shell: bash
       run: |
-        dart run build_runner build --delete-conflicting-outputs
-        flutter gen-l10n
+        { git ls-files --others --ignored --exclude-standard -- lib test tool tools design assets
+          echo build/export.json
+          find .dart_tool/build/generated -type f 2>/dev/null; } | sort -u | xargs sha256sum > build/setup-fingerprint.txt
+        echo "build_runner cache hit: ${{ steps.build-runner.outputs.cache-hit }} (matched: ${{ steps.build-runner.outputs.cache-matched-key }})"
+        echo "content cache hit: ${{ steps.content.outputs.cache-hit }}"
+        echo "fingerprint: $(wc -l < build/setup-fingerprint.txt) files, $(sha256sum < build/setup-fingerprint.txt | cut -c1-16)"
 
-    - name: Build the content asset
-      # Gitignored and built, never committed. Without it `flutter
-      # analyze` warns that a declared asset is missing and exits 1, and
-      # the bundled-database test has nothing to open. Built from the corpus.
-      shell: bash
-      run: |
-        mkdir -p build
-        dart run tools/build_content_export/build_content_export.dart build/export.json --assets-out assets/seed
-        dart run tools/build_content_seed/seed_writer.dart \
-          build/export.json \
-          assets/seed/content.db
-        # The signed package needs release keys. Non-web asset bundles only need
-        # these declared files to exist, and no test reads their bytes.
-        touch assets/seed/content.manifest.json assets/seed/content.manifest.sig
+    - name: Save build_runner state
+      if: inputs.save == 'true' && steps.build-runner.outputs.cache-hit != 'true'
+      continue-on-error: true
+      uses: actions/cache/save@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
+      with:
+        path: .dart_tool/build
+        key: ${{ steps.build-runner.outputs.cache-primary-key }}
+
+    - name: Save the content asset
+      if: inputs.save == 'true' && steps.content.outputs.cache-hit != 'true'
+      continue-on-error: true
+      uses: actions/cache/save@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
+      with:
+        path: |
+          build/export.json
+          assets/seed
+        key: ${{ steps.content.outputs.cache-primary-key }}

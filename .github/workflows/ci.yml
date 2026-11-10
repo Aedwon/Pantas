@@ -98,6 +98,15 @@ jobs:
           fetch-depth: 0
 
       - uses: ./.github/actions/setup-app
+        with:
+          # The one job that saves the build_runner and content caches.
+          save: 'true'
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: setup-fingerprint
+          path: build/setup-fingerprint.txt
+          retention-days: 7
 
       - name: dart format check
         # lib and test only, which is what the repo formats. Generated
@@ -186,13 +195,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: subosito/flutter-action@v2
+      - uses: dart-lang/setup-dart@6afc89df92d6eb3834022f73cd65adc8cdfcb92d # v1.8.1
         with:
-          channel: stable
-          flutter-version: '3.44.6'
-          cache: true
-
-      - run: flutter pub get
+          # The Dart bundled with Flutter 3.44.6. The gate imports only dart:io.
+          sdk: '3.12.2'
 
       - uses: actions/download-artifact@v4
         with:
@@ -220,7 +226,7 @@ jobs:
             }' > coverage/lcov.info
 
       - name: Coverage gate (overall >= 70%)
-        run: dart run tool/check_coverage.dart --min 70 --write-filtered coverage/lcov.filtered.info
+        run: dart tool/check_coverage.dart --min 70 --write-filtered coverage/lcov.filtered.info
 
       - uses: actions/upload-artifact@v4
         with:
@@ -250,9 +256,25 @@ jobs:
       - run: npm ci --no-audit --no-fund
         working-directory: functions
 
+      - name: Restore the emulator jars
+        id: emulators
+        uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
+        with:
+          path: ~/.cache/firebase/emulators
+          key: firebase-emulators-${{ runner.os }}-${{ hashFiles('functions/package-lock.json') }}
+
       - name: Backend and emulator tests
         run: npm test
         working-directory: functions
+
+      - name: Save the emulator jars
+        # The one job that saves this cache. The journeys workflow only restores it.
+        if: steps.emulators.outputs.cache-hit != 'true'
+        continue-on-error: true
+        uses: actions/cache/save@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
+        with:
+          path: ~/.cache/firebase/emulators
+          key: ${{ steps.emulators.outputs.cache-primary-key }}
 
   web:
     needs: [changes]
