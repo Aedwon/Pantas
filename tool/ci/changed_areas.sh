@@ -47,7 +47,8 @@ echo "Changed files since $base:"
 echo "$files" | sed 's/^/  /'
 
 # Anything that changes how a workflow behaves re-runs the Flutter and
-# functions checks.
+# functions checks. Known limit: a push is compared with the previous tip, so
+# an earlier red commit is not re-tested by a later push that skips its area.
 workflows='^\.github/(workflows|actions)/'
 rules='^(firestore\.rules|firestore\.indexes\.json|storage\.rules|firebase\.json)$'
 
