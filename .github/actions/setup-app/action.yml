@@ -53,7 +53,8 @@ runs:
       shell: bash
       run: |
         { git ls-files --others --ignored --exclude-standard -- lib test tool tools design assets
-          echo build/export.json; } | sort -u | xargs sha256sum > build/setup-fingerprint.txt
+          echo build/export.json
+          find .dart_tool/build/generated -type f 2>/dev/null; } | sort -u | xargs sha256sum > build/setup-fingerprint.txt
         echo "build_runner cache hit: ${{ steps.build-runner.outputs.cache-hit }} (matched: ${{ steps.build-runner.outputs.cache-matched-key }})"
         echo "content cache hit: ${{ steps.content.outputs.cache-hit }}"
         echo "fingerprint: $(wc -l < build/setup-fingerprint.txt) files, $(sha256sum < build/setup-fingerprint.txt | cut -c1-16)"
