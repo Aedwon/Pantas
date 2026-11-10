@@ -8,6 +8,9 @@ on:
     branches: [main]
     paths-ignore: ['docs/**', '**.md']
   push:
+    # CI runs on `main` and `web/**`; `ds4/` lanes get CI through their
+    # `web/ds4-` mirror, so a twin push runs once (CI speed plan S4, lead
+    # ruling Nov 11).
     # Staging only fast-forwards to a commit that already ran here.
     branches: [main, 'web/**', '!web/staging-candidate-r1']
     paths-ignore: ['docs/**', '**.md']
@@ -67,13 +70,31 @@ jobs:
         with:
           config-path: .gitleaks.toml
 
+  shard-partition:
+    # The test shards must together run every test file outside
+    # test/goldens exactly once. A file in no shard would run nowhere.
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: '3.44.6'
+          cache: true
+
+      - name: Shards partition the test files
+        run: dart tool/ci/shard_tests.dart --check --shards 8
+
   test:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 15
     strategy:
       fail-fast: false
       matrix:
-        shard: [0, 1, 2, 3, 4, 5]
+        # Keep in step with --shards below and in shard-partition.
+        shard: [0, 1, 2, 3, 4, 5, 6, 7]
     steps:
       - uses: actions/checkout@v4
         with:
@@ -82,14 +103,40 @@ jobs:
 
       - uses: ./.github/actions/setup-app
 
+      - name: Pick this shard's test files
+        # Fails on an empty shard. Files are balanced on tool/ci/test_timings.json.
+        run: dart tool/ci/shard_tests.dart --shard ${{ matrix.shard }} --shards 8 > shard-files.txt
+
       - name: Unit + widget tests
-        run: flutter test --coverage --total-shards 6 --shard-index ${{ matrix.shard }}
+        run: |
+          mapfile -t files < shard-files.txt
+          test "${#files[@]}" -gt 0
+          echo "shard ${{ matrix.shard }}: ${#files[@]} files"
+          flutter test --coverage \
+            --file-reporter json:reporter-${{ matrix.shard }}.json \
+            "${files[@]}"
+
+      - name: Timing and test identities
+        if: always()
+        run: |
+          mkdir -p timing
+          dart tool/ci/test_timing.dart reporter-${{ matrix.shard }}.json \
+            --timing timing/test_timings-${{ matrix.shard }}.json \
+            --identities timing/identities-${{ matrix.shard }}.tsv \
+            | tee -a "$GITHUB_STEP_SUMMARY"
 
       - uses: actions/upload-artifact@v4
         with:
           name: lcov-${{ matrix.shard }}
           path: coverage/lcov.info
           retention-days: 1
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: timing-${{ matrix.shard }}
+          path: timing
+          retention-days: 30
 
   coverage:
     needs: test
@@ -133,6 +180,12 @@ jobs:
 
       - name: Coverage gate (overall >= 70%)
         run: dart run tool/check_coverage.dart --min 70 --write-filtered coverage/lcov.filtered.info
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: coverage-merged
+          path: coverage/lcov.info
+          retention-days: 30
 
   functions:
     runs-on: ubuntu-latest
