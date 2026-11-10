@@ -42,9 +42,10 @@ const _studyBoundaryKeys = <String>[
 final studyCoreEpochProvider = StreamProvider.autoDispose<int>((ref) async* {
   final db = ref.watch(appDatabaseProvider);
   // Only rows that mean the owner or the data changed count: the active
-  // context, the local generation and its owner, and the marker Sync moves when another
-  // device's rows arrive. Bookkeeping (snapshot marks, the full pull and
-  // push markers, the backup time, the device id) does not. Counting it
+  // context, the local generation and its owner, and the marker Sync moves
+  // when another device's rows arrive. Bookkeeping (snapshot marks, the
+  // full pull and push markers, the backup time, the device id) does not.
+  // Counting it
   // rebuilt the study reader on every sync step and failed Home's plan read
   // in flight ("Study owner changed"); a first sync writes such rows for
   // longer than Home retries, so Home showed "Could not load your plan."

@@ -322,13 +322,26 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
   /// The automatic retry of a settling failure. It keeps the count, so a
   /// failure that never clears still reaches the error.
   void _retryQuietly() {
-    if (mounted) _retry();
+    if (!mounted) return;
+    _readPlanAfresh();
+    _retry();
   }
 
   /// The student's own Try Again starts the count anew.
   void _retryNow() {
     _settling.reset();
+    _readPlanAfresh();
     _retry();
+  }
+
+  /// The plan readers are kept alive, so a read that failed while the owner
+  /// settled keeps its error, and a retry would get the same error back
+  /// (Nov 10: "Could not load your plan." in the journeys and on prod).
+  /// A retry after a failure reads the plan afresh.
+  void _readPlanAfresh() {
+    ref
+      ..invalidate(studySnapshotReaderProvider(widget.examId))
+      ..invalidate(serverStudyRoadmapProvider(widget.examId));
   }
 
   void _dismiss() => setState(() {
