@@ -23,6 +23,7 @@ class FloatingBar extends StatelessWidget {
     this.state = FloatingBarState.neutral,
     this.beforeCounter,
     this.afterCounter,
+    this.counterWidget,
     super.key,
   })  : content = null,
         radius = PantasRadius.bar,
@@ -42,6 +43,7 @@ class FloatingBar extends StatelessWidget {
   })  : content = child,
         beforeCounter = null,
         afterCounter = null,
+        counterWidget = null,
         left = const SizedBox.shrink(),
         counter = '',
         right = const SizedBox.shrink();
@@ -51,6 +53,10 @@ class FloatingBar extends StatelessWidget {
   /// Phone only (MK_Paper): controls grouped with the counter in the middle.
   final Widget? beforeCounter;
   final Widget? afterCounter;
+
+  /// Phone only: replaces the counter text (the count with its caret, as a
+  /// button).
+  final Widget? counterWidget;
   final double radius;
   final double inset;
   final Duration? transitionDuration;
@@ -127,13 +133,14 @@ class FloatingBar extends StatelessWidget {
                   ),
                 ),
                 if (beforeCounter != null) beforeCounter!,
-                Text(
-                  counter,
-                  style: PantasType.webLink.copyWith(
-                    color: c.textPrimary,
-                    fontFeatures: const [FontFeature.tabularFigures()],
-                  ),
-                ),
+                counterWidget ??
+                    Text(
+                      counter,
+                      style: PantasType.webLink.copyWith(
+                        color: c.textPrimary,
+                        fontFeatures: const [FontFeature.tabularFigures()],
+                      ),
+                    ),
                 if (afterCounter != null) afterCounter!,
                 Expanded(
                   child: Align(

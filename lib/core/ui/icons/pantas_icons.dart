@@ -64,6 +64,17 @@ abstract final class PantasIcons {
   static IconData get quizTab => const IconData(0xe184, fontFamily: 'Phosphor');
   static IconData get settingsTab =>
       const IconData(0xe272, fontFamily: 'Phosphor');
+
+  /// Phosphor calendar-blank (Regular), the exam date field's calendar button.
+  /// Codepoint 0xe10a from phosphor_flutter 2.1.0, whose Regular font is
+  /// byte-identical to assets/fonts/phosphor/Phosphor.ttf.
+  static IconData get calendarBlank =>
+      const IconData(0xe10a, fontFamily: 'Phosphor');
+
+  /// Phosphor plus and minus (Regular), the age stepper's buttons. Codepoints
+  /// 0xe3d4 and 0xe32a from phosphor_flutter 2.1.0.
+  static IconData get plus => const IconData(0xe3d4, fontFamily: 'Phosphor');
+  static IconData get minus => const IconData(0xe32a, fontFamily: 'Phosphor');
   static IconData get back => const IconData(0xe138, fontFamily: 'Phosphor');
   static IconData get next => const IconData(0xe13a, fontFamily: 'Phosphor');
   static IconData get close => const IconData(0xe4f6, fontFamily: 'Phosphor');
@@ -71,6 +82,10 @@ abstract final class PantasIcons {
   static IconData get toTop => const IconData(0xe08e, fontFamily: 'Phosphor');
   static IconData get expandFigure =>
       const IconData(0xe0a6, fontFamily: 'Phosphor');
+
+  /// Phosphor caret-up-down: the count's cue that it opens a list.
+  static IconData get caretUpDown =>
+      const IconData(0xe140, fontFamily: 'Phosphor');
   static IconData get sort => const IconData(0xe140, fontFamily: 'Phosphor');
   static IconData get contents =>
       const IconData(0xe2f0, fontFamily: 'Phosphor');

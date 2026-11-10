@@ -10,7 +10,6 @@ import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/storage/track_scope.dart';
 import 'package:pantas/core/telemetry/telemetry.dart';
-import 'package:pantas/core/ui/components/value_wheel.dart';
 import 'package:pantas/features/onboarding/application/onboarding_flow.dart';
 import 'package:pantas/features/onboarding/presentation/exam_picker_screen.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_age_gate_step.dart';
@@ -93,14 +92,13 @@ void main() {
     addTearDown(db.close);
     await pumpStep(
       tester,
-      OnboardingAgeGateStep(currentYear: 2026, onAgeGatePassed: () {}),
+      OnboardingAgeGateStep(onAgeGatePassed: () {}),
       overrides: [
         appDatabaseProvider.overrideWithValue(db),
         appPreferencesRepositoryProvider.overrideWithValue(_FailingPrefs(db)),
       ],
     );
-    final wheel = tester.widget<ValueWheel>(find.byType(ValueWheel));
-    wheel.onSelected(wheel.values.indexOf('2000'));
+    await tester.enterText(find.byType(TextField), '30');
     await tester.pump();
     await tester.tap(find.text('Continue'));
     await tester.pumpAndSettle();

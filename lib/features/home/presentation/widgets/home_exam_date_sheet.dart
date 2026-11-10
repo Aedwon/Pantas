@@ -53,6 +53,9 @@ class HomeExamDateSheet extends StatefulWidget {
 class _HomeExamDateSheetState extends State<HomeExamDateSheet> {
   late MonthFirstDate _value = _from(widget.initial);
 
+  /// The phone field holds text that is not a valid date.
+  bool _unresolved = false;
+
   MonthFirstDate _from(ExamDate? date) => date == null
       ? MonthFirstDate(year: widget.today.year)
       : MonthFirstDate(
@@ -127,6 +130,8 @@ class _HomeExamDateSheetState extends State<HomeExamDateSheet> {
             MonthFirstDatePicker(
               value: _value,
               today: widget.today,
+              onUnresolvedChanged: (unresolved) =>
+                  setState(() => _unresolved = unresolved),
               onChanged: (next) => setState(() => _value = next),
             ),
           const SizedBox(height: PantasSpace.s18),
@@ -180,7 +185,7 @@ class _HomeExamDateSheetState extends State<HomeExamDateSheet> {
             PantasButton(
               label: 'Save',
               busy: widget.saving,
-              onPressed: date == null || widget.saving
+              onPressed: date == null || widget.saving || _unresolved
                   ? null
                   : () => widget.onSave(date),
             ),

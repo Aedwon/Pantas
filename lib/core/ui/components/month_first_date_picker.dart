@@ -14,6 +14,7 @@ import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
 
 @immutable
 class MonthFirstDate {
@@ -62,12 +63,18 @@ class MonthRiseSwitcher extends StatelessWidget {
       );
 }
 
-/// The phone exam-date picker (Option A, chosen Nov 10, 2026): the typed
-/// field above one month calendar, with Previous and Next month buttons.
+/// The phone exam-date picker (Option A, chosen Nov 10, 2026): one
+/// MM/DD/YYYY field with a calendar button at its end, above one month
+/// calendar with Previous and Next month buttons.
+///
+/// The calendar shows when the picker opens. A tap on the field closes it and
+/// opens the keyboard; the calendar button closes the keyboard and opens it
+/// again. A typed date moves the calendar and a tapped day fills the field.
 ///
 /// The value stays month-first: a month alone is a valid answer, and a day
-/// can be added. Picking another month with the buttons keeps the month only
-/// and drops any day, so the day line asks "No day yet?". The calendar shows
+/// can be added. Picking another month with the buttons, or "Not sure of the
+/// day", keeps the month only and drops any day, so the line under the
+/// calendar says "No day yet?". The calendar shows
 /// the month of [value], or the month of [today] while [value] has none. It
 /// starts at the month of [today] and has no end, as the old phone picker had
 /// none; the typed field takes the same range. The wide calendar keeps its own
@@ -77,7 +84,7 @@ class MonthFirstDatePicker extends StatefulWidget {
     required this.value,
     required this.today,
     required this.onChanged,
-    this.dayNote,
+    this.onUnresolvedChanged,
     super.key,
   });
 
@@ -86,22 +93,25 @@ class MonthFirstDatePicker extends StatefulWidget {
     required MonthFirstDate value,
     required DateTime today,
     required ValueChanged<MonthFirstDate> onChanged,
-    String Function(DateTime day)? dayNote,
+    ValueChanged<bool>? onUnresolvedChanged,
     Key? key,
   }) : this(
           value: value,
           today: today,
           onChanged: onChanged,
-          dayNote: dayNote,
+          onUnresolvedChanged: onUnresolvedChanged,
           key: key,
         );
 
-  /// Words for the line under a chosen day. Callers that draw their own note
-  /// pass this; without it the line is the weekday and date.
-  final String Function(DateTime day)? dayNote;
   final MonthFirstDate value;
   final DateTime today;
   final ValueChanged<MonthFirstDate> onChanged;
+
+  /// True while the field holds text that is not a valid date (half typed,
+  /// not a real date, or before the first allowed day). The screen holds its
+  /// Continue or Save button then, so it never saves a date the field
+  /// disagrees with.
+  final ValueChanged<bool>? onUnresolvedChanged;
 
   @override
   State<MonthFirstDatePicker> createState() => _MonthFirstDatePickerState();
@@ -111,10 +121,33 @@ class _MonthFirstDatePickerState extends State<MonthFirstDatePicker> {
   /// Focus and keys for the day cells, shared with the wide date grids.
   final DateGridFocus _grid = DateGridFocus();
 
+  /// The typed field's focus, so the calendar button can drop the keyboard.
+  final FocusNode _fieldFocus = FocusNode();
+
+  /// The calendar shows when the step opens.
+  bool _calendarOpen = true;
+
+  /// Bumped by "Not sure of the day" to empty the field, half-typed or not.
+  int _resetToken = 0;
+
   @override
   void dispose() {
     _grid.dispose();
+    _fieldFocus.dispose();
     super.dispose();
+  }
+
+  void _typeMode() {
+    if (_calendarOpen) setState(() => _calendarOpen = false);
+  }
+
+  void _toggleCalendar() {
+    if (_calendarOpen && !_fieldFocus.hasFocus) {
+      setState(() => _calendarOpen = false);
+      return;
+    }
+    _fieldFocus.unfocus();
+    setState(() => _calendarOpen = true);
   }
 
   MonthFirstDate get value => widget.value;
@@ -353,8 +386,27 @@ class _MonthFirstDatePickerState extends State<MonthFirstDatePicker> {
             ? null
             : DateTime(value.year, value.month!, value.day!);
     final typed = TypedDateField(
+      label: 'Exam date',
       value: picked,
       firstAllowed: today,
+      focusNode: _fieldFocus,
+      showHelp: false,
+      liveErrors: true,
+      resetToken: _resetToken,
+      onFieldPointer: _typeMode,
+      onUnresolvedChanged: widget.onUnresolvedChanged,
+      action: MergeSemantics(
+        child: Semantics(
+          expanded: _calendarOpen,
+          child: PantasIconButton(
+            tooltip: 'Choose a date',
+            glyph: PantasIcons.calendarBlank,
+            size: PantasIconButtonSize.sm,
+            accent: _calendarOpen,
+            onPressed: _toggleCalendar,
+          ),
+        ),
+      ),
       onChanged: (date) => onChanged(
         MonthFirstDate(year: date.year, month: date.month, day: date.day),
       ),
@@ -366,47 +418,60 @@ class _MonthFirstDatePickerState extends State<MonthFirstDatePicker> {
         ? null
         : picked == null
             ? "No day yet? We'll plan from $planningStart and ask later."
-            : widget.dayNote?.call(picked) ??
-                DateFormat('EEEE, MMMM d', 'en_US').format(picked);
+            : null;
+    final calendar = <Widget>[
+      const SizedBox(height: PantasSpace.s16),
+      Wrap(
+        alignment: WrapAlignment.spaceBetween,
+        crossAxisAlignment: WrapCrossAlignment.center,
+        spacing: PantasSpace.s8,
+        runSpacing: PantasSpace.s8,
+        children: [
+          Semantics(
+            header: true,
+            child: Text(
+              monthName,
+              style: PantasType.phoneTitle2.copyWith(color: c.textPrimary),
+            ),
+          ),
+          Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              PantasIconButton(
+                tooltip: 'Previous month',
+                glyph: PantasIcons.back,
+                onPressed: view <= _firstOrdinal ? null : () => _go(view - 1),
+              ),
+              PantasIconButton(
+                tooltip: 'Next month',
+                glyph: PantasIcons.next,
+                accent: true,
+                onPressed: () => _go(view + 1),
+              ),
+            ],
+          ),
+        ],
+      ),
+      const SizedBox(height: PantasSpace.s16),
+      _grid7(context, year, month),
+      Align(
+        alignment: AlignmentDirectional.centerStart,
+        child: WebTextLink(
+          label: 'Not sure of the day',
+          arrow: false,
+          onPressed: () {
+            setState(() => _resetToken++);
+            onChanged(MonthFirstDate(year: year, month: month));
+          },
+        ),
+      ),
+    ];
     return Column(
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         typed,
-        const SizedBox(height: PantasSpace.s16),
-        Wrap(
-          alignment: WrapAlignment.spaceBetween,
-          crossAxisAlignment: WrapCrossAlignment.center,
-          spacing: PantasSpace.s8,
-          runSpacing: PantasSpace.s8,
-          children: [
-            Semantics(
-              header: true,
-              child: Text(
-                monthName,
-                style: PantasType.phoneTitle2.copyWith(color: c.textPrimary),
-              ),
-            ),
-            Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                PantasIconButton(
-                  tooltip: 'Previous month',
-                  glyph: PantasIcons.back,
-                  onPressed: view <= _firstOrdinal ? null : () => _go(view - 1),
-                ),
-                PantasIconButton(
-                  tooltip: 'Next month',
-                  glyph: PantasIcons.next,
-                  accent: true,
-                  onPressed: () => _go(view + 1),
-                ),
-              ],
-            ),
-          ],
-        ),
-        const SizedBox(height: PantasSpace.s16),
-        _grid7(context, year, month),
+        if (_calendarOpen) ...calendar,
         if (line != null) ...[
           const SizedBox(height: PantasSpace.s16),
           Padding(

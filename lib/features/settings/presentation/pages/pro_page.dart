@@ -17,7 +17,6 @@ import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pro_paused_line.dart';
 import 'package:pantas/core/ui/components/pro_tag.dart';
 import 'package:pantas/core/ui/components/selectable_tile.dart';
-import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/leave_page.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
@@ -40,6 +39,7 @@ import 'package:pantas/features/paywall/domain/products.dart';
 import 'package:pantas/features/review_prompt/application/review_prompt_providers.dart';
 import 'package:pantas/features/settings/application/carry_over_providers.dart';
 import 'package:pantas/features/settings/presentation/carry_over_prompt.dart';
+import 'package:pantas/features/settings/presentation/widgets/pro_perks.dart';
 import 'package:pantas/features/settings/presentation/widgets/pro_plan_tile.dart';
 import 'package:pantas/features/settings/presentation/widgets/settings_pane_page.dart';
 import 'package:pantas/features/settings/presentation/widgets/settings_row.dart';
@@ -1030,13 +1030,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
             ),
           const SizedBox(height: PantasSpace.s24),
           if (!upgrade)
-            for (final feature in [
-              (PantasIcons.unlimitedMocks, 'Unlimited mock exams'),
-              (PantasIcons.answerNotes, 'Notes on why your answer was wrong'),
-              (PantasIcons.studyHabits, 'The figures behind your study habits'),
-              (PantasIcons.proBackup, "Progress that's always backed up"),
-              (PantasIcons.topicResults, 'Results by topic and lesson'),
-            ])
+            for (final feature in proPerks)
               Padding(
                 padding: const EdgeInsets.only(bottom: PantasSpace.s12),
                 child: Row(

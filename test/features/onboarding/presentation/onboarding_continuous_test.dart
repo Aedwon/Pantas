@@ -31,7 +31,7 @@ void main() {
       for (final step in framedOnboardingSteps) {
         await pumpFramedStep(tester, step, wide: true);
         expect(tester.takeException(), isNull, reason: step);
-        final railNow = tester.getTopLeft(find.text('Birth year'));
+        final railNow = tester.getTopLeft(find.text('Your age'));
         rail ??= railNow;
         expect(railNow, rail, reason: '$step moved the steps list');
         // Back is the first thing in the column: its left edge is the

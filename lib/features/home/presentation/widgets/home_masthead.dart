@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math' as math;
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -175,6 +176,81 @@ class HomeMasthead extends ConsumerWidget {
     // the chip takes its own line, 4 px in, with no rule (D185).
     final beside =
         MediaQuery.sizeOf(context).width >= PantasLayout.bpTabletPortrait;
+    final footer = _footer(examState, masthead.examDate, now);
+    Widget hairlineChip({required double right}) => Container(
+          padding: EdgeInsets.only(left: PantasSpace.s12, right: right),
+          decoration: BoxDecoration(
+            border: Border(
+              left: BorderSide(color: c.divider, width: PantasBorder.hairline),
+            ),
+          ),
+          child: chip,
+        );
+    // D196: on the phone the full chip stays on one line and the strip shows
+    // as many days as fit (5, 4 or 3), centered on Today; under three the
+    // chip drops below.
+    Widget phoneBody() => LayoutBuilder(
+          builder: (context, box) {
+            final plan = WeekStrip.plan(
+              width: box.maxWidth,
+              cell: WeekStrip.cellWidth(context),
+              chip: _chipBlockWidth(context, masthead, footer),
+            );
+            final today = DateTime(now.year, now.month, now.day);
+            final before = (plan.days - 1) ~/ 2;
+            final first = DateTime(today.year, today.month, today.day - before);
+            final weekStart = PantasDates.weekStart(now);
+            final days = WeekStrip.window(
+              today: now,
+              windowStart: first,
+              windowGap: plan.touching ? 0 : null,
+              states: [
+                for (var i = 0; i < plan.days; i++)
+                  week.stateOn(
+                    DateTime(first.year, first.month, first.day + i),
+                    weekStart,
+                  ),
+              ],
+              todayFraction: week.todayFraction,
+              onSelected: (date) => unawaited(
+                context.push<void>('/plan/day/${dayKey(date)}'),
+              ),
+            );
+            if (!plan.chipBeside) {
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  days,
+                  const SizedBox(height: PantasSpace.s8),
+                  Padding(
+                    padding: const EdgeInsets.only(left: PantasSpace.s4),
+                    child: chip,
+                  ),
+                ],
+              );
+            }
+            if (plan.touching) {
+              return Row(
+                children: [
+                  days,
+                  const Spacer(),
+                  hairlineChip(right: PantasSpace.s0),
+                ],
+              );
+            }
+            return Row(
+              children: [
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.only(right: PantasSpace.s4),
+                    child: days,
+                  ),
+                ),
+                hairlineChip(right: PantasSpace.s0),
+              ],
+            );
+          },
+        );
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -195,8 +271,9 @@ class HomeMasthead extends ConsumerWidget {
             PantasSpace.s10,
             PantasSpace.s8,
           ),
-          child: beside
-              ? Row(
+          child: !beside
+              ? phoneBody()
+              : Row(
                   children: [
                     Expanded(child: strip),
                     Container(
@@ -216,17 +293,6 @@ class HomeMasthead extends ConsumerWidget {
                       child: chip,
                     ),
                   ],
-                )
-              : Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    strip,
-                    const SizedBox(height: PantasSpace.s8),
-                    Padding(
-                      padding: const EdgeInsets.only(left: PantasSpace.s4),
-                      child: chip,
-                    ),
-                  ],
                 ),
         ),
         const SizedBox(height: PantasSpace.s24),
@@ -241,6 +307,40 @@ class HomeMasthead extends ConsumerWidget {
       ],
     );
   }
+}
+
+/// The width of the chip with its hairline and 12 of padding, measured from
+/// its text at the current text size (tile, 10 gap, the wider of the name and
+/// the days line).
+double _chipBlockWidth(
+  BuildContext context,
+  HomeMastheadData masthead,
+  String footer,
+) {
+  final scaler = MediaQuery.textScalerOf(context);
+  double width(String text, TextStyle style) {
+    final painter = TextPainter(
+      text: TextSpan(text: text, style: style),
+      textDirection: Directionality.of(context),
+      textScaler: scaler,
+    )..layout();
+    final result = painter.width;
+    painter.dispose();
+    return result;
+  }
+
+  final tile =
+      (PantasSpace.s40 + PantasSpace.s2) * scaler.scale(1).clamp(1.0, 2.0);
+  final text = math.max(
+    width(masthead.examShortName, PantasType.webChipName),
+    width(footer, PantasType.webSmall),
+  );
+  return PantasBorder.hairline +
+      PantasSpace.s12 +
+      tile +
+      PantasSpace.s10 +
+      text +
+      1;
 }
 
 enum _ExamChipState { noDate, monthOnly, future, today, passed }

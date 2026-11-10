@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
@@ -20,6 +19,13 @@ void main() {
     db = inMemoryDatabase();
   });
   tearDown(() => db.close());
+  String ageText(WidgetTester tester) =>
+      tester.widget<TextField>(find.byType(TextField)).controller!.text;
+  Future<void> typeAge(WidgetTester tester, String age) async {
+    await tester.enterText(find.byType(TextField), age);
+    await tester.pump();
+  }
+
   Future<void> pump(
     WidgetTester tester, {
     VoidCallback? passed,
@@ -38,7 +44,6 @@ void main() {
               appPreferencesRepositoryProvider.overrideWithValue(preferences),
           ],
           child: OnboardingAgeGateStep(
-            currentYear: 2026,
             onAgeGatePassed: passed ?? () {},
             onGuardianNeeded: guardianNeeded,
           ),
@@ -54,7 +59,7 @@ void main() {
       testWidgets('age input and blocked state $brightness $scale',
           (tester) async {
         await pump(tester, brightness: brightness, scale: scale);
-        expect(find.text('When were you born?'), findsOneWidget);
+        expect(find.text('How old are you?'), findsOneWidget);
         expect(
           find.text('We only ask this once and never keep it.'),
           findsOneWidget,
@@ -67,10 +72,8 @@ void main() {
               .onPressed,
           isNotNull,
         );
-        final wheel = tester.widget<ValueWheel>(find.byType(ValueWheel));
-        expect(wheel.values[wheel.selectedIndex], '2012');
-        wheel.onSelected(wheel.values.indexOf('2014'));
-        await tester.pump();
+        expect(ageText(tester), '17');
+        await typeAge(tester, '12');
         await tester.tap(find.text('Continue'));
         await tester.pumpAndSettle();
         expect(find.text("Pantas isn't available yet"), findsOneWidget);
@@ -79,7 +82,7 @@ void main() {
           findsOneWidget,
         );
         expect(
-          find.text('Entered the wrong year? Email contact@pantas.study.'),
+          find.text('Entered the wrong age? Email contact@pantas.study.'),
           findsOneWidget,
         );
         expect(find.byType(ValueWheel), findsNothing);
@@ -91,18 +94,6 @@ void main() {
       });
     }
   }
-
-  testWidgets('the phone wheel names itself "Birth year" and reads its year',
-      (tester) async {
-    final handle = tester.ensureSemantics();
-    await pump(tester);
-    final node = tester.getSemantics(find.byType(ValueWheel));
-    expect(node.label, 'Birth year');
-    expect(node.value, '2012');
-    expect(node.increasedValue, '2013');
-    expect(node.decreasedValue, '2011');
-    handle.dispose();
-  });
 
   testWidgets('the block survives a reload', (tester) async {
     await AppPreferencesRepository(db).setBlockedMinimumAge(13);
@@ -123,8 +114,7 @@ void main() {
     );
   });
 
-  testWidgets('an adult year passes the gate and stores only the group',
-      (tester) async {
+  testWidgets('18 passes the gate and stores only the group', (tester) async {
     var passed = 0;
     var guardian = 0;
     await pump(
@@ -132,9 +122,7 @@ void main() {
       passed: () => passed++,
       guardianNeeded: () => guardian++,
     );
-    final wheel = tester.widget<ValueWheel>(find.byType(ValueWheel));
-    wheel.onSelected(wheel.values.indexOf('2000'));
-    await tester.pump();
+    await typeAge(tester, '18');
     await tester.tap(find.text('Continue'));
     await tester.pumpAndSettle();
     expect(passed, 1);
@@ -143,13 +131,13 @@ void main() {
     expect(await repo.hasPassedAgeGate(), isTrue);
     expect(await repo.ageGroup(), 'adult');
     expect(
-      (await db.select(db.devicePrefs).get()).any((row) => row.value == '2000'),
+      (await db.select(db.devicePrefs).get()).any((row) => row.value == '18'),
       isFalse,
     );
   });
 
-  for (final year in ['2013', '2009', '2008']) {
-    testWidgets('$year is a minor: the gate stays shut and a guardian is asked',
+  for (final age in ['13', '14', '17']) {
+    testWidgets('$age is a minor: the gate stays shut and a guardian is asked',
         (tester) async {
       var passed = 0;
       var guardian = 0;
@@ -158,9 +146,7 @@ void main() {
         passed: () => passed++,
         guardianNeeded: () => guardian++,
       );
-      final wheel = tester.widget<ValueWheel>(find.byType(ValueWheel));
-      wheel.onSelected(wheel.values.indexOf(year));
-      await tester.pump();
+      await typeAge(tester, age);
       await tester.tap(find.text('Continue'));
       await tester.pumpAndSettle();
       expect(passed, 0);
@@ -169,14 +155,14 @@ void main() {
       expect(await repo.hasPassedAgeGate(), isFalse);
       expect(await repo.ageGroup(), 'minor');
       expect(
-        (await db.select(db.devicePrefs).get()).any((row) => row.value == year),
+        (await db.select(db.devicePrefs).get()).any((row) => row.value == age),
         isFalse,
-        reason: 'no birth year is stored',
+        reason: 'no age is stored',
       );
     });
   }
 
-  testWidgets('failed age save keeps the year and retries the same write',
+  testWidgets('failed age save keeps the age and retries the same write',
       (tester) async {
     var passed = 0;
     await pump(
@@ -184,16 +170,13 @@ void main() {
       passed: () => passed++,
       preferences: _FailingAgePreferences(db),
     );
-    final wheel = tester.widget<ValueWheel>(find.byType(ValueWheel));
-    wheel.onSelected(wheel.values.indexOf('2000'));
-    await tester.pump();
+    await typeAge(tester, '42');
     await tester.tap(find.text('Continue'));
     await tester.pumpAndSettle();
     expect(find.text('Could not save your progress.'), findsOneWidget);
     expect(find.textContaining('private details'), findsNothing);
     expect(passed, 0);
-    final retained = tester.widget<ValueWheel>(find.byType(ValueWheel));
-    expect(retained.values[retained.selectedIndex], '2000');
+    expect(ageText(tester), '42');
     expect(await AppPreferencesRepository(db).hasPassedAgeGate(), isFalse);
     await tester.ensureVisible(find.text('Try Again'));
     await tester.tap(find.text('Try Again'));
@@ -204,9 +187,7 @@ void main() {
 
   testWidgets('the blocked state fades in as one frame', (tester) async {
     await pump(tester, disableAnimations: false);
-    final wheel = tester.widget<ValueWheel>(find.byType(ValueWheel));
-    wheel.onSelected(wheel.values.indexOf('2014'));
-    await tester.pump();
+    await typeAge(tester, '12');
     await tester.tap(find.text('Continue'));
     await tester.pump();
     await tester.pump();
@@ -222,24 +203,9 @@ void main() {
     await tester.pumpAndSettle();
   });
 
-  testWidgets('year selection can be changed with the keyboard',
-      (tester) async {
-    await pump(tester);
-    Focus.of(
-      tester.element(find.byType(ListWheelScrollView)),
-      createDependency: false,
-    ).requestFocus();
-    await tester.pump();
-    await tester.sendKeyEvent(LogicalKeyboardKey.arrowDown);
-    await tester.pump();
-    final wheel = tester.widget<ValueWheel>(find.byType(ValueWheel));
-    expect(wheel.values[wheel.selectedIndex], '2013');
-    expect(tester.takeException(), isNull);
-  });
   Future<void> pumpFramed(
     WidgetTester tester, {
     required bool wide,
-    int year = 2026,
   }) async {
     debugWebPlatformOverride = wide ? true : null;
     addTearDown(() => debugWebPlatformOverride = null);
@@ -262,7 +228,6 @@ void main() {
             child: Scaffold(
               body: _FrameHost(
                 child: OnboardingAgeGateStep(
-                  currentYear: year,
                   onAgeGatePassed: () {},
                   onBack: () {},
                 ),
@@ -275,79 +240,6 @@ void main() {
     await tester.pumpAndSettle();
   }
 
-  group('wide: the range hint under the year field', () {
-    Future<void> type(WidgetTester tester, String text) async {
-      await tester.enterText(find.byType(TextField), text);
-      await tester.pump();
-    }
-
-    testWidgets('shows for a complete year outside the range', (tester) async {
-      await pumpFramed(tester, wide: true);
-      await type(tester, '1925');
-      expect(find.text('Enter a year from 1926 to 2026.'), findsOneWidget);
-      await type(tester, '2027');
-      expect(find.text('Enter a year from 1926 to 2026.'), findsOneWidget);
-    });
-
-    testWidgets('is quiet in range and while the year is incomplete',
-        (tester) async {
-      await pumpFramed(tester, wide: true);
-      for (final text in ['2012', '1926', '2026', '19', '', '2']) {
-        await type(tester, text);
-        expect(
-          find.textContaining('Enter a year from'),
-          findsNothing,
-          reason: text,
-        );
-      }
-    });
-
-    testWidgets('takes its range from the current year, not fixed numbers',
-        (tester) async {
-      await pumpFramed(tester, wide: true, year: 2027);
-      await type(tester, '1926');
-      expect(find.text('Enter a year from 1927 to 2027.'), findsOneWidget);
-      await type(tester, '2027');
-      expect(find.textContaining('Enter a year from'), findsNothing);
-    });
-
-    testWidgets('Continue keeps its place when the hint appears and goes',
-        (tester) async {
-      await pumpFramed(tester, wide: true);
-      final continueButton = find.text('Continue');
-      await type(tester, '1926');
-      final steady = tester.getTopLeft(continueButton).dy;
-      for (final text in ['1900', '2027', '0000', '19', '2026']) {
-        await type(tester, text);
-        expect(tester.getTopLeft(continueButton).dy, steady, reason: text);
-      }
-    });
-
-    testWidgets('the YEAR label sits 4 px in from the field, as NAME does',
-        (tester) async {
-      await pumpFramed(tester, wide: true);
-      expect(
-        tester.getTopLeft(find.text('YEAR')).dx,
-        tester.getTopLeft(find.byType(TextField)).dx + 4,
-      );
-    });
-
-    testWidgets('is not drawn on the phone, which has no typed field',
-        (tester) async {
-      await pumpFramed(tester, wide: false);
-      expect(find.textContaining('Enter a year from'), findsNothing);
-    });
-  });
-
-  testWidgets('wide: the year field has focus as the step opens',
-      (tester) async {
-    await pumpFramed(tester, wide: true);
-    final field = tester.widget<TextField>(find.byType(TextField));
-    expect(field.focusNode!.hasFocus, isTrue);
-    await tester.enterText(find.byType(TextField), '1999');
-    expect(find.text('1999'), findsOneWidget);
-  });
-
   testWidgets('phone: the under-age block has no Back, as on wide web',
       (tester) async {
     await AppPreferencesRepository(db).setBlockedMinimumAge(13);
@@ -356,15 +248,15 @@ void main() {
     expect(find.text('Back'), findsNothing);
   });
 
-  testWidgets('phone: the year step keeps its Back', (tester) async {
+  testWidgets('phone: the age step keeps its Back', (tester) async {
     await pumpFramed(tester, wide: false);
-    expect(find.text('When were you born?'), findsOneWidget);
+    expect(find.text('How old are you?'), findsOneWidget);
     expect(find.text('Back'), findsOneWidget);
   });
 
-  // 6U-2: Back from Terms showed 2012 again, and Continue then sent an adult
-  // to the guardian screen.
-  testWidgets('phone: Back to the year step shows the year the student chose',
+  // 6U-2: Back from Terms showed the default again, and Continue then sent an
+  // adult to the guardian screen.
+  testWidgets('phone: Back to the age step shows the age the student chose',
       (tester) async {
     final shown = ValueNotifier<bool>(true);
     addTearDown(shown.dispose);
@@ -377,7 +269,6 @@ void main() {
           valueListenable: shown,
           builder: (_, on, __) => on
               ? OnboardingAgeGateStep(
-                  currentYear: 2026,
                   onAgeGatePassed: () => passed++,
                   onGuardianNeeded: () => fail('an adult needs no guardian'),
                 )
@@ -386,10 +277,8 @@ void main() {
       ),
       viewportSize: const Size(390, 844),
     );
-    var wheel = tester.widget<ValueWheel>(find.byType(ValueWheel));
-    expect(wheel.values[wheel.selectedIndex], '2012');
-    wheel.onSelected(wheel.values.indexOf('2006'));
-    await tester.pump();
+    expect(ageText(tester), '17');
+    await typeAge(tester, '42');
     await tester.tap(find.text('Continue'));
     await tester.pumpAndSettle();
     expect(passed, 1);
@@ -398,17 +287,15 @@ void main() {
     await tester.pump();
     shown.value = true;
     await tester.pump();
-    wheel = tester.widget<ValueWheel>(find.byType(ValueWheel));
-    expect(wheel.values[wheel.selectedIndex], '2006');
+    expect(ageText(tester), '42');
     await tester.tap(find.text('Continue'));
     await tester.pumpAndSettle();
     expect(passed, 2);
   });
 
-  testWidgets('a new visit starts on the default year', (tester) async {
+  testWidgets('a new visit starts on 17', (tester) async {
     await pump(tester);
-    final wheel = tester.widget<ValueWheel>(find.byType(ValueWheel));
-    expect(wheel.values[wheel.selectedIndex], '2012');
+    expect(ageText(tester), '17');
   });
 }
 

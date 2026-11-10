@@ -13,6 +13,7 @@ class OffsetFocusRing extends StatefulWidget {
     required this.child,
     this.borderRadius = BorderRadius.zero,
     this.color,
+    this.inset = false,
     super.key,
   });
 
@@ -23,6 +24,10 @@ class OffsetFocusRing extends StatefulWidget {
 
   /// Overrides `accent` (a selected day takes a `text-primary` ring).
   final Color? color;
+
+  /// Draws the ring inside the control (offset -2), for controls that touch
+  /// their neighbors (the five-day phone week strip, D196).
+  final bool inset;
 
   @override
   State<OffsetFocusRing> createState() => _OffsetFocusRingState();
@@ -56,17 +61,19 @@ class _OffsetFocusRingState extends State<OffsetFocusRing> {
               child!,
               if (ring != null)
                 Positioned(
-                  left: -_reach,
-                  top: -_reach,
-                  right: -_reach,
-                  bottom: -_reach,
+                  left: widget.inset ? 0 : -_reach,
+                  top: widget.inset ? 0 : -_reach,
+                  right: widget.inset ? 0 : -_reach,
+                  bottom: widget.inset ? 0 : -_reach,
                   child: IgnorePointer(
                     child: DecoratedBox(
                       key: const ValueKey('focus-ring'),
                       decoration: BoxDecoration(
-                        borderRadius: widget.borderRadius.add(
-                          const BorderRadius.all(Radius.circular(_reach)),
-                        ),
+                        borderRadius: widget.inset
+                            ? widget.borderRadius
+                            : widget.borderRadius.add(
+                                const BorderRadius.all(Radius.circular(_reach)),
+                              ),
                         border: Border.fromBorderSide(ring),
                       ),
                     ),

@@ -81,33 +81,32 @@ void main() {
       await tester.pump(const Duration(milliseconds: 500));
     }
 
-    testWidgets('birth year field matches board dimensions $dark',
+    testWidgets('the age number is drawn bare, 64 tall, and steps $dark',
         (tester) async {
       await pump(
         tester,
         OnboardingAgeGateStep(
-          currentYear: 2026,
           onAgeGatePassed: () {},
         ),
       );
-      expect(tester.getSize(find.byType(TextField)), const Size(240, 64));
-      await tester.tap(find.byTooltip('Next year'));
+      expect(tester.getSize(find.byType(TextField)).height, 64);
+      await tester.tap(find.byKey(const ValueKey('age-plus')));
       await tester.pump();
       expect(
         tester.widget<TextField>(find.byType(TextField)).controller!.text,
-        '2013',
+        '18',
       );
       expect(tester.takeException(), isNull);
     });
 
-    testWidgets('birth year keeps its outline while focused $dark',
+    testWidgets('the age keeps one outline while focused $dark',
         (tester) async {
       await pump(
         tester,
-        OnboardingAgeGateStep(currentYear: 2026, onAgeGatePassed: () {}),
+        OnboardingAgeGateStep(onAgeGatePassed: () {}),
       );
       await tester.tap(find.byType(TextField));
-      await tester.enterText(find.byType(TextField), '2000');
+      await tester.enterText(find.byType(TextField), '30');
       await tester.pump();
       final decoration =
           tester.widget<TextField>(find.byType(TextField)).decoration!;
@@ -115,12 +114,12 @@ void main() {
       expect(decoration.border, decoration.enabledBorder);
     });
 
-    testWidgets('birth year arrows step while typing $dark', (tester) async {
+    testWidgets('the age arrows step while typing $dark', (tester) async {
       await pump(
         tester,
-        OnboardingAgeGateStep(currentYear: 2026, onAgeGatePassed: () {}),
+        OnboardingAgeGateStep(onAgeGatePassed: () {}),
       );
-      await tester.enterText(find.byType(TextField), '2000');
+      await tester.enterText(find.byType(TextField), '30');
       await tester.pump();
       final shortcuts = find.ancestor(
         of: find.byType(EditableText),
@@ -140,23 +139,22 @@ void main() {
       await tester.pump();
       expect(
         tester.widget<TextField>(find.byType(TextField)).controller!.text,
-        '2001',
+        '31',
       );
       await tester.sendKeyEvent(LogicalKeyboardKey.arrowDown);
       await tester.pump();
       expect(
         tester.widget<TextField>(find.byType(TextField)).controller!.text,
-        '2000',
+        '30',
       );
     });
 
-    testWidgets('Enter submits valid years and ignores disabled actions $dark',
+    testWidgets('Enter submits a valid age and ignores disabled actions $dark',
         (tester) async {
       var completed = 0;
       await pump(
         tester,
         OnboardingAgeGateStep(
-          currentYear: 2026,
           onAgeGatePassed: () => completed++,
         ),
       );
@@ -165,7 +163,7 @@ void main() {
       await tester.sendKeyEvent(LogicalKeyboardKey.enter);
       await tester.pump();
       expect(completed, 0);
-      await tester.enterText(find.byType(TextField), '2000');
+      await tester.enterText(find.byType(TextField), '30');
       await tester.pump();
       final shortcuts = find.ancestor(
         of: find.byType(EditableText),

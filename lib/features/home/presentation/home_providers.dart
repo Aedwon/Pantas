@@ -56,14 +56,32 @@ class HomeWeekStripData {
   HomeWeekStripData({
     required List<WeekDayState> states,
     required this.todayFraction,
+    Map<int, WeekDayState> around = const {},
   })  : assert(
           states.length == 7,
           'Home week strips require exactly seven days.',
         ),
-        states = List.unmodifiable(states);
+        states = List.unmodifiable(states),
+        around = Map.unmodifiable(around);
 
+  /// Sunday to Saturday of the current week.
   final List<WeekDayState> states;
   final double todayFraction;
+
+  /// Days just outside the week, by their offset from its Sunday (-2, -1, 7
+  /// and 8), for the phone strip's window that crosses a week boundary (D196).
+  final Map<int, WeekDayState> around;
+
+  /// The state of [day], given the Sunday that starts the week. A day with no
+  /// known state is plain: no dot, no status and not dimmed. Its history is
+  /// unknown, so it must not read as a rest day.
+  WeekDayState stateOn(DateTime day, DateTime weekStart) {
+    final from = DateTime.utc(weekStart.year, weekStart.month, weekStart.day);
+    final offset =
+        DateTime.utc(day.year, day.month, day.day).difference(from).inDays;
+    if (offset >= 0 && offset < 7) return states[offset];
+    return around[offset] ?? WeekDayState.plain;
+  }
 }
 
 /// The approved Home week strip, derived from the persisted roadmap and the
@@ -82,6 +100,18 @@ final weekStripProvider =
     final remaining = remote.remaining;
     return HomeWeekStripData(
       states: serverWeekStates(remote.weekDays),
+      // The server sends the week only. Days beyond it are planned if they
+      // are study days; the days before it are unknown, so they carry no
+      // status rather than an invented one.
+      around: {
+        for (final offset in const [7, 8])
+          offset: settings.studyDays.isStudyDay(
+            DateTime(today.year, today.month, today.day)
+                .add(Duration(days: offset - today.weekday % 7)),
+          )
+              ? WeekDayState.plain
+              : WeekDayState.dayOff,
+      },
       todayFraction: todayCompletionFraction(
         total: [
           ...plan.lessonIds,
@@ -113,7 +143,7 @@ final weekStripProvider =
   final weekStart = PantasDates.weekStart(today);
   final states = <WeekDayState>[];
 
-  for (var offset = 0; offset < 7; offset++) {
+  for (var offset = -2; offset < 9; offset++) {
     final day =
         DateTime(weekStart.year, weekStart.month, weekStart.day + offset);
     final isToday = day == today;
@@ -172,8 +202,15 @@ final weekStripProvider =
     );
   }
 
+  // states holds offsets -2 to 8: the week sits at indexes 2 to 8.
   return HomeWeekStripData(
-    states: states,
+    states: states.sublist(2, 9),
+    around: {
+      -2: states[0],
+      -1: states[1],
+      7: states[9],
+      8: states[10],
+    },
     todayFraction: todayCompletionFraction(total: todayTotal, left: todayLeft),
   );
 });

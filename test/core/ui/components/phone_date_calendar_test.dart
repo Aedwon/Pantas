@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/domain/exam_date.dart';
 import 'package:pantas/core/ui/components/month_first_date_picker.dart';
+import 'package:pantas/core/ui/components/pantas_button_parts.dart';
 import 'package:pantas/core/ui/components/pantas_icon_button.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/home/presentation/widgets/home_exam_date_sheet.dart';
@@ -19,11 +20,15 @@ class _Host extends StatefulWidget {
   const _Host({
     this.initial = const MonthFirstDate(year: 2026),
     this.log,
+    this.unresolved,
     this.width = 358,
   });
 
   final MonthFirstDate initial;
   final List<MonthFirstDate>? log;
+
+  /// Receives each change of the picker's "typed but not a date" state.
+  final List<bool>? unresolved;
   final double width;
 
   @override
@@ -39,6 +44,7 @@ class _HostState extends State<_Host> {
         child: MonthFirstDatePicker.onboarding(
           value: value,
           today: _today,
+          onUnresolvedChanged: widget.unresolved?.add,
           onChanged: (next) {
             widget.log?.add(next);
             setState(() => value = next);
@@ -77,13 +83,37 @@ Future<void> _pump(
   );
 }
 
+/// The day the grid fills with the accent, or null.
+int? _selected(WidgetTester tester) {
+  final fill = tester.element(find.byType(MonthFirstDatePicker)).colors;
+  for (var d = 1; d <= 31; d++) {
+    if (_day(d).evaluate().isEmpty) continue;
+    final color = tester
+        .widget<TextButton>(_day(d))
+        .style!
+        .backgroundColor!
+        .resolve(<WidgetState>{});
+    if (color == fill.accentFill) return d;
+  }
+  return null;
+}
+
+String _fieldText(WidgetTester tester) =>
+    tester.widget<TextField>(find.byType(TextField)).controller!.text;
+
+bool _hasFocus(WidgetTester tester) =>
+    tester.widget<TextField>(find.byType(TextField)).focusNode!.hasFocus;
+
+Finder get _calendarButton => find.byWidgetPredicate(
+      (w) => w is PantasIconButton && w.tooltip == 'Choose a date',
+    );
+
 bool _focused(WidgetTester tester, int day) =>
     tester.widget<TextButton>(_day(day)).focusNode!.hasFocus;
 
-/// Tabs from the typed field until a date cell has focus.
+/// Tabs from the top until a date cell has focus. A tap on the field would
+/// close the calendar, so the keys do the work.
 Future<void> _tabToGrid(WidgetTester tester) async {
-  await tester.tap(find.byType(TextField));
-  await tester.pump();
   for (var i = 0; i < 8; i++) {
     await tester.sendKeyEvent(LogicalKeyboardKey.tab);
     await tester.pump();
@@ -153,7 +183,7 @@ void main() {
     expect(log.single.year, 2026);
     expect(log.single.month, 11);
     expect(log.single.day, 28);
-    expect(find.text('Saturday, November 28'), findsOneWidget);
+    expect(find.text('Saturday, November 28'), findsNothing);
     expect(
       tester.widget<TextField>(find.byType(TextField)).controller!.text,
       '11/28/2026',
@@ -277,7 +307,6 @@ void main() {
     expect(log.last.month, 3);
     expect(log.last.day, 15);
     expect(find.text('March 2027'), findsOneWidget);
-    expect(find.text('Monday, March 15'), findsOneWidget);
     expect(_day(15), findsOneWidget);
   });
 
@@ -307,9 +336,12 @@ void main() {
     await tester.pump();
     FocusManager.instance.primaryFocus?.unfocus();
     await tester.pumpAndSettle();
-    expect(find.text('Pick Nov 10, 2026 or a later date.'), findsOneWidget);
+    // The error stays; the calendar is closed by the tap, so open it again.
+    await tester.tap(find.byTooltip('Choose a date'));
+    await tester.pumpAndSettle();
+    expect(find.text('Pick a date from November 10, 2026.'), findsOneWidget);
     expect(log, isEmpty);
-    expect(find.text('Friday, December 18'), findsOneWidget);
+    expect(_selected(tester), 18);
   });
 
   group('keyboard', () {
@@ -487,10 +519,311 @@ void main() {
     expect(find.byKey(const ValueKey('onboarding-day-strip')), findsNothing);
     await tester.tap(_day(28));
     await tester.pumpAndSettle();
-    expect(find.text('Saturday, November 28'), findsOneWidget);
+    expect(
+      tester.widget<TextField>(find.byType(TextField)).controller!.text,
+      '11/28/2026',
+    );
     await tester.tap(find.text('Save'));
     expect(saved.single, ExamDate.onDay(DateTime(2026, 11, 28)));
   });
+
+  testWidgets('the Home phone sheet holds Save while the field is unresolved',
+      (tester) async {
+    final saved = <ExamDate>[];
+    tester.view
+      ..physicalSize = const Size(390, 844)
+      ..devicePixelRatio = 1;
+    addTearDown(tester.view.reset);
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: buildLightTheme(),
+        home: MediaQuery(
+          data: const MediaQueryData(
+            size: Size(390, 844),
+            disableAnimations: true,
+          ),
+          child: Scaffold(
+            body: SingleChildScrollView(
+              child: HomeExamDateSheet(
+                today: _today,
+                initial: ExamDate.onDay(DateTime(2026, 11, 28)),
+                onSave: saved.add,
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    await tester.enterText(find.byType(TextField), '11012026');
+    await tester.pumpAndSettle();
+    expect(find.text('Pick a date from November 10, 2026.'), findsOneWidget);
+    await tester.tap(find.text('Save'), warnIfMissed: false);
+    expect(saved, isEmpty);
+    await tester.enterText(find.byType(TextField), '12122026');
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Save'));
+    expect(saved.single, ExamDate.onDay(DateTime(2026, 12, 12)));
+  });
+
+  group('exam date final design', () {
+    testWidgets('opens with the calendar showing and the field filled',
+        (tester) async {
+      await _pump(
+        tester,
+        const _Host(initial: MonthFirstDate(year: 2026, month: 11, day: 28)),
+      );
+      expect(_day(28), findsOneWidget);
+      expect(find.text('November 2026'), findsOneWidget);
+      expect(_fieldText(tester), '11/28/2026');
+      expect(_selected(tester), 28);
+      expect(_hasFocus(tester), isFalse);
+      expect(tester.widget<PantasIconButton>(_calendarButton).accent, isTrue);
+    });
+
+    testWidgets('the field has the visible label Exam date', (tester) async {
+      await _pump(tester, const _Host());
+      expect(find.text('Exam date'), findsOneWidget);
+    });
+
+    testWidgets('there is no help line by default', (tester) async {
+      await _pump(tester, const _Host());
+      expect(find.textContaining('Type or paste'), findsNothing);
+      expect(find.textContaining('first day you can pick'), findsNothing);
+    });
+
+    testWidgets('tapping the field hides the calendar and focuses it',
+        (tester) async {
+      await _pump(
+        tester,
+        const _Host(initial: MonthFirstDate(year: 2026, month: 11, day: 28)),
+      );
+      await tester.tap(find.byType(TextField));
+      await tester.pump();
+      expect(_day(28), findsNothing);
+      expect(find.text('November 2026'), findsNothing);
+      expect(_hasFocus(tester), isTrue);
+      expect(tester.widget<PantasIconButton>(_calendarButton).accent, isFalse);
+    });
+
+    testWidgets('tapping the calendar button unfocuses and shows the calendar',
+        (tester) async {
+      await _pump(
+        tester,
+        const _Host(initial: MonthFirstDate(year: 2026, month: 11, day: 28)),
+      );
+      await tester.tap(find.byType(TextField));
+      await tester.pump();
+      expect(_day(28), findsNothing);
+      await tester.tap(_calendarButton);
+      await tester.pump();
+      expect(_hasFocus(tester), isFalse);
+      expect(_day(28), findsOneWidget);
+      expect(find.text('November 2026'), findsOneWidget);
+      expect(tester.widget<PantasIconButton>(_calendarButton).accent, isTrue);
+      expect(_selected(tester), 28);
+    });
+
+    testWidgets('the calendar button is expanded while the calendar shows',
+        (tester) async {
+      await _pump(tester, const _Host());
+      final handle = tester.ensureSemantics();
+      await tester.pump();
+      var node = tester.getSemantics(find.byTooltip('Choose a date'));
+      expect(node.flagsCollection.isExpanded, Tristate.isTrue);
+      await tester.tap(find.byType(TextField));
+      await tester.pump();
+      node = tester.getSemantics(find.byTooltip('Choose a date'));
+      expect(node.flagsCollection.isExpanded, Tristate.isFalse);
+      handle.dispose();
+    });
+
+    testWidgets('the calendar button has a 44 px touch area and a name',
+        (tester) async {
+      await _pump(tester, const _Host());
+      final size = tester.getSize(_calendarButton);
+      expect(size.width, greaterThanOrEqualTo(44));
+      expect(size.height, greaterThanOrEqualTo(44));
+      expect(find.byTooltip('Choose a date'), findsOneWidget);
+    });
+
+    testWidgets('typing 11282026 shows 11/28/2026 and picks the 28th',
+        (tester) async {
+      final log = <MonthFirstDate>[];
+      await _pump(tester, _Host(log: log));
+      await tester.tap(find.byType(TextField));
+      await tester.enterText(find.byType(TextField), '11282026');
+      await tester.pump();
+      expect(_fieldText(tester), '11/28/2026');
+      expect(log.last.month, 11);
+      expect(log.last.day, 28);
+      // The calendar is closed while typing; the button brings it back.
+      await tester.tap(_calendarButton);
+      await tester.pump();
+      expect(find.text('November 2026'), findsOneWidget);
+      expect(_selected(tester), 28);
+    });
+
+    testWidgets('a tapped day fills the field and the calendar stays open',
+        (tester) async {
+      await _pump(
+        tester,
+        const _Host(initial: MonthFirstDate(year: 2026, month: 11)),
+      );
+      await tester.tap(_day(20));
+      await tester.pump();
+      expect(_fieldText(tester), '11/20/2026');
+      expect(_day(20), findsOneWidget);
+      expect(_selected(tester), 20);
+    });
+
+    testWidgets('a past date says where to start and holds Continue',
+        (tester) async {
+      final unresolved = <bool>[];
+      await _pump(tester, _Host(unresolved: unresolved));
+      await tester.tap(find.byType(TextField));
+      await tester.enterText(find.byType(TextField), '11012026');
+      await tester.pump();
+      expect(find.text('Pick a date from November 10, 2026.'), findsOneWidget);
+      expect(unresolved.last, isTrue);
+      // A valid date clears the message and lets Continue on.
+      await tester.enterText(find.byType(TextField), '11282026');
+      await tester.pump();
+      expect(find.textContaining('Pick a date from'), findsNothing);
+      expect(unresolved.last, isFalse);
+    });
+
+    testWidgets('a date that does not exist asks for a real one',
+        (tester) async {
+      final unresolved = <bool>[];
+      await _pump(tester, _Host(unresolved: unresolved));
+      await tester.tap(find.byType(TextField));
+      await tester.enterText(find.byType(TextField), '02302027');
+      await tester.pump();
+      expect(
+        find.text('Enter a real date, like 11/10/2026.'),
+        findsOneWidget,
+      );
+      expect(unresolved.last, isTrue);
+    });
+
+    testWidgets('incomplete input shows nothing, even after the field blurs',
+        (tester) async {
+      final unresolved = <bool>[];
+      await _pump(tester, _Host(unresolved: unresolved));
+      await tester.tap(find.byType(TextField));
+      await tester.enterText(find.byType(TextField), '1128');
+      await tester.pump();
+      FocusManager.instance.primaryFocus?.unfocus();
+      await tester.pumpAndSettle();
+      expect(find.textContaining('Pick a date from'), findsNothing);
+      expect(find.textContaining('Enter a real date'), findsNothing);
+      expect(find.textContaining('Type the full date'), findsNothing);
+      expect(unresolved.last, isTrue);
+    });
+
+    testWidgets('Not sure of the day keeps the month and clears the day',
+        (tester) async {
+      final log = <MonthFirstDate>[];
+      final unresolved = <bool>[];
+      await _pump(
+        tester,
+        _Host(
+          initial: const MonthFirstDate(year: 2026, month: 11, day: 28),
+          log: log,
+          unresolved: unresolved,
+        ),
+      );
+      expect(find.textContaining('No day yet?'), findsNothing);
+      await tester.tap(find.text('Not sure of the day'));
+      await tester.pump();
+      expect(log.last.year, 2026);
+      expect(log.last.month, 11);
+      expect(log.last.day, isNull);
+      expect(_fieldText(tester), '');
+      expect(_selected(tester), isNull);
+      expect(
+        find.text("No day yet? We'll plan from today and ask later."),
+        findsOneWidget,
+      );
+    });
+
+    testWidgets('Not sure of the day also empties half-typed text',
+        (tester) async {
+      final unresolved = <bool>[];
+      await _pump(tester, _Host(unresolved: unresolved));
+      await tester.enterText(find.byType(TextField), '1128');
+      await tester.pump();
+      expect(unresolved.last, isTrue);
+      await tester.tap(find.text('Not sure of the day'));
+      await tester.pump();
+      expect(_fieldText(tester), '');
+      expect(unresolved.last, isFalse);
+    });
+
+    testWidgets('Not sure of the day is a 44 px link under the grid',
+        (tester) async {
+      await _pump(tester, const _Host());
+      final link = find.text('Not sure of the day');
+      expect(link, findsOneWidget);
+      expect(
+        tester.getTopLeft(link).dy,
+        greaterThan(tester.getBottomLeft(_day(30)).dy),
+      );
+      final hit = find.ancestor(of: link, matching: find.byType(TouchTarget));
+      expect(tester.getSize(hit).height, greaterThanOrEqualTo(44));
+    });
+
+    testWidgets('there is no day line under the grid', (tester) async {
+      await _pump(
+        tester,
+        const _Host(initial: MonthFirstDate(year: 2026, month: 11, day: 28)),
+      );
+      expect(find.textContaining('Saturday'), findsNothing);
+      expect(find.textContaining('days from today'), findsNothing);
+    });
+  });
+
+  for (final width in [390.0, 320.0]) {
+    for (final dark in [false, true]) {
+      for (final scale in [1.0, 2.0]) {
+        for (final open in [true, false]) {
+          final cell = DsCell(width, scale, dark: dark);
+          testWidgets(
+              'the exam date picker fits ($cell, '
+              'calendar ${open ? 'open' : 'closed'})', (tester) async {
+            await pumpDs(
+              tester,
+              cell,
+              _Host(
+                initial: const MonthFirstDate(year: 2027, month: 1, day: 15),
+                width: width - 32,
+              ),
+            );
+            if (!open) {
+              await tester.tap(find.byType(TextField));
+              await tester.pump();
+            }
+            expect(tester.takeException(), isNull);
+            expect(find.text('Exam date'), findsOneWidget);
+            expect(_day(31), open ? findsOneWidget : findsNothing);
+            final box = tester.getRect(find.byType(MonthFirstDatePicker));
+            expect(box.right, lessThanOrEqualTo(width - 16 + .01));
+            final button = tester.getRect(_calendarButton);
+            // The whole 44 px box sits inside the field's outline.
+            final well = tester.getRect(
+              find.byKey(const ValueKey('field-well')),
+            );
+            expect(button.right, lessThanOrEqualTo(well.right + .01));
+            expect(button.left, greaterThanOrEqualTo(well.left));
+            expect(button.top, greaterThanOrEqualTo(well.top - .01));
+            expect(button.bottom, lessThanOrEqualTo(well.bottom + .01));
+            expect(button.width, greaterThanOrEqualTo(44));
+          });
+        }
+      }
+    }
+  }
 
   for (final width in [390.0, 320.0]) {
     for (final dark in [false, true]) {
@@ -512,7 +845,10 @@ void main() {
           expect(box.width, closeTo(width - 32, .01));
           final last = tester.getRect(_day(31));
           expect(last.right, lessThanOrEqualTo(box.right + .01));
-          expect(find.text('Friday, January 15'), findsOneWidget);
+          expect(
+            tester.widget<TextField>(find.byType(TextField)).controller!.text,
+            '01/15/2027',
+          );
           // Three letters unless they cannot fit: only 320 wide at 2.0 falls
           // back to one letter each.
           expect(

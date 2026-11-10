@@ -88,7 +88,7 @@ void main() {
     expect(find.text('Try Again'), findsOneWidget);
   });
 
-  testWidgets('renders Sunday-first week, exact-date chip, and greeting only',
+  testWidgets('renders five days centered on Today, the chip, and the greeting',
       (tester) async {
     await tester.pumpWidget(
       harness(
@@ -98,8 +98,10 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    expect(find.text('Sun'), findsOneWidget);
+    // D196: Thursday the 15th at 390 shows Tue to Sat, Today in the middle.
+    expect(find.text('Tue'), findsOneWidget);
     expect(find.text('Sat'), findsOneWidget);
+    expect(find.text('Sun'), findsNothing);
     expect(find.text('UPCAT'), findsOneWidget);
     expect(find.text('26'), findsOneWidget);
     expect(find.text('NOV'), findsOneWidget);

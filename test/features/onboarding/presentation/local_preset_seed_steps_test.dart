@@ -7,7 +7,6 @@ import 'package:pantas/core/dev/local_onboarding_presets.dart';
 import 'package:pantas/core/storage/domain/exam_date.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
-import 'package:pantas/core/ui/components/value_wheel.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/onboarding/presentation/exam_picker_screen.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_age_gate_step.dart';
@@ -37,7 +36,6 @@ void main() {
         ProviderScope(
           overrides: [appDatabaseProvider.overrideWithValue(db)],
           child: OnboardingAgeGateStep(
-            currentYear: 2026,
             onAgeGatePassed: () {},
           ),
         ),
@@ -47,29 +45,32 @@ void main() {
       await tester.pumpAndSettle();
     }
 
-    testWidgets('a submitted year 2020 shows the blocked screen',
-        (tester) async {
+    testWidgets('a submitted age 12 shows the blocked screen', (tester) async {
       localPresetSeed.value =
-          const LocalPresetSeed(birthYearText: '2020', submit: true);
+          const LocalPresetSeed(ageText: '12', submit: true);
       await pumpAge(tester);
       expect(find.text("Pantas isn't available yet"), findsOneWidget);
       // The preset clears the seed after the screen settles, not the step.
       expect(localPresetSeed.value, isNotNull);
     });
 
-    testWidgets('an unsubmitted year only fills the field', (tester) async {
-      localPresetSeed.value = const LocalPresetSeed(birthYearText: '2020');
+    testWidgets('an unsubmitted age only fills the number', (tester) async {
+      localPresetSeed.value = const LocalPresetSeed(ageText: '12');
       await pumpAge(tester);
-      expect(find.text('When were you born?'), findsOneWidget);
-      final wheel = tester.widget<ValueWheel>(find.byType(ValueWheel));
-      expect(wheel.values[wheel.selectedIndex], '2020');
+      expect(find.text('How old are you?'), findsOneWidget);
+      expect(
+        tester.widget<TextField>(find.byType(TextField)).controller!.text,
+        '12',
+      );
     });
 
-    testWidgets('without a seed the field keeps its own default',
+    testWidgets('without a seed the number keeps its own default',
         (tester) async {
       await pumpAge(tester);
-      final wheel = tester.widget<ValueWheel>(find.byType(ValueWheel));
-      expect(wheel.values[wheel.selectedIndex], '2012');
+      expect(
+        tester.widget<TextField>(find.byType(TextField)).controller!.text,
+        '17',
+      );
     });
   });
 
@@ -199,7 +200,7 @@ void main() {
       expect(find.text('Is this your exam day?'), findsNothing);
       expect(
         find.text('Pick the month. Add the day if you know it.'),
-        findsOneWidget,
+        findsNothing,
       );
     });
 

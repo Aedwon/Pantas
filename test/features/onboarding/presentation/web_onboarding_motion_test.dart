@@ -181,10 +181,10 @@ void main() {
     Future<void> block(WidgetTester tester, {required bool still}) async {
       await pumpWide(
         tester,
-        OnboardingAgeGateStep(currentYear: 2026, onAgeGatePassed: () {}),
+        OnboardingAgeGateStep(onAgeGatePassed: () {}),
         still: still,
       );
-      await tester.enterText(find.byType(TextField), '2020');
+      await tester.enterText(find.byType(TextField), '12');
       await tester.pump();
       await tester.tap(find.text('Continue'));
       // Saving runs on a real database, so wait for the block to show.

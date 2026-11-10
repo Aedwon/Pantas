@@ -89,29 +89,21 @@ void main() {
     expect(value.month, 12);
   });
 
-  testWidgets('the chosen-day note keeps its default and accepts a caller note',
-      (tester) async {
-    Future<void> pumpPicker({String Function(DateTime)? dayNote}) async {
-      await pumpAccessibilitySurface(
-        tester,
-        SingleChildScrollView(
-          child: MonthFirstDatePicker.onboarding(
-            value: const MonthFirstDate(year: 2026, month: 11, day: 11),
-            today: DateTime(2026, 10, 3),
-            onChanged: (_) {},
-            dayNote: dayNote,
-          ),
+  testWidgets('a chosen day has no line under the calendar', (tester) async {
+    await pumpAccessibilitySurface(
+      tester,
+      SingleChildScrollView(
+        child: MonthFirstDatePicker.onboarding(
+          value: const MonthFirstDate(year: 2026, month: 11, day: 11),
+          today: DateTime(2026, 10, 3),
+          onChanged: (_) {},
         ),
-        disableAnimations: true,
-        viewportSize: const Size(390, 844),
-      );
-      await tester.pumpAndSettle();
-    }
-
-    await pumpPicker();
-    expect(find.text('Wednesday, November 11'), findsOneWidget);
-    await pumpPicker(dayNote: (day) => 'Note for ${day.day}');
-    expect(find.text('Note for 11'), findsOneWidget);
+      ),
+      disableAnimations: true,
+      viewportSize: const Size(390, 844),
+    );
+    await tester.pumpAndSettle();
     expect(find.text('Wednesday, November 11'), findsNothing);
+    expect(find.textContaining('No day yet?'), findsNothing);
   });
 }
