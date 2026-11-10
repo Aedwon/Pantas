@@ -20,6 +20,13 @@ void main() {
     db = inMemoryDatabase();
   });
   tearDown(() => db.close());
+  String yearText(WidgetTester tester) =>
+      tester.widget<TextField>(find.byType(TextField)).controller!.text;
+  Future<void> typeYear(WidgetTester tester, String year) async {
+    await tester.enterText(find.byType(TextField), year);
+    await tester.pump();
+  }
+
   Future<void> pump(
     WidgetTester tester, {
     VoidCallback? passed,
@@ -67,10 +74,8 @@ void main() {
               .onPressed,
           isNotNull,
         );
-        final wheel = tester.widget<ValueWheel>(find.byType(ValueWheel));
-        expect(wheel.values[wheel.selectedIndex], '2012');
-        wheel.onSelected(wheel.values.indexOf('2014'));
-        await tester.pump();
+        expect(yearText(tester), '2012');
+        await typeYear(tester, '2014');
         await tester.tap(find.text('Continue'));
         await tester.pumpAndSettle();
         expect(find.text("Pantas isn't available yet"), findsOneWidget);
@@ -92,15 +97,13 @@ void main() {
     }
   }
 
-  testWidgets('the phone wheel names itself "Birth year" and reads its year',
+  testWidgets('the phone step buttons name themselves for a screen reader',
       (tester) async {
     final handle = tester.ensureSemantics();
     await pump(tester);
-    final node = tester.getSemantics(find.byType(ValueWheel));
-    expect(node.label, 'Birth year');
-    expect(node.value, '2012');
-    expect(node.increasedValue, '2013');
-    expect(node.decreasedValue, '2011');
+    final buttons = find.byType(IconButton);
+    expect(tester.getSemantics(buttons.at(0)).tooltip, 'Earlier year');
+    expect(tester.getSemantics(buttons.at(1)).tooltip, 'Next year');
     handle.dispose();
   });
 
@@ -132,9 +135,7 @@ void main() {
       passed: () => passed++,
       guardianNeeded: () => guardian++,
     );
-    final wheel = tester.widget<ValueWheel>(find.byType(ValueWheel));
-    wheel.onSelected(wheel.values.indexOf('2000'));
-    await tester.pump();
+    await typeYear(tester, '2000');
     await tester.tap(find.text('Continue'));
     await tester.pumpAndSettle();
     expect(passed, 1);
@@ -158,9 +159,7 @@ void main() {
         passed: () => passed++,
         guardianNeeded: () => guardian++,
       );
-      final wheel = tester.widget<ValueWheel>(find.byType(ValueWheel));
-      wheel.onSelected(wheel.values.indexOf(year));
-      await tester.pump();
+      await typeYear(tester, year);
       await tester.tap(find.text('Continue'));
       await tester.pumpAndSettle();
       expect(passed, 0);
@@ -184,16 +183,13 @@ void main() {
       passed: () => passed++,
       preferences: _FailingAgePreferences(db),
     );
-    final wheel = tester.widget<ValueWheel>(find.byType(ValueWheel));
-    wheel.onSelected(wheel.values.indexOf('2000'));
-    await tester.pump();
+    await typeYear(tester, '2000');
     await tester.tap(find.text('Continue'));
     await tester.pumpAndSettle();
     expect(find.text('Could not save your progress.'), findsOneWidget);
     expect(find.textContaining('private details'), findsNothing);
     expect(passed, 0);
-    final retained = tester.widget<ValueWheel>(find.byType(ValueWheel));
-    expect(retained.values[retained.selectedIndex], '2000');
+    expect(yearText(tester), '2000');
     expect(await AppPreferencesRepository(db).hasPassedAgeGate(), isFalse);
     await tester.ensureVisible(find.text('Try Again'));
     await tester.tap(find.text('Try Again'));
@@ -204,9 +200,7 @@ void main() {
 
   testWidgets('the blocked state fades in as one frame', (tester) async {
     await pump(tester, disableAnimations: false);
-    final wheel = tester.widget<ValueWheel>(find.byType(ValueWheel));
-    wheel.onSelected(wheel.values.indexOf('2014'));
-    await tester.pump();
+    await typeYear(tester, '2014');
     await tester.tap(find.text('Continue'));
     await tester.pump();
     await tester.pump();
@@ -225,15 +219,15 @@ void main() {
   testWidgets('year selection can be changed with the keyboard',
       (tester) async {
     await pump(tester);
-    Focus.of(
-      tester.element(find.byType(ListWheelScrollView)),
-      createDependency: false,
-    ).requestFocus();
+    await tester.tap(find.byType(TextField));
     await tester.pump();
+    await tester.sendKeyEvent(LogicalKeyboardKey.arrowUp);
+    await tester.pump();
+    expect(yearText(tester), '2013');
+    await tester.sendKeyEvent(LogicalKeyboardKey.arrowDown);
     await tester.sendKeyEvent(LogicalKeyboardKey.arrowDown);
     await tester.pump();
-    final wheel = tester.widget<ValueWheel>(find.byType(ValueWheel));
-    expect(wheel.values[wheel.selectedIndex], '2013');
+    expect(yearText(tester), '2011');
     expect(tester.takeException(), isNull);
   });
   Future<void> pumpFramed(
@@ -332,9 +326,15 @@ void main() {
       );
     });
 
-    testWidgets('is not drawn on the phone, which has no typed field',
-        (tester) async {
+    testWidgets('is drawn on the phone too', (tester) async {
       await pumpFramed(tester, wide: false);
+      await type(tester, '1925');
+      expect(find.text('Enter a year from 1926 to 2026.'), findsOneWidget);
+      final continueButton = tester.widget<PantasButton>(
+        find.widgetWithText(PantasButton, 'Continue'),
+      );
+      expect(continueButton.onPressed, isNull);
+      await type(tester, '2000');
       expect(find.textContaining('Enter a year from'), findsNothing);
     });
   });
@@ -386,10 +386,8 @@ void main() {
       ),
       viewportSize: const Size(390, 844),
     );
-    var wheel = tester.widget<ValueWheel>(find.byType(ValueWheel));
-    expect(wheel.values[wheel.selectedIndex], '2012');
-    wheel.onSelected(wheel.values.indexOf('2006'));
-    await tester.pump();
+    expect(yearText(tester), '2012');
+    await typeYear(tester, '2006');
     await tester.tap(find.text('Continue'));
     await tester.pumpAndSettle();
     expect(passed, 1);
@@ -398,8 +396,7 @@ void main() {
     await tester.pump();
     shown.value = true;
     await tester.pump();
-    wheel = tester.widget<ValueWheel>(find.byType(ValueWheel));
-    expect(wheel.values[wheel.selectedIndex], '2006');
+    expect(yearText(tester), '2006');
     await tester.tap(find.text('Continue'));
     await tester.pumpAndSettle();
     expect(passed, 2);
@@ -407,8 +404,7 @@ void main() {
 
   testWidgets('a new visit starts on the default year', (tester) async {
     await pump(tester);
-    final wheel = tester.widget<ValueWheel>(find.byType(ValueWheel));
-    expect(wheel.values[wheel.selectedIndex], '2012');
+    expect(yearText(tester), '2012');
   });
 }
 

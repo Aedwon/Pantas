@@ -7,7 +7,6 @@ import 'package:pantas/core/storage/age_gate.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
-import 'package:pantas/core/ui/components/value_wheel.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -85,8 +84,7 @@ void main() {
   Future<void> toTermsPhone(WidgetTester tester) async {
     await tester.tap(find.text('Get Started'));
     await tester.pumpAndSettle();
-    final wheel = tester.widget<ValueWheel>(find.byType(ValueWheel));
-    wheel.onSelected(wheel.values.indexOf('2000'));
+    await tester.enterText(find.byType(TextField), '2000');
     await tester.pump();
     await tester.tap(find.text('Continue'));
     await tester.pumpAndSettle();
@@ -106,8 +104,7 @@ void main() {
     final segment = element(tester, segments);
     final title = element(tester, find.text('When were you born?'));
 
-    final wheel = tester.widget<ValueWheel>(find.byType(ValueWheel));
-    wheel.onSelected(wheel.values.indexOf('2000'));
+    await tester.enterText(find.byType(TextField), '2000');
     await tester.pump();
     await tester.tap(find.text('Continue'));
     await tester.pumpAndSettle();

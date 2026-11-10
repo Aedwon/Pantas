@@ -8,10 +8,10 @@ import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/dev/local_onboarding_presets.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/ui/components/hold_to_repeat.dart';
 import 'package:pantas/core/ui/components/onboarding_frame.dart';
 import 'package:pantas/core/ui/components/pantas_icon_button.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
-import 'package:pantas/core/ui/components/value_wheel.dart';
 import 'package:pantas/core/ui/motion/pantas_effects.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_border.dart';
@@ -56,8 +56,6 @@ class OnboardingAgeGateStep extends ConsumerStatefulWidget {
 }
 
 class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
-  late final List<int> _years =
-      List.generate(101, (i) => widget.currentYear - 100 + i);
   late int _selectedYear = takeSeededBirthYear(
         () {
           if (mounted) unawaited(_continue());
@@ -86,12 +84,43 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
     super.dispose();
   }
 
-  void _changeYear(int delta) {
+  /// Moves the year by [delta] inside the range. Returns false, and changes
+  /// nothing, at the end of the range, which also stops a held button.
+  bool _changeYear(int delta) {
+    final next = (_selectedYear + delta)
+        .clamp(widget.currentYear - 100, widget.currentYear);
+    if (next == _selectedYear && _yearController.text == '$next') return false;
     setState(() {
-      _selectedYear = (_selectedYear + delta)
-          .clamp(widget.currentYear - 100, widget.currentYear);
+      _selectedYear = next;
       _yearController.text = '$_selectedYear';
     });
+    unawaited(HapticFeedback.selectionClick());
+    return true;
+  }
+
+  /// A step button: it steps on press and keeps stepping while held.
+  Widget _stepButton({
+    required String tooltip,
+    required int delta,
+    required PantasIconButtonSize size,
+    required double glyph,
+    required IconData icon,
+    double? extent,
+  }) {
+    return HoldToRepeat(
+      onStep: () => _changeYear(delta),
+      builder: (context, onPressed) {
+        final button = PantasIconButton(
+          size: size,
+          tooltip: tooltip,
+          onPressed: onPressed,
+          icon: Icon(icon, size: glyph),
+        );
+        if (extent == null) return button;
+        // The press area is the whole square, not just the 44 px button.
+        return SizedBox.square(dimension: extent, child: Center(child: button));
+      },
+    );
   }
 
   bool _blocked = false;
@@ -137,7 +166,7 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
   }
 
   Future<void> _continue() async {
-    if (_saving || (context.wideWeb && !_validYear)) return;
+    if (_saving || !_validYear) return;
     final policy = AgePolicy.forExam(null);
     // Memory only, so Back from the next step shows the same year.
     ref.read(onboardingBirthYearProvider.notifier).state = _selectedYear;
@@ -341,20 +370,21 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
     }
     // The board draws the year field focused, so the step keeps focus on it
     // and typing and Enter work as soon as the step opens, with no click.
+    final wide = context.wideWeb;
     final page = OnboardingWebPage(
       title: 'When were you born?',
       detail: 'We only ask this once and never keep it.',
       progress: 1,
-      focusTarget: _yearFocus,
+      // On a phone the keyboard waits for a tap on the field.
+      focusTarget: context.wideWeb ? _yearFocus : null,
       onBack: back,
       bottom: OnboardingButton(
         label: 'Continue',
-        onPressed:
-            _saving || (context.wideWeb && !_validYear) ? null : _continue,
+        onPressed: _saving || !_validYear ? null : _continue,
         busy: _saving,
       ),
       children: [
-        if (context.wideWeb) ...[
+        ...[
           // Board (OB_Age, OB_Name): the label sits 4 px in from the field.
           Padding(
             padding: const EdgeInsets.only(left: PantasSpace.s4),
@@ -364,8 +394,8 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
           Align(
             alignment: Alignment.centerLeft,
             child: SizedBox(
-              width: _yearFieldWidth,
-              height: PantasSize.optMin,
+              width: wide ? _yearFieldWidth : null,
+              height: wide ? PantasSize.optMin : PantasSize.field,
               child: OnboardingShortcuts(
                 bindings: {
                   const SingleActivator(LogicalKeyboardKey.arrowUp): () =>
@@ -421,36 +451,57 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
                         width: PantasBorder.ringSelected,
                       ),
                     ),
-                    suffixIcon: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        PantasIconButton(
-                          size: PantasIconButtonSize.sm,
-                          tooltip: 'Next year',
-                          onPressed: () => _changeYear(1),
-                          icon: const Icon(
-                            Icons.keyboard_arrow_up,
-                            size: PantasSpace.s14,
+                    suffixIcon: wide
+                        ? Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              _stepButton(
+                                tooltip: 'Next year',
+                                delta: 1,
+                                size: PantasIconButtonSize.sm,
+                                glyph: PantasSpace.s14,
+                                icon: Icons.keyboard_arrow_up,
+                              ),
+                              _stepButton(
+                                tooltip: 'Earlier year',
+                                delta: -1,
+                                size: PantasIconButtonSize.sm,
+                                glyph: PantasSpace.s14,
+                                icon: Icons.keyboard_arrow_down,
+                              ),
+                            ],
+                          )
+                        : Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              _stepButton(
+                                tooltip: 'Earlier year',
+                                delta: -1,
+                                size: PantasIconButtonSize.standard,
+                                glyph: PantasSize.icon,
+                                icon: Icons.keyboard_arrow_down,
+                                extent: PantasSize.field,
+                              ),
+                              _stepButton(
+                                tooltip: 'Next year',
+                                delta: 1,
+                                size: PantasIconButtonSize.standard,
+                                glyph: PantasSize.icon,
+                                icon: Icons.keyboard_arrow_up,
+                                extent: PantasSize.field,
+                              ),
+                            ],
                           ),
-                        ),
-                        PantasIconButton(
-                          size: PantasIconButtonSize.sm,
-                          tooltip: 'Earlier year',
-                          onPressed: () => _changeYear(-1),
-                          icon: const Icon(
-                            Icons.keyboard_arrow_down,
-                            size: PantasSpace.s14,
-                          ),
-                        ),
-                      ],
-                    ),
                   ),
                 ),
               ),
             ),
           ),
           const SizedBox(height: PantasSpace.s8),
-          Text('Type it, or use ↑ and ↓.', style: context.webTokens.sm),
+          Text(
+            wide ? 'Type it, or use ↑ and ↓.' : 'Type it, or use the arrows.',
+            style: context.webTokens.sm,
+          ),
           const SizedBox(height: PantasSpace.s6),
           // The hint always has its line, so Continue keeps its place when the
           // hint appears and goes (Aedwon: a stable frame). The line is the
@@ -472,21 +523,7 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
                     ),
                   ),
           ),
-        ] else
-          Container(
-            padding: const EdgeInsets.all(PantasSpace.s10),
-            decoration: BoxDecoration(
-              color: context.colors.surfaceCard,
-              borderRadius: BorderRadius.circular(PantasRadius.xl),
-            ),
-            child: ValueWheel.birthYear(
-              values: [for (final year in _years) '$year'],
-              selectedIndex: _years.indexOf(_selectedYear),
-              label: 'Birth year',
-              onSelected: (index) =>
-                  setState(() => _selectedYear = _years[index]),
-            ),
-          ),
+        ],
         if (_failed) saveFailureLine(_continue),
       ],
     );
