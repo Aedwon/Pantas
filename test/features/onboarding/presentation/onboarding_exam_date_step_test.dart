@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/content/data/exam_catalog_repository.dart';
+import 'package:pantas/core/storage/domain/exam_date.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/month_first_date_picker.dart';
 import 'package:pantas/features/onboarding/application/onboarding_flow.dart';
@@ -50,8 +51,14 @@ void main() {
           find.text('Pick the month. Add the day if you know it.'),
           findsOneWidget,
         );
-        await tester.ensureVisible(find.byKey(const ValueKey('date-month-10')));
-        await tester.tap(find.byKey(const ValueKey('date-month-10')));
+        // No month is chosen yet: the calendar shows this month, and Continue
+        // waits. Going to next month and back chooses this month alone.
+        expect(find.text('October 2026'), findsOneWidget);
+        expect(find.textContaining('No day yet?'), findsNothing);
+        await tester.ensureVisible(find.byTooltip('Next month'));
+        await tester.tap(find.byTooltip('Next month'));
+        await tester.pumpAndSettle();
+        await tester.tap(find.byTooltip('Previous month'));
         await tester.pumpAndSettle();
         expect(
           find.text("No day yet? We'll plan from today and ask later."),
@@ -60,7 +67,6 @@ void main() {
         await tester.ensureVisible(find.byKey(const ValueKey('date-day-3')));
         await tester.tap(find.byKey(const ValueKey('date-day-3')));
         await tester.pumpAndSettle();
-        // No board draws a calm line on the date step. It is in the Days card.
         expect(find.text('Saturday, October 3 · today'), findsOneWidget);
         expect(find.textContaining('what matters most'), findsNothing);
         await tester.tap(find.text('Continue'));
@@ -75,6 +81,44 @@ void main() {
       });
     }
   }
+  testWidgets('a month alone saves as a month and shows the plan line',
+      (tester) async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    await AppPreferencesRepository(db).setSelectedExamId('exam_cse_pro');
+    final container = ProviderContainer(
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        examPickerCatalogProvider.overrideWith((ref) => Stream.value(const [])),
+      ],
+    );
+    addTearDown(container.dispose);
+    await pumpAccessibilitySurface(
+      tester,
+      UncontrolledProviderScope(
+        container: container,
+        child: OnboardingExamDateStep(now: today, onCompleted: () {}),
+      ),
+      disableAnimations: true,
+      viewportSize: const Size(390, 844),
+    );
+    await tester.pumpAndSettle();
+    await tester.ensureVisible(find.byTooltip('Next month'));
+    await tester.tap(find.byTooltip('Next month'));
+    await tester.pumpAndSettle();
+    expect(
+      find.text("No day yet? We'll plan from 1 November and ask later."),
+      findsOneWidget,
+    );
+    await tester.tap(find.text('Continue'));
+    await tester.pumpAndSettle();
+    expect(
+      (await DriftSettingsRepository(db).readUserSettings()).examDate,
+      ExamDate.inMonth(year: 2026, month: 11),
+    );
+    await tester.pumpWidget(const SizedBox.shrink());
+  });
+
   testWidgets(
       'published multi-day sitting uses its first day and can be declined',
       (tester) async {
@@ -227,8 +271,8 @@ void main() {
       viewportSize: const Size(390, 844),
     );
     await tester.pumpAndSettle();
-    await tester.ensureVisible(find.byKey(const ValueKey('date-month-11')));
-    await tester.tap(find.byKey(const ValueKey('date-month-11')));
+    await tester.ensureVisible(find.byTooltip('Next month'));
+    await tester.tap(find.byTooltip('Next month'));
     await tester.pumpAndSettle();
     // A month alone shows no count.
     expect(find.textContaining('days from today'), findsNothing);
@@ -239,7 +283,7 @@ void main() {
       find.text('Wednesday, November 11 · 39 days from today'),
       findsOneWidget,
     );
-    await tester.tap(find.byKey(const ValueKey('date-month-10')));
+    await tester.tap(find.byTooltip('Previous month'));
     await tester.pumpAndSettle();
     await tester.ensureVisible(find.byKey(const ValueKey('date-day-4')));
     await tester.tap(find.byKey(const ValueKey('date-day-4')));
