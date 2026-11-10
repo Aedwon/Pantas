@@ -154,3 +154,11 @@ Branch `content/cet-finish-r1` at 80f51cdcf.
 The manager relayed that Aedwon wants CET content paused and moved to the end of the queue. The lead stopped at a clean point; the instruction arrived after exam tags, P6, P7 and Astra stage 1 were already done. Astra stage 1 (16 lessons) found 24 more findings in 13 lessons. The lead upheld 13 and fixed 7 more with one hedge word each; all 20 fixes passed an independent check. A figure pilot was stopped before any SVG was drawn.
 
 State: 77 lessons, 17 clean, 60 minor, 0 open. Not done: Astra on 61 lessons (Codex weekly reset November 11, 20:49), figures (about 194 markers), and the review package. Branch `content/cet-finish-r1` at 01e8ef72c; the resume steps are at the end of `docs/content/rewrite/cet/final-run-report.md` there.
+
+## November 10: CET figures started, then paused
+
+The manager relayed a resume: start the figures with a two-figure pilot, run Astra after the Codex reset, and redraw the earths-motions figure. Each figure gets a Sonnet brief and a separate Sonnet drawing. The lead renders a light and dark sheet offscreen, under the November 9 screenshot exception, and an Opus check compares each figure with its lesson. The pilot cost about 55k tokens per figure.
+
+Done: 44 of 194 figures, including the corrected sidereal-day figure ("about 1°"). The lead's renders caught problems the drawing scripts did not: angles labeled 110° drawn acute, an exaggerated elliptical orbit that supports the distance-causes-seasons misconception, and a June Orion label on the wrong arrow. All were redrawn. Six markers would have shown a worked answer before its solution, so they moved unchanged to after the solutions.
+
+Then the manager relayed Aedwon: usage goes to the items ahead of CET. Paused after batch 3, with nothing running. Branch `content/cet-finish-r1` at 63a4643cc. The resume steps are at the end of `docs/content/rewrite/cet/final-run-report.md` there.
