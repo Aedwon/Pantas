@@ -3,7 +3,7 @@
 # docs/superpowers/plans/2026-11-08-ci-speed.md.
 #
 # Writes flutter=, functions= and android= (true or false) to $GITHUB_OUTPUT.
-# Runs everything on main, tags, workflow_dispatch, and whenever there is no
+# Runs everything on main, web/design-system-4, tags, workflow_dispatch, and whenever there is no
 # usable base to compare with (new branch, force push, empty diff).
 #
 # Inputs, from the environment: EVENT, REF, REF_TYPE, BEFORE, PR_BASE.
@@ -29,6 +29,9 @@ everything() {
 
 [ "${EVENT:-}" = workflow_dispatch ] && everything "manual run"
 [ "${REF:-}" = refs/heads/main ] && everything "main"
+# The release line that staging and prod deploy from. A filtered push is
+# compared only with the previous tip, so this line is always tested whole.
+[ "${REF:-}" = refs/heads/web/design-system-4 ] && everything "release line"
 [ "${REF_TYPE:-}" = tag ] && everything "tag"
 
 if [ "${EVENT:-}" = pull_request ]; then
