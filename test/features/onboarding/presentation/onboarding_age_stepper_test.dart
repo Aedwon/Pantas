@@ -509,6 +509,34 @@ void main() {
     );
   });
 
+  for (final width in [390.0, 320.0]) {
+    for (final scale in [1.0, 2.0]) {
+      testWidgets('phone $width x$scale: the step buttons share the row',
+          (tester) async {
+        await pumpDs(
+          tester,
+          DsCell(width, scale, dark: false),
+          step(),
+          scroll: false,
+        );
+        final left = tester.getRect(
+          find.descendant(of: minus, matching: find.byType(TextButton)),
+        );
+        final right = tester.getRect(
+          find.descendant(of: plus, matching: find.byType(TextButton)),
+        );
+        // The page pads its content 16 px on each side.
+        final content = width - 32;
+        for (final r in [left, right]) {
+          expect(r.width, greaterThanOrEqualTo(content * .4));
+          expect(r.height, greaterThanOrEqualTo(52));
+        }
+        expect(left.center.dy, right.center.dy);
+        expect(left.right, lessThan(right.left));
+      });
+    }
+  }
+
   testWidgets('phone: the two step buttons share the row, 12 apart',
       (tester) async {
     await pumpPhone(tester);

@@ -681,7 +681,9 @@ class _StepGlyphButton extends StatelessWidget {
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
         visualDensity: VisualDensity.standard,
         minimumSize: WidgetStatePropertyAll(
-          Size(wide ? PantasSize.btn : 0, metrics.height),
+          // The focus ring's Stack loosens the width, so a phone button asks
+          // for all of it and is capped by its Expanded slot.
+          Size(wide ? PantasSize.btn : double.infinity, metrics.height),
         ),
         padding: const WidgetStatePropertyAll(EdgeInsets.zero),
         backgroundColor: WidgetStateProperty.resolveWith(
