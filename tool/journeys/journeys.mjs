@@ -18,14 +18,29 @@ function cseLesson() {
   return export_.lesson.find(l => l.isActive !== false && tagged.has(l._id));
 }
 
+// A page.evaluate that runs while the page navigates throws this. The local
+// reset page (tools/local/panel/local-reset.html) clears storage and then
+// moves on to the app, and the app's own first-run check can redirect to it,
+// so a poll can land in the middle of that move. It means "not yet": poll
+// again. Any other error still fails the journey at once.
+const NAVIGATING = /Execution context was destroyed, most likely because of a navigation/;
+
 async function until(what, test, seconds, page) {
   const end = Date.now() + seconds * 1000;
+  let navigating = 0;
   while (Date.now() < end) {
-    const value = await test();
+    let value;
+    try {
+      value = await test();
+    } catch (error) {
+      if (!NAVIGATING.test(error.message)) throw error;
+      navigating++;
+    }
     if (value) return value;
     await page.waitForTimeout(500);
   }
-  throw new Error(`Timed out after ${seconds}s waiting for ${what}`);
+  throw new Error(`Timed out after ${seconds}s waiting for ${what}` +
+    (navigating ? ` (${navigating} polls hit a page navigation)` : ''));
 }
 
 const semanticsOn = page => page.evaluate(() =>
@@ -46,6 +61,25 @@ async function seeLabel(page, pattern, seconds, what) {
     await semanticsOn(page);
     return (await labels(page)).find(text => pattern.test(text));
   }, seconds, page);
+}
+
+// Clicks a label and waits for the next screen. A click can land while Flutter
+// is still laying out the screen and do nothing (run 42886987332 attempt 4: the
+// page stayed on Study days with Continue showing), so click again if the next
+// screen has not appeared after a few seconds. The overall bound is `seconds`,
+// and at most 5 clicks are made. The next screen must still appear.
+async function clickUntilSeen(page, clickPattern, seenPattern, seconds, what) {
+  const end = Date.now() + seconds * 1000;
+  for (let attempt = 0; attempt < 5 && Date.now() < end; attempt++) {
+    await clickLabel(page, clickPattern);
+    const wait = Math.min(6, Math.max(1, (end - Date.now()) / 1000));
+    try {
+      return await seeLabel(page, seenPattern, wait, what);
+    } catch (error) {
+      if (!/^Timed out/.test(error.message)) throw error;
+    }
+  }
+  throw new Error(`Timed out after ${seconds}s waiting for ${what}`);
 }
 
 async function refuse(page, pattern) {
@@ -132,8 +166,7 @@ const journeys = {
     await page.evaluate(() => localStorage.setItem('pantas.local.preset', 'days'));
     await page.goto(`${BASE}/local-reset.html`, {waitUntil: 'domcontentloaded'});
     await seeLabel(page, /Which days will you study/, 120, 'Study days');
-    await clickLabel(page, /^Continue/);
-    await seeLabel(page, /What should we call you/, 30, 'Name');
+    await clickUntilSeen(page, /^Continue/, /What should we call you/, 30, 'Name');
     await page.waitForTimeout(1000);
     await page.reload({waitUntil: 'domcontentloaded'});
     await seeLabel(page, /What should we call you/, 90, 'Name after the reload');
