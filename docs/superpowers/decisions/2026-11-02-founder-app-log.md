@@ -437,3 +437,19 @@ His board comments (canvas version 13, verbatim; not sent to Claude, so no canva
 Process note: the Numbers tab was settled on Nov 2 as "Core numbers" without asking what decisions he
 makes with numbers. The refund card board passed the DS4 review with two stacked footer buttons; the
 review checked rules, not whether the flow reads well.
+
+## November 10, 2026: sign-up source tracking
+
+Question (after the Fable consultation): sign-up source tracking, yes (a small web app change plus a
+privacy notice line drafted by an agent) or no (no marketing numbers).
+
+Aedwon's answer, verbatim (relayed by the manager): "sign up source tracking is ideal. we should be able to know which funnel/strategies/channels are most effective, among other marketing things. anything else we might have missed in this? that source tracking thing has been on my mind ever since, and it's good that it's been brought up now"
+
+Result: yes. The manager asked for a marketing attribution section in the spec's plain-language part:
+UTM links per channel; first-touch and last-touch source; source kept across the pantas.study to
+app.pantas.study hand-off; an optional "How did you hear about us?"; referral and campaign codes tied
+to giveaways; QR and short links; funnel events (visit, sign-up, first session, Today plan done,
+trial, paid, renewal); retention and revenue by source; manual spend per channel; minors' privacy
+(aggregate only, no third-party ad pixels, privacy-notice line drafted by an agent). Parts needing
+pantas-web are marked; website copy stays his. Still open from the Fable round: Content Pass as a
+tile or a port, the Posts brainstorm, and his confirmation of the Numbers question list.
