@@ -22,14 +22,14 @@ you asked for:
 2. **Growth.** Numbers that answer your decisions (the question list below), where students come
    from, your links and QR codes, campaign codes, and what you spend per channel. Posts joins this
    tab after its own short brainstorm.
-3. **Content.** Questions students reported, to dismiss or mark for fixing, and a tile that opens
-   Content Pass.
+3. **Content.** Questions students reported, to dismiss or mark for fixing, and Review: Content
+   Pass, moved inside this app.
 4. **Owner Inputs.** The things only you can give, each with a field or a switch. Sessions on this
    Mac read this list, so you no longer tell each session when something is ready.
 
-Posts and Content Pass are in the founder app, as you decided on Nov 10. Content Pass opens as it is
-today; it moves inside the app only after you stop refining it. Posts needs about 30 minutes with you
-first, to settle two or three post templates and one channel.
+Posts and Content Pass are in the founder app, as you decided on Nov 10. Content Pass is fully moved
+in. Posts needs about 30 minutes with you first, to settle two or three post templates and one
+channel; it gets its own boards after that.
 
 ### The look
 
@@ -142,10 +142,20 @@ You confirm or change this list; the screens are then drawn to answer it.
 
 ### Content: reports and Content Pass
 
-Students can already report a question, but reports stay on their device. This build sends them to
-the server, with daily limits, and the app says the report was sent. Content lists them as New, Needs
-Fix or Done. "Needs Fix" puts a report on a list content sessions read. Beta feedback stays in the
-Firebase console; it ends with the beta. A tile opens Content Pass.
+- **Reports.** Students can already report a question, but reports stay on their device. This build
+  sends them to the server, with daily limits, and the app says the report was sent. Content lists
+  them as New, Needs Fix or Done, most reported first. "Needs Fix" puts a report on a list content
+  sessions read. Beta feedback stays in the Firebase console; it ends with the beta.
+- **Review (Content Pass, moved in).** Everything you approved for Content Pass carries over: the
+  queue with exam and status filters, the four device sizes, light and dark, Free and Pro, Question,
+  Correct and Wrong, the five tags with keys 1 to 5, comments, Looks Good and Next, and notes that
+  survive restarts. The controls are redrawn on design system 4.0 to match the rest of the app. The
+  screen in the middle is still the real app screen, so what you review is what students see. The
+  separate Content Pass app is retired once the move is done. While the move runs, changes you want
+  in Content Pass go into the new version.
+- One open look question: you chose green for the selected option in Content Pass. Design system 4.0
+  shows the selected option in neutral white. The board shows the system's version; tell me if you
+  want green back.
 
 ### Build order
 
@@ -153,7 +163,7 @@ Firebase console; it ends with the beta. A tile opens Content Pass.
 2. Source capture on the website and in the app, so no sign-up is lost before launch. It ships with
    the next app release.
 3. Support, with your comment fixes.
-4. Content: reports and the report sender.
+4. Content: reports, the report sender, and Content Pass moved in.
 5. Growth: numbers, links, codes and spend, after you confirm the question list.
 6. Posts, after its brainstorm.
 7. The outside Codex audit of money and deletion, then production deploys with your go.
@@ -161,7 +171,7 @@ Firebase console; it ends with the beta. A tile opens Content Pass.
 ### What it costs
 
 - **Time (estimates of agent work):** Owner Inputs, about 1 to 2 days. Source capture, about 2 days.
-  Support, about 4 days. Content, about 1 day. Growth, about 3 to 4 days. Audit and fixes, about a
+  Support, about 4 days. Content with the Content Pass move, about 4 to 6 days. Growth, about 3 to 4 days. Audit and fixes, about a
   day. Posts is estimated after its brainstorm.
 - **Your time:** confirm the question list (about 15 minutes); the Posts brainstorm (about 30
   minutes); five bank screenshots; a few one-time Google Cloud sign-in steps; approving website
@@ -208,7 +218,7 @@ Firebase console; it ends with the beta. A tile opens Content Pass.
 
 ### Not in this build
 
-A full Content Pass port, email in the app, refunds sent from inside the app, a real Firebase cost
+Email in the app, refunds sent from inside the app, a real Firebase cost
 figure, Facebook and TikTok reach read from those sites, advertising pixels, paid gift codes,
 discount codes, an export before each deletion, and alerts while the app is closed.
 
@@ -362,9 +372,8 @@ Read on `web/design-system-4` at 89559a2e2 unless stated.
 
 17. **Menu.** Four destinations (DS4 SidebarNav limit): Support, Growth, Content, Owner Inputs.
     Growth holds Numbers, Sources, Links and Codes, Spend, and later Posts, as sections or a
-    SegmentedControl view switch. Content holds Reports (formerly Inbox) and the Content Pass tile.
-    The Content Pass tile launches `~/Applications/Content Pass.app` through the native shell
-    (`NSWorkspace`); no code from Content Pass is imported.
+    SegmentedControl view switch. Content holds Reports (formerly Inbox) and Review (Content Pass,
+    ported; item 24).
 18. **Card refund (Nov 10 comment).** One primary "Refund in PayMongo" copies the payment ID to the
     clipboard, opens the PayMongo payment page, and shows a Toast "Payment ID copied". The body shows
     the payment ID in a row with a copy IconButton. Footer: tertiary Cancel and the one primary.
@@ -417,6 +426,19 @@ Read on `web/design-system-4` at 89559a2e2 unless stated.
     notice line covers the purpose (understanding which channels bring students) and its basis; the
     drafter and Codex decide whether minors need the guardian's choice before attribution is kept,
     and the build follows that result.
+
+24. **Content Pass port** (Aedwon, Nov 10: "full port"; rulings in the log the same day). Source:
+    `claude/content-pass-r1-4eb59e` at c1b94901f, spec `docs/superpowers/specs/2026-11-02-content-pass.md`
+    and its log on that branch. The real screens must stay Flutter, so: the reviewer chrome (queue,
+    filters, device, theme, plan, outcome switch, tags, comment, actions, keys) is rebuilt on DS4 in
+    the founder app; the Flutter web entry is reduced to the screen host only and is served by the
+    founder server into a frame in the Review view, driven by `postMessage` (item, size, theme, plan,
+    outcome); the Dart export and seed server becomes a helper process the founder server starts on
+    127.0.0.1 with the same launch secret rule. The notes file keeps its path and format, so existing
+    notes survive. `tools/content_pass/` moves under `tools/founder_app/content_review/`; the
+    no-leak test and layering rule carry over. The old app bundle is removed by `make_app.sh` after
+    the founder app installs. The port waits for Content Pass to be merged or its branch frozen; the
+    plan names the commit it ports.
 
 ### Boards
 
