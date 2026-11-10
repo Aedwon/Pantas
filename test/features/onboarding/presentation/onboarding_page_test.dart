@@ -128,6 +128,8 @@ void main() {
       await tester.tap(find.text('Different Date'));
       await tester.pumpAndSettle();
     }
+    // The month calendar is taller than the 600 px test screen.
+    await tester.ensureVisible(find.text("I don't know"));
     await tester.tap(find.text("I don't know"));
     await tester.pumpAndSettle();
     expect(find.text('Which days will you study?'), findsOneWidget);

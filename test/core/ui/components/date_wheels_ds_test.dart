@@ -144,35 +144,41 @@ void main() {
   );
 
   dsMatrix(
-    'month-first picker: bg-page cells, accent-fill when chosen, past dimmed',
+    'month-first picker: accent-fill when chosen, past dimmed',
     (context) => MonthFirstDatePicker(
       value: const MonthFirstDate(year: 2026, month: 12, day: 11),
-      today: DateTime(2026, 11, 3),
+      today: DateTime(2026, 12, 5),
       onChanged: (_) {},
     ),
     check: (tester, cell) async {
       final palette = cell.dark ? PantasColors.dark : PantasColors.light;
-      final chosen = tester.widget<Text>(find.text('Dec'));
+      Text label(int day) => tester.widget<Text>(
+            find.descendant(
+              of: find.byKey(ValueKey('date-day-$day')),
+              matching: find.byType(Text),
+            ),
+          );
+      final chosen = label(11);
       expect(chosen.style!.color, palette.onAccent);
       expect(chosen.style!.fontWeight, FontWeight.w700);
       expect(chosen.style!.fontSize, 15);
-      // A past month is disabled and readable: text-secondary, weight 400.
-      final past = tester.widget<Text>(find.text('Oct'));
+      // A past day is disabled and readable: text-secondary, weight 400.
+      final past = label(3);
       expect(past.style!.color, palette.textSecondary);
       expect(past.style!.fontWeight, FontWeight.w400);
       expect(
         tester
-            .widget<TextButton>(find.byKey(const ValueKey('date-month-10')))
+            .widget<TextButton>(find.byKey(const ValueKey('date-day-3')))
             .onPressed,
         isNull,
       );
-      // Month cells are at least 44 high.
+      // Date cells are at least 46 high.
       expect(
-        tester.getSize(find.byKey(const ValueKey('date-month-12'))).height,
-        greaterThanOrEqualTo(44),
+        tester.getSize(find.byKey(const ValueKey('date-day-11'))).height,
+        greaterThanOrEqualTo(46),
       );
-      // The full month name is the accessible name.
-      expect(find.bySemanticsLabel('December'), findsOneWidget);
+      // The full date is the accessible name.
+      expect(find.bySemanticsLabel('December 11, 2026'), findsOneWidget);
     },
   );
 }

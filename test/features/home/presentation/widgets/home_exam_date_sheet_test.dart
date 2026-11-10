@@ -51,14 +51,17 @@ void main() {
     final saved = await show(tester);
     expect(find.text('When is your exam?'), findsOneWidget);
     expect(saveEnabled(tester), isFalse);
-    await tester.tap(find.byKey(const ValueKey('date-month-11')));
+    // The calendar opens on this month. Going to the next month picks it.
+    expect(find.text('October 2026'), findsOneWidget);
+    await tester.tap(find.byTooltip('Next month'));
     await tester.pumpAndSettle();
     expect(saveEnabled(tester), isTrue);
+    await tester.ensureVisible(find.text('Save'));
     await tester.tap(find.text('Save'));
     expect(saved.single, ExamDate.inMonth(year: 2026, month: 11));
   });
 
-  testWidgets('month-only strip keeps Save grey until a day is picked',
+  testWidgets('month-only calendar keeps Save grey until a day is picked',
       (tester) async {
     final saved = await show(
       tester,
@@ -69,6 +72,7 @@ void main() {
     await tester.tap(find.text('11').first);
     await tester.pumpAndSettle();
     expect(saveEnabled(tester), isTrue);
+    await tester.ensureVisible(find.text('Save'));
     await tester.tap(find.text('Save'));
     expect(saved.single, ExamDate.onDay(DateTime(2026, 11, 11)));
   });

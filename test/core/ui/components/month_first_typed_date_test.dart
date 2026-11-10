@@ -50,12 +50,15 @@ class _HostState extends State<_Host> {
 _HostState _host(WidgetTester tester) =>
     tester.state<_HostState>(find.byType(_Host));
 
+Finder _day(int day) => find.byKey(ValueKey('date-day-$day'));
+
 String _text(WidgetTester tester) =>
     tester.widget<TextField>(find.byType(TextField)).controller!.text;
 
-/// The onboarding day strip scrolls after a delay of 450 ms; let it finish.
 Future<void> _drain(WidgetTester tester) =>
     tester.pump(const Duration(seconds: 3));
+
+Finder get _previous => find.byTooltip('Previous month');
 
 void main() {
   setUpAll(loadDsFonts);
@@ -63,21 +66,21 @@ void main() {
   for (final onboarding in [false, true]) {
     final name = onboarding ? 'onboarding' : 'sheet';
 
-    testWidgets('$name: the typed field sits above the month grid',
+    testWidgets('$name: the typed field sits above the calendar',
         (tester) async {
       await pumpDs(tester, dsCells.first, _Host(onboarding: onboarding));
       expect(find.byType(TypedDateField), findsOneWidget);
       final field = tester.getRect(find.byType(TypedDateField));
-      final months =
-          tester.getRect(find.byKey(const ValueKey('date-month-11')));
-      expect(field.bottom, lessThan(months.top));
+      final header = tester.getRect(find.text('November 2026'));
+      expect(field.bottom, lessThan(header.top));
+      expect(field.bottom, lessThan(tester.getRect(_day(10)).top));
       expect(
         tester.widget<TextField>(find.byType(TextField)).decoration!.hintText,
         'MM/DD/YYYY',
       );
     });
 
-    testWidgets('$name: a typed valid date selects the month and the day',
+    testWidgets('$name: a typed valid date moves the month and selects the day',
         (tester) async {
       final log = <MonthFirstDate>[];
       await pumpDs(
@@ -90,15 +93,12 @@ void main() {
       expect(log.last.year, 2026);
       expect(log.last.month, 12);
       expect(log.last.day, 25);
+      expect(find.text('December 2026'), findsOneWidget);
       expect(
-        tester
-            .widget<TextButton>(find.byKey(const ValueKey('date-month-12')))
-            .style!
-            .backgroundColor!
-            .resolve({}),
+        tester.widget<TextButton>(_day(25)).style!.backgroundColor!.resolve({}),
         isNot(Colors.transparent),
       );
-      expect(find.byKey(const ValueKey('date-day-25')), findsOneWidget);
+      expect(find.text('Friday, December 25'), findsOneWidget);
       await _drain(tester);
     });
 
@@ -112,14 +112,14 @@ void main() {
           initial: const MonthFirstDate(year: 2026, month: 12),
         ),
       );
-      await tester.ensureVisible(find.byKey(const ValueKey('date-day-18')));
-      await tester.tap(find.byKey(const ValueKey('date-day-18')));
+      await tester.ensureVisible(_day(18));
+      await tester.tap(_day(18));
       await tester.pumpAndSettle();
       expect(_text(tester), '12/18/2026');
       await _drain(tester);
     });
 
-    testWidgets('$name: picking a month only empties the field',
+    testWidgets('$name: moving to another month empties the field',
         (tester) async {
       await pumpDs(
         tester,
@@ -130,9 +130,11 @@ void main() {
         ),
       );
       expect(_text(tester), '12/18/2026');
-      await tester.tap(find.byKey(const ValueKey('date-month-11')));
+      await tester.tap(_previous);
       await tester.pumpAndSettle();
       expect(_text(tester), '');
+      expect(_host(tester).value.month, 11);
+      expect(_host(tester).value.day, isNull);
       await _drain(tester);
     });
 
