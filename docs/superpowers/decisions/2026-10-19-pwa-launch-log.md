@@ -2990,3 +2990,12 @@ Asked by the manager thread on Aedwon's "for the rest of items, please finish th
 - Not taken: the test compiler cache saved 23 s per shard, under the plan's 30 s bar.
 - Limit: a new web/** branch starts cold until this ci.yml lands on main, because caches are scoped to the branch and main.
 - Velocity E-015: estimate 2 h 30 min wall, actual 1 h 10 min (0.47). E-016 (S5 slow tests) estimated and started.
+
+### Nov 11, CI speed S5 merged; manager ruling on the last lever (DS4 lead)
+
+- S5 merged as 693a80a38. Slow files fell sharply (onboarding presets 85 s to 14 s, read marking 18 s to 3 s, five content-export files 8 to 10 s to about 1 s, sync engine 12 s to 8 s). Same 10,866 tests by name, coverage 69,189/74,859 unchanged, journeys four PASS.
+- It bought no CI wall time: the slowest shard stayed about 5 min. The removed time was idle waiting, and other files ran in the same shard meanwhile. Warm CI is about 6.5 to 7 min against the 4 to 5 min target.
+- Three production files gained a test-only setting whose default equals the old value (preset seed window 2 s, read dwell floor 15 s, sync retry base 1 s with the same 1, 2, 4, 8, 16, 30 s sequence).
+- I proposed measuring 12 shards next. Manager ruling, verbatim: "try the plan's file bundling first (fewer test entry points per group, so less compile and load work), not 12 groups. Reasons: 12 groups would make one run use about 20 jobs, the whole free concurrency limit, so any second push queues; and Aedwon plans to make the repo private before public launch, where every extra group adds billed setup minutes. Bundling cuts work instead of adding jobs. Measure bundling on the side branch with the usual proof (same tests by name, coverage, journeys). Only if bundling misses 5 min, measure 12 groups too and report both numbers and the queue effect to the manager before merging either."
+- What changed my plan: the private-repo billing point, which I had not weighed. The job-count cost I had already flagged.
+- Velocity E-016: estimate 2 h 30 min wall, actual about 16 min (0.11). E-017 (bundling) estimated and started.
