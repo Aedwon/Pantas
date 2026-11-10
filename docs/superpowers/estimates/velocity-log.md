@@ -39,6 +39,8 @@ Columns:
 | E-008 | Nov 10 | CI speed plan: duplicate run fix | CI/infra | CI speed plan, not started | n/a | not recorded | Fable 5.2 | 30 min | not given | not started | not started | | | | | | |
 | E-009 | Nov 10 | CI speed plan: slow tests and bundling | CI/infra | CI speed plan, not started | n/a | not recorded | Fable 5.2 | 1 to 1.5 days | not given | not started | not started | | | | | | |
 | E-010 | Nov 10 | Ship design system 4.0 17c8b5710 to prod (functions for the guardian versions plus hosting), live checks, 15-minute watch | deploy | DS4 lead | Opus 5.5 | not recorded | not given (the estimate rule came after) | not given | not given | Nov 10 16:52 | Nov 10 17:13 | 21 min | about 6 min (gates, diff, preflight, two deploys, live check); the rest was builds and the watch | none (CI was already green) | none | n/a | |
+| E-011 | Nov 11 | CI speed S0 + S1: timing harness and fresh baseline (test identities, coverage), then the file-based split into 8 groups with the partition check, verified on CI against the baseline | CI/infra | DS4 lead (Sonnet builder) | Sonnet 5.5 builder, Opus 5.5 lead | as approved | DS4 lead | 4 h | 7 h (several CI runs, one unsharded baseline run of about 45 min) | | | | | | | | |
+| E-012 | Nov 11 | CI speed S4 (twins only): stop the duplicate CI run when one commit sits on a `ds4/` branch and its `web/ds4-` mirror | CI/infra | DS4 lead (Sonnet builder) | Sonnet 5.5 builder, Opus 5.5 lead | as approved | DS4 lead | 30 min | 1 h (one CI run) | | | | | | | | |
 
 Notes:
 
