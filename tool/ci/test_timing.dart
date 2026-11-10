@@ -134,7 +134,7 @@ TimingReport analyzeReporterLines(Iterable<String> lines, {String? root}) {
         final suitePath = suitePaths[open.suiteId];
         if (suitePath == null) break;
         final elapsed = time - open.startMs;
-        if (open.name.startsWith('loading ')) {
+        if (_loadingEntry.hasMatch(open.name)) {
           report.files
               .putIfAbsent(suitePath, () => FileTiming(suitePath))
               .loadMs += elapsed;
@@ -169,6 +169,10 @@ TimingReport analyzeReporterLines(Iterable<String> lines, {String? root}) {
   }
   return report;
 }
+
+/// The reporter's own entry for loading a suite: "loading <path>.dart". A
+/// real test whose name starts with "loading " is not one of these.
+final _loadingEntry = RegExp(r'^loading \S+\.dart$');
 
 const _bundlePrefix = 'build/test_bundles/';
 
