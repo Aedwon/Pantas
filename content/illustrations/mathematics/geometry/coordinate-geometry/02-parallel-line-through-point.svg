@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 340" width="360" height="340">
+<title>Line 2x + 3y = 6 with slope −2/3 and a parallel dashed line through (3, −1) with the same slope; y-intercepts 2 and 1</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+</defs>
+<rect width="360" height="340" rx="14" fill="url(#bg)"/>
+<line x1="20" y1="170" x2="334" y2="170" stroke="#020202" stroke-width="1.5" stroke-linecap="butt"/>
+<line x1="130" y1="40" x2="130" y2="316" stroke="#020202" stroke-width="1.5" stroke-linecap="butt"/>
+<polygon points="340,170 331,165.5 331,174.5" fill="#020202"/>
+<polygon points="130,34 125.5,43 134.5,43" fill="#020202"/>
+<line x1="150" y1="167" x2="150" y2="173" stroke="#020202" stroke-width="1.2" stroke-linecap="butt"/>
+<line x1="170" y1="167" x2="170" y2="173" stroke="#020202" stroke-width="1.2" stroke-linecap="butt"/>
+<line x1="190" y1="167" x2="190" y2="173" stroke="#020202" stroke-width="1.2" stroke-linecap="butt"/>
+<line x1="210" y1="167" x2="210" y2="173" stroke="#020202" stroke-width="1.2" stroke-linecap="butt"/>
+<line x1="230" y1="167" x2="230" y2="173" stroke="#020202" stroke-width="1.2" stroke-linecap="butt"/>
+<line x1="250" y1="167" x2="250" y2="173" stroke="#020202" stroke-width="1.2" stroke-linecap="butt"/>
+<line x1="270" y1="167" x2="270" y2="173" stroke="#020202" stroke-width="1.2" stroke-linecap="butt"/>
+<line x1="290" y1="167" x2="290" y2="173" stroke="#020202" stroke-width="1.2" stroke-linecap="butt"/>
+<line x1="310" y1="167" x2="310" y2="173" stroke="#020202" stroke-width="1.2" stroke-linecap="butt"/>
+<line x1="110" y1="167" x2="110" y2="173" stroke="#020202" stroke-width="1.2" stroke-linecap="butt"/>
+<line x1="90" y1="167" x2="90" y2="173" stroke="#020202" stroke-width="1.2" stroke-linecap="butt"/>
+<line x1="70" y1="167" x2="70" y2="173" stroke="#020202" stroke-width="1.2" stroke-linecap="butt"/>
+<line x1="50" y1="167" x2="50" y2="173" stroke="#020202" stroke-width="1.2" stroke-linecap="butt"/>
+<line x1="30" y1="167" x2="30" y2="173" stroke="#020202" stroke-width="1.2" stroke-linecap="butt"/>
+<line x1="127" y1="150" x2="133" y2="150" stroke="#020202" stroke-width="1.2" stroke-linecap="butt"/>
+<line x1="127" y1="130" x2="133" y2="130" stroke="#020202" stroke-width="1.2" stroke-linecap="butt"/>
+<line x1="127" y1="110" x2="133" y2="110" stroke="#020202" stroke-width="1.2" stroke-linecap="butt"/>
+<line x1="127" y1="90" x2="133" y2="90" stroke="#020202" stroke-width="1.2" stroke-linecap="butt"/>
+<line x1="127" y1="70" x2="133" y2="70" stroke="#020202" stroke-width="1.2" stroke-linecap="butt"/>
+<line x1="127" y1="50" x2="133" y2="50" stroke="#020202" stroke-width="1.2" stroke-linecap="butt"/>
+<line x1="127" y1="190" x2="133" y2="190" stroke="#020202" stroke-width="1.2" stroke-linecap="butt"/>
+<line x1="127" y1="210" x2="133" y2="210" stroke="#020202" stroke-width="1.2" stroke-linecap="butt"/>
+<line x1="127" y1="230" x2="133" y2="230" stroke="#020202" stroke-width="1.2" stroke-linecap="butt"/>
+<line x1="127" y1="250" x2="133" y2="250" stroke="#020202" stroke-width="1.2" stroke-linecap="butt"/>
+<line x1="127" y1="270" x2="133" y2="270" stroke="#020202" stroke-width="1.2" stroke-linecap="butt"/>
+<line x1="127" y1="290" x2="133" y2="290" stroke="#020202" stroke-width="1.2" stroke-linecap="butt"/>
+<line x1="127" y1="310" x2="133" y2="310" stroke="#020202" stroke-width="1.2" stroke-linecap="butt"/>
+<line x1="36" y1="67.3" x2="338" y2="268.7" stroke="#010101" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="36" y1="87.3" x2="338" y2="288.7" stroke="#050505" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="7 5"/>
+<circle cx="130" cy="130" r="4.5" fill="#010101"/>
+<circle cx="130" cy="150" r="4.5" fill="#050505"/>
+<circle cx="190" cy="190" r="5.5" fill="#050505"/>
+<text x="338" y="160.5" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#020202"><tspan font-family="KaTeX_Math, serif" font-weight="400">x</tspan></text>
+<text x="142" y="38.5" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#020202"><tspan font-family="KaTeX_Math, serif" font-weight="400">y</tspan></text>
+<text x="145.3" y="121.6" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">2</tspan></text>
+<text x="100.5" y="159.7" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#050505"><tspan font-family="KaTeX_Main, serif" font-weight="400">1</tspan></text>
+<text x="180.4" y="220.5" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#050505"><tspan font-family="KaTeX_Main, serif" font-weight="400">(3, −1)</tspan></text>
+<text x="26" y="26.3" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">2</tspan><tspan font-family="KaTeX_Math, serif" font-weight="400">x</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400"> + 3</tspan><tspan font-family="KaTeX_Math, serif" font-weight="400">y</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400"> = 6</tspan></text>
+<text x="26" y="49.3" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">slope −2/3</text>
+<text x="57" y="190.7" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#050505">slope −2/3</text>
+</svg>

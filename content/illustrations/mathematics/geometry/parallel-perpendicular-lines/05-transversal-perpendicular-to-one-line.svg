@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 268" width="360" height="268">
+<title>Parallel lines l and m cut by a vertical line t; a square mark at l and the angle at m labeled (4x + 10)°</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+</defs>
+<rect width="360" height="268" rx="14" fill="url(#bg)"/>
+<line x1="16" y1="70" x2="344" y2="70" stroke="#010101" stroke-width="2" stroke-linecap="butt"/>
+<text x="26" y="59" text-anchor="start" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Math, serif" font-weight="400">l</tspan></text>
+<polyline points="314,64 320,70 314,76" fill="none" stroke="#020202" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="16" y1="210" x2="344" y2="210" stroke="#010101" stroke-width="2" stroke-linecap="butt"/>
+<text x="26" y="199" text-anchor="start" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Math, serif" font-weight="400">m</tspan></text>
+<polyline points="314,204 320,210 314,216" fill="none" stroke="#020202" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="170" y1="36" x2="170" y2="244" stroke="#010101" stroke-width="2" stroke-linecap="round"/>
+<text x="170" y="26" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Math, serif" font-weight="400">t</tspan></text>
+<polyline points="170,80 180,80 180,70" fill="none" stroke="#020202" stroke-width="1.8" stroke-linejoin="miter"/>
+<path d="M188 210 A18 18 0 0 0 170 192" fill="none" stroke="#050505" stroke-width="2" stroke-linecap="round"/>
+<text x="218" y="182.2" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#050505"><tspan font-family="KaTeX_Main, serif" font-weight="400">(4</tspan><tspan font-family="KaTeX_Math, serif" font-weight="400">x</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400"> + 10)°</tspan></text>
+</svg>

@@ -189,8 +189,6 @@ $$y = -\dfrac{1}{2}x + 3$$
 
 Find the equation of the line through $(3, -1)$ that is parallel to $2x + 3y = 6$.
 
-<!-- ILLUSTRATION: coordinate plane with line 2x + 3y = 6 (y-intercept 2, slope -2/3) and a parallel dashed line through (3, -1) with y-intercept 1, both labeled with slope -2/3 -->
-
 **Solution:**
 Parallel lines have equal slopes. First find the slope of the given line.
 
@@ -213,6 +211,8 @@ $$y + 1 = -\dfrac{2}{3}x + 2$$
 $$y = -\dfrac{2}{3}x + 1$$
 
 5. Check: at $x = 3$, $y = -2 + 1 = -1$. The line passes through $(3, -1)$. The new line has $b = 1$, and the given line has $b = 2$, so they are different lines.
+
+<!-- ILLUSTRATION: coordinate plane with line 2x + 3y = 6 (y-intercept 2, slope -2/3) and a parallel dashed line through (3, -1) with y-intercept 1, both labeled with slope -2/3 -->
 
 ### #6: Finding a Missing Endpoint
 
@@ -249,8 +249,6 @@ $$y = -6$$
 
 A circle has center $(2, -1)$ and passes through $(5, 3)$. Write its equation.
 
-<!-- ILLUSTRATION: coordinate plane with center C(2, -1), point P(5, 3) on the circle, a right triangle with legs 3 and 4 and hypotenuse r = 5, and the circle drawn through P -->
-
 **Solution:**
 The radius is the distance from the center to the point on the circle.
 
@@ -272,11 +270,11 @@ $$(x - 2)^2 + (y + 1)^2 = 25$$
 
 5. Check $(5, 3)$: $(3)^2 + (4)^2 = 9 + 16 = 25$. Correct.
 
+<!-- ILLUSTRATION: coordinate plane with center C(2, -1), point P(5, 3) on the circle, a right triangle with legs 3 and 4 and hypotenuse r = 5, and the circle drawn through P -->
+
 ### #8: Center and Radius from an Expanded Equation
 
 Find the center and radius of the circle $x^2 + y^2 - 6x + 4y - 12 = 0$.
-
-<!-- ILLUSTRATION: coordinate plane with the circle centered at (3, -2) with radius 5, the center marked and a radius segment labeled r = 5 -->
 
 **Solution:**
 Group the $x$ terms and the $y$ terms. Then complete the square for each.
@@ -295,6 +293,8 @@ $$(x - 3)^2 + (y + 2)^2 = 25$$
 
 4. Read the center with the opposite signs: $(3, -2)$.
 5. The right side is $r^2 = 25$, which is positive, so $r = 5$.
+
+<!-- ILLUSTRATION: coordinate plane with the circle centered at (3, -2) with radius 5, the center marked and a radius segment labeled r = 5 -->
 
 ## Speed Tricks & Shortcuts
 

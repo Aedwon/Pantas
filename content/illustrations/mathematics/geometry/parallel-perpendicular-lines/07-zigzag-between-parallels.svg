@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 260" width="360" height="260">
+<title>Parallel lines l and m with a zigzag A to P to B; angle CAP is 30 degrees, angle DBP is 40 degrees and angle APB is unknown</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+</defs>
+<rect width="360" height="260" rx="14" fill="url(#bg)"/>
+<line x1="16" y1="70" x2="344" y2="70" stroke="#010101" stroke-width="2" stroke-linecap="butt"/>
+<text x="26" y="59" text-anchor="start" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Math, serif" font-weight="400">l</tspan></text>
+<polyline points="314,64 320,70 314,76" fill="none" stroke="#020202" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="16" y1="190" x2="344" y2="190" stroke="#010101" stroke-width="2" stroke-linecap="butt"/>
+<text x="26" y="179" text-anchor="start" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Math, serif" font-weight="400">m</tspan></text>
+<polyline points="314,184 320,190 314,196" fill="none" stroke="#020202" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="162.1" y1="70" x2="266" y2="130" stroke="#010101" stroke-width="2" stroke-linecap="round"/>
+<line x1="194.5" y1="190" x2="266" y2="130" stroke="#010101" stroke-width="2" stroke-linecap="round"/>
+<circle cx="162.1" cy="70" r="4" fill="#010101"/>
+<circle cx="194.5" cy="190" r="4" fill="#010101"/>
+<circle cx="212.1" cy="70" r="4" fill="#010101"/>
+<circle cx="238.5" cy="190" r="4" fill="#010101"/>
+<circle cx="266" cy="130" r="4.5" fill="#010101"/>
+<path d="M184.6 83 A26 26 0 0 0 188.1 70" fill="none" stroke="#050505" stroke-width="2" stroke-linecap="round"/>
+<path d="M220.5 190 A26 26 0 0 0 214.4 173.3" fill="none" stroke="#050505" stroke-width="2" stroke-linecap="round"/>
+<path d="M246.9 119 A22 22 0 0 0 249.1 144.1" fill="none" stroke="#050505" stroke-width="2" stroke-linecap="round"/>
+<text x="162.1" y="55" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#010101">A</text>
+<text x="194.5" y="217" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#010101">B</text>
+<text x="212.1" y="55" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#010101">C</text>
+<text x="238.5" y="217" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#010101">D</text>
+<text x="283" y="119" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#010101">P</text>
+<text x="232.1" y="92.2" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">30°</tspan></text>
+<text x="250.5" y="174.2" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">40°</tspan></text>
+<text x="230" y="136.8" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="700" fill="#050505">?</text>
+</svg>
