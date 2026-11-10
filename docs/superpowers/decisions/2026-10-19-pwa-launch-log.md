@@ -2978,3 +2978,15 @@ Asked by the manager thread on Aedwon's "for the rest of items, please finish th
 - Cause 2, found on run 4 of the first proof set: a click on Continue was lost while the screen was still laying out. The journey now clicks again, at most 5 times within the same 30 s, and the Name screen must still appear. A wrong screen still fails.
 - Proof: five fresh attempts on 7f9c0d53a (run 42892133945, attempts 2 to 6), all four journeys PASS each time, read from the logs. The merge run on web/design-system-4 (f2cab7457, run 42901710222) also printed four PASS lines. CI 42901710234 green in 8 min 13 s.
 - Velocity E-014: estimate 1 h 30 min wall, actual 1 h 39 min (ratio 1.1). The second cause cost one extra proof set.
+
+### Nov 11, CI speed S3 merged (DS4 lead)
+
+- Merged web/ci-speed-r1 badb79c2e into web/design-system-4 as 41ee8b0ab. CI 42911794968 green in 7 min 55 s, all four journeys PASS (42911794925), coverage 69,189/74,859.
+- Setup restores the build_runner state and the content asset, then always runs build_runner. On the builder's warm runs, setup per job fell from about 99 s to about 40 s, and tests plus coverage from 449 s to about 390 s.
+- The builder hashed 4,292 generated files: a cold build, a prefix restore and an exact-hit restore were identical.
+- The content cache key also hashes lib/core/content, pubspec.lock and build.yaml. I walked the content tools' imports: all 31 files sit under tools/ or lib/core/content, so the key is complete.
+- Setup retries once on failure. The coverage job runs on the Dart SDK 3.12.2 alone (48 s to 22 s).
+- New caches: build_runner 8.6 MB, content 5.6 MB, emulator jars 127 MB, Playwright 264 MB. Each has one saver.
+- Not taken: the test compiler cache saved 23 s per shard, under the plan's 30 s bar.
+- Limit: a new web/** branch starts cold until this ci.yml lands on main, because caches are scoped to the branch and main.
+- Velocity E-015: estimate 2 h 30 min wall, actual 1 h 10 min (0.47). E-016 (S5 slow tests) estimated and started.
