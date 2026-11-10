@@ -60,6 +60,11 @@ abstract final class PantasIcons {
   /// byte-identical to assets/fonts/phosphor/Phosphor.ttf.
   static IconData get calendarBlank =>
       const IconData(0xe10a, fontFamily: 'Phosphor');
+
+  /// Phosphor plus and minus (Regular), the age stepper's buttons. Codepoints
+  /// 0xe3d4 and 0xe32a from phosphor_flutter 2.1.0.
+  static IconData get plus => const IconData(0xe3d4, fontFamily: 'Phosphor');
+  static IconData get minus => const IconData(0xe32a, fontFamily: 'Phosphor');
   static IconData get back => const IconData(0xe138, fontFamily: 'Phosphor');
   static IconData get next => const IconData(0xe13a, fontFamily: 'Phosphor');
   static IconData get close => const IconData(0xe4f6, fontFamily: 'Phosphor');

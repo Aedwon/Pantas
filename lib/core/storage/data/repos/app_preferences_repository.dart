@@ -77,7 +77,7 @@ class AppPreferencesRepository {
         );
   }
 
-  /// `minor` or `adult`. Only the group is kept, never the birth year.
+  /// `minor` or `adult`. Only the group is kept, never the age.
   Future<String?> ageGroup() => _deviceValue('age_group');
 
   Future<void> setAgeGroup(String group) => _setDeviceValue('age_group', group);

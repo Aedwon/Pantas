@@ -6,9 +6,12 @@ import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/onboarding_frame.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/pantas_field.dart';
+import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_keyboard_hints.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_age_gate_step.dart';
 
@@ -452,6 +455,49 @@ void main() {
     expect(find.widgetWithText(WebKeyHint, '↑'), findsOneWidget);
     expect(find.widgetWithText(WebKeyHint, '↓'), findsOneWidget);
     expect(find.text('Back'), findsWidgets);
+  });
+
+  testWidgets('wide: key hints wait for the first hardware key press',
+      (tester) async {
+    debugWebPlatformOverride = true;
+    addTearDown(() => debugWebPlatformOverride = null);
+    const size = Size(1440, 900);
+    tester.view
+      ..physicalSize = size
+      ..devicePixelRatio = 1;
+    addTearDown(() {
+      tester.view
+        ..resetPhysicalSize()
+        ..resetDevicePixelRatio();
+    });
+    await tester.pumpWidget(
+      WebKeyboardHints(
+        finePointer: false,
+        child: MaterialApp(
+          theme: buildLightTheme(web: true),
+          home: MediaQuery(
+            data: const MediaQueryData(size: size, disableAnimations: true),
+            child: Scaffold(body: _FrameHost(child: step())),
+          ),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    expect(find.text('\u2191'), findsNothing);
+    final before = tester.getTopLeft(find.text('Continue')).dy;
+    await tester.sendKeyEvent(LogicalKeyboardKey.arrowUp);
+    await tester.pumpAndSettle();
+    expect(find.text('\u2191'), findsOneWidget);
+    expect(find.text('\u2193'), findsOneWidget);
+    expect(tester.getTopLeft(find.text('Continue')).dy, before);
+  });
+
+  testWidgets('the range message has the error icon as well as the color',
+      (tester) async {
+    await pumpPhone(tester);
+    await type(tester, '300');
+    expect(find.byType(PantasFieldMessage), findsOneWidget);
+    expect(find.byIcon(PantasIcons.appError), findsOneWidget);
   });
 
   testWidgets('wide: the age field has focus as the step opens',

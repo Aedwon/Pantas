@@ -82,7 +82,7 @@ void main() {
           findsOneWidget,
         );
         expect(
-          find.text('Entered the wrong year? Email contact@pantas.study.'),
+          find.text('Entered the wrong age? Email contact@pantas.study.'),
           findsOneWidget,
         );
         expect(find.byType(ValueWheel), findsNothing);

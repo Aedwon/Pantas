@@ -12,7 +12,9 @@ import 'package:pantas/core/ui/components/hold_to_repeat.dart';
 import 'package:pantas/core/ui/components/offset_focus_ring.dart';
 import 'package:pantas/core/ui/components/onboarding_frame.dart';
 import 'package:pantas/core/ui/components/pantas_button_spec.dart';
+import 'package:pantas/core/ui/components/pantas_field.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
+import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/motion/pantas_effects.dart';
 import 'package:pantas/core/ui/motion/press_scale.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -24,6 +26,7 @@ import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_keyboard_hints.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/onboarding/application/onboarding_flow.dart';
@@ -240,7 +243,7 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep>
       "Sorry, this app isn't available for users under $_blockedMinimum.";
 
   static const _blockedHelp =
-      'Entered the wrong year? Email contact@pantas.study.';
+      'Entered the wrong age? Email contact@pantas.study.';
 
   @override
   Widget build(BuildContext context) {
@@ -443,16 +446,24 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep>
           ],
         ),
         const SizedBox(height: PantasSpace.s16),
-        Wrap(
-          alignment: WrapAlignment.center,
-          crossAxisAlignment: WrapCrossAlignment.center,
-          spacing: PantasSpace.s6,
-          runSpacing: PantasSpace.s6,
-          children: [
-            Text('Type it, or use', style: context.webTokens.sm),
-            const WebKeyHint('\u2191', keyboard: false),
-            const WebKeyHint('\u2193', keyboard: false),
-          ],
+        // Key hints wait for the first hardware key press (KeyHint README);
+        // the line keeps its room so nothing moves when they appear.
+        Visibility(
+          visible: WebKeyboardHints.visibleOf(context),
+          maintainSize: true,
+          maintainAnimation: true,
+          maintainState: true,
+          child: Wrap(
+            alignment: WrapAlignment.center,
+            crossAxisAlignment: WrapCrossAlignment.center,
+            spacing: PantasSpace.s6,
+            runSpacing: PantasSpace.s6,
+            children: [
+              Text('Type it, or use', style: context.webTokens.sm),
+              const WebKeyHint('\u2191'),
+              const WebKeyHint('\u2193'),
+            ],
+          ),
         ),
         const SizedBox(height: PantasSpace.s8),
         _statusLine(context, wide: true),
@@ -465,17 +476,31 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep>
     final base = wide
         ? context.webTokens.sm
         : context.type.footnote.copyWith(color: colors.secondaryLabel);
-    final message = _outOfRange
-        ? 'Enter an age from $_minAge to $_maxAge.'
-        : _tipShown
-            ? 'Hold + or \u2212 to go faster.'
-            : '';
+    // The line keeps the height of one line of the error type, so Continue
+    // does not move when the tip or the error comes and goes.
+    final line =
+        MediaQuery.textScalerOf(context).scale(PantasType.webSmall.fontSize!) *
+            PantasType.webSmall.height!;
+    final Widget content;
+    if (_outOfRange) {
+      content = const Center(
+        child: PantasFieldMessage(
+          'Enter an age from $_minAge to $_maxAge.',
+          error: true,
+        ),
+      );
+    } else {
+      content = Text(
+        _tipShown ? 'Hold + or \u2212 to go faster.' : '',
+        textAlign: TextAlign.center,
+        style: base,
+      );
+    }
     return Semantics(
       liveRegion: true,
-      child: Text(
-        message,
-        textAlign: TextAlign.center,
-        style: _outOfRange ? base.copyWith(color: colors.dangerText) : base,
+      child: ConstrainedBox(
+        constraints: BoxConstraints(minHeight: line),
+        child: content,
       ),
     );
   }
@@ -611,7 +636,7 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep>
       onReleased: _released,
       builder: (context, onPressed) => _StepGlyphButton(
         label: up ? '1 year older' : '1 year younger',
-        icon: up ? Icons.add : Icons.remove,
+        icon: up ? PantasIcons.plus : PantasIcons.minus,
         wide: wide,
         onPressed: atLimit ? null : onPressed,
       ),
@@ -647,6 +672,8 @@ class _StepGlyphButton extends StatelessWidget {
       enabled: enabled,
     );
     final reduced = MediaQuery.disableAnimationsOf(context);
+    // ds-raw: PantasButton has no icon-only form (label only), so the step
+    // buttons take the secondary kind's metrics and palette on a TextButton
     final button = TextButton(
       onPressed: onPressed,
       style: ButtonStyle(
@@ -675,7 +702,7 @@ class _StepGlyphButton extends StatelessWidget {
         side: WidgetStatePropertyAll(palette.ring ?? BorderSide.none),
         shape: WidgetStatePropertyAll(metrics.shape()),
       ),
-      child: Icon(icon, size: wide ? PantasSize.icon : PantasSpace.s28),
+      child: Icon(icon, size: PantasSize.icon),
     );
     return Semantics(
       label: label,
