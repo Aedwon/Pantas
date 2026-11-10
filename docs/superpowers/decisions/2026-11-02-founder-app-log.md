@@ -411,3 +411,29 @@ their own worktree, then Support, Numbers and Inbox. Build only after he approve
 5. **Five parts DS4 lacks** are drawn from DS4 tokens and marked on the boards: G1 nav counts,
    G2 the account menu trigger, G3 the Pro coverage timeline, G4 the sign-in layout, G5 big-number
    tiles on Numbers.
+
+## November 10, 2026: spec review, Posts and Content Pass back in, board comments
+
+Aedwon's words on the spec and boards, verbatim (relayed by the manager): "in the Founder app 'Posts
+and Content Pass are not tabs in this build' what was my exact words? i now feel it should be in the
+founder app / also i made some comments in the boards / i will allow you to consult a Fable 5.2 High
+agent on advice whether how to go from here, but be efficient in getting its advice since it burns a
+lot of tokens"
+
+His earlier words, as answered: Nov 2, weekly tasks: "Answer students (Recommended),Check numbers
+(Recommended),Review question reports,Make marketing posts". Nov 9, on the Posts tab: "1. okay do what
+you recommend", accepting "a separate spec later, after Content Pass merges and you give marketing
+direction". Content Pass as a tab was a lead ruling (Nov 9, ruling 3), never his answer.
+
+Reversal: Posts belongs in the founder app, and Content Pass likely too. The Nov 9 Posts answer and
+lead ruling 3 are superseded pending his answers on how. The spec is not approved; no build starts.
+
+His board comments (canvas version 13, verbatim; not sent to Claude, so no canvas reply was possible):
+
+- D4RefundCard, on the footer buttons: "terrible placement of buttons, optimize this to be more elegant and intuitive"
+- D4RefundQr, on the QR Ph notice: "let me upload a screenshot as reference. then the system can try to optically detect the reference number itself (OCR i think, but you suggest the most reliable way/techniques for this), as well as the necessary compressions for the photo itself so they don't use up so much of the storage"
+- D4Numbers: "i'm not satisfied with what statistics are shown here, and how they're shown. i should be able to see things like MAU DAU or something, users per exam, marketing things, etc. they're missing / what i'm pertaining to are data that would be useful to me to make decisions. this idea is still cloudy in my head and i don't have the vocabulary to express it, but i need data to base my decisions off of"
+
+Process note: the Numbers tab was settled on Nov 2 as "Core numbers" without asking what decisions he
+makes with numbers. The refund card board passed the DS4 review with two stacked footer buttons; the
+review checked rules, not whether the flow reads well.
