@@ -66,7 +66,10 @@ jobs:
       - name: Test shards partition the test files
         # The test shards must together run every test file outside
         # test/goldens exactly once. A file in no shard would run nowhere.
-        run: dart tool/ci/shard_tests.dart --check --shards 8
+        run: |
+          dart tool/ci/shard_tests.dart --check --shards 8
+          dart tool/ci/bundle_tests.dart --check --shards 8 --bundles 4
+          dart tool/ci/bundle_tests.dart --report | head -12 | tee -a "$GITHUB_STEP_SUMMARY"
 
       - name: gitleaks
         # On a manual run the action scans the whole history, which holds old
@@ -152,9 +155,11 @@ jobs:
 
       - uses: ./.github/actions/setup-app
 
-      - name: Pick this shard's test files
-        # Fails on an empty shard. Files are balanced on tool/ci/test_timings.json.
-        run: dart tool/ci/shard_tests.dart --shard ${{ matrix.shard }} --shards 8 > shard-files.txt
+      - name: Pick this shard's test entry points
+        # Fails on an empty shard. Files are balanced on tool/ci/test_timings.json,
+        # then bundled: a few generated entry files that run many test files,
+        # plus the files that must stay single (tool/ci/bundle_tests.dart).
+        run: dart tool/ci/bundle_tests.dart --shard ${{ matrix.shard }} --shards 8 --bundles 4 > shard-files.txt
 
       - name: Unit + widget tests
         env:
