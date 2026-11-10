@@ -78,7 +78,9 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    # Shards reached about 30 minutes with the DS4 matrix tests (Nov 10). The
+    # CI speed plan (docs/superpowers/plans/2026-11-08-ci-speed.md) is the fix.
+    timeout-minutes: 40
     strategy:
       fail-fast: false
       matrix:
