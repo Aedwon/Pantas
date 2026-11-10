@@ -244,6 +244,10 @@ standalone web conversations outside a configured project. Before executing a
 saved assignment, refresh the policy from main. Do not reuse an old dispatch's
 workflow as authority merely because its product task remains valid.
 
+Every task or feature logs its estimate in `docs/superpowers/estimates/velocity-log.md`
+before work starts and its actual times when done, so estimates can be calibrated
+against real speed. Status reports to Aedwon carry a time estimate.
+
 Check available capacity and ownership before dispatch. Isolate workers in
 separate worktrees. Serialize shared devices, accounts, browser profiles, and
 generated outputs. Do not launch duplicate workers to recover an uncertain dispatch.
