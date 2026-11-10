@@ -69,8 +69,9 @@ class MonthRiseSwitcher extends StatelessWidget {
 /// can be added. Picking another month with the buttons keeps the month only
 /// and drops any day, so the day line asks "No day yet?". The calendar shows
 /// the month of [value], or the month of [today] while [value] has none. It
-/// runs from the month of [today] to the end of next year, like the wide
-/// calendar, and the typed field takes the same range.
+/// starts at the month of [today] and has no end, as the old phone picker had
+/// none; the typed field takes the same range. The wide calendar keeps its own
+/// end.
 class MonthFirstDatePicker extends StatefulWidget {
   const MonthFirstDatePicker({
     required this.value,
