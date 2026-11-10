@@ -1,7 +1,7 @@
-# Founder app: Owner Inputs, Support, Numbers and Inbox (Nov 10, 2026)
+# Founder app: Support, Growth, Content and Owner Inputs (Nov 10, 2026)
 
 Status: written for Aedwon's approval. Not built. Complexity: Balanced (Aedwon, Nov 2 and Nov 9).
-Build order: Owner Inputs first, then Support, Numbers and Inbox (Aedwon, Nov 9).
+Build order: Part 1, "Build order". Posts and Content Pass are in (Aedwon, Nov 10). Source tracking is in (Aedwon, Nov 10).
 Decision record: `docs/superpowers/decisions/2026-11-02-founder-app-log.md` (every choice, the
 options offered, his exact words and the lead rulings of Nov 9).
 Policy: main at b2621b64e. Code facts: `web/design-system-4` at 89559a2e2.
@@ -14,26 +14,31 @@ Boards: Claude Design canvas "Pantas Founder App", page "DS4" (link in Part 1, "
 ### What it is
 
 A private app on your Mac, opened from Spotlight like Content Pass. You sign in with Google each
-time you open it. It has four tabs:
+time you open it. Design system 4.0 allows four menu items, so the app has four, each holding what
+you asked for:
 
-1. **Owner Inputs** (built first). The things only you can give, each with a field or a switch.
-   Sessions on this Mac read this list, so you no longer tell each session when something is ready.
-2. **Support.** Find a student by email, public ID or account ID. See what needs you, their Pro
-   time, their payments, and act: grant Pro, end Pro, record a refund, delete their data.
-3. **Numbers.** Sign-ups, payments, failed payments, refunds, server errors and web app errors for
-   today, 7 days or 30 days.
-4. **Inbox.** Questions students reported from the app, to dismiss or mark for fixing.
+1. **Support.** Find a student by email, public ID or account ID. See what needs you, their Pro
+   time and payments, and act: grant Pro, end Pro, record a refund, delete their data.
+2. **Growth.** Numbers that answer your decisions (the question list below), where students come
+   from, your links and QR codes, campaign codes, and what you spend per channel. Posts joins this
+   tab after its own short brainstorm.
+3. **Content.** Questions students reported, to dismiss or mark for fixing, and a tile that opens
+   Content Pass.
+4. **Owner Inputs.** The things only you can give, each with a field or a switch. Sessions on this
+   Mac read this list, so you no longer tell each session when something is ready.
 
-Posts and Content Pass are not tabs in this build (your Nov 9 choice; Content Pass stays its own app).
+Posts and Content Pass are in the founder app, as you decided on Nov 10. Content Pass opens as it is
+today; it moves inside the app only after you stop refining it. Posts needs about 30 minutes with you
+first, to settle two or three post templates and one channel.
 
 ### The look
 
 The app follows design system 4.0, like the student app. This replaces the Green frame you picked on
 Nov 2: its green window frame, card shadows and red status marks break the system's rules. What you
 chose in it stays: the page that says what needs you, the student page with the Pro time bar,
-confirmations in a side panel, and Delete Data set apart from everyday actions. One change: Remove
-Pro and Delete Data confirm in a center dialog, because the system confirms actions that destroy
-something in a dialog. Grant Pro and refunds keep the side panel.
+confirmations in a side panel, and Delete Data set apart from everyday actions. Remove Pro and Delete
+Data confirm in a center dialog, because the system confirms actions that destroy something in a
+dialog. Grant Pro and refunds keep the side panel.
 
 ### Owner Inputs
 
@@ -50,92 +55,162 @@ Thirteen items, in five groups:
 Each item says what it unblocks and shows Not Yet or Ready. A value item becomes Ready when you save
 a value. A done item has a switch. A key is pasted once and goes straight into Google's secret store
 for the project you pick. The app never keeps it or shows it again; it shows only the date you set it.
-After a key changes, a session must redeploy before the live app uses it.
-
-Values stay on your Mac, never in the public repository. Sessions that run on another computer
-cannot see them.
+After a key changes, a session must redeploy before the live app uses it. Values stay on your Mac,
+never in the public repository.
 
 ### Support
 
-- **Needs you.** The Support page lists what needs you: double payments, passes paid after their
-  exam date, and refunds PayMongo has not confirmed. With nothing waiting it says "All clear." The
-  Support tab shows how many items wait.
+- **Needs you.** Double payments, passes paid after their exam date, and refunds PayMongo has not
+  confirmed. With nothing waiting it says "All clear." The Support menu item shows how many wait.
 - **Student page.** Pro end date, exam and level, every source of Pro on one time bar (payments,
   trials, beta grants, the beta reward, your grants), and each payment with its refund state.
 - **Grant Pro.** Pick a level, a length (1 week, 2 weeks, 1 month or 3 months) and a reason. Grants
-  are recorded in the Pantas records, not RevenueCat, so each can be removed alone. Guest accounts
-  with no email cannot get one.
-- **Remove Pro.** Ends free time (grants, trials). It can also end paid time, but only for a Terms
-  breach, with a warning that no money goes back.
-- **Refunds.** Card payments: the app checks the refund is allowed, copies the payment ID and opens
-  PayMongo; the refund is logged when PayMongo reports it. QR Ph payments: PayMongo cannot refund
-  them, so you send a bank transfer and record it in the app with the amount and bank reference. The
-  app then ends the paid time that money covered.
+  are recorded in the Pantas records, so each can be removed alone. Guest accounts cannot get one.
+- **Remove Pro.** Ends free time. It can end paid time only for a Terms breach, with a warning that
+  no money goes back.
+- **Card refunds.** One button, "Refund in PayMongo": it copies the payment ID and opens PayMongo.
+  The payment ID also shows in the panel with a copy button. The refund is logged when PayMongo
+  reports it. (Your comment: the two numbered buttons are gone.)
+- **QR Ph refunds.** PayMongo cannot refund them, so you send a bank transfer, then drop or paste the
+  bank's screenshot. The Mac's built-in text reading fills in the reference number; you check it and
+  save. The image is shrunk to about 150 KB and kept with the log entry where only you can see it.
+  The app then ends the paid time that money covered. Before this is promised, the reading is tested
+  on five real screenshots from GCash, Maya, BPI and BDO, which need to come from you.
 - **Delete Data.** The same full deletion students get. You type the student's email and pick a
   reason. It is refused while a refund or dispute is open. The log keeps the account ID, not the email.
-- **Log.** Every grant, removal, recorded refund and deletion is saved with the time and reason, and
-  shown on the Log page.
-- **Staging.** A switch moves the app to the staging project to rehearse. A banner says real students
-  are not touched there.
+- **Log** of every action, and a **Staging** switch to rehearse without touching real students.
 
-### Inbox and the report sender
+### Where students come from (marketing attribution)
+
+Goal: know which channels, campaigns and posts bring students who study and pay, and what each costs.
+
+- **Tagged links for every channel.** Growth makes a link per channel and campaign (Facebook page, a
+  Facebook group, TikTok, a school talk) with standard tags (UTM). Each link also gets a short link
+  (pantas.study/go/...) and a QR code for posters and talks. [pantas-web]
+- **First and last source.** Each account keeps the first source that brought the person and the
+  last one before sign-up. Example: first saw a Facebook post, signed up after a TikTok video.
+- **Kept across the hand-off.** A visitor who lands on pantas.study and signs up on app.pantas.study
+  keeps their source. [pantas-web and the app]
+- **"How did you hear about us?"** One optional question at sign-up, for sources links cannot see:
+  Messenger, Facebook groups, friends, school. Skippable. [app]
+- **Referral and campaign codes.** Each student's public ID works as a referral code
+  (app.pantas.study/?ref=...). You create campaign codes in Growth, for example one per giveaway, so
+  winners and entrants are counted by campaign. Codes give no discount: prices stay as in the pricing
+  record. Paid gift codes stay deferred.
+- **The funnel, per source:** visit, sign-up, first study session, first Today plan done, trial
+  started, paid, renewed. Visits are counted on the website; every later step comes from records the
+  app already keeps. [pantas-web for visits]
+- **Retention and money per source:** how many come back after one and four weeks, and revenue and
+  refunds by source.
+- **Spend per channel.** You type what you spent per channel and month (boosted posts, printing). The
+  app shows the cost per sign-up and per paying student.
+- **Privacy, including minors.** Sources appear only as totals, never as one student's trail. No
+  advertising pixels from Facebook, TikTok or Google, so no ad network sees our visitors. No IP
+  addresses are kept. An agent drafts the privacy notice line, Codex critiques it, and you only check
+  it (the standing rule for legal text). [pantas-web privacy page and the app]
+- **Website copy stays yours.** The website changes are invisible scripts and the short links. Any
+  wording a visitor sees on pantas.study goes to you for approval first.
+
+Things you may not have listed, now included: search and direct visits (counted from where the
+visit came from); students sharing the app (a shared link carries their referral code); sign-ups by
+week, so you can compare campaigns over time; junk sign-ups left out of totals. Not included: Facebook
+and TikTok post reach, which only those sites know. You can type it into Growth, or a later build
+can read it from them.
+
+### Growth: the questions the numbers answer
+
+You confirm or change this list; the screens are then drawn to answer it.
+
+1. Which channels bring sign-ups, and which bring paying students? Decides where to spend effort.
+2. What does one paying student cost per channel? Decides which channel to keep or cut.
+3. Which campaigns, links, codes and QR codes work? Decides which to repeat.
+4. Where do people drop off between visit and payment? Decides which step to fix first.
+5. How many people study each day, week and month, and is it growing? Shows if the product is
+   healthy.
+6. Do students come back after one week and after four, by sign-up week and source? Shows if
+   onboarding and reminders work.
+7. Which exams do students choose, and how close are their exam dates? Decides which exam's content
+   to improve or add next, and when to run campaigns.
+8. Which parts of the app do students use: lessons, quizzes, mocks? Decides where to build next.
+9. Does Pro sell: trials started, trials that pay, sales by plan and level, refunds? Decides pricing
+   and the Pro page.
+10. Do paying students renew, and how much money comes in each month, by source? Shows if revenue
+    holds.
+11. Is anything broken: server errors, web app errors, failed payments? Decides what to fix before
+    spending on marketing.
+12. Which questions get reported most? Decides which content to fix first.
+
+### Content: reports and Content Pass
 
 Students can already report a question, but reports stay on their device. This build sends them to
-the server, with daily limits, and changes "Saved on this device." to say the report was sent. The
-Inbox lists them as New, Needs Fix or Done. "Needs Fix" puts a report on a list content sessions read.
-Beta feedback stays in the Firebase console; it ends with the beta.
+the server, with daily limits, and the app says the report was sent. Content lists them as New, Needs
+Fix or Done. "Needs Fix" puts a report on a list content sessions read. Beta feedback stays in the
+Firebase console; it ends with the beta. A tile opens Content Pass.
 
-### Numbers
+### Build order
 
-Sign-ups, payments and refunds come from the Pantas records. Failed payments need one more PayMongo
-event on the payment webhook. Web app errors come from the speed and error reports the web app
-already sends; they are kept 30 days. Firebase cost is a link to the billing page.
+1. Owner Inputs, with the app shell, sign-in and the Content Pass tile.
+2. Source capture on the website and in the app, so no sign-up is lost before launch. It ships with
+   the next app release.
+3. Support, with your comment fixes.
+4. Content: reports and the report sender.
+5. Growth: numbers, links, codes and spend, after you confirm the question list.
+6. Posts, after its brainstorm.
+7. The outside Codex audit of money and deletion, then production deploys with your go.
 
 ### What it costs
 
-- **Time (estimates of agent work):** Owner Inputs with the app shell and sign-in, about 1 to 2
-  days. Support, Numbers and Inbox, about 5 to 7 days more. The outside Codex audit and fixes, about
-  a day.
-- **Your time:** a few one-time Google Cloud setup steps for sign-in (an agent prepares exact steps or
-  does what its access allows); the visual check on staging data; approving the production deploys.
-- **Server changes on production,** each deployed only with your go: the founder grant type, the
-  deletion path for a named account, the failed-payment event, the report sender, and the founder
-  log. The student app changes once: the report wording.
-- **Risk:** this app can end Pro and delete accounts on production. Limits: only your Google account
-  can sign in; access lasts one hour and is never saved on disk; deletion needs the typed email; every
-  action is logged; Codex audits the money and deletion code before it reaches production.
-- **Upkeep:** when payment rules change in the server code, the app follows, because it uses the same
-  code rather than a copy.
+- **Time (estimates of agent work):** Owner Inputs, about 1 to 2 days. Source capture, about 2 days.
+  Support, about 4 days. Content, about 1 day. Growth, about 3 to 4 days. Audit and fixes, about a
+  day. Posts is estimated after its brainstorm.
+- **Your time:** confirm the question list (about 15 minutes); the Posts brainstorm (about 30
+  minutes); five bank screenshots; a few one-time Google Cloud sign-in steps; approving website
+  wording and production deploys; checking the privacy line.
+- **Changes outside the founder app,** each deployed only with your go: on pantas.study, a
+  first-party script, a visit counter and short links; in the student app, the optional question,
+  source capture and the report wording; on the server, the founder grant type, the deletion path,
+  the failed-payment event, the report sender, the source records and the founder log.
+- **Risk:** this app can end Pro and delete accounts. Limits: only your Google account can sign in;
+  access lasts one hour and is never saved on disk; deletion needs the typed email; every action is
+  logged; Codex audits money and deletion before production. Source data is kept as totals only.
+- **Checks first, cheaply:** a half-day trial that the server code works inside the Mac app; a script
+  that confirms daily and monthly active students can be counted from today's records; the five
+  screenshot test.
 
 ### What needs you
 
-- Approve this section and the boards.
-- Later, at deploy time: your go for each production deploy.
-- Over time: fill in Owner Inputs as each item becomes available.
+1. Confirm or change the Growth question list.
+2. A 30-minute Posts brainstorm, when you have time.
+3. Five real bank transfer screenshots for the reading test.
+4. Approve this section, then the revised boards.
+5. Later: website wording, the privacy line, and each production deploy.
 
 ### What you approve
 
 - This Part 1.
-- The 20 DS4 boards on the "DS4" page of the founder app canvas (version 13). The built app
-  must match them on the screens they show. Screens or states not drawn follow DS4's own patterns.
+- The DS4 boards. Version 13 on the founder app canvas covers Owner Inputs and Support. Revised
+  boards follow for your three comments, the four-item menu, Growth and Content, each reviewed and
+  rendered before you see them. The built app must match the approved boards.
   Canvas: https://claude.ai/artifact/8TwdfQP8rcvMrD6uopYC3k
 
 ### How completion is judged
 
-- Owner Inputs: every item can be set; a key reaches Google's secret store on the chosen project and
-  is not stored on the Mac; a session can read which items are ready from the file.
+- Owner Inputs: every item can be set; a key reaches Google's secret store and is not stored on the
+  Mac; a session can read which items are ready.
 - Support: on staging, each action works on test accounts and shows in the log and on the time bar.
-  A QR Ph refund recorded in the app shortens or ends the pass exactly as the manual runbook did.
-- Deletion removes the same records as student self-deletion (a test compares them).
-- Numbers match counts taken directly from Firestore and the error log for the same period.
-- A report sent from the staging web app appears in the Inbox.
-- Codex's outside audit of money and deletion has no open finding.
-- Your visual check matches the boards.
+  A QR Ph refund recorded in the app matches the manual runbook's result.
+- Deletion removes the same records as student self-deletion.
+- Attribution: a test visit through a tagged link, a short link and a QR code, from pantas.study to
+  sign-up on staging, shows the right first and last source in Growth.
+- Growth numbers match counts taken directly from the records for the same period.
+- A report sent from the staging web app appears in Content.
+- Codex's outside audit has no open finding. Your visual check matches the boards.
 
 ### Not in this build
 
-Posts, Content Pass as a tab, email in the Inbox, refunds sent from inside the app, a real Firebase
-cost figure, an export before each deletion, and alerts while the app is closed (Hardened).
+A full Content Pass port, email in the app, refunds sent from inside the app, a real Firebase cost
+figure, Facebook and TikTok reach read from those sites, advertising pixels, paid gift codes,
+discount codes, an export before each deletion, and alerts while the app is closed.
 
 ---
 
@@ -284,6 +359,64 @@ Read on `web/design-system-4` at 89559a2e2 unless stated.
     G1 a count at the end of a nav item (warning color and icon when an urgent item waits); G2 the
     account block as a menu trigger; G3 the Pro coverage timeline (ProgressBar segments with dates);
     G4 the sign-in layout; G5 big-number tiles on Numbers.
+
+17. **Menu.** Four destinations (DS4 SidebarNav limit): Support, Growth, Content, Owner Inputs.
+    Growth holds Numbers, Sources, Links and Codes, Spend, and later Posts, as sections or a
+    SegmentedControl view switch. Content holds Reports (formerly Inbox) and the Content Pass tile.
+    The Content Pass tile launches `~/Applications/Content Pass.app` through the native shell
+    (`NSWorkspace`); no code from Content Pass is imported.
+18. **Card refund (Nov 10 comment).** One primary "Refund in PayMongo" copies the payment ID to the
+    clipboard, opens the PayMongo payment page, and shows a Toast "Payment ID copied". The body shows
+    the payment ID in a row with a copy IconButton. Footer: tertiary Cancel and the one primary.
+19. **QR Ph screenshot (Nov 10 comment).** Drop, paste or pick an image in the QR Ph drawer. The native
+    shell runs Apple Vision text recognition (`VNRecognizeTextRequest`, accurate level) on device and
+    returns lines to the page through a `WKScriptMessageHandler`. The page proposes the reference
+    number from labeled lines ("Ref No.", "Reference", "Transaction ID") and long digit runs; the
+    field stays editable and must be confirmed. The shell re-encodes the image (ImageIO) to WebP or
+    JPEG, longest side 1600 px, about 150 KB, strips metadata, and the server stores it at Storage
+    `founderReceipts/{logId}` with no client access. Kept 5 years with the business records, then
+    deleted. A five-screenshot test (GCash, Maya, BPI, BDO) gates the spec's promise; if recognition
+    fails it, the field is typed by hand and the upload still works.
+20. **Attribution capture on pantas.study** (pantas-web repository, its own branch and review):
+    - A small first-party script on every page reads UTM tags, `ref`, `code`, the referrer host and
+      the landing path. It writes one cookie `pantas_src` on `Domain=.pantas.study` (so
+      app.pantas.study can read it), `SameSite=Lax`, `Secure`, 90 days: `{first, last}` touches, each
+      `{source, medium, campaign, content, ref, code, referrerHost, landing, at}`. First touch is set
+      once; last touch is replaced on each tagged visit or external referrer. No fingerprinting, no IP.
+    - The Cloudflare worker counts visits per day by source, medium, campaign and landing path in its
+      D1 database, totals only, skipping known bots. Short links `/go/{slug}` redirect (302) to a
+      tagged target and count the click. Link definitions are edited from the founder app through a
+      worker admin endpoint authenticated by a token in Google Secret Manager (the founder service
+      account may read that one secret).
+    - Any visible wording on the site goes to Aedwon first. The privacy page line is agent-drafted,
+      Codex-critiqued (written rule 5), and published with the app change.
+21. **Attribution in the app and server.** On account creation the client reads `pantas_src` and any
+    `ref` or `code` URL parameter on app.pantas.study and calls `recordAttribution` once (App Check,
+    signed-in). The server validates fields (lengths, allowed characters), resolves `ref` through the
+    public ID index and `code` through `campaignCodes/{code}`, and writes
+    `users/{uid}/server/attribution` `{first, last, heardFrom?, referrerUid?, campaignCode?, at}`. It
+    is deleted with the account. "How did you hear about us?" is one optional, skippable question
+    after sign-up with fixed choices (Facebook page, Facebook group, Messenger or a friend, TikTok,
+    School or review center, Search, Other) stored as `heardFrom`. Students' shared links carry
+    `ref=<publicId>`. Funnel steps come from existing records: Auth creation (sign-up), first
+    `ingestSession` (first session), first full Today plan (first plan done), `server/trial` (trial),
+    PayMongo grants (paid), a later paid grant of the same tier starting at the previous end
+    (renewed). Junk sign-ups (no session within 7 days and a disposable email domain) are excluded
+    from totals and counted separately.
+22. **Aggregation.** A scheduled function writes daily totals to `founderStats/{date}` (by source,
+    campaign, code, exam, cohort week). The founder app reads only these totals; no screen shows one
+    student's source. Totals below 3 show as "fewer than 3". Daily, weekly and monthly active
+    students count distinct accounts with a study session in the window. Spend: `founderSpend/{month}_
+    {channel}` in centavos with a note; cost per sign-up and per paying student divide spend by first-
+    touch totals for the month. Campaign codes: `campaignCodes/{code}` `{channel, campaign, startsAt,
+    endsAt}`; codes never change prices. Before the Growth build, a one-off staging script confirms
+    each of the 12 questions can be computed from these records; a question that cannot is reported
+    back to Aedwon, never filled with an estimate.
+23. **Minors.** Attribution for accounts in the minor age group is recorded like any other but only
+    ever shown inside totals. No third-party pixels or ad SDKs on the site or the app. The privacy
+    notice line covers the purpose (understanding which channels bring students) and its basis; the
+    drafter and Codex decide whether minors need the guardian's choice before attribution is kept,
+    and the build follows that result.
 
 ### Boards
 
