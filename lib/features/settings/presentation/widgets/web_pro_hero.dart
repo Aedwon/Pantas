@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
+import 'package:pantas/features/settings/presentation/widgets/pro_perks.dart';
 
 class WebProHero extends StatelessWidget {
   const WebProHero({required this.heading, this.detail, super.key});
@@ -35,28 +37,19 @@ class WebProHero extends StatelessWidget {
         ],
       ],
     );
-    const perks = [
-      'Unlimited mock exams',
-      'Notes on why your answer was wrong',
-      'The figures behind your study habits',
-      "Progress that's always backed up",
-      'Results by topic and lesson',
-    ];
     final features = Padding(
       padding: const EdgeInsets.only(top: PantasSpace.s4),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          for (final (index, feature) in perks.indexed) ...[
+          for (final (index, feature) in proPerks.indexed) ...[
             if (index > 0) const SizedBox(height: PantasSpace.s8),
             Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CustomPaint(
-                  size: const Size.square(PantasSpace.s14),
-                  painter: _CheckPainter(c.accent),
-                ),
-                const SizedBox(width: PantasSpace.s10),
-                Expanded(child: Text(feature, style: perkStyle)),
+                Icon(feature.$1, color: c.accent, size: PantasSize.icon),
+                const SizedBox(width: PantasSpace.s12),
+                Expanded(child: Text(feature.$2, style: perkStyle)),
               ],
             ),
           ],
@@ -95,7 +88,7 @@ class WebProHero extends StatelessWidget {
           // heading stacks the two.
           final scaler = MediaQuery.textScalerOf(context);
           var longest = 0.0;
-          for (final perk in perks) {
+          for (final (_, perk) in proPerks) {
             final painter = TextPainter(
               text: TextSpan(text: perk, style: perkStyle),
               textDirection: Directionality.of(context),
@@ -105,8 +98,8 @@ class WebProHero extends StatelessWidget {
             if (painter.width > longest) longest = painter.width;
             painter.dispose();
           }
-          // Tick, its gap, and a hair for rounding.
-          final perksWidth = longest + PantasSpace.s14 + PantasSpace.s10 + 2;
+          // Icon, its gap, and a hair for rounding.
+          final perksWidth = longest + PantasSize.icon + PantasSpace.s12 + 2;
           final headingWidth =
               constraints.maxWidth - PantasSpace.s24 - perksWidth;
           if (constraints.maxWidth < 544 || headingWidth < 200) {
@@ -131,30 +124,4 @@ class WebProHero extends StatelessWidget {
       ),
     );
   }
-}
-
-/// The board's 14 px tick: stroke 3 on a 24 unit box, round caps and joins.
-class _CheckPainter extends CustomPainter {
-  const _CheckPainter(this.color);
-  final Color color;
-  @override
-  void paint(Canvas canvas, Size size) {
-    final unit = size.width / 24;
-    final path = Path()
-      ..moveTo(5 * unit, 12.5 * unit)
-      ..lineTo(9.5 * unit, 17 * unit)
-      ..lineTo(19 * unit, 7 * unit);
-    canvas.drawPath(
-      path,
-      Paint()
-        ..color = color
-        ..style = PaintingStyle.stroke
-        ..strokeWidth = 3 * unit
-        ..strokeCap = StrokeCap.round
-        ..strokeJoin = StrokeJoin.round,
-    );
-  }
-
-  @override
-  bool shouldRepaint(_CheckPainter oldDelegate) => color != oldDelegate.color;
 }
