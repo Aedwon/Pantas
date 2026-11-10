@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 260" width="360" height="260">
+<title>A plain hexagon labeled Hexagon, with the question: sum of interior angles equals what</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+</defs>
+<rect width="360" height="260" rx="14" fill="url(#bg)"/>
+<polygon points="255,100 217.5,165 142.5,165 105,100 142.5,35 217.5,35" fill="#050505" fill-opacity="0.22" stroke="#050505" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="180" y="106" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="700" fill="#010101">Hexagon</text>
+<text x="180" y="196" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#010101">Sum of interior</text>
+<text x="180" y="215" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#010101">angles = <tspan fill="#050505">?</tspan></text>
+</svg>

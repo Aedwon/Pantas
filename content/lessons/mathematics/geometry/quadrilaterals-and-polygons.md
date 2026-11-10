@@ -309,8 +309,6 @@ $$s = 10$$
 
 In quadrilateral $PQRS$, the diagonals $PR$ and $QS$ cross at $O$. Point $O$ is the midpoint of both diagonals. The diagonals are perpendicular. Diagonal $PR$ is not equal in length to diagonal $QS$. What is the most specific name for $PQRS$?
 
-<!-- ILLUSTRATION: quadrilateral PQRS with diagonals PR and QS crossing at O at a right angle, equal tick marks on PO and OR, equal double tick marks on QO and OS, and PR drawn visibly longer than QS -->
-
 **Solution:**
 Test each property against the family.
 
@@ -318,6 +316,8 @@ Test each property against the family.
 2. The diagonals are perpendicular, so the parallelogram is a rhombus.
 3. The diagonals are not equal, so it is not a rectangle. Therefore it is not a square.
 4. The most specific name is rhombus.
+
+<!-- ILLUSTRATION: quadrilateral PQRS with diagonals PR and QS crossing at O at a right angle, equal tick marks on PO and OR, equal double tick marks on QO and OS, and PR drawn visibly longer than QS -->
 
 ## Speed Tricks & Shortcuts
 

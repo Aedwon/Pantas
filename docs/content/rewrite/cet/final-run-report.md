@@ -330,3 +330,15 @@ Resume here, in order:
 2. Astra stage 2: `astra/loop.sh` over the 61 lessons not in `astra/results/` (start with parallel-perpendicular-lines and measures-of-variability), keeping total room above the floor. Lead rules each finding (`stage1-rulings.md` bar), Sonnet fixes, independent Opus check.
 3. Figures: about 194 ILLUSTRATION markers in the 77 lessons, plus the earths-motions sidereal-day figure removed in round 6. Run the pilot (2 figures, brief above) first to measure cost. SVG checker: `tools/check_lesson_svgs.py` on `origin/web/lesson-svg-r1`.
 4. P9 review package for Aedwon.
+
+## Update, November 10: figures started, paused again
+
+- Resumed November 10, policy at origin/main 2b7b1ddbd. Figure phase started (`figures-plan.md`): 44 of 194 figures drawn in style D, each rendered offscreen and checked by the lead, 34 also accuracy-checked by Opus. The earths-motions sidereal-day figure is redrawn with the correct "about 1°", which closes the round-6 removal.
+- Six markers moved unchanged to after their worked solutions, because their figures would show the answer (quadratic-equations #9 and #12, coordinate-geometry #5, #7 and #8, quadrilaterals #11).
+- Paused again the same day at Aedwon's request, through the manager. Astra stage 2 did not start (Codex resets November 11 at 20:49).
+
+Resume here, in order:
+1. Refresh policy from main.
+2. Figures: the Opus accuracy check for batch 3, then batches 4 to 12 and 14 to 19 (`figures-plan.md`, "Paused").
+3. Astra stage 2 on 61 lessons, after `codex-pick --status` (`astra/plan.md`).
+4. Update the illustration inventory; P9 review package.

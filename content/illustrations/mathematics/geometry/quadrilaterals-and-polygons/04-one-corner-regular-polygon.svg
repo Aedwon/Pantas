@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 240" width="360" height="240">
+<title>One corner of a regular polygon: a side extended past the vertex with a dashed line, and the exterior angle of 24 degrees marked</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+</defs>
+<rect width="360" height="240" rx="14" fill="url(#bg)"/>
+<line x1="81.6" y1="110.4" x2="185" y2="148" stroke="#010101" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="185" y1="148" x2="269.6" y2="117.2" stroke="#020202" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="6 5"/>
+<line x1="185" y1="148" x2="271.3" y2="64.6" stroke="#010101" stroke-width="2.5" stroke-linecap="round"/>
+<path d="M220.7 135 A38 38 0 0 0 212.3 121.6" fill="none" stroke="#050505" stroke-width="2.5" stroke-linecap="round"/>
+<text x="264.4" y="157.8" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#050505">24°</text>
+<text x="180" y="216" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="600" fill="#010101">Sides <tspan font-family="KaTeX_Math, serif" font-weight="400">n</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400"> = </tspan><tspan fill="#050505">?</tspan></text>
+</svg>
