@@ -453,3 +453,32 @@ trial, paid, renewal); retention and revenue by source; manual spend per channel
 (aggregate only, no third-party ad pixels, privacy-notice line drafted by an agent). Parts needing
 pantas-web are marked; website copy stays his. Still open from the Fable round: Content Pass as a
 tile or a port, the Posts brainstorm, and his confirmation of the Numbers question list.
+
+## November 10, 2026: Content Pass full port, Posts and Numbers in this thread
+
+Options offered (relayed by the manager): Content Pass as a tile now (about half a day) or a full
+port now (3 to 5 days, pauses his refining); Posts after a 30-minute brainstorm (recommended) or a
+generic post maker now; the Numbers question list confirmed by him (recommended) or core numbers
+until after launch; source tracking yes or no.
+
+Aedwon's answers, verbatim (relayed by the manager): "full port / also for the other 2 items, okay do what you recommend. i will have the questioning on the assigned thread, not with you". On the attribution scope: "okay that sounds good to me".
+
+Result: Content Pass is fully ported into the founder app. Posts gets its brainstorm first, held in
+this thread. The Growth question list is drafted here and he confirms it here. Source tracking stays
+as briefed. From now on he talks to the founder app lead directly; the manager tracks status only.
+
+Lead rulings for the port (D191):
+
+1. Content Pass shows lessons and questions through the app's real Flutter screens. Those cannot be
+   rebuilt in the founder app's plain web pages without losing the point of the tool. The port
+   therefore moves Content Pass into the founder app as its "Review" view: the reviewer controls
+   (queue, filters, device, theme, plan, tags, comment, Looks Good, Next) are rebuilt on DS4 in the
+   founder app, and the center pane keeps the real Flutter screens in a frame served by the founder
+   app's local server. The export and seed pipeline (Dart) runs as a helper the founder server starts.
+   One app, one window, one sign-in; the separate Content Pass app is retired after the port.
+2. His Content Pass choices carry over: controls grouped as placement B (exam and status on the
+   queue; device, theme and plan over the screen), four device sizes (Desktop, Tablet portrait,
+   Tablet landscape, Phone), Free and Pro, keyboard keys, notes file and its format, chrome motion.
+   His "green" selected state for those controls conflicts with DS4's neutral SegmentedControl; the
+   board shows the DS4 version and the note asks him.
+3. His refining pauses on the old app while the port runs; changes he wants go into the port.
