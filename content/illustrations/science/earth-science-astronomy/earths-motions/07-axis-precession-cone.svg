@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 392" width="360" height="392">
+<title>Earth axis tilted 23.4 degrees traces a slow cone in about 26,000 years: it points to Polaris now and to Vega in about 12,000 years</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+<radialGradient id="eg" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#010101" stop-opacity="0.04"/><stop offset="1" stop-color="#010101" stop-opacity="0.18"/></radialGradient>
+</defs>
+<rect width="360" height="392" rx="14" fill="url(#bg)"/>
+<path d="M70 115 A100 32 0 1 1 270 115 A100 32 0 1 1 70 115 Z" fill="none" stroke="#020202" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="120,87.3 111,92.3 111,82.3" fill="#020202"/>
+<polygon points="220,142.7 229,137.7 229,147.7" fill="#020202"/>
+<line x1="170" y1="346" x2="170" y2="147" stroke="#020202" stroke-width="1.5" stroke-dasharray="4 4" stroke-linecap="round"/>
+<line x1="170" y1="346" x2="70" y2="115" stroke="#020202" stroke-width="1.8" stroke-linecap="round"/>
+<line x1="170" y1="346" x2="270" y2="115" stroke="#050505" stroke-width="3" stroke-linecap="round"/>
+<circle cx="170" cy="346" r="26" fill="url(#eg)" stroke="#010101" stroke-width="1.8"/>
+<path d="M170 276 A70 70 0 0 1 197.8 281.8" fill="none" stroke="#050505" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="213.8" y="277.8" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="700" fill="#050505">23.4°</text>
+<polygon points="270,106 272.4,111.7 278.6,112.2 273.9,116.3 275.3,122.3 270,119 264.7,122.3 266.1,116.3 261.4,112.2 267.6,111.7" fill="#050505"/>
+<text x="286" y="113" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="700" fill="#050505">Polaris</text>
+<text x="286" y="129" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#050505">now</text>
+<polygon points="70,106 72.4,111.7 78.6,112.2 73.9,116.3 75.3,122.3 70,119 64.7,122.3 66.1,116.3 61.4,112.2 67.6,111.7" fill="#010101"/>
+<text x="16" y="30" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="700" fill="#010101">Vega</text>
+<text x="16" y="46" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">later</text>
+<text x="16" y="62" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#010101">in about 12,000 years</text>
+<line x1="70" y1="103" x2="70" y2="74" stroke="#020202" stroke-width="1.2" stroke-linecap="round"/>
+<text x="170" y="113" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">one cycle about</text>
+<text x="170" y="129" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">26,000 years</text>
+</svg>

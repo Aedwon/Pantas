@@ -25,3 +25,6 @@ functions-and-relations, 2 figures. Briefs about 67k tokens; drawing about 70k, 
 ## Results
 
 (Appended per batch.)
+- Pilot accuracy check (Opus): both figures PASS.
+- Batch 13 (thermodynamics-and-kinetics 2, earths-motions 7, earths-subsystems 1): 10 figures. The lead's render sent back 3: in the Orion-through-the-year figure, the June label sat on the night-sky arrow; the closest-and-farthest orbit was a strong ellipse, which supports the misconception that distance causes the seasons, so it is now a near circle marked "not to scale"; a label touched the panel edge. Opus accuracy check: all PASS. The lead removed a duplicate dashed line in the energy profile. The earths-motions sidereal-day figure is redrawn with "about 1°" (the round-6 removal is resolved).
+- Known: `check_lesson_illustrations.py --phase review-ready` lists every CET marker as "unexpected", because its inventory (`docs/content/illustrations/`) predates the rewrite; it already failed before this phase. Updating that inventory is a last step of this phase.

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 480" width="360" height="480">
+<title>Top view of Earth on two days: after one full turn of 23 h 56 min the dot faces the distant star again, but it needs about 1 degree more to face the Sun, so the solar day is 24 h</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+<radialGradient id="eg" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#010101" stop-opacity="0.04"/><stop offset="1" stop-color="#010101" stop-opacity="0.18"/></radialGradient>
+</defs>
+<rect width="360" height="480" rx="14" fill="url(#bg)"/>
+<line x1="136" y1="390" x2="178.4" y2="390" stroke="#020202" stroke-width="1.5" stroke-linecap="round"/>
+<polygon points="184,390 177,394 177,386" fill="#020202"/>
+<circle cx="110" cy="390" r="18" fill="url(#eg)" stroke="#010101" stroke-width="1.5"/>
+<circle cx="210" cy="390" r="18" fill="url(#eg)" stroke="#010101" stroke-width="1.5"/>
+<circle cx="160" cy="140" r="26" fill="url(#eg)" stroke="#010101" stroke-width="1.5"/>
+<text x="160" y="145" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="700" fill="#010101">Sun</text>
+<line x1="113.5" y1="372.4" x2="154.9" y2="165.5" stroke="#010101" stroke-width="2" stroke-linecap="round"/>
+<line x1="165.1" y1="114.5" x2="175.5" y2="72" stroke="#020202" stroke-width="1.5" stroke-dasharray="5 4" stroke-linecap="round"/>
+<polygon points="176,51 178.4,56.7 184.6,57.2 179.9,61.3 181.3,67.3 176,64 170.7,67.3 172.1,61.3 167.4,57.2 173.6,56.7" fill="#010101"/>
+<text x="192" y="65" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">distant star</text>
+<circle cx="113.5" cy="372.4" r="3.5" fill="#010101"/>
+<line x1="213.5" y1="372.4" x2="233.5" y2="272.4" stroke="#020202" stroke-width="1.5" stroke-dasharray="5 4" stroke-linecap="round"/>
+<line x1="206.5" y1="372.4" x2="165.1" y2="165.5" stroke="#010101" stroke-width="2" stroke-linecap="round"/>
+<circle cx="213.5" cy="372.4" r="3.5" fill="#050505"/>
+<path d="M222.2 329.2 A62 62 0 0 0 197.8 329.2" fill="none" stroke="#050505" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="197.8,329.2 204.8,323.2 206.6,332.1" fill="#050505"/>
+<text x="244" y="326" text-anchor="start" font-family="Geist, sans-serif" font-size="15" font-weight="700" fill="#050505">about 1°</text>
+<text x="344" y="236" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#020202">one sidereal day:</text>
+<text x="344" y="252" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#020202">23 h 56 min</text>
+<text x="184" y="190" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">one solar day: 24 h</text>
+<text x="110" y="430" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">day 1</text>
+<text x="210" y="430" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">day 2</text>
+<text x="180" y="458" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#020202">angle not to scale</text>
+</svg>

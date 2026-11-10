@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 400" width="360" height="400">
+<title>Two panels six months apart: in December Orion is on the night side of Earth, in June it is on the Sun side</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+<radialGradient id="eg" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#010101" stop-opacity="0.04"/><stop offset="1" stop-color="#010101" stop-opacity="0.18"/></radialGradient>
+</defs>
+<rect width="360" height="400" rx="14" fill="url(#bg)"/>
+<rect x="16" y="16" width="328" height="176" rx="10" fill="#010101" fill-opacity="0.05"/>
+<rect x="16" y="208" width="328" height="176" rx="10" fill="#010101" fill-opacity="0.05"/>
+<text x="28" y="42" text-anchor="start" font-family="Geist, sans-serif" font-size="16" font-weight="700" fill="#010101">December</text>
+<text x="28" y="234" text-anchor="start" font-family="Geist, sans-serif" font-size="16" font-weight="700" fill="#010101">June</text>
+<circle cx="60" cy="104" r="20" fill="url(#eg)" stroke="#010101" stroke-width="1.8"/>
+<text x="60" y="144" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">Sun</text>
+<circle cx="190" cy="104" r="22" fill="url(#eg)"/>
+<path d="M190 82 A22 22 0 0 1 190 126 Z" fill="#010101" fill-opacity="0.32"/>
+<circle cx="190" cy="104" r="22" fill="none" stroke="#010101" stroke-width="1.8"/>
+<line x1="218" y1="104" x2="273.6" y2="104" stroke="#050505" stroke-width="2.5" stroke-dasharray="5 4" stroke-linecap="round"/>
+<polygon points="280,104 272,108.5 272,99.5" fill="#050505"/>
+<line x1="295" y1="86" x2="317" y2="86" stroke="#050505" stroke-width="1.2" stroke-linecap="round"/>
+<line x1="295" y1="86" x2="300" y2="100" stroke="#050505" stroke-width="1.2" stroke-linecap="round"/>
+<line x1="317" y1="86" x2="312" y2="102" stroke="#050505" stroke-width="1.2" stroke-linecap="round"/>
+<line x1="300" y1="100" x2="306" y2="101" stroke="#050505" stroke-width="1.2" stroke-linecap="round"/>
+<line x1="306" y1="101" x2="312" y2="102" stroke="#050505" stroke-width="1.2" stroke-linecap="round"/>
+<line x1="300" y1="100" x2="297" y2="116" stroke="#050505" stroke-width="1.2" stroke-linecap="round"/>
+<circle cx="295" cy="86" r="2.6" fill="#050505"/>
+<circle cx="317" cy="86" r="2.6" fill="#050505"/>
+<circle cx="300" cy="100" r="2.6" fill="#050505"/>
+<circle cx="306" cy="101" r="2.6" fill="#050505"/>
+<circle cx="312" cy="102" r="2.6" fill="#050505"/>
+<circle cx="297" cy="116" r="2.6" fill="#050505"/>
+<text x="306" y="72" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="700" fill="#050505">Orion</text>
+<text x="296" y="138" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">Orion on the</text>
+<text x="296" y="154" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">night side</text>
+<circle cx="60" cy="296" r="22" fill="url(#eg)"/>
+<path d="M60 274 A22 22 0 0 0 60 318 Z" fill="#010101" fill-opacity="0.32"/>
+<circle cx="60" cy="296" r="22" fill="none" stroke="#010101" stroke-width="1.8"/>
+<circle cx="190" cy="296" r="20" fill="url(#eg)" stroke="#010101" stroke-width="1.8"/>
+<text x="190" y="336" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">Sun</text>
+<line x1="88" y1="296" x2="166" y2="296" stroke="#020202" stroke-width="2.5" stroke-dasharray="5 4" stroke-linecap="round"/>
+<line x1="214" y1="296" x2="273.6" y2="296" stroke="#020202" stroke-width="2.5" stroke-dasharray="5 4" stroke-linecap="round"/>
+<polygon points="280,296 272,300.5 272,291.5" fill="#020202"/>
+<line x1="295" y1="278" x2="317" y2="278" stroke="#010101" stroke-width="1.2" stroke-linecap="round"/>
+<line x1="295" y1="278" x2="300" y2="292" stroke="#010101" stroke-width="1.2" stroke-linecap="round"/>
+<line x1="317" y1="278" x2="312" y2="294" stroke="#010101" stroke-width="1.2" stroke-linecap="round"/>
+<line x1="300" y1="292" x2="306" y2="293" stroke="#010101" stroke-width="1.2" stroke-linecap="round"/>
+<line x1="306" y1="293" x2="312" y2="294" stroke="#010101" stroke-width="1.2" stroke-linecap="round"/>
+<line x1="300" y1="292" x2="297" y2="308" stroke="#010101" stroke-width="1.2" stroke-linecap="round"/>
+<circle cx="295" cy="278" r="2.6" fill="#010101"/>
+<circle cx="317" cy="278" r="2.6" fill="#010101"/>
+<circle cx="300" cy="292" r="2.6" fill="#010101"/>
+<circle cx="306" cy="293" r="2.6" fill="#010101"/>
+<circle cx="312" cy="294" r="2.6" fill="#010101"/>
+<circle cx="297" cy="308" r="2.6" fill="#010101"/>
+<text x="306" y="264" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="700" fill="#010101">Orion</text>
+<text x="296" y="330" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">Orion on the</text>
+<text x="296" y="346" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">Sun side</text>
+</svg>

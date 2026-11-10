@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 430" width="360" height="430">
+<title>Four-sphere cycle: the Sun powers evaporation from ocean to air, rain from air to land, weathering of rock, photosynthesis from air to a tree, and volcanic gases from a volcano to air</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+<radialGradient id="eg" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#010101" stop-opacity="0.04"/><stop offset="1" stop-color="#010101" stop-opacity="0.18"/></radialGradient>
+</defs>
+<rect width="360" height="430" rx="14" fill="url(#bg)"/>
+<circle cx="180" cy="44" r="22" fill="url(#eg)" stroke="#010101" stroke-width="1.8"/>
+<text x="212" y="49" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="700" fill="#010101">Sun</text>
+<rect x="16" y="84" width="328" height="60" rx="10" fill="#050505" fill-opacity="0.14" stroke="#050505" stroke-width="1" stroke-opacity="0.6"/>
+<text x="28" y="110" text-anchor="start" font-family="Geist, sans-serif" font-size="16" font-weight="700" fill="#010101">air</text>
+<text x="28" y="128" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#010101">atmosphere</text>
+<path d="M16 300 q14 -8 28 0 t28 0 t28 0 t28 0 V410 H16 Z" fill="#020202" fill-opacity="0.26" stroke="#020202" stroke-width="1.5"/>
+<text x="72" y="344" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="700" fill="#010101">ocean</text>
+<text x="72" y="362" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#010101">hydrosphere</text>
+<rect x="128" y="300" width="216" height="110" rx="6" fill="#010101" fill-opacity="0.14" stroke="#020202" stroke-width="1.5"/>
+<text x="236" y="396" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="700" fill="#010101">land</text>
+<polygon points="152,350 150,338 160,328 176,330 186,342 180,356" fill="#010101" fill-opacity="0.3" stroke="#010101" stroke-width="1.5" stroke-linejoin="round"/>
+<text x="198" y="344" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="700" fill="#010101">rock</text>
+<text x="198" y="360" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#010101">lithosphere</text>
+<rect x="201" y="276" width="6" height="24" fill="#010101" fill-opacity="0.45"/>
+<circle cx="204" cy="262" r="18" fill="#050505" fill-opacity="0.4" stroke="#050505" stroke-width="1.8"/>
+<text x="232" y="268" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="700" fill="#010101">tree</text>
+<text x="232" y="284" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#010101">biosphere</text>
+<polygon points="314,300 329,262 344,300" fill="#010101" fill-opacity="0.3" stroke="#010101" stroke-width="1.5" stroke-linejoin="round"/>
+<text x="302" y="324" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">volcano</text>
+<line x1="34" y1="292" x2="34" y2="154.4" stroke="#050505" stroke-width="2.5" stroke-linecap="round"/>
+<polygon points="34,148 38.5,156 29.5,156" fill="#050505"/>
+<text x="46" y="230" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">evaporation</text>
+<line x1="142" y1="148" x2="142" y2="285.6" stroke="#050505" stroke-width="2.5" stroke-linecap="round"/>
+<polygon points="142,292 137.5,284 146.5,284" fill="#050505"/>
+<text x="152" y="200" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">rain</text>
+<line x1="204" y1="148" x2="204" y2="235.6" stroke="#050505" stroke-width="2.5" stroke-linecap="round"/>
+<polygon points="204,242 199.5,234 208.5,234" fill="#050505"/>
+<text x="214" y="176" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">photosynthesis</text>
+<line x1="330" y1="256" x2="330" y2="154.4" stroke="#050505" stroke-width="2.5" stroke-linecap="round"/>
+<polygon points="330,148 334.5,156 325.5,156" fill="#050505"/>
+<text x="318" y="222" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">volcanic</text>
+<text x="318" y="238" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">gases</text>
+<line x1="146" y1="306" x2="161.8" y2="320.3" stroke="#050505" stroke-width="2.5" stroke-linecap="round"/>
+<polygon points="166,324 158.1,322.3 163.5,316.3" fill="#050505"/>
+<text x="178" y="318" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">weathering</text>
+</svg>
