@@ -4,6 +4,7 @@ name: CI
 # checks run here and focused tests stay local. Logs are public: use test data
 # and no secrets. Decision: docs/superpowers/decisions/2026-10-19-pwa-launch-log.md.
 on:
+  workflow_dispatch:
   pull_request:
     branches: [main]
     paths-ignore: ['docs/**', '**.md']
@@ -24,7 +25,68 @@ permissions:
   pull-requests: read
 
 jobs:
+  changes:
+    # Which areas this push touches. Script and rules: tool/ci/changed_areas.sh.
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      flutter: ${{ steps.areas.outputs.flutter }}
+      functions: ${{ steps.areas.outputs.functions }}
+      android: ${{ steps.areas.outputs.android }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - id: areas
+        env:
+          EVENT: ${{ github.event_name }}
+          REF: ${{ github.ref }}
+          REF_TYPE: ${{ github.ref_type }}
+          BEFORE: ${{ github.event.before }}
+          PR_BASE: ${{ github.event.pull_request.base.sha }}
+        run: bash tool/ci/changed_areas.sh
+
+  scans:
+    # No app setup, so a bad commit fails in about a minute.
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: dart-lang/setup-dart@6afc89df92d6eb3834022f73cd65adc8cdfcb92d # v1.8.1
+        with:
+          sdk: '3.12.2'
+
+      - name: AI-attribution check
+        run: dart tool/check_no_ai_attribution.dart
+
+      - name: Test shards partition the test files
+        # The test shards must together run every test file outside
+        # test/goldens exactly once. A file in no shard would run nowhere.
+        run: dart tool/ci/shard_tests.dart --check --shards 8
+
+      - name: gitleaks
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          config-path: .gitleaks.toml
+
+      - uses: returntocorp/semgrep-action@v1
+        with:
+          config: >-
+            p/owasp-top-ten
+            p/security-audit
+            p/dart
+            p/flutter
+            p/secrets
+
   static:
+    needs: [changes]
+    if: needs.changes.outputs.flutter == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -45,9 +107,6 @@ jobs:
       - name: Layering check
         run: dart run tool/check_layering.dart
 
-      - name: AI-attribution check
-        run: dart run tool/check_no_ai_attribution.dart
-
       - name: Verification checks
         # Each one came from a real failure. docs/workflow/process-improvement.md.
         run: dart run tool/checks/run_checks.dart
@@ -63,31 +122,9 @@ jobs:
           python3 design/system/tools/flutter_names.py
           dart run tool/design_system/generate_tokens.dart --check
 
-      - name: gitleaks
-        uses: gitleaks/gitleaks-action@v2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          config-path: .gitleaks.toml
-
-  shard-partition:
-    # The test shards must together run every test file outside
-    # test/goldens exactly once. A file in no shard would run nowhere.
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: subosito/flutter-action@v2
-        with:
-          channel: stable
-          flutter-version: '3.44.6'
-          cache: true
-
-      - name: Shards partition the test files
-        run: dart tool/ci/shard_tests.dart --check --shards 8
-
   test:
+    needs: [changes]
+    if: needs.changes.outputs.flutter == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 15
     strategy:
@@ -139,7 +176,8 @@ jobs:
           retention-days: 30
 
   coverage:
-    needs: test
+    needs: [changes, test]
+    if: needs.changes.outputs.flutter == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -188,6 +226,8 @@ jobs:
           retention-days: 30
 
   functions:
+    needs: [changes]
+    if: needs.changes.outputs.functions == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -212,6 +252,8 @@ jobs:
         working-directory: functions
 
   web:
+    needs: [changes]
+    if: needs.changes.outputs.flutter == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -223,12 +265,20 @@ jobs:
         run: flutter build web --release --no-web-resources-cdn -t lib/main_dev.dart
 
   android:
+    needs: [changes]
+    if: needs.changes.outputs.android == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
 
       - uses: ./.github/actions/setup-app
+
+      - uses: gradle/actions/setup-gradle@8da46b539cd8fe6ab27ca75128919a18d757604c # v6.4.1
+        with:
+          # Branches write the cache too, so a cold build can be compared
+          # with a warm one. CI speed plan S1b.
+          cache-read-only: false
 
       - name: Write a placeholder Firebase config
         # The real file is never tracked. This one only lets the debug build compile.
@@ -254,30 +304,47 @@ jobs:
       - name: Build dev APK (debug, unsigned)
         run: flutter build apk --debug --flavor dev -t lib/main_dev.dart
 
-  sast:
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    steps:
-      - uses: actions/checkout@v4
-      - uses: returntocorp/semgrep-action@v1
-        with:
-          config: >-
-            p/owasp-top-ten
-            p/security-audit
-            p/dart
-            p/flutter
-            p/secrets
 
-  osv:
-    # Reports known vulnerabilities without blocking: dependency updates are
-    # their own decision, and an always-red run hides real failures.
-    continue-on-error: true
+  ci-ok:
+    # The one name to require if branch protection is added. It passes only
+    # when every job that should have run passed, and every job the path
+    # filter turned off was skipped. A failed, cancelled or unexpectedly
+    # skipped job fails it.
+    if: always()
+    needs: [changes, scans, static, test, coverage, functions, web, android]
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 5
     steps:
-      - uses: actions/checkout@v4
-      - uses: google/osv-scanner-action/osv-scanner-action@v2.7.0
-        with:
-          scan-args: |-
-            --recursive
-            ./
+      - name: Check every job
+        env:
+          NEEDS: ${{ toJSON(needs) }}
+          FLUTTER: ${{ needs.changes.outputs.flutter }}
+          FUNCTIONS: ${{ needs.changes.outputs.functions }}
+          ANDROID: ${{ needs.changes.outputs.android }}
+        run: |
+          fail=0
+          check() {
+            result=$(jq -r --arg job "$1" '.[$job].result' <<<"$NEEDS")
+            if [ "$2" = true ]; then
+              [ "$result" = success ] || { echo "$1: $result, expected success"; fail=1; }
+            else
+              case "$result" in
+                skipped | success) ;;
+                *) echo "$1: $result, expected skipped"; fail=1 ;;
+              esac
+            fi
+            echo "$1: $result"
+          }
+          check changes true
+          check scans true
+          if [ "$(jq -r '.changes.result' <<<"$NEEDS")" != success ]; then
+            echo "The path filter did not run, so no area is known."
+            exit 1
+          fi
+          check static "$FLUTTER"
+          check test "$FLUTTER"
+          check coverage "$FLUTTER"
+          check web "$FLUTTER"
+          check functions "$FUNCTIONS"
+          check android "$ANDROID"
+          exit "$fail"
