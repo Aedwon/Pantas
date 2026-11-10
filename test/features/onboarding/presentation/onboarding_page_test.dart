@@ -8,7 +8,6 @@ import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
-import 'package:pantas/core/ui/components/value_wheel.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/onboarding/application/onboarding_flow.dart';
 import 'package:pantas/features/onboarding/presentation/exam_picker_screen.dart';
@@ -20,11 +19,10 @@ import '../../../helpers/in_memory_database.dart';
 
 // ignore_for_file: cascade_invocations
 
-/// The wheel starts on a 14-year-old, who needs a guardian. These tests are
-/// about the steps after the age gate, so they pick an adult year.
+/// The year field starts on a 14-year-old, who needs a guardian. These tests
+/// are about the steps after the age gate, so they pick an adult year.
 Future<void> continueAsAdult(WidgetTester tester) async {
-  final wheel = tester.widget<ValueWheel>(find.byType(ValueWheel));
-  wheel.onSelected(wheel.values.indexOf('2000'));
+  await tester.enterText(find.byType(TextField), '2000');
   await tester.pump();
   await tester.tap(find.text('Continue'));
   await tester.pumpAndSettle();
@@ -128,6 +126,8 @@ void main() {
       await tester.tap(find.text('Different Date'));
       await tester.pumpAndSettle();
     }
+    // The month calendar is taller than the 600 px test screen.
+    await tester.ensureVisible(find.text("I don't know"));
     await tester.tap(find.text("I don't know"));
     await tester.pumpAndSettle();
     expect(find.text('Which days will you study?'), findsOneWidget);

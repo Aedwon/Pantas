@@ -32,36 +32,42 @@ void main() {
         final picker = find.byType(MonthFirstDatePicker);
         final colors = tester.element(picker).colors;
         expect(find.text('November 2026'), findsOneWidget);
+        // One calendar on the page: no cards, no month tiles, no day strip.
         expect(
           find.byKey(const ValueKey('onboarding-month-card')),
-          findsOneWidget,
+          findsNothing,
         );
         expect(
           find.byKey(const ValueKey('onboarding-day-card')),
-          findsOneWidget,
+          findsNothing,
         );
-        final month = tester.widget<Text>(find.text('Nov'));
-        expect(month.style!.fontSize, 15);
-        expect(month.style!.fontWeight, FontWeight.w700);
-        expectContrast(month.style!.color!, colors.accentFill);
+        expect(
+          find.byKey(const ValueKey('onboarding-day-strip')),
+          findsNothing,
+        );
+        expect(find.text('Nov'), findsNothing);
         final day = find.byKey(const ValueKey('date-day-11'));
         await tester.ensureVisible(day);
-        expect(tester.getSize(day).height, greaterThanOrEqualTo(60));
-        final weekday = tester
-            .widgetList<Text>(
-              find.descendant(of: day, matching: find.byType(Text)),
-            )
-            .first;
+        final cell = tester.widget<Text>(
+          find.descendant(of: day, matching: find.byType(Text)),
+        );
+        expect(cell.style!.fontSize, 15);
+        expect(cell.style!.fontWeight, FontWeight.w700);
+        expectContrast(cell.style!.color!, colors.accentFill);
+        expect(tester.getSize(day).height, greaterThanOrEqualTo(46));
+        final weekday = tester.widget<Text>(find.textContaining('S').first);
         expect(weekday.style!.fontSize, 11);
-        expectContrast(weekday.style!.color!, colors.accentFill);
-        await tester.tap(find.byKey(const ValueKey('date-month-12')));
+        expectContrast(weekday.style!.color!, colors.bgPage);
+        await tester.tap(find.byTooltip('Next month'));
         await tester.pumpAndSettle();
+        expect(find.text('December 2026'), findsOneWidget);
+        expect(value.month, 12);
         expect(value.day, isNull);
         expect(tester.takeException(), isNull);
       });
     }
   }
-  testWidgets('onboarding year slide and selected-day strip use board timing',
+  testWidgets('the calendar has no year slide and no day strip',
       (tester) async {
     var value = const MonthFirstDate(year: 2026, month: 11, day: 11);
     await pumpAccessibilitySurface(
@@ -75,23 +81,12 @@ void main() {
       ),
       viewportSize: const Size(390, 844),
     );
-    await tester.pump(const Duration(milliseconds: 450));
     await tester.pump(const Duration(milliseconds: 900));
-    final scroll = tester.state<ScrollableState>(
-      find.descendant(
-        of: find.byKey(const ValueKey('onboarding-day-strip')),
-        matching: find.byType(Scrollable),
-      ),
-    );
-    expect(scroll.position.pixels, greaterThan(0));
-    await tester.tap(find.byTooltip('Next year'));
-    await tester.pump();
-    final switcher = tester.widget<AnimatedSwitcher>(
-      find.byKey(const ValueKey('onboarding-year-motion')),
-    );
-    expect(switcher.duration, const Duration(milliseconds: 320));
+    expect(find.byType(AnimatedSwitcher), findsNothing);
+    expect(find.byKey(const ValueKey('onboarding-day-strip')), findsNothing);
+    await tester.tap(find.byTooltip('Next month'));
     await tester.pumpAndSettle();
-    expect(value.year, 2027);
+    expect(value.month, 12);
   });
 
   testWidgets('the chosen-day note keeps its default and accepts a caller note',

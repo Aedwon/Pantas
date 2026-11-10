@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/avatar.dart';
 import 'package:pantas/core/ui/components/month_first_date_picker.dart';
+import 'package:pantas/core/ui/components/pantas_icon_button.dart';
 import 'package:pantas/core/ui/components/scope_picker.dart';
 import 'package:pantas/core/ui/components/search_field.dart';
 import 'package:pantas/core/ui/components/selection_row.dart';
@@ -29,8 +30,16 @@ void main() {
       );
       final past = find.byKey(const ValueKey('date-day-22'));
       expect(tester.widget<TextButton>(past).onPressed, isNull);
-      final month = find.byKey(const ValueKey('date-month-1'));
-      expect(tester.widget<TextButton>(month).onPressed, isNull);
+      expect(
+        tester
+            .widget<PantasIconButton>(
+              find.byWidgetPredicate(
+                (w) => w is PantasIconButton && w.tooltip == 'Previous month',
+              ),
+            )
+            .onPressed,
+        isNull,
+      );
       expect(hits, 0);
       final photo = MemoryImage(
         base64Decode('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJ'
@@ -80,7 +89,7 @@ void main() {
       );
     });
     testWidgets(
-        'date today, past, month-only, leap and unlimited year $brightness',
+        'date today, past, month-only, leap and the last month $brightness',
         (tester) async {
       var selected = const MonthFirstDate(year: 2028, month: 2);
       final picker = StatefulBuilder(
@@ -96,36 +105,48 @@ void main() {
         brightness: brightness,
         viewportSize: const Size(390, 844),
       );
-      expect(find.text('Today'), findsOneWidget);
+      expect(find.byKey(const ValueKey('date-day-20')), findsOneWidget);
       expect(find.byKey(const ValueKey('date-day-29')), findsOneWidget);
       expect(find.byKey(const ValueKey('date-day-30')), findsNothing);
       await tester.ensureVisible(find.byKey(const ValueKey('date-day-29')));
       await tester.tap(find.byKey(const ValueKey('date-day-29')));
       await tester.pump();
       expect(selected.day, 29);
-      await tester.tap(find.byKey(const ValueKey('date-month-3')));
+      await tester.tap(find.byTooltip('Next month'));
       await tester.pump();
       expect(selected.day, isNull);
       expect(selected.month, 3);
+      // The picker now carries the typed field above the grid, so it is taller
+      // than the screen at 2.0; every host scrolls it.
       await expectSurvivesTextScale(
         tester,
-        picker,
+        SingleChildScrollView(child: picker),
         brightness: brightness,
         viewportSize: const Size(390, 844),
         disableAnimations: true,
       );
-      selected = const MonthFirstDate(year: 10000, month: 2);
+      // The phone has no end date: Next stays on.
+      selected = const MonthFirstDate(year: 2029, month: 12);
       await pumpAccessibilitySurface(
         tester,
         MonthFirstDatePicker(
           value: selected,
-          today: DateTime(2026, 10, 11),
+          today: DateTime(2028, 10, 11),
           onChanged: (d) => selected = d,
         ),
         brightness: brightness,
       );
-      await tester.tap(find.byTooltip('Next year'));
-      expect(selected.year, 10001);
+      expect(find.text('December 2029'), findsOneWidget);
+      expect(
+        tester
+            .widget<PantasIconButton>(
+              find.byWidgetPredicate(
+                (w) => w is PantasIconButton && w.tooltip == 'Next month',
+              ),
+            )
+            .onPressed,
+        isNotNull,
+      );
       await pumpAccessibilitySurface(
         tester,
         MonthFirstDatePicker(
