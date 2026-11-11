@@ -17,6 +17,7 @@ The question to answer first: what does a 1,000 requests per second attack cost 
 - Auditor 1: Claude Fable 5.2 at high effort (T3 `delegate_task`, model `claude-fable-5-2`, effort high).
 - Auditor 2: Codex GPT 6 Astra at high effort, only through `codex-pick`, never bare `codex`. Run with no stdin (the first Astra runs on Nov 7 stalled waiting on stdin). If every account is full (exit 75), report the reset time and continue with Fable alone. Do not substitute another tool.
 - The two audits are independent: same scope, neither sees the other's findings.
+- Codex writes as it discovers, never only at the end (Aedwon, Nov 11: "for Astra things, have it write as it discovers, not at the end, so that when its turn reaches its limits, it doesn't just waste that tokens for nothing"). Run Astra in its own worktree; its brief tells it to append each finding to `auditor2-findings.md` in that worktree the moment it is verified (one block per finding, in the deliverable's format), and to append a one-line progress note after each scope section (A to D), so a usage-limit stop keeps everything found so far. The lead copies that file to `~/Documents/Projects/Pantas-private/security/` and never commits it. If the run stops, the next run reads the file and continues from the last finished section instead of starting over. Run Astra alone: `codex-pick` refuses a second concurrent run.
 
 ## Rules for the run
 
