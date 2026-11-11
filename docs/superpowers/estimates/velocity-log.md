@@ -63,6 +63,7 @@ Columns:
 | E-031 | Nov 11 | Log two Aedwon decisions in the launch log (privacy batch as built approved, with its three open choices; legal "last updated" date = prod deploy day) | docs/legal | DS4 lead | Opus 5.5 lead | minimal | DS4 lead | 10 min | 10 min | Nov 11 14:31 | Nov 11 14:32 | 10 s | 10 s | none | none | 0.02 | Timer stopped before the commit and push, so those seconds are not in it; the writing itself was one scripted edit |
 | E-032 | Nov 11 | Log Aedwon's approval of the privacy batch's two Cloud changes (daily jobs; log exclusion), applied with the prod ship | docs/legal | DS4 lead | Opus 5.5 lead | minimal | DS4 lead | 5 min | 5 min | Nov 11 14:34 | Nov 11 14:34 | 0 s | 0 s | none | none | 0.00 | The timer ran around one scripted edit only; the drafting happened before start, so this row understates the task |
 | E-033 | Nov 11 | Legal research: may the server store the "minor" label before guardian consent (PH law, NPC guidance, how other apps do it), with options and one recommendation | docs/legal | Operations manager | Codex GPT 6.1 Sol High via codex-pick | minimal | Operations manager | 5 min | 45 min | Nov 11 14:45 | | | | none | | | |
+| E-034 | Nov 11 | Security audit, Codex half run early (Aedwon: run Codex now for its separate reset cycle; Fable half stays Saturday): GPT 6 Astra High, read-only, report saved privately for the Saturday lead | CI/infra | Operations manager | Codex GPT 6 Astra High via codex-pick | balanced | Operations manager | 5 min | 1 h 30 min | Nov 11 | | | | none | | | |
 
 Notes:
 
