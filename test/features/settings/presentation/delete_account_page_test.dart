@@ -6,6 +6,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/app/routes/settings_routes.dart';
 import 'package:pantas/core/auth/providers.dart';
+import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/pantas_button_parts.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -25,12 +26,16 @@ void main() {
       (tester) async {
     final db = inMemoryDatabase();
     addTearDown(db.close);
+    // The local wipe also clears custom exam rows from the content database.
+    final content = inMemoryContentDatabase();
+    addTearDown(content.close);
     final prefs = AppPreferencesRepository(db);
     await prefs.setCompletedOnboarding(value: true);
     await prefs.setPassedAgeGate(value: true);
     final container = ProviderContainer(
       overrides: [
         appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(content),
         isAnonymousProvider.overrideWith((ref) async => true),
       ],
     );

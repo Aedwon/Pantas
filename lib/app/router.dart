@@ -71,10 +71,12 @@ final routerProvider = Provider<GoRouter>((ref) {
         return '/record';
       }
 
-      // The guardian's link works signed out and before onboarding, and the
-      // legal pages it links to must open for them too.
+      // The guardian's links work signed out and before onboarding, and the
+      // legal pages they link to must open for them too. The manage link also
+      // opens on a device held on Waiting, since a guardian may open it there.
       final path = state.matchedLocation;
       if (path == '/guardian' ||
+          path == '/guardian/manage' ||
           path.startsWith('/legal/') ||
           path == '/auth/email-link') {
         return null;

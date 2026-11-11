@@ -18,6 +18,8 @@ const replayProtectedCallables = <String>{
   'updateMockReview',
   'sendGuardianLink',
   'answerGuardianRequest',
+  'setGuardianSharing',
+  'withdrawGuardianPermission',
   'requestSignInCode',
   'verifySignInCode',
   'exchangeGoogleSignIn',

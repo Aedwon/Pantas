@@ -4,6 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/telemetry/telemetry.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/guardian/application/guardian_providers.dart';
@@ -21,6 +22,11 @@ class _Sink extends DisabledTelemetry {
     errors.add(error);
   }
 }
+
+const _sharingLabel = 'Allow optional usage sharing';
+const _sharingHelp =
+    'Optional. Helps us improve Pantas. Your child can turn it '
+    'off at any time.';
 
 void main() {
   late FakeGuardianGateway gateway;
@@ -106,10 +112,9 @@ void main() {
           expect(
             find.textContaining(
               "Pantas keeps your child's answers and study progress to run the "
-              'app. If your child wants Pro, they should ask a parent or '
-              'guardian '
-              'to pay using their own payment method. Confirming here does not '
-              'authorize a charge. Checkout does not check who is paying.',
+              'app. Confirming here does not authorize a charge. If your '
+              'child wants Pro, a parent or guardian makes the payment and '
+              'ticks a box to accept the Terms.',
             ),
             findsOneWidget,
           );
@@ -123,6 +128,8 @@ void main() {
             ),
             findsOneWidget,
           );
+          expect(find.text(_sharingLabel), findsOneWidget);
+          expect(find.text(_sharingHelp), findsOneWidget);
           expect(find.text('Confirm'), findsOneWidget);
           expect(find.text("I Don't Agree"), findsOneWidget);
           expect(tester.takeException(), isNull);
@@ -165,13 +172,143 @@ void main() {
     expect(confirm.hitTestable(), findsOneWidget);
     await tester.tap(confirm);
     await tester.pumpAndSettle();
-    expect(gateway.answers.single, (token: 'tok', confirm: true, agreed: true));
+    expect(
+      gateway.answers.single,
+      (token: 'tok', confirm: true, agreed: true, allowSharing: false),
+    );
     expect(find.text('Thank you'), findsOneWidget);
     expect(
-      find.text('The account is confirmed. You can close this page.'),
+      find.text(
+        'The account is confirmed. To change sharing or withdraw later, use '
+        'Manage Permission or the link in your email.',
+      ),
       findsOneWidget,
     );
     expect(find.widgetWithText(PantasButton, 'Confirm'), findsNothing);
+  });
+
+  Future<void> confirmNow(WidgetTester tester) async {
+    final agreement =
+        find.text("I'm their parent or guardian, and I agree to these terms.");
+    await tester.ensureVisible(agreement);
+    await tester.tap(agreement);
+    await tester.pump();
+    final confirm = find.widgetWithText(PantasButton, 'Confirm');
+    await tester.ensureVisible(confirm);
+    await tester.tap(confirm);
+    await tester.pumpAndSettle();
+  }
+
+  for (final web in [false, true]) {
+    testWidgets(
+        'the Thank you page offers Manage Permission, which opens the manage '
+        'page with the returned token, web $web', (tester) async {
+      gateway.manageTokenTo = 'mt-123';
+      await pump(
+        tester,
+        web: web,
+        size: web ? const Size(1440, 900) : const Size(390, 844),
+      );
+      await confirmNow(tester);
+      expect(find.text('Thank you'), findsOneWidget);
+      final button = find.widgetWithText(PantasButton, 'Manage Permission');
+      expect(button, findsOneWidget);
+      expect(
+        tester.widget<PantasButton>(button).variant,
+        PantasButtonVariant.secondary,
+      );
+      await tester.tap(button);
+      expect(opened, ['/guardian/manage?token=mt-123']);
+    });
+  }
+
+  testWidgets('the Manage Permission button sits centered at natural width',
+      (tester) async {
+    await pump(tester);
+    await confirmNow(tester);
+    final box =
+        tester.getRect(find.widgetWithText(PantasButton, 'Manage Permission'));
+    expect(box.center.dx, closeTo(195, 1));
+    expect(box.width, lessThan(390 - 40));
+  });
+
+  testWidgets('without a manage token there is no Manage Permission button',
+      (tester) async {
+    gateway.manageTokenTo = null;
+    await pump(tester);
+    await confirmNow(tester);
+    expect(find.text('Thank you'), findsOneWidget);
+    expect(find.text('Manage Permission'), findsNothing);
+  });
+
+  testWidgets('a declined answer offers no Manage Permission', (tester) async {
+    gateway.answerTo = GuardianAnswer.declined;
+    await pump(tester);
+    await tester.ensureVisible(find.text("I Don't Agree"));
+    await tester.tap(find.text("I Don't Agree"));
+    await tester.pumpAndSettle();
+    expect(find.text('Manage Permission'), findsNothing);
+  });
+
+  testWidgets(
+      'the sharing box starts unticked and is independent of the '
+      'agreement box', (tester) async {
+    await pump(tester);
+    final sharing = find.text(_sharingLabel);
+    final agreement =
+        find.text("I'm their parent or guardian, and I agree to these terms.");
+    expect(
+      tester
+          .widget<CheckboxRow>(find.widgetWithText(CheckboxRow, _sharingLabel))
+          .selected,
+      isFalse,
+    );
+    await tester.ensureVisible(sharing);
+    await tester.tap(sharing);
+    await tester.pump();
+    // Ticking sharing does not tick the agreement or enable Confirm.
+    expect(confirmButton(tester).onPressed, isNull);
+    expect(
+      tester
+          .widget<CheckboxRow>(find.widgetWithText(CheckboxRow, _sharingLabel))
+          .selected,
+      isTrue,
+    );
+    await tester.ensureVisible(agreement);
+    await tester.tap(agreement);
+    await tester.pump();
+    expect(confirmButton(tester).onPressed, isNotNull);
+    // Unticking the agreement leaves sharing ticked.
+    await tester.tap(agreement);
+    await tester.pump();
+    expect(
+      tester
+          .widget<CheckboxRow>(find.widgetWithText(CheckboxRow, _sharingLabel))
+          .selected,
+      isTrue,
+    );
+  });
+
+  testWidgets('confirming with the sharing box ticked sends allowSharing true',
+      (tester) async {
+    await pump(tester, token: 'tok');
+    for (final label in [
+      _sharingLabel,
+      "I'm their parent or guardian, and I agree to these terms.",
+    ]) {
+      await tester.ensureVisible(find.text(label));
+      await tester.tap(find.text(label));
+      await tester.pump();
+    }
+    final confirm = find.widgetWithText(PantasButton, 'Confirm');
+    await tester.ensureVisible(confirm);
+    await tester.tap(confirm);
+    await tester.pumpAndSettle();
+    expect(
+      gateway.answers.single,
+      (token: 'tok', confirm: true, agreed: true, allowSharing: true),
+    );
+    expect(find.text('Thank you'), findsOneWidget);
   });
 
   testWidgets("I Don't Agree declines without the box", (tester) async {
@@ -182,7 +319,7 @@ void main() {
     await tester.pumpAndSettle();
     expect(
       gateway.answers.single,
-      (token: 'tok', confirm: false, agreed: false),
+      (token: 'tok', confirm: false, agreed: false, allowSharing: false),
     );
     expect(find.text('Response sent'), findsOneWidget);
     expect(

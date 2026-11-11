@@ -111,6 +111,7 @@ flutter:
     - assets/fonts/OFL-SourceSerif4.txt
     - assets/fonts/phosphor/LICENSE
     - content/exams/catalog.json
+    - content/exams/custom_subject_tiers.json
     # Web fetches content from the server and never installs the native package.
     - path: assets/seed/content.db
       platforms: [android, ios, linux, macos, windows]

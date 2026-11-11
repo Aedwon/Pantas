@@ -67,7 +67,7 @@ void main() {
       expect(find.text("Pantas isn't available yet"), findsOneWidget);
       expect(find.text('Try a Different Year'), findsNothing);
       expect(
-        find.text('Entered the wrong age? Email contact@pantas.study.'),
+        find.text('Entered the wrong age? Email support@pantas.study.'),
         findsOneWidget,
       );
       expect(find.byType(TextField), findsNothing);

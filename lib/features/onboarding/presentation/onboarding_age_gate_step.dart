@@ -29,6 +29,7 @@ import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_keyboard_hints.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
+import 'package:pantas/features/guardian/application/guardian_providers.dart';
 import 'package:pantas/features/onboarding/application/onboarding_flow.dart';
 import 'package:pantas/features/onboarding/domain/age_policy.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_web_page.dart';
@@ -63,6 +64,7 @@ class OnboardingAgeGateStep extends ConsumerStatefulWidget {
     required this.onAgeGatePassed,
     this.onGuardianNeeded,
     this.onBack,
+    this.recheck = false,
     super.key,
   });
   final VoidCallback onAgeGatePassed;
@@ -71,6 +73,11 @@ class OnboardingAgeGateStep extends ConsumerStatefulWidget {
   /// or guardian has to agree first.
   final VoidCallback? onGuardianNeeded;
   final VoidCallback? onBack;
+
+  /// Settings, "I'm 18 now": the same age check for a student already marked
+  /// under 18. An adult result tells the server and then calls
+  /// [onAgeGatePassed]. Any other result changes nothing.
+  final bool recheck;
   @override
   ConsumerState<OnboardingAgeGateStep> createState() =>
       _OnboardingAgeGateStepState();
@@ -173,6 +180,7 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep>
   int _blockedMinimum = AgePolicy.forExam(null).minimumAge;
   bool _saving = false;
   bool _failed = false;
+  bool _stillMinor = false;
 
   @override
   void initState() {
@@ -200,8 +208,11 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep>
     if (_saving || !_valid) return;
     final age = _typed!;
     final policy = AgePolicy.forExam(null);
-    // Memory only, so Back from the next step shows the same age.
-    ref.read(onboardingAgeProvider.notifier).state = age;
+    // Memory only, so Back from the next step shows the same age. A recheck
+    // is not part of onboarding, so it writes nothing there.
+    if (!widget.recheck) {
+      ref.read(onboardingAgeProvider.notifier).state = age;
+    }
     final outcome = policy.evaluateAge(age);
     final telemetry = ref.read(telemetryProvider);
     final prefs = ref.read(appPreferencesRepositoryProvider);
@@ -209,8 +220,23 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep>
       _age = age;
       _saving = true;
       _failed = false;
+      _stillMinor = false;
     });
     try {
+      if (widget.recheck) {
+        if (outcome != AgeOutcome.adult) {
+          if (mounted) setState(() => _stillMinor = true);
+          return;
+        }
+        // The server first, so a failure leaves the student a minor here too.
+        await ref.read(guardianGatewayProvider).markAdult();
+        await prefs.setAgeGroup('adult');
+        await prefs.setAgeCheckNoticeVersion(AgePolicy.ageCheckNoticeVersion);
+        await prefs.setPassedAgeGate(value: true);
+        ref.invalidate(appPreferencesRepositoryProvider);
+        if (mounted) widget.onAgeGatePassed();
+        return;
+      }
       switch (outcome) {
         case AgeOutcome.underMinimum:
           await prefs.setBlockedMinimumAge(policy.minimumAge);
@@ -223,10 +249,12 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep>
         case AgeOutcome.minor:
           // Only the group is kept, never the age.
           await prefs.setAgeGroup('minor');
+          await prefs.setAgeCheckNoticeVersion(AgePolicy.ageCheckNoticeVersion);
           ref.invalidate(appPreferencesRepositoryProvider);
           if (mounted) widget.onGuardianNeeded?.call();
         case AgeOutcome.adult:
           await prefs.setAgeGroup('adult');
+          await prefs.setAgeCheckNoticeVersion(AgePolicy.ageCheckNoticeVersion);
           await prefs.setPassedAgeGate(value: true);
           ref.invalidate(appPreferencesRepositoryProvider);
           if (mounted) widget.onAgeGatePassed();
@@ -242,8 +270,14 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep>
   String get _blockedDetail =>
       "Sorry, this app isn't available for users under $_blockedMinimum.";
 
+  static const _ageCheckLine = 'Pantas uses your age once, on this device, '
+      'to set your age group. We do not save your age. '
+      'Choosing Continue means you agree to this check.';
+
+  static const _stillMinorLine = 'You are still under 18.';
+
   static const _blockedHelp =
-      'Entered the wrong age? Email contact@pantas.study.';
+      'Entered the wrong age? Email support@pantas.study.';
 
   @override
   Widget build(BuildContext context) {
@@ -403,7 +437,9 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep>
     final wide = context.wideWeb;
     return OnboardingWebPage(
       title: 'How old are you?',
-      detail: 'We only ask this once and never keep it.',
+      detail: widget.recheck
+          ? 'We do not save the age you enter.'
+          : 'We only ask this once and never keep it.',
       progress: 1,
       // On a phone the keyboard waits for a tap on the number.
       focusTarget: wide ? _focus : null,
@@ -414,7 +450,31 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep>
         busy: _saving,
       ),
       children: [
+        Text(
+          _ageCheckLine,
+          textAlign: TextAlign.center,
+          style: wide
+              ? context.webTokens.sm
+              : context.type.subhead
+                  .copyWith(color: context.colors.secondaryLabel),
+        ),
         if (wide) ..._wideBody(context) else ..._phoneBody(context),
+        if (_stillMinor)
+          Padding(
+            padding: const EdgeInsets.only(top: PantasSpace.s12),
+            child: Semantics(
+              liveRegion: true,
+              child: Text(
+                _stillMinorLine,
+                textAlign: TextAlign.center,
+                style: wide
+                    ? context.webTokens.sm
+                        .copyWith(color: context.webTokens.colors.dangerText)
+                    : context.type.subhead
+                        .copyWith(color: context.colors.secondaryLabel),
+              ),
+            ),
+          ),
         if (_failed) saveFailureLine(_continue),
       ],
     );

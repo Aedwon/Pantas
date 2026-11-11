@@ -109,6 +109,9 @@ void main() {
       '/quiz/mock/setup?examId=': '/quiz',
       '/quiz/mock/setup?other=1': '/quiz',
       '/settings/exam/upgrade?target=upcat': '/settings/exam/change',
+      '/settings/exam/custom/name': '/settings/exam/change',
+      '/settings/exam/custom/subjects?name=x': '/settings/exam/change',
+      '/Settings/Exam/Custom/Name/': '/settings/exam/change',
       '/settings/account/delete': '/settings/account',
       '/settings/_debug': '/settings',
       '/settings/_gallery': '/settings',
@@ -214,6 +217,12 @@ void main() {
       remember('/guardian?token=abc');
       expect(takeInitialRouterLocation(), '/guardian?token=abc');
       expect(takeInitialRouterLocation(), '/guardian?token=abc');
+    });
+
+    test('the manage link stays too, so recovery stays on the manage page', () {
+      remember('/guardian/manage?token=abc');
+      expect(takeInitialRouterLocation(), '/guardian/manage?token=abc');
+      expect(takeInitialRouterLocation(), '/guardian/manage?token=abc');
     });
 
     test('looking at the start does not use it', () {

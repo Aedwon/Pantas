@@ -56,6 +56,39 @@ class ServerMockAnswer {
       };
 }
 
+/// The clock of a paper whose parts are timed one by one. The server alone
+/// decides when a part starts and ends; this is only what it last said.
+///
+/// [index] is the part running, or the part waiting to start. [remaining] is
+/// what is left in that part, and the part's full limit while it waits.
+/// [startsIn] is set only in a strict break: the time until the server starts
+/// the part by itself.
+@immutable
+class ServerMockParts {
+  const ServerMockParts._({
+    required this.index,
+    required this.limits,
+    required this.remaining,
+    required this.waiting,
+    required this.endedEarly,
+    required this.startsIn,
+  });
+
+  final int index;
+  final List<Duration> limits;
+  final Duration remaining;
+  final bool waiting;
+
+  /// The student closed the part before this one.
+  final bool endedEarly;
+  final Duration? startsIn;
+
+  int get count => limits.length;
+
+  /// The limit of the part running or waiting.
+  Duration get limit => limits[index];
+}
+
 /// The open mock exactly as startMock, getMockPaper and controlMock return
 /// it. Identity, the pinned paper and the clock are all the server's.
 @immutable
@@ -63,6 +96,7 @@ class ServerMockPaper {
   const ServerMockPaper._({
     required this.mockId,
     required this.examId,
+    required this.examName,
     required this.startedAt,
     required this.strict,
     required this.limit,
@@ -70,6 +104,7 @@ class ServerMockPaper {
     required this.paused,
     required this.sections,
     required this.answers,
+    required this.parts,
   });
 
   factory ServerMockPaper.decode(Object? raw) {
@@ -153,8 +188,15 @@ class ServerMockPaper {
       throw const ServerMockFormatException('strict and paused are flags');
     }
     return ServerMockPaper._(
+      parts: _parts(
+        map['parts'],
+        sectionCount: sections.length,
+        strict: strict,
+        limitMs: limitMs,
+      ),
       mockId: mockId,
       examId: _string(map, 'examId'),
+      examName: optionalExamName(map),
       startedAt: _wholeNumber(map, 'startedAt'),
       strict: strict,
       limit: Duration(milliseconds: limitMs),
@@ -175,8 +217,23 @@ class ServerMockPaper {
 
   static final _mockIdPattern = RegExp(r'^[A-Za-z0-9]{10,40}$');
 
+  /// The server sends the name of a custom exam, which the student gave it.
+  /// A listed exam has none: its name is fixed in the app. Anything the server
+  /// sends that is not text is refused, and a blank name is no name.
+  static String? optionalExamName(Map<String, Object?> map) {
+    final value = map['examName'];
+    if (value == null) return null;
+    if (value is! String) {
+      throw const ServerMockFormatException('examName must be text');
+    }
+    return value.isEmpty ? null : value;
+  }
+
   final String mockId;
   final String examId;
+
+  /// Set for a custom exam only.
+  final String? examName;
 
   /// Milliseconds since the epoch, on the server's clock.
   final int startedAt;
@@ -187,10 +244,23 @@ class ServerMockPaper {
   final List<ServerMockSection> sections;
   final Map<String, ServerMockAnswer> answers;
 
+  /// Set only when the paper's parts are timed one by one. Null is one clock,
+  /// as every listed paper is.
+  final ServerMockParts? parts;
+
   List<String> get questionIds => [
         for (final section in sections)
           for (final question in section.questions) question.id,
       ];
+
+  /// Where section [part] begins in the whole paper, counting questions.
+  int sectionStart(int part) {
+    var start = 0;
+    for (var i = 0; i < part; i++) {
+      start += sections[i].questions.length;
+    }
+    return start;
+  }
 
   String? sectionNameOf(String questionId) {
     for (final section in sections) {
@@ -199,6 +269,75 @@ class ServerMockPaper {
       }
     }
     return null;
+  }
+
+  static ServerMockParts? _parts(
+    Object? raw, {
+    required int sectionCount,
+    required bool strict,
+    required int limitMs,
+  }) {
+    if (raw == null) return null;
+    final map = _map(raw, 'parts');
+    final limitsRaw = map['limitsMs'];
+    if (limitsRaw is! List || limitsRaw.length != sectionCount) {
+      throw const ServerMockFormatException('parts need one limit per section');
+    }
+    if (sectionCount < 2) {
+      throw const ServerMockFormatException('a paper by part has two parts');
+    }
+    var total = 0;
+    final limits = <Duration>[];
+    for (final value in limitsRaw) {
+      final ms = _wholeNumber({'limit': value}, 'limit');
+      if (ms <= 0) {
+        throw const ServerMockFormatException('a part limit must be positive');
+      }
+      total += ms;
+      limits.add(Duration(milliseconds: ms));
+    }
+    if (total != limitMs) {
+      throw const ServerMockFormatException('part limits do not add up');
+    }
+    final index = _wholeNumber(map, 'index');
+    if (index < 0 || index >= sectionCount) {
+      throw const ServerMockFormatException('the part index is out of range');
+    }
+    final remainingMs = _wholeNumber(map, 'remainingMs');
+    if (remainingMs < 0 || remainingMs > limits[index].inMilliseconds) {
+      throw const ServerMockFormatException('the part time is out of range');
+    }
+    final waiting = map['waiting'];
+    final endedEarly = map['endedEarly'];
+    if (waiting is! bool || endedEarly is! bool) {
+      throw const ServerMockFormatException('waiting and endedEarly are flags');
+    }
+    if (waiting && index == 0) {
+      throw const ServerMockFormatException('no part waits before the first');
+    }
+    final startsInRaw = map['startsInMs'];
+    Duration? startsIn;
+    if (startsInRaw != null) {
+      final ms = _wholeNumber(map, 'startsInMs');
+      if (ms < 0) {
+        throw const ServerMockFormatException('startsInMs is out of range');
+      }
+      startsIn = Duration(milliseconds: ms);
+    }
+    // Only a strict break counts down to a start, and it always does.
+    if ((startsIn != null) != (strict && waiting)) {
+      throw const ServerMockFormatException(
+        'startsInMs does not fit the state',
+      );
+    }
+    return ServerMockParts._(
+      index: index,
+      limits: List.unmodifiable(limits),
+      remaining: Duration(milliseconds: remainingMs),
+      waiting: waiting,
+      endedEarly: endedEarly,
+      startsIn: startsIn,
+    );
   }
 
   static Map<String, Object?> _map(Object? value, String what) {

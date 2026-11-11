@@ -38,16 +38,19 @@ import 'package:pantas/core/platform/local_firebase.dart';
 import 'package:pantas/core/platform/remote_flags_providers.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/storage/track_scope.dart';
 import 'package:pantas/core/telemetry/client_report.dart';
 import 'package:pantas/core/telemetry/error_boundary.dart';
 import 'package:pantas/core/telemetry/firebase_telemetry.dart';
 import 'package:pantas/core/telemetry/perf_timeline.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/theme/font_licenses.dart';
+import 'package:pantas/features/guardian/application/guardian_providers.dart';
 import 'package:pantas/features/mock_exam/application/mock_availability_provider.dart';
 import 'package:pantas/features/mock_exam/domain/mock_availability.dart';
 import 'package:pantas/features/notifications/application/notifications_providers.dart';
 import 'package:pantas/features/notifications/presentation/notifications_lifecycle_observer.dart';
+import 'package:pantas/features/onboarding/application/setup_acceptance.dart';
 import 'package:pantas/features/paywall/paywall.dart';
 import 'package:pantas/features/review_prompt/application/review_prompt_providers.dart';
 import 'package:pantas/features/review_prompt/data/in_app_review_gateway.dart';
@@ -355,15 +358,30 @@ Future<void> _bootstrap(
     unawaited(
       payments.then<void>((_) {}, onError: (Object _, StackTrace __) {}),
     );
+    (Object, StackTrace)? reprojectFailure;
     if (kIsWeb) {
       // Listen for the browser's install events from the first frame and ask
       // it to keep storage once Pantas runs installed.
       container.read(installPlatformProvider).start();
-      await _startWebContent(container);
+      reprojectFailure = await startWebContent(container);
     }
     PerfTimeline.mark('boot.content');
     await applyPersistedTelemetryConsent(container);
+    if (reprojectFailure case (final error, final stack)) {
+      unawaited(container.read(telemetryProvider).recordError(error, stack));
+    }
     PerfTimeline.mark('boot.consent');
+    // A named account's setup acceptance reaches the server, best effort. It
+    // retries on each start until it succeeds.
+    container.read(setupAcceptanceSyncProvider);
+    // A minor's sharing follows the guardian's choice. It reads the server, so
+    // startup does not wait for it.
+    unawaited(
+      container.read(minorSharingProvider.future).then<void>(
+            (_) {},
+            onError: (Object _, StackTrace __) {},
+          ),
+    );
     await registerDevProSwitch(container);
     await registerDevDemoSwitch(container);
     await payments;
@@ -425,13 +443,29 @@ Future<void> _bootstrap(
 /// database, refreshes the catalog, and starts watching sign-out so cached
 /// Pro-only fields are removed. A failure leaves the app running without
 /// content.
-Future<void> _startWebContent(ProviderContainer container) async {
+///
+/// Then puts the student's own custom exams back into that database, which a
+/// reload empties. This runs even if the content above failed, and a failure
+/// of its own is returned, not thrown: the student reaches the picker and finds
+/// the exam under "Your exams". Telemetry consent is not applied yet, so the
+/// caller reports the returned failure once it is.
+@visibleForTesting
+Future<(Object, StackTrace)?> startWebContent(
+  ProviderContainer container,
+) async {
   try {
     await container.read(contentMirrorProvider).start();
     container.read(contentAccessBridgeProvider);
   } catch (error, stack) {
     debugPrint('Web content did not start: $error\n$stack');
   }
+  try {
+    await container.read(customTrackRepositoryProvider).reprojectAll();
+  } catch (error, stack) {
+    debugPrint('Custom exams did not load: ${error.runtimeType}');
+    return (error, stack);
+  }
+  return null;
 }
 
 /// Reads persisted telemetry preference and applies it to the telemetry consent
@@ -444,6 +478,7 @@ Future<void> applyPersistedTelemetryConsent(
     final controller = container.read(
       telemetryConsentControllerProvider.notifier,
     );
+    ClientReporter.active?.enabled = settings.speedReportsEnabled;
     await controller.applyStartupConsent(
       enabled: settings.helpImproveApp,
     );

@@ -86,6 +86,20 @@ void main() {
     expect((await repo.readUserSettings()).helpImproveApp, isFalse);
   });
 
+  test('speed and error reports are on until the student turns them off',
+      () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final repo = DriftSettingsRepository(db);
+    expect((await repo.readUserSettings()).speedReportsEnabled, isTrue);
+
+    await repo.updateSpeedReportsEnabled(enabled: false);
+    expect((await repo.readUserSettings()).speedReportsEnabled, isFalse);
+
+    await repo.updateSpeedReportsEnabled(enabled: true);
+    expect((await repo.readUserSettings()).speedReportsEnabled, isTrue);
+  });
+
   test('updates reminder time and bumps updatedAt', () async {
     final db = inMemoryDatabase();
     addTearDown(db.close);

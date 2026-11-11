@@ -13,6 +13,8 @@ import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
+import 'package:pantas/features/guardian/application/guardian_providers.dart';
+import 'package:pantas/features/guardian/application/minor_sharing.dart';
 import 'package:pantas/features/legal/application/legal_providers.dart';
 import 'package:pantas/features/settings/presentation/feedback_intent.dart';
 import 'package:pantas/features/settings/presentation/pages/debug_settings_page.dart';
@@ -23,6 +25,9 @@ import 'package:pantas/features/settings/settings.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 const _helpImproveTitle = 'Help improve Pantas by sharing usage data';
+const _speedReportsTitle = 'Send speed and error reports';
+const _speedReportsSubtitle = 'Helps us find slow screens and errors.';
+const _minorLockedCaption = 'Your parent or guardian can turn this on.';
 
 class AboutPage extends ConsumerWidget {
   const AboutPage({
@@ -112,6 +117,9 @@ class AboutPage extends ConsumerWidget {
     final settings =
         ref.watch(userSettingsProvider).valueOrNull ?? UserSettings.defaults();
     final contact = ref.watch(legalContactProvider);
+    // A minor's guardian decides whether the student can turn sharing on.
+    final sharingLocked =
+        ref.watch(minorSharingProvider).valueOrNull == MinorSharing.locked;
     void push(String path) {
       final router = GoRouter.maybeOf(context);
       if (router != null) unawaited(router.push<void>(path));
@@ -175,13 +183,29 @@ class AboutPage extends ConsumerWidget {
                     ),
               variant: ListRowVariant.switchControl,
               selected: settings.helpImproveApp,
+              subtitle: sharingLocked ? _minorLockedCaption : null,
               divider: true,
               // ST_About: the divider starts at the text.
               dividerInset: context.wideWeb ? PantasSpace.s0 : PantasSpace.s16,
+              onTap: sharingLocked
+                  ? null
+                  : () => unawaited(
+                        ref.read(settingsActionsProvider).setHelpImproveApp(
+                              enabled: !settings.helpImproveApp,
+                            ),
+                      ),
+            ),
+            SettingsRow(
+              title: _speedReportsTitle,
+              subtitle: _speedReportsSubtitle,
+              variant: ListRowVariant.switchControl,
+              selected: settings.speedReportsEnabled,
+              divider: true,
+              dividerInset: context.wideWeb ? PantasSpace.s0 : PantasSpace.s16,
               onTap: () => unawaited(
-                ref
-                    .read(settingsActionsProvider)
-                    .setHelpImproveApp(enabled: !settings.helpImproveApp),
+                ref.read(settingsActionsProvider).setSpeedReportsEnabled(
+                      enabled: !settings.speedReportsEnabled,
+                    ),
               ),
             ),
             if (!context.wideWeb && sharedLinksRow != null) sharedLinksRow!,

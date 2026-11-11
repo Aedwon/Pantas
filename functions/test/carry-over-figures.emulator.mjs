@@ -1,4 +1,11 @@
 import '../lib/index.js';
+import {readFileSync} from 'node:fs';
+const GENERAL_INFORMATION = JSON.parse(readFileSync(new URL('../../content/exams/custom_subject_tiers.json', import.meta.url), 'utf8'))
+  .subjects.find(s => s.name === 'General Information').topicIds;
+// The fixture corpus uses made-up topic ids. A kept topic the table does not know prices at the top tier, so
+// the fixture places its topics at Student, the same module instance the functions read.
+import {customSubjectTiers} from '../lib/_customTrack.js';
+for (const id of ['topic-math', 'topic-lang', 'topic_cse_pro_vocabulary', 'topic_cse_pro_arithmetic_number_sense']) customSubjectTiers.topicTiers[id] = 'Student';
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import {getFirestore} from 'firebase-admin/firestore';
@@ -6,6 +13,8 @@ import {clearExamContentCache} from '../lib/_examContent.js';
 import {readStudyInsights} from '../lib/studyInsights.js';
 import {readStudyRoadmap, saveExamSettings, checkSettings} from '../lib/roadmap.js';
 import {emptyTotals, toDoc} from '../lib/_answerTotals.js';
+import {mockCoverage} from '../lib/mockAccess.js';
+import {randomUUID} from 'node:crypto';
 
 // A student answered on Sub-Professional (SUB), then switched to Professional (PRO).
 // s1 and s2 are on both exams, a1 is Sub only, b1 is Pro only.
@@ -103,4 +112,159 @@ test('carry-over weights rated areas without replacing raw answer counts', async
   // Verbal: 1/2 at weight 30. Numerical: 1/1 at weight 30.
   // (30 * 1/2 + 30 * 1/1) / (30 + 30) = 0.75, while raw counts stay 2/3.
   assert.deepEqual(overall(r), {correct: 2, answered: 3, accuracy: .75});
+});
+
+test('a listed exam keeps the same cache key as before custom exams, so no stored figure is lost', async () => {
+  const uid = 'carry-fig-pin';
+  await seed(uid, true);
+  await db.doc('content/catalog/items/index').delete();
+  clearExamContentCache();
+  await readStudyInsights(auth(uid), body(uid), deps());
+  assert.equal((await db.doc('users/' + uid + '/server/studyInsights').get()).get('sourceRevision'),
+    '["exam_cse_pro","exam_cse_pro:v1:exam-lessons-v2",0,0,"2026-10-24",true,"topic-details-v5-csc-parts"]');
+});
+
+// ---- a custom exam: the whole corpus, filtered by the ticked subjects ----
+// Math has m1 to m3 and Language has l1 and l2, in two catalogs. The student answered under Professional (carried)
+// and under the custom exam (own). m1 and l1 were answered under Professional, m3 in a Professional mock, which is never carried.
+const CUSTOM = 'exam_custom_' + randomUUID();
+const customAuth = (uid, token = {firebase: {sign_in_provider: 'anonymous'}}) => ({uid, token});
+const customBody = uid => ({expectedUid: uid, examId: CUSTOM});
+async function customCorpus() {
+  const math = {_id: 'subj-math', name: 'Math', exam: 'exam_cx', ordering: 1}, lang = {_id: 'subj-lang', name: 'Language', exam: 'exam_cy', ordering: 2};
+  const tMath = {_id: 'topic-math', name: 'Math topic', subject: 'subj-math', ordering: 1}, tLang = {_id: 'topic-lang', name: 'Language topic', subject: 'subj-lang', ordering: 1};
+  const set = (id, topic, ids) => ({id, topic, lesson: null, exams: ['exam_cx', 'exam_cy'], questions: ids.map(q => ({id: q}))});
+  const put = (id, value) => db.doc('content/catalog/items/' + id).set({version: 'v1', payload: JSON.stringify(value)});
+  await put('index', {subjects: [math, lang], topics: [tMath, tLang], catalogs: ['exam_cx', 'exam_cy']});
+  await put('exam_cx', {id: 'exam_cx', sets: [set('set-math', 'topic-math', ['m1', 'm2', 'm3'])]});
+  await put('exam_cy', {id: 'exam_cy', sets: [set('set-lang', 'topic-lang', ['l1', 'l2'])]});
+  clearExamContentCache();
+}
+async function seedCustom(uid, {carry, excluded = []} = {}) {
+  await db.recursiveDelete(db.doc('users/' + uid));
+  await customCorpus();
+  await db.doc('users/' + uid + '/server/settings').set({examId: CUSTOM, examDate: null, studyDays: [1, 2, 3, 4, 5, 6, 7], assessmentCompleted: true,
+    updatedAt: NOW, excludedTopicIds: excluded, excludedLessonIds: [], ...(carry === undefined ? {} : {carryOverProgress: carry})});
+  await db.doc('users/' + uid + '/server/answerTotals').set(toDoc(emptyTotals()));
+  const items = db.collection('users/' + uid + '/server/answers/items');
+  // zz9 is not in the corpus: a phone's bundle can hold ids the catalog lacks.
+  await items.doc('pro-quiz').set(session('pro-quiz', PRO, 'drill', [['m1', true], ['l1', false], ['zz9', true]]));
+  await items.doc('pro-mock').set(session('pro-mock', PRO, 'mock', [['m3', true]]));
+  await items.doc('own-quiz').set(session('own-quiz', CUSTOM, 'drill', [['m2', false], ['l2', true]]));
+}
+const bySubject = r => r.performance.subjects.map(s => [s.id, s.correct, s.answered]);
+const storedKey = async uid => (await db.doc('users/' + uid + '/server/studyInsights').get()).get('sourceRevision');
+
+test('a custom exam counts a carried answer only in a ticked subject, and never a mock or an id outside the corpus', async () => {
+  const uid = 'carry-cus-on';
+  await seedCustom(uid, {carry: true});
+  const all = await readStudyInsights(customAuth(uid), customBody(uid), deps());
+  assert.deepEqual(overall(all), {correct: 2, answered: 4, accuracy: .5});
+  assert.deepEqual(bySubject(all), [['subj-math', 1, 2], ['subj-lang', 1, 2]]);
+  await seedCustom(uid, {carry: true, excluded: ['topic-lang']});
+  const math = await readStudyInsights(customAuth(uid), customBody(uid), deps());
+  assert.deepEqual(overall(math), {correct: 1, answered: 2, accuracy: .5}, 'the carried and the own Language answers are both hidden');
+  assert.deepEqual(bySubject(math), [['subj-math', 1, 2]]);
+});
+
+test('a custom exam with carry-over off counts only its own sessions', async () => {
+  const uid = 'carry-cus-off';
+  await seedCustom(uid, {carry: false});
+  const r = await readStudyInsights(customAuth(uid), customBody(uid), deps());
+  assert.deepEqual(overall(r), {correct: 1, answered: 2, accuracy: .5});
+  await seedCustom(uid, {carry: false, excluded: ['topic-math']});
+  assert.deepEqual(overall(await readStudyInsights(customAuth(uid), customBody(uid), deps())), {correct: 1, answered: 1, accuracy: 1});
+  await seedCustom(uid, undefined);
+  assert.deepEqual(overall(await readStudyInsights(customAuth(uid), customBody(uid), deps())), {correct: 2, answered: 4, accuracy: .5}, 'no flag counts as on');
+});
+
+test('narrowing hides figures at once, with the answers kept, and ticking the subject again restores them', async () => {
+  const uid = 'carry-cus-narrow';
+  await seedCustom(uid, {carry: true});
+  const settings = db.doc('users/' + uid + '/server/settings');
+  const wide = await readStudyInsights(customAuth(uid), customBody(uid), deps());
+  const wideKey = await storedKey(uid);
+  await settings.update({excludedTopicIds: ['topic-lang']});
+  // Same day, same sessions, same observation count: only the stored cache key can tell the two apart.
+  const narrow = await readStudyInsights(customAuth(uid), customBody(uid), deps());
+  assert.deepEqual(overall(narrow), {correct: 1, answered: 2, accuracy: .5});
+  assert.notEqual(await storedKey(uid), wideKey, 'the excluded lists are part of the cache key');
+  assert.notEqual(narrow.revision, wide.revision);
+  await settings.update({excludedTopicIds: []});
+  const again = await readStudyInsights(customAuth(uid), customBody(uid), deps());
+  assert.deepEqual(overall(again), {correct: 2, answered: 4, accuracy: .5});
+  assert.equal(await storedKey(uid), wideKey);
+  assert.equal(again.revision, wide.revision);
+  await settings.update({excludedLessonIds: ['no-such-lesson']});
+  await readStudyInsights(customAuth(uid), customBody(uid), deps());
+  assert.notEqual(await storedKey(uid), wideKey, 'a lesson list change is a new key too');
+  assert.equal((await db.collection('users/' + uid + '/server/answers/items').get()).size, 3, 'narrowing deletes no session');
+});
+
+test('a custom response is Free depth only, even with a paid grant for a listed exam and a live Pro claim', async () => {
+  const uid = 'carry-cus-free';
+  await seedCustom(uid, {carry: true});
+  await db.doc('users/' + uid + '/grants/paid').set({source: 'paymongo', product: 'pantas_pass_cse_pro', tier: 'civilService',
+    startsAt: NOW - DAY, endsAt: NOW + DAY, state: 'active', createdAt: NOW - DAY});
+  assert.equal((await db.runTransaction(tx => mockCoverage(tx, db, uid, NOW))).coversExam(PRO), true, 'the grant does cover Professional');
+  for (const token of [{firebase: {sign_in_provider: 'google.com'}}, {pro: true, proUntil: NOW + DAY, firebase: {sign_in_provider: 'google.com'}}]) {
+    const r = await readStudyInsights(customAuth(uid, token), customBody(uid), deps());
+    assert.equal(r.proCovered, false);
+    assert.equal(r.trialEndsAt, null);
+    for (const field of ['tendencies', 'whenYouWork']) assert.equal(field in r, false, field);
+    for (const field of ['topics', 'lessons', 'topicDetails']) assert.equal(field in r.performance, false, field);
+    assert.deepEqual(Object.keys(r.performance).sort(), ['lessonLevelAvailable', 'overall', 'subjects']);
+  }
+});
+
+test('a custom response is Pro when the plan reaches the exam tier, the trial resolves the same way, and the cache key carries the tier', async () => {
+  const uid = 'carry-cus-tier';
+  await seedCustom(uid, {carry: true});
+  const grants = db.doc('users/' + uid + '/grants/tier');
+  const student = {source: 'paymongo', product: 'pantas_pro_monthly', tier: 'student', startsAt: NOW - DAY, endsAt: NOW + 30 * DAY, state: 'active', createdAt: NOW - DAY};
+  await grants.set(student);
+  // Nothing excluded keeps every subject, which is a Civil Service exam, so a Student plan does not reach it.
+  let r = await readStudyInsights(customAuth(uid), customBody(uid), deps());
+  assert.equal(r.proCovered, false);
+  const civilKey = await storedKey(uid);
+  await db.doc('users/' + uid + '/server/settings').update({excludedTopicIds: GENERAL_INFORMATION});
+  r = await readStudyInsights(customAuth(uid), customBody(uid), deps());
+  assert.equal(r.proCovered, true);
+  for (const field of ['tendencies', 'whenYouWork']) assert.equal(field in r, true, field);
+  assert.notEqual(await storedKey(uid), civilKey, 'a tier change is a new cache key');
+  // A Student trial reaches a Student exam, and its end is reported because nothing paid outlasts it.
+  await grants.set({source: 'trial', product: 'web_trial', tier: 'student', startsAt: NOW - DAY, endsAt: NOW + 3 * DAY, state: 'active', createdAt: NOW - DAY});
+  r = await readStudyInsights(customAuth(uid), customBody(uid), deps());
+  assert.equal(r.proCovered, true);
+  assert.equal(r.trialEndsAt, NOW + 3 * DAY);
+  await db.doc('users/' + uid + '/server/settings').update({excludedTopicIds: []});
+  r = await readStudyInsights(customAuth(uid), customBody(uid), deps());
+  assert.equal(r.proCovered, false);
+  assert.equal(r.trialEndsAt, null, 'a Student trial does not reach the Civil Service exam');
+});
+
+test('a custom exam with no settings asks to set the exam first, and one named by other settings says it changed', async () => {
+  const uid = 'carry-cus-settings';
+  await seedCustom(uid, {carry: true});
+  await db.doc('users/' + uid + '/server/settings').update({examId: PRO});
+  assert.equal(await code(readStudyInsights(customAuth(uid), customBody(uid), deps())), 'failed-precondition');
+  await assert.rejects(readStudyInsights(customAuth(uid), customBody(uid), deps()), e => e.message === 'Your exam changed. Open this screen again.');
+  await db.doc('users/' + uid + '/server/settings').delete();
+  await assert.rejects(readStudyInsights(customAuth(uid), customBody(uid), deps()), e => e.code === 'failed-precondition' && e.message === 'Set your exam first.');
+  // A listed exam keeps its tolerance: no settings is not an error.
+  await seed(uid, true);
+  await db.doc('users/' + uid + '/server/settings').delete();
+  assert.equal(await code(readStudyInsights(auth(uid), body(uid), deps())), 'ok');
+});
+
+test('a malformed custom id is still Unknown exam', async () => {
+  const uid = 'carry-cus-bad';
+  for (const examId of ['exam_custom', 'exam_custom_' + randomUUID().toUpperCase(), 'exam_custom_' + randomUUID() + 'x']) {
+    await assert.rejects(readStudyInsights(customAuth(uid), {expectedUid: uid, examId}, deps()), e => e.code === 'invalid-argument' && e.message === 'Unknown exam.');
+  }
+});
+
+test('custom corpus cleanup', async () => {
+  for (const id of ['index', 'exam_cx', 'exam_cy']) await db.doc('content/catalog/items/' + id).delete();
+  clearExamContentCache();
 });

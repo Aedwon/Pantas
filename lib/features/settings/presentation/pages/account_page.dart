@@ -10,6 +10,7 @@ import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/auth/public_id_provider.dart';
 import 'package:pantas/core/auth/sign_in_result.dart';
 import 'package:pantas/core/error/app_exception.dart';
+import 'package:pantas/core/storage/age_gate.dart';
 import 'package:pantas/core/sync/providers.dart';
 import 'package:pantas/core/ui/components/avatar.dart';
 import 'package:pantas/core/ui/components/card_footer.dart';
@@ -30,6 +31,7 @@ import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/paywall/application/paywall_providers.dart';
 import 'package:pantas/features/settings/presentation/pages/backup_page.dart';
+import 'package:pantas/features/settings/presentation/settings_toast.dart';
 import 'package:pantas/features/settings/presentation/widgets/settings_pane_page.dart';
 import 'package:pantas/features/settings/presentation/widgets/settings_row.dart';
 import 'package:pantas/features/settings/presentation/widgets/settings_section.dart';
@@ -46,6 +48,8 @@ double _pairWidth(BuildContext context) {
   final scale = MediaQuery.textScalerOf(context).scale(1);
   return 98 + 325 * scale;
 }
+
+const _adultRowTitle = "I'm 18 now";
 
 class AccountPage extends ConsumerStatefulWidget {
   const AccountPage({super.key});
@@ -67,6 +71,17 @@ class _AccountPageState extends ConsumerState<AccountPage> {
     super.dispose();
   }
 
+  /// Opens the age step again. If the student is now 18 or older it comes back
+  /// with `true` and the account is already set to adult.
+  Future<void> _recheckAge() async {
+    final router = GoRouter.maybeOf(context);
+    if (router == null) return;
+    final done = await router.push<bool>('/settings/account/adult-check');
+    if ((done ?? false) && mounted) {
+      showSettingsToast(context, 'Your account is now set for 18 and over.');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     if (_genericFailure) {
@@ -82,6 +97,7 @@ class _AccountPageState extends ConsumerState<AccountPage> {
       );
     }
     final user = ref.watch(currentUserProvider).valueOrNull;
+    final minor = ref.watch(ageGroupProvider).valueOrNull == 'minor';
     final settings =
         ref.watch(userSettingsProvider).valueOrNull ?? UserSettings.defaults();
     final id = ref.watch(publicIdProvider).valueOrNull ??
@@ -214,6 +230,14 @@ class _AccountPageState extends ConsumerState<AccountPage> {
             ],
           ),
           const SizedBox(height: PantasSpace.s24),
+          if (minor) ...[
+            SettingsSection(
+              children: [
+                SettingsRow(title: _adultRowTitle, onTap: _recheckAge),
+              ],
+            ),
+            const SizedBox(height: PantasSpace.s24),
+          ],
           if (user == null) ...[
             Align(
               alignment: Alignment.centerLeft,
@@ -329,6 +353,14 @@ class _AccountPageState extends ConsumerState<AccountPage> {
           ],
         ),
         const SizedBox(height: PantasSpace.s20),
+        if (minor) ...[
+          SettingsSection(
+            children: [
+              SettingsRow(title: _adultRowTitle, onTap: _recheckAge),
+            ],
+          ),
+          const SizedBox(height: PantasSpace.s20),
+        ],
         SettingsSection(
           footer: user == null
               ? 'You get your own Pantas ID when you sign in.'

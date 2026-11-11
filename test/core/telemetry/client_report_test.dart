@@ -336,6 +336,48 @@ void main() {
     });
   });
 
+  group('the speed and error report switch', () {
+    test('off: nothing is sent and the queue is dropped', () async {
+      reporter
+        ..addError(
+          const ClientError(type: 'StateError', msg: 'old', stack: ['a']),
+        )
+        ..enabled = false;
+      await open();
+      reporter
+        ..addError(
+          const ClientError(type: 'StateError', msg: 'new', stack: ['b']),
+        )
+        ..recordError(StateError('later'), StackTrace.current)
+        ..pageHidden()
+        ..tick();
+      await pumpEventQueue();
+      expect(sender.sent, isEmpty);
+
+      // Turning it back on does not release what was queued while it was off.
+      reporter
+        ..enabled = true
+        ..pageHidden();
+      await pumpEventQueue();
+      expect(sender.sent, isEmpty);
+
+      reporter
+        ..addError(
+          const ClientError(type: 'TypeError', msg: 'fresh', stack: ['c']),
+        )
+        ..pageHidden();
+      await pumpEventQueue();
+      final errors = sender.sent.single['errors']! as List;
+      expect(errors, hasLength(1));
+      expect((errors.single as Map)['type'], 'TypeError');
+      expect(sender.sent.single['timings'], <Object?>[]);
+    });
+
+    test('on by default', () {
+      expect(reporter.enabled, isTrue);
+    });
+  });
+
   group('failure', () {
     test('a failing send is swallowed and tried once more later', () async {
       sender.failWith = 'offline';

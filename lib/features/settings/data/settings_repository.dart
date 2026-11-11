@@ -37,6 +37,7 @@ abstract final class SettingsPrefKeys {
   static const carryOverProgress = 'settings.carry_over_progress';
   static const sessionOrdering = 'settings.session_ordering';
   static const retainTableOrder = 'settings.retain_table_order';
+  static const speedReportsEnabled = 'settings.speed_reports_enabled';
   static const updatedAt = 'settings.updated_at';
   static const themeMode = 'theme_mode';
 }
@@ -89,6 +90,8 @@ class DriftSettingsRepository {
       acceptedTermsAt: DateTime.tryParse(
         values[SettingsPrefKeys.policyAcceptedAt] ?? '',
       ),
+      speedReportsEnabled:
+          values[SettingsPrefKeys.speedReportsEnabled] != 'false',
     );
   }
 
@@ -200,6 +203,13 @@ class DriftSettingsRepository {
       }
       Error.throwWithStackTrace(writeError, writeStack);
     }
+  }
+
+  Future<void> updateSpeedReportsEnabled({required bool enabled}) async {
+    await _writeAccountPrefs({
+      SettingsPrefKeys.speedReportsEnabled: enabled ? 'true' : 'false',
+      SettingsPrefKeys.updatedAt: _clock().toUtc().toIso8601String(),
+    });
   }
 
   Future<void> updateCarryOverProgress({required bool enabled}) async {

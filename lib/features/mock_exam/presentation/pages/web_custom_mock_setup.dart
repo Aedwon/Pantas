@@ -23,6 +23,8 @@ class WebCustomMockSetup extends StatelessWidget {
     required this.minutes,
     required this.available,
     required this.fits,
+    required this.overLimit,
+    required this.failed,
     required this.breakdown,
     required this.timedSeparately,
     required this.unset,
@@ -42,11 +44,31 @@ class WebCustomMockSetup extends StatelessWidget {
   final int questions;
   final int minutes;
   final int available;
+
+  /// False while the total passes what the subjects hold and no section is
+  /// over to explain it. Then the card shows the ceiling line.
   final bool fits;
+
+  /// The total is past what one mock can hold.
+  final bool overLimit;
+
+  /// The last save did not go through.
+  final bool failed;
   final bool breakdown;
   final bool timedSeparately;
   final bool unset;
-  final List<({String id, String name, int? questions, int? minutes})> sections;
+
+  /// `held` is what the subject's topics hold. `over` is a section that asks
+  /// for more than that.
+  final List<
+      ({
+        String id,
+        String name,
+        int? questions,
+        int? minutes,
+        int held,
+        bool over,
+      })> sections;
   final List<int> questionValues;
   final List<int> minuteValues;
   final ValueChanged<int> onQuestions;
@@ -96,13 +118,11 @@ class WebCustomMockSetup extends StatelessWidget {
                       name: section.name,
                       questions: section.questions,
                       minutes: section.minutes,
+                      over: section.over,
                       questionValues: questionValues,
                       minuteValues: minuteValues,
-                      onChanged: (value, {required minutes}) => onSection(
-                        section.id,
-                        value,
-                        minutes: minutes,
-                      ),
+                      onChanged: (value, {required minutes}) =>
+                          onSection(section.id, value, minutes: minutes),
                     ),
                   RowTapTarget(
                     onTap: () => onTiming(!timedSeparately),
@@ -138,13 +158,57 @@ class WebCustomMockSetup extends StatelessWidget {
                 PantasSpace.s16,
                 PantasSpace.s0,
               ),
-              child: Text(
-                'The totals above now add these up.',
-                style: t.sm,
-              ),
+              child: Text('The totals above now add these up.', style: t.sm),
             ),
+            if (timedSeparately && sections.length >= 2)
+              _note(t, customPartByPartRule),
+            if (overLimit)
+              _note(
+                t,
+                'Mocks go up to 300 questions. This one adds up to '
+                '$questions.',
+                color: t.colors.wrongText,
+              ),
+            for (final section in sections)
+              if (section.over)
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(
+                    PantasSpace.s16,
+                    PantasSpace.s8,
+                    PantasSpace.s16,
+                    PantasSpace.s0,
+                  ),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Text(
+                          'Your ${section.name} topics have ${section.held} '
+                          'questions. A ${section.questions}-question '
+                          'section needs more.',
+                          style: t.sm.copyWith(color: t.colors.wrongText),
+                        ),
+                      ),
+                      const SizedBox(width: PantasSpace.s8),
+                      WebTextLink(
+                        label: 'Tick More Subjects',
+                        arrow: false,
+                        onPressed: onTickMoreSubjects,
+                      ),
+                    ],
+                  ),
+                ),
           ],
         ],
+      );
+
+  Widget _note(WebTokens t, String text, {Color? color}) => Padding(
+        padding: const EdgeInsets.fromLTRB(
+          PantasSpace.s16,
+          PantasSpace.s4,
+          PantasSpace.s16,
+          PantasSpace.s0,
+        ),
+        child: Text(text, style: t.sm.copyWith(color: color)),
       );
 
   @override
@@ -187,8 +251,10 @@ class WebCustomMockSetup extends StatelessWidget {
                   const SizedBox(height: PantasSpace.s6),
                   Text(
                     "We'll build it from what you tell us.",
-                    style: PantasType.webLead
-                        .copyWith(color: t.colors.secondaryLabel, height: 1.45),
+                    style: PantasType.webLead.copyWith(
+                      color: t.colors.secondaryLabel,
+                      height: 1.45,
+                    ),
                   ),
                   const SizedBox(height: PantasSpace.s28),
                   SizedBox(
@@ -207,7 +273,7 @@ class WebCustomMockSetup extends StatelessWidget {
                                 display: '$questions',
                                 values: questionValues,
                                 editable: !breakdown,
-                                refused: !fits,
+                                refused: !fits || overLimit,
                                 onChanged: onQuestions,
                                 format: (v) => '$v',
                                 helper: questionHint,
@@ -298,6 +364,16 @@ class WebCustomMockSetup extends StatelessWidget {
                           ),
                           const SizedBox(height: PantasSpace.s8),
                         ],
+                        if (failed) ...[
+                          Semantics(
+                            liveRegion: true,
+                            child: Text(
+                              'Could not save. Please try again.',
+                              style: t.sm,
+                            ),
+                          ),
+                          const SizedBox(height: PantasSpace.s8),
+                        ],
                         Align(
                           alignment: Alignment.centerRight,
                           child: WebButton(
@@ -366,7 +442,7 @@ class _WideNumberRowState extends State<_WideNumberRow> {
             color:
                 widget.refused ? t.colors.wrongText : t.colors.secondaryLabel,
           ),
-          dimmed: !widget.editable,
+          dimmed: !widget.editable && !widget.refused,
           onPressed:
               widget.editable ? () => setState(() => _open = !_open) : null,
         ),
@@ -411,6 +487,7 @@ class _WideSectionRow extends StatefulWidget {
     required this.name,
     required this.questions,
     required this.minutes,
+    required this.over,
     required this.questionValues,
     required this.minuteValues,
     required this.onChanged,
@@ -418,6 +495,9 @@ class _WideSectionRow extends StatefulWidget {
   final String name;
   final int? questions;
   final int? minutes;
+
+  /// The items value passes what the subject holds.
+  final bool over;
   final List<int> questionValues;
   final List<int> minuteValues;
   final void Function(int value, {required bool minutes}) onChanged;
@@ -430,9 +510,19 @@ class _WideSectionRowState extends State<_WideSectionRow> {
   @override
   Widget build(BuildContext context) {
     final t = context.webTokens;
-    Widget field(int? value, {required bool minutes}) => SizedBox(
-          width: _fieldWidth,
-          height: PantasSize.btnXs,
+    Widget field(int? value, {required bool minutes}) {
+      // The bad field: a 1.5 px red edge drawn over the system button.
+      final bad = widget.over && !minutes;
+      return SizedBox(
+        width: _fieldWidth,
+        height: PantasSize.btnXs,
+        child: DecoratedBox(
+          position: DecorationPosition.foreground,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(PantasRadius.sm),
+            border:
+                bad ? Border.all(color: t.colors.wrongText, width: 1.5) : null,
+          ),
           child: WebButton(
             label: value == null ? 'Set' : '$value',
             kind: PantasButtonKind.white,
@@ -441,11 +531,15 @@ class _WideSectionRowState extends State<_WideSectionRow> {
             onPressed: () =>
                 setState(() => _minutes = _minutes == minutes ? null : minutes),
           ),
-        );
+        ),
+      );
+    }
+
     return Container(
       decoration: BoxDecoration(
-        border:
-            Border(bottom: BorderSide(color: t.colors.separator, width: .5)),
+        border: Border(
+          bottom: BorderSide(color: t.colors.separator, width: .5),
+        ),
       ),
       padding: const EdgeInsets.symmetric(
         horizontal: PantasSpace.s16,
@@ -459,8 +553,9 @@ class _WideSectionRowState extends State<_WideSectionRow> {
               Expanded(
                 child: Text(
                   widget.name,
-                  style:
-                      PantasType.webBody.copyWith(color: t.colors.textPrimary),
+                  style: PantasType.webBody.copyWith(
+                    color: t.colors.textPrimary,
+                  ),
                 ),
               ),
               field(widget.questions, minutes: false),
@@ -588,8 +683,9 @@ class _InlineStepperState extends State<_InlineStepper> {
               ),
               for (final v in values.skip(start).take(5))
                 Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: PantasSpace.s2),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: PantasSpace.s2,
+                  ),
                   child: WebButton(
                     label: format(v),
                     kind: v == value
@@ -612,3 +708,7 @@ class _InlineStepperState extends State<_InlineStepper> {
     );
   }
 }
+
+/// What the boards say under the breakdown while parts are timed apart.
+const String customPartByPartRule =
+    "This paper runs part by part. Once a part ends, you can't go back to it.";

@@ -6,6 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:pantas/core/content/data/exam_catalog_repository.dart';
+import 'package:pantas/features/legal/domain/legal_document.dart';
 import 'package:pantas/features/paywall/application/paywall_providers.dart';
 import 'package:pantas/features/paywall/application/trusted_clock.dart';
 import 'package:pantas/features/paywall/data/entitlement_snapshot_store.dart';
@@ -250,6 +251,29 @@ void main() {
       // The tab leaves for PayMongo. Nothing is confirmed until it returns.
       expect(result.status, PaymentOperationStatus.operationAlreadyInProgress);
       expect(result.confirmedEntitlement, isNull);
+    });
+
+    test('a guardian-attested purchase sends the Terms version it was shown',
+        () async {
+      await gateway.purchase(_weekly, guardianAttested: true);
+      await gateway.purchasePass(_pass, exam: _exam(), guardianAttested: true);
+
+      verify(
+        () => callable('createPaymongoCheckout', {
+          'product': 'pantas_cs_weekly',
+          'guardianAttestation': {
+            'termsVersion': guardianDocumentVersions['terms'],
+          },
+        }),
+      ).called(1);
+      verify(
+        () => callable('createPaymongoCheckout', {
+          'product': 'pantas_pass_cse_pro',
+          'guardianAttestation': {
+            'termsVersion': guardianDocumentVersions['terms'],
+          },
+        }),
+      ).called(1);
     });
 
     test('purchasePass sends the pass product id and opens the url', () async {

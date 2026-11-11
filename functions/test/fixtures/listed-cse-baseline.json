@@ -1,0 +1,331 @@
+{
+ "free": {
+  "settings": {
+   "examId": "exam_cse_pro",
+   "examDate": {
+    "precision": "day",
+    "day": "2026-11-15"
+   },
+   "carryOverProgress": false,
+   "excludedLessonIds": [
+    "lesson-cse-0"
+   ],
+   "excludedTopicIds": [
+    "topic_cse_pro_vocabulary"
+   ],
+   "studyDays": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "assessmentCompleted": true,
+   "updatedAt": 1792807200000
+  },
+  "roadmap": {
+   "examId": "exam_cse_pro",
+   "serverNow": 1792807200000,
+   "accessRecheckAt": null,
+   "proCovered": false,
+   "tier": "free",
+   "state": "planning",
+   "revision": "a532323f3a46362bce6a59b53bcfb106f0ddf51d168dca9074401e10e6f1ee00",
+   "today": {
+    "day": "2026-10-24",
+    "lessonIds": [
+     "lesson-cse-6"
+    ],
+    "reviewQuestionIds": [],
+    "newQuestionIds": [
+     "cse-1-0"
+    ],
+    "isMockDay": false,
+    "isRestDay": false,
+    "advancedIds": [],
+    "reasons": {
+     "lesson-cse-6": {
+      "kind": "nextUp"
+     }
+    }
+   },
+   "remaining": {
+    "day": "2026-10-24",
+    "lessonIds": [
+     "lesson-cse-6"
+    ],
+    "reviewQuestionIds": [],
+    "newQuestionIds": [
+     "cse-1-0"
+    ],
+    "isMockDay": false,
+    "isRestDay": false,
+    "advancedIds": [],
+    "reasons": {
+     "lesson-cse-6": {
+      "kind": "nextUp"
+     }
+    }
+   },
+   "originalDone": false,
+   "canAdvance": false,
+   "todayTopicOrder": [
+    "topic_cse_pro_arithmetic_number_sense"
+   ],
+   "weekDays": [
+    {
+     "day": "2026-10-18",
+     "state": "rest"
+    },
+    {
+     "day": "2026-10-19",
+     "state": "missed"
+    },
+    {
+     "day": "2026-10-20",
+     "state": "missed"
+    },
+    {
+     "day": "2026-10-21",
+     "state": "missed"
+    },
+    {
+     "day": "2026-10-22",
+     "state": "missed"
+    },
+    {
+     "day": "2026-10-23",
+     "state": "missed"
+    },
+    {
+     "day": "2026-10-24",
+     "state": "today",
+     "plan": {
+      "day": "2026-10-24",
+      "lessonIds": [
+       "lesson-cse-6"
+      ],
+      "reviewQuestionIds": [],
+      "newQuestionIds": [
+       "cse-1-0"
+      ],
+      "isMockDay": false,
+      "isRestDay": false,
+      "advancedIds": [],
+      "reasons": {
+       "lesson-cse-6": {
+        "kind": "nextUp"
+       }
+      }
+     },
+     "remaining": {
+      "day": "2026-10-24",
+      "lessonIds": [
+       "lesson-cse-6"
+      ],
+      "reviewQuestionIds": [],
+      "newQuestionIds": [
+       "cse-1-0"
+      ],
+      "isMockDay": false,
+      "isRestDay": false,
+      "advancedIds": [],
+      "reasons": {
+       "lesson-cse-6": {
+        "kind": "nextUp"
+       }
+      }
+     }
+    }
+   ],
+   "backlogCapped": false,
+   "homeExtras": {
+    "priorDay": null,
+    "priorWasMockDay": false,
+    "missedWorkToday": false,
+    "studyDays": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     6
+    ],
+    "mockDurationMinutes": 165
+   }
+  },
+  "digest": "{\"examId\":\"exam_cse_pro\",\"examDate\":\"2026-11-15:day\",\"scope\":[\"topic_cse_pro_arithmetic_number_sense\"],\"excludedLessons\":[\"lesson-cse-0\"],\"content\":\"exam_cse_pro:catalog-v1:exam-lessons-v2\",\"assessed\":true,\"mocks\":0,\"studyDays\":\"1,2,3,4,5,6\"}"
+ },
+ "pro": {
+  "settings": {
+   "examId": "exam_cse_pro",
+   "examDate": {
+    "precision": "day",
+    "day": "2026-11-15"
+   },
+   "carryOverProgress": false,
+   "excludedLessonIds": [
+    "lesson-cse-0"
+   ],
+   "excludedTopicIds": [
+    "topic_cse_pro_vocabulary"
+   ],
+   "studyDays": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "assessmentCompleted": true,
+   "updatedAt": 1792807200000
+  },
+  "roadmap": {
+   "examId": "exam_cse_pro",
+   "serverNow": 1792807200000,
+   "accessRecheckAt": 1792893600000,
+   "proCovered": true,
+   "tier": "pro",
+   "state": "planning",
+   "revision": "a532323f3a46362bce6a59b53bcfb106f0ddf51d168dca9074401e10e6f1ee00",
+   "today": {
+    "day": "2026-10-24",
+    "lessonIds": [
+     "lesson-cse-6"
+    ],
+    "reviewQuestionIds": [],
+    "newQuestionIds": [
+     "cse-1-0"
+    ],
+    "isMockDay": false,
+    "isRestDay": false,
+    "advancedIds": [],
+    "reasons": {
+     "lesson-cse-6": {
+      "kind": "nextUp"
+     }
+    }
+   },
+   "remaining": {
+    "day": "2026-10-24",
+    "lessonIds": [
+     "lesson-cse-6"
+    ],
+    "reviewQuestionIds": [],
+    "newQuestionIds": [
+     "cse-1-0"
+    ],
+    "isMockDay": false,
+    "isRestDay": false,
+    "advancedIds": [],
+    "reasons": {
+     "lesson-cse-6": {
+      "kind": "nextUp"
+     }
+    }
+   },
+   "originalDone": false,
+   "canAdvance": false,
+   "todayTopicOrder": [
+    "topic_cse_pro_arithmetic_number_sense"
+   ],
+   "weekDays": [
+    {
+     "day": "2026-10-18",
+     "state": "rest"
+    },
+    {
+     "day": "2026-10-19",
+     "state": "missed"
+    },
+    {
+     "day": "2026-10-20",
+     "state": "missed"
+    },
+    {
+     "day": "2026-10-21",
+     "state": "missed"
+    },
+    {
+     "day": "2026-10-22",
+     "state": "missed"
+    },
+    {
+     "day": "2026-10-23",
+     "state": "missed"
+    },
+    {
+     "day": "2026-10-24",
+     "state": "today",
+     "plan": {
+      "day": "2026-10-24",
+      "lessonIds": [
+       "lesson-cse-6"
+      ],
+      "reviewQuestionIds": [],
+      "newQuestionIds": [
+       "cse-1-0"
+      ],
+      "isMockDay": false,
+      "isRestDay": false,
+      "advancedIds": [],
+      "reasons": {
+       "lesson-cse-6": {
+        "kind": "nextUp"
+       }
+      }
+     },
+     "remaining": {
+      "day": "2026-10-24",
+      "lessonIds": [
+       "lesson-cse-6"
+      ],
+      "reviewQuestionIds": [],
+      "newQuestionIds": [
+       "cse-1-0"
+      ],
+      "isMockDay": false,
+      "isRestDay": false,
+      "advancedIds": [],
+      "reasons": {
+       "lesson-cse-6": {
+        "kind": "nextUp"
+       }
+      }
+     }
+    }
+   ],
+   "backlogCapped": false,
+   "homeExtras": {
+    "priorDay": null,
+    "priorWasMockDay": false,
+    "missedWorkToday": false,
+    "studyDays": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     6
+    ],
+    "mockDurationMinutes": 165
+   },
+   "comingUp": {
+    "examDay": "2026-11-15",
+    "reviewOnlyFrom": "2026-11-10",
+    "mockDay": "2026-11-10",
+    "weeksAhead": [],
+    "topicOrder": [
+     "topic_cse_pro_arithmetic_number_sense"
+    ]
+   },
+   "history": {
+    "changes": [],
+    "next": null
+   }
+  },
+  "digest": "{\"examId\":\"exam_cse_pro\",\"examDate\":\"2026-11-15:day\",\"scope\":[\"topic_cse_pro_arithmetic_number_sense\"],\"excludedLessons\":[\"lesson-cse-0\"],\"content\":\"exam_cse_pro:catalog-v1:exam-lessons-v2\",\"assessed\":true,\"mocks\":0,\"studyDays\":\"1,2,3,4,5,6\"}"
+ }
+}

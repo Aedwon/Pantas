@@ -4,7 +4,7 @@ import * as guardian from '../lib/guardianConsent.js';
 
 const DAY = 86400000;
 const T0 = Date.parse('2026-11-09T00:00:00+08:00');
-const versions = {privacy: '2026-11-10', terms: '2026-11-10', teens: '2026-11-10'};
+const versions = {privacy: '2026-11-11', terms: '2026-11-11', teens: '2026-11-11'};
 const app = {appId: 'app', token: {}, alreadyConsumed: false};
 const request = (data) => ({auth: {uid: 'visitor'}, app, data});
 
@@ -19,6 +19,7 @@ function store(initial = {}) {
   const query = (matches, cursor = '', size = Infinity) => ({
     orderBy: () => query(matches, cursor, size),
     limit: n => query(matches, cursor, n),
+    where: (field, op, value) => query(path => matches(path) && rows.get(path)?.[field] === value, cursor, size),
     startAfter: last => query(matches, last.ref.path, size),
     get: async () => {
       const docs = [...rows.keys()].sort().filter(path => path > cursor && matches(path))
@@ -26,7 +27,7 @@ function store(initial = {}) {
       return {docs, empty: docs.length === 0, size: docs.length};
     },
   });
-  const tx = {get: async ref => snapshot(ref),
+  const tx = {get: async ref => ref.path ? snapshot(ref) : ref.get(),
     set: (ref, value, options) => rows.set(ref.path,
       options?.merge ? {...rows.get(ref.path), ...value} : value),
     delete: ref => rows.delete(ref.path)};
@@ -54,11 +55,12 @@ for (const decision of ['confirm', 'decline']) {
   test(`${decision} records the shown versions, action and time without contact data`, async () => {
     const s = pending();
     const data = {token: s.token, decision, agreed: decision === 'confirm',
-      documentVersions: versions, noticeWordingVersion: '2026-11-09'};
+      documentVersions: versions, noticeWordingVersion: '2026-11-11'};
     await guardian.answerRequest(request(data), s.deps);
     assert.deepEqual(s.rows.get(evidencePath(s.hash)), {
-      documentVersions: versions, noticeWordingVersion: '2026-11-09',
+      documentVersions: versions, noticeWordingVersion: '2026-11-11',
       action: decision, agreed: decision === 'confirm', decidedAt: T0 + DAY,
+      ...(decision === 'confirm' ? {sharingAllowed: false} : {}),
     });
     await guardian.answerRequest(request(data), {...s.deps, now: () => T0 + 2 * DAY});
     assert.equal(s.rows.get(evidencePath(s.hash)).decidedAt, T0 + DAY, 'replay cannot replace evidence');
@@ -66,7 +68,7 @@ for (const decision of ['confirm', 'decline']) {
 }
 
 test('missing or mismatched shown versions cannot create false evidence', async () => {
-  for (const extra of [{}, {documentVersions: {...versions, teens: 'old'}, noticeWordingVersion: '2026-11-09'},
+  for (const extra of [{}, {documentVersions: {...versions, teens: 'old'}, noticeWordingVersion: '2026-11-11'},
     {documentVersions: versions, noticeWordingVersion: 'old'}]) {
     const s = pending();
     await assert.rejects(guardian.answerRequest(request({token: s.token, decision: 'decline', ...extra}), s.deps),
@@ -82,7 +84,7 @@ test('unanswered request and link disappear at the seven-day boundary', async ()
   assert.ok(s.rows.has(consentPath));
   assert.ok(s.rows.has(`guardianTokens/${s.hash}`));
   await guardian.purgeGuardianRecords(s.db, T0 + 7 * DAY);
-  assert.equal(s.rows.has(consentPath), false);
+  assert.deepEqual(s.rows.get(consentPath), {ageGroup: 'minor'});
   assert.equal(s.rows.has(`guardianTokens/${s.hash}`), false);
 });
 
@@ -90,16 +92,16 @@ for (const decision of ['confirm', 'decline']) {
   test(`${decision} removes contact and used links seven days later but retains evidence`, async () => {
     const s = pending();
     await guardian.answerRequest(request({token: s.token, decision, agreed: decision === 'confirm',
-      documentVersions: versions, noticeWordingVersion: '2026-11-09'}), s.deps);
+      documentVersions: versions, noticeWordingVersion: '2026-11-11'}), s.deps);
     await guardian.purgeGuardianRecords(s.db, T0 + 8 * DAY - 1);
     assert.ok(s.rows.has(`guardianTokens/${s.hash}`));
     await guardian.purgeGuardianRecords(s.db, T0 + 8 * DAY);
     assert.equal(s.rows.has(`guardianTokens/${s.hash}`), false);
     assert.ok(s.rows.has(evidencePath(s.hash)));
     if (decision === 'confirm') {
-      assert.deepEqual(s.rows.get(consentPath), {status: 'confirmed', ageGroup: 'minor', decidedAt: T0 + DAY});
+      assert.deepEqual(s.rows.get(consentPath), {status: 'confirmed', ageGroup: 'minor', decidedAt: T0 + DAY, sharingAllowed: false});
     } else {
-      assert.equal(s.rows.has(consentPath), false);
+      assert.deepEqual(s.rows.get(consentPath), {ageGroup: 'minor'});
     }
   });
 }
@@ -161,7 +163,22 @@ test('the contact-linked send counter expires with the unanswered request', asyn
   assert.ok(s.rows.has(`guardianLimits/${emailHash}`));
   await guardian.purgeGuardianRecords(s.db, T0 + 7 * DAY);
   assert.equal(s.rows.has(`guardianLimits/${emailHash}`), false);
-  assert.equal(s.rows.has(consentPath), false);
+  // Contact data and the status go; the minor mark stays for checkout.
+  assert.deepEqual(s.rows.get(consentPath), {ageGroup: 'minor'});
+});
+
+test('a declined request keeps only the minor mark, and the status reads as none', async () => {
+  const s = store({[consentPath]: {status: 'declined', ageGroup: 'minor', decidedAt: T0,
+    emailHash: 'e', maskedEmail: 'm***@g***.com', tokenHash: 't', sentAt: T0, expiresAt: T0 + 7 * DAY}});
+  await guardian.purgeGuardianRecords(s.db, T0 + 7 * DAY);
+  assert.deepEqual(s.rows.get(consentPath), {ageGroup: 'minor'});
+  await guardian.purgeGuardianRecords(s.db, T0 + 30 * DAY);
+  assert.deepEqual(s.rows.get(consentPath), {ageGroup: 'minor'});
+  const status = await guardian.getStatus({auth: {uid: 'student'}, app, data: {}},
+    {db: s.db, key: 'key', now: () => T0 + 30 * DAY, allow: async () => true,
+      mailer: {send: async () => {}}, linkOrigin: 'https://app.example.test'});
+  assert.equal(status.status, 'none');
+  assert.equal(status.ageGroup, 'minor');
 });
 
 test('a new request written after the cleanup scan is not deleted', async () => {
@@ -189,4 +206,42 @@ test('legacy email counters meet the response deadline and undated revoked links
   assert.ok(s.rows.has('guardianLimits/email'));
   await guardian.purgeGuardianRecords(s.db, T0 + 7 * DAY);
   assert.equal(s.rows.has('guardianLimits/email'), false);
+});
+
+test('trimming a confirmed record keeps the sharing choice, the adult mark and the notice version', async () => {
+  const kept = {status: 'confirmed', ageGroup: 'adult', adultSince: T0 + 2 * DAY, decidedAt: T0,
+    sharingAllowed: true, ageCheckNoticeVersion: '2026-11-09'};
+  const s = store({[consentPath]: {...kept, emailHash: 'e', maskedEmail: 'm***@g***.com', tokenHash: 't',
+    sentAt: T0, expiresAt: T0 + 7 * DAY, createdAt: T0}});
+  await guardian.purgeGuardianRecords(s.db, T0 + 8 * DAY);
+  assert.deepEqual(s.rows.get(consentPath), kept, 'an adult is not turned back into a minor');
+  const minor = store({[consentPath]: {status: 'confirmed', ageGroup: 'minor', decidedAt: T0, sharingAllowed: true,
+    emailHash: 'e', maskedEmail: 'm', tokenHash: 't', sentAt: T0, expiresAt: T0 + 7 * DAY, createdAt: T0}});
+  await guardian.purgeGuardianRecords(minor.db, T0 + 8 * DAY);
+  assert.deepEqual(minor.rows.get(consentPath), {status: 'confirmed', ageGroup: 'minor', decidedAt: T0, sharingAllowed: true});
+  await guardian.purgeGuardianRecords(minor.db, T0 + 9 * DAY);
+  assert.equal(minor.rows.get(consentPath).sharingAllowed, true, 'a second pass changes nothing');
+});
+
+test('open manage links never expire and revoked ones follow the usual seven days', async () => {
+  const s = store({
+    'guardianTokens/open': {kind: 'manage', uid: 'student', state: 'open', createdAt: T0},
+    'guardianTokens/revoked': {kind: 'manage', uid: 'student', state: 'revoked', createdAt: T0, revokedAt: T0 + DAY},
+  });
+  await guardian.purgeGuardianRecords(s.db, T0 + 8 * DAY - 1);
+  assert.ok(s.rows.has('guardianTokens/revoked'));
+  await guardian.purgeGuardianRecords(s.db, T0 + 8 * DAY);
+  assert.equal(s.rows.has('guardianTokens/revoked'), false);
+  await guardian.purgeGuardianRecords(s.db, T0 + 5000 * DAY);
+  assert.ok(s.rows.has('guardianTokens/open'));
+});
+
+test('a withdrawn record is left exactly as it is, so an unfinished withdrawal can still be retried', async () => {
+  const withdrawn = {status: 'withdrawn', withdrawnAt: T0 + 2 * DAY, ageGroup: 'minor', decidedAt: T0, sharingAllowed: true,
+    emailHash: 'e', maskedEmail: 'm***@g***.com', tokenHash: 't', sentAt: T0, expiresAt: T0 + 7 * DAY, createdAt: T0};
+  const s = store({[consentPath]: {...withdrawn}});
+  await guardian.purgeGuardianRecords(s.db, T0 + 8 * DAY);
+  assert.deepEqual(s.rows.get(consentPath), withdrawn);
+  await guardian.purgeGuardianRecords(s.db, T0 + 400 * DAY);
+  assert.deepEqual(s.rows.get(consentPath), withdrawn);
 });

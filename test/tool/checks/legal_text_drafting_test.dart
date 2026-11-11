@@ -13,21 +13,24 @@ Map<String, LegalDocument> docs(String body, {String title = 'Title'}) => {
     };
 
 void main() {
-  test('drafting language fails on both patterns', () {
+  test('the Nov 9 leak still fails on its drafting word', () {
     final found = findDraftingText(
       docs('this draft requires specific Section 13(a) consent'),
     );
-    expect(found.map((v) => v.message), ['draft', 'Section 13(a)']);
+    expect(found.map((v) => v.message), ['draft']);
     expect(found.first.where, 'd/H');
   });
 
-  test('clean text passes', () {
+  test('clean text passes, including a cited section of the law', () {
     expect(findDraftingText(docs('We keep your answers.')), isEmpty);
+    expect(
+      findDraftingText(docs('your specific permission (Section 13(a))')),
+      isEmpty,
+    );
   });
 
   test('case and word forms are caught, titles included', () {
     expect(findDraftingText(docs('Drafted')), hasLength(1));
-    expect(findDraftingText(docs('SECTION 13(A)')), hasLength(1));
     expect(findDraftingText(docs('ok', title: 'Drafts')), hasLength(1));
   });
 

@@ -39,9 +39,14 @@ export {getWebEntitlement} from './webEntitlement.js';
 export {reportClientTelemetry} from './clientTelemetry.js';
 export {getSessionDiagnosis} from './sessionDiagnosis.js';
 
+export {getCustomTracks, deleteCustomTrack} from './customTracks.js';
+
 export {setBetaPro} from './betaPro.js';
 
-export {sendGuardianLink, answerGuardianRequest, getGuardianStatus, getGuardianRequest, purgeOldGuardianRecords} from './guardianConsent.js';
+export {sendGuardianLink, answerGuardianRequest, getGuardianStatus, getGuardianRequest, purgeOldGuardianRecords,
+  getGuardianManage, setGuardianSharing, withdrawGuardianPermission, markGuardianAdult} from './guardianConsent.js';
+export {recordSetupAcceptance} from './setupAcceptance.js';
+export {purgeInactiveAccounts} from './purgeInactiveAccounts.js';
 
 export {getBetaAccess} from './betaAccess.js';
 

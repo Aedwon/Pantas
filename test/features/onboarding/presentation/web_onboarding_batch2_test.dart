@@ -144,7 +144,7 @@ void main() {
       expect(title.style!.fontWeight, FontWeight.w700);
       expect(find.text('Try a Different Year'), findsNothing);
       expect(
-        find.text('Entered the wrong age? Email contact@pantas.study.'),
+        find.text('Entered the wrong age? Email support@pantas.study.'),
         findsOneWidget,
       );
     });

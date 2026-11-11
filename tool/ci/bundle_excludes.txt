@@ -2,3 +2,4 @@
 # One `path  reason` per line. tool/ci/bundle_tests.dart reads this.
 test/core/ui/components/selection_row_states_test.dart  focus state from an earlier file in the bundle changed the keyboard focus result
 test/performance/frame_work_test.dart  frame timing and fake async; hung for minutes when bundled
+test/features/paywall/application/active_exam_coverage_test.dart  times out inside a bundle with the privacy batch tests in the shard; passes alone

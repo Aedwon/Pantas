@@ -95,6 +95,8 @@ class MockSessionPage extends StatefulWidget {
     this.currentPartNumber = 1,
     this.partName = '',
     this.oneBlock = false,
+    this.partNames = const [],
+    this.partStarted = false,
     this.onSubmitExam,
     this.partLength,
     this.examTitle = 'Mock exam',
@@ -139,10 +141,22 @@ class MockSessionPage extends StatefulWidget {
   final int currentPartNumber;
   final String partName;
   final bool oneBlock;
+
+  /// Every part of a paper timed part by part, in order. Empty for any other
+  /// paper. When it is set the paper follows the by-part board: the part is
+  /// under the clock on the phone, a closed part is not listed, and a later
+  /// part is a faded grid.
+  final List<String> partNames;
+
+  /// A strict part the server started by itself, as the board says it:
+  /// "Part N started" in place of the usual caption.
+  final bool partStarted;
   final VoidCallback? onSubmitExam;
 
   Duration get effectivePartLength =>
       partLength ?? Duration(seconds: state.durationSeconds);
+
+  bool get _byPart => partNames.isNotEmpty;
 
   @override
   State<MockSessionPage> createState() => _MockSessionPageState();
@@ -156,6 +170,8 @@ class _MockSessionPageState extends State<MockSessionPage> {
   var _gridOpen = false;
   var _widePanelOpen = true;
   var _gridJump = 0;
+
+  bool get _byPart => widget._byPart;
 
   @override
   void initState() {
@@ -426,7 +442,35 @@ class _MockSessionPageState extends State<MockSessionPage> {
         child: Row(
           children: [
             const SizedBox(width: PantasSize.iconBtn),
-            Expanded(child: Center(child: _timer(inline: false))),
+            Expanded(
+              child: Center(
+                child: _byPart
+                    ? Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          _timer(inline: false),
+                          // Board PaperPh: the part is under the clock.
+                          Text(
+                            widget.partStarted
+                                ? 'Part ${widget.currentPartNumber} started'
+                                : 'Part ${widget.currentPartNumber} · '
+                                    '${widget.partName}',
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: PantasType.webSmall.copyWith(
+                              color: widget.partStarted
+                                  ? c.accent
+                                  : c.textSecondary,
+                              fontWeight: widget.partStarted
+                                  ? FontWeight.w600
+                                  : FontWeight.w400,
+                            ),
+                          ),
+                        ],
+                      )
+                    : _timer(inline: false),
+              ),
+            ),
             if (!widget.state.strictMode)
               PantasIconButton(
                 key: const Key('mock-pause'),
@@ -489,11 +533,16 @@ class _MockSessionPageState extends State<MockSessionPage> {
                   child: Row(
                     children: [
                       Expanded(
-                        child: Text(
-                          subject.toUpperCase(),
-                          style: PantasType.phoneSectionHeader
-                              .copyWith(color: c.textSecondary),
-                        ),
+                        // Board PaperPh: the part is under the clock, so the
+                        // question has no eyebrow, until the part starts by
+                        // itself and the board draws both.
+                        child: !_byPart || widget.partStarted
+                            ? Text(
+                                subject.toUpperCase(),
+                                style: PantasType.phoneSectionHeader
+                                    .copyWith(color: c.textSecondary),
+                              )
+                            : const SizedBox.shrink(),
                       ),
                       _flagControl(key: const ValueKey('mock-flag')),
                     ],
@@ -524,6 +573,7 @@ class _MockSessionPageState extends State<MockSessionPage> {
                               ?.selectedIndex,
                           onAnswer: widget.onAnswer,
                           pinnedHeader: true,
+                          showSubject: !_byPart || widget.partStarted,
                         ),
                       ),
                     ],
@@ -637,6 +687,15 @@ class _MockSessionPageState extends State<MockSessionPage> {
           ],
           onSelected: _goToPartQuestion,
         );
+    Widget faded(MockUpcomingPart part) => Opacity(
+          opacity: PantasOpacity.disabled,
+          child: grid(
+            [
+              for (var i = 0; i < part.count; i++) 'upcoming-${part.number}-$i',
+            ],
+            enabled: false,
+          ),
+        );
     final panel = Container(
       key: const ValueKey('web-mock-panel'),
       width: PantasLayout.qpanel,
@@ -662,7 +721,8 @@ class _MockSessionPageState extends State<MockSessionPage> {
                 ),
               ],
             ),
-            if (!widget.oneBlock && _gridSummary() != null) ...[
+            // Board Paper: a closed part is not listed on a paper by part.
+            if (!widget.oneBlock && !_byPart && _gridSummary() != null) ...[
               const SizedBox(height: PantasSpace.s8),
               Text(_gridSummary()!, style: t.sm),
             ],
@@ -707,26 +767,40 @@ class _MockSessionPageState extends State<MockSessionPage> {
                 ),
               ),
             ),
-            for (final part in widget.upcomingParts) ...[
-              const SizedBox(height: PantasSpace.s28),
-              Text(
-                'PART ${part.number} · ${part.name.toUpperCase()}',
-                style: t.eb,
-              ),
-              const SizedBox(height: PantasSpace.s6),
-              Text('Opens when this part starts.', style: t.sm),
-              const SizedBox(height: PantasSpace.s14),
-              Opacity(
-                opacity: PantasOpacity.disabled,
-                child: grid(
-                  [
-                    for (var i = 0; i < part.count; i++)
-                      'upcoming-${part.number}-$i',
-                  ],
-                  enabled: false,
+            if (_byPart && widget.partStarted) ...[
+              // Board Paper, break ran out: the other parts, done or still to
+              // open, as a list.
+              const SizedBox(height: PantasSpace.s24),
+              for (final (i, name) in widget.partNames.indexed)
+                if (i != part - 1)
+                  _PartListRow(number: i + 1, name: name, done: i < part - 1),
+            ] else
+              for (final part in widget.upcomingParts) ...[
+                const SizedBox(height: PantasSpace.s28),
+                Text(
+                  'PART ${part.number} · ${part.name.toUpperCase()}',
+                  style: t.eb,
                 ),
-              ),
-            ],
+                const SizedBox(height: PantasSpace.s6),
+                Text('Opens when this part starts.', style: t.sm),
+                const SizedBox(height: PantasSpace.s14),
+                // Board Paper: a later part is a faded grid cut at 120 px.
+                if (_byPart)
+                  ConstrainedBox(
+                    // ds-board: Paper board, a later part's grid is cut at 120.
+                    constraints: const BoxConstraints(maxHeight: 120),
+                    // The grid lays out at its own height and is clipped
+                    // here. Under a tight 120 it overflowed its own rows.
+                    child: UnconstrainedBox(
+                      constrainedAxis: Axis.horizontal,
+                      alignment: Alignment.topCenter,
+                      clipBehavior: Clip.hardEdge,
+                      child: faded(part),
+                    ),
+                  )
+                else
+                  faded(part),
+              ],
             if (widget.oneBlock && !widget.state.strictMode) ...[
               const SizedBox(height: PantasSpace.s28),
               // MK_SubmitCSE: the button fills the panel's width.
@@ -765,7 +839,11 @@ class _MockSessionPageState extends State<MockSessionPage> {
         subject: widget.oneBlock
             ? widget.questionSubjects[widget.state.currentQuestionId] ??
                 widget.partName
-            : 'Part $part · ${widget.partName}',
+            // Board Paper, break ran out: the header and the list name the
+            // part, so the question carries no eyebrow.
+            : widget.partStarted
+                ? ''
+                : 'Part $part · ${widget.partName}',
         selectedIndex:
             widget.state.answers[widget.state.currentQuestionId]?.selectedIndex,
         onAnswer: widget.onAnswer,
@@ -784,12 +862,37 @@ class _MockSessionPageState extends State<MockSessionPage> {
         child: Row(
           children: [
             Expanded(
-              child: Text(
-                widget.examTitle,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: PantasType.webRowSub.copyWith(color: c.textSecondary),
-              ),
+              child: widget.partStarted
+                  // Board Paper, break ran out: the part line sits under the
+                  // exam's name.
+                  ? Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          widget.examTitle,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: PantasType.webRowSub
+                              .copyWith(color: c.textSecondary),
+                        ),
+                        Text(
+                          'Part $part of ${widget.partNames.length} · '
+                          '${widget.partName}',
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style:
+                              PantasType.webLink.copyWith(color: c.textPrimary),
+                        ),
+                      ],
+                    )
+                  : Text(
+                      widget.examTitle,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style:
+                          PantasType.webRowSub.copyWith(color: c.textSecondary),
+                    ),
             ),
             Column(
               mainAxisSize: MainAxisSize.min,
@@ -798,11 +901,20 @@ class _MockSessionPageState extends State<MockSessionPage> {
                 Text(
                   proctor
                       ? proctorCopyFor(_proctorToastMinutes!)
-                      : widget.oneBlock
-                          ? 'left'
-                          : 'left in Part $part',
+                      : widget.partStarted
+                          ? 'Part $part started'
+                          : widget.oneBlock
+                              ? 'left'
+                              : 'left in Part $part',
                   style: PantasType.webCaption.copyWith(
-                    color: proctor ? c.warningText : c.textSecondary,
+                    color: proctor
+                        ? c.warningText
+                        : widget.partStarted
+                            ? c.accent
+                            : c.textSecondary,
+                    fontWeight: widget.partStarted && !proctor
+                        ? FontWeight.w600
+                        : FontWeight.w400,
                   ),
                 ),
               ],
@@ -810,7 +922,7 @@ class _MockSessionPageState extends State<MockSessionPage> {
             Expanded(
               child: Align(
                 alignment: Alignment.centerRight,
-                child: widget.state.strictMode
+                child: widget.state.strictMode || widget.partStarted
                     ? const SizedBox.shrink()
                     : WebButton(
                         label: 'Pause',
@@ -1253,11 +1365,15 @@ class _QuestionBody extends ConsumerWidget {
     required this.selectedIndex,
     required this.onAnswer,
     this.pinnedHeader = false,
+    this.showSubject = true,
     super.key,
   });
 
   final String questionId;
   final String subject;
+
+  /// False draws the phone question with no eyebrow.
+  final bool showSubject;
   final int? selectedIndex;
   final ValueChanged<int> onAnswer;
 
@@ -1298,6 +1414,7 @@ class _QuestionBody extends ConsumerWidget {
           key: ValueKey(hydrated.question.id),
           subject: subject,
           showHeader: !pinnedHeader,
+          showSubject: showSubject,
           stem: hydrated.question.stem,
           passage: hydrated.passage == null
               ? null
@@ -1328,6 +1445,70 @@ class _QuestionBody extends ConsumerWidget {
         'question',
         () => ref.invalidate(hydratedMockQuestionProvider(questionId)),
         error: e,
+      ),
+    );
+  }
+}
+
+/// One other part in the list beside the question (board Paper, break ran
+/// out): a closed part is a filled check, a part still to open an empty ring
+/// with the line that says when it opens.
+class _PartListRow extends StatelessWidget {
+  const _PartListRow({
+    required this.number,
+    required this.name,
+    required this.done,
+  });
+  final int number;
+  final String name;
+  final bool done;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = context.webTokens;
+    final c = t.colors;
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: PantasSpace.s8),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(top: PantasSpace.s2),
+            child: Container(
+              // ds-board: Paper board part list, a 20 step circle.
+              width: 20,
+              // ds-board: Paper board part list, a 20 step circle.
+              height: 20,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: done ? c.accentFill : null,
+                border: done
+                    ? null
+                    : Border.all(color: t.strongDivider, width: 1.5),
+              ),
+              child: done
+                  // ds-board: Paper board part list, an 11 check in the circle.
+                  ? Icon(PantasIcons.check, size: 11, color: c.onAccent)
+                  : null,
+            ),
+          ),
+          const SizedBox(width: PantasSpace.s10),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Part $number · $name',
+                  style: PantasType.webLink.copyWith(
+                    fontWeight: FontWeight.w400,
+                    color: done ? c.textSecondary : c.textPrimary,
+                  ),
+                ),
+                if (!done) Text('Opens when this part starts.', style: t.sm),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }

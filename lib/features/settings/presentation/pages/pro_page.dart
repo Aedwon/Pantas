@@ -13,10 +13,12 @@ import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/telemetry/telemetry.dart';
 import 'package:pantas/core/ui/components/google_sign_in_button.dart';
+import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pro_paused_line.dart';
 import 'package:pantas/core/ui/components/pro_tag.dart';
 import 'package:pantas/core/ui/components/selectable_tile.dart';
+import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/leave_page.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
@@ -27,6 +29,8 @@ import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/home/application/study_delivery.dart';
+import 'package:pantas/features/paywall/application/custom_subject_tiers.dart';
+import 'package:pantas/features/paywall/application/custom_track_tier.dart';
 import 'package:pantas/features/paywall/application/paywall_providers.dart';
 import 'package:pantas/features/paywall/data/web_payment_gateway.dart';
 import 'package:pantas/features/paywall/domain/coverage.dart';
@@ -90,6 +94,7 @@ class ProPage extends ConsumerStatefulWidget {
     this.targetExam,
     this.previousExamName,
     this.onSwitchOnFree,
+    this.freeLabel,
     super.key,
   });
   final SubscriptionManagementLauncher subscriptionLauncher;
@@ -97,9 +102,15 @@ class ProPage extends ConsumerStatefulWidget {
   final ExamCatalogEntry? targetExam;
   final String? previousExamName;
   final Future<void> Function()? onSwitchOnFree;
+
+  /// The label of the keep-Free button on an upgrade screen. Defaults to
+  /// 'Switch on Free'.
+  final String? freeLabel;
   @override
   ConsumerState<ProPage> createState() => _ProPageState();
 }
+
+const _guardianBoxLabel = 'I am the parent or guardian and accept the Terms.';
 
 class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
   bool _awaitingCheckout = false;
@@ -110,6 +121,9 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
   bool _busy = false;
   bool _restoring = false;
   bool _trialUnavailable = false;
+
+  /// The parent or guardian box on a minor's checkout (boards CB_*).
+  bool _guardianTicked = false;
   @override
   void initState() {
     super.initState();
@@ -369,6 +383,48 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
             : "Google Play couldn't complete this purchase. Try again.",
         _ => "We couldn't confirm your subscription. Try again.",
       };
+
+  /// Boards CB_Wide, CB_Ph: the box in its own card under the plans. Terms
+  /// opens the Terms and does not tick the box.
+  Widget _guardianBoxCard(BuildContext context) {
+    final wide = context.wideWeb;
+    final style = PantasType.webRowTitleSettings
+        .copyWith(color: context.colors.textPrimary);
+    final row = CheckboxRow(
+      title: _guardianBoxLabel,
+      selected: _guardianTicked,
+      gap: PantasSpace.s14,
+      standardDensity: true,
+      squareEdges: wide,
+      interactiveContent: true,
+      onTap: _busy
+          ? null
+          : () => setState(() => _guardianTicked = !_guardianTicked),
+      content: Wrap(
+        crossAxisAlignment: WrapCrossAlignment.center,
+        children: [
+          ExcludeSemantics(
+            child: Text(
+              'I am the parent or guardian and accept the ',
+              style: style,
+            ),
+          ),
+          WebTextLink(
+            label: 'Terms',
+            arrow: false,
+            style: style,
+            onPressed: () {
+              final router = GoRouter.maybeOf(context);
+              if (router != null) unawaited(router.push<void>('/legal/terms'));
+            },
+          ),
+          ExcludeSemantics(child: Text('.', style: style)),
+        ],
+      ),
+    );
+    return wide ? WebCard(child: row) : GroupedSection(children: [row]);
+  }
+
   Future<void> _restore() async {
     if (_busy) return;
     final uid = ref.read(currentUserProvider).unwrapPrevious().valueOrNull?.uid;
@@ -396,6 +452,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
     PaywallPassPackage? pass,
     ExamCatalogEntry exam, {
     required bool allowTrial,
+    bool guardianAttested = false,
   }) async {
     if (_busy || (package == null && pass == null)) return;
     final telemetry = ref.read(telemetryProvider);
@@ -488,8 +545,13 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                 pass,
                 exam: exam,
                 beforeRedirect: beforeRedirect,
+                guardianAttested: guardianAttested,
               )
-            : await gateway.purchase(package!, beforeRedirect: beforeRedirect);
+            : await gateway.purchase(
+                package!,
+                beforeRedirect: beforeRedirect,
+                guardianAttested: guardianAttested,
+              );
         status = result.status;
         if (status != PaymentOperationStatus.operationAlreadyInProgress) {
           await _clearPendingExamSwitch(uid: uid);
@@ -565,18 +627,56 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
     final entitlement =
         ref.watch(entitlementProvider).valueOrNull ?? const Entitlement.free();
     final upgrade = widget.targetExam != null;
-    final covered =
-        upgrade ? false : ref.watch(proForActiveExamProvider).valueOrNull;
     final web = ref.watch(paymentsOnWebProvider);
     final anonymous =
         ref.watch(isAnonymousProvider).unwrapPrevious().valueOrNull ?? true;
+    final customExam = upgrade
+        ? null
+        : ref.watch(
+            activeExamFocusProvider.select((focus) {
+              final active = focus.valueOrNull?.exam;
+              return active != null && active.isCustom ? active : null;
+            }),
+          );
+    final custom = customExam != null;
+    final customTierAsync = custom
+        ? ref.watch(activeCustomTrackTierProvider).unwrapPrevious()
+        : null;
+    final customTier = customTierAsync?.valueOrNull;
+    // A custom exam's tier decides its paywall. Until it is known there is no
+    // paywall at all, never a guessed one.
+    final customTierUnknown = custom && customTier == null;
+    final trackName = customExam?.name;
     final exam = widget.targetExam ??
-        ref.watch(activeProCatalogEntryProvider).valueOrNull;
+        (customExam != null && customTier != null
+            ? customCatalogEntry(
+                examId: customExam.id,
+                name: customExam.name,
+                tier: customTier.tier,
+              )
+            : custom
+                ? null
+                : ref.watch(activeProCatalogEntryProvider).valueOrNull);
+    final covered = upgrade
+        ? false
+        : custom
+            ? (customTierUnknown
+                ? null
+                : (ref.watch(proForActiveExamProvider).valueOrNull ?? false) ||
+                    entitlement.coversExam(
+                      customExam.id,
+                      examTier: customTier!.tier,
+                    ))
+            : ref.watch(proForActiveExamProvider).valueOrNull;
     final offering = (upgrade
             ? ref.watch(unfilteredPaywallOfferingProvider)
             : ref.watch(paywallOfferingProvider))
         .unwrapPrevious();
-    firstScreenReady(context, ref, ready: !offering.isLoading);
+    firstScreenReady(
+      context,
+      ref,
+      ready: !offering.isLoading && !(customTierAsync?.isLoading ?? false),
+    );
     final paused = entitlement.state == EntitlementState.paused;
     final packages = (offering.valueOrNull?.recognizedPackages
             .where(
@@ -693,11 +793,17 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
         : '${_periodName(pendingPackage.sku)}, '
             '${_money(pendingPackage.priceString)}. ';
     final showOffers = covered == false && !paused && !waiting;
-    // Message only: it adds no check of who pays and blocks nothing.
-    final askGuardian =
-        showOffers && ref.watch(ageGroupProvider).valueOrNull == 'minor';
-    const askGuardianLine =
-        'Ask your parent or guardian to complete this payment';
+    // A minor's payment needs the box ticked. The server is the control; the
+    // device age group only decides whether the box shows. The free trial
+    // takes no payment, so it has no box.
+    final buyShown = showOffers &&
+        !(web && anonymous) &&
+        exam != null &&
+        (selectedPackage != null || selectedPass != null);
+    final guardianBox = buyShown &&
+        ref.watch(ageGroupProvider).valueOrNull == 'minor' &&
+        !(trial && !lapsed);
+    final buyLocked = _busy || (guardianBox && !_guardianTicked);
     final purchaseLabel = selectedPass != null
         ? 'Buy Season Pass'
         : selectedPackage == null
@@ -714,6 +820,15 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                             : 'Subscribe for '
                                 '${_money(selectedPackage.priceString)} '
                                 'a ${_period(selectedPackage.sku)}';
+    final whyLine = customTier == null || trackName == null
+        ? null
+        : Text(
+            _tierLine(trackName, customTier),
+            style: context.wideWeb
+                ? context.webTokens.sub
+                : context.type.subhead
+                    .copyWith(color: context.colors.textSecondary),
+          );
     return SettingsPanePage(
       section: 'Pantas Pro',
       title: context.wideWeb ? 'Pantas Pro' : '',
@@ -728,7 +843,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                       offset: const Offset(-PantasSpace.s14, 0),
                       child: WebButton(
                         label: upgrade
-                            ? 'Switch on Free'
+                            ? (widget.freeLabel ?? 'Switch on Free')
                             : _busy && _restoring
                                 ? 'Restoring purchases'
                                 : 'Restore Purchases',
@@ -746,16 +861,6 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
-                          if (askGuardian)
-                            Padding(
-                              padding:
-                                  const EdgeInsets.only(bottom: PantasSpace.s8),
-                              child: Text(
-                                askGuardianLine,
-                                textAlign: TextAlign.right,
-                                style: context.webTokens.sm,
-                              ),
-                            ),
                           if (showOffers)
                             if (web && anonymous)
                               GoogleSignInButton(
@@ -771,13 +876,14 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                                     ? 'Confirming your payment'
                                     : purchaseLabel,
                                 busy: _busy && !_restoring,
-                                onPressed: _busy
+                                onPressed: buyLocked
                                     ? null
                                     : () => _purchase(
                                           selectedPackage,
                                           selectedPass,
                                           exam,
                                           allowTrial: trial && !lapsed,
+                                          guardianAttested: guardianBox,
                                         ),
                               ),
                           if (showOffers &&
@@ -843,14 +949,6 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       if (showOffers) ...[
-                        if (askGuardian) ...[
-                          Text(
-                            askGuardianLine,
-                            textAlign: TextAlign.center,
-                            style: context.type.footnote,
-                          ),
-                          const SizedBox(height: PantasSpace.s8),
-                        ],
                         if (web && anonymous)
                           GoogleSignInButton(
                             expand: true,
@@ -862,13 +960,14 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                           PantasButton(
                             label: purchaseLabel,
                             busy: _busy,
-                            onPressed: _busy
+                            onPressed: buyLocked
                                 ? null
                                 : () => _purchase(
                                       selectedPackage,
                                       selectedPass,
                                       exam,
                                       allowTrial: trial && !lapsed,
+                                      guardianAttested: guardianBox,
                                     ),
                           ),
                         if (selectedPass != null && sitting != null) ...[
@@ -902,7 +1001,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                         ),
                       if (upgrade)
                         PantasButton(
-                          label: 'Switch on Free',
+                          label: widget.freeLabel ?? 'Switch on Free',
                           variant: PantasButtonVariant.tertiary,
                           onPressed: _busy ? null : _switchOnFree,
                         ),
@@ -1050,6 +1149,10 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
               ),
           const SizedBox(height: PantasSpace.s24),
         ],
+        if (!showOffers && whyLine != null) ...[
+          whyLine,
+          const SizedBox(height: PantasSpace.s20),
+        ],
         if (paused) const ProPausedLine(),
         if (!upgrade &&
             (entitlement.proIsActive || paused) &&
@@ -1162,6 +1265,15 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                     : context.type.sectionHeader,
               ),
             ),
+          if (whyLine != null) ...[
+            Padding(
+              padding: EdgeInsets.only(
+                left: context.wideWeb ? PantasSpace.s4 : PantasSpace.s0,
+                top: PantasSpace.s4,
+              ),
+              child: whyLine,
+            ),
+          ],
           SizedBox(
             height: context.wideWeb ? PantasSpace.s6 : PantasSpace.s12,
           ),
@@ -1217,7 +1329,8 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                   : () => setState(() => _selected = pass.productId),
             ),
           ],
-          if (passes.isEmpty &&
+          if (!custom &&
+              passes.isEmpty &&
               sitting == null &&
               exam?.priceTier == 'Civil Service') ...[
             const SizedBox(height: PantasSpace.s20),
@@ -1231,6 +1344,12 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
               ],
             ),
           ],
+          if (guardianBox) ...[
+            SizedBox(
+              height: context.wideWeb ? PantasSpace.s28 : PantasSpace.s24,
+            ),
+            _guardianBoxCard(context),
+          ],
           // The wide page adds its own 24 px before the Restore row.
           SizedBox(
             height: context.wideWeb ? PantasSpace.s0 : PantasSpace.s24,
@@ -1241,6 +1360,16 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
               variant: PantasButtonVariant.secondary,
               onPressed: () =>
                   ref.invalidate(unfilteredPaywallOfferingProvider),
+            ),
+        ],
+        if (customTierUnknown) ...[
+          if (customTierAsync?.isLoading ?? false)
+            const Text('Loading subscriptions...')
+          else
+            PantasButton(
+              label: 'Try Again',
+              variant: PantasButtonVariant.secondary,
+              onPressed: () => ref.invalidate(activeCustomTrackTierProvider),
             ),
         ],
         if (!web &&
@@ -1373,6 +1502,16 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
       ),
     );
   }
+}
+
+/// The one line that says why a custom exam sits in its tier.
+String _tierLine(String name, CustomTrackTier tier) {
+  final level = CustomSubjectTiers.levelLabel(tier.tier);
+  final because = tier.becauseOf;
+  if (tier.tier == PriceTier.student || because == null) {
+    return '$name is a $level exam.';
+  }
+  return '$name is a $level exam because it includes $because.';
 }
 
 String _period(PaywallSku sku) => switch (sku) {

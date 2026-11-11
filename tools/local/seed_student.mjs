@@ -16,7 +16,8 @@ const project = 'demo-pantas-local';
 for (const [key, port] of [['FIRESTORE_EMULATOR_HOST', 8080], ['FIREBASE_AUTH_EMULATOR_HOST', 9099]]) {
   const host = process.env[key]?.split(':')[0];
   const addresses = Object.values(networkInterfaces()).flat().map(row => row?.address);
-  if (!addresses.includes(host) || process.env[key] !== `${host}:${port}`) throw Error(`Unsafe ${key}`);
+  const offset = Number(process.env.LOCAL_EMULATOR_PORT_OFFSET ?? 0);
+  if (!addresses.includes(host) || process.env[key] !== `${host}:${port + offset}`) throw Error(`Unsafe ${key}`);
 }
 process.env.GCLOUD_PROJECT = project;
 process.env.GOOGLE_CLOUD_PROJECT = project;

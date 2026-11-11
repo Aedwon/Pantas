@@ -23,6 +23,10 @@ class AgePolicy {
       AgePolicy(minimumAge: _minimumAgeByExam[examId] ?? _defaultMinimumAge);
 
   static const adultAge = 18;
+
+  /// The version of the line the age step shows above the age number. It
+  /// is stored with the age group and sent with the guardian request.
+  static const ageCheckNoticeVersion = '2026-11-11';
   static const _defaultMinimumAge = 13;
   static const _minimumAgeByExam = <String, int>{
     'exam_cse_pro': 13,

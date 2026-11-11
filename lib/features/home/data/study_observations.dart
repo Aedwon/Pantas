@@ -3,6 +3,7 @@ import 'package:drift/drift.dart' show StringExpressionOperators;
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/data/repos/app_preferences_repository.dart';
 import 'package:pantas/core/storage/data/repos/attempts_repository.dart';
+import 'package:pantas/core/storage/data/repos/custom_track_repository.dart';
 import 'package:pantas/features/home/data/study_api.dart';
 import 'package:pantas/features/home/data/study_writes.dart';
 
@@ -74,6 +75,11 @@ class StudyObservations {
     await (_flightsHere[_flightKey]?.pass ?? _start());
   }
 
+  /// A custom session has its own receipt id (see the note where it is sent).
+  String _sessionId(String attemptId) => isCustomExamId(request.examId)
+      ? 'custom_session_$attemptId'
+      : 'session_$attemptId';
+
   String _receiptKey(String id) => 'home_sent_${request.uid}_${coreToken}_$id';
 
   /// Every receipt kept for this account and core, read once. A rejected
@@ -97,7 +103,7 @@ class StudyObservations {
         .get();
     return [
       for (final row in rows)
-        if (!receipts.contains(_receiptKey('session_${row.read(table.id)}')))
+        if (!receipts.contains(_receiptKey(_sessionId(row.read(table.id)!))))
           row.read(table.id)!,
     ];
   }
@@ -153,9 +159,12 @@ class StudyObservations {
           }.contains(attempt.origin)) {
         continue;
       }
+      // A custom session had its own receipt before the server accepted these.
+      // Those marked rejected were refused for that reason, so the new id sends
+      // each of them once more. The server dedupes by session id.
       await deliver(
         'ingestSession',
-        'session_${attempt.id}',
+        _sessionId(attempt.id),
         () => studySessionPayload(attempt),
       );
     }

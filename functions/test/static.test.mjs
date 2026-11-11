@@ -223,7 +223,9 @@ test('deleteAccount checks recent auth before destructive work', () => {
 
   const authTimeIndex = source.indexOf('auth_time');
   const recentLoginIndex = source.indexOf('requires-recent-login');
-  const deleteIndex = source.indexOf('recursiveDelete');
+  // The deletion body lives in deleteUserData.ts; the callable only hands over to it.
+  const deleteIndex = source.indexOf('deleteUserData(');
+  assert.match(source, /'user_request'/);
 
   assert.notEqual(authTimeIndex, -1);
   assert.notEqual(recentLoginIndex, -1);
@@ -234,9 +236,9 @@ test('deleteAccount checks recent auth before destructive work', () => {
   assert.ok(recentLoginIndex < deleteIndex);
 });
 
-test('deleteAccount audit write appears before recursive delete', () => {
+test('account deletion audit write appears before recursive delete', () => {
   const source = readFileSync(
-    new URL('../src/deleteAccount.ts', import.meta.url),
+    new URL('../src/deleteUserData.ts', import.meta.url),
     'utf8',
   );
 
@@ -251,16 +253,16 @@ test('deleteAccount audit write appears before recursive delete', () => {
   assert.ok(userDocIndex < deleteIndex);
 });
 
-test('deleteAccount deletes Firebase Auth identity after all data cleanup', () => {
+test('account deletion removes the Firebase Auth identity after all data cleanup', () => {
   const source = readFileSync(
-    new URL('../src/deleteAccount.ts', import.meta.url),
+    new URL('../src/deleteUserData.ts', import.meta.url),
     'utf8',
   );
 
   const firestoreIndex = source.indexOf('recursiveDelete');
   const sharedIndex = source.indexOf('sharedCards.docs.map');
   const storageIndex = source.indexOf('deleteFiles');
-  const authDeleteIndex = source.indexOf('getAuth().deleteUser(uid)');
+  const authDeleteIndex = source.indexOf('auth.deleteUser(uid)');
 
   for (const index of [firestoreIndex, sharedIndex, storageIndex, authDeleteIndex]) {
     assert.notEqual(index, -1);

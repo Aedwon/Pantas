@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import {emulatorMailer, expiryLabel, guardianMessage, mailerFor, resendMailer, senderField} from '../lib/guardianMail.js';
+import {emulatorMailer, expiryLabel, guardianMessage, inactivityWarningMessage, mailerFor, resendMailer, senderField} from '../lib/guardianMail.js';
 import {hashValue, maskEmail, validEmail} from '../lib/guardianConsent.js';
 
 const input = {guardianName: 'Maria', guardianEmail: 'maria@gmail.com',
@@ -91,4 +91,33 @@ test('the sender accepts a bare address or "Name <addr>" and never wraps twice',
       .send(guardianMessage(input));
     assert.equal(calls[0].from, 'Pantas <hello@pantas.test>');
   }
+});
+
+test('the email carries a plain Manage permission link under the confirm button', () => {
+  const manageLink = 'https://app.example.test/guardian/manage?token=def&x=<1>';
+  const m = guardianMessage({...input, manageLink});
+  assert.ok(m.text.includes(`Manage permission (after you confirm): ${manageLink}`));
+  assert.ok(m.text.indexOf(input.link) < m.text.indexOf('Manage permission'), 'confirm comes first');
+  assert.ok(m.html.includes('Manage permission (after you confirm): '));
+  assert.ok(m.html.includes('href="https://app.example.test/guardian/manage?token=def&amp;x=&lt;1&gt;"'), 'escaped');
+  assert.ok(!m.html.includes('x=<1>'));
+  assert.ok(!/[—]/.test(m.text + m.html));
+  assert.ok(!guardianMessage(input).text.includes('Manage permission'), 'no link, no line');
+});
+
+test('the inactivity warning says what happens, on which date and what to do', () => {
+  const deleteOn = Date.parse('2028-07-01T12:00:00+08:00');
+  const m = inactivityWarningMessage({email: 'a@mail.com', deleteOn, origin: 'https://app.example.test/'});
+  assert.equal(m.to, 'a@mail.com');
+  assert.equal(m.subject, 'Your Pantas account will be deleted on Jul 1, 2028');
+  for (const line of [
+    'You have not used Pantas for almost two years. We delete accounts after two years without use, so your account and study records will be deleted on Jul 1, 2028.',
+    'To keep your account, open Pantas and sign in before then.',
+    'Open Pantas: https://app.example.test',
+    'Questions? Reply to this email or write to support@pantas.study.']) {
+    assert.ok(m.text.includes(line), line);
+    assert.ok(m.html.includes(line.replace('Open Pantas: https://app.example.test', 'Open Pantas')), line);
+  }
+  assert.ok(m.html.includes('href="https://app.example.test"'));
+  assert.ok(!/[—]/.test(m.text + m.html));
 });

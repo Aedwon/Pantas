@@ -2,12 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/app/telemetry_providers.dart';
+import 'package:pantas/core/auth/auth_state.dart';
+import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/data/repos/assessment_repository.dart';
 import 'package:pantas/core/storage/data/repos/custom_track_repository.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/telemetry/telemetry.dart';
+import 'package:pantas/features/home/application/study_remote_providers.dart';
+import 'package:pantas/features/home/data/study_api.dart';
 import 'package:pantas/features/onboarding/application/onboarding_flow.dart';
 import 'package:pantas/features/onboarding/presentation/exam_picker_screen.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_page.dart';
@@ -19,8 +25,10 @@ Future<void> _pumpPage(
   WidgetTester tester,
   AppDatabase db,
   ContentDatabase content,
-  OnboardingProgress progress,
-) async {
+  OnboardingProgress progress, {
+  StudyApi? api,
+  Telemetry? telemetry,
+}) async {
   final router = GoRouter(
     initialLocation: '/onboarding',
     routes: [
@@ -47,13 +55,30 @@ Future<void> _pumpPage(
         return progress;
       }),
       examPickerCatalogProvider.overrideWith((ref) => Stream.value(const [])),
+      if (telemetry != null) telemetryProvider.overrideWithValue(telemetry),
+      if (api != null) ...[
+        studyUsesServerProvider.overrideWithValue(true),
+        studyApiProvider.overrideWithValue(api),
+        authStateProvider.overrideWith(
+          (ref) => Stream.value(const AuthState.anonymous(uid: 'u1')),
+        ),
+      ],
     ],
   );
   addTearDown(() => tester.pumpWidget(const SizedBox.shrink()));
   await tester.pumpAndSettle();
+  if (api != null) {
+    // The app holds the signed-in account by the time onboarding runs.
+    await ProviderScope.containerOf(tester.element(find.byType(MaterialApp)))
+        .read(authStateProvider.future);
+  }
 }
 
-Future<(AppDatabase, ContentDatabase)> _pumpFlow(WidgetTester tester) async {
+Future<(AppDatabase, ContentDatabase)> _pumpFlow(
+  WidgetTester tester, {
+  StudyApi? api,
+  Telemetry? telemetry,
+}) async {
   final db = inMemoryDatabase();
   final content = inMemoryContentDatabase();
   addTearDown(db.close);
@@ -89,11 +114,22 @@ Future<(AppDatabase, ContentDatabase)> _pumpFlow(WidgetTester tester) async {
     subjectId: 's2',
     name: 'Biology',
   );
+  // Only a topic that holds a question is offered.
+  for (final (id, topic) in [('q1', 't1'), ('q2', 't2')]) {
+    await seedContentQuestion(
+      content,
+      questionId: id,
+      topicId: topic,
+      examId: 'exam_cse_pro',
+    );
+  }
   await _pumpPage(
     tester,
     db,
     content,
     OnboardingProgress(agePassed: true, policyAccepted: true),
+    api: api,
+    telemetry: telemetry,
   );
   return (db, content);
 }
@@ -266,6 +302,83 @@ void main() {
     );
   });
 
+  group('on the server path', () {
+    late List<(String, Map<String, Object?>)> calls;
+    Exception? failure;
+
+    StudyApi fakeApi() => StudyApi((name, data) async {
+          calls.add((name, data));
+          if (name == 'deleteCustomTrack' && failure != null) throw failure!;
+          // The picker lists the account's own exams when it opens.
+          if (name == 'getCustomTracks') return {'tracks': <Object?>[]};
+          return <String, Object?>{};
+        });
+
+    List<Map<String, Object?>> deletes() => [
+          for (final (name, data) in calls)
+            if (name == 'deleteCustomTrack') data,
+        ];
+
+    setUp(() {
+      calls = [];
+      failure = null;
+    });
+
+    Future<void> backOutToPicker(WidgetTester tester) async {
+      await tester.tap(find.text('Back'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Back'));
+      await tester.pumpAndSettle();
+    }
+
+    testWidgets('backing out deletes the track on the server too',
+        (tester) async {
+      final (db, _) = await _pumpFlow(tester, api: fakeApi());
+      await _createTrackAndReachDate(tester);
+      final id = (await db.select(db.customTrackMetaLocal).get()).single.examId;
+      await backOutToPicker(tester);
+
+      expect(find.text("My exam isn't listed"), findsOneWidget);
+      expect(await db.select(db.customTrackMetaLocal).get(), isEmpty);
+      expect(deletes(), [
+        {'examId': id, 'expectedUid': 'u1'},
+      ]);
+    });
+
+    testWidgets('a track with study data is not deleted on the server',
+        (tester) async {
+      final (db, _) = await _pumpFlow(tester, api: fakeApi());
+      await _createTrackAndReachDate(tester);
+      final id = (await db.select(db.customTrackMetaLocal).get()).single.examId;
+      await AssessmentRepository(db).saveResult(id, DateTime(2026), const []);
+      await backOutToPicker(tester);
+
+      expect(await db.select(db.customTrackMetaLocal).get(), hasLength(1));
+      expect(deletes(), isEmpty);
+    });
+
+    testWidgets('a failed server delete changes nothing the student sees',
+        (tester) async {
+      failure = Exception('offline');
+      final telemetry = _RecordingTelemetry();
+      final (db, _) =
+          await _pumpFlow(tester, api: fakeApi(), telemetry: telemetry);
+      await _createTrackAndReachDate(tester);
+      await backOutToPicker(tester);
+
+      expect(deletes(), hasLength(1));
+      expect(telemetry.errors, [failure]);
+      expect(find.text("My exam isn't listed"), findsOneWidget);
+      expect(await db.select(db.customTrackMetaLocal).get(), isEmpty);
+      expect(tester.takeException(), isNull);
+
+      // Going round again still makes one fresh track.
+      failure = null;
+      await _createTrackAndReachDate(tester);
+      expect(await db.select(db.customTrackMetaLocal).get(), hasLength(1));
+    });
+  });
+
   testWidgets('a kept track is not renamed or rescoped by the next custom exam',
       (tester) async {
     final (db, _) = await _pumpFlow(tester);
@@ -309,4 +422,12 @@ void main() {
       'Other Exam',
     );
   });
+}
+
+class _RecordingTelemetry extends DisabledTelemetry {
+  final errors = <Object>[];
+
+  @override
+  Future<void> recordError(Object error, StackTrace stack) async =>
+      errors.add(error);
 }

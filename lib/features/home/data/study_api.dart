@@ -25,16 +25,30 @@ class StudyApi {
     required String examId,
     Map<String, Object?> payload = const {},
   }) async {
-    if (expectedUid.isEmpty ||
-        examId.isEmpty ||
-        payload.containsKey('expectedUid') ||
-        payload.containsKey('examId')) {
+    if (examId.isEmpty || payload.containsKey('examId')) {
+      throw ArgumentError('Original account and exam are required');
+    }
+    return requestAccount(
+      name,
+      expectedUid: expectedUid,
+      payload: {...payload, 'examId': examId},
+    );
+  }
+
+  /// A request about the account, not one exam, such as listing custom exams.
+  /// It still carries the original owner. A payload may name an exam when the
+  /// call acts on one, as removing a custom exam does.
+  Future<Map<String, Object?>> requestAccount(
+    String name, {
+    required String expectedUid,
+    Map<String, Object?> payload = const {},
+  }) async {
+    if (expectedUid.isEmpty || payload.containsKey('expectedUid')) {
       throw ArgumentError('Original account and exam are required');
     }
     final data = Map<String, Object?>.unmodifiable({
       ...payload,
       'expectedUid': expectedUid,
-      'examId': examId,
     });
     final result = await call(name, data);
     if (result is! Map) throw const FormatException('Invalid study response');

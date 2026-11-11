@@ -24,6 +24,8 @@ import '../../../helpers/in_memory_database.dart';
 Future<void> continueAsAdult(WidgetTester tester) async {
   await tester.enterText(find.byType(TextField), '30');
   await tester.pump();
+  // The age check line makes the step taller than this small test surface.
+  await tester.ensureVisible(find.text('Continue'));
   await tester.tap(find.text('Continue'));
   await tester.pumpAndSettle();
 }

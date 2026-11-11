@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/app/telemetry_providers.dart';
+import 'package:pantas/core/content/data/custom_subject_tiers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/storage/data/repos/custom_track_repository.dart';
@@ -11,27 +12,46 @@ import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/storage/track_scope.dart';
-import 'package:pantas/core/ui/components/grouped_section.dart';
-import 'package:pantas/core/ui/components/list_row.dart';
+import 'package:pantas/core/ui/components/card_footer.dart';
+import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/selectable_tile.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_web_page.dart';
+import 'package:pantas/features/paywall/domain/price_tier.dart';
 
+/// The subjects a custom exam can draw on, each with the topics that hold a
+/// question. A topic with none is left out, and so is a subject with no topic
+/// left, so the student is never offered something that cannot be studied. An
+/// empty result is an error: the catalog has not loaded, so the step shows
+/// Try Again instead of an empty list.
 final corpusSubjectsWithTopicsProvider =
     FutureProvider<Map<String, Set<TopicId>>>((ref) async {
   final content = ref.watch(contentRepositoryProvider);
   final exams = (await content.listExams()).where((e) => !e.isCustom);
-  final map = <String, Set<TopicId>>{};
+  final bySubject = <String, Set<TopicId>>{};
   for (final exam in exams) {
     for (final subject in exam.subjects) {
       final topics = await content.topicsBySubject(subject.id);
-      map
+      bySubject
           .putIfAbsent(subject.name, () => <TopicId>{})
           .addAll(topics.map((t) => t.id));
     }
   }
+  final counts = await content.activeQuestionCountsByTopics({
+    for (final topics in bySubject.values) ...topics,
+  });
+  final map = <String, Set<TopicId>>{};
+  for (final entry in bySubject.entries) {
+    final held = {
+      for (final id in entry.value)
+        if ((counts[id] ?? 0) > 0) id,
+    };
+    if (held.isNotEmpty) map[entry.key] = held;
+  }
+  if (map.isEmpty) throw StateError('No subject holds a question.');
   return map;
 });
 
@@ -42,9 +62,16 @@ class CustomTrackSubjectsStep extends ConsumerStatefulWidget {
     this.onBack,
     this.existingTrackId,
     this.onCreated,
+    this.fromSettings = false,
     super.key,
   });
   final String name;
+
+  /// Opened from Settings, where onboarding is already complete. The step
+  /// makes the track and says it is done, and leaves everything else to
+  /// Settings: onboarding stays complete, and the exam is changed by the same
+  /// save that changes it for a listed exam.
+  final bool fromSettings;
 
   /// A track this onboarding already created. Returning here from the date
   /// step reuses it instead of creating a second one.
@@ -112,8 +139,10 @@ class _CustomTrackSubjectsStepState
       final id = await _createOrReuse(repo, subjects, included);
       _createdId = id;
       if (!mounted || generation != _generation) return;
-      await prefs.setCompletedOnboarding(value: false);
-      await prefs.setSelectedExamId(id);
+      if (!widget.fromSettings) {
+        await prefs.setCompletedOnboarding(value: false);
+        await prefs.setSelectedExamId(id);
+      }
       if (!mounted || generation != _generation) return;
       // The exam list was read before this track existed. Without a fresh
       // read, the focus finds no chosen exam and the router never lets the
@@ -136,16 +165,74 @@ class _CustomTrackSubjectsStepState
     }
   }
 
+  void _toggle(String name) => setState(() {
+        if (!_selected.add(name)) _selected.remove(name);
+      });
+
+  /// The subject's second line: its topic count, and its tier when that is
+  /// above Student ("4 topics · Civil Service-level").
+  String _sub(Set<TopicId> topics, CustomSubjectTiers? tiers) {
+    final count = '${topics.length} ${topics.length == 1 ? 'topic' : 'topics'}';
+    final tier = tiers?.tierOf(topics);
+    if (tier == null || tier == PriceTier.student) return count;
+    return '$count · ${CustomSubjectTiers.levelLabel(tier)}';
+  }
+
+  /// The card footer's line. It names the tier once a subject is ticked and
+  /// the table has loaded.
+  String _tierLine(
+    Map<String, Set<TopicId>> subjects,
+    CustomSubjectTiers? tiers,
+  ) {
+    const free = 'Studying is free.';
+    if (tiers == null || _selected.isEmpty) return free;
+    final tier = tiers.tierOf({
+      for (final name in _selected) ...subjects[name] ?? <TopicId>{},
+    });
+    return '$free For Pro, this is a '
+        '${CustomSubjectTiers.levelLabel(tier)} exam.';
+  }
+
+  Widget _continue(
+    Map<String, Set<TopicId>> subjects,
+    VoidCallback? onPressed,
+  ) {
+    if (context.wideWeb) {
+      return WebButton(
+        label: 'Continue',
+        busy: _creating,
+        onPressed: onPressed,
+      );
+    }
+    return PantasButton(
+      label: 'Continue',
+      busy: _creating,
+      onPressed: onPressed,
+      fullWidth: false,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final subjects = ref.watch(corpusSubjectsWithTopicsProvider);
+    final tiers = ref.watch(customSubjectTiersProvider).valueOrNull;
     firstScreenReady(context, ref, ready: !subjects.isLoading);
+    final canContinue = !_creating && _selected.isNotEmpty && subjects.hasValue;
+    void next() => _save(subjects.requireValue);
     return OnboardingWebPage(
       title: 'What does it cover?',
       detail: 'Tick the subjects your exam covers. '
           'You can choose exact topics later.',
       progress: 3,
       bodyGap: PantasSpace.s24,
+      onEnter: canContinue ? next : null,
+      // The card footer holds Continue once the subjects have loaded. Until
+      // then, or when they fail, it stays here, disabled.
+      bottom: subjects.hasValue
+          ? null
+          : const OnboardingActions(
+              children: [OnboardingButton(label: 'Continue')],
+            ),
       onBack: () {
         if (_creating) return;
         _generation++;
@@ -155,19 +242,8 @@ class _CustomTrackSubjectsStepState
           Navigator.of(context).maybePop();
         }
       },
-      bottom: OnboardingActions(
-        children: [
-          if (_failed) saveFailureLine(() => _save(subjects.requireValue)),
-          OnboardingButton(
-            label: 'Continue',
-            busy: _creating,
-            onPressed: _creating || _selected.isEmpty || !subjects.hasValue
-                ? null
-                : () => _save(subjects.requireValue),
-          ),
-        ],
-      ),
       children: [
+        if (_failed) saveFailureLine(next),
         subjects.when(
           loading: () =>
               const SkeletonGroups(groups: 1, rows: 6, header: false),
@@ -176,63 +252,32 @@ class _CustomTrackSubjectsStepState
             () => ref.invalidate(corpusSubjectsWithTopicsProvider),
             error: error,
           ),
-          data: (map) => context.wideWeb
-              ? Column(
-                  children: [
-                    for (var i = 0; i < map.length; i += 2) ...[
-                      if (i > 0) const SizedBox(height: PantasSpace.s10),
-                      IntrinsicHeight(
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          children: [
-                            for (var j = i; j < i + 2; j++) ...[
-                              if (j > i) const SizedBox(width: PantasSpace.s10),
-                              Expanded(
-                                child: j < map.length
-                                    ? SelectableTile(
-                                        key: ValueKey(
-                                          'subject-tile-'
-                                          '${map.keys.elementAt(j)}',
-                                        ),
-                                        name: map.keys.elementAt(j),
-                                        selected: _selected.contains(
-                                          map.keys.elementAt(j),
-                                        ),
-                                        onTap: _creating
-                                            ? null
-                                            : () => setState(() {
-                                                  final name =
-                                                      map.keys.elementAt(j);
-                                                  if (!_selected.add(name)) {
-                                                    _selected.remove(name);
-                                                  }
-                                                }),
-                                      )
-                                    : const SizedBox.shrink(),
-                              ),
-                            ],
-                          ],
+          data: (map) => WebCard(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(PantasSpace.s20),
+                  child: SelectableTileGrid(
+                    children: [
+                      for (final entry in map.entries)
+                        SelectableTile(
+                          key: ValueKey('subject-tile-${entry.key}'),
+                          name: entry.key,
+                          sub: _sub(entry.value, tiers),
+                          selected: _selected.contains(entry.key),
+                          onTap: _creating ? null : () => _toggle(entry.key),
                         ),
-                      ),
                     ],
-                  ],
-                )
-              : GroupedSection(
-                  children: [
-                    for (final name in map.keys)
-                      ListRow.checkbox(
-                        title: name,
-                        selected: _selected.contains(name),
-                        onTap: _creating
-                            ? null
-                            : () => setState(() {
-                                  if (!_selected.add(name)) {
-                                    _selected.remove(name);
-                                  }
-                                }),
-                      ),
-                  ],
+                  ),
                 ),
+                CardFooter(
+                  caption: _tierLine(map, tiers),
+                  action: _continue(map, canContinue ? next : null),
+                ),
+              ],
+            ),
+          ),
         ),
       ],
     );

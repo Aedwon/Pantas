@@ -1,0 +1,93 @@
+{
+  "version": 1,
+  "subjects": [
+    {
+      "name": "Mathematics",
+      "tier": "Student",
+      "topicIds": [
+        "topic_upcat_arithmetic_number_sense",
+        "topic_upcat_algebra",
+        "topic_upcat_geometry",
+        "topic_upcat_trigonometry",
+        "topic_upcat_statistics_and_probability",
+        "topic_upcat_precalculus_basic_calculus",
+        "topic_upcat_data_interpretation"
+      ]
+    },
+    {
+      "name": "Science",
+      "tier": "Student",
+      "topicIds": [
+        "topic_upcat_earth_science_astronomy",
+        "topic_upcat_biology",
+        "topic_upcat_chemistry",
+        "topic_upcat_physics"
+      ]
+    },
+    {
+      "name": "Language Proficiency (English & Filipino)",
+      "tier": "Student",
+      "topicIds": [
+        "topic_upcat_vocabulary",
+        "topic_upcat_grammar_and_structure",
+        "topic_upcat_language_application"
+      ]
+    },
+    {
+      "name": "Reading Comprehension (English & Filipino)",
+      "tier": "Student",
+      "topicIds": [
+        "topic_upcat_text_types",
+        "topic_upcat_comprehension_skills"
+      ]
+    },
+    {
+      "name": "Reasoning",
+      "tier": "Student",
+      "topicIds": [
+        "topic_upcat_logical_verbal_reasoning",
+        "topic_upcat_spatial_abstract_reasoning",
+        "topic_upcat_mechanical_technical_reasoning",
+        "topic_upcat_clerical_ability",
+        "topic_upcat_verbal_logic"
+      ]
+    },
+    {
+      "name": "General Information",
+      "tier": "Civil Service",
+      "topicIds": [
+        "topic_upcat_philippine_constitution",
+        "topic_upcat_code_of_conduct_ra_6713",
+        "topic_upcat_peace_and_human_rights",
+        "topic_upcat_environment_management"
+      ]
+    }
+  ],
+  "topicTiers": {
+    "topic_upcat_algebra": "Civil Service",
+    "topic_upcat_arithmetic_number_sense": "Civil Service",
+    "topic_upcat_biology": "Student",
+    "topic_upcat_chemistry": "Student",
+    "topic_upcat_clerical_ability": "Civil Service",
+    "topic_upcat_code_of_conduct_ra_6713": "Civil Service",
+    "topic_upcat_comprehension_skills": "Student",
+    "topic_upcat_data_interpretation": "Civil Service",
+    "topic_upcat_earth_science_astronomy": "Student",
+    "topic_upcat_environment_management": "Civil Service",
+    "topic_upcat_geometry": "Student",
+    "topic_upcat_grammar_and_structure": "Civil Service",
+    "topic_upcat_language_application": "Civil Service",
+    "topic_upcat_logical_verbal_reasoning": "Civil Service",
+    "topic_upcat_mechanical_technical_reasoning": "Student",
+    "topic_upcat_peace_and_human_rights": "Civil Service",
+    "topic_upcat_philippine_constitution": "Civil Service",
+    "topic_upcat_physics": "Student",
+    "topic_upcat_precalculus_basic_calculus": "Student",
+    "topic_upcat_spatial_abstract_reasoning": "Civil Service",
+    "topic_upcat_statistics_and_probability": "Student",
+    "topic_upcat_text_types": "Student",
+    "topic_upcat_trigonometry": "Student",
+    "topic_upcat_verbal_logic": "Civil Service",
+    "topic_upcat_vocabulary": "Civil Service"
+  }
+}
