@@ -1,4 +1,5 @@
-import { HttpsError, onCall } from 'firebase-functions/v2/https';
+import {HttpsError} from 'firebase-functions/v2/https';
+import {onAccountCall as onCall} from './_accountAccess.js';
 import {assertFreshAppCheck, enforceAppCheck} from './_appCheck.js';
 import { assertNamedUser } from './_audit.js';
 import {timed} from './_timed.js';

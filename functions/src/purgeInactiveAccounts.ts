@@ -134,6 +134,15 @@ export async function runInactivityPass(deps: InactivityDeps): Promise<Inactivit
       : {docs: []};
     for (const task of unfinished.docs) {
       if (attempts >= deletionCap) break;
+      if (typeof task.get('closedUntil') === 'number') {
+        // Preserve legacy expiring markers permanently and remove their task metadata.
+        // Recheck so a concurrent pending task is never overwritten.
+        await deps.db.runTransaction(async tx => {
+          const fresh = await tx.get(task.ref);
+          if (typeof fresh.get('closedUntil') === 'number') tx.set(task.ref, {});
+        });
+        continue;
+      }
       const reason = task.get('reason') as DeletionReason;
       try {
         // An inactivity deletion that stalled before any data was removed is dropped if the account
@@ -147,13 +156,20 @@ export async function runInactivityPass(deps: InactivityDeps): Promise<Inactivit
             throw error;
           });
           if (current && await proRunning(deps.db, current, now)) {
-            // A withdrawal or the user's own request may have joined this task since the query ran.
-            // Read it again, so a deletion that gained a reason is never called off.
-            const fresh = await task.ref.get();
-            const freshReasons = (fresh.get('reasons') as DeletionReason[] | undefined) ?? [reason];
-            if (fresh.exists && freshReasons.every((r) => r === 'inactive_24_months') && fresh.get('destructiveAt') === undefined) {
+            // Cancel only a still-pending inactivity task. Completion may have replaced it
+            // with a permanent tombstone since the query. Compare and delete atomically.
+            const cancelled = await deps.db.runTransaction(async tx => {
+              const fresh = await tx.get(task.ref);
+              const freshReasons = (fresh.get('reasons') as DeletionReason[] | undefined)
+                ?? [fresh.get('reason') as DeletionReason];
+              if (fresh.get('reason') !== 'inactive_24_months'
+                  || !freshReasons.every((r) => r === 'inactive_24_months')
+                  || fresh.get('destructiveAt') !== undefined) return false;
+              tx.delete(task.ref);
+              return true;
+            });
+            if (cancelled) {
               await deps.auth.updateUser(task.id, {disabled: false});
-              await task.ref.delete();
               continue;
             }
           }

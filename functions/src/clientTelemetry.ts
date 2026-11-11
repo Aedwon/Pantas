@@ -1,6 +1,7 @@
 import {createHash} from 'node:crypto';
 import {logger} from 'firebase-functions';
-import {HttpsError, onCall, type CallableRequest} from 'firebase-functions/v2/https';
+import {HttpsError, type CallableRequest} from 'firebase-functions/v2/https';
+import {onAccountCall as onCall} from './_accountAccess.js';
 import {enforceAppCheck} from './_appCheck.js';
 import {timed} from './_timed.js';
 

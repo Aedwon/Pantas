@@ -1,10 +1,24 @@
 rules_version = '2';
 service firebase.storage {
   match /b/{bucket}/o {
+    // Storage permits two distinct Firestore documents per evaluation.
+    // exists/get of the same consent path share the cached document lookup.
+    // The same path holds pending tasks and permanent UID-only closure tombstones.
+    function accountActive(uid) {
+      let consent = /databases/(default)/documents/users/$(uid)/server/guardianConsent;
+      return !firestore.exists(/databases/(default)/documents/accountDeletions/$(uid))
+          && (!firestore.exists(consent)
+              || firestore.get(consent).data.get('status', '') != 'withdrawn');
+    }
+
+    function isOwner(uid) {
+      return request.auth != null && request.auth.uid == uid && accountActive(uid);
+    }
+
     match /betaFeedback/{uid}/{feedbackId}/{index} {
-      allow read: if request.auth != null && request.auth.uid == uid;
+      allow read: if isOwner(uid);
       allow create: if resource == null
-          && request.auth != null && request.auth.uid == uid
+          && isOwner(uid)
           && feedbackId.matches('^[A-Za-z0-9]{20,32}$')
           && index.matches('^[012]$')
           && request.resource.size <= 5 * 1024 * 1024
@@ -21,14 +35,12 @@ service firebase.storage {
     // never the bucket. App Check gates genuine app installs.
     match /wrapped/{uid}/{fileName} {
       allow read: if false;
-      allow create, update: if request.auth != null
-          && request.auth.uid == uid
+      allow create, update: if isOwner(uid)
           && fileName.matches('^[0-9a-f]{32}[.]png$')
           && request.resource.contentType == 'image/png'
           && request.resource.size > 0
           && request.resource.size <= 5 * 1024 * 1024;
-      allow delete: if request.auth != null
-          && request.auth.uid == uid;
+      allow delete: if isOwner(uid);
     }
 
     match /{allPaths=**} {

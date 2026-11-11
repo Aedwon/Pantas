@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:firebase_auth/firebase_auth.dart' as firebase;
 import 'package:firebase_core/firebase_core.dart';
+import 'package:pantas/core/platform/account_access.dart';
 
 // ignore: one_member_abstracts
 abstract interface class SyncClaimGateway {
@@ -84,7 +85,9 @@ Future<T> refreshOnceAfterPermissionDenied<T>(
   try {
     return await action();
   } on FirebaseException catch (error, stack) {
-    if (error.code != 'permission-denied') rethrow;
+    if (error.code != 'permission-denied' || isAccountClosedError(error)) {
+      rethrow;
+    }
     try {
       await (refresh ?? refreshCurrentClaimToken)();
     } catch (_) {

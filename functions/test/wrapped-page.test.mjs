@@ -31,7 +31,7 @@ test('renderWrappedPage emits per-share Open Graph and Twitter tags', () => {
 test('renderWrappedPage serves the card image with a cache header', () => {
   const source = render();
   assert.match(source, /image\/png/);
-  assert.match(source, /Cache-Control'?: 'public, max-age=300'/);
+  assert.match(source, /Cache-Control'?: 'no-store'/);
 });
 
 test('renderWrappedPage falls back to a generic page (200) for bad links', () => {

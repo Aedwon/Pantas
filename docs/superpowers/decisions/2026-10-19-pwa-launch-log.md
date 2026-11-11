@@ -3140,3 +3140,19 @@ Aedwon is moving the operations manager role to a new thread (checklist in `docs
 - Put to him: the Teen Notice change on `web/teen-notice-r1` 13300df78, before and after: the "Why we ask your age" paragraph (the server records the under-18 group when the student sends the guardian request, before the guardian answers; what cleanup removes and keeps on a decline or no answer), the age-group legal basis (Section 13(f) before and without a guardian answer, 13(a) after the guardian confirms, 12(f) for ordinary related information), the "Guardian requests and links" retention bullet, and the legitimate-interest bullet. Drafted by Codex GPT 6.1 Sol, critiqued read-only by Codex GPT 6.1 Sol High (it removed a draft sentence that called the basis "not settled" and corrected three overstated facts), every fact checked against the code. Cost of approving: none beyond the next publish; the version stamps stay on the placeholder until the prod ship.
 - His answer, verbatim: "teen notice is approved".
 - Merged to main per WORKFLOW after CI; no deploy. Open, raised separately: the age screen and the notice's "Age check" bullet rest on the teen's own permission (Section 13(a)), which Codex flagged against NPC Opinion 2017-049.
+
+### Nov 12, withdrawn account app gate finished locally
+
+- Bounded continuation on `web/withdrawn-gate-r1`, on top of unchecked `ca8f3b332`.
+  Guardian withdrawal and structured account-closed callable refusals now hold the
+  existing withdrawal end state and attempt sign-out. Startup/resume, failed
+  sign-out, cached confirmation, and late results for another identity are covered.
+- Independent app review found a sync credential-refresh retry after a terminal
+  refusal. The helper now excludes it, with a failing-first identity-replay test.
+- Verification: 142 focused Flutter tests pass, analyze lib test clean, format
+  clean, design lint matches its 631 baseline, layering and regression checks pass.
+  Exact commands, baseline failures, source identity and file list:
+  `docs/superpowers/verification/2026-11-11-withdrawn-account-gate.md`, Task 3.
+- Saved as a new local app commit; no amendment, push or Firebase project access.
+  The server commits are unchanged. Lead still owns combined integration and hosted
+  verification. This entry does not assert production or release acceptance.

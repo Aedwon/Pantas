@@ -1,6 +1,6 @@
 import {enforceAppCheck} from './_appCheck.js';
 import { FieldValue, getFirestore } from 'firebase-admin/firestore';
-import { onCall } from 'firebase-functions/v2/https';
+import {onAccountCall as onCall} from './_accountAccess.js';
 import { assertNamedUser, writeAuditLog } from './_audit.js';
 import { allowAtMost } from './_limits.js';
 import { ensurePublicId } from './publicId.js';

@@ -1,3 +1,4 @@
+import {accountClosed, accountHandler} from './_accountAccess.js';
 import {createHmac, randomBytes} from 'node:crypto';
 import {defineInt, defineSecret, defineString} from 'firebase-functions/params';
 import {getAuth, type Auth} from 'firebase-admin/auth';
@@ -180,14 +181,14 @@ export async function sendLink(request: AppRequest, deps: ConsentDeps): Promise<
       tx.get(deps.db.doc(`accountDeletions/${uid}`))]);
     const before = current.data();
     // A pending deletion also closes this door when the consent record is already gone.
-    if (deletion.exists) throw new HttpsError('failed-precondition', 'This account is being deleted.');
+    if (deletion.exists) throw accountClosed();
     if (before?.status === 'confirmed') {
       throw new HttpsError('failed-precondition', 'Already confirmed.');
     }
     // A withdrawn account is being deleted. A new request would turn the record back into a pending one
     // and revoke the manage link the guardian needs to finish the withdrawal.
     if (before?.status === 'withdrawn') {
-      throw new HttpsError('failed-precondition', 'This account is being deleted.');
+      throw accountClosed();
     }
     // An adult has no guardian. A new request would turn the record back into a minor.
     if (before?.ageGroup === 'adult') {
@@ -475,10 +476,10 @@ export async function markAdult(request: AppRequest, deps: ConsentDeps): Promise
       tx.get(deps.db.collection('guardianTokens').where('uid', '==', uid).where('kind', '==', 'manage').where('state', '==', 'open')),
       tx.get(deps.db.doc(`accountDeletions/${uid}`))]);
     const data = current.data();
-    if (deletion.exists) throw new HttpsError('failed-precondition', 'This account is being deleted.');
+    if (deletion.exists) throw accountClosed();
     // The server never knew a minor, so there is nothing to switch and nothing to write.
     if (!data) return {state: 'adult'};
-    if (data.status === 'withdrawn') throw new HttpsError('failed-precondition', 'This account is being deleted.');
+    if (data.status === 'withdrawn') throw accountClosed();
     if (data.ageGroup !== 'minor' || data.adultSince !== undefined) {
       throw new HttpsError('failed-precondition', 'Already switched.');
     }
@@ -595,10 +596,10 @@ function runtimeDeps(): ConsentDeps {
 const readOptions = {region: 'asia-southeast1', enforceAppCheck: enforceAppCheck, secrets: [guardianHmacKey]};
 
 export const sendGuardianLink = onCall({region: 'asia-southeast1', enforceAppCheck: enforceAppCheck, consumeAppCheckToken: enforceAppCheck,
-  secrets: [guardianHmacKey, guardianMailKey]}, timed('sendGuardianLink', (request) => {
+  secrets: [guardianHmacKey, guardianMailKey]}, timed('sendGuardianLink', accountHandler((request) => {
   assertFreshAppCheck(request);
   return sendLink(request, runtimeDeps());
-}));
+})));
 
 export const answerGuardianRequest = onCall({region: 'asia-southeast1', enforceAppCheck: enforceAppCheck, consumeAppCheckToken: enforceAppCheck,
   secrets: [guardianHmacKey, guardianMailKey]}, timed('answerGuardianRequest', (request) => {
@@ -606,7 +607,7 @@ export const answerGuardianRequest = onCall({region: 'asia-southeast1', enforceA
   return answerRequest(request, runtimeDeps());
 }));
 
-export const getGuardianStatus = onCall(readOptions, timed('getGuardianStatus', (request) => getStatus(request, runtimeDeps())));
+export const getGuardianStatus = onCall(readOptions, timed('getGuardianStatus', accountHandler((request) => getStatus(request, runtimeDeps()))));
 
 export const getGuardianRequest = onCall(readOptions, timed('getGuardianRequest', (request) => readRequest(request, runtimeDeps())));
 
@@ -624,4 +625,4 @@ export const withdrawGuardianPermission = onCall({region: 'asia-southeast1', enf
   return withdraw(request, runtimeDeps());
 }));
 
-export const markGuardianAdult = onCall(readOptions, timed('markGuardianAdult', (request) => markAdult(request, runtimeDeps())));
+export const markGuardianAdult = onCall(readOptions, timed('markGuardianAdult', accountHandler((request) => markAdult(request, runtimeDeps()))));

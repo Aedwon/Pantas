@@ -9,6 +9,7 @@ import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/features/guardian/application/guardian_providers.dart';
 import 'package:pantas/features/home/application/how_you_work_provider.dart';
 import 'package:pantas/features/home/application/record_provider.dart';
 import 'package:pantas/features/home/presentation/record_page.dart';
@@ -157,6 +158,10 @@ void main() {
                   .overrideWith((_) => Completer<Never>().future),
               activeExamShortNameProvider.overrideWithValue('CSE'),
               proForActiveExamProvider.overrideWith((_) async => false),
+              // An open account: legal pages keep the shell only once the
+              // closure state is known.
+              guardianGateProvider
+                  .overrideWith((_) async => GuardianGate.notRequired),
             ],
             child: WebRouteShell(path: path, child: const Text('MY screen')),
           ),

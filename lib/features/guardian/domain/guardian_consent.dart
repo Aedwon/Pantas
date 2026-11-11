@@ -5,13 +5,15 @@ enum GuardianConsentStatus {
   pending,
   confirmed,
   declined,
-  expired;
+  expired,
+  withdrawn;
 
   static GuardianConsentStatus parse(Object? raw) => switch (raw) {
         'pending' => pending,
         'confirmed' => confirmed,
         'declined' => declined,
         'expired' => expired,
+        'withdrawn' => withdrawn,
         _ => none,
       };
 

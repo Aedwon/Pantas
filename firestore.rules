@@ -1,8 +1,17 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
+    // Two distinct documents, cached across ownership checks and batch writes.
+    // Missing/trimmed consent is valid; any durable deletion task closes access.
+    // The same path holds pending tasks and permanent UID-only closure tombstones.
+    function accountActive(uid) {
+      let consent = /databases/$(database)/documents/users/$(uid)/server/guardianConsent;
+      return !exists(/databases/$(database)/documents/accountDeletions/$(uid))
+          && (!exists(consent) || get(consent).data.get('status', '') != 'withdrawn');
+    }
+
     function isSignedIn() {
-      return request.auth != null;
+      return request.auth != null && accountActive(request.auth.uid);
     }
 
     function isNamedUser() {

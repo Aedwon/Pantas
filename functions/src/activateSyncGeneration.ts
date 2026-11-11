@@ -1,7 +1,8 @@
 import {enforceAppCheck} from './_appCheck.js';
 import { FieldValue, getFirestore } from 'firebase-admin/firestore';
 import { logger } from 'firebase-functions';
-import { HttpsError, onCall } from 'firebase-functions/v2/https';
+import {HttpsError} from 'firebase-functions/v2/https';
+import {onAccountCall as onCall} from './_accountAccess.js';
 import {timed} from './_timed.js';
 import {
   assertNamedPro,

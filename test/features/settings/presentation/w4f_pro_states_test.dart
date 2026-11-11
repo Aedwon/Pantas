@@ -46,6 +46,8 @@ class _CancelGateway extends SettingsGateway {
 Future<void> _pump(
   WidgetTester tester, {
   bool web = false,
+  bool settle = true,
+  Future<Map<String, ExamCatalogEntry>> Function(Ref ref)? passRead,
   bool dated = true,
   bool eligible = false,
   bool upgrade = false,
@@ -110,6 +112,8 @@ Future<void> _pump(
       if (preferences != null)
         appPreferencesRepositoryProvider.overrideWithValue(preferences),
       contentDatabaseProvider.overrideWithValue(openTestContentDatabase()),
+      if (passRead != null)
+        ownedPassCatalogEntriesProvider.overrideWith(passRead),
       revenueCatGatewayProvider.overrideWithValue(
         web ? webGateway : _CancelGateway(initial: entitlement),
       ),
@@ -172,7 +176,7 @@ Future<void> _pump(
       ),
     ],
   );
-  await tester.pumpAndSettle();
+  if (settle) await tester.pumpAndSettle();
 }
 
 class _TrialPreferences extends AppPreferencesRepository {
@@ -470,6 +474,39 @@ void main() {
       lessThan(tester.getTopLeft(card).dy),
     );
   });
+  testWidgets('owned passes wait for their exam names before showing the plan',
+      (tester) async {
+    final names = Completer<Map<String, ExamCatalogEntry>>();
+    await _pump(
+      tester,
+      settle: false,
+      passRead: (_) => names.future,
+      entitlement: Entitlement(
+        plan: EntitlementPlan.free,
+        passes: {'exam_cse_sub': DateTime.utc(2027, 8, 8)},
+      ),
+    );
+    await tester.pump();
+    expect(find.bySemanticsLabel('Loading your passes'), findsOneWidget);
+    expect(find.text('Season Pass'), findsNothing);
+    names.complete(const {
+      'exam_cse_sub': ExamCatalogEntry(
+        id: 'exam_cse_sub',
+        name: 'CSE Subprofessional',
+        shortName: 'CSE Subprofessional',
+        priceTier: 'Civil Service',
+        group: 'Civil service',
+        comingSoon: false,
+        publishedSittings: [],
+        hasContent: true,
+      ),
+    });
+    await tester.pumpAndSettle();
+    expect(find.text('CSE Subprofessional'), findsOneWidget);
+    expect(find.text('Aug 8, 2027'), findsOneWidget);
+    expect(find.bySemanticsLabel('Loading your passes'), findsNothing);
+  });
+
   testWidgets('each owned pass shows its own exam and end date',
       (tester) async {
     await _pump(

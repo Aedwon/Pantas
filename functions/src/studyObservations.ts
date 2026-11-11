@@ -1,6 +1,7 @@
 import {enforceAppCheck} from './_appCheck.js';
 import {FieldValue, getFirestore, type Firestore} from 'firebase-admin/firestore';
-import {HttpsError, onCall} from 'firebase-functions/v2/https';
+import {HttpsError} from 'firebase-functions/v2/https';
+import {onAccountCall as onCall} from './_accountAccess.js';
 import {allowAtMost} from './_limits.js';
 import {checkTime} from './_answers.js';
 import {computeRoadmap} from './roadmap.js';

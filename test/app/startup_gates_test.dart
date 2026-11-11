@@ -5,6 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/app/startup_gates.dart';
 import 'package:pantas/core/storage/age_gate.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
+import 'package:pantas/features/guardian/application/guardian_providers.dart';
 
 void main() {
   late Completer<bool> ageGate;
@@ -12,10 +13,13 @@ void main() {
   late Completer<bool> onboarding;
   var reads = 0;
 
-  ProviderContainer build() {
+  ProviderContainer build({Future<GuardianGate>? guardian}) {
     reads = 0;
     final container = ProviderContainer(
       overrides: [
+        guardianGateProvider.overrideWith(
+          (ref) => guardian ?? Future.value(GuardianGate.notRequired),
+        ),
         passedAgeGateProvider.overrideWith((ref) {
           reads++;
           return ageGate.future;
@@ -74,6 +78,22 @@ void main() {
     expect(settled, isTrue);
     expect(container.read(passedAgeGateProvider).value, isTrue);
     expect(container.read(onboardingCompleteProvider).value, isFalse);
+  });
+
+  test('startup waits for persisted guardian closure restoration', () async {
+    final guardian = Completer<GuardianGate>();
+    final container = build(guardian: guardian.future);
+    ageGate.complete(true);
+    focus.complete(const ActiveExamFocus.needsSelection());
+    onboarding.complete(true);
+    var settled = false;
+    final waiting =
+        settleGatesBeforeFirstPage(container).then((_) => settled = true);
+    await Future<void>.delayed(Duration.zero);
+    expect(settled, isFalse);
+    guardian.complete(GuardianGate.withdrawn);
+    await waiting;
+    expect(settled, isTrue);
   });
 
   test('a gate that fails to read does not block the start', () async {

@@ -1,6 +1,7 @@
 import {enforceAppCheck} from './_appCheck.js';
 import {getFirestore, type Firestore} from 'firebase-admin/firestore';
-import {HttpsError, onCall} from 'firebase-functions/v2/https';
+import {HttpsError} from 'firebase-functions/v2/https';
+import {onAccountCall as onCall} from './_accountAccess.js';
 import {allowAtMost} from './_limits.js';
 import {MAX_CUSTOM_TRACKS, customTier, customTrackRef, isCustomExamId, tierDisplayName} from './_customTrack.js';
 import {assertStudyOwner} from './studyObservations.js';

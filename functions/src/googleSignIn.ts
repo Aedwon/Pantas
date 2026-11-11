@@ -1,10 +1,12 @@
+import {assertSignInTargetActive} from './_accountAccess.js';
 import {createHmac} from 'node:crypto';
 import {isIP} from 'node:net';
 import {getAuth, type Auth, type UserRecord} from 'firebase-admin/auth';
 import {getFirestore, type Firestore} from 'firebase-admin/firestore';
 import {logger} from 'firebase-functions/logger';
 import {defineString} from 'firebase-functions/params';
-import {HttpsError, onCall, type CallableRequest} from 'firebase-functions/v2/https';
+import {HttpsError, type CallableRequest} from 'firebase-functions/v2/https';
+import {onAccountCall as onCall} from './_accountAccess.js';
 import {assertFreshAppCheck, enforceAppCheck} from './_appCheck.js';
 import {allowAtMost} from './_limits.js';
 import {phDay} from './_phDate.js';
@@ -261,6 +263,7 @@ export async function checkGoogleSignIn(request: Req, deps: GoogleSignInDeps): P
   // A new address never needs this path: Firebase signs it in directly.
   const user = await userOrNull(() => deps.auth.getUserByEmail(email));
   if (!user) throw new HttpsError('permission-denied', NOT_VERIFIED);
+  await assertSignInTargetActive(deps.db, user.uid, uid);
   // An existing account is never modified beyond the Google link. A disabled account, or one whose
   // address is unverified (someone else may have registered it with a password), is refused.
   if (user.disabled || !user.emailVerified) throw new HttpsError('permission-denied', CANNOT_SIGN_IN);

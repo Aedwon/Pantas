@@ -1,3 +1,4 @@
+import 'package:pantas/features/guardian/presentation/guardian_screen.dart';
 // ignore_for_file: directives_ordering
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -18,6 +19,10 @@ List<RouteBase> guardianRoutes(Ref ref) => [
         path: '/guardian/manage',
         builder: (_, state) =>
             GuardianManagePage(token: state.uri.queryParameters['token']),
+      ),
+      GoRoute(
+        path: '/guardian/withdrawn',
+        builder: (_, __) => const GuardianWithdrawnPage(),
       ),
       GoRoute(
         path: '/guardian/waiting',

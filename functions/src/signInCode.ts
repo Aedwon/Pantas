@@ -1,9 +1,11 @@
+import {assertSignInTargetActive} from './_accountAccess.js';
 import {createHash, createHmac, randomBytes, randomInt, timingSafeEqual} from 'node:crypto';
 import {getAuth, type Auth, type UserRecord} from 'firebase-admin/auth';
 import {getFirestore, type Firestore} from 'firebase-admin/firestore';
 import {logger} from 'firebase-functions/logger';
 import {defineInt, defineSecret} from 'firebase-functions/params';
-import {HttpsError, onCall, type CallableRequest} from 'firebase-functions/v2/https';
+import {HttpsError, type CallableRequest} from 'firebase-functions/v2/https';
+import {onAccountCall as onCall} from './_accountAccess.js';
 import {assertFreshAppCheck, enforceAppCheck} from './_appCheck.js';
 import {allowAtMost} from './_limits.js';
 import {canonicalEmail} from './_email.js';
@@ -404,6 +406,7 @@ export async function checkSignInCode(request: Req, deps: VerifyDeps): Promise<{
   }
 
   const accountUid = await accountFor(outcome.email, deps.auth);
+  await assertSignInTargetActive(deps.db, accountUid, uid);
   try {
     return {token: await deps.auth.createCustomToken(accountUid)};
   } catch (error) {

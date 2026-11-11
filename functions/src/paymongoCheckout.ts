@@ -1,7 +1,8 @@
 import {randomUUID, createHash} from 'node:crypto';
 import {getFirestore, type Firestore} from 'firebase-admin/firestore';
 import {defineSecret} from 'firebase-functions/params';
-import {HttpsError, onCall} from 'firebase-functions/v2/https';
+import {HttpsError} from 'firebase-functions/v2/https';
+import {onAccountCall as onCall} from './_accountAccess.js';
 import {assertFreshAppCheck, enforceAppCheck} from './_appCheck.js';
 import {assertNamedUser} from './_audit.js';
 import {GUARDIAN_DOCUMENT_VERSIONS} from './guardianConsent.js';
