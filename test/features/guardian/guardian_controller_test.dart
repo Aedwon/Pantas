@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/auth/auth.dart';
@@ -15,19 +17,21 @@ import 'fake_guardian_gateway.dart';
 
 void main() {
   late AppDatabase db;
-  late FakeGuardianGateway gateway;
+  late _DeferredGuardianGateway gateway;
+  late SignOutAuthGateway auth;
   late ProviderContainer container;
   late List<String> authOperations;
   setUp(() {
     db = inMemoryDatabase();
-    gateway = FakeGuardianGateway();
+    gateway = _DeferredGuardianGateway();
     authOperations = [];
+    auth = SignOutAuthGateway(authOperations);
     container = ProviderContainer(
       overrides: [
         appDatabaseProvider.overrideWithValue(db),
         guardianGatewayProvider.overrideWithValue(gateway),
         authRepositoryProvider.overrideWithValue(
-          AuthRepository(gateway: SignOutAuthGateway(authOperations)),
+          AuthRepository(gateway: auth),
         ),
       ],
     );
@@ -158,8 +162,10 @@ void main() {
     gateway.current = GuardianStatus.fromJson({'status': 'withdrawn'});
     expect(await gate().then((value) => value.name), 'withdrawn');
     expect(authOperations, contains('firebaseSignOut'));
-    expect(container.read(authRepositoryProvider).currentSession?.isAnonymous,
-        isTrue,);
+    expect(
+      container.read(authRepositoryProvider).currentSession?.isAnonymous,
+      isTrue,
+    );
     gateway.failure = const GuardianGatewayException('unavailable');
     container.invalidate(guardianGateProvider);
     expect(await gate().then((value) => value.name), 'withdrawn');
@@ -184,4 +190,47 @@ void main() {
     expect(authOperations, contains('firebaseSignOut'));
     expect(await prefs.hasPassedAgeGate(), isFalse);
   });
+  test('a late withdrawn refresh cannot close a different identity', () async {
+    final pending = Completer<GuardianStatus>();
+    gateway.nextStatus = pending.future;
+    final refreshed = container.read(guardianControllerProvider).refresh();
+    auth.currentSession = const AuthSession(uid: 'other-student');
+    pending.complete(
+      const GuardianStatus(
+        status: GuardianConsentStatus.withdrawn,
+      ),
+    );
+    await expectLater(refreshed, throwsA(isA<GuardianGatewayException>()));
+    expect(authOperations, isEmpty);
+    expect(container.read(guardianAccountClosedProvider), isNull);
+  });
+
+  test('a late withdrawn gate result cannot hold a different identity',
+      () async {
+    final prefs = container.read(appPreferencesRepositoryProvider);
+    await prefs.setAgeGroup('minor');
+    await prefs.setGuardianStatusCache('confirmed');
+    final pending = Completer<GuardianStatus>();
+    gateway.nextStatus = pending.future;
+    final checked = gate();
+    // Let the provider reach the pending server response.
+    await Future<void>.delayed(Duration.zero);
+    auth.currentSession = const AuthSession(uid: 'other-student');
+    pending.complete(
+      const GuardianStatus(
+        status: GuardianConsentStatus.withdrawn,
+      ),
+    );
+    expect(await checked, GuardianGate.notRequired);
+    expect(await prefs.guardianStatusCache(), 'confirmed');
+    expect(authOperations, isEmpty);
+    expect(container.read(guardianAccountClosedProvider), isNull);
+  });
+}
+
+class _DeferredGuardianGateway extends FakeGuardianGateway {
+  Future<GuardianStatus>? nextStatus;
+
+  @override
+  Future<GuardianStatus> status() => nextStatus ?? super.status();
 }

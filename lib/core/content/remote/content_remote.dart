@@ -1,6 +1,7 @@
 import 'package:cloud_functions/cloud_functions.dart';
 import 'package:meta/meta.dart';
 import 'package:pantas/core/content/remote/content_item.dart';
+import 'package:pantas/core/platform/account_access.dart';
 
 /// The server limit on ids in one `getContent` call.
 const maxContentIdsPerCall = 20;
@@ -69,7 +70,7 @@ class CallableContentRemote implements ContentRemote {
   ) async {
     try {
       final result =
-          await _functions.httpsCallable('getContent').call<Object?>({
+          await _functions.httpsCallable('getContent').callForAccount<Object?>({
         'kind': kind.wire,
         'ids': ids,
         'knownVersions': knownVersions,

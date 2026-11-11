@@ -1,3 +1,4 @@
+import 'package:cloud_functions/cloud_functions.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -65,21 +66,23 @@ void main() {
     if (failSignOut) {
       repo.beforeIdentityChange = () async => throw StateError('offline');
     }
-    await tester.pumpWidget(ProviderScope(
-      overrides: [
-        appDatabaseProvider.overrideWithValue(db),
-        contentDatabaseProvider.overrideWithValue(contentDb),
-        examPickerCatalogProvider.overrideWith((ref) => Stream.value([])),
-        authRepositoryProvider.overrideWithValue(repo),
-        accountAccessProvider.overrideWithValue(access),
-        guardianGatewayProvider.overrideWithValue(guardian),
-        entitlementProvider.overrideWith(
-          (ref) => Stream.value(const Entitlement.free()),
-        ),
-        betaGateActiveProvider.overrideWithValue(false),
-      ],
-      child: const App(flavor: Flavor.dev),
-    ),);
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: [
+          appDatabaseProvider.overrideWithValue(db),
+          contentDatabaseProvider.overrideWithValue(contentDb),
+          examPickerCatalogProvider.overrideWith((ref) => Stream.value([])),
+          authRepositoryProvider.overrideWithValue(repo),
+          accountAccessProvider.overrideWithValue(access),
+          guardianGatewayProvider.overrideWithValue(guardian),
+          entitlementProvider.overrideWith(
+            (ref) => Stream.value(const Entitlement.free()),
+          ),
+          betaGateActiveProvider.overrideWithValue(false),
+        ],
+        child: const App(flavor: Flavor.dev),
+      ),
+    );
     await tester.pumpAndSettle();
     addTearDown(() async {
       await tester.pumpWidget(const SizedBox.shrink());
@@ -103,8 +106,9 @@ void main() {
     container.read(routerProvider).go('/home');
     await tester.pumpAndSettle();
     expect(
-        container.read(routerProvider).routeInformationProvider.value.uri.path,
-        '/guardian/withdrawn',);
+      container.read(routerProvider).routeInformationProvider.value.uri.path,
+      '/guardian/withdrawn',
+    );
   });
 
   testWidgets(
@@ -114,7 +118,15 @@ void main() {
     access.close('previous-user');
     await tester.pumpAndSettle();
     expect(container.read(guardianAccountClosedProvider), isNull);
-    access.close('user-1');
+    final refusal = FirebaseFunctionsException(
+      code: 'permission-denied',
+      message: 'This account is being deleted.',
+      details: const {'reason': 'account-closed'},
+    );
+    await expectLater(
+      access.run<void>('user-1', () async => throw refusal),
+      throwsA(same(refusal)),
+    );
     await tester.pumpAndSettle();
     expect(auth.currentSession?.uid, 'user-1');
     expect(container.read(guardianAccountClosedProvider), 'user-1');
@@ -123,6 +135,40 @@ void main() {
     container.invalidate(guardianGateProvider);
     container.read(routerProvider).go('/onboarding');
     await tester.pumpAndSettle();
+    expect(find.byType(GuardianWithdrawnPage), findsOneWidget);
+  });
+
+  testWidgets('a structured server refusal signs out and holds the end state',
+      (tester) async {
+    await pumpApp(tester);
+    final refusal = FirebaseFunctionsException(
+      code: 'permission-denied',
+      message: 'This account is being deleted.',
+      details: const {'reason': 'account-closed'},
+    );
+    await expectLater(
+      access.run<void>('user-1', () async => throw refusal),
+      throwsA(same(refusal)),
+    );
+    await tester.pumpAndSettle();
+    expect(operations, contains('firebaseSignOut'));
+    expect(auth.currentSession?.isAnonymous, isTrue);
+    expect(find.byType(GuardianWithdrawnPage), findsOneWidget);
+    expect(find.text('Try Again'), findsNothing);
+  });
+
+  testWidgets('returning to the app refreshes an already confirmed minor',
+      (tester) async {
+    await pumpApp(tester);
+    guardian.current = GuardianStatus.fromJson({'status': 'withdrawn'});
+    tester.binding.handleAppLifecycleStateChanged(AppLifecycleState.inactive);
+    tester.binding.handleAppLifecycleStateChanged(AppLifecycleState.hidden);
+    tester.binding.handleAppLifecycleStateChanged(AppLifecycleState.paused);
+    tester.binding.handleAppLifecycleStateChanged(AppLifecycleState.hidden);
+    tester.binding.handleAppLifecycleStateChanged(AppLifecycleState.inactive);
+    tester.binding.handleAppLifecycleStateChanged(AppLifecycleState.resumed);
+    await tester.pumpAndSettle();
+    expect(operations, contains('firebaseSignOut'));
     expect(find.byType(GuardianWithdrawnPage), findsOneWidget);
   });
 
@@ -136,7 +182,8 @@ void main() {
     container.read(routerProvider).go('/guardian/manage?token=token');
     await tester.pumpAndSettle();
     expect(
-        container.read(routerProvider).routeInformationProvider.value.uri.path,
-        '/guardian/manage',);
+      container.read(routerProvider).routeInformationProvider.value.uri.path,
+      '/guardian/manage',
+    );
   });
 }

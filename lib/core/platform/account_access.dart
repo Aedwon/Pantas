@@ -21,11 +21,7 @@ class AccountAccess {
     try {
       return await action();
     } on FirebaseFunctionsException catch (error) {
-      final details = error.details;
-      if (uid != null &&
-          error.code == 'permission-denied' &&
-          details is Map &&
-          details['reason'] == 'account-closed') {
+      if (uid != null && isAccountClosedError(error)) {
         close(uid);
       }
       rethrow;
@@ -33,6 +29,16 @@ class AccountAccess {
   }
 
   Future<void> dispose() => _events.close();
+}
+
+/// Only the server's structured terminal reason closes an account.
+bool isAccountClosedError(Object error) {
+  if (error is! FirebaseFunctionsException ||
+      error.code != 'permission-denied') {
+    return false;
+  }
+  final details = error.details;
+  return details is Map && details['reason'] == 'account-closed';
 }
 
 FirebaseFunctionsException _closedError() => FirebaseFunctionsException(

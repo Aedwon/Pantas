@@ -148,6 +148,10 @@ class _GuardianWaitingPageState extends ConsumerState<GuardianWaitingPage> {
 
   @override
   Widget build(BuildContext context) {
+    if (_status?.status == GuardianConsentStatus.withdrawn ||
+        ref.watch(guardianAccountClosedProvider) != null) {
+      return const GuardianWithdrawnPage();
+    }
     if (_loadFailed) {
       return Scaffold(body: errorFor('status', _load));
     }

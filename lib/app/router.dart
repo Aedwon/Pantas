@@ -44,6 +44,7 @@ final routerProvider = Provider<GoRouter>((ref) {
     activeExamFocusProvider,
     entitlementProvider,
     guardianGateProvider,
+    guardianAccountClosedProvider,
     betaGateActiveProvider,
     betaGateStatusProvider,
   ]);
@@ -81,6 +82,11 @@ final routerProvider = Provider<GoRouter>((ref) {
           path == '/auth/email-link') {
         return null;
       }
+      final guardian = ref.read(guardianGateProvider).valueOrNull;
+      if (ref.read(guardianAccountClosedProvider) != null ||
+          guardian == GuardianGate.withdrawn) {
+        return path == '/guardian/withdrawn' ? null : '/guardian/withdrawn';
+      }
       final betaActive = ref.read(betaGateActiveProvider);
       final betaRedirect = betaGateRedirect(
         path: path,
@@ -90,7 +96,6 @@ final routerProvider = Provider<GoRouter>((ref) {
       );
       if (betaRedirect != null) return betaRedirect;
       if (path == '/beta') return null;
-      final guardian = ref.read(guardianGateProvider).valueOrNull;
       if (guardian == GuardianGate.waiting) {
         // A minor is held on Waiting, or on the form to change the email,
         // until a guardian confirms. Nothing else is reachable.

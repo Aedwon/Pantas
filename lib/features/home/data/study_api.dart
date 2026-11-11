@@ -1,4 +1,5 @@
 import 'package:cloud_functions/cloud_functions.dart';
+import 'package:pantas/core/platform/account_access.dart';
 import 'package:pantas/core/platform/callable_options.dart';
 
 typedef StudyCallable = Future<Object?> Function(
@@ -14,7 +15,7 @@ class StudyApi {
         (name, data) async =>
             (await FirebaseFunctions.instanceFor(region: 'asia-southeast1')
                     .httpsCallable(name, options: callableOptionsFor(name))
-                    .call<Object?>(data))
+                    .callForAccount<Object?>(data))
                 .data,
       );
   final StudyCallable call;

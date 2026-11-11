@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:cloud_functions/cloud_functions.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/sync/eligibility/sync_claim_gateway.dart';
@@ -44,6 +45,32 @@ void main() {
     expect(calls, 2);
     expect(refreshes, 1);
   });
+  test('account-closed never refreshes or retries under another identity',
+      () async {
+    var uid = 'student';
+    final dispatched = <String>[];
+    final refusal = FirebaseFunctionsException(
+      code: 'permission-denied',
+      message: 'This account is being deleted.',
+      details: const {'reason': 'account-closed'},
+    );
+    await expectLater(
+      refreshOnceAfterPermissionDenied(
+        () async {
+          dispatched.add(uid);
+          if (uid == 'student') throw refusal;
+          return 'activated';
+        },
+        refresh: () async {
+          uid = 'other-student';
+        },
+      ),
+      throwsA(same(refusal)),
+    );
+    expect(uid, 'student', reason: 'no credential refresh after closure');
+    expect(dispatched, ['student']);
+  });
+
   test('AC-3 claim changes refresh once and stop on another account', () async {
     final changes = StreamController<Object?>.broadcast();
     var refreshed = 0;

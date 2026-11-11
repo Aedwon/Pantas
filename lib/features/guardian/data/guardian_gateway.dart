@@ -1,4 +1,5 @@
 import 'package:cloud_functions/cloud_functions.dart';
+import 'package:pantas/core/platform/account_access.dart';
 import 'package:pantas/core/platform/callable_options.dart';
 import 'package:pantas/features/guardian/domain/guardian_consent.dart';
 import 'package:pantas/features/guardian/domain/guardian_copy.dart';
@@ -68,13 +69,18 @@ class FirebaseGuardianCallableClient implements GuardianCallableClient {
   @override
   Future<Object?> call(String name, Map<String, Object?> data) async {
     try {
-      final result = await FirebaseFunctions.instanceFor(region: region)
-          .httpsCallable(name, options: callableOptionsFor(name))
-          .call<Object?>(data);
+      final callable = FirebaseFunctions.instanceFor(region: region)
+          .httpsCallable(name, options: callableOptionsFor(name));
+      final result = await (data.containsKey('token')
+          ? callable.call<Object?>(data)
+          : callable.callForAccount<Object?>(data));
       return result.data;
     } on FirebaseFunctionsException catch (error) {
       if (error.code == 'resource-exhausted') {
         throw const GuardianRateLimitedException();
+      }
+      if (isAccountClosedError(error)) {
+        throw const GuardianGatewayException('account-closed');
       }
       throw GuardianGatewayException(error.code);
     }

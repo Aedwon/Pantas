@@ -6,6 +6,7 @@ import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
+import 'package:pantas/features/guardian/domain/guardian_copy.dart';
 
 /// Wide web: space under the column, so it sits above the center (boards
 /// G_*).
@@ -173,4 +174,15 @@ class BalancedText extends StatelessWidget {
       },
     );
   }
+}
+
+/// Reuses the guardian withdrawal end state and its existing wording.
+class GuardianWithdrawnPage extends StatelessWidget {
+  const GuardianWithdrawnPage({super.key});
+
+  @override
+  Widget build(BuildContext context) => const GuardianScreen(
+        title: GuardianCopy.withdrawnTitle,
+        detail: GuardianCopy.withdrawnDetail,
+      );
 }

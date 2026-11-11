@@ -13,11 +13,14 @@ void main() {
     final sub = access.closures.listen(events.add);
     addTearDown(sub.cancel);
     final error = FirebaseFunctionsException(
-        message: 'This account is being deleted.',
-        code: 'permission-denied',
-        details: const {'reason': 'account-closed'},);
+      message: 'This account is being deleted.',
+      code: 'permission-denied',
+      details: const {'reason': 'account-closed'},
+    );
     await expectLater(
-        access.run('student', () async => throw error), throwsA(same(error)),);
+      access.run('student', () async => throw error),
+      throwsA(same(error)),
+    );
     expect(events, ['student']);
     expect(access.isClosed('student'), isTrue);
   });
@@ -26,16 +29,16 @@ void main() {
     access.close('student');
     var sent = false;
     await expectLater(
-        access.run('student', () async {
-          sent = true;
-          return 1;
-        }),
-        throwsA(isA<FirebaseFunctionsException>()),);
+      access.run('student', () async {
+        sent = true;
+        return 1;
+      }),
+      throwsA(isA<FirebaseFunctionsException>()),
+    );
     expect(sent, isFalse);
   });
 
-  test(
-      'closure remembered before a listener attaches; duplicates emit once',
+  test('closure remembered before a listener attaches; duplicates emit once',
       () async {
     access.close('student');
     final events = <String>[];
@@ -51,9 +54,13 @@ void main() {
       () async {
     for (final code in ['permission-denied', 'unavailable']) {
       final error = FirebaseFunctionsException(
-          message: 'This account is being deleted.', code: code,);
+        message: 'This account is being deleted.',
+        code: code,
+      );
       await expectLater(
-          access.run('student', () async => throw error), throwsA(same(error)),);
+        access.run('student', () async => throw error),
+        throwsA(same(error)),
+      );
       expect(access.isClosed('student'), isFalse);
     }
     expect(await access.run('other', () async => 7), 7);

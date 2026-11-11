@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:cloud_functions/cloud_functions.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
+import 'package:pantas/core/platform/account_access.dart';
 import 'package:pantas/core/platform/callable_options.dart';
 import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/platform/local_firebase.dart';
@@ -29,7 +30,7 @@ class FirebaseClientReportSender implements ClientReportSender {
   Future<void> send(Map<String, Object?> payload) async {
     await FirebaseFunctions.instanceFor(region: 'asia-southeast1')
         .httpsCallable(_name, options: callableOptionsFor(_name))
-        .call<Object?>(payload);
+        .callForAccount<Object?>(payload);
   }
 }
 

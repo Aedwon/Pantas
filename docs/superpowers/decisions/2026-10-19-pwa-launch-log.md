@@ -3134,3 +3134,20 @@ Aedwon is moving the operations manager role to a new thread (checklist in `docs
 - Research result: under RA 10173 Sec. 3(l)(1) an account-linked "minor" label is very likely sensitive age information; NPC opinions say a minor cannot give valid consent alone; Sec. 13(f) (legal claims) is an arguable but untested basis; no authority decides this exact design. Options: A keep the current flow; B keep the group on the device until approval, plus a checkout safeguard (about half a day, partial); C guardian consent before the age check; D authorization before the age check with a universal checkout declaration (1 to 2 days, changes sign-up). Codex recommended D; the manager recommended no change during the beta and D before live payments, summarized as "the current flow is legally shaky, but it isn't clearly unlawful."
 - Aedwon, verbatim: "\"The short answer: the current flow is legally shaky, but it isn't clearly unlawful.\" I'll take that. I don't operate in bad faith, nor would I want to design a fundamentally worse UX for users"
 - Decision: keep option A, the current flow. B, C and D are declined, with the reasons above kept for the record. The research file stays as the basis for this choice.
+
+
+### Nov 12, withdrawn account app gate finished locally
+
+- Bounded continuation on `web/withdrawn-gate-r1`, on top of unchecked `ca8f3b332`.
+  Guardian withdrawal and structured account-closed callable refusals now hold the
+  existing withdrawal end state and attempt sign-out. Startup/resume, failed
+  sign-out, cached confirmation, and late results for another identity are covered.
+- Independent app review found a sync credential-refresh retry after a terminal
+  refusal. The helper now excludes it, with a failing-first identity-replay test.
+- Verification: 142 focused Flutter tests pass, analyze lib test clean, format
+  clean, design lint matches its 631 baseline, layering and regression checks pass.
+  Exact commands, baseline failures, source identity and file list:
+  `docs/superpowers/verification/2026-11-11-withdrawn-account-gate.md`, Task 3.
+- Saved as a new local app commit; no amendment, push or Firebase project access.
+  The server commits are unchanged. Lead still owns combined integration and hosted
+  verification. This entry does not assert production or release acceptance.

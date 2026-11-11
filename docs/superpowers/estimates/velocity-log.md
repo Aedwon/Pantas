@@ -75,6 +75,15 @@ Notes:
 - E-001 ratio is blank because no time estimate was given. Its elapsed time (Nov 9 15:08 to Nov 10 16:52) is the only datum.
 - E-005 to E-009 are Fable 5.2's estimates in `docs/superpowers/plans/ci-speed/`. They are active-work estimates and no wall estimate was given. Fill the rows when the work starts.
 
+E-036 bounded app continuation (Nov 12 local): estimate under 20 minutes.
+`tool/velocity/timer.py E-036-app-finish` records Nov 11 16:18 to 16:27 UTC,
+8 min 56 s wall and active for the implementation/verification continuation.
+This is not a replacement for the full E-036 elapsed time. Completed locally:
+withdrawn-status and callable-refusal app wiring, independent app review plus
+its terminal-retry fix, 142 focused tests, clean analysis, format and checks.
+No push or Firebase project access. Full evidence:
+`docs/superpowers/verification/2026-11-11-withdrawn-account-gate.md`, Task 3.
+
 ## Calibration
 
 Median ratio (actual wall divided by est. wall). Update whenever 5 new rows finish. Count only rows with a ratio, and skip rows that re-estimate the same work.
