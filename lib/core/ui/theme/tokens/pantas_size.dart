@@ -76,6 +76,11 @@ abstract final class PantasSize {
   /// Checkbox and radio.
   static const double check = 24;
 
+  /// QuestionNavigator flag dot (11), the accent dot at a chip's top right;
+  /// the Mock session legend dot for Flagged uses it too. New in 4.1.0
+  /// (D194).
+  static const double flagDot = 11;
+
   /// Phone tab bar height.
   static const double tabbar = 64;
 

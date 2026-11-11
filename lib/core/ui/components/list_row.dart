@@ -632,6 +632,7 @@ class ListRow extends StatelessWidget {
                           leading!,
                           SizedBox(width: leadingGap),
                         ] else if (icon != null) ...[
+                          // ds-board: ListRow README: leading icon 22
                           Icon(icon, size: 22, color: iconColor ?? c.accent),
                           SizedBox(
                             width: wide ? PantasSpace.s16 : PantasSpace.s14,
@@ -688,6 +689,7 @@ class ListRow extends StatelessWidget {
                             if (naturalValue)
                               ConstrainedBox(
                                 constraints:
+                                    // ds-board: ListRow README: no value cap
                                     const BoxConstraints(maxWidth: 140),
                                 child: detail,
                               )

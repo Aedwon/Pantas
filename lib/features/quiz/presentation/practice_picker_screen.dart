@@ -14,6 +14,7 @@ import 'package:pantas/core/ui/components/pantas_button_spec.dart';
 import 'package:pantas/core/ui/components/pantas_icon_button.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/components/pantas_sheet.dart';
+import 'package:pantas/core/ui/components/pantas_tap_area.dart';
 import 'package:pantas/core/ui/components/scope_picker.dart';
 import 'package:pantas/core/ui/components/segmented_switch.dart';
 import 'package:pantas/core/ui/components/selection_row.dart';
@@ -37,7 +38,6 @@ import 'package:pantas/features/quiz/domain/picker/practice_selection.dart';
 import 'package:pantas/features/quiz/domain/picker/practice_summary.dart';
 import 'package:pantas/features/quiz/presentation/practice_picker_providers.dart';
 import 'package:pantas/features/quiz/presentation/quiz_controller.dart';
-import 'package:pantas/features/quiz/presentation/quiz_tap_area.dart';
 
 class PracticePickerScreen extends ConsumerStatefulWidget {
   const PracticePickerScreen({required this.examId, super.key});
@@ -1123,7 +1123,7 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
     String caption,
     String pickedLabel,
   ) {
-    final size = QuizTapArea(
+    final size = PantasTapArea(
       key: const ValueKey('practice-size'),
       onTap:
           barSummary.isEmpty ? null : () => setState(() => _lengthOpen = true),
@@ -1583,7 +1583,7 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
     return Expanded(
       child: SizedBox(
         height: PantasSize.btnXs,
-        child: QuizTapArea(
+        child: PantasTapArea(
           onTap: blocked
               ? null
               : () => _change(() {

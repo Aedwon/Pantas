@@ -37,6 +37,7 @@ class _SortCycleButtonState extends State<SortCycleButton>
     _from = widget.value;
     _motion = AnimationController(
       vsync: this,
+      // ds-board: SortCycleButton has no README; as built
       duration: const Duration(milliseconds: 520),
       value: 1,
     );

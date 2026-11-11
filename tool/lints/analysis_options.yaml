@@ -1,0 +1,5 @@
+# The plugin package is analyzed on its own, not with the app's options.
+analyzer:
+  language:
+    strict-casts: true
+    strict-inference: true

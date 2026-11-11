@@ -9,6 +9,7 @@ import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
 const _popDuration = PantasDurations.medium3;
 
 /// The check inside the 24 disc, as the Checkbox draws it.
+// ds-board: Checkbox README: 14 px check
 const _glyph = 14.0;
 
 class CheckMark extends StatelessWidget {
@@ -16,6 +17,7 @@ class CheckMark extends StatelessWidget {
     this.progress,
     this.animate = true,
     this.delay = Duration.zero,
+    this.diameter = PantasSize.check,
     super.key,
   })  : glyphSize = null,
         glyphColor = null;
@@ -30,6 +32,7 @@ class CheckMark extends StatelessWidget {
     super.key,
   })  : glyphSize = size,
         glyphColor = color,
+        diameter = PantasSize.check,
         progress = null;
   final Animation<double>? progress;
 
@@ -42,6 +45,11 @@ class CheckMark extends StatelessWidget {
   final Duration delay;
   final double? glyphSize;
   final Color? glyphColor;
+
+  /// The disc's width. A ring larger than the 24 marker (ProgressRing README:
+  /// 100% swaps the ring for the marker) passes its own size, so the disc
+  /// covers the ring.
+  final double diameter;
 
   @override
   Widget build(BuildContext context) {
@@ -56,10 +64,10 @@ class CheckMark extends StatelessWidget {
               shape: BoxShape.circle,
             ),
             child: SizedBox.square(
-              dimension: PantasSize.check,
+              dimension: diameter,
               child: Icon(
                 PantasIcons.check,
-                size: _glyph,
+                size: _glyph * diameter / PantasSize.check,
                 color: context.colors.onAccent,
               ),
             ),

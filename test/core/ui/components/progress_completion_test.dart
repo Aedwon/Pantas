@@ -8,7 +8,7 @@ import 'package:pantas/core/ui/components/half_ring_gauge.dart';
 import 'package:pantas/core/ui/components/progress_ring.dart';
 import 'package:pantas/core/ui/components/today_questions.dart';
 import 'package:pantas/core/ui/components/week_strip.dart';
-import 'package:pantas/core/ui/theme/theme_names.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 
@@ -52,12 +52,17 @@ void main() {
         brightness: brightness,
         disableAnimations: true,
       );
+      // ProgressRing README: the track is `divider`. Dark keeps the 3:1 gray,
+      // because the pale one disappears into the card.
+      final colors = tester
+          .element(find.byKey(const ValueKey('progress-ring-paint')))
+          .colors;
       expect(
         find.byKey(const ValueKey('progress-ring-paint')),
         paints
           ..circle(
             color: brightness == Brightness.light
-                ? const Color(0xFF8E8E93)
+                ? colors.divider
                 : const Color(0xFF949494),
             strokeWidth: 1.5,
           ),

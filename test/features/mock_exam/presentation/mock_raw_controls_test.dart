@@ -11,9 +11,9 @@ import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/features/mock_exam/presentation/widgets/mock_tap.dart';
-import 'package:pantas/features/mock_exam/presentation/widgets/mock_toast.dart';
 
 import '../../../helpers/ds_matrix.dart';
+import '../../../helpers/hover_shape.dart';
 
 Future<void> _hover(WidgetTester tester, Finder target) async {
   final mouse = await tester.createGesture(kind: PointerDeviceKind.mouse);
@@ -48,6 +48,44 @@ void main() {
       style.backgroundColor!.resolve({WidgetState.hovered})!.a,
       greaterThan(0),
     );
+    expectHitArea(tester, find.byType(PantasIconButton));
+  });
+
+  testWidgets('a disabled icon button takes no hover wash and no tap',
+      (tester) async {
+    await pumpDs(
+      tester,
+      wide,
+      PantasIconButton(
+        tooltip: 'Close',
+        glyph: PantasIcons.close,
+        onPressed: null,
+      ),
+    );
+    await expectDisabledInert(tester, find.byType(IconButton));
+  });
+
+  testWidgets('a disabled tap area takes no wash and no tap', (tester) async {
+    var taps = 0;
+    Widget area({required bool enabled}) => SizedBox(
+          width: 300,
+          child: MockTap(
+            key: const ValueKey('off'),
+            onTap: enabled ? () => taps++ : null,
+            radius: PantasRadius.sm,
+            child: const SizedBox(height: 46, child: Text('Question 1')),
+          ),
+        );
+    await pumpDs(tester, wide, area(enabled: true));
+    await tester.tap(find.text('Question 1'));
+    expect(taps, 1);
+    await pumpDs(tester, wide, area(enabled: false));
+    await expectTapAreaInert(
+      tester,
+      find.byKey(const ValueKey('off')),
+      () => taps,
+    );
+    expect(taps, 1);
   });
 
   testWidgets('a tap area washes as a rounded rectangle and answers Enter',
@@ -100,6 +138,12 @@ void main() {
       (shape! as RoundedRectangleBorder).borderRadius,
       BorderRadius.circular(PantasRadius.back),
     );
+    expectHitArea(
+      tester,
+      find.byType(WebBackLink),
+      min: const Size(44, 40),
+      reason: 'BackLink is size-back (40) high on a fine pointer',
+    );
   });
 
   testWidgets('a tertiary action hovers as a rounded rectangle, not a pill',
@@ -119,6 +163,7 @@ void main() {
     final shape = style.shape!.resolve({WidgetState.hovered});
     expect(shape, isA<RoundedRectangleBorder>());
     expect(shape, isNot(isA<StadiumBorder>()));
+    expectHitArea(tester, find.byType(WebButton));
   });
 
   testWidgets('the mock message shows as the system Toast', (tester) async {
@@ -127,7 +172,7 @@ void main() {
       wide,
       Builder(
         builder: (context) => TextButton(
-          onPressed: () => showMockToast(context, 'Could not save'),
+          onPressed: () => showPantasToast(context, 'Could not save'),
           child: const Text('go'),
         ),
       ),

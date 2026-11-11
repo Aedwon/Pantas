@@ -131,7 +131,7 @@ class QuestionNavigatorChip extends StatelessWidget {
                       width: PantasBorder.ringSelected,
                     ),
                   ),
-                  child: const SizedBox.square(dimension: PantasSpace.s10),
+                  child: const SizedBox.square(dimension: PantasSize.flagDot),
                 ),
               ),
           ],

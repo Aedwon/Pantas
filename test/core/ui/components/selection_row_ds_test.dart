@@ -120,9 +120,22 @@ void main() {
       await tester.pump();
       final c = tester.element(find.byType(TextButton)).colors;
       final button = tester.widget<TextButton>(find.byType(TextButton));
-      final side = button.style!.side!.resolve({WidgetState.focused})!;
-      expect(side.width, 2);
-      expect(side.color, c.accent);
+      // README: the 2px accent outline, offset 2, is on the box or circle,
+      // not around the row.
+      expect(
+        button.style!.side!.resolve({WidgetState.focused}),
+        BorderSide.none,
+      );
+      final ring = tester.widget<DecoratedBox>(
+        find.byKey(const ValueKey('selection-focus-ring')),
+      );
+      final border = (ring.decoration as BoxDecoration).border! as Border;
+      expect(border.top.width, 2);
+      expect(border.top.color, c.accent);
+      expect(
+        tester.getSize(find.byKey(const ValueKey('selection-focus-ring'))),
+        const Size.square(24 + 8),
+      );
     });
   }
 

@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/pantas_icon_button.dart';
+import 'package:pantas/core/ui/components/pantas_tap_area.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
-import 'package:pantas/features/quiz/presentation/quiz_tap_area.dart';
 import 'package:pantas/features/quiz/presentation/session_end_screen.dart';
 
 import 'session_end_screen_test.dart' show completedAttempt, completedSession;
@@ -108,7 +108,7 @@ void main() {
         (tester) async {
       await pump(tester, wide: wide);
       await tester.tap(
-        find.widgetWithText(QuizTapArea, '3'),
+        find.widgetWithText(PantasTapArea, '3'),
       );
       await tester.pump();
       expect(questions, [2]);

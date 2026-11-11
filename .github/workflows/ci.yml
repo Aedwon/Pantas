@@ -117,6 +117,15 @@ jobs:
         # files now exist by this point and they are not ours to format.
         run: dart format --output=none --set-exit-if-changed lib test
 
+      - name: Design lint
+        # The ratchet over tool/lints. It runs dart analyze because flutter
+        # analyze stops before the plugin reports. Plan: guardrails layer 2.
+        run: dart run tool/checks/design_lint.dart
+
+      - name: Design lint rule tests
+        working-directory: tool/lints
+        run: dart pub get && dart test
+
       - name: dart analyze
         run: flutter analyze
 
@@ -197,6 +206,44 @@ jobs:
           name: timing-${{ matrix.shard }}
           path: timing
           retention-days: 30
+
+  goldens:
+    # The component sheets and key screens (files/ and files/screens/) against the
+    # committed PNGs (guardrails layer 3).
+    # The PNGs are generated on this image by the Update goldens workflow, so
+    # the job skips itself, step by step, until the first ones are committed.
+    needs: [changes]
+    if: needs.changes.outputs.flutter == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Look for committed goldens
+        id: goldens
+        run: |
+          if [ -n "$(find test/goldens/files -name '*.png' 2>/dev/null | head -n 1)" ]; then
+            echo "present=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "present=false" >> "$GITHUB_OUTPUT"
+            echo "No golden PNG is committed yet, so the goldens job has nothing to compare."
+          fi
+
+      - uses: ./.github/actions/setup-app
+        if: steps.goldens.outputs.present == 'true'
+
+      - name: Golden tests
+        if: steps.goldens.outputs.present == 'true'
+        run: flutter test --tags golden --run-skipped test/goldens
+
+      - name: Upload the failure diffs
+        if: failure() && steps.goldens.outputs.present == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: golden-failures
+          path: test/goldens/**/failures/*.png
+          if-no-files-found: ignore
+          retention-days: 7
 
   coverage:
     needs: [changes, test]
@@ -355,7 +402,7 @@ jobs:
     # filter turned off was skipped. A failed, cancelled or unexpectedly
     # skipped job fails it.
     if: always()
-    needs: [changes, scans, static, test, coverage, functions, web, android]
+    needs: [changes, scans, static, test, coverage, goldens, functions, web, android]
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
@@ -388,6 +435,7 @@ jobs:
           check static "$FLUTTER"
           check test "$FLUTTER"
           check coverage "$FLUTTER"
+          check goldens "$FLUTTER"
           check web "$FLUTTER"
           check functions "$FUNCTIONS"
           check android "$ANDROID"

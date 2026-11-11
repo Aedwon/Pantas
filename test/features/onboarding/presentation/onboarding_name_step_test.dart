@@ -62,16 +62,16 @@ void main() {
       (tester) async {
     await pumpStep(tester);
     final context = tester.element(find.byType(OnboardingNameStep));
-    final resting = tester
-        .widget<TextField>(find.byType(TextField))
-        .decoration!
-        .enabledBorder! as OutlineInputBorder;
-    expect(resting.borderSide.color, context.colors.borderControl);
-    final focused = tester
-        .widget<TextField>(find.byType(TextField))
-        .decoration!
-        .focusedBorder! as OutlineInputBorder;
-    expect(focused.borderSide.color, context.colors.accent);
+    Color ringColor() => (tester
+            .widget<Container>(find.byKey(const ValueKey('field-well')))
+            .foregroundDecoration! as BoxDecoration)
+        .border!
+        .top
+        .color;
+    expect(ringColor(), context.colors.borderControl);
+    await tester.tap(find.byType(TextField));
+    await tester.pumpAndSettle();
+    expect(ringColor(), context.colors.accent);
   });
 
   testWidgets('the name field has a programmatic label', (tester) async {

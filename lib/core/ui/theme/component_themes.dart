@@ -398,4 +398,69 @@ class PantasComponentThemes {
           ),
         ),
       );
+
+  static const _r2xl = RoundedRectangleBorder(
+    borderRadius: BorderRadius.all(Radius.circular(PantasRadius.r2xl)),
+  );
+
+  /// AlertDialog and SimpleDialog (Dialog README): `surface-modal`,
+  /// `radius-2xl`, a 20/700 title and a 16 body in `text-secondary`.
+  DialogThemeData get dialog => DialogThemeData(
+        backgroundColor: colors.surfaceModal,
+        surfaceTintColor: Colors.transparent,
+        barrierColor: colors.scrim,
+        shape: _r2xl,
+        titleTextStyle: PantasType.webH3.copyWith(color: colors.label),
+        contentTextStyle:
+            PantasType.webBody.copyWith(color: colors.secondaryLabel),
+      );
+
+  /// A raw FloatingActionButton: flat, a rounded rectangle, the accent fill
+  /// and its hover. The system has no floating circle.
+  FloatingActionButtonThemeData get floatingActionButton =>
+      FloatingActionButtonThemeData(
+        backgroundColor: colors.accentFill,
+        foregroundColor: colors.onAccent,
+        hoverColor: colors.accentFillHover,
+        focusColor: colors.accentFillHover,
+        splashColor: Colors.transparent,
+        elevation: 0,
+        focusElevation: 0,
+        hoverElevation: 0,
+        highlightElevation: 0,
+        disabledElevation: 0,
+        shape: _lg,
+        extendedTextStyle: PantasType.webButton,
+      );
+
+  MenuStyle get _menuStyle => MenuStyle(
+        backgroundColor: WidgetStatePropertyAll(colors.surface),
+        surfaceTintColor: const WidgetStatePropertyAll(Colors.transparent),
+        shadowColor: WidgetStatePropertyAll(colors.shadow),
+        elevation: const WidgetStatePropertyAll(0),
+        shape: const WidgetStatePropertyAll(_lg),
+        padding: const WidgetStatePropertyAll(
+          EdgeInsets.all(PantasSpace.s6),
+        ),
+      );
+
+  /// A raw DropdownMenu opens a Popover surface.
+  DropdownMenuThemeData get dropdownMenu => DropdownMenuThemeData(
+        menuStyle: _menuStyle,
+        textStyle: PantasType.webBody.copyWith(color: colors.label),
+      );
+
+  /// A raw MenuAnchor or MenuBar opens a Popover surface.
+  MenuThemeData get menu => MenuThemeData(style: _menuStyle);
+
+  /// A raw menu item is a radius-md row with the hover wash.
+  MenuButtonThemeData get menuButton => MenuButtonThemeData(
+        style: ButtonStyle(
+          shape: const WidgetStatePropertyAll(_md),
+          splashFactory: NoSplash.splashFactory,
+          foregroundColor: WidgetStatePropertyAll(colors.label),
+          textStyle: const WidgetStatePropertyAll(PantasType.webBody),
+          overlayColor: _washOverlay(colors.label),
+        ),
+      );
 }

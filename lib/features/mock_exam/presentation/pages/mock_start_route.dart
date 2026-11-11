@@ -10,6 +10,7 @@ import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_button_spec.dart';
+import 'package:pantas/core/ui/components/toast.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
 import 'package:pantas/features/mock_exam/application/mock_availability_provider.dart';
 import 'package:pantas/features/mock_exam/application/mock_blueprint_providers.dart';
@@ -31,7 +32,6 @@ import 'package:pantas/features/mock_exam/presentation/part_transition_page.dart
 import 'package:pantas/features/mock_exam/presentation/pause_page.dart';
 import 'package:pantas/features/mock_exam/presentation/widgets/mock_finale.dart';
 import 'package:pantas/features/mock_exam/presentation/widgets/mock_skeletons.dart';
-import 'package:pantas/features/mock_exam/presentation/widgets/mock_toast.dart';
 import 'package:pantas/features/roadmap/application/roadmap_providers.dart';
 import 'package:uuid/uuid.dart';
 
@@ -683,7 +683,7 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
     _lastEnqueuedFlush = write;
     _flushChain = write.catchError((Object error, StackTrace stackTrace) {
       if (mounted) {
-        showMockToast(context, 'Could not save your mock progress.');
+        showPantasToast(context, 'Could not save your mock progress.');
       }
     });
   }

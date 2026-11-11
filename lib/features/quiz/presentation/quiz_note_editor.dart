@@ -8,6 +8,7 @@ import 'package:pantas/core/ui/components/floating_bar.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_button_spec.dart';
 import 'package:pantas/core/ui/components/pantas_field.dart';
+import 'package:pantas/core/ui/components/pantas_tap_area.dart';
 import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -20,7 +21,6 @@ import 'package:pantas/core/ui/web/letter_shortcuts.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
-import 'package:pantas/features/quiz/presentation/quiz_tap_area.dart';
 
 class QuizNoteEditor extends StatefulWidget {
   const QuizNoteEditor({
@@ -249,7 +249,7 @@ class _QuizNoteEditorState extends State<QuizNoteEditor> {
     final selected = _tag == reason.$1;
     final saved = widget.tag == reason.$1;
     final radius = BorderRadius.circular(PantasRadius.md);
-    return QuizTapArea(
+    return PantasTapArea(
       onTap: _busy ? null : () => _choose(reason.$1),
       borderRadius: radius,
       child: DecoratedBox(
@@ -378,28 +378,14 @@ class _QuizNoteEditorState extends State<QuizNoteEditor> {
             ],
             if (_tag == MistakeTag.other) ...[
               const SizedBox(height: PantasSpace.s8),
-              TextField(
-                controller: _text, // ds-raw: board draws no field label
+              PantasField.unlabeled(
+                semanticLabel: 'Your own words',
+                hint: 'In your own words',
+                controller: _text,
                 focusNode: _focus,
                 enabled: !_busy,
-                minLines: 1,
+                multiline: true,
                 maxLines: 4,
-                style: PantasType.phoneCallout.copyWith(
-                  color: colors.textPrimary,
-                ),
-                decoration: InputDecoration(
-                  hintText: 'In your own words',
-                  filled: true,
-                  fillColor: colors.fill,
-                  contentPadding: const EdgeInsets.symmetric(
-                    horizontal: PantasSpace.s14,
-                    vertical: PantasSpace.s14,
-                  ),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(PantasRadius.md),
-                    borderSide: BorderSide.none,
-                  ),
-                ),
                 onChanged: (_) => setState(() {
                   _failed = false;
                   _retry = null;

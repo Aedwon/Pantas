@@ -12,6 +12,7 @@ import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/auth/sign_in_result.dart';
 import 'package:pantas/core/ui/components/pantas_logo.dart';
 import 'package:pantas/core/ui/motion/pantas_effects.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 
 /// True while the sign-in screen plays its signed-in beat. The beta gate holds
@@ -565,7 +566,10 @@ class _EmailSignInPageState extends ConsumerState<EmailSignInPage> {
   // the laptop board puts it, and the code step grows downward from there so
   // the logo never moves between steps.
   static const _wideContent = 468.0;
-  static const _wideHeading = 560.0;
+  // The heading column is the 560 modal width (visual pass round 2), so the
+  // heading stays on one line.
+  // ds-board: wide sign-in heading column, visual pass round 2.
+  static const _wideHeading = PantasLayout.modalWide;
 
   Widget _wideLayout(SignInStyle style) {
     return SignInScroll(

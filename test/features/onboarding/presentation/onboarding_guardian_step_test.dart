@@ -118,15 +118,24 @@ void main() {
       "Parent or guardian's name",
       "Parent or guardian's email",
     ]) {
-      final decoration = tester.widget<TextField>(field(label)).decoration!;
-      final resting = decoration.enabledBorder! as OutlineInputBorder;
-      final focused = decoration.focusedBorder! as OutlineInputBorder;
-      expect(
-        resting.borderSide.color,
-        context.colors.controlOutline,
-        reason: label,
-      );
-      expect(focused.borderSide.color, context.colors.accent, reason: label);
+      Color ring() => ((tester
+              .widget<Container>(
+                find.descendant(
+                  of: find.ancestor(
+                    of: field(label),
+                    matching: find.byType(PantasField),
+                  ),
+                  matching: find.byKey(const ValueKey('field-well')),
+                ),
+              )
+              .foregroundDecoration!) as BoxDecoration)
+          .border!
+          .top
+          .color;
+      expect(ring(), context.colors.controlOutline, reason: label);
+      await tester.tap(field(label));
+      await tester.pumpAndSettle();
+      expect(ring(), context.colors.accent, reason: label);
     }
   });
 

@@ -56,7 +56,14 @@ void main() {
       );
       await tester.sendKeyEvent(LogicalKeyboardKey.tab);
       await tester.pump();
-      expect(button.style!.side!.resolve({WidgetState.focused})!.width, 2);
+      expect(
+        button.style!.side!.resolve({WidgetState.focused}),
+        BorderSide.none,
+      );
+      expect(
+        find.byKey(const ValueKey('selection-focus-ring')),
+        findsOneWidget,
+      );
       await tester.sendKeyEvent(LogicalKeyboardKey.space);
       await tester.pumpAndSettle();
       expect(taps, 1);

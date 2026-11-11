@@ -215,7 +215,7 @@ class _ProgressRingState extends State<ProgressRing>
     // ring draws no arc, so no dot shows at 12 o'clock.
     final track = widget.trackColor ??
         (widget.fraction == 0
-            ? widget.emptyTrackColor ?? context.colors.iconChevron
+            ? widget.emptyTrackColor ?? ProgressRing.phoneEmptyTrack(context)
             : context.colors.divider);
     final stroke = widget.fraction == 0
         ? widget.studyStyle
@@ -263,7 +263,11 @@ class _ProgressRingState extends State<ProgressRing>
                 painter: _painter,
                 child: Center(child: widget.child),
               ),
-              if (complete) CheckMark(progress: _check),
+              if (complete)
+                CheckMark(
+                  progress: _check,
+                  diameter: math.max(widget.size, PantasSize.check),
+                ),
             ],
           ),
         ),

@@ -2,7 +2,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/motion/web_page_transitions.dart';
 import 'package:pantas/core/ui/theme/component_themes.dart';
-import 'package:pantas/core/ui/theme/pantas_shape.dart';
 import 'package:pantas/core/ui/theme/theme_names.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 
@@ -66,6 +65,10 @@ ThemeData _buildTheme(
     sliderTheme: themes.slider,
     chipTheme: themes.chip,
     popupMenuTheme: themes.popupMenu,
+    floatingActionButtonTheme: themes.floatingActionButton,
+    dropdownMenuTheme: themes.dropdownMenu,
+    menuTheme: themes.menu,
+    menuButtonTheme: themes.menuButton,
     bottomSheetTheme: themes.bottomSheet,
     useMaterial3: true,
     colorScheme: scheme,
@@ -86,15 +89,7 @@ ThemeData _buildTheme(
       thickness: 0.5,
       space: 1,
     ),
-    dialogTheme: DialogThemeData(
-      backgroundColor: colors.surface,
-      surfaceTintColor: Colors.transparent,
-      barrierColor: colors.scrim,
-      shape: const RoundedRectangleBorder(
-        borderRadius:
-            BorderRadius.all(Radius.circular(PantasShape.groupRadius)),
-      ),
-    ),
+    dialogTheme: themes.dialog,
     fontFamily: 'Geist',
     extensions: [colors, type],
   );

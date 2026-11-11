@@ -9,6 +9,7 @@ import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/components/pantas_sheet.dart';
+import 'package:pantas/core/ui/components/pantas_tap_area.dart';
 import 'package:pantas/core/ui/components/pro_paused_line.dart';
 import 'package:pantas/core/ui/components/segmented_switch.dart';
 import 'package:pantas/core/ui/components/sort_cycle_button.dart';
@@ -19,7 +20,6 @@ import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/home/application/performance/performance_view.dart';
-import 'package:pantas/features/home/presentation/widgets/home_tap_area.dart';
 import 'package:pantas/features/home/presentation/widgets/web_performance_layout.dart';
 
 export 'package:pantas/features/home/application/performance/performance_view.dart'
@@ -455,7 +455,7 @@ class _PerformanceRow extends StatelessWidget {
   Widget build(BuildContext context) {
     final c = context.colors;
     return MergeSemantics(
-      child: HomeTapArea(
+      child: PantasTapArea(
         onTap: onTap,
         child: Container(
           padding: const EdgeInsets.symmetric(

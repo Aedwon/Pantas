@@ -23,6 +23,7 @@ import 'package:pantas/core/ui/components/new_design/question_card.dart';
 import 'package:pantas/core/ui/components/new_design/question_grid_sheet.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_icon_button.dart';
+import 'package:pantas/core/ui/components/pantas_tap_area.dart';
 import 'package:pantas/core/ui/components/pro_paused_line.dart';
 import 'package:pantas/core/ui/components/question_count.dart';
 import 'package:pantas/core/ui/components/report_form.dart';
@@ -56,7 +57,6 @@ import 'package:pantas/features/quiz/presentation/question_flag_providers.dart';
 import 'package:pantas/features/quiz/presentation/questions_unavailable.dart';
 import 'package:pantas/features/quiz/presentation/quiz_controller.dart';
 import 'package:pantas/features/quiz/presentation/quiz_session_end_page.dart';
-import 'package:pantas/features/quiz/presentation/quiz_tap_area.dart';
 import 'package:pantas/features/quiz/presentation/today_providers.dart';
 import 'package:pantas/features/quiz/presentation/web_quiz_question.dart';
 
@@ -1379,7 +1379,7 @@ class _QuizPageState extends ConsumerState<QuizPage> {
       label: 'Question ${index + 1} of $total. Open question navigator',
       onTap: enabled ? open : null,
       child: ExcludeSemantics(
-        child: QuizTapArea(
+        child: PantasTapArea(
           key: const ValueKey('quiz-counter'),
           onTap: enabled ? open : null,
           child: Padding(
@@ -1732,7 +1732,7 @@ class _WebGridCell extends StatelessWidget {
         : answered
             ? null
             : Border.all(color: t.colors.divider);
-    final cell = QuizTapArea(
+    final cell = PantasTapArea(
       onTap: onPressed,
       borderRadius: radius,
       child: DecoratedBox(

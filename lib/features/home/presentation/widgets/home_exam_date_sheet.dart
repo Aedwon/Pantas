@@ -6,6 +6,7 @@ import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/domain/exam_date.dart';
 import 'package:pantas/core/ui/components/month_first_date_picker.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/pantas_tap_area.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
@@ -13,7 +14,6 @@ import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
-import 'package:pantas/features/home/presentation/widgets/home_tap_area.dart';
 
 /// The exam date picker Home opens in a sheet (D-69): the same month-first
 /// picker as onboarding. Save stays grey until a month is picked, or, when
@@ -374,7 +374,7 @@ class HomeWebDatePicker extends StatelessWidget {
       height: PantasSpace.s32 + PantasSpace.s6,
       child: Semantics(
         selected: selected,
-        child: HomeTapArea(
+        child: PantasTapArea(
           key: ValueKey(
             year == value.year
                 ? 'date-month-$month'
@@ -415,7 +415,7 @@ class HomeWebDatePicker extends StatelessWidget {
       height: PantasSpace.s32,
       child: Semantics(
         selected: selected,
-        child: HomeTapArea(
+        child: PantasTapArea(
           key: ValueKey('date-day-$day'),
           onTap: past
               ? null

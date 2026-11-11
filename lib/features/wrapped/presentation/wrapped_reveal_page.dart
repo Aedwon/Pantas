@@ -5,6 +5,7 @@ import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/loading_shapes.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_icon_button.dart';
+import 'package:pantas/core/ui/components/toast.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/features/wrapped/application/wrapped_providers.dart';
@@ -149,12 +150,7 @@ class _WrappedRevealPageState extends ConsumerState<WrappedRevealPage> {
       );
       ref.invalidate(wrappedArtifactProvider(widget.artifactId));
       if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          // ds-raw: no shared toast helper yet
-          const SnackBar(
-            content: Text('PNG rendered for sharing.'),
-          ),
-        );
+        showPantasToast(context, 'PNG rendered for sharing.');
       }
     } catch (_) {
       if (mounted) {

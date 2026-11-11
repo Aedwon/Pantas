@@ -10,8 +10,8 @@ import 'package:pantas/core/ui/web/web_hover.dart';
 /// `opacity-hover` washes the shape on hover, a press scales it, and keyboard
 /// focus draws the system ring. A screen reader reads it as one button. A
 /// null [onTap] is the disabled state.
-class QuizTapArea extends StatelessWidget {
-  const QuizTapArea({
+class PantasTapArea extends StatelessWidget {
+  const PantasTapArea({
     required this.onTap,
     required this.child,
     this.borderRadius = BorderRadius.zero,

@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/ui/components/pantas_tap_area.dart';
 import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
@@ -12,7 +13,6 @@ import 'package:pantas/features/quiz/domain/picker/practice_index.dart';
 import 'package:pantas/features/quiz/domain/picker/practice_summary.dart';
 import 'package:pantas/features/quiz/presentation/practice_picker_providers.dart';
 import 'package:pantas/features/quiz/presentation/practice_picker_screen.dart';
-import 'package:pantas/features/quiz/presentation/quiz_tap_area.dart';
 
 import '../../../helpers/in_memory_database.dart';
 
@@ -156,15 +156,16 @@ void main() {
           );
           expect(find.text('Split by lesson'), findsOneWidget);
           if (timed) {
-            expect(find.widgetWithText(QuizTapArea, '25'), findsNothing);
-            expect(find.widgetWithText(QuizTapArea, '35'), findsNothing);
+            expect(find.widgetWithText(PantasTapArea, '25'), findsNothing);
+            expect(find.widgetWithText(PantasTapArea, '35'), findsNothing);
             if (state == 'Short') {
-              final five = tester
-                  .widget<QuizTapArea>(find.widgetWithText(QuizTapArea, '5'));
+              final five = tester.widget<PantasTapArea>(
+                find.widgetWithText(PantasTapArea, '5'),
+              );
               expect(five.onTap, isNull);
               final text = tester.widget<Text>(
                 find.descendant(
-                  of: find.widgetWithText(QuizTapArea, '5'),
+                  of: find.widgetWithText(PantasTapArea, '5'),
                   matching: find.byType(Text),
                 ),
               );

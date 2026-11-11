@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pantas/core/ui/motion/reader_curves.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
 
@@ -188,8 +189,8 @@ class ReaderAdvanceTransition extends StatelessWidget {
     ).animate(
       CurvedAnimation(
         parent: secondaryAnimation,
-        curve: Curves.easeOutCubic,
-        reverseCurve: Curves.easeInCubic,
+        curve: readerEaseOut,
+        reverseCurve: readerEaseIn,
       ),
     );
 
@@ -208,8 +209,8 @@ class ReaderAdvanceTransition extends StatelessWidget {
                 ).animate(
                   CurvedAnimation(
                     parent: animation,
-                    curve: Curves.easeOutCubic,
-                    reverseCurve: Curves.easeInCubic,
+                    curve: readerEaseOut,
+                    reverseCurve: readerEaseIn,
                   ),
                 ),
                 child: child,

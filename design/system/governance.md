@@ -38,6 +38,9 @@ Deprecated names stay until the next major version, then go (one rule, used in `
 
 ## Changelog
 
+### 4.1.0 (Nov 9, 2026), minor
+- Added: token `size-flag-dot` (11px), the QuestionNavigator flag dot and the Mock session legend dot for Flagged. D194 (lead ruling under D191; numbered D193 on the guardrails branch): token for the 11px flag dot. The QuestionNavigator README already said 11px; the Flutter code drew 10 because no token existed. No existing value changes.
+
 ### 4.0.2 (Nov 9, 2026), patch
 - Changed: CHANGE (D193): a SegmentedControl whose equal columns do not fit its container shares the row by label width before the track scrolls. No token or class added or removed.
 
