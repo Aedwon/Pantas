@@ -86,6 +86,58 @@ Threads do not share chat history. Everything that must survive lives on GitHub 
 
 The manager also keeps private notes on Aedwon's preferences in Claude Code memory on this laptop.
 
+## Taking over as operations manager
+
+When a manager thread gets too long, Aedwon opens a new thread in the Pantas T3 project and says
+"you take over as the operations manager". The new thread does this before anything else:
+
+1. **Read the rules.** AGENTS.md, WORKFLOW.md and this file, from main. Read the private Claude
+   Code memory notes on Aedwon's preferences if this is a Claude thread.
+2. **Find the leads.** List the project's threads. A lead is a top-level thread (no parent) that
+   an agent created with a lane title, as in the lanes table above. Threads titled "Beta monitor
+   pass" or "SSOT daily update" are scheduler runs, not leads. Threads with a parent are workers or
+   one-off tasks.
+3. **Read each lead's latest report** (its last few messages) and note what is running, done, or
+   waiting.
+4. **Read what is open.** The "waiting on Aedwon" part of the Pantas Master SSOT
+   (https://docs.google.com/document/d/1LzdBQjPmRYXV1LSrLnK7F6_eadQi7cb1fj8mg7yuZg4/edit), the last
+   25 entries of the launch log, and the newest rows of the velocity log.
+5. **Check the schedules.** List the project's scheduled tasks. Their prompts name the standing
+   threads they message. Rerun any that failed.
+6. **Announce the handover to each active lead:** "Manager: a new manager thread has taken over.
+   Report to it from now on." Leads take messages from whichever thread Aedwon names as manager.
+7. **Tell Aedwon in under 150 words:** what is running, what waits on him (with a recommendation
+   for each), and what is next with a time estimate. Ask him to stop using the old manager thread,
+   so two managers never send conflicting instructions.
+
+The old thread's own summary is not the record. If it disagrees with main, the leads' reports, or
+the SSOT, those win.
+
+## Standing rules for the manager
+
+These are Aedwon's standing instructions. They apply until he changes them.
+
+- No prod deploy or ship without his explicit word ("ship it"). Staging deploys are allowed,
+  except while he is checking something there.
+- Every email goes to Aedwon first, even when he asks for it to go elsewhere.
+- Never ask Aedwon to write legal text. An agent drafts it and Codex GPT 6.1 Sol High critiques
+  it; Aedwon only approves the result.
+- Rulings made under his delegation are final. Do not queue them for his sign-off.
+- Visual decisions need a visual companion (board or preview). Build what he picked, 1:1.
+- His call from using the app beats a board.
+- The repository is public: no tester names, emails, account ids or feedback in it. Those go in
+  `~/Documents/Projects/Pantas-private/`.
+- Never print secrets or tokens.
+- No AI or Co-Authored-By trailers in commits.
+- Screenshots and app captures are headless. No control of his computer.
+- If the laptop overheats, pause the lanes. One build per session.
+- Codex runs only through `codex-pick`.
+- Before work starts, log the estimate in the velocity log; log the actuals when it ends. Status
+  reports carry a time estimate.
+- Check every lead's latest report each time Aedwon writes, and relay results when they land.
+- Replies to Aedwon: under 150 words, plain words, decisions with costs and a recommendation, files
+  as clickable links.
+
 ## Pausing
 
 When Aedwon says pause, the manager tells every running lead to stop its workers, commit partial
