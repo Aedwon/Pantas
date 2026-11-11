@@ -4,6 +4,7 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/pantas_shadows.dart';
 import 'package:pantas/core/ui/components/pro_tag.dart';
+import 'package:pantas/core/ui/components/roving_focus.dart';
 import 'package:pantas/core/ui/motion/selection_motion.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
@@ -137,7 +138,14 @@ class SegmentedSwitch extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (bookmarks) return _bookmarks(context);
+    if (bookmarks) {
+      return RovingFocus(
+        count: labels.length,
+        tabStop: selected,
+        onSelect: onChanged,
+        builder: _bookmarks,
+      );
+    }
     if (context.wideWeb) {
       return WebSegmentedControl(
         labels: labels,
@@ -145,6 +153,15 @@ class SegmentedSwitch extends StatelessWidget {
         onChanged: onChanged,
       );
     }
+    return RovingFocus(
+      count: labels.length,
+      tabStop: selected,
+      onSelect: onChanged,
+      builder: _phone,
+    );
+  }
+
+  Widget _phone(BuildContext context, List<FocusNode> nodes) {
     final colors = context.colors;
     final textScaler = MediaQuery.textScalerOf(context);
     final fontSize = PantasType.webLabel.fontSize!;
@@ -276,7 +293,8 @@ class SegmentedSwitch extends StatelessWidget {
                           for (var i = 0; i < labels.length; i++)
                             Expanded(
                               flex: (weights[i] * 1000).round(),
-                              child: _segment(context, i, large, radius),
+                              child:
+                                  _segment(context, i, large, radius, nodes[i]),
                             ),
                         ],
                       ),
@@ -303,6 +321,7 @@ class SegmentedSwitch extends StatelessWidget {
     int i,
     bool large,
     BorderRadius radius,
+    FocusNode node,
   ) {
     final colors = context.colors;
     return Semantics(
@@ -314,6 +333,7 @@ class SegmentedSwitch extends StatelessWidget {
         child: Material(
           type: MaterialType.transparency,
           child: InkWell(
+            focusNode: node,
             onTap: () => onChanged(i),
             borderRadius: radius,
             hoverColor: i == selected
@@ -371,7 +391,7 @@ class SegmentedSwitch extends StatelessWidget {
     );
   }
 
-  Widget _bookmarks(BuildContext context) {
+  Widget _bookmarks(BuildContext context, List<FocusNode> nodes) {
     final c = context.colors;
     final still = MediaQuery.disableAnimationsOf(context);
     final radius = BorderRadius.circular(PantasRadius.sm);
@@ -438,6 +458,7 @@ class SegmentedSwitch extends StatelessWidget {
                               child: Material(
                                 type: MaterialType.transparency,
                                 child: InkWell(
+                                  focusNode: nodes[i],
                                   onTap: enabled ? () => onChanged(i) : null,
                                   borderRadius: radius,
                                   child: ConstrainedBox(

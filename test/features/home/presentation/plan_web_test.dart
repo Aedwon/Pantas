@@ -582,18 +582,28 @@ void main() {
       expect(find.byType(PlanDayScreen), findsNothing);
     });
 
-    testWidgets('reduced motion shows the popover at once', (tester) async {
+    // Rule R2 (Popover README): reduced motion fades in place over 150 ms,
+    // with no rise.
+    testWidgets('reduced motion fades the popover in place over 150 ms',
+        (tester) async {
       await openPopover(tester, still: true);
+      double opacity() {
+        final fades = find.ancestor(
+          of: find.byType(PlanDayScreen),
+          matching: find.byType(Opacity),
+        );
+        return fades.evaluate().isEmpty
+            ? 1
+            : tester.widget<Opacity>(fades.first).opacity;
+      }
+
+      await tester.pump(const Duration(milliseconds: 75));
+      expect(opacity(), inExclusiveRange(0, 1));
+      final resting = top(tester);
+      await tester.pump(const Duration(milliseconds: 75));
       await tester.pump();
-      final fade = tester.widget<Opacity>(
-        find
-            .ancestor(
-              of: find.byType(PlanDayScreen),
-              matching: find.byType(Opacity),
-            )
-            .first,
-      );
-      expect(fade.opacity, 1);
+      expect(opacity(), 1);
+      expect(top(tester), resting, reason: 'no rise under reduced motion');
     });
   });
 }

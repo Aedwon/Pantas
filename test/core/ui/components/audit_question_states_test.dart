@@ -84,17 +84,20 @@ void main() {
           brightness: brightness,
           disableAnimations: true,
         );
-        final current = find
-            .bySemanticsLabel(RegExp('Question 1.*current.*correct.*flagged'));
+        await tester.pump(const Duration(milliseconds: 150));
+        // The grid shows progress only: a right and a wrong answer both read
+        // "answered" (QuestionNavigator README, Don't).
+        final current =
+            find.bySemanticsLabel('Question 1, current, answered, flagged');
         expect(current, findsOneWidget);
         expect(
           tester.getSemantics(current).flagsCollection.isSelected,
           Tristate.isTrue,
         );
         for (final label in [
-          'Question 2, wrong',
+          'Question 2, answered',
           'Question 3, answered',
-          'Question 4, not reached',
+          'Question 4, locked',
         ]) {
           expect(find.bySemanticsLabel(label), findsOneWidget);
         }

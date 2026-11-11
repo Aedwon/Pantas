@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/ui/components/data_table.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
-import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_layout_theme.dart';
 import 'package:pantas/features/home/application/performance/performance_provider.dart';
@@ -124,14 +124,11 @@ void main() {
       ),
     );
     await tester.pumpAndSettle();
-    bool tinted() => tester
-        .widget<WebRow>(
-          find.ancestor(
-            of: find.text(topic.title),
-            matching: find.byType(WebRow),
-          ),
-        )
-        .selected;
+    bool tinted() =>
+        tester
+            .widget<PantasDataTable>(find.byType(PantasDataTable))
+            .selectedRow ==
+        0;
     expect(tinted(), isFalse);
     await tester.tap(find.text(topic.title));
     await tester.pumpAndSettle();

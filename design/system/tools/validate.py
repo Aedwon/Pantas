@@ -103,6 +103,13 @@ def de2000(a, b):
 prims = {n: t['value'] for n, t in colors.items() if isinstance(t['value'], str) and t['value'].startswith('#') and n.split('-')[0] in ('gray', 'teal', 'red', 'amber', 'gold')}
 ALLOW = {frozenset(('gray-27', 'gray-34')): 'bg-page and the hover well: approved values, never adjacent (hover wells sit on cards)'}
 BASELINE = set(['amber-188', 'amber-268', 'amber-41', 'amber-541', 'amber-830', 'gold-296', 'gray-0', 'gray-1000', 'gray-14', 'gray-160', 'gray-18', 'gray-189', 'gray-27', 'gray-288', 'gray-330', 'gray-34', 'gray-35', 'gray-387', 'gray-408', 'gray-424', 'gray-534', 'gray-548', 'gray-550', 'gray-579', 'gray-62', 'gray-685', 'gray-742', 'gray-744', 'gray-755', 'gray-800', 'gray-801', 'gray-829', 'gray-882', 'gray-892', 'gray-912', 'gray-932', 'gray-948', 'gray-96', 'red-120', 'red-221', 'red-32', 'red-397', 'red-516', 'red-52', 'red-551', 'red-562', 'red-590', 'red-599', 'red-617', 'red-740', 'red-759', 'red-854', 'red-868', 'teal-194', 'teal-281', 'teal-34', 'teal-359', 'teal-385', 'teal-426', 'teal-438', 'teal-454', 'teal-466', 'teal-504', 'teal-505', 'teal-517', 'teal-544', 'teal-554', 'teal-59', 'teal-603', 'teal-66', 'teal-712', 'teal-771', 'teal-810', 'teal-86'])  # the 3.0.0 palette; the 2.0 rule applies to every primitive added after it
+# D195: a header style (uppercase eyebrow) on a bare `th` also hits the row headers in tbody.
+# Any rule that styles `th` with text-transform:uppercase must scope it to `thead`.
+_bundle = open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'components', 'bundle.css')).read()
+_th_leaks = [sel.strip() for sel, body in re.findall(r'([^{}]+)\{([^{}]*)\}', _bundle)
+             if 'text-transform:uppercase' in body and re.search(r'(^|[\s,(>])th\b', sel) and 'thead' not in sel]
+print('row-header leaks (uppercase th outside thead, D195):', _th_leaks or 'none')
+if _th_leaks: sys.exit(1)
 close = []; warn = []
 names_p = sorted(prims)
 for i, a in enumerate(names_p):

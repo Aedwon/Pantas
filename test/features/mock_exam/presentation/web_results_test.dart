@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/ui/components/pantas_chart.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/mock_results_page.dart';
+
 import 'web_mock_layout_test.dart' show result;
 
 void main() {
@@ -42,7 +44,7 @@ void main() {
         findsOneWidget,
       );
       expect(
-        tester.getSize(find.byType(MockPastChart)).width,
+        tester.getSize(find.byType(PantasChart)).width,
         1000,
       );
       expect(
@@ -120,7 +122,7 @@ void main() {
       expect(find.text('Done'), findsNothing);
       expect(find.byTooltip('Close'), findsNothing);
       expect(find.text('See full record'), findsOneWidget);
-      expect(find.byType(MockPastChart), findsNothing);
+      expect(find.byType(PantasChart), findsNothing);
       expect(find.text('VERSUS PAST RESULTS'), findsNothing);
       await pump(fromRecord: false);
       expect(find.byTooltip('Close'), findsOneWidget);

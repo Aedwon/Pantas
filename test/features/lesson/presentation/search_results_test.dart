@@ -74,13 +74,13 @@ void main() {
   testWidgets('the kicker counts the matches', (tester) async {
     await pumpResults(tester, hits: 3);
 
-    expect(find.text('3 LESSONS'), findsOneWidget);
+    expect(find.text('3 Lessons'), findsOneWidget);
   });
 
-  testWidgets('one match uses the singular uppercase label', (tester) async {
+  testWidgets('one match uses the singular label', (tester) async {
     await pumpResults(tester);
 
-    expect(find.text('1 LESSON'), findsOneWidget);
+    expect(find.text('1 Lesson'), findsOneWidget);
   });
 
   testWidgets('a title match is weighted, not filled', (tester) async {
@@ -117,7 +117,7 @@ void main() {
   testWidgets('an empty query offers the recently opened', (tester) async {
     await pumpResults(tester, query: '', recent: 2);
 
-    expect(find.text('RECENTLY OPENED'), findsOneWidget);
+    expect(find.text('Recently Opened'), findsOneWidget);
   });
 
   testWidgets('no matches names what was typed', (tester) async {

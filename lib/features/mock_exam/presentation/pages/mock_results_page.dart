@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:pantas/core/time/pantas_dates.dart';
@@ -5,12 +7,12 @@ import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/half_ring_gauge.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/pantas_chart.dart';
 import 'package:pantas/core/ui/components/pantas_icon_button.dart';
 import 'package:pantas/core/ui/components/pro_paused_line.dart';
 import 'package:pantas/core/ui/components/score_breakdown_row.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
-import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
@@ -237,8 +239,8 @@ class MockResultsPage extends StatelessWidget {
                               PantasSpace.s16,
                               PantasSpace.s6,
                             ),
-                            child: MockPastChart(
-                              points: pastResults,
+                            child: mockPastChart(
+                              pastResults,
                               time: time,
                               currentPercent: results.percent,
                               currentLabel:
@@ -626,9 +628,10 @@ class MockResultsPage extends StatelessWidget {
                                             PantasSpace.s20,
                                             PantasSpace.s8,
                                           ),
-                                          child: MockPastChart(
-                                            points: pastResults,
+                                          child: mockPastChart(
+                                            pastResults,
                                             time: time,
+                                            web: true,
                                             currentPercent: results.percent,
                                             currentLabel: fromRecord
                                                 ? dateFormatted
@@ -797,202 +800,75 @@ class MockPastPoint {
   final String label;
 }
 
-class MockPastChart extends StatelessWidget {
-  const MockPastChart({
-    required this.points,
-    required this.currentPercent,
-    required this.currentLabel,
-    this.time,
-    super.key,
-  });
-  final List<MockPastPoint> points;
-  final double currentPercent;
-  final String currentLabel;
-  final double? time;
-  @override
-  Widget build(BuildContext context) => SizedBox(
-        height: context.wideWeb ? 170 : 132,
-        width: context.wideWeb ? double.infinity : null,
-        child: CustomPaint(
-          painter: _PastPainter(
-            time: time,
-            web: context.wideWeb,
-            points: [
-              ...points.skip(points.length > 2 ? points.length - 2 : 0),
-              MockPastPoint(percent: currentPercent, label: currentLabel),
-            ],
-            label: context.colors.secondaryLabel,
-            accent: context.colors.accent,
-            previous: context.colors.tertiaryLabel,
-            separator: context.colors.separator,
-            strongLabel: context.colors.label,
-          ),
-        ),
+/// The "Versus past results" chart: the page's earlier mocks and this one, on
+/// the shared [PantasChart]. It draws the points the page has, no others; the
+/// chart keeps the latest that fit and its table lists them all.
+///
+/// [time] is the finale clock in milliseconds, or null at rest (and with
+/// reduced motion). The latest point then draws in and pops at the board
+/// times: the phone's tracks 568 to 571 and the wide page's `k-t*` tracks.
+Widget mockPastChart(
+  List<MockPastPoint> past, {
+  required double currentPercent,
+  required String currentLabel,
+  double? time,
+  bool web = false,
+}) {
+  // Every value prints with one decimal, as this chart always did.
+  PantasChartPoint point(String label, double percent) => PantasChartPoint(
+        label: label,
+        value: percent,
+        valueText: '${percent.toStringAsFixed(1)}%',
       );
+  final points = [
+    for (final p in past) point(p.label, p.percent),
+    point(currentLabel, currentPercent),
+  ];
+  return PantasChart(
+    title: 'Past results',
+    summary: mockPastSummary(points),
+    points: points,
+    unit: 'mocks',
+    kind: PantasChartKind.line,
+    emptyText: 'No results yet. Take a mock exam to see your trend.',
+    entrance: time == null ? null : _pastEntrance(time, web: web),
+  );
 }
 
-class _PastPainter extends CustomPainter {
-  _PastPainter({
-    required this.points,
-    required this.label,
-    required this.accent,
-    required this.previous,
-    required this.separator,
-    this.strongLabel = PantasColors.gray892,
-    this.time,
-    this.web = false,
-  });
-  final Color strongLabel;
-  final List<MockPastPoint> points;
-  final Color label;
-  final Color accent;
-  final Color previous;
-  final Color separator;
-  final double? time;
-  final bool web;
-  void text(
-    Canvas c,
-    String value,
-    Offset at, {
-    Color? color,
-    bool strong = false,
-    bool rightAligned = false,
-    double? size,
-  }) {
-    final p = TextPainter(
-      text: TextSpan(
-        text: value,
-        style: TextStyle(
-          fontFamily: 'Geist',
-          fontSize: size ??
-              (strong
-                  ? PantasType.webCaption.fontSize
-                  : PantasType.webKeyHintSm.fontSize),
-          fontWeight: strong ? FontWeight.w700 : FontWeight.w400,
-          color: color ?? label,
-        ),
-      ),
-      textDirection: TextDirection.ltr,
-    )..layout();
-    p.paint(c, at - Offset(rightAligned ? p.width : p.width / 2, 0));
+PantasChartEntrance _pastEntrance(double time, {required bool web}) {
+  if (web) {
+    final dot = sampleWebFinale('k-tdot', time);
+    final value = sampleWebFinale('k-tval', time);
+    return PantasChartEntrance(
+      lineProgress: 1 - sampleWebFinale('k-tline', time).value / 340.1,
+      dotScale: dot.sx,
+      dotOpacity: dot.opacity,
+      labelOpacity: sampleWebFinale('k-tday', time).opacity,
+      valueOpacity: value.opacity,
+      valueOffset: value.offset.dy,
+    );
   }
+  final dot = sampleCseFinaleEffect(568, time);
+  final value = sampleCseFinaleEffect(571, time);
+  return PantasChartEntrance(
+    lineProgress: cseFinaleInterval(time, 8750.055, 9300, PantasCurves.draw),
+    dotScale: dot.scaleX,
+    dotOpacity: dot.opacity,
+    labelOpacity: sampleCseFinaleEffect(569, time).opacity,
+    valueOpacity: value.opacity,
+    valueOffset: value.y,
+  );
+}
 
-  @override
-  void paint(Canvas canvas, Size size) {
-    final all = points.map((p) => p.percent).toList();
-    final min = (all.reduce((a, b) => a < b ? a : b) / 20).floor() * 20.0;
-    final max = (all.reduce((a, b) => a > b ? a : b) / 20).ceil() * 20.0;
-    final low = min == max ? min - 20 : min;
-    final high = min == max ? max + 20 : max;
-    // The wide board draws a 1000 by 170 chart stretched to the card width.
-    final sx = size.width / 1000;
-    for (var i = 0; i < 3; i++) {
-      final y = web ? 136 - i * 56.0 : 106 - i * 46.0;
-      canvas.drawLine(
-        Offset(web ? 40 * sx : 34, y),
-        Offset(web ? 980 * sx : size.width, y),
-        Paint()..color = separator,
-      );
-      text(
-        canvas,
-        (low + (high - low) * i / 2).toStringAsFixed(0),
-        web ? Offset(30 * sx, y - 6) : Offset(15, y - 5),
-        rightAligned: web,
-        size: web ? 12 : null,
-      );
-    }
-    Offset? last;
-    for (var i = 0; i < points.length; i++) {
-      final x = web
-          ? (40 + 940 * (.14 + .72 * i / (points.length - 1))) * sx
-          : 74 + (size.width - 98) * i / (points.length - 1);
-      final y = web
-          ? 136 - (points[i].percent - low) / (high - low) * 112
-          : 106 - (points[i].percent - low) / (high - low) * 92;
-      final current = i == points.length - 1;
-      final point = Offset(x, y);
-      if (last != null) {
-        canvas.drawLine(
-          last,
-          current && time != null
-              ? Offset.lerp(
-                  last,
-                  point,
-                  web
-                      ? 1 - sampleWebFinale('k-tline', time!).value / 340.1
-                      : cseFinaleInterval(
-                          time!,
-                          8750.055,
-                          9300,
-                          PantasCurves.draw,
-                        ),
-                )!
-              : point,
-          Paint()
-            ..color = current ? accent : previous
-            ..strokeWidth = current ? 2.5 : 2,
-        );
-      }
-      final webPop = web && current && time != null
-          ? sampleWebFinale('k-tdot', time!)
-          : null;
-      final pop = !web && current && time != null
-          ? sampleCseFinaleEffect(568, time!)
-          : null;
-      canvas.drawCircle(
-        point,
-        (web ? (current ? 6.5 : 4.5) : (current ? 7 : 5)) *
-            (webPop?.sx ?? pop?.scaleX ?? 1),
-        Paint()
-          ..color = (current ? accent : previous)
-              .withValues(alpha: webPop?.opacity ?? pop?.opacity ?? 1),
-      );
-      text(
-        canvas,
-        points[i].label,
-        Offset(x, web ? 152 : 116),
-        strong: web && current,
-        size: web ? 12 : null,
-        color: (current ? (web ? strongLabel : accent) : label).withValues(
-          alpha: time == null || !current
-              ? 1
-              : web
-                  ? sampleWebFinale('k-tday', time!).opacity
-                  : sampleCseFinaleEffect(569, time!).opacity,
-        ),
-      );
-      if (current) {
-        text(
-          canvas,
-          '${points[i].percent.toStringAsFixed(1)}%',
-          Offset(
-            x,
-            y -
-                (web ? 27 : 23) +
-                (time == null
-                    ? 0
-                    : web
-                        ? sampleWebFinale('k-tval', time!).offset.dy
-                        : sampleCseFinaleEffect(571, time!).y),
-          ),
-          color: accent.withValues(
-            alpha: time == null
-                ? 1
-                : web
-                    ? sampleWebFinale('k-tval', time!).opacity
-                    : sampleCseFinaleEffect(571, time!).opacity,
-          ),
-          strong: true,
-          size: web ? 13 : null,
-          rightAligned: time != null,
-        );
-      }
-      last = point;
-    }
-  }
-
-  @override
-  bool shouldRepaint(_PastPainter old) => true;
+/// One sentence about the points, from their own values.
+String mockPastSummary(List<PantasChartPoint> points) {
+  if (points.length == 1) return 'One result so far.';
+  final values = [for (final p in points) p.value!];
+  final low = values.reduce(math.min);
+  final high = values.reduce(math.max);
+  String show(double v) => '${v.toStringAsFixed(1)}%';
+  return 'Your last ${points.length} mocks ranged from ${show(low)} to '
+      '${show(high)}. The latest is ${points.last.printed}.';
 }
 
 Widget _phase(double? time, int sourceTrack, Widget child) {

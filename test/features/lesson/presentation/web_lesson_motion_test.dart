@@ -348,13 +348,13 @@ void main() {
         (tester) async {
       await openSearch(tester);
       await tester.pumpAndSettle();
-      expect(find.text('RECENTLY OPENED'), findsOneWidget);
-      expect(fade(tester, find.text('RECENTLY OPENED')), 1);
+      expect(find.text('Recently Opened'), findsOneWidget);
+      expect(fade(tester, find.text('Recently Opened')), 1);
       await tester.enterText(find.byType(TextField), 'plate');
-      for (var i = 0; i < 5 && find.text('2 LESSONS').evaluate().isEmpty; i++) {
+      for (var i = 0; i < 5 && find.text('2 Lessons').evaluate().isEmpty; i++) {
         await tester.pump();
       }
-      final results = find.text('2 LESSONS');
+      final results = find.text('2 Lessons');
       expect(fade(tester, results), 0);
       await after(tester, 100);
       expect(between(fade(tester, results)), isTrue);
@@ -367,7 +367,7 @@ void main() {
       await tester.pump();
       await tester.pump();
       await tester.pump();
-      final recent = find.text('RECENTLY OPENED');
+      final recent = find.text('Recently Opened');
       expect(recent, findsOneWidget);
       await after(tester, 60);
       expect(fade(tester, recent), 0);
@@ -377,16 +377,24 @@ void main() {
       expect(fade(tester, recent), 1);
     });
 
-    testWidgets('reduced motion shows the dialog and results at once',
+    // Rule R2 (Dialog README): reduced motion fades in place over 150 ms.
+    testWidgets('reduced motion fades the dialog and results in place',
         (tester) async {
       await openSearch(tester, reduced: true);
       await tester.pump();
       await tester.pump();
+      expect(find.text('Recently Opened'), findsOneWidget);
+      await after(tester, 75);
+      expect(between(fade(tester, find.byType(TextField))), isTrue);
+      final resting = tester.getTopLeft(find.byType(TextField)).dy;
+      await after(tester, 75);
+      await tester.pump();
       expect(fade(tester, find.byType(TextField)), 1);
-      expect(find.text('RECENTLY OPENED'), findsOneWidget);
-      expect(fade(tester, find.text('RECENTLY OPENED')), 1);
+      expect(fade(tester, find.text('Recently Opened')), 1);
+      expect(tester.getTopLeft(find.byType(TextField)).dy, resting);
       await tester.sendKeyEvent(LogicalKeyboardKey.escape);
       await tester.pump();
+      await after(tester, 200);
       await tester.pump();
       expect(find.byType(TextField), findsNothing);
     });
@@ -432,7 +440,15 @@ void main() {
         await tester.pump();
         final sheet = find.byType(BookmarksSheet);
         if (reduced) {
+          // Rule R2 (Drawer README): a 150 ms fade in place, no slide.
           expect(tester.getTopLeft(sheet).dx, 1000);
+          await after(tester, 75);
+          expect(tester.getTopLeft(sheet).dx, 1000);
+          expect(between(fade(tester, sheet)), isTrue);
+          await after(tester, 75);
+          await tester.pump();
+          expect(fade(tester, sheet), 1);
+          await tester.pump(const Duration(milliseconds: 20));
           expect(tester.hasRunningAnimations, isFalse);
         } else {
           expect(tester.getTopLeft(sheet).dx, greaterThan(1440));
@@ -450,6 +466,11 @@ void main() {
         await tester.pump();
         await after(tester, 100);
         if (reduced) {
+          // It fades out in place over 150 ms, then is gone.
+          expect(sheet, findsOneWidget);
+          expect(tester.getTopLeft(sheet).dx, 1000);
+          await after(tester, 100);
+          await tester.pump();
           expect(sheet, findsNothing);
         } else {
           // 400 ms out: still on its way at 100 ms.
@@ -533,16 +554,25 @@ void main() {
       await closeTree(tester);
     });
 
-    testWidgets('reduced motion opens and closes the list at once',
+    // Rule R2 (Popover README): reduced motion fades in place over 150 ms.
+    testWidgets('reduced motion fades the list in and out in place',
         (tester) async {
       await pumpReader(tester, bookmarked: false, reduced: true);
       await tester.pumpAndSettle();
       await tester.tap(find.text('1 of 2'));
       await tester.pump();
+      await after(tester, 75);
+      expect(between(fade(tester, find.text(title))), isTrue);
+      final resting = tester.getTopLeft(find.text(title)).dy;
+      await after(tester, 75);
+      await tester.pump();
       expect(fade(tester, find.text(title)), 1);
+      expect(tester.getTopLeft(find.text(title)).dy, resting);
+      await tester.pump(const Duration(milliseconds: 20));
       expect(tester.hasRunningAnimations, isFalse);
       await tester.sendKeyEvent(LogicalKeyboardKey.escape);
       await tester.pump();
+      await after(tester, 200);
       await tester.pump();
       expect(find.text(title), findsNothing);
     });

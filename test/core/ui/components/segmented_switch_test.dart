@@ -52,9 +52,13 @@ void main() {
           tester.getSize(find.byKey(ValueKey('segment-$selected'))).height,
           32,
         );
+        // Tab reaches the selected segment only (one Tab stop), so Enter
+        // there keeps the selection and an arrow key chooses the next one.
         await tester.sendKeyEvent(LogicalKeyboardKey.tab);
         await tester.sendKeyEvent(LogicalKeyboardKey.enter);
-        expect(result, 0);
+        expect(result, selected);
+        await tester.sendKeyEvent(LogicalKeyboardKey.arrowRight);
+        expect(result, (selected + 1) % 3);
         await expectSurvivesTextScale(
           tester,
           widget,

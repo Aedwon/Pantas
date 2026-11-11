@@ -128,14 +128,20 @@ void main() {
         brightness: brightness,
         disableAnimations: true,
       );
+      // Reduced motion: no slide, a fade in place over 150 ms.
+      expect(inSheet(FractionalTranslation), findsNothing);
       expect(
         tester
-            .widget<FractionalTranslation>(
-              inSheet(FractionalTranslation),
-            )
-            .translation
-            .dy,
+            .widget<Opacity>(find.byKey(const ValueKey('pantas-sheet-fade')))
+            .opacity,
         0,
+      );
+      await tester.pump(const Duration(milliseconds: 150));
+      expect(
+        tester
+            .widget<Opacity>(find.byKey(const ValueKey('pantas-sheet-fade')))
+            .opacity,
+        1,
       );
       expect(
         tester.widget<ModalBarrier>(inSheet(ModalBarrier)).color!.a,

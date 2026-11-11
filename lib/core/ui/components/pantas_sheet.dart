@@ -3,12 +3,14 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_shadows.dart';
 import 'package:pantas/core/ui/components/tab_bar_visibility.dart';
 import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -25,6 +27,7 @@ class PantasSheet extends StatefulWidget {
     this.readerContents = false,
     this.scrollable = true,
     this.topInset = 0,
+    this.closeLabel,
     super.key,
   });
 
@@ -40,6 +43,13 @@ class PantasSheet extends StatefulWidget {
   /// Space kept clear above the sheet, so a tall sheet stops short of the
   /// top of the screen (MK_Sheet: the page stays visible for 180 px).
   final double topInset;
+
+  /// The label of the Close or Cancel button drawn at the end of the sheet:
+  /// "Cancel" for a sheet that edits, "Close" for one that only shows a list.
+  /// It is the keyboard route out that dragging the grabber is not (Sheet
+  /// README). Pressing it calls [onDismiss], as the scrim does. Null draws no
+  /// button, for a caller that draws its own.
+  final String? closeLabel;
 
   @override
   State<PantasSheet> createState() => _PantasSheetState();
@@ -124,16 +134,18 @@ class _PantasSheetState extends State<PantasSheet>
     final still = MediaQuery.disableAnimationsOf(context);
     final bookmarks = widget.bookmarks;
     // One recipe for every sheet: 450ms in and 400ms out on `motion-slide`,
-    // the scrim over 350ms on `motion-fade`.
+    // the scrim over 350ms on `motion-fade`. Reduced motion fades the sheet
+    // and the scrim in place over 150ms, with no slide (Sheet README).
+    const reduced = WebOverlayMotion.reduced;
     final duration = still
-        ? Duration.zero
+        ? reduced.open
         : widget.open
             ? PantasDurations.long1
             : PantasDurations.drawerClose;
     final endpoint = widget.open ? 1.0 : 0.0;
-    const curve = PantasCurves.slide;
-    final washDuration = still ? Duration.zero : PantasDurations.switchDuration;
-    const washCurve = PantasCurves.fade;
+    final curve = still ? reduced.curve : PantasCurves.slide;
+    final washDuration = still ? reduced.scrim : PantasDurations.switchDuration;
+    final washCurve = still ? reduced.scrimCurve : PantasCurves.fade;
     // On wide web the sheet sits in the page's column, but its scrim covers the
     // window, the sidebar included, as every dialog does. A scrim drawn inside
     // the column was a gray box with hard edges (5S-4).
@@ -184,7 +196,6 @@ class _PantasSheetState extends State<PantasSheet>
                   overlayChildBuilder: (_) => _SheetWindowLayer(
                     key: const ValueKey('pantas-sheet-window-layer'),
                     open: widget.open,
-                    still: still,
                     duration: duration,
                     curve: curve,
                     washDuration: washDuration,
@@ -209,8 +220,8 @@ class _PantasSheetState extends State<PantasSheet>
               ],
             );
           }
-          return TweenAnimationBuilder<double>(
-            tween: Tween(begin: still ? endpoint : 0, end: endpoint),
+          return _SheetProgress(
+            target: endpoint,
             duration: duration,
             curve: curve,
             // The bar returns once the sheet has left, not while it slides.
@@ -220,8 +231,8 @@ class _PantasSheetState extends State<PantasSheet>
               children: [
                 page,
                 if (widget.open || sheetProgress > 0) ...[
-                  TweenAnimationBuilder<double>(
-                    tween: Tween(begin: still ? endpoint : 0, end: endpoint),
+                  _SheetProgress(
+                    target: endpoint,
                     duration: washDuration,
                     curve: washCurve,
                     builder: (context, wash, child) => _wash(wash),
@@ -251,99 +262,108 @@ class _PantasSheetState extends State<PantasSheet>
         semanticsLabel: 'Close ${widget.label}',
       );
 
+  /// A viewport this short or shorter (a phone on its side) centers the sheet.
+  // ds-board: Sheet README landscape rule, "when the height is 500px or less".
+  static const double _landscapeHeight = 500;
+
   Widget _panel(BoxConstraints constraints, double sheetProgress) {
     final bookmarks = widget.bookmarks;
     final colors = context.colors;
-    const topRadius = BorderRadius.vertical(
-      top: Radius.circular(PantasRadius.lg),
+    final media = MediaQuery.of(context);
+    final landscape = media.size.height <= _landscapeHeight;
+    final still = media.disableAnimations;
+    // Landscape: centered, at most 560 wide, rounded on every corner.
+    final radius = landscape
+        ? const BorderRadius.all(Radius.circular(PantasRadius.lg))
+        : const BorderRadius.vertical(top: Radius.circular(PantasRadius.lg));
+    final width = landscape
+        ? math.min(constraints.maxWidth, PantasLayout.modalWide)
+        : constraints.maxWidth;
+    // The viewport minus the top safe area minus 32, in every orientation.
+    final double tallest = math.max(
+      0,
+      math.min(
+        constraints.maxHeight - widget.topInset,
+        media.size.height - media.padding.top - PantasSpace.s32,
+      ),
     );
-    return Align(
-      alignment: Alignment.bottomCenter,
-      child: FractionalTranslation(
-        translation: Offset(0, _travel * (1 - sheetProgress)),
-        child: CallbackShortcuts(
-          bindings: {
-            const SingleActivator(LogicalKeyboardKey.escape): widget.onDismiss,
-          },
-          child: FocusScope(
-            node: overlayScope,
-            child: Focus(
-              autofocus: widget.open,
-              child: Semantics(
-                scopesRoute: true,
-                namesRoute: true,
-                explicitChildNodes: true,
-                label: widget.label,
-                child: GestureDetector(
-                  onVerticalDragStart: (_) => _dragDistance = 0,
-                  onVerticalDragUpdate: (details) =>
-                      _dragDistance += details.delta.dy,
-                  onVerticalDragEnd: (details) {
-                    if (_dragDistance > 0 ||
-                        (details.primaryVelocity ?? 0) > 0) {
-                      widget.onDismiss();
-                    }
-                  },
-                  child: DecoratedBox(
-                    key: const ValueKey('pantas-sheet-surface'),
-                    decoration: BoxDecoration(
-                      color: colors.surfaceModal,
-                      borderRadius: topRadius,
-                      boxShadow: context.shadows.sheet,
-                    ),
-                    child: ClipRRect(
-                      borderRadius: topRadius,
-                      child: ConstrainedBox(
-                        constraints: BoxConstraints(
-                          maxHeight: math.max(
-                            0,
-                            constraints.maxHeight - widget.topInset,
-                          ),
-                        ),
-                        child: SizedBox(
-                          width: constraints.maxWidth,
-                          height:
-                              bookmarks ? constraints.maxHeight * .74 : null,
-                          child: NotificationListener<ScrollNotification>(
-                            onNotification: (notification) {
-                              if (notification is ScrollStartNotification &&
-                                  notification.dragDetails != null) {
-                                _dragDistance = 0;
-                              } else if (notification
-                                      is OverscrollNotification &&
-                                  notification.dragDetails != null &&
-                                  notification.overscroll < 0) {
-                                _dragDistance -= notification.overscroll;
-                              } else if (notification
-                                      is ScrollUpdateNotification &&
-                                  notification.dragDetails != null &&
-                                  notification.metrics.pixels <
-                                      notification.metrics.minScrollExtent) {
-                                _dragDistance -= notification.scrollDelta ?? 0;
-                              } else if (notification
-                                      is ScrollEndNotification &&
-                                  _dragDistance > 0) {
-                                _dragDistance = 0;
-                                widget.onDismiss();
-                              }
-                              return false;
-                            },
-                            // No Scaffold above: without Material,
-                            // text gets the yellow-underline style.
-                            child: Material(
-                              type: MaterialType.transparency,
-                              child: Column(
-                                mainAxisSize: MainAxisSize.min,
-                                crossAxisAlignment: CrossAxisAlignment.stretch,
-                                children: [
-                                  const PantasSheetGrabber(),
-                                  if (bookmarks)
-                                    Expanded(child: _body)
-                                  else
-                                    Flexible(child: _body),
-                                ],
-                              ),
-                            ),
+    final closeLabel = widget.closeLabel;
+    final sheet = CallbackShortcuts(
+      bindings: {
+        const SingleActivator(LogicalKeyboardKey.escape): widget.onDismiss,
+      },
+      child: FocusScope(
+        node: overlayScope,
+        child: Focus(
+          autofocus: widget.open,
+          child: Semantics(
+            scopesRoute: true,
+            namesRoute: true,
+            explicitChildNodes: true,
+            label: widget.label,
+            child: GestureDetector(
+              onVerticalDragStart: (_) => _dragDistance = 0,
+              onVerticalDragUpdate: (details) =>
+                  _dragDistance += details.delta.dy,
+              onVerticalDragEnd: (details) {
+                if (_dragDistance > 0 || (details.primaryVelocity ?? 0) > 0) {
+                  widget.onDismiss();
+                }
+              },
+              child: DecoratedBox(
+                key: const ValueKey('pantas-sheet-surface'),
+                decoration: BoxDecoration(
+                  color: colors.surfaceModal,
+                  borderRadius: radius,
+                  boxShadow: context.shadows.sheet,
+                ),
+                child: ClipRRect(
+                  borderRadius: radius,
+                  child: ConstrainedBox(
+                    constraints: BoxConstraints(maxHeight: tallest),
+                    child: SizedBox(
+                      width: width,
+                      height: bookmarks ? constraints.maxHeight * .74 : null,
+                      child: NotificationListener<ScrollNotification>(
+                        onNotification: (notification) {
+                          if (notification is ScrollStartNotification &&
+                              notification.dragDetails != null) {
+                            _dragDistance = 0;
+                          } else if (notification is OverscrollNotification &&
+                              notification.dragDetails != null &&
+                              notification.overscroll < 0) {
+                            _dragDistance -= notification.overscroll;
+                          } else if (notification is ScrollUpdateNotification &&
+                              notification.dragDetails != null &&
+                              notification.metrics.pixels <
+                                  notification.metrics.minScrollExtent) {
+                            _dragDistance -= notification.scrollDelta ?? 0;
+                          } else if (notification is ScrollEndNotification &&
+                              _dragDistance > 0) {
+                            _dragDistance = 0;
+                            widget.onDismiss();
+                          }
+                          return false;
+                        },
+                        // No Scaffold above: without Material,
+                        // text gets the yellow-underline style.
+                        child: Material(
+                          type: MaterialType.transparency,
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: [
+                              const PantasSheetGrabber(),
+                              if (bookmarks)
+                                Expanded(child: _body)
+                              else
+                                Flexible(child: _body),
+                              if (closeLabel != null)
+                                _CloseAction(
+                                  label: closeLabel,
+                                  onPressed: widget.onDismiss,
+                                ),
+                            ],
                           ),
                         ),
                       ),
@@ -356,6 +376,52 @@ class _PantasSheetState extends State<PantasSheet>
         ),
       ),
     );
+    // Reduced motion fades the sheet in place. Otherwise it slides up from
+    // just past its own height.
+    return Align(
+      alignment: landscape ? Alignment.center : Alignment.bottomCenter,
+      child: still
+          ? Opacity(
+              key: const ValueKey('pantas-sheet-fade'),
+              opacity: sheetProgress.clamp(0.0, 1.0),
+              child: sheet,
+            )
+          : FractionalTranslation(
+              translation: Offset(0, _travel * (1 - sheetProgress)),
+              child: sheet,
+            ),
+    );
+  }
+}
+
+/// The Close or Cancel button that ends a sheet. The actions stay visible
+/// while the body scrolls, and the bottom padding is `max(34, safe area + 20)`
+/// so the button clears the home indicator (Sheet README).
+class _CloseAction extends StatelessWidget {
+  const _CloseAction({required this.label, required this.onPressed});
+
+  final String label;
+  final VoidCallback onPressed;
+
+  /// `.sheet` padding-bottom: the phone board's 34.
+  static const double _rest = PantasSpace.s32 + PantasSpace.s2;
+
+  @override
+  Widget build(BuildContext context) {
+    final inset = MediaQuery.viewPaddingOf(context).bottom;
+    return Padding(
+      padding: EdgeInsets.fromLTRB(
+        PantasSpace.s20,
+        PantasSpace.s8,
+        PantasSpace.s20,
+        math.max(_rest, inset + PantasSpace.s20),
+      ),
+      child: PantasButton(
+        label: label,
+        variant: PantasButtonVariant.tertiary,
+        onPressed: onPressed,
+      ),
+    );
   }
 }
 
@@ -364,7 +430,6 @@ class _PantasSheetState extends State<PantasSheet>
 class _SheetWindowLayer extends StatelessWidget {
   const _SheetWindowLayer({
     required this.open,
-    required this.still,
     required this.duration,
     required this.curve,
     required this.washDuration,
@@ -376,7 +441,6 @@ class _SheetWindowLayer extends StatelessWidget {
   });
 
   final bool open;
-  final bool still;
   final Duration duration;
   final Curve curve;
   final Duration washDuration;
@@ -388,16 +452,16 @@ class _SheetWindowLayer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final endpoint = open ? 1.0 : 0.0;
-    return TweenAnimationBuilder<double>(
-      tween: Tween(begin: still ? endpoint : 0, end: endpoint),
+    return _SheetProgress(
+      target: endpoint,
       duration: duration,
       curve: curve,
       onEnd: open ? null : onGone,
       builder: (context, progress, _) => Stack(
         fit: StackFit.expand,
         children: [
-          TweenAnimationBuilder<double>(
-            tween: Tween(begin: still ? endpoint : 0, end: endpoint),
+          _SheetProgress(
+            target: endpoint,
             duration: washDuration,
             curve: washCurve,
             builder: (context, value, _) => wash(value),
@@ -407,6 +471,86 @@ class _SheetWindowLayer extends StatelessWidget {
       ),
     );
   }
+}
+
+/// Moves from where it is to [target] over [duration] on [curve], as a
+/// `TweenAnimationBuilder<double>` does, and calls [onEnd] when it arrives. It
+/// starts at 0. Its controller keeps its length under the system's reduced
+/// motion setting, where a plain implicit animation would run at 5% of it and
+/// cut the 150 ms fade short.
+class _SheetProgress extends StatefulWidget {
+  const _SheetProgress({
+    required this.target,
+    required this.duration,
+    required this.curve,
+    required this.builder,
+    this.onEnd,
+  });
+
+  final double target;
+  final Duration duration;
+  final Curve curve;
+  final VoidCallback? onEnd;
+  final Widget Function(BuildContext context, double value, Widget? child)
+      builder;
+
+  @override
+  State<_SheetProgress> createState() => _SheetProgressState();
+}
+
+class _SheetProgressState extends State<_SheetProgress>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController _controller = AnimationController(
+    vsync: this,
+    duration: widget.duration,
+    animationBehavior: AnimationBehavior.preserve,
+  )..addStatusListener((status) {
+      if (status == AnimationStatus.completed && !_quiet) widget.onEnd?.call();
+    });
+  bool _quiet = false;
+  double _from = 0;
+  double _to = 0;
+
+  double get _value =>
+      _from + (_to - _from) * widget.curve.transform(_controller.value);
+
+  @override
+  void initState() {
+    super.initState();
+    if (widget.target == _to) {
+      // Already there: no animation, so no end.
+      _quiet = true;
+      _controller.value = 1;
+      _quiet = false;
+    } else {
+      _retarget();
+    }
+  }
+
+  @override
+  void didUpdateWidget(_SheetProgress oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.target != _to) _retarget();
+  }
+
+  void _retarget() {
+    _from = _value;
+    _to = widget.target;
+    _controller.duration = widget.duration;
+    unawaited(_controller.forward(from: 0));
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) => AnimatedBuilder(
+        animation: _controller,
+        builder: (context, _) => widget.builder(context, _value, null),
+      );
 }
 
 /// The 36 by 5 drag handle: decorative, `divider-strong`, with 8 above it.

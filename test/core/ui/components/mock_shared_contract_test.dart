@@ -64,6 +64,7 @@ void main() {
             theme: dark ? buildDarkTheme() : buildLightTheme(),
             home: MediaQuery(
               data: MediaQueryData(
+                size: const Size(390, 844),
                 textScaler: TextScaler.linear(scale),
                 disableAnimations: true,
               ),
@@ -84,6 +85,13 @@ void main() {
             ),
           ),
         );
+        // The Close button shares the sheet, so large text scrolls the body.
+        // Scroll to its end, where the help line sits above the footer.
+        await tester.drag(
+          find.byType(SingleChildScrollView).first,
+          const Offset(0, -1000),
+        );
+        await tester.pump();
         expect(
           tester.getTopLeft(find.text('Submit the Exam')).dy,
           greaterThan(

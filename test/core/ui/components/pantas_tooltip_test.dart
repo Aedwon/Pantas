@@ -21,6 +21,7 @@ Widget _anchor() => Padding(
 Widget _bare() => PantasTooltip(
       message: 'Flag',
       shortcut: 'F',
+      anchorHeight: 48,
       child: IconButton(
         onPressed: () {},
         icon: const Icon(Icons.flag),
@@ -88,12 +89,12 @@ void main() {
         find
             .ancestor(
               of: find.text('Flag (F)'),
-              matching: find.byType(Container),
+              matching: find.byType(DecoratedBox),
             )
             .first,
       );
       expect(tip.bottom, lessThanOrEqualTo(anchor.top));
-      expect(anchor.top - tip.bottom, closeTo(8, 4));
+      expect(anchor.top - tip.bottom, closeTo(8, .01));
       await mouse.moveTo(const Offset(5, 500));
       await tester.pump(PantasDurations.short2 * 4);
     });
@@ -168,5 +169,83 @@ void main() {
     expect(find.text('Hide questions'), findsOneWidget);
     await mouse.moveTo(const Offset(5, 500));
     await tester.pump(PantasDurations.short2 * 4);
+  });
+
+  // The drawn box, without its transparent bridge margin.
+  Finder tipBox() => find
+      .ancestor(of: find.text('Flag (F)'), matching: find.byType(DecoratedBox))
+      .first;
+
+  Future<TestGesture> hoverOpen(WidgetTester tester, DsCell cell) async {
+    await pumpDs(tester, cell, on(TargetPlatform.macOS, _anchor()));
+    final mouse = await tester.createGesture(kind: PointerDeviceKind.mouse);
+    addTearDown(mouse.removePointer);
+    await mouse.addPointer(location: Offset.zero);
+    await mouse.moveTo(tester.getCenter(find.byType(IconButton)));
+    await tester.pump(PantasDurations.tooltip + PantasDurations.short2);
+    expect(find.text('Flag (F)'), findsOneWidget);
+    return mouse;
+  }
+
+  for (final cell in [dsCells[0], dsCells[3], dsCells[4], dsCells[7]]) {
+    testWidgets(
+        'The pointer crosses the 8 point bridge onto the tooltip and it '
+        'stays ($cell)', (tester) async {
+      final mouse = await hoverOpen(tester, cell);
+      final anchor = tester.getRect(find.byType(IconButton));
+      final tip = tester.getRect(tipBox());
+      // The bridge is the empty 8 points between anchor and tooltip.
+      expect(anchor.top - tip.bottom, closeTo(8, .01));
+      await mouse.moveTo(Offset(anchor.center.dx, anchor.top - 1));
+      await tester.pump(PantasDurations.short2);
+      await mouse.moveTo(Offset(anchor.center.dx, anchor.top - 4));
+      await tester.pump(PantasDurations.short2);
+      await mouse.moveTo(Offset(anchor.center.dx, anchor.top - 7));
+      await tester.pump(PantasDurations.short2);
+      expect(find.text('Flag (F)'), findsOneWidget);
+      await mouse.moveTo(tip.center);
+      // Well past any exit delay: it stays while the pointer is on it.
+      await tester.pump(PantasDurations.tooltip * 4);
+      expect(find.text('Flag (F)'), findsOneWidget);
+      // Leaving both closes it.
+      await mouse.moveTo(const Offset(5, 500));
+      await tester.pump(PantasDurations.short2 * 4);
+      await tester.pump(PantasDurations.short2 * 4);
+      expect(find.text('Flag (F)'), findsNothing);
+    });
+  }
+
+  testWidgets('Esc closes a tooltip the pointer is holding open',
+      (tester) async {
+    await hoverOpen(tester, dsCells.first);
+    await tester.sendKeyEvent(LogicalKeyboardKey.escape);
+    await tester.pumpAndSettle();
+    expect(find.text('Flag (F)'), findsNothing);
+  });
+
+  testWidgets('Esc is left to the page when no tooltip is open',
+      (tester) async {
+    var escapes = 0;
+    await pumpDs(
+      tester,
+      dsCells.first,
+      on(
+        TargetPlatform.macOS,
+        Focus(
+          autofocus: true,
+          onKeyEvent: (_, event) {
+            if (event is KeyDownEvent &&
+                event.logicalKey == LogicalKeyboardKey.escape) {
+              escapes++;
+            }
+            return KeyEventResult.ignored;
+          },
+          child: _anchor(),
+        ),
+      ),
+    );
+    await tester.sendKeyEvent(LogicalKeyboardKey.escape);
+    await tester.pump();
+    expect(escapes, 1);
   });
 }

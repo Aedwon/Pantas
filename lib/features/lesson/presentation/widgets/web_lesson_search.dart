@@ -105,9 +105,9 @@ class _WebLessonSearchState extends ConsumerState<WebLessonSearch> {
         : hits.valueOrNull ?? <LessonSearchHit>[];
     final loading = _query.isEmpty ? recent.isLoading : hits.isLoading;
     final error = _query.isEmpty ? recent.hasError : hits.hasError;
-    final lessonWord = results.length == 1 ? 'LESSON' : 'LESSONS';
+    final lessonWord = results.length == 1 ? 'Lesson' : 'Lessons';
     final groupLabel =
-        _query.isEmpty ? 'RECENTLY OPENED' : '${results.length} $lessonWord';
+        _query.isEmpty ? 'Recently Opened' : '${results.length} $lessonWord';
     final selected =
         results.isEmpty ? 0 : _selected.clamp(0, results.length - 1);
     return CallbackShortcuts(
@@ -262,9 +262,13 @@ class _WebLessonSearchState extends ConsumerState<WebLessonSearch> {
                             ),
                           ),
                         ),
-                        child: Text(
-                          '↑ ↓ to move · Enter to open',
-                          style: t.sm,
+                        // Decorative: the field already speaks the keys.
+                        child: ExcludeSemantics(
+                          child: Text(
+                            'Up and Down to move, Enter to open, '
+                            'Esc to close',
+                            style: t.sm,
+                          ),
                         ),
                       ),
                   ],
@@ -311,9 +315,9 @@ class _WebLessonSearchState extends ConsumerState<WebLessonSearch> {
                   PantasSpace.s12,
                   PantasSpace.s6,
                 ),
-                child: Text(
-                  groupLabel,
-                  style: t.eb,
+                child: Semantics(
+                  liveRegion: true,
+                  child: Text(groupLabel, style: t.eb),
                 ),
               ),
               for (var i = 0; i < results.length; i++)

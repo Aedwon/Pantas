@@ -5,6 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/domain/choice.dart';
 import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/core/storage/domain/subject.dart';
+import 'package:pantas/core/ui/components/question_navigator_chip.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
@@ -17,7 +18,6 @@ import 'package:pantas/features/mock_exam/presentation/pages/custom_mock_setup_p
 import 'package:pantas/features/mock_exam/presentation/pages/mock_session_page.dart';
 import 'package:pantas/features/mock_exam/presentation/part_transition_page.dart';
 import 'package:pantas/features/mock_exam/presentation/widgets/mock_card.dart';
-import 'package:pantas/features/mock_exam/presentation/widgets/question_navigator_chip.dart';
 
 // Wide web plays the phone's mock motion: the paper swap, the between-parts
 // dots, the card rise and the row editors.

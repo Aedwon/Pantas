@@ -6,14 +6,16 @@ import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/data/report_queue.dart';
 import 'package:pantas/core/ui/components/button_pair.dart';
 import 'package:pantas/core/ui/components/floating_bar.dart';
+import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/pantas_button_spec.dart';
+import 'package:pantas/core/ui/components/pantas_field.dart';
+import 'package:pantas/core/ui/components/pantas_icon_button.dart';
+import 'package:pantas/core/ui/icons/pantas_icons.dart';
+import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
-import 'package:pantas/core/ui/theme/tokens/pantas_border.dart';
-import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
-import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
-import 'package:pantas/core/ui/web/letter_shortcuts.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_keyboard_hints.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -26,68 +28,35 @@ Future<bool?> openQuestionReport(
   String questionId, {
   required ReportQueue queue,
 }) =>
-    context.wideWeb
-        ? showGeneralDialog<bool>(
-            context: context,
-            barrierColor: Colors.transparent,
-            barrierDismissible: true,
-            barrierLabel: 'Close report',
-            transitionDuration: _reportDuration(context),
-            pageBuilder: (_, __, ___) =>
-                _WebReportPanel(questionId: questionId, queue: queue),
-            transitionBuilder: _reportTransition,
-          )
-        : showGeneralDialog<bool>(
-            context: context,
-            barrierColor: context.colors.transparent,
-            barrierDismissible: true,
-            barrierLabel: 'Close report',
-            transitionDuration: _reportDuration(context),
-            pageBuilder: (context, _, __) => Align(
-              alignment: Alignment.bottomCenter,
-              child: Padding(
-                padding: EdgeInsets.fromLTRB(
-                  PantasSpace.s16,
-                  PantasSpace.s16,
-                  PantasSpace.s16,
-                  MediaQuery.viewInsetsOf(context).bottom + PantasSpace.s18,
-                ),
-                child: Material(
-                  color: context.colors.transparent,
-                  child: ReportForm(
-                    questionId: questionId,
-                    queue: queue,
-                    onClose: () => Navigator.of(context).pop(),
-                    onSaved: () => Navigator.of(context).pop(true),
+    // The dialog motion: a rise and a fade, or a 150 ms fade in place under
+    // reduced motion (Dialog README).
+    showWebOverlay<bool>(
+      context: context,
+      motion: WebOverlayMotion.dialog,
+      barrierColor: Colors.transparent,
+      barrierLabel: 'Close report',
+      builder: context.wideWeb
+          ? (_) => _WebReportPanel(questionId: questionId, queue: queue)
+          : (context) => Align(
+                alignment: Alignment.bottomCenter,
+                child: Padding(
+                  padding: EdgeInsets.fromLTRB(
+                    PantasSpace.s16,
+                    PantasSpace.s16,
+                    PantasSpace.s16,
+                    MediaQuery.viewInsetsOf(context).bottom + PantasSpace.s18,
+                  ),
+                  child: Material(
+                    color: context.colors.transparent,
+                    child: ReportForm(
+                      questionId: questionId,
+                      queue: queue,
+                      onClose: () => Navigator.of(context).pop(),
+                      onSaved: () => Navigator.of(context).pop(true),
+                    ),
                   ),
                 ),
               ),
-            ),
-            transitionBuilder: _reportTransition,
-          );
-
-/// The report form's arrival on the phone and on wide web: 420 ms, or none
-/// under reduced motion.
-Duration _reportDuration(BuildContext context) =>
-    MediaQuery.disableAnimationsOf(context)
-        ? Duration.zero
-        : const Duration(milliseconds: 420);
-
-/// A fade and a 15% slide up on edgeGrow.
-Widget _reportTransition(
-  BuildContext context,
-  Animation<double> animation,
-  Animation<double> secondaryAnimation,
-  Widget child,
-) =>
-    FadeTransition(
-      opacity: animation,
-      child: SlideTransition(
-        position: Tween(begin: const Offset(0, .15), end: Offset.zero).animate(
-          CurvedAnimation(parent: animation, curve: PantasCurves.move),
-        ),
-        child: child,
-      ),
     );
 
 class ReportForm extends StatefulWidget {
@@ -196,7 +165,6 @@ class _ReportFormState extends State<ReportForm> {
 
   @override
   Widget build(BuildContext context) {
-    final c = context.colors;
     if (context.wideWeb) return _web(context);
     if (_saved) {
       return Semantics(
@@ -259,39 +227,18 @@ class _ReportFormState extends State<ReportForm> {
                   style: context.type.footnote.copyWith(height: 1.4),
                 ),
                 const SizedBox(height: PantasSpace.s12),
-                TextField(
+                PantasField.unlabeled(
+                  semanticLabel: 'What did you notice?',
                   controller: _text,
                   focusNode: _focus,
                   autofocus: _ready && _limit == null,
                   enabled: _ready && _limit == null && !_busy,
-                  minLines: 3,
+                  multiline: true,
                   maxLines: 5,
-                  style: PantasType.phoneCallout.copyWith(color: c.textPrimary),
                   onChanged: (_) => setState(() {}),
-                  decoration: InputDecoration(
-                    hintText: _limit == ReportResult.dailyLimit
-                        ? 'Reports open again tomorrow'
-                        : 'What did you notice?',
-                    hintStyle: PantasType.phoneCallout
-                        .copyWith(color: c.textSecondary),
-                    filled: true,
-                    fillColor: c.surfaceCard,
-                    contentPadding: const EdgeInsets.symmetric(
-                      horizontal: PantasSpace.s14,
-                      vertical: PantasSpace.s12,
-                    ),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(PantasRadius.md),
-                      borderSide: BorderSide(color: c.borderControl),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(PantasRadius.md),
-                      borderSide: BorderSide(
-                        color: c.accent,
-                        width: PantasBorder.ringSelected,
-                      ),
-                    ),
-                  ),
+                  hint: _limit == ReportResult.dailyLimit
+                      ? 'Reports open again tomorrow'
+                      : 'What did you notice?',
                 ),
                 if (_failed)
                   saveFailureLine(
@@ -302,16 +249,20 @@ class _ReportFormState extends State<ReportForm> {
                 // QN_Report: the buttons sit 5 px under the field.
                 const SizedBox(height: PantasSpace.s4),
                 ButtonPair(
-                  secondary: _pill('Cancel', widget.onClose, primary: false),
-                  primary: _pill(
-                    'Save',
-                    _ready &&
+                  secondary: PantasButton(
+                    label: 'Cancel',
+                    variant: PantasButtonVariant.secondary,
+                    onPressed: widget.onClose,
+                  ),
+                  primary: PantasButton(
+                    label: 'Save',
+                    busy: _busy,
+                    onPressed: _ready &&
                             !_busy &&
                             _limit == null &&
                             _text.text.trim().isNotEmpty
                         ? () => unawaited(_send())
                         : null,
-                    primary: true,
                   ),
                 ),
               ],
@@ -391,63 +342,36 @@ class _ReportFormState extends State<ReportForm> {
                 style: t.sub,
               ),
             const SizedBox(height: PantasSpace.s12),
-            TextField(
+            PantasField.unlabeled(
+              semanticLabel: 'What did you notice?',
               controller: _text,
               focusNode: _focus,
               autofocus: _ready && _limit == null,
               enabled: _ready && _limit == null && !_busy,
-              minLines: 3,
+              multiline: true,
               maxLines: 5,
-              style: PantasType.webBody.copyWith(color: t.colors.textPrimary),
               onChanged: (_) => setState(() {}),
-              decoration: InputDecoration(
-                hintText: _limit == ReportResult.dailyLimit
-                    ? 'Reports open again tomorrow'
-                    : 'What did you notice?',
-                hintStyle:
-                    PantasType.webBody.copyWith(color: t.colors.textSecondary),
-                filled: true,
-                fillColor: t.colors.surfaceCard,
-                isDense: true,
-                // QN_ReportAgain: the board's box is 92 px with three lines.
-                contentPadding: const EdgeInsets.symmetric(
-                  horizontal: PantasSpace.s14,
-                  vertical: PantasSpace.s16,
-                ),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(PantasRadius.md),
-                  borderSide: BorderSide.none,
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(PantasRadius.md),
-                  borderSide: BorderSide(color: t.colors.borderControl),
-                ),
-                disabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(PantasRadius.md),
-                  borderSide: BorderSide(color: t.colors.divider),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(PantasRadius.md),
-                  borderSide: BorderSide(
-                    color: t.colors.accent,
-                    width: PantasBorder.ringSelected,
-                  ),
-                ),
-              ),
+              hint: _limit == ReportResult.dailyLimit
+                  ? 'Reports open again tomorrow'
+                  : 'What did you notice?',
             ),
             if (_failed)
               saveFailureLine(
                 () => unawaited(_ready ? _send() : _load()),
               ),
             const SizedBox(height: PantasSpace.s12),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
+            Wrap(
+              alignment: WrapAlignment.end,
+              crossAxisAlignment: WrapCrossAlignment.center,
               children: [
-                _ReportButton(label: 'Cancel', onPressed: widget.onClose),
-                const SizedBox(width: PantasSpace.s8),
-                _ReportButton(
+                WebButton(
+                  label: 'Cancel',
+                  kind: PantasButtonKind.tertiary,
+                  onPressed: widget.onClose,
+                ),
+                const SizedBox(width: PantasSpace.s8, height: PantasSpace.s8),
+                WebButton(
                   label: 'Save',
-                  solid: true,
                   keyHint: '$commandKeyLabel Enter',
                   busy: _busy,
                   onPressed: canSend ? () => unawaited(_send()) : null,
@@ -455,34 +379,6 @@ class _ReportFormState extends State<ReportForm> {
               ],
             ),
           ],
-        ),
-      ),
-    );
-  }
-
-  Widget _pill(String label, VoidCallback? callback, {required bool primary}) {
-    final c = context.colors;
-    final active = primary && callback != null;
-    return TextButton(
-      onPressed: callback,
-      style: TextButton.styleFrom(
-        minimumSize: const Size(0, PantasSize.btn),
-        padding: const EdgeInsets.symmetric(
-          horizontal: PantasSpace.s12,
-          vertical: PantasSpace.s10,
-        ),
-        shape: const StadiumBorder(),
-        backgroundColor: active ? c.accent : c.fill,
-        foregroundColor: active ? c.onAccent : c.textPrimary,
-      ),
-      child: Text(
-        label,
-        style: PantasType.webButton.copyWith(
-          color: active
-              ? c.onAccent
-              : callback == null
-                  ? c.textDisabled
-                  : c.textPrimary,
         ),
       ),
     );
@@ -550,28 +446,11 @@ class _WebReportPanelState extends State<_WebReportPanel> {
                                 ),
                               ),
                             ),
-                            SizedBox.square(
-                              dimension: PantasSize.iconBtnSm,
-                              child: IconButton(
-                                tooltip: 'Close report',
-                                padding: EdgeInsets.zero,
-                                style: IconButton.styleFrom(
-                                  minimumSize: Size.zero,
-                                  tapTargetSize:
-                                      MaterialTapTargetSize.shrinkWrap,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius:
-                                        BorderRadius.circular(PantasRadius.sm),
-                                  ),
-                                ),
-                                onPressed: () => Navigator.of(context).pop(),
-                                icon: Icon(
-                                  Icons.close,
-                                  // ds-board: no README for this glyph
-                                  size: 16,
-                                  color: context.colors.textSecondary,
-                                ),
-                              ),
+                            PantasIconButton(
+                              tooltip: 'Close report',
+                              glyph: PantasIcons.close,
+                              size: PantasIconButtonSize.sm,
+                              onPressed: () => Navigator.of(context).pop(),
                             ),
                           ],
                         ),
@@ -584,81 +463,6 @@ class _WebReportPanelState extends State<_WebReportPanel> {
           ),
         ),
       ],
-    );
-  }
-}
-
-/// Board `.btn` and `.btn3`: 40 px buttons, 15 px label.
-class _ReportButton extends StatelessWidget {
-  const _ReportButton({
-    required this.label,
-    required this.onPressed,
-    this.solid = false,
-    this.keyHint,
-    this.busy = false,
-  });
-  final String label;
-  final VoidCallback? onPressed;
-  final bool solid;
-  final String? keyHint;
-  final bool busy;
-  @override
-  Widget build(BuildContext context) {
-    final t = context.webTokens;
-    final off = onPressed == null && !busy;
-    final showHint = keyHintShown(context, keyHint);
-    return TextButton(
-      onPressed: busy ? null : onPressed,
-      style: TextButton.styleFrom(
-        minimumSize: const Size(0, PantasSize.iconBtnMd),
-        padding: EdgeInsets.only(
-          left: solid ? PantasSpace.s20 : PantasSpace.s14,
-          right: solid
-              ? (showHint ? PantasSpace.s14 : PantasSpace.s20)
-              : PantasSpace.s14,
-        ),
-        visualDensity: VisualDensity.standard,
-        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-        overlayColor: Colors.transparent,
-        backgroundColor: !solid
-            ? Colors.transparent
-            : off
-                ? t.colors.fill
-                : t.colors.accentFill,
-        foregroundColor: !solid
-            ? t.colors.textSecondary
-            : off
-                ? t.colors.textDisabled
-                : t.colors.onAccent,
-        disabledBackgroundColor:
-            solid && !busy ? t.colors.fill : t.colors.accentFill,
-        disabledForegroundColor:
-            solid && !busy ? t.colors.textDisabled : t.colors.onAccent,
-        textStyle: PantasType.webLink,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(PantasRadius.md),
-        ),
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          if (busy) ...[
-            SizedBox.square(
-              dimension: PantasSpace.s16,
-              child: CircularProgressIndicator(
-                strokeWidth: PantasBorder.ringSelected,
-                color: t.colors.onAccent,
-              ),
-            ),
-            const SizedBox(width: PantasSpace.s8),
-          ],
-          Text(label),
-          if (showHint) ...[
-            const SizedBox(width: PantasSpace.s12),
-            WebKeyHint(keyHint!, onButton: true, enabled: !off),
-          ],
-        ],
-      ),
     );
   }
 }

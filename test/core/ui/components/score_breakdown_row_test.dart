@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/ui/components/accuracy_bar.dart';
 import 'package:pantas/core/ui/components/score_breakdown_row.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 
+import '../../../helpers/ds_matrix.dart';
 import '../motion/preview_curves.dart';
 
 // With no entrance clock, the wide 8 px bar fills like the phone's bar: 600 ms
@@ -89,5 +92,66 @@ void main() {
     expect(fill(tester), .75);
     await tester.pump();
     expect(tester.hasRunningAnimations, isFalse);
+  });
+
+  dsMatrix(
+    'stat row with a value text: name, subtitle, value, chevron and bar',
+    (context) => const SizedBox(
+      width: 358,
+      child: Column(
+        children: [
+          ScoreBreakdownRow.value(
+            name: 'Mathematics',
+            subtitle: '12 topics',
+            accuracy: .61,
+            valueText: '61%',
+            chevron: true,
+            divider: true,
+          ),
+          ScoreBreakdownRow.value(
+            name: 'Reading',
+            accuracy: null,
+            divider: false,
+          ),
+        ],
+      ),
+    ),
+    check: (tester, cell) async {
+      final palette = cell.dark ? PantasColors.dark : PantasColors.light;
+      expect(find.text('Mathematics'), findsOneWidget);
+      expect(find.text('12 topics'), findsOneWidget);
+      expect(find.text('61%'), findsOneWidget);
+      // The value is 16/600 in the primary ink.
+      final value = tester.widget<Text>(find.text('61%'));
+      expect(value.style!.fontWeight, FontWeight.w600);
+      expect(value.style!.color, palette.textPrimary);
+      // No data: the words, in secondary ink at 400, never 0%.
+      final empty = tester.widget<Text>(find.text('No data'));
+      expect(empty.style!.color, palette.textSecondary);
+      expect(empty.style!.fontWeight, FontWeight.w400);
+      expect(find.text('0%'), findsNothing);
+      // The empty row has a track and no fill.
+      expect(find.byType(AccuracyBar), findsOneWidget);
+      expect(find.byKey(const ValueKey('accuracy-bar-fill')), findsOneWidget);
+    },
+  );
+
+  testWidgets('the existing correct-of-total look is unchanged',
+      (tester) async {
+    await pumpDs(
+      tester,
+      dsCells.first,
+      const SizedBox(
+        width: 358,
+        child: ScoreBreakdownRow(
+          name: 'Algebra',
+          correct: 3,
+          total: 4,
+          divider: false,
+        ),
+      ),
+    );
+    expect(find.text('3 / 4'), findsOneWidget);
+    expect(find.text('75%'), findsOneWidget);
   });
 }

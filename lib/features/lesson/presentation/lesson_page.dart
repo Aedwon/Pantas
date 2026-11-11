@@ -1416,6 +1416,7 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody>
     }
     return PantasSheet(
       label: 'Contents',
+      closeLabel: 'Close',
       readerContents: true,
       scrollable: false,
       open: _contentsOpen,

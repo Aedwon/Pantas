@@ -190,11 +190,10 @@ void main() {
       return (material.shape! as OutlinedBorder).side;
     }
 
+    // The segmented control is one Tab stop: only the selected segment.
     final stops = [
       find.text('Home'),
       find.text('Subjects'),
-      find.text('Topics'),
-      find.text('Lessons'),
       find.text('Plain'),
       find.text('See more'),
     ];

@@ -4,6 +4,7 @@ import 'dart:ui' show SemanticsRole;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:pantas/core/ui/components/pantas_shadows.dart';
+import 'package:pantas/core/ui/components/typeahead_buffer.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_border.dart';
@@ -51,7 +52,11 @@ class PantasPopoverController extends ChangeNotifier {
 /// above when there is no room below. It opens in 240ms: it rises 8 and fades
 /// in on `motion-move`. Under reduced motion it fades in place over 150ms.
 /// Esc, an outside tap and a chosen item close it. Up and Down move between
-/// the items and wrap. The popover sits above modals (`z-popover`).
+/// the items and wrap, skipping disabled ones. Home and End jump to the first
+/// and last, typing letters jumps to the item that starts with them, and Tab
+/// closes it. Down Arrow on the trigger opens it. Focus goes to the selected
+/// item, or the first, when it opens, and returns to the trigger when it
+/// closes. The popover sits above modals (`z-popover`).
 ///
 /// Build the content from [PantasPopoverItem], [PantasPopoverSeparator] and
 /// [PantasPopoverEmpty]. The trigger is the caller's: it should carry
@@ -103,15 +108,22 @@ class _PantasPopoverState extends State<PantasPopover>
   final OverlayPortalController _portal = OverlayPortalController();
   final LayerLink _link = LayerLink();
   final FocusScopeNode _scope = FocusScopeNode(debugLabel: 'popover');
-  late final AnimationController _motion = AnimationController(
-    vsync: this,
-    duration: PantasDurations.medium1,
-  );
+  final _ItemRegistry _items = _ItemRegistry();
+  final TypeaheadBuffer _typed = TypeaheadBuffer();
+  late final AnimationController _motion;
   PantasPopoverSide _side = PantasPopoverSide.below;
+
+  /// The control that had focus when the popover opened: Esc, Tab and a
+  /// chosen item hand focus back to it.
+  FocusNode? _returnTo;
 
   @override
   void initState() {
     super.initState();
+    _motion = AnimationController(
+      vsync: this,
+      duration: PantasDurations.medium1,
+    );
     widget.controller.addListener(_sync);
     if (widget.controller.isOpen) _show();
   }
@@ -153,23 +165,127 @@ class _PantasPopoverState extends State<PantasPopover>
           ? PantasPopoverSide.above
           : PantasPopoverSide.below;
     }
+    final focus = FocusManager.instance.primaryFocus;
+    _returnTo = focus != null && focus != _scope ? focus : null;
+    _typed.reset();
     _portal.show();
     if (MediaQuery.disableAnimationsOf(context)) {
-      _motion.value = 1;
+      // Reduced motion: a 150 ms fade in place, no rise (R2).
+      _motion.value = 0;
+      unawaited(
+        _motion.animateTo(
+          1,
+          duration: PantasDurations.short2,
+        ),
+      );
     } else {
       unawaited(_motion.forward(from: 0));
+    }
+    WidgetsBinding.instance.addPostFrameCallback((_) => _focusFirst());
+  }
+
+  /// Puts focus on the selected item, or the first enabled one.
+  void _focusFirst() {
+    if (!mounted || !widget.controller.isOpen) return;
+    final items = _items.focusable(_scope);
+    if (items.isEmpty) return;
+    final selected = items.where(_items.isSelected);
+    (selected.isNotEmpty ? selected.first : items.first).requestFocus();
+  }
+
+  /// Hands focus back to the control that opened the popover.
+  void _returnFocus() {
+    final node = _returnTo;
+    _returnTo = null;
+    if (node != null && node.context != null && node.canRequestFocus) {
+      node.requestFocus();
     }
   }
 
   Future<void> _hide() async {
     if (!_portal.isShowing) return;
-    if (!MediaQuery.disableAnimationsOf(context)) {
+    _returnFocus();
+    if (MediaQuery.disableAnimationsOf(context)) {
+      await _motion.animateTo(
+        0,
+        duration: PantasDurations.short2,
+      );
+    } else {
       await _motion.reverse();
     }
     if (mounted) {
       _portal.hide();
       widget.onClosed?.call();
     }
+  }
+
+  void _moveTo(int Function(int count, int current) next) {
+    final items = _items.focusable(_scope);
+    if (items.isEmpty) return;
+    final current = items.indexWhere((n) => n.hasFocus);
+    items[next(items.length, current)].requestFocus();
+  }
+
+  KeyEventResult _onKey(FocusNode node, KeyEvent event) {
+    if (event is KeyUpEvent) return KeyEventResult.ignored;
+    final keys = HardwareKeyboard.instance;
+    if (keys.isControlPressed || keys.isAltPressed || keys.isMetaPressed) {
+      return KeyEventResult.ignored;
+    }
+    final key = event.logicalKey;
+    if (key == LogicalKeyboardKey.escape) {
+      widget.controller.close();
+      return KeyEventResult.handled;
+    }
+    if (key == LogicalKeyboardKey.tab) {
+      // Tab closes it and moves on from the trigger.
+      final origin = _returnTo;
+      widget.controller.close();
+      if (origin != null && origin.context != null) {
+        if (keys.isShiftPressed) {
+          origin.previousFocus();
+        } else {
+          origin.nextFocus();
+        }
+        _returnTo = null;
+      }
+      return KeyEventResult.handled;
+    }
+    if (key == LogicalKeyboardKey.arrowDown) {
+      _moveTo((count, current) => (current + 1) % count);
+    } else if (key == LogicalKeyboardKey.arrowUp) {
+      _moveTo(
+        (count, current) => current < 0 ? count - 1 : (current - 1) % count,
+      );
+    } else if (key == LogicalKeyboardKey.home) {
+      _moveTo((count, current) => 0);
+    } else if (key == LogicalKeyboardKey.end) {
+      _moveTo((count, current) => count - 1);
+    } else if (TypeaheadBuffer.accepts(event)) {
+      // Typeahead: letters jump to the item that starts with them. It is a
+      // text-entry aid inside an open list, so the letter-shortcuts setting
+      // does not gate it.
+      final items = _items.focusable(_scope);
+      final at = _typed.searchEvent(
+        event,
+        [for (final n in items) _items.labelOf(n)],
+      );
+      if (at != null) items[at].requestFocus();
+    } else {
+      return KeyEventResult.ignored;
+    }
+    return KeyEventResult.handled;
+  }
+
+  /// Down Arrow on the trigger opens the popover.
+  KeyEventResult _onTriggerKey(FocusNode node, KeyEvent event) {
+    if (event is KeyDownEvent &&
+        event.logicalKey == LogicalKeyboardKey.arrowDown &&
+        !widget.controller.isOpen) {
+      widget.controller.open();
+      return KeyEventResult.handled;
+    }
+    return KeyEventResult.ignored;
   }
 
   @override
@@ -179,7 +295,12 @@ class _PantasPopoverState extends State<PantasPopover>
           controller: _portal,
           overlayLocation: OverlayChildLocation.rootOverlay,
           overlayChildBuilder: _overlay,
-          child: widget.trigger,
+          child: Focus(
+            canRequestFocus: false,
+            skipTraversal: true,
+            onKeyEvent: _onTriggerKey,
+            child: widget.trigger,
+          ),
         ),
       );
 
@@ -222,35 +343,25 @@ class _PantasPopoverState extends State<PantasPopover>
                 ),
               );
             },
-            child: CallbackShortcuts(
-              bindings: {
-                const SingleActivator(LogicalKeyboardKey.escape):
-                    widget.controller.close,
-                const SingleActivator(LogicalKeyboardKey.arrowDown): () =>
-                    _scope.focusInDirection(TraversalDirection.down) ||
-                    _scope.nextFocus(),
-                const SingleActivator(LogicalKeyboardKey.arrowUp): () =>
-                    _scope.focusInDirection(TraversalDirection.up) ||
-                    _scope.previousFocus(),
-              },
-              child: FocusScope(
-                node: _scope,
-                autofocus: true,
-                child: Semantics(
-                  role: role,
-                  label: widget.label,
-                  explicitChildNodes: true,
-                  child: _PopoverRoleScope(
-                    role: widget.role,
-                    child: _PopoverSurface(
-                      maxWidth: width < PantasPopover.maxWidth
-                          ? width
-                          : PantasPopover.maxWidth,
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: widget.children,
-                      ),
+            child: FocusScope(
+              node: _scope,
+              autofocus: true,
+              onKeyEvent: _onKey,
+              child: Semantics(
+                role: role,
+                label: widget.label,
+                explicitChildNodes: true,
+                child: _PopoverRoleScope(
+                  role: widget.role,
+                  items: _items,
+                  child: _PopoverSurface(
+                    maxWidth: width < PantasPopover.maxWidth
+                        ? width
+                        : PantasPopover.maxWidth,
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: widget.children,
                     ),
                   ),
                 ),
@@ -265,9 +376,19 @@ class _PantasPopoverState extends State<PantasPopover>
 
 /// Tells the items which recipe they sit in, so each takes the right role.
 class _PopoverRoleScope extends InheritedWidget {
-  const _PopoverRoleScope({required this.role, required super.child});
+  const _PopoverRoleScope({
+    required this.role,
+    required this.items,
+    required super.child,
+  });
 
   final PantasPopoverRole role;
+
+  /// The items that are on screen, for keys and typeahead.
+  final _ItemRegistry items;
+
+  static _ItemRegistry? registryOf(BuildContext context) =>
+      context.getInheritedWidgetOfExactType<_PopoverRoleScope>()?.items;
 
   static PantasPopoverRole of(BuildContext context) =>
       context.dependOnInheritedWidgetOfExactType<_PopoverRoleScope>()?.role ??
@@ -276,6 +397,28 @@ class _PopoverRoleScope extends InheritedWidget {
   @override
   bool updateShouldNotify(_PopoverRoleScope oldWidget) =>
       oldWidget.role != role;
+}
+
+/// What each item tells the popover so keys can move between them: its label
+/// for typeahead and whether it is the selected one.
+class _ItemRegistry {
+  final Map<FocusNode, ({String label, bool selected})> _entries = {};
+
+  void add(FocusNode node, String label, {required bool selected}) =>
+      _entries[node] = (label: label, selected: selected);
+
+  void remove(FocusNode node) => _entries.remove(node);
+
+  String labelOf(FocusNode node) => _entries[node]?.label ?? '';
+
+  bool isSelected(FocusNode node) => _entries[node]?.selected ?? false;
+
+  /// The enabled items in tree order. A disabled item cannot take focus, so
+  /// it is not here, and the arrow keys skip it.
+  List<FocusNode> focusable(FocusScopeNode scope) => [
+        for (final node in scope.traversalDescendants)
+          if (_entries.containsKey(node)) node,
+      ];
 }
 
 /// `surface-card`, radius `radius-lg`, padding 6, `elev-popover`, 200 to 380
@@ -343,8 +486,30 @@ class PantasPopoverItem extends StatefulWidget {
 }
 
 class _PantasPopoverItemState extends State<PantasPopoverItem> {
+  final FocusNode _node = FocusNode(debugLabel: 'popover item');
+  _ItemRegistry? _registry;
   bool _hover = false;
   bool _focus = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _registry = _PopoverRoleScope.registryOf(context)
+      ?..add(_node, widget.label, selected: widget.selected);
+  }
+
+  @override
+  void didUpdateWidget(PantasPopoverItem oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    _registry?.add(_node, widget.label, selected: widget.selected);
+  }
+
+  @override
+  void dispose() {
+    _registry?.remove(_node);
+    _node.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -391,6 +556,7 @@ class _PantasPopoverItemState extends State<PantasPopoverItem> {
               behavior: HitTestBehavior.opaque,
               onTap: widget.onPressed,
               child: Focus(
+                focusNode: _node,
                 canRequestFocus: !disabled,
                 onFocusChange: (focused) => setState(() => _focus = focused),
                 onKeyEvent: (node, event) {

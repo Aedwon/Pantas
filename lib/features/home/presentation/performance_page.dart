@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:pantas/core/ui/components/accuracy_bar.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/half_ring_gauge.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
@@ -11,9 +10,9 @@ import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/components/pantas_sheet.dart';
 import 'package:pantas/core/ui/components/pantas_tap_area.dart';
 import 'package:pantas/core/ui/components/pro_paused_line.dart';
+import 'package:pantas/core/ui/components/score_breakdown_row.dart';
 import 'package:pantas/core/ui/components/segmented_switch.dart';
 import 'package:pantas/core/ui/components/sort_cycle_button.dart';
-import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/motion/view_swap.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
@@ -398,6 +397,7 @@ class _PerformancePageState extends State<PerformancePage> {
     return PantasSheet(
       page: page,
       label: 'Subjects',
+      closeLabel: 'Cancel',
       open: _picker,
       onDismiss: () => setState(() => _picker = false),
       readerContents: true,
@@ -435,8 +435,8 @@ class _PerformancePageState extends State<PerformancePage> {
   }
 }
 
-/// Board (DT_TopicsA): 12/16 padding, the percent in 17 px semibold and a 5 px
-/// bar 8 px under the title.
+/// A phone Performance row: the system StatRow with a subtitle and a chevron
+/// (the link variant). The whole row opens the view.
 class _PerformanceRow extends StatelessWidget {
   const _PerformanceRow({
     required this.title,
@@ -452,65 +452,16 @@ class _PerformanceRow extends StatelessWidget {
   final VoidCallback onTap;
 
   @override
-  Widget build(BuildContext context) {
-    final c = context.colors;
-    return MergeSemantics(
-      child: PantasTapArea(
-        onTap: onTap,
-        child: Container(
-          padding: const EdgeInsets.symmetric(
-            horizontal: PantasSpace.s16,
-            vertical: PantasSpace.s12,
-          ),
-          decoration: BoxDecoration(
-            border: divider
-                ? Border(bottom: BorderSide(color: c.divider, width: .5))
-                : null,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Row(
-                children: [
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          title,
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          style: context.type.body,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: PantasSpace.s2),
-                          child: Text(
-                            subtitle,
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                            style: context.type.footnote,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(width: PantasSpace.s8),
-                  Text(
-                    '${(accuracy * 100).round()}%',
-                    style: context.type.emphasized.copyWith(
-                      fontFeatures: const [FontFeature.tabularFigures()],
-                    ),
-                  ),
-                  const SizedBox(width: PantasSpace.s8),
-                  Icon(PantasIcons.next, size: 14, color: c.iconChevron),
-                ],
-              ),
-              const SizedBox(height: PantasSpace.s8),
-              AccuracyBar(accuracy: accuracy),
-            ],
+  Widget build(BuildContext context) => MergeSemantics(
+        child: PantasTapArea(
+          onTap: onTap,
+          child: ScoreBreakdownRow.value(
+            name: title,
+            subtitle: subtitle,
+            accuracy: accuracy,
+            chevron: true,
+            divider: divider,
           ),
         ),
-      ),
-    );
-  }
+      );
 }

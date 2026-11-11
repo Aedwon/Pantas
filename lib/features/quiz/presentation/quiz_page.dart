@@ -23,9 +23,11 @@ import 'package:pantas/core/ui/components/new_design/question_card.dart';
 import 'package:pantas/core/ui/components/new_design/question_grid_sheet.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_icon_button.dart';
+import 'package:pantas/core/ui/components/pantas_sheet.dart';
 import 'package:pantas/core/ui/components/pantas_tap_area.dart';
 import 'package:pantas/core/ui/components/pro_paused_line.dart';
 import 'package:pantas/core/ui/components/question_count.dart';
+import 'package:pantas/core/ui/components/question_navigator_grid.dart';
 import 'package:pantas/core/ui/components/report_form.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
@@ -35,7 +37,6 @@ import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/lesson_text_scale.dart';
-import 'package:pantas/core/ui/theme/tokens/pantas_border.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
@@ -46,6 +47,7 @@ import 'package:pantas/core/ui/web/letter_shortcuts.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_key_focus.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/core/ui/web/web_question.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/paywall/application/paywall_providers.dart';
 import 'package:pantas/features/paywall/domain/entitlement.dart';
@@ -428,6 +430,91 @@ class _QuestionHeaderTrailing extends InheritedWidget {
       oldWidget.questionId != questionId || oldWidget.trailing != trailing;
 }
 
+/// Opens the passage in the phone Sheet. The page owns the Sheet, because it
+/// covers the whole screen; the question asks for it through this.
+class _PassageSheetHost extends InheritedWidget {
+  const _PassageSheetHost({required this.show, required super.child});
+  final ValueChanged<Passage> show;
+
+  static ValueChanged<Passage>? of(BuildContext context) =>
+      context.getInheritedWidgetOfExactType<_PassageSheetHost>()?.show;
+
+  @override
+  bool updateShouldNotify(_PassageSheetHost oldWidget) => false;
+}
+
+/// Passages longer than this many words open in a Sheet instead of expanding
+/// in place (Passage README, "about 300 words").
+// ds-board: Passage README, "passages over about 300 words keep the Sheet"
+const int _passageSheetWords = 300;
+
+/// The words in a passage's text.
+int passageWordCount(String text) =>
+    text.trim().isEmpty ? 0 : text.trim().split(RegExp(r'\s+')).length;
+
+/// The phone passage: four lines and "Show Full Passage". A short passage
+/// expands in place, so the stem stays on the same scroll; a long one opens in
+/// the Sheet.
+class _PhonePassage extends StatefulWidget {
+  const _PhonePassage({required this.passage});
+  final Passage passage;
+
+  /// The lines the passage collapses to.
+  static const int collapsedLines = 4;
+
+  @override
+  State<_PhonePassage> createState() => _PhonePassageState();
+}
+
+class _PhonePassageState extends State<_PhonePassage> {
+  bool _expanded = false;
+
+  @override
+  Widget build(BuildContext context) {
+    final passage = widget.passage;
+    final long = passageWordCount(passage.body) > _passageSheetWords;
+    return passage_ui.PassageCard(
+      title: passage.title,
+      text: passage.body,
+      maxLines: _expanded ? null : _PhonePassage.collapsedLines,
+      footer: Semantics(
+        expanded: long ? null : _expanded,
+        child: WebTextLink(
+          label: _expanded ? 'Show Less' : 'Show Full Passage',
+          arrow: false,
+          style: PantasType.phoneFootnote.copyWith(
+            fontWeight: FontWeight.w600,
+          ),
+          onPressed: () {
+            if (long) {
+              _PassageSheetHost.of(context)?.call(passage);
+            } else {
+              setState(() => _expanded = !_expanded);
+            }
+          },
+        ),
+      ),
+    );
+  }
+}
+
+/// What the page hands the question on wide web for the explanation Drawer
+/// below 1134: the foot's counter and the bar's action, and the signal back
+/// when the Drawer opens or closes.
+class _ExplanationHost extends InheritedWidget {
+  const _ExplanationHost({required this.drawer, required super.child});
+  final ExplanationDrawer drawer;
+
+  static ExplanationDrawer? of(BuildContext context) =>
+      context.dependOnInheritedWidgetOfExactType<_ExplanationHost>()?.drawer;
+
+  @override
+  bool updateShouldNotify(_ExplanationHost oldWidget) =>
+      oldWidget.drawer.counter != drawer.counter ||
+      oldWidget.drawer.actionLabel != drawer.actionLabel ||
+      oldWidget.drawer.busy != drawer.busy;
+}
+
 class _QuestionContent extends ConsumerWidget {
   const _QuestionContent({
     required this.question,
@@ -463,6 +550,7 @@ class _QuestionContent extends ConsumerWidget {
         pro: proIsActive,
         proPaused: proPaused,
         passage: passage,
+        drawer: _ExplanationHost.of(context),
         passagePosition: passage == null || running is! QuizRunning
             ? null
             : (
@@ -492,12 +580,7 @@ class _QuestionContent extends ConsumerWidget {
                     .valueOrNull ??
                 '',
             stem: question.stem,
-            passage: passage == null
-                ? null
-                : passage_ui.PassageCard(
-                    title: passage!.title,
-                    text: passage!.body,
-                  ),
+            passage: passage == null ? null : _PhonePassage(passage: passage!),
             figure: question.figureSpecJson == null
                 ? null
                 : QuestionFigure(specJson: question.figureSpecJson),
@@ -534,6 +617,9 @@ class _QuestionContent extends ConsumerWidget {
               pickedLetter: picked?.label,
               wrongPick:
                   proIsActive && !outcome!.isCorrect ? picked?.rationale : null,
+              onShowPassage: passage == null
+                  ? null
+                  : () => _PassageSheetHost.of(context)?.call(passage!),
             ),
             if (proPaused && !outcome!.isCorrect) ...[
               const SizedBox(height: PantasSpace.s12),
@@ -597,6 +683,38 @@ class _QuizPageState extends ConsumerState<QuizPage> {
   Timer? _reportTimer;
   final LayerLink _barLink = LayerLink();
 
+  /// The explanation Drawer is open (below 1134): the bar's main action is
+  /// hidden, and closing the Drawer returns focus to it.
+  bool _explanationOpen = false;
+
+  /// The phone passage Sheet: open, and which passage it shows.
+  bool _passageSheetOpen = false;
+  Passage? _sheetPassage;
+  final FocusScopeNode _barActionScope = FocusScopeNode(
+    debugLabel: 'bar action',
+  );
+
+  /// The bar's current action, so the Drawer's foot runs the same one.
+  VoidCallback? _barAction;
+
+  void _runBarAction() => _barAction?.call();
+
+  void _explanationChanged(bool open) {
+    if (!mounted || _explanationOpen == open) return;
+    setState(() => _explanationOpen = open);
+    if (!open) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (!mounted) return;
+        for (final node in _barActionScope.traversalDescendants) {
+          if (node.canRequestFocus) {
+            node.requestFocus();
+            return;
+          }
+        }
+      });
+    }
+  }
+
   @override
   void dispose() {
     _guard?.detach(_allowLeave);
@@ -605,6 +723,7 @@ class _QuizPageState extends ConsumerState<QuizPage> {
     _toastRemove?.cancel();
     _reportTimer?.cancel();
     _questionScroll.dispose();
+    _barActionScope.dispose();
     super.dispose();
   }
 
@@ -785,6 +904,28 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                                 : () => unawaited(_check()))
                             : () => unawaited(_next()),
                   );
+                  // The status line, read once as a status (FloatingBar):
+                  // 13 px, centered, `text-primary` once there is a result.
+                  final hint = Semantics(
+                    liveRegion: true,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: PantasSpace.s4,
+                      ),
+                      child: Text(
+                        _barHint(
+                          outcome: outcome,
+                          picked: state.selectedChoiceId != null,
+                        ),
+                        textAlign: TextAlign.center,
+                        style: PantasType.phoneFootnote.copyWith(
+                          color: outcome == null
+                              ? context.colors.textSecondary
+                              : context.colors.textPrimary,
+                        ),
+                      ),
+                    ),
+                  );
                   final bar = FloatingBar.content(
                     state: outcome == null
                         ? FloatingBarState.neutral
@@ -792,9 +933,12 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                             ? FloatingBarState.right
                             : FloatingBarState.wrong,
                     child: large
+                        // Stacked (FloatingBar, ruling 5): the hint takes its
+                        // own line above the actions.
                         ? Column(
                             mainAxisSize: MainAxisSize.min,
                             children: [
+                              hint,
                               Row(
                                 children: [
                                   Expanded(child: counter),
@@ -806,7 +950,8 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                           )
                         : Row(
                             children: [
-                              Expanded(child: counter),
+                              counter,
+                              Expanded(child: hint),
                               if (!narrow) flag,
                               action,
                             ],
@@ -909,43 +1054,79 @@ class _QuizPageState extends ConsumerState<QuizPage> {
       ),
     );
     final wasGridOpen = _gridOpen;
+    final wasPassageOpen = _passageSheetOpen;
+    final sheetPassage = _sheetPassage;
+    final Widget passageSheetBody = sheetPassage == null
+        ? const SizedBox.shrink()
+        : Padding(
+            padding: const EdgeInsets.fromLTRB(
+              PantasSpace.s20,
+              PantasSpace.s8,
+              PantasSpace.s20,
+              PantasSpace.s16,
+            ),
+            // The Sheet keeps the lesson text scale (Sheet README,
+            // `sheet--reader`).
+            child: LessonTextScale(
+              child: passage_ui.PassageCard(
+                title: sheetPassage.title,
+                text: sheetPassage.body,
+              ),
+            ),
+          );
     return PopScope(
       canPop: _allowPop,
       onPopInvokedWithResult: (didPop, result) {
-        if (!didPop && !wasGridOpen) unawaited(_confirmLeave());
+        if (!didPop && !wasGridOpen && !wasPassageOpen) {
+          unawaited(_confirmLeave());
+        }
       },
-      child: QuestionGridSheet(
-        page: page,
-        open: _gridOpen,
-        onDismiss: () => setState(() => _gridOpen = false),
-        summary: '${session.outcomes.length} of '
-            '${session.questions.length} answered',
-        parts: [
-          QuestionGridPart(
-            title: '',
-            questions: [
-              for (var n = 0; n < session.questions.length; n++)
-                GridQuestion(
-                  number: n + 1,
-                  state: n < session.outcomes.length
-                      ? session.outcomes[n].isCorrect
-                          ? GridQuestionState.right
-                          : GridQuestionState.wrong
-                      : GridQuestionState.unreached,
-                  current: n == index,
-                  flagged: flagged.contains(session.questions[n].id),
-                ),
-            ],
-          ),
-        ],
-        onSelected: (number) {
-          if (number - 1 < session.outcomes.length) {
-            _lookAt(number - 1 == session.currentIndex ? null : number - 1);
-          }
-        },
+      // The passage Sheet covers the whole screen, so the page owns it. A
+      // long passage opens here, and so does Show Passage after the reveal.
+      child: PantasSheet(
+        open: _passageSheetOpen,
+        label: 'Passage',
+        closeLabel: 'Close',
+        onDismiss: () => setState(() => _passageSheetOpen = false),
+        page: QuestionGridSheet(
+          page: _PassageSheetHost(show: _showPassageSheet, child: page),
+          open: _gridOpen,
+          onDismiss: () => setState(() => _gridOpen = false),
+          summary: '${session.outcomes.length} of '
+              '${session.questions.length} answered',
+          parts: [
+            QuestionGridPart(
+              title: '',
+              questions: [
+                for (var n = 0; n < session.questions.length; n++)
+                  GridQuestion(
+                    number: n + 1,
+                    // The grid shows progress, not scores: a right and a wrong
+                    // answer look the same (QuestionNavigator README).
+                    state: n < session.outcomes.length
+                        ? GridQuestionState.answered
+                        : GridQuestionState.unreached,
+                    current: n == index,
+                    flagged: flagged.contains(session.questions[n].id),
+                  ),
+              ],
+            ),
+          ],
+          onSelected: (number) {
+            if (number - 1 < session.outcomes.length) {
+              _lookAt(number - 1 == session.currentIndex ? null : number - 1);
+            }
+          },
+        ),
+        child: passageSheetBody,
       ),
     );
   }
+
+  void _showPassageSheet(Passage passage) => setState(() {
+        _sheetPassage = passage;
+        _passageSheetOpen = true;
+      });
 
   Widget _webPage(
     QuizRunning state,
@@ -985,6 +1166,8 @@ class _QuizPageState extends ConsumerState<QuizPage> {
         unawaited(_next());
       }
     }
+
+    _barAction = action;
 
     // The question grid opens over the spot the toast sits on. The grid wins:
     // the toast leaves, so the grid is whole and the flagged cell shows what
@@ -1130,10 +1313,19 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                           ),
                           child: Column(
                             children: [
-                              _PreparedQuestionStage(
-                                proIsActive: pro,
-                                proPaused: paused,
-                                viewIndex: _viewIndex,
+                              _ExplanationHost(
+                                drawer: ExplanationDrawer(
+                                  counter: '${index + 1} of $total',
+                                  actionLabel: label,
+                                  onAction: _runBarAction,
+                                  busy: state.checking,
+                                  onOpenChanged: _explanationChanged,
+                                ),
+                                child: _PreparedQuestionStage(
+                                  proIsActive: pro,
+                                  proPaused: paused,
+                                  viewIndex: _viewIndex,
+                                ),
                               ),
                               if (_retryWrite != null)
                                 saveFailureLine(
@@ -1221,17 +1413,32 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                                     ),
                                   ),
                                   const SizedBox(width: PantasSpace.s6),
-                                  WebButton(
-                                    label: label,
-                                    pill: true,
-                                    keyHint: 'Enter',
-                                    busy: state.checking,
-                                    onPressed: state.checking ||
-                                            (!lookingBack &&
-                                                outcome == null &&
-                                                state.selectedChoiceId == null)
-                                        ? null
-                                        : action,
+                                  // While the explanation Drawer is open its
+                                  // foot has the action, so the bar's is
+                                  // hidden. It stays mounted, so focus can
+                                  // return to it.
+                                  FocusScope(
+                                    node: _barActionScope,
+                                    child: ExcludeFocus(
+                                      excluding: _explanationOpen,
+                                      child: Visibility(
+                                        visible: !_explanationOpen,
+                                        maintainState: true,
+                                        child: WebButton(
+                                          label: label,
+                                          pill: true,
+                                          keyHint: 'Enter',
+                                          busy: state.checking,
+                                          onPressed: state.checking ||
+                                                  (!lookingBack &&
+                                                      outcome == null &&
+                                                      state.selectedChoiceId ==
+                                                          null)
+                                              ? null
+                                              : action,
+                                        ),
+                                      ),
+                                    ),
                                   ),
                                 ],
                               ),
@@ -1284,40 +1491,37 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                                       constraints: const BoxConstraints(
                                         maxHeight: 360,
                                       ),
-                                      // Board QS_Grid: five equal columns,
-                                      // 44 px cells 8 px apart. The dark edge
-                                      // marks the question on screen.
-                                      child: GridView.count(
-                                        crossAxisCount: 5,
-                                        mainAxisSpacing: PantasSpace.s8,
-                                        crossAxisSpacing: PantasSpace.s8,
-                                        shrinkWrap: true,
-                                        padding: EdgeInsets.zero,
-                                        children: [
-                                          for (var n = 0;
-                                              n < session.questions.length;
-                                              n++)
-                                            _WebGridCell(
-                                              key: ValueKey(
-                                                'web-grid-question-$n',
+                                      // QuestionNavigator: six columns of
+                                      // 36 px chips, 8 apart. It shows
+                                      // progress only: no right or wrong
+                                      // tint during a session.
+                                      child: SingleChildScrollView(
+                                        child: QuestionNavigatorGrid(
+                                          questions: [
+                                            for (var n = 0;
+                                                n < session.questions.length;
+                                                n++)
+                                              NavigatorQuestion(
+                                                number: n + 1,
+                                                answered:
+                                                    n < session.outcomes.length,
+                                                current: n == index,
+                                                flagged: flagged.contains(
+                                                  session.questions[n].id,
+                                                ),
+                                                enabled: n <=
+                                                    session.outcomes.length,
                                               ),
-                                              number: n + 1,
-                                              outcome:
-                                                  n < session.outcomes.length
-                                                      ? session.outcomes[n]
-                                                      : null,
-                                              onScreen: n == index,
-                                              flagged: flagged.contains(
-                                                session.questions[n].id,
-                                              ),
-                                              onPressed: n <=
-                                                      session.outcomes.length
-                                                  ? () => _lookAt(
-                                                        n == current ? null : n,
-                                                      )
-                                                  : null,
-                                            ),
-                                        ],
+                                          ],
+                                          chipKey: (n) => ValueKey(
+                                            'web-grid-question-$n',
+                                          ),
+                                          onSelected: (number) => _lookAt(
+                                            number - 1 == current
+                                                ? null
+                                                : number - 1,
+                                          ),
+                                        ),
                                       ),
                                     ),
                                     const SizedBox(height: PantasSpace.s14),
@@ -1696,94 +1900,6 @@ class _QuizPageState extends ConsumerState<QuizPage> {
     } else {
       context.go('/quiz');
     }
-  }
-}
-
-/// One number in the wide question navigator (board QS_Grid): tinted by how
-/// it was answered, a hairline outline while unanswered, and a dark edge on
-/// the question on screen. It is disabled until the question is answered.
-class _WebGridCell extends StatelessWidget {
-  const _WebGridCell({
-    required this.number,
-    required this.outcome,
-    required this.onScreen,
-    required this.onPressed,
-    this.flagged = false,
-    super.key,
-  });
-  final int number;
-  final AnswerOutcome? outcome;
-  final bool onScreen;
-  final bool flagged;
-  final VoidCallback? onPressed;
-
-  @override
-  Widget build(BuildContext context) {
-    final t = context.webTokens;
-    final answered = outcome != null;
-    final right = outcome?.isCorrect ?? false;
-    final enabled = onPressed != null;
-    final radius = BorderRadius.circular(PantasRadius.md);
-    final border = onScreen
-        ? Border.all(
-            color: t.colors.textPrimary,
-            width: PantasBorder.ringSelected,
-          )
-        : answered
-            ? null
-            : Border.all(color: t.colors.divider);
-    final cell = PantasTapArea(
-      onTap: onPressed,
-      borderRadius: radius,
-      child: DecoratedBox(
-        decoration: BoxDecoration(
-          color: !answered || !enabled
-              ? t.colors.surfaceCard
-              : right
-                  ? t.colors.accentTint
-                  : t.colors.dangerTint,
-          borderRadius: radius,
-          border: border,
-        ),
-        child: Center(
-          child: Text(
-            '$number',
-            semanticsLabel: flagged ? '$number, flagged' : null,
-            style: PantasType.webSub.copyWith(
-              fontWeight: onScreen ? FontWeight.w700 : FontWeight.w600,
-              color: !answered || !enabled
-                  ? t.colors.textSecondary
-                  : right
-                      ? t.colors.accent
-                      : t.colors.dangerText,
-            ),
-          ),
-        ),
-      ),
-    );
-    if (!flagged) return cell;
-    // The phone sheet marks a flagged question with a small flag on its cell;
-    // the wide grid does the same, inside the cell so the grid does not
-    // clip it.
-    return Stack(
-      children: [
-        Positioned.fill(child: cell),
-        Positioned(
-          top: PantasSpace.s4,
-          right: PantasSpace.s6,
-          child: IgnorePointer(
-            child: ExcludeSemantics(
-              child: Icon(
-                PantasIcons.flag,
-                key: const ValueKey('web-grid-flag'),
-                size: PantasSpace.s12,
-                color: t.colors.textPrimary,
-              ),
-            ),
-          ),
-        ),
-      ],
-    );
   }
 }
 

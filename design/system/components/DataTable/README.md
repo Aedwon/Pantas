@@ -7,10 +7,10 @@ DataTable lays out results in rows and columns: Record (past mocks) and Performa
 ## Anatomy
 - `.dtable-wrap`: `surface-card`, radius `radius-xl` (18), 1px `edge-card` in dark, scrolls sideways (`overflow-x:auto`) inside the card on narrow screens.
 - Caption: `web-title-sm` (16/600), padding 16 20 8.
-- Header cells: `web-eyebrow` (13/600, uppercase, +0.02em) in `text-secondary`, padding 12 by 16, a `divider` hairline under the row.
+- Header cells (`thead th` only): `web-eyebrow` (13/600, uppercase, +0.02em) in `text-secondary`, padding 12 by 16, a `divider` hairline under the row.
 - Body cells: `web-row-value` (15/400/1.3) in `text-primary`, minimum row height 44 (`size-target-touch`), padding 10 by 16, `divider` hairlines between rows.
 - Numbers `.is-num`: right-aligned, tabular figures, no wrap. One decimal only where the source has one. No data: `.is-empty` "No data" in `text-secondary`, never "0%".
-- The first column is sticky (`position:sticky`, `surface-card` behind it) and the row header (`th scope="row"`). Outer cells pad 20.
+- The first column is sticky (`position:sticky`, `surface-card` behind it) and the row header (`th scope="row"`). Row headers take the body cell style, not the header style (D195). Outer cells pad 20.
 - Sort button `.dtable__sort` in a header: label plus a 14px chevron; hover `text-primary` with an 8% wash; the sorted column's header carries `aria-sort` and turns `text-primary`; descending flips the chevron.
 
 ## Variants and props

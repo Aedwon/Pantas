@@ -616,6 +616,7 @@ class _ComponentGalleryPageState extends State<ComponentGalleryPage> {
             open: _sheet,
             bookmarks: _bookmarks,
             label: 'Gallery sheet',
+            closeLabel: 'Close',
             onDismiss: () => setState(() => _sheet = false),
             child: Padding(
               padding: const EdgeInsets.all(PantasSpace.s20),

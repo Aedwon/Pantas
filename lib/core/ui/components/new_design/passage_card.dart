@@ -12,9 +12,22 @@ import 'package:pantas/core/ui/web/web_layout.dart';
 /// reader body; the phone uses `radius-lg`, padding 16 by 18 and 17/1.55.
 /// Dark adds the 1px `edge-card` edge.
 class PassageCard extends StatelessWidget {
-  const PassageCard({required this.text, this.title, super.key});
+  const PassageCard({
+    required this.text,
+    this.title,
+    this.maxLines,
+    this.footer,
+    super.key,
+  });
   final String text;
   final String? title;
+
+  /// Collapses the text to this many lines with an ellipsis (Passage README,
+  /// `passage--collapsed`: four lines).
+  final int? maxLines;
+
+  /// Drawn under the text: the "Show Full Passage" link.
+  final Widget? footer;
   @override
   Widget build(BuildContext context) {
     final c = context.colors;
@@ -60,10 +73,16 @@ class PassageCard extends StatelessWidget {
             ],
             MathText(
               text,
+              maxLines: maxLines,
+              overflow: maxLines == null ? null : TextOverflow.ellipsis,
               style:
                   (wide ? PantasType.webReaderBody : PantasType.phoneReaderBody)
                       .copyWith(color: c.readerBody),
             ),
+            if (footer != null) ...[
+              const SizedBox(height: PantasSpace.s8),
+              Align(alignment: Alignment.centerLeft, child: footer),
+            ],
           ],
         ),
       ),

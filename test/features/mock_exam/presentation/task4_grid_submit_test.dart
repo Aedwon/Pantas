@@ -46,7 +46,10 @@ void main() {
         child: MaterialApp(
           theme: buildLightTheme(),
           home: MediaQuery(
-            data: const MediaQueryData(disableAnimations: true),
+            data: const MediaQueryData(
+              size: Size(800, 600),
+              disableAnimations: true,
+            ),
             child: MockSessionPage(
               state: state,
               remainingInPart: const Duration(minutes: 48),

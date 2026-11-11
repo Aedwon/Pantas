@@ -231,12 +231,20 @@ void main() {
       expect(dismissed, 1);
     });
 
-    testWidgets('reduced motion shows the dialog at once', (tester) async {
+    testWidgets('reduced motion fades the dialog in place over 150 ms',
+        (tester) async {
       _still(tester);
       await open(tester);
       await mountModal(tester);
       await tester.pump();
       await tester.pump();
+      await tester.pump(const Duration(milliseconds: 75));
+      expect(fade(tester).opacity, closeTo(.5, .02));
+      expect(
+        tester.getCenter(find.byKey(const Key('dialog'))),
+        const Offset(720, 450),
+      );
+      await tester.pump(const Duration(milliseconds: 80));
       expect(fade(tester).opacity, 1);
       expect(
         tester.getCenter(find.byKey(const Key('dialog'))),

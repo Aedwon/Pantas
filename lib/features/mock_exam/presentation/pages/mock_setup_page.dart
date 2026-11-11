@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:pantas/core/content/domain/mock_blueprint.dart';
+import 'package:pantas/core/ui/components/data_table.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_switch.dart';
 import 'package:pantas/core/ui/components/placeholder_figure.dart';
@@ -20,10 +21,6 @@ import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/mock_exam/application/mock_blueprint_providers.dart';
 import 'package:pantas/features/mock_exam/data/blueprint_section.dart';
 import 'package:pantas/features/mock_exam/domain/mock_title.dart';
-
-/// The width of the Items and Time columns of the setup table: the system's
-/// DataTable sets no token for it.
-const _figureColumn = 90.0;
 
 class MockSetupPage extends StatefulWidget {
   const MockSetupPage({
@@ -67,12 +64,7 @@ class _MockSetupPageState extends State<MockSetupPage> {
 
     // MK_SetupCSE and MK_SetupStrict: a green "< Quiz" link, a white table
     // card, a white strict-mode card and a Start button pinned to the bottom.
-    final table = _SetupTable(
-      sections: sections,
-      isSectional: isSectional,
-      total: plannedTotal,
-      durationMinutes: blueprint.durationMinutes,
-    );
+    final table = _SetupTable(sections: sections, sectional: isSectional);
     return Scaffold(
       body: SafeArea(
         child: Stack(
@@ -150,14 +142,7 @@ class _MockSetupPageState extends State<MockSetupPage> {
                         ),
                       ),
                       const SizedBox(height: PantasSpace.s24),
-                      Container(
-                        decoration: BoxDecoration(
-                          color: colors.surface,
-                          borderRadius: BorderRadius.circular(PantasRadius.lg),
-                        ),
-                        clipBehavior: Clip.antiAlias,
-                        child: table.card(context),
-                      ),
+                      table,
                       Padding(
                         padding: const EdgeInsets.fromLTRB(
                           PantasSpace.s16,
@@ -308,83 +293,9 @@ class _MockSetupPageState extends State<MockSetupPage> {
   Widget _wide(BuildContext context, int total, bool sectional) {
     final t = context.webTokens;
     final blueprint = widget.parsedBlueprint.blueprint;
-    final table = WebCard(
-      child: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: PantasSpace.s20,
-              vertical: PantasSpace.s12,
-            ),
-            child: Row(
-              children: [
-                Expanded(child: Text('SECTION', style: t.eb)),
-                SizedBox(
-                  width: _figureColumn,
-                  child: Text('ITEMS', textAlign: TextAlign.right, style: t.eb),
-                ),
-                if (sectional)
-                  SizedBox(
-                    width: _figureColumn,
-                    child:
-                        Text('TIME', textAlign: TextAlign.right, style: t.eb),
-                  ),
-              ],
-            ),
-          ),
-          for (final section in widget.parsedBlueprint.sections)
-            Container(
-              padding: const EdgeInsets.symmetric(
-                horizontal: PantasSpace.s20,
-                vertical: PantasSpace.s14,
-              ),
-              decoration: BoxDecoration(
-                border: Border(
-                  top: BorderSide(color: t.colors.separator, width: .5),
-                ),
-              ),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Text(
-                      section.name,
-                      style: PantasType.webLead
-                          .copyWith(color: t.colors.textPrimary),
-                    ),
-                  ),
-                  SizedBox(
-                    width: _figureColumn,
-                    child: _SetupTable(
-                      sections: const [],
-                      isSectional: sectional,
-                      total: total,
-                      durationMinutes: blueprint.durationMinutes,
-                    )._figure(
-                      context,
-                      section.questionCountFigure,
-                      section.questionCount,
-                    ),
-                  ),
-                  if (sectional)
-                    SizedBox(
-                      width: _figureColumn,
-                      child: _SetupTable(
-                        sections: const [],
-                        isSectional: sectional,
-                        total: total,
-                        durationMinutes: blueprint.durationMinutes,
-                      )._figure(
-                        context,
-                        section.sectionalMinutesFigure,
-                        section.sectionalMinutes,
-                        suffix: ' min',
-                      ),
-                    ),
-                ],
-              ),
-            ),
-        ],
-      ),
+    final table = _SetupTable(
+      sections: widget.parsedBlueprint.sections,
+      sectional: sectional,
     );
     final rules = Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -555,238 +466,55 @@ class _MockSetupPageState extends State<MockSetupPage> {
   }
 }
 
+/// The section table: Section, Items and (for a sectional paper) Time, on the
+/// system DataTable. A figure that is still a development placeholder keeps
+/// its [PlaceholderFigure] and prints its bare value, as it did before.
 class _SetupTable extends StatelessWidget {
-  const _SetupTable({
-    required this.sections,
-    required this.isSectional,
-    required this.total,
-    required this.durationMinutes,
-  });
-
+  const _SetupTable({required this.sections, required this.sectional});
   final List<BlueprintSection> sections;
-  final bool isSectional;
-  final int total;
-  final int durationMinutes;
+  final bool sectional;
 
   @override
   Widget build(BuildContext context) {
-    final colors = context.colors;
-    final type = context.type;
-    return Column(
-      children: [
-        _TableRow(
-          section: Text(
-            'SECTION',
-            style: type.sectionHeader.copyWith(color: colors.secondaryLabel),
-          ),
-          items: Text(
-            'ITEMS',
-            textAlign: TextAlign.end,
-            style: type.sectionHeader.copyWith(color: colors.secondaryLabel),
-          ),
-          time: isSectional
-              ? Text(
-                  'TIME',
-                  textAlign: TextAlign.end,
-                  style:
-                      type.sectionHeader.copyWith(color: colors.secondaryLabel),
-                )
-              : null,
-        ),
-        Divider(color: colors.separator, height: 16),
-        for (final section in sections) ...[
-          _TableRow(
-            section: Text(section.name, style: type.subhead),
-            items: _figure(
-              context,
-              section.questionCountFigure,
-              section.questionCount,
-            ),
-            time: isSectional
-                ? _figure(
-                    context,
-                    section.sectionalMinutesFigure,
-                    section.sectionalMinutes,
-                    suffix: ' min',
-                  )
-                : null,
-          ),
-          Divider(color: colors.separator, height: 16),
-        ],
-        _TableRow(
-          section: Text('Total', style: type.subheadStrong),
-          items: Text(
-            '$total',
-            textAlign: TextAlign.end,
-            style: type.subheadStrong.tabular,
-          ),
-          time: isSectional
-              ? Text(
-                  _shortDuration(durationMinutes),
-                  textAlign: TextAlign.end,
-                  style: type.subheadStrong.tabular,
-                )
-              : null,
-        ),
-      ],
-    );
-  }
+    final scaler = MediaQuery.textScalerOf(context);
+    final direction = Directionality.of(context);
+    Object? figure(BlueprintValue? figure, int? value, {String suffix = ''}) {
+      if (value == null) return null;
+      if (figure?.isPlaceholder ?? false) {
+        final painter = TextPainter(
+          text: TextSpan(text: '$value', style: PantasType.webBody),
+          textDirection: direction,
+          textScaler: scaler,
+        )..layout();
+        final width = painter.width;
+        painter.dispose();
+        return PantasTableCell.widget(
+          PlaceholderFigure(value, reason: figure!.placeholderNote!),
+          width: width,
+          semanticLabel: '$value',
+        );
+      }
+      return '$value$suffix';
+    }
 
-  /// The phone card: no Total row, 12 px caps header, 16 px rows (boards).
-  Widget card(BuildContext context) {
-    final colors = context.colors;
-    Widget row(
-      Widget section,
-      Widget items,
-      Widget? time,
-      EdgeInsets pad, {
-      required bool line,
-    }) {
-      return Container(
-        padding: pad,
-        decoration: BoxDecoration(
-          border: line
-              ? Border(bottom: BorderSide(color: colors.separator, width: .5))
-              : null,
-        ),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.baseline,
-          textBaseline: TextBaseline.alphabetic,
-          children: [
-            Expanded(child: section),
-            SizedBox(width: PantasSpace.s56, child: items),
-            if (time != null) ...[
-              const SizedBox(width: PantasSpace.s8),
-              SizedBox(width: PantasSpace.s56, child: time),
-            ],
+    return PantasDataTable(
+      columns: [
+        const PantasTableColumn('Section'),
+        const PantasTableColumn('Items', numeric: true),
+        if (sectional) const PantasTableColumn('Time', numeric: true),
+      ],
+      rows: [
+        for (final section in sections)
+          [
+            section.name,
+            figure(section.questionCountFigure, section.questionCount),
+            if (sectional)
+              figure(
+                section.sectionalMinutesFigure,
+                section.sectionalMinutes,
+                suffix: ' min',
+              ),
           ],
-        ),
-      );
-    }
-
-    final caps = PantasType.phoneSectionHeader.copyWith(
-      color: colors.textSecondary,
-    );
-    final rowText = PantasType.phoneCallout.copyWith(color: colors.textPrimary);
-    return Column(
-      children: [
-        row(
-          Text('SECTION', style: caps),
-          Text('ITEMS', textAlign: TextAlign.end, style: caps),
-          isSectional
-              ? Text('TIME', textAlign: TextAlign.end, style: caps)
-              : null,
-          const EdgeInsets.fromLTRB(
-            PantasSpace.s16,
-            PantasSpace.s10,
-            PantasSpace.s16,
-            PantasSpace.s8,
-          ),
-          line: true,
-        ),
-        for (var i = 0; i < sections.length; i++)
-          row(
-            Text(
-              sections[i].name,
-              style: rowText,
-            ),
-            _phoneFigure(
-              context,
-              sections[i].questionCountFigure,
-              sections[i].questionCount,
-              rowText.copyWith(color: colors.secondaryLabel).tabular,
-            ),
-            isSectional
-                ? _phoneFigure(
-                    context,
-                    sections[i].sectionalMinutesFigure,
-                    sections[i].sectionalMinutes,
-                    rowText.copyWith(color: colors.secondaryLabel).tabular,
-                    suffix: ' min',
-                  )
-                : null,
-            const EdgeInsets.symmetric(
-              horizontal: PantasSpace.s16,
-              vertical: PantasSpace.s12,
-            ),
-            line: i < sections.length - 1,
-          ),
-      ],
-    );
-  }
-
-  Widget _phoneFigure(
-    BuildContext context,
-    BlueprintValue? figure,
-    int? value,
-    TextStyle style, {
-    String suffix = '',
-  }) {
-    if (value == null) return const SizedBox.shrink();
-    if (figure?.isPlaceholder ?? false) {
-      return Align(
-        alignment: Alignment.centerRight,
-        child: PlaceholderFigure(value, reason: figure!.placeholderNote!),
-      );
-    }
-    return Text('$value$suffix', textAlign: TextAlign.end, style: style);
-  }
-
-  Widget _figure(
-    BuildContext context,
-    BlueprintValue? figure,
-    int? value, {
-    String suffix = '',
-  }) {
-    if (value == null) return const SizedBox.shrink();
-    if (figure?.isPlaceholder ?? false) {
-      return Align(
-        alignment: Alignment.centerRight,
-        child: PlaceholderFigure(
-          value,
-          reason: figure!.placeholderNote!,
-        ),
-      );
-    }
-    return Text(
-      '$value$suffix',
-      textAlign: TextAlign.end,
-      style: context.type.subhead.tabular,
-    );
-  }
-
-  String _shortDuration(int minutes) {
-    final hours = minutes ~/ 60;
-    final remainder = minutes % 60;
-    if (hours == 0) return '$remainder min';
-    if (remainder == 0) return '${hours}h';
-    return '${hours}h ${remainder}m';
-  }
-}
-
-class _TableRow extends StatelessWidget {
-  const _TableRow({
-    required this.section,
-    required this.items,
-    this.time,
-  });
-
-  final Widget section;
-  final Widget items;
-  final Widget? time;
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Expanded(flex: 5, child: section),
-        const SizedBox(width: PantasSpace.s10),
-        Expanded(flex: 2, child: items),
-        if (time != null) ...[
-          const SizedBox(width: PantasSpace.s10),
-          Expanded(flex: 2, child: time!),
-        ],
       ],
     );
   }

@@ -447,26 +447,32 @@ void main() {
       await tester.tap(find.text('Report'));
       await tester.pump();
       final form = find.byType(ReportForm);
-      SlideTransition slide() => tester.widget<SlideTransition>(
-            find
-                .ancestor(of: form, matching: find.byType(SlideTransition))
-                .first,
-          );
+      // The dialog motion (Dialog README): a 24 px rise and a fade; reduced
+      // motion fades in place over 150 ms with no rise.
       if (still) {
+        await tester.pump(const Duration(milliseconds: 60));
+        expect(shown(tester, form), greaterThan(0));
+        expect(shown(tester, form), lessThan(1));
+        final top = tester.getTopLeft(form).dy;
+        await tester.pump(const Duration(milliseconds: 200));
         expect(shown(tester, form), 1);
-        expect(slide().position.value, Offset.zero);
+        expect(tester.getTopLeft(form).dy, top);
         await tester.tap(find.byTooltip('Close report'));
         await tester.pump();
+        await tester.pump(const Duration(milliseconds: 60));
+        expect(form, findsOneWidget);
+        expect(shown(tester, form), lessThan(1));
+        await tester.pumpAndSettle();
         expect(form, findsNothing);
         return;
       }
       await tester.pump(const Duration(milliseconds: 150));
       expect(shown(tester, form), greaterThan(0));
       expect(shown(tester, form), lessThan(1));
-      expect(slide().position.value.dy, greaterThan(0));
+      final rising = tester.getTopLeft(form).dy;
       await tester.pumpAndSettle();
       expect(shown(tester, form), 1);
-      expect(slide().position.value, Offset.zero);
+      expect(tester.getTopLeft(form).dy, lessThan(rising));
       await tester.tap(find.byTooltip('Close report'));
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 150));

@@ -183,6 +183,7 @@ class _SelectedExamHomeState extends ConsumerState<_SelectedExamHome> {
       label: 'Exam date',
       open: _dateSheet != null,
       onDismiss: _closeDate,
+      closeLabel: 'Cancel',
       child: HomeExamDateSheet(
         today: now,
         initial:

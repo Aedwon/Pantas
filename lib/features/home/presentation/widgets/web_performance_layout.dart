@@ -4,6 +4,7 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:pantas/core/ui/components/accuracy_bar.dart';
+import 'package:pantas/core/ui/components/data_table.dart';
 import 'package:pantas/core/ui/components/half_ring_gauge.dart';
 import 'package:pantas/core/ui/components/pantas_shadows.dart';
 import 'package:pantas/core/ui/components/pro_paused_line.dart';
@@ -30,6 +31,10 @@ const double _switcherWidth =
 const double _subjectMenuWidth =
     PantasSpace.s56 * 4 + PantasSpace.s40 + PantasSpace.s8;
 const double _sortMenuWidth = PantasSpace.s56 * 4 + PantasSpace.s8;
+
+/// The accuracy bar column of the Performance table (board PF_*).
+// ds-board: the Performance board draws the bar 160 wide beside its percent
+const double _barColumn = PantasSpace.s40 * 4;
 
 class WebPerformanceLayout extends StatefulWidget {
   const WebPerformanceLayout({
@@ -146,9 +151,9 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
                                     ? null
                                     : [
                                         null,
-                                        const ProTag(),
+                                        const ProMark(),
                                         if (widget.data.lessonLevelAvailable)
-                                          const ProTag(),
+                                          const ProMark(),
                                       ],
                                 selected: widget.level,
                                 onChanged: widget.onLevel,
@@ -248,51 +253,7 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
                                     heading,
                                     kind: WebTextKind.eyebrow,
                                   ),
-                                  WebCard(
-                                    child: Column(
-                                      children: [
-                                        for (final row in widget.rows) ...[
-                                          _row(
-                                            context,
-                                            row,
-                                            // No hairline under the card's last
-                                            // row, unless its topics follow.
-                                            divider: row != widget.rows.last ||
-                                                (widget.level == 0 &&
-                                                    _expanded.contains(row.id)),
-                                            subtitle: widget.level == 0
-                                                ? _topicCount(row.id)
-                                                : row.subtext,
-                                            expanded: widget.level == 0 &&
-                                                _expanded.contains(row.id),
-                                            onPressed: () {
-                                              if (widget.level == 0 &&
-                                                  widget.pro) {
-                                                setState(
-                                                  () => _expanded
-                                                          .contains(row.id)
-                                                      ? _expanded.remove(row.id)
-                                                      : _expanded.add(row.id),
-                                                );
-                                              } else if (widget.level == 0) {
-                                                widget.onLevel(1);
-                                              } else if (widget.level == 1) {
-                                                _open(row.id);
-                                              } else {
-                                                widget.onLesson?.call(row.id);
-                                              }
-                                            },
-                                          ),
-                                          if (widget.level == 0)
-                                            _topics(
-                                              context,
-                                              row,
-                                              last: row == widget.rows.last,
-                                            ),
-                                        ],
-                                      ],
-                                    ),
-                                  ),
+                                  _table(context),
                                 ],
                               ),
                             ),
@@ -458,132 +419,119 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
             : -n;
   }
 
-  /// A subject's topics, sliding open and shut in 240 ms.
-  Widget _topics(
-    BuildContext context,
-    PerformanceRow row, {
-    required bool last,
-  }) {
-    final t = context.webTokens;
-    final shown = _expanded.contains(row.id)
-        ? _topicsFor(row.id)
-        : const <PerformanceRow>[];
-    // Full width, so only the height animates as topics come and go.
-    final topics = SizedBox(
-      width: double.infinity,
-      child: Column(
-        children: [
-          for (final topic in shown)
-            ColoredBox(
-              color: t.colors.surfaceInset,
-              child: _row(
-                context,
-                topic,
-                indent: true,
-                divider: !(last && topic == shown.last),
-                onPressed: () => _open(topic.id),
-              ),
-            ),
-        ],
-      ),
-    );
-    return KeyedSubtree(
-      key: ValueKey('subject-topics-${row.id}'),
-      // A zero-length AnimatedSize re-enters its own layout, so reduced
-      // motion skips it.
-      child: MediaQuery.disableAnimationsOf(context)
-          ? topics
-          : AnimatedSize(
-              duration: PantasDurations.medium1,
-              curve: PantasCurves.move,
-              alignment: Alignment.topCenter,
-              child: topics,
-            ),
-    );
-  }
+  /// The rows of the current view on the system DataTable. A Pro subject row
+  /// opens its topics in place, right under it; a topic or lesson row opens its
+  /// panel; a Free subject row leads to Pro. Accuracy is always a measured
+  /// value: a row with no answers is not listed.
+  Widget _table(BuildContext context) => LayoutBuilder(
+        builder: (context, box) => _tableFor(context, box.maxWidth),
+      );
 
-  Widget _row(
-    BuildContext context,
-    PerformanceRow row, {
-    required VoidCallback onPressed,
-    String? subtitle,
-    bool indent = false,
-    bool expanded = false,
-    bool divider = true,
-  }) {
+  Widget _tableFor(BuildContext context, double width) {
     final t = context.webTokens;
-    // The board indents a topic row 40 px left and keeps 20 px right.
-    return Padding(
-      padding: EdgeInsets.only(left: indent ? PantasSpace.s20 : PantasSpace.s0),
-      child: LayoutBuilder(
-        builder: (context, constraints) => WebRow(
-          boardMetrics: !indent,
-          divider: divider,
-          title: row.title,
-          // A long topic or lesson name wraps instead of ending in dots; the
-          // bar column keeps one width so the bars still line up (2G-12).
-          wrapTitle: true,
-          // The row whose panel is open keeps its tint under the scrim.
-          selected: row.id == _openTopic,
-          compact: indent,
-          subtitle: subtitle,
-          titleStyle:
-              (indent ? PantasType.webBody : PantasType.webRowTitle).copyWith(
-            fontWeight: expanded ? FontWeight.w600 : FontWeight.w400,
-            color: t.colors.textPrimary,
+    final level = widget.level;
+    final rows = widget.rows;
+    // The bar is 80 wide on a row 600 or less wide, 160 otherwise.
+    final barWidth = width > 600 ? _barColumn : _barColumn / 2;
+    final topics = <int, List<PerformanceRow>>{
+      if (level == 0)
+        for (var i = 0; i < rows.length; i++) i: _topicsFor(rows[i].id),
+    };
+    PantasTableCell none() =>
+        const PantasTableCell.widget(SizedBox.shrink(), width: PantasSize.icon);
+    PantasTableCell chevron(PerformanceRow row, {required bool topic}) {
+      if (!widget.pro && level == 0 && !topic) return none();
+      if (level == 0 && !topic) {
+        return PantasTableCell.widget(
+          AnimatedRotation(
+            turns: _expanded.contains(row.id) ? .5 : 0,
+            duration: MediaQuery.disableAnimationsOf(context)
+                ? Duration.zero
+                : PantasDurations.medium1,
+            curve: PantasCurves.move,
+            child: Icon(
+              Icons.keyboard_arrow_down,
+              size: PantasSpace.s16,
+              color: t.colors.iconChevron,
+            ),
           ),
-          onPressed: onPressed,
-          trailing: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              if (widget.level > 0 || indent) ...[
-                SizedBox(
-                  width: PantasSpace.s56 + PantasSpace.s40,
-                  child: Text(
-                    '${row.answered} answered',
-                    textAlign: TextAlign.right,
-                    style: t.sub,
-                  ),
-                ),
-                const SizedBox(width: PantasSpace.s12),
-              ],
-              SizedBox(
-                width: constraints.maxWidth > 600 ? 160 : 80,
-                child: AccuracyBar.topicRows(accuracy: row.accuracy!),
-              ),
-              const SizedBox(width: PantasSpace.s12),
-              SizedBox(
-                width: PantasSpace.s44,
-                child: Text(
-                  '${(row.accuracy! * 100).round()}%',
-                  textAlign: TextAlign.right,
-                  style: PantasType.webTitleSm
-                      .copyWith(color: t.colors.textPrimary),
-                ),
-              ),
-              // The board's Free rows end at the percent: a tap leads to Pro.
-              if (widget.pro || widget.level > 0 || indent)
-                const SizedBox(width: PantasSpace.s12),
-              if (!widget.pro && widget.level == 0 && !indent)
-                const SizedBox.shrink()
-              else if (widget.level == 0 && !indent)
-                AnimatedRotation(
-                  turns: expanded ? .5 : 0,
-                  duration: MediaQuery.disableAnimationsOf(context)
-                      ? Duration.zero
-                      : PantasDurations.medium1,
-                  curve: PantasCurves.move,
-                  child: Icon(
-                    Icons.keyboard_arrow_down,
-                    size: 16,
-                    color: t.colors.iconChevron,
-                  ),
-                )
-              else
-                const WebChevron(),
-            ],
-          ),
+          width: PantasSpace.s16,
+        );
+      }
+      return const PantasTableCell.widget(WebChevron(), width: PantasSpace.s16);
+    }
+
+    List<Object?> cells(PerformanceRow row, {bool topic = false}) {
+      final expanded = level == 0 && !topic && _expanded.contains(row.id);
+      final sub =
+          level == 0 ? (topic ? null : _topicCount(row.id)) : row.subtext;
+      return [
+        PantasTableCell.text(
+          row.title,
+          bold: expanded,
+          indent: topic ? PantasSpace.s20 : 0,
+          subtitle: sub,
         ),
+        if (level > 0 || topic) '${row.answered} answered' else '',
+        PantasTableCell.widget(
+          SizedBox(
+            width: barWidth,
+            child: AccuracyBar.topicRows(accuracy: row.accuracy!),
+          ),
+          width: barWidth,
+        ),
+        '${(row.accuracy! * 100).round()}%',
+        chevron(row, topic: topic),
+      ];
+    }
+
+    final columns = [
+      PantasTableColumn(['Subject', 'Topic', 'Lesson'][level]),
+      const PantasTableColumn('Answered', numeric: true),
+      const PantasTableColumn(''),
+      const PantasTableColumn('Accuracy', numeric: true),
+      const PantasTableColumn(''),
+    ];
+    final selected = rows.indexWhere((r) => r.id == _openTopic);
+    (int, int)? selectedChild;
+    for (final entry in topics.entries) {
+      final k = entry.value.indexWhere((r) => r.id == _openTopic);
+      if (k >= 0 && _expanded.contains(rows[entry.key].id)) {
+        selectedChild = (entry.key, k);
+      }
+    }
+    return KeyedSubtree(
+      key: const ValueKey('performance-table'),
+      child: PantasDataTable(
+        columns: columns,
+        rows: [for (final row in rows) cells(row)],
+        childRows: {
+          for (final e in topics.entries)
+            e.key: [for (final r in e.value) cells(r, topic: true)],
+        },
+        expandedRows: {
+          for (var i = 0; i < rows.length; i++)
+            if (level == 0 && _expanded.contains(rows[i].id)) i,
+        },
+        selectedRow: selected < 0 ? null : selected,
+        selectedChild: selectedChild,
+        onChildTap: (i, k) => _open(topics[i]![k].id),
+        onRowTap: (i) {
+          final row = rows[i];
+          if (level == 0 && widget.pro) {
+            setState(
+              () => _expanded.contains(row.id)
+                  ? _expanded.remove(row.id)
+                  : _expanded.add(row.id),
+            );
+          } else if (level == 0) {
+            widget.onLevel(1);
+          } else if (level == 1) {
+            _open(row.id);
+          } else {
+            widget.onLesson?.call(row.id);
+          }
+        },
       ),
     );
   }

@@ -399,6 +399,7 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
         label: 'How long?',
         open: _lengthOpen,
         onDismiss: () => setState(() => _lengthOpen = false),
+        closeLabel: 'Close',
         child: _length(index, summary, pace),
       ),
     );

@@ -877,9 +877,13 @@ void main() {
       expect(find.byType(ChangeExamPage), findsNothing);
     });
 
-    testWidgets('reduced motion pops at once', (tester) async {
+    testWidgets('reduced motion fades out over 150 ms, then pops',
+        (tester) async {
       final router = await pumpWide(tester, still: true);
       await tester.tapAt(const Offset(20, 20));
+      await tester.pump();
+      expect(onChangePage(router), isTrue);
+      await tester.pump(const Duration(milliseconds: 160));
       await tester.pump();
       expect(onChangePage(router), isFalse);
     });

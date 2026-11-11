@@ -136,9 +136,17 @@ void main() {
     expect(tester.takeException(), isNull);
   });
 
-  testWidgets('reduced motion pops at once', (tester) async {
+  // Rule R2 (Dialog README): reduced motion fades out in place over 150 ms,
+  // then pops.
+  testWidgets('reduced motion fades out in place over 150 ms, then pops',
+      (tester) async {
     final navigator = await pumpDialog(tester, still: true);
     await tester.tap(find.text('Keep My Account'));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 75));
+    expect(navigator.canPop(), isTrue);
+    expect(dialogFade(tester), inExclusiveRange(0, 1));
+    await tester.pump(const Duration(milliseconds: 100));
     await tester.pump();
     expect(navigator.canPop(), isFalse);
     expect(tester.hasRunningAnimations, isFalse);

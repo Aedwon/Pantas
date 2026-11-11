@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart' show Scrollable;
 import 'package:flutter/semantics.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/content/domain/mock_blueprint.dart';
@@ -40,7 +41,11 @@ void main() {
       expect(find.text('CSE Professional simulation'), findsOneWidget);
       expect(find.text('10 total items · 1 hr 30 min'), findsOneWidget);
       expect(find.text('General Information'), findsOneWidget);
-      await tester.scrollUntilVisible(find.text('Start the Mock Exam'), 300);
+      await tester.scrollUntilVisible(
+        find.text('Start the Mock Exam'),
+        300,
+        scrollable: find.byType(Scrollable).first,
+      );
       expect(find.text('Start the Mock Exam'), findsOneWidget);
     },
   );
@@ -73,7 +78,11 @@ void main() {
         onStart: (_) {},
       ),
     );
-    await tester.scrollUntilVisible(find.text('Strict mode'), 300);
+    await tester.scrollUntilVisible(
+      find.text('Strict mode'),
+      300,
+      scrollable: find.byType(Scrollable).first,
+    );
     final semantics = tester.ensureSemantics();
     await tester.pump();
     final node = tester.getSemantics(find.byType(PantasSwitch));
