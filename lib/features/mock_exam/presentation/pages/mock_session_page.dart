@@ -789,7 +789,14 @@ class _MockSessionPageState extends State<MockSessionPage> {
                   ConstrainedBox(
                     // ds-board: Paper board, a later part's grid is cut at 120.
                     constraints: const BoxConstraints(maxHeight: 120),
-                    child: ClipRect(child: faded(part)),
+                    // The grid lays out at its own height and is clipped
+                    // here. Under a tight 120 it overflowed its own rows.
+                    child: UnconstrainedBox(
+                      constrainedAxis: Axis.horizontal,
+                      alignment: Alignment.topCenter,
+                      clipBehavior: Clip.hardEdge,
+                      child: faded(part),
+                    ),
                   )
                 else
                   faded(part),
