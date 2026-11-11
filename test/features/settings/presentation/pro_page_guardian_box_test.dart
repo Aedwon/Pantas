@@ -1,5 +1,8 @@
+import 'dart:ui' show CheckedState;
+
 import 'package:cloud_functions/cloud_functions.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
@@ -24,6 +27,7 @@ import '../../../helpers/pump_app.dart';
 const _label = 'I am the parent or guardian and accept the Terms.';
 const _oldLine = 'Ask your parent or guardian to complete this payment';
 const _buy = 'Buy 1 Month for ₱149';
+const _generic = "We couldn't confirm your subscription. Try again.";
 
 void main() {
   late List<(String, Map<String, Object?>)> calls;
@@ -169,6 +173,19 @@ void main() {
         (w) => w is CheckboxRow && w.title == _label,
       );
 
+  /// The middle of the word Terms inside the label.
+  Offset termsCenter(WidgetTester tester) {
+    final text = tester.renderObject<RenderParagraph>(
+      find.descendant(of: box(), matching: find.byType(RichText)),
+    );
+    const full = 'I am the parent or guardian and accept the Terms.';
+    final start = full.indexOf('Terms');
+    final boxes = text.getBoxesForSelection(
+      TextSelection(baseOffset: start, extentOffset: start + 5),
+    );
+    return text.localToGlobal(boxes.first.toRect().center);
+  }
+
   Future<void> tick(WidgetTester tester) async {
     await tester.ensureVisible(box());
     await tester.tap(box());
@@ -249,8 +266,8 @@ void main() {
     });
 
     testWidgets(
-        'the server refusing the attestation shows the checkout '
-        'failure line, $where', (tester) async {
+        'the server refusing a missing attestation shows its own text, '
+        '$where', (tester) async {
       refusal = FirebaseFunctionsException(
         message: 'A parent or guardian must confirm this purchase.',
         code: 'failed-precondition',
@@ -264,17 +281,106 @@ void main() {
       await tester.tap(buy);
       await afterBuy(tester);
       expect(
-        find.text("We couldn't confirm your subscription. Try again."),
+        find.text('A parent or guardian must confirm this purchase.'),
         findsOneWidget,
+      );
+      expect(find.text(_generic), findsNothing);
+    });
+
+    testWidgets(
+        'any other refusal keeps the generic line, even a failed '
+        'precondition with another reason, $where', (tester) async {
+      refusal = FirebaseFunctionsException(
+        message: 'Something else.',
+        code: 'failed-precondition',
+        details: const {'reason': 'other'},
+      );
+      await pumpPro(tester, group: 'minor', wide: wide);
+      await tick(tester);
+      final buy = wide
+          ? find.widgetWithText(WebButton, _buy)
+          : find.widgetWithText(PantasButton, _buy);
+      await tester.tap(buy);
+      await afterBuy(tester);
+      expect(find.text(_generic), findsOneWidget);
+      expect(
+        find.text('A parent or guardian must confirm this purchase.'),
+        findsNothing,
       );
     });
   }
 
   testWidgets('Terms in the label opens the Terms', (tester) async {
     await pumpPro(tester, group: 'minor', wide: false, router: true);
-    await tester.ensureVisible(find.text('Terms'));
-    await tester.tap(find.text('Terms'));
+    await tester.ensureVisible(box());
+    await tester.tapAt(termsCenter(tester));
     await tester.pumpAndSettle();
     expect(find.text('The Terms page'), findsOneWidget);
+  });
+
+  testWidgets('the label is one sentence on the phone and the row ticks',
+      (tester) async {
+    await pumpPro(tester, group: 'minor', wide: false);
+    await tester.ensureVisible(box());
+    await tester.pump();
+    final text = tester.renderObject<RenderParagraph>(
+      find.descendant(of: box(), matching: find.byType(RichText)),
+    );
+    final label = text.text.toPlainText();
+    expect(label, 'I am the parent or guardian and accept the Terms.');
+    // Group the characters by the line they sit on.
+    final byLine = <int, StringBuffer>{};
+    for (var i = 0; i < label.length; i++) {
+      final boxes = text.getBoxesForSelection(
+        TextSelection(baseOffset: i, extentOffset: i + 1),
+      );
+      if (boxes.isEmpty) continue;
+      byLine
+          .putIfAbsent(boxes.first.top.round(), StringBuffer.new)
+          .write(label[i]);
+    }
+    final rows = [
+      for (final k in byLine.keys.toList()..sort()) byLine[k].toString().trim(),
+    ];
+    expect(rows.length, greaterThanOrEqualTo(1));
+    for (final row in rows) {
+      expect(row, isNot('the'), reason: rows.join(' | '));
+      expect(row, isNot('Terms.'), reason: rows.join(' | '));
+      expect(row, isNotEmpty);
+    }
+    expect(tester.widget<CheckboxRow>(box()).selected, isFalse);
+    await tester.tapAt(tester.getTopLeft(box()) + const Offset(14, 20));
+    await tester.pump();
+    expect(tester.widget<CheckboxRow>(box()).selected, isTrue);
+  });
+
+  testWidgets('a screen reader reads one label and a link', (tester) async {
+    final handle = tester.ensureSemantics();
+    await pumpPro(tester, group: 'minor', wide: false);
+    await tester.ensureVisible(box());
+    await tester.pump();
+    final node = tester.getSemantics(
+      find.bySemanticsLabel(
+        'I am the parent or guardian and accept the Terms.',
+      ),
+    );
+    expect(node.label, 'I am the parent or guardian and accept the Terms.');
+    final checked = node.getSemanticsData().flagsCollection.isChecked;
+    expect(checked, isNot(CheckedState.none));
+    var links = 0;
+    void walk(SemanticsNode n) {
+      if (n.label == 'Terms' &&
+          n.getSemanticsData().hasAction(SemanticsAction.tap)) {
+        links++;
+      }
+      n.visitChildren((c) {
+        walk(c);
+        return true;
+      });
+    }
+
+    walk(node);
+    expect(links, 1);
+    handle.dispose();
   });
 }

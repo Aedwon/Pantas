@@ -536,6 +536,13 @@ PaymentOperationStatus _statusForError(Object error) {
   if (error is! FirebaseException) {
     return PaymentOperationStatus.unknownFailure;
   }
+  // The server's refusal of a minor's checkout without the guardian box.
+  if (error is FirebaseFunctionsException &&
+      error.code == 'failed-precondition' &&
+      error.details is Map &&
+      (error.details as Map)['reason'] == 'guardian-attestation-required') {
+    return PaymentOperationStatus.guardianConfirmationRequired;
+  }
   return switch (error.code) {
     'invalid-argument' ||
     'failed-precondition' =>

@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -124,9 +125,17 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
 
   /// The parent or guardian box on a minor's checkout (boards CB_*).
   bool _guardianTicked = false;
+
+  /// Opens the Terms from the link inside the box's label.
+  final TapGestureRecognizer _termsTap = TapGestureRecognizer();
+
   @override
   void initState() {
     super.initState();
+    _termsTap.onTap = () {
+      final router = GoRouter.maybeOf(context);
+      if (router != null) unawaited(router.push<void>('/legal/terms'));
+    };
     WidgetsBinding.instance.addObserver(this);
     unawaited(ref.read(telemetryProvider).log(TelemetryEvent.proView));
     unawaited(ref.read(reviewPromptControllerProvider).recordPaywallSeen());
@@ -158,6 +167,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
 
   @override
   void dispose() {
+    _termsTap.dispose();
     WidgetsBinding.instance.removeObserver(this);
     super.dispose();
   }
@@ -367,6 +377,8 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
 
   String? _message(PaymentOperationStatus status, {bool restore = false}) =>
       switch (status) {
+        PaymentOperationStatus.guardianConfirmationRequired =>
+          'A parent or guardian must confirm this purchase.',
         PaymentOperationStatus.success => restore ? 'Pro restored.' : null,
         PaymentOperationStatus.noActiveSubscription =>
           'No purchases found for this account.',
@@ -400,26 +412,22 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
       onTap: _busy
           ? null
           : () => setState(() => _guardianTicked = !_guardianTicked),
-      content: Wrap(
-        crossAxisAlignment: WrapCrossAlignment.center,
-        children: [
-          ExcludeSemantics(
-            child: Text(
-              'I am the parent or guardian and accept the ',
-              style: style,
+      // One text flow, so the sentence wraps as one. The link is a span, and
+      // a tap on it opens the Terms without ticking the box.
+      content: Text.rich(
+        TextSpan(
+          style: style,
+          children: [
+            const TextSpan(text: 'I am the parent or guardian and accept the '),
+            TextSpan(
+              text: 'Terms',
+              style: style.copyWith(color: context.webTokens.colors.accent),
+              recognizer: _termsTap,
+              mouseCursor: SystemMouseCursors.click,
             ),
-          ),
-          WebTextLink(
-            label: 'Terms',
-            arrow: false,
-            style: style,
-            onPressed: () {
-              final router = GoRouter.maybeOf(context);
-              if (router != null) unawaited(router.push<void>('/legal/terms'));
-            },
-          ),
-          ExcludeSemantics(child: Text('.', style: style)),
-        ],
+            const TextSpan(text: '.'),
+          ],
+        ),
       ),
     );
     return wide ? WebCard(child: row) : GroupedSection(children: [row]);
