@@ -529,10 +529,10 @@ final legalDocumentFallbacks = <String, LegalDocument>{
             'before your guardian answers. We also record the age check '
             'notice version when your app sends it. We use the request '
             'record to send and check the request. We use your under-18 '
-            'group to require a parent or guardian\'s confirmation of the '
+            "group to require a parent or guardian's confirmation of the "
             'current Terms for web purchases.\n\n'
             'If your guardian declines or does not answer, we remove the '
-            'request\'s contact details, status and age check notice '
+            "request's contact details, status and age check notice "
             'version during scheduled cleanup. We keep your under-18 '
             'group until your account is updated to 18 or older, or your '
             'account is deleted. Separate guardian-answer records and '
@@ -737,7 +737,7 @@ final legalDocumentFallbacks = <String, LegalDocument>{
             'and expires after seven days. Our hourly cleanup removes '
             'expired response links. It removes used, declined or '
             'replaced response links seven days after that event.\n\n'
-            'For an unanswered request, we remove the request\'s contact '
+            "For an unanswered request, we remove the request's contact "
             'details, status and age check notice version during '
             'scheduled cleanup after the request expires. For a declined '
             'request, we remove them during scheduled cleanup seven days '
