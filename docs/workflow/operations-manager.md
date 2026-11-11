@@ -132,8 +132,9 @@ These are Aedwon's standing instructions. They apply until he changes them.
 - Screenshots and app captures are headless. No control of his computer.
 - If the laptop overheats, pause the lanes. One build per session.
 - Codex runs only through `codex-pick`.
-- Before work starts, log the estimate in the velocity log; log the actuals when it ends. Status
-  reports carry a time estimate.
+- Before work starts, log the estimate in the velocity log and start the task timer
+  (`tool/velocity/timer.py`). Actuals come only from the timer's output. Status reports carry a
+  time estimate.
 - Check every lead's latest report each time Aedwon writes, and relay results when they land.
 - Replies to Aedwon: under 150 words, plain words, decisions with costs and a recommendation, files
   as clickable links.
