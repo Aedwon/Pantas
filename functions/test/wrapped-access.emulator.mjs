@@ -33,7 +33,7 @@ for (const state of ['withdrawn', 'deleting', 'closed']) {
       await db.doc(`wrapped_shares/${id}`).set({ownerUid: uid, archetypeId: 'secret_archetype'});
       await getStorage().bucket().file(`wrapped/${uid}/${id}.png`).save(Buffer.from('PRIVATE_CARD'));
       if (state === 'withdrawn') await db.doc(`users/${uid}/server/guardianConsent`).set({status: 'withdrawn'});
-      else await db.doc(`accountDeletions/${uid}`).set(state === 'closed' ? {closedUntil: Date.now() + 7200000} : {reason: 'guardian_withdrawal'});
+      else await db.doc(`accountDeletions/${uid}`).set(state === 'closed' ? {} : {reason: 'guardian_withdrawal'});
       const out = await read(suffix);
       assert.doesNotMatch(out.body.toString(), /PRIVATE_CARD|Secret Archetype|og:image/);
       assert.equal(out.headers['Cache-Control'], 'no-store');

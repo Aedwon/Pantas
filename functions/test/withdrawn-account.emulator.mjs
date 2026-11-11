@@ -63,24 +63,73 @@ test('pending deletion is still completed by the unguarded Admin SDK path', asyn
   await db.doc(`users/${uid}/server/guardianConsent`).set({status: 'withdrawn'});
   await db.doc(`accountDeletions/${uid}`).set({reason: 'guardian_withdrawal'});
   await deleteUserData(db, adminAuth, uid, 'guardian_withdrawal');
-  assert.equal(typeof (await db.doc(`accountDeletions/${uid}`).get()).get('closedUntil'), 'number');
+  assert.deepEqual((await db.doc(`accountDeletions/${uid}`).get()).data(), {});
   assert.equal((await db.doc(`users/${uid}/server/guardianConsent`).get()).exists, false);
   await assert.rejects(adminAuth.getUser(uid), error => error.code === 'auth/user-not-found');
 });
 
-test('completed deletion keeps only a two-hour closure marker, then scheduled cleanup removes it', async () => {
+test('completed deletion keeps a UID-only tombstone permanently', async () => {
   const {runInactivityPass} = await import('../lib/purgeInactiveAccounts.js');
   const uid = 'withdrawn-completed-marker', at = Date.now();
   const adminAuth = getAuth();
   await adminAuth.createUser({uid});
   await deleteUserData(db, adminAuth, uid, 'user_request', {now: () => at});
   const marker = db.doc(`accountDeletions/${uid}`);
-  assert.deepEqual((await marker.get()).data(), {closedUntil: at + 7200000, nextRetryAt: at + 7200000});
+  assert.deepEqual((await marker.get()).data(), {});
   const deps = {db, auth: adminAuth, mailer: {send: async () => {}}, linkOrigin: 'http://localhost', warningCap: 0};
-  await runInactivityPass({...deps, now: () => at + 7199999});
-  assert.equal((await marker.get()).exists, true);
-  await runInactivityPass({...deps, now: () => at + 7200000});
-  assert.equal((await marker.get()).exists, false);
+  await runInactivityPass({...deps, now: () => at + 86400000});
+  assert.deepEqual((await marker.get()).data(), {});
+});
+
+test('custom token minted before withdrawal cannot reopen the UID after deletion, cleanup and refresh', async t => {
+  const {runInactivityPass} = await import('../lib/purgeInactiveAccounts.js');
+  const {getStorage} = await import('firebase-admin/storage');
+  const adminAuth = getAuth(), uid = 'withdrawn-custom-token-replay', at = Date.now();
+  await adminAuth.createUser({uid});
+  const token = await adminAuth.createCustomToken(uid);
+  await db.doc(`users/${uid}/server/guardianConsent`).set({status: 'withdrawn'});
+  await deleteUserData(db, adminAuth, uid, 'guardian_withdrawal', {now: () => at});
+  await assert.rejects(adminAuth.getUser(uid), error => error.code === 'auth/user-not-found');
+  const redeemed = await fetch(`http://${process.env.FIREBASE_AUTH_EMULATOR_HOST}/identitytoolkit.googleapis.com/v1/accounts:signInWithCustomToken?key=demo-key`, {
+    method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({token, returnSecureToken: true}),
+  });
+  assert.equal(redeemed.status, 200);
+  const session = await redeemed.json();
+  assert.equal((await adminAuth.verifyIdToken(session.idToken)).uid, uid);
+  assert.equal((await adminAuth.getUser(uid)).uid, uid);
+  await runInactivityPass({db, auth: adminAuth, mailer: {send: async () => {}}, linkOrigin: 'http://localhost', warningCap: 0, now: () => at + 86400000});
+  const refreshed = await fetch(`http://${process.env.FIREBASE_AUTH_EMULATOR_HOST}/securetoken.googleapis.com/v1/token?key=demo-key`, {
+    method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({grant_type: 'refresh_token', refresh_token: session.refreshToken}),
+  });
+  assert.equal(refreshed.status, 200);
+  const {id_token: idToken, user_id: refreshedUid} = await refreshed.json();
+  assert.equal(refreshedUid, uid);
+  assert.ok(idToken);
+  await t.test('Firestore refuses refreshed resurrected UID', async () => {
+    const response = await fetch(`http://${process.env.FIRESTORE_EMULATOR_HOST}/v1/projects/demo-pantas-test/databases/(default)/documents:commit`, {
+      method: 'POST', headers: {Authorization: `Bearer ${idToken}`, 'Content-Type': 'application/json'},
+      body: JSON.stringify({writes: [{update: {name: `projects/demo-pantas-test/databases/(default)/documents/users/${uid}`, fields: {}}, updateTransforms: [{fieldPath: 'createdAt', setToServerValue: 'REQUEST_TIME'}]}]}),
+    });
+    assert.equal(response.status, 403);
+  });
+  await t.test('Storage refuses refreshed resurrected UID', async () => {
+    const path = `betaFeedback/${uid}/${'A'.repeat(20)}/0`;
+    const response = await fetch(`http://${process.env.FIREBASE_STORAGE_EMULATOR_HOST}/v0/b/${getStorage().bucket().name}/o?name=${encodeURIComponent(path)}`, {
+      method: 'POST', headers: {Authorization: `Bearer ${idToken}`, 'Content-Type': 'image/png'}, body: Buffer.from('replay'),
+    });
+    assert.equal(response.status, 403);
+  });
+  await t.test('shared callable refuses refreshed resurrected UID', async () => {
+    await assert.rejects(endpoints.ingestSession.run({auth: {uid, token: await adminAuth.verifyIdToken(idToken)}, app, data: {}}), error => error.details?.reason === 'account-closed');
+  });
+});
+
+test('scheduled cleanup converts an expired legacy closure marker to a UID-only tombstone', async () => {
+  const {runInactivityPass} = await import('../lib/purgeInactiveAccounts.js');
+  const at = Date.now(), marker = db.doc('accountDeletions/withdrawn-legacy-marker');
+  await marker.set({closedUntil: at - 1, nextRetryAt: at - 1});
+  await runInactivityPass({db, auth: getAuth(), mailer: {send: async () => {}}, linkOrigin: 'http://localhost', warningCap: 0, now: () => at});
+  assert.deepEqual((await marker.get()).data(), {});
 });
 
 test('original ID token cannot recreate root, upload, or call after completed deletion', async t => {
@@ -127,4 +176,34 @@ test('completed deletion removes beta feedback attachments and invalidates their
   assert.ok([403, 404].includes((await fetch(url)).status));
   assert.equal((await bucket.file(path).exists())[0], false);
   assert.equal((await bucket.file(control).exists())[0], true);
+});
+
+test('inactivity cancellation cannot remove a tombstone completed after its retry query', async () => {
+  const {runInactivityPass} = await import('../lib/purgeInactiveAccounts.js');
+  const adminAuth = getAuth(), uid = 'withdrawn-cancel-completed', at = Date.now();
+  await adminAuth.createUser({uid});
+  const marker = db.doc(`accountDeletions/${uid}`);
+  await marker.set({reason: 'inactive_24_months', nextRetryAt: at - 1});
+  let completed = false;
+  const racingAuth = {
+    listUsers: (...args) => adminAuth.listUsers(...args),
+    updateUser: (...args) => adminAuth.updateUser(...args),
+    revokeRefreshTokens: (...args) => adminAuth.revokeRefreshTokens(...args),
+    deleteUser: (...args) => adminAuth.deleteUser(...args),
+    async getUser(id) {
+      if (id === uid && !completed) {
+        completed = true;
+        // Another deletion finishes after the retry query, then an old custom
+        // token recreates a UID that now appears paid to inactivity cancellation.
+        await deleteUserData(db, adminAuth, uid, 'inactive_24_months', {now: () => at});
+        await adminAuth.createUser({uid});
+        await adminAuth.setCustomUserClaims(uid, {pro: true, proUntil: at + 86400000});
+      }
+      return adminAuth.getUser(id);
+    },
+  };
+  await runInactivityPass({db, auth: racingAuth, mailer: {send: async () => {}},
+    linkOrigin: 'http://localhost', warningCap: 0, now: () => at});
+  assert.equal(completed, true);
+  assert.deepEqual((await marker.get()).data(), {});
 });

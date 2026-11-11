@@ -9,9 +9,6 @@ import {identityMarkers, identityMarkersForUser} from './webTrial.js';
 
 /** A pending deletion is retried by the daily run once this long has passed since its last attempt. */
 export const DELETION_RETRY_MS = 3_600_000;
-// Firebase ID tokens last one hour. Two hours from completed Auth deletion also covers
-// a token minted just before deletion. The daily cleanup removes this marker afterwards.
-export const ACCOUNT_CLOSURE_MS = 2 * 3_600_000;
 
 /** Why an account was deleted. Kept on the guardian evidence marker. */
 export type DeletionReason = 'user_request' | 'guardian_withdrawal' | 'inactive_24_months';
@@ -42,7 +39,13 @@ export async function deleteUserData(
   // The first reason and start time stay, so a retry does not look like a new request.
   const task = db.doc(`accountDeletions/${uid}`);
   const earlier = await task.get();
-  if (typeof earlier.get('closedUntil') === 'number') return;
+  // A custom token can recreate a deleted Auth UID with a renewable session.
+  // An empty document permanently closes that UID, without retaining task data.
+  if (earlier.exists && Object.keys(earlier.data() ?? {}).length === 0) return;
+  if (typeof earlier.get('closedUntil') === 'number') {
+    await task.set({}); // Upgrade a legacy expiring marker without reopening access.
+    return;
+  }
   // Each attempt moves the next retry back, so a task that keeps failing goes to the end of the
   // queue and cannot starve newer ones.
   await task.set({reason: earlier.get('reason') ?? reason, startedAt: earlier.get('startedAt') ?? now,
@@ -98,9 +101,9 @@ export async function deleteUserData(
   } catch (error) {
     if ((error as {code?: string} | null)?.code !== 'auth/user-not-found') throw error;
   }
-  // Replace all task metadata: only the UID (document ID) and cleanup times remain.
-  const closedUntil = (options.now ?? Date.now)() + ACCOUNT_CLOSURE_MS;
-  await task.set({closedUntil, nextRetryAt: closedUntil});
+  // Replace all task metadata. Only the UID in the document ID remains, forever.
+  // No nextRetryAt: completed tombstones never enter the scheduled retry queue.
+  await task.set({});
 }
 
 /**
