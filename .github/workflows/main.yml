@@ -1,8 +1,11 @@
 name: CI (main)
 
+# Manual only (Nov 11). ci.yml runs every check this job runs (analyze,
+# layering, attribution, tests with coverage, backend tests, the dev APK) on
+# main and web/** with Flutter 3.44.6. jobs.ci stays as it is, because the
+# native release runner (tools/release/e2e) and its tests pin it.
 on:
-  push:
-    branches: [main]
+  workflow_dispatch:
 
 jobs:
   ci:
