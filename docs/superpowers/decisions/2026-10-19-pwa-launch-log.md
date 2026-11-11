@@ -3010,3 +3010,13 @@ Asked by the manager thread on Aedwon's "for the rest of items, please finish th
 - The merge run then failed on Android: GitHub moved ubuntu-latest to Ubuntu 26 on Nov 11, which defaults to Java 25, and Gradle 8.14 cannot run on it ("What went wrong: 25.0.5"). Every other job passed on the new image. Fix b8dbc215b pins Java 17 (temurin, setup-java v6.1.0 by SHA; v6.2.0 was under two weeks old). Proven with Android on 42928005861, then the merge run 42928644170 green, journeys four PASS.
 - On the release line, Android is now the slowest job (6 min, a cold Gradle cache after the Java change). Code-only branches skip it.
 - Velocity E-017: estimate 3 h wall, actual 1 h 36 min (0.53).
+
+### Nov 11, guardrails merged into web/design-system-4 (DS4 lead)
+
+- Manager, Nov 11: "the CI speed goal is met (213 s median) ... Close it out ... Then start the four merges in the approved order (guardrails, completion, privacy batch, custom exams), each with an estimate row first." Plan close-out written (accb35b82).
+- Merged `ds4/guardrails` 557258e82 as 1aa94c710. Conflicts: ci.yml (kept the CI speed work; dropped guardrails' `ds4/**` push branches per the twin rule; the goldens job joined the path filter and `ci-ok`), design system version (4.1.0, keeping D193 and D194 and both changelog entries), the age step (kept the rebuilt base version; guardrails had only marked the old year field), and the icon test counts (61 icons, 51 codepoints: both sides' glyphs; the test passes locally).
+- The design lint found one rise: the wide sign-in heading's 560 literal from round 2. I applied the completion lane's fix (PantasLayout.modalWide with a ds-board note). The baseline then only shrank (649 findings).
+- CI 42930331890 green in 5 min 5 s (release line, Android included); journeys 42930331911 four PASS; coverage 69,161/74,816 (92.4%; the line total moved with the guardrails code).
+- Android Gradle cache: warm. This run restored the entry saved by the Java fix run; the Android job fell from 6 min (cold) to 4 min 46 s, with the Gradle task at 107 s.
+- Still open from the guardrails lane, not part of this merge: layer 1 (the barrel import change across the screens, which waited for the prod ship) is not built; golden images lock after completion merges.
+- Velocity E-018: estimate 1 h wall, actual 10 min. E-019 (completion) estimated and started.
