@@ -341,7 +341,7 @@ test('a withdrawal whose cleanup fails after the links are deleted is finished b
     now: () => T0 + DAY + 2 * 3600000});
   await assert.rejects(auth.getUser(uid), {code: 'auth/user-not-found'});
   assert.equal((await db.doc(`users/${uid}/data/progress`).get()).exists, false);
-  assert.equal((await db.doc(`accountDeletions/${uid}`).get()).exists, false);
+  assert.equal(typeof (await db.doc(`accountDeletions/${uid}`).get()).get('closedUntil'), 'number');
   assert.deepEqual((await db.doc(`guardianConsentEvidence/${uid}`).get()).data(), {accountDeletedAt: T0 + DAY, reason: 'guardian_withdrawal'});
 });
 
@@ -361,7 +361,7 @@ test('a withdrawal records the deletion task in its own transaction, so a failed
     now: () => T0 + DAY + 3600000});
   await assert.rejects(auth.getUser(uid), {code: 'auth/user-not-found'});
   assert.equal((await db.doc(`users/${uid}/data/progress`).get()).exists, false);
-  assert.equal((await db.doc(`accountDeletions/${uid}`).get()).exists, false);
+  assert.equal(typeof (await db.doc(`accountDeletions/${uid}`).get()).get('closedUntil'), 'number');
 });
 
 test('a withdrawal keeps an earlier deletion task reason and start time', async () => {

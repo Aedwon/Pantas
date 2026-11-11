@@ -3,6 +3,7 @@ service firebase.storage {
   match /b/{bucket}/o {
     // Storage permits two distinct Firestore documents per evaluation.
     // exists/get of the same consent path share the cached document lookup.
+    // The same path holds pending tasks and completed two-hour closure markers.
     function accountActive(uid) {
       let consent = /databases/(default)/documents/users/$(uid)/server/guardianConsent;
       return !firestore.exists(/databases/(default)/documents/accountDeletions/$(uid))

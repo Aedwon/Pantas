@@ -134,6 +134,15 @@ export async function runInactivityPass(deps: InactivityDeps): Promise<Inactivit
       : {docs: []};
     for (const task of unfinished.docs) {
       if (attempts >= deletionCap) break;
+      if (typeof task.get('closedUntil') === 'number') {
+        // Recheck in a transaction so a concurrent task update cannot be removed.
+        await deps.db.runTransaction(async tx => {
+          const fresh = await tx.get(task.ref);
+          const until = fresh.get('closedUntil');
+          if (typeof until === 'number' && until <= now) tx.delete(task.ref);
+        });
+        continue;
+      }
       const reason = task.get('reason') as DeletionReason;
       try {
         // An inactivity deletion that stalled before any data was removed is dropped if the account

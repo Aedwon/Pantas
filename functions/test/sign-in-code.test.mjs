@@ -18,6 +18,7 @@ function fakeDb() {
   const ref = path => ({path, delete: async () => { rows.delete(path); }});
   const db = {
     rows,
+    getAll: async (...refs) => refs.map(r => ({exists: rows.has(r.path), get: key => rows.get(r.path)?.[key]})),
     doc: ref,
     collection: name => ({where: (field, op, value) => ({get: async () => ({docs: [...rows.entries()]
       .filter(([path, row]) => path.startsWith(`${name}/`) && row[field] === value)
@@ -617,3 +618,15 @@ test('the stand-in secret is random by default and is never mailed', async () =>
   assert.ok(secrets.size > 1);
   assert.ok(fake.challengeId);
 });
+
+for (const marker of ['users/maria/server/guardianConsent', 'accountDeletions/maria']) {
+  test(`active anonymous code caller cannot mint for closed target: ${marker}`, async () => {
+    const r = rig({users: {maria: {uid: 'maria', email: EMAIL, emailVerified: true}}});
+    await r.send();
+    r.db.rows.set(marker, {status: 'withdrawn'});
+    let minted = false;
+    r.auth.createCustomToken = async () => { minted = true; return 'unexpected'; };
+    await assert.rejects(r.verify(ID1), error => error.code === 'permission-denied' && error.details?.reason !== 'account-closed');
+    assert.equal(minted, false);
+  });
+}

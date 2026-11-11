@@ -17,6 +17,7 @@ function fakeDb() {
   let chain = Promise.resolve();
   return {
     rows,
+    getAll: async (...refs) => refs.map(r => ({exists: rows.has(r.path), get: key => rows.get(r.path)?.[key]})),
     doc: path => ({path}),
     runTransaction: fn => {
       const run = chain.then(() => fn({
@@ -466,3 +467,15 @@ test('the id token is never written to a log', () => {
     assert.doesNotMatch(line, /\b(idToken|email|uid|sub|user)\b/, line);
   }
 });
+
+for (const marker of ['users/maria/server/guardianConsent', 'accountDeletions/maria']) {
+  test(`active anonymous Google caller cannot link or mint for closed target: ${marker}`, async () => {
+    const r = rig();
+    r.db.rows.set(marker, {status: 'withdrawn'});
+    let minted = false;
+    r.auth.createCustomToken = async () => { minted = true; return 'unexpected'; };
+    await assert.rejects(r.run(), error => error.code === 'permission-denied' && error.details?.reason !== 'account-closed');
+    assert.deepEqual(r.auth.calls, []);
+    assert.equal(minted, false);
+  });
+}

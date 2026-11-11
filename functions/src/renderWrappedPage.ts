@@ -1,3 +1,4 @@
+import {assertAccountActive} from './_accountAccess.js';
 import { getFirestore } from 'firebase-admin/firestore';
 import { getStorage } from 'firebase-admin/storage';
 import { onRequest } from 'firebase-functions/v2/https';
@@ -21,6 +22,7 @@ const SHARE_ID_PATTERN = /^[0-9a-f]{32}$/;
 export const renderWrappedPage = onRequest(
   { region: 'asia-southeast1' },
   async (req, res) => {
+    res.set({'Cache-Control': 'no-store'});
     const ctaHref = storeCtaHref(req.header('user-agent') ?? '');
     const htmlHeaders = { 'Content-Type': 'text/html; charset=utf-8' };
     const { shareId, wantsImage } = parseWrappedPath(req.path);
@@ -42,6 +44,14 @@ export const renderWrappedPage = onRequest(
       return;
     }
 
+    try {
+      await assertAccountActive(getFirestore(), data.ownerUid);
+    } catch {
+      // Fail closed on both withdrawal and lookup failure. Never download the image.
+      res.status(200).set(htmlHeaders).send(genericPageHtml(ctaHref));
+      return;
+    }
+
     if (wantsImage) {
       try {
         const [bytes] = await getStorage()
@@ -50,7 +60,7 @@ export const renderWrappedPage = onRequest(
           .download();
         res
           .status(200)
-          .set({ 'Content-Type': 'image/png', 'Cache-Control': 'public, max-age=300' })
+          .set({ 'Content-Type': 'image/png', 'Cache-Control': 'no-store' })
           .send(bytes);
       } catch {
         res.status(404).send('Not found');

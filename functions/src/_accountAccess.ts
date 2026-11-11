@@ -12,6 +12,18 @@ export async function assertAccountActive(db: Firestore, uid: string): Promise<v
   if (deletion.exists || consent.get('status') === 'withdrawn') throw accountClosed();
 }
 
+/** Refuse a closed sign-in target without closing a different caller's local session. */
+export async function assertSignInTargetActive(db: Firestore, targetUid: string, callerUid: string): Promise<void> {
+  try {
+    await assertAccountActive(db, targetUid);
+  } catch (error) {
+    if (error instanceof HttpsError && (error.details as {reason?: string} | undefined)?.reason === 'account-closed' && targetUid !== callerUid) {
+      throw new HttpsError('permission-denied', 'This account cannot sign in.');
+    }
+    throw error;
+  }
+}
+
 /** Shared dispatch boundary. Internal Admin cleanup deliberately does not use it. */
 export function accountHandler<T = any, R = unknown>(handler: (request: CallableRequest<T>) => R | Promise<R>) {
   return async (request: CallableRequest<T>): Promise<R> => {

@@ -1,3 +1,4 @@
+import {assertSignInTargetActive} from './_accountAccess.js';
 import {createHash, createHmac, randomBytes, randomInt, timingSafeEqual} from 'node:crypto';
 import {getAuth, type Auth, type UserRecord} from 'firebase-admin/auth';
 import {getFirestore, type Firestore} from 'firebase-admin/firestore';
@@ -405,6 +406,7 @@ export async function checkSignInCode(request: Req, deps: VerifyDeps): Promise<{
   }
 
   const accountUid = await accountFor(outcome.email, deps.auth);
+  await assertSignInTargetActive(deps.db, accountUid, uid);
   try {
     return {token: await deps.auth.createCustomToken(accountUid)};
   } catch (error) {

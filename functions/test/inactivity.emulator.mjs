@@ -396,16 +396,16 @@ test('a failed deletion leaves a durable record, and the next daily run finishes
   const later = await run([user('in-durable', {days: 801, disabled: true})], {now: () => NOW + DAY});
   assert.deepEqual(later.auth.deleted, ['in-durable']);
   assert.equal(later.result.deleted, 1);
-  assert.equal((await pending('in-durable').get()).exists, false, 'removed only after the Auth user is gone');
+  assert.deepEqual((await pending('in-durable').get()).data(), {closedUntil: NOW + DAY + 2 * HOUR, nextRetryAt: NOW + DAY + 2 * HOUR});
 });
 
-test('a pending deletion for a user that is already gone finishes the cleanup and removes the record', async () => {
+test('a pending deletion for a user that is already gone finishes cleanup and keeps a closure marker', async () => {
   await wipe('in-gone'); await wipeTasks('in-gone');
   await pending('in-gone').set({reason: 'guardian_withdrawal', startedAt: NOW - 2 * HOUR, nextRetryAt: NOW - HOUR, attempts: 1});
   await db.doc('users/in-gone/data/x').set({a: 1});
   const {result} = await run([]);
   assert.equal((await db.doc('users/in-gone/data/x').get()).exists, false);
-  assert.equal((await pending('in-gone').get()).exists, false);
+  assert.deepEqual((await pending('in-gone').get()).data(), {closedUntil: NOW + 2 * HOUR, nextRetryAt: NOW + 2 * HOUR});
   assert.equal(result.deleted, 1);
 });
 
