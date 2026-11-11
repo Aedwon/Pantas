@@ -82,10 +82,28 @@ final routerProvider = Provider<GoRouter>((ref) {
           path == '/auth/email-link') {
         return null;
       }
-      final guardian = ref.read(guardianGateProvider).valueOrNull;
+      final guardianState = ref.read(guardianGateProvider);
+      if (!guardianState.hasValue) {
+        return path == '/startup'
+            ? null
+            : Uri(
+                path: '/startup',
+                queryParameters: {'from': state.uri.toString()},
+              ).toString();
+      }
+      final guardian = guardianState.requireValue;
       if (ref.read(guardianAccountClosedProvider) != null ||
           guardian == GuardianGate.withdrawn) {
         return path == '/guardian/withdrawn' ? null : '/guardian/withdrawn';
+      }
+      if (path == '/startup') {
+        final from = state.uri.queryParameters['from'];
+        return from != null &&
+                from.startsWith('/') &&
+                !from.startsWith('//') &&
+                Uri.parse(from).path != '/startup'
+            ? from
+            : '/home';
       }
       final betaActive = ref.read(betaGateActiveProvider);
       final betaRedirect = betaGateRedirect(
@@ -105,7 +123,7 @@ final routerProvider = Provider<GoRouter>((ref) {
             ? null
             : '/guardian/waiting';
       }
-      if (path.startsWith('/guardian/') && guardian != null) {
+      if (path.startsWith('/guardian/')) {
         return guardian == GuardianGate.needsContact ? '/onboarding' : '/home';
       }
       // The legal pages open at any point in onboarding, for anyone. Going

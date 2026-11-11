@@ -66,6 +66,7 @@ void main() {
       '/settings/account/delete',
       '/settings/pro',
       '/settings/backup',
+      '/startup',
       '/update-required',
       '/settings/about',
       '/settings/beta-feedback',

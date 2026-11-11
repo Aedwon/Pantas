@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:cloud_functions/cloud_functions.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -20,6 +22,7 @@ import 'package:pantas/features/guardian/presentation/guardian_screen.dart';
 import 'package:pantas/features/onboarding/presentation/exam_picker_screen.dart';
 import 'package:pantas/features/paywall/paywall.dart';
 import 'package:pantas/features/settings/data/settings_repository.dart';
+import 'package:pantas/features/shell/presentation/app_shell.dart';
 
 import '../core/auth/auth_repository_sign_out_test.dart'
     show SignOutAuthGateway;
@@ -61,6 +64,8 @@ void main() {
   Future<ProviderContainer> pumpApp(
     WidgetTester tester, {
     bool failSignOut = false,
+    AppPreferencesRepository? preferences,
+    bool settle = true,
   }) async {
     final repo = AuthRepository(gateway: auth);
     if (failSignOut) {
@@ -70,6 +75,8 @@ void main() {
       ProviderScope(
         overrides: [
           appDatabaseProvider.overrideWithValue(db),
+          if (preferences != null)
+            appPreferencesRepositoryProvider.overrideWithValue(preferences),
           contentDatabaseProvider.overrideWithValue(contentDb),
           examPickerCatalogProvider.overrideWith((ref) => Stream.value([])),
           authRepositoryProvider.overrideWithValue(repo),
@@ -83,7 +90,7 @@ void main() {
         child: const App(flavor: Flavor.dev),
       ),
     );
-    await tester.pumpAndSettle();
+    if (settle) await tester.pumpAndSettle();
     addTearDown(() async {
       await tester.pumpWidget(const SizedBox.shrink());
       await tester.pumpAndSettle();
@@ -149,6 +156,86 @@ void main() {
       await container.read(guardianGateProvider.future),
       GuardianGate.withdrawn,
     );
+    expect(find.byType(GuardianWithdrawnPage), findsOneWidget);
+  });
+
+  testWidgets('a new uid never inherits an offline withdrawal cache',
+      (tester) async {
+    final prefs = AppPreferencesRepository(db);
+    await prefs.setDeviceValue('guardian_closed_uid', 'previous-user');
+    await prefs.setGuardianStatusCache('withdrawn');
+    guardian.failure = const GuardianGatewayException('unavailable');
+    final container = await pumpApp(tester, failSignOut: true);
+    expect(
+      await container.read(guardianGateProvider.future),
+      isNot(GuardianGate.withdrawn),
+    );
+    expect(container.read(guardianAccountClosedProvider), isNull);
+    expect(await prefs.deviceValue('guardian_closed_uid'), '');
+    expect(find.byType(GuardianWithdrawnPage), findsNothing);
+  });
+
+  testWidgets('slow closure restore never renders a private route first',
+      (tester) async {
+    final restore = Completer<void>();
+    final prefs = _SlowClosurePreferences(db, restore.future);
+    await prefs.setDeviceValue('guardian_closed_uid', 'user-1');
+    guardian.failure = const GuardianGatewayException('unavailable');
+    final container = await pumpApp(
+      tester,
+      failSignOut: true,
+      preferences: prefs,
+      settle: false,
+    );
+    for (var frame = 0; frame < 10; frame++) {
+      await tester.pump(const Duration(milliseconds: 500));
+      expect(
+        find.byType(AppShell),
+        findsNothing,
+        reason: 'private shell mounted before closure restoration',
+      );
+      final route =
+          container.read(routerProvider).routerDelegate.currentConfiguration;
+      expect(
+        route.isEmpty || route.uri.path == '/startup',
+        isTrue,
+        reason: 'only a neutral route may render before closure is known',
+      );
+    }
+    restore.complete();
+    await tester.pumpAndSettle();
+    expect(find.byType(GuardianWithdrawnPage), findsOneWidget);
+  });
+
+  testWidgets('failed closure restoration stays on a neutral recovery route',
+      (tester) async {
+    final restore = Completer<void>();
+    final prefs = _SlowClosurePreferences(db, restore.future);
+    final container = await pumpApp(
+      tester,
+      preferences: prefs,
+      settle: false,
+    );
+    await tester.pump();
+    prefs.failure = StateError('storage unavailable');
+    restore.complete();
+    await tester.pumpAndSettle();
+    expect(find.byType(AppShell), findsNothing);
+    expect(
+      container
+          .read(routerProvider)
+          .routerDelegate
+          .currentConfiguration
+          .uri
+          .path,
+      '/startup',
+    );
+    await tester.pump(const Duration(seconds: 1));
+    expect(find.text('Try Again'), findsOneWidget);
+    prefs.failure = null;
+    await prefs.setDeviceValue('guardian_closed_uid', 'user-1');
+    await tester.tap(find.text('Try Again'));
+    await tester.pumpAndSettle();
     expect(find.byType(GuardianWithdrawnPage), findsOneWidget);
   });
 
@@ -243,4 +330,20 @@ void main() {
       '/guardian/manage',
     );
   });
+}
+
+class _SlowClosurePreferences extends AppPreferencesRepository {
+  _SlowClosurePreferences(super.db, this.restore);
+
+  final Future<void> restore;
+  StateError? failure;
+
+  @override
+  Future<String?> deviceValue(String key) async {
+    if (key == 'guardian_closed_uid') {
+      await restore;
+      if (failure case final error?) throw error;
+    }
+    return super.deviceValue(key);
+  }
 }

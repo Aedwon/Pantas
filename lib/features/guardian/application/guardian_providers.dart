@@ -120,6 +120,9 @@ final guardianGateProvider = FutureProvider<GuardianGate>((ref) async {
       ref.read(accountAccessProvider).close(closedUid);
       return GuardianGate.withdrawn;
     }
+    // The cached withdrawal belongs to the closed account. Clear it before
+    // releasing its marker, so a failed request cannot close this new uid.
+    await prefs.setGuardianStatusCache('none');
     await prefs.setDeviceValue('guardian_closed_uid', '');
   }
   if (await prefs.ageGroup() != 'minor') return GuardianGate.notRequired;
