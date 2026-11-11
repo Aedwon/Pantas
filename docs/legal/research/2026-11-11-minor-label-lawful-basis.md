@@ -1,6 +1,6 @@
 # May the server store the "minor" label before guardian consent?
 
-Legal research, Nov 11, 2026. Codex GPT 6.1 Sol High via codex-pick, read-only, at Aedwon's request ("for the research use a codex 6.1 Sol agent. research how other apps navigate this as well"). Not legal advice. Awaiting Aedwon's decision.
+Legal research, Nov 11, 2026. Codex GPT 6.1 Sol High via codex-pick, read-only, at Aedwon's request ("for the research use a codex 6.1 Sol agent. research how other apps navigate this as well"). Not legal advice. Decision, Nov 11: Aedwon kept the current flow (option A); see the launch log.
 
 **Pantas cannot safely describe the current flow as lawful on guardian consent alone.** An account-linked `minor` label very likely remains sensitive age information, even without exact age. Future consent cannot authorize an earlier write, especially when consent never arrives.
 
