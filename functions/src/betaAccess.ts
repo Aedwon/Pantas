@@ -1,5 +1,6 @@
 import {getFirestore, type Firestore} from 'firebase-admin/firestore';
-import {HttpsError, onCall, type CallableRequest} from 'firebase-functions/v2/https';
+import {HttpsError, type CallableRequest} from 'firebase-functions/v2/https';
+import {onAccountCall as onCall} from './_accountAccess.js';
 import {assertFreshAppCheck, enforceAppCheck} from './_appCheck.js';
 import {allowAtMost} from './_limits.js';
 import {timed} from './_timed.js';

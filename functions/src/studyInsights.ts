@@ -1,7 +1,8 @@
 import {enforceAppCheck} from './_appCheck.js';
 import {createHash} from 'node:crypto';
 import {getFirestore, type Firestore, type Transaction} from 'firebase-admin/firestore';
-import {HttpsError, onCall} from 'firebase-functions/v2/https';
+import {HttpsError} from 'firebase-functions/v2/https';
+import {onAccountCall as onCall} from './_accountAccess.js';
 import {allowAtMost} from './_limits.js';
 import {core} from './_core.js';
 import type {Answer} from './_answers.js';

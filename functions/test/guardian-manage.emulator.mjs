@@ -390,8 +390,8 @@ test('after a withdrawal the student cannot send a new request or switch to adul
   const openBefore = await openManage();
   assert.ok(openBefore >= 1);
   h.advance(DAY);
-  assert.equal(await code(guardian.sendLink(req(uid, body({guardianEmail: 'other@gmail.com'})), h.deps)), 'failed-precondition');
-  assert.equal(await code(guardian.markAdult(req(uid, {}), h.deps)), 'failed-precondition');
+  assert.equal(await code(guardian.sendLink(req(uid, body({guardianEmail: 'other@gmail.com'})), h.deps)), 'permission-denied');
+  assert.equal(await code(guardian.markAdult(req(uid, {}), h.deps)), 'permission-denied');
   assert.deepEqual(await stored(uid), before, 'the record is untouched');
   assert.equal(await openManage(), openBefore, 'the manage links stay open for a retry');
   assert.deepEqual(await guardian.withdraw(req('v', {token: pageManage}), {...h.deps, auth}), {state: 'withdrawn'});
@@ -401,8 +401,8 @@ test('a pending deletion closes sendLink and markAdult even when the consent rec
   const uid = 'dm-task-closed'; await reset(uid);
   const h = harness();
   await db.doc(`accountDeletions/${uid}`).set({reason: 'guardian_withdrawal', startedAt: T0, nextRetryAt: T0, reasons: ['guardian_withdrawal']});
-  assert.equal(await code(guardian.sendLink(req(uid, body()), h.deps)), 'failed-precondition');
-  assert.equal(await code(guardian.markAdult(req(uid, {}), h.deps)), 'failed-precondition');
+  assert.equal(await code(guardian.sendLink(req(uid, body()), h.deps)), 'permission-denied');
+  assert.equal(await code(guardian.markAdult(req(uid, {}), h.deps)), 'permission-denied');
   assert.equal(await stored(uid), undefined);
   const uid2 = 'dm-withdraw-sharing'; await reset(uid2);
   const {pageManage} = await confirmedMinor(uid2, h, true);

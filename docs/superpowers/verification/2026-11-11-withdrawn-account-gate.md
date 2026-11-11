@@ -23,3 +23,25 @@ Storage's two-document limit. Existing sync access adds its own generation paths
 The ten-row sync batch passes, exercising repeated-check caching under the batch
 access-call budget. All own reads/writes, passes/grants (including anonymous),
 feedback, sync and wrapped shares use the common gate. Admin SDK bypasses rules.
+
+## Task 2: callable dispatch
+
+New emulator suite discovers all 45 deployed own-account callables from index.js,
+excluding only five token-authorized guardian visitor actions. It exercises each
+with withdrawn consent, a pending task plus confirmed consent, and a pending task
+after consent removal. Refusal must carry permission-denied and reason account-closed.
+The same previously successful ingest request is refused after withdrawal. Admin
+cleanup remains successful.
+
+Before implementation: 137 tests, 1 pass (Admin cleanup), 136 fail (135 missing
+structured refusals plus the still-accepted ingest replay).
+After implementation, together with guardian-manage.emulator.mjs: 167 tests,
+167 pass, 0 fail (4271.454625 ms). Four existing transaction-level assertions
+changed from failed-precondition to permission-denied for the new terminal reason.
+Guardian visitor retry and daily Admin cleanup are unguarded, still authorized
+by their existing token/job checks. Timed handlers remain intact; ordinary
+callable imports use one shared dispatch wrapper. Two uncached Admin document
+reads per authenticated dispatch; errors fail closed. Internal Admin functions
+are not callable exports and do not go through this gate.
+
+Raw local logs: `.dart_tool/withdrawn-gate/callables-{red,green}.log`.
