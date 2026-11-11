@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/centered_dialog.dart';
+import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/web/web_key_focus.dart';
 
 /// Confirmation surface for pause, submit, end-part and discard.

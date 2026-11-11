@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/half_ring_gauge.dart';
 import 'package:pantas/core/ui/components/score_breakdown_row.dart';
+import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 
 /// One timeline for the results screen, held by the page so a rebuild or a

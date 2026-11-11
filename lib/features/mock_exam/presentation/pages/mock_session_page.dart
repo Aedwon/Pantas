@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:math' as math;
 
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/error/state_patterns.dart';
@@ -21,6 +20,7 @@ import 'package:pantas/core/ui/components/question_navigator_grid.dart';
 import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/components/toast.dart';
+import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/figures/question_figure.dart';
 import 'package:pantas/core/ui/icons/own/mock_panel_glyph.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
@@ -223,7 +223,7 @@ class _MockSessionPageState extends State<MockSessionPage> {
     var skipWarning = false;
     final dialog = context.wideWeb ? webMockConfirmation : CenteredDialog.new;
     unawaited(
-      showDialog<void>(
+      showPantasDialog<void>(
         context: context,
         barrierColor: context.colors.scrim,
         builder: (dialogContext) => StatefulBuilder(
@@ -279,7 +279,7 @@ class _MockSessionPageState extends State<MockSessionPage> {
     final blankWords = '$blank ${blank == 1 ? 'question' : 'questions'}';
     final part = widget.currentPartNumber;
     unawaited(
-      showDialog<void>(
+      showPantasDialog<void>(
         context: context,
         barrierColor: context.colors.scrim,
         builder: (dialogContext) =>

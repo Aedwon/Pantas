@@ -262,3 +262,20 @@ class CenteredDialog extends StatelessWidget {
     );
   }
 }
+
+/// Opens a dialog over the current page: the one way a screen shows a
+/// [CenteredDialog] (or the wide-web confirmation). It passes straight to the
+/// framework's `showDialog` and changes nothing about it, so a screen never
+/// needs the raw call.
+Future<T?> showPantasDialog<T>({
+  required BuildContext context,
+  required WidgetBuilder builder,
+  Color? barrierColor,
+  bool barrierDismissible = true,
+}) =>
+    showDialog<T>(
+      context: context,
+      builder: builder,
+      barrierColor: barrierColor,
+      barrierDismissible: barrierDismissible,
+    );

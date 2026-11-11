@@ -1,11 +1,11 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/sync/providers.dart';
 import 'package:pantas/core/sync/runtime/sync_runtime_controller.dart';
 import 'package:pantas/core/sync/sync_status.dart';
 import 'package:pantas/core/ui/components/centered_dialog.dart';
+import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/l10n/app_localizations.dart';
 

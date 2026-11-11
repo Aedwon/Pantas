@@ -15,6 +15,15 @@
 //       google_sign_in, sign_in_with_apple, purchases_flutter,
 //       cloud_firestore, firebase_auth, cloud_functions
 //
+//   R4: lib/features/** and lib/app/** must NOT import
+//       package:flutter/material.dart or package:flutter/cupertino.dart.
+//       They import package:pantas/core/ui/ds.dart, which hides the raw
+//       controls (guardrails layer 1).
+//   R5: a screen (lib/features/**, lib/app/**) that imports
+//       package:pantas/core/ui/raw_controls.dart must carry
+//       `// ds-raw: <reason>` with a non-empty reason, on the import line or
+//       on the line directly above it.
+//
 // Exit code: 0 if clean, 1 if any violation (lists all violations first).
 import 'dart:io';
 
@@ -51,13 +60,13 @@ final _importRegex = RegExp(
 );
 
 void main(List<String> args) {
-  final violations = <String>[];
   final libDir = Directory('lib');
   if (!libDir.existsSync()) {
     stderr.writeln('lib/ not found; run from project root.');
     exit(2);
   }
 
+  final sources = <String, String>{};
   for (final entity in libDir.listSync(recursive: true)) {
     if (entity is! File || !entity.path.endsWith('.dart')) continue;
     if (entity.path.endsWith('.g.dart') ||
@@ -65,9 +74,35 @@ void main(List<String> args) {
         entity.path.endsWith('.config.dart')) {
       continue;
     }
+    sources[entity.path.replaceAll(r'\', '/')] = entity.readAsStringSync();
+  }
 
-    final relPath = entity.path.replaceAll(r'\', '/');
-    final src = entity.readAsStringSync();
+  final violations = findLayeringViolations(sources);
+  if (violations.isEmpty) {
+    stdout.writeln('check_layering: OK');
+    exit(0);
+  }
+  stderr.writeln('check_layering: ${violations.length} violation(s)');
+  for (final v in violations) {
+    stderr.writeln('  $v');
+  }
+  exit(1);
+}
+
+const _rawControlsImport = 'package:pantas/core/ui/raw_controls.dart';
+const _bannedFrameworkImports = <String>{
+  'package:flutter/material.dart',
+  'package:flutter/cupertino.dart',
+};
+final _rawMarker = RegExp(r'//\s*ds-raw:\s*\S');
+
+/// Every violation in [sources], a map of project-relative path (for example
+/// `lib/features/quiz/quiz_page.dart`) to file text.
+List<String> findLayeringViolations(Map<String, String> sources) {
+  final violations = <String>[];
+  for (final entry in sources.entries) {
+    final relPath = entry.key;
+    final src = entry.value;
     final imports = _importRegex
         .allMatches(src)
         .map((m) => m.group(1)!)
@@ -75,6 +110,7 @@ void main(List<String> args) {
 
     final inCore = relPath.startsWith('lib/core/');
     final inFeatures = relPath.startsWith('lib/features/');
+    final inScreens = inFeatures || relPath.startsWith('lib/app/');
     final inDomain = relPath.contains('/domain/');
     final featurePrefix = inFeatures ? _featureName(relPath) : null;
 
@@ -102,18 +138,35 @@ void main(List<String> args) {
           violations.add('R3 $relPath imports $imp');
         }
       }
+
+      // R4: screens take the design-system import, not the framework's
+      if (inScreens && _bannedFrameworkImports.contains(imp)) {
+        violations.add(
+          'R4 $relPath imports $imp; import '
+          'package:pantas/core/ui/ds.dart',
+        );
+      }
+    }
+
+    // R5: the raw-controls escape needs a written reason
+    if (inScreens) {
+      final lines = src.split('\n');
+      for (var i = 0; i < lines.length; i++) {
+        if (!lines[i].contains(_rawControlsImport)) continue;
+        if (!_importRegex.hasMatch(lines[i])) continue;
+        final above = i > 0 ? lines[i - 1].trim() : '';
+        final marked = _rawMarker.hasMatch(lines[i]) ||
+            (above.startsWith('//') && _rawMarker.hasMatch(above));
+        if (!marked) {
+          violations.add(
+            'R5 $relPath imports raw_controls.dart without '
+            '`// ds-raw: <reason>`',
+          );
+        }
+      }
     }
   }
-
-  if (violations.isEmpty) {
-    stdout.writeln('check_layering: OK');
-    exit(0);
-  }
-  stderr.writeln('check_layering: ${violations.length} violation(s)');
-  for (final v in violations) {
-    stderr.writeln('  $v');
-  }
-  exit(1);
+  return violations;
 }
 
 String? _featureName(String relPath) {

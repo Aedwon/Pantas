@@ -1,11 +1,11 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/platform/install/install_platform.dart';
 import 'package:pantas/core/platform/install/install_providers.dart';
 import 'package:pantas/core/ui/components/install_card.dart';
 import 'package:pantas/core/ui/components/install_sheet.dart';
+import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/features/home/application/home_install_offer.dart';
 
 /// The install card at the bottom of Home (Aedwon, 30 October 2026: at the

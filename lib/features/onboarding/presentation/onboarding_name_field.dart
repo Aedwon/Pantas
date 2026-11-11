@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/pantas_field.dart';
+import 'package:pantas/core/ui/ds.dart';
 
 /// The Name and custom-exam input drawn by O_Name and O_Custom.
 class OnboardingNameField extends StatelessWidget {

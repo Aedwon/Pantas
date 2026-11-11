@@ -2,11 +2,11 @@ import 'dart:async';
 import 'dart:math' as math;
 import 'dart:ui' as ui;
 
-import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/centered_dialog.dart';
 import 'package:pantas/core/ui/components/page_title.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_button_spec.dart';
+import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
@@ -168,7 +168,7 @@ class _PausePageState extends State<PausePage> with TickerProviderStateMixin {
     final n = widget.answeredCount;
     final answers = n == 1 ? 'answer gets' : 'answers get';
     unawaited(
-      showDialog<void>(
+      showPantasDialog<void>(
         context: context,
         barrierColor: context.colors.shadow.withValues(alpha: .34),
         builder: (dialogContext) =>

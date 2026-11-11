@@ -7,7 +7,7 @@ import 'package:pantas/features/home/presentation/plan_screen.dart';
 import 'package:pantas/features/home/presentation/record_screen.dart';
 import 'package:pantas/features/home/presentation/tendencies_screen.dart';
 import 'package:pantas/features/home/presentation/performance_screen.dart';
-import 'package:flutter/material.dart';
+import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/motion/pane_transition.dart';
 import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';

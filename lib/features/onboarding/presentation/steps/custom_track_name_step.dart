@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/dev/local_onboarding_presets.dart';
+import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_name_field.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_web_page.dart';

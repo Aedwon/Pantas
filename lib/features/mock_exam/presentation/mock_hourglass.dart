@@ -1,5 +1,5 @@
 import 'dart:math' as math;
-import 'package:flutter/material.dart';
+import 'package:pantas/core/ui/ds.dart';
 
 /// The pause hourglass, drawn as MK_PauseA draws it (viewBox 100 by 132).
 ///

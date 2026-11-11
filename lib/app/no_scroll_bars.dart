@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:pantas/core/ui/ds.dart';
 
 /// Scrolling without scroll bars, on every platform and layout.
 ///

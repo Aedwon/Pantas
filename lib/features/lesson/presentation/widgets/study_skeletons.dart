@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
+import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 
 /// Phone Study below the search field: Bookmarks, then each subject's topic
