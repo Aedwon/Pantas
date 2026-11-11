@@ -44,8 +44,8 @@ const sizeOf = (file) => recorded[file] ?? median;
 
 /** Emulator files per job, longest first onto the lighter job. */
 export function splitEmulator(files, jobs) {
-  // Job 1 also runs the plain tests, about 5 s.
-  const loads = Array.from({ length: jobs }, (_, i) => (i === 0 ? 5 : 0));
+  // Job 1 also runs the plain tests, 9 s measured on CI, plus the same fixed start.
+  const loads = Array.from({ length: jobs }, (_, i) => (i === 0 ? 14 : 0));
   const parts = Array.from({ length: jobs }, () => []);
   const ordered = [...files].sort((a, b) => sizeOf(b) - sizeOf(a) || a.localeCompare(b));
   for (const file of ordered) {
