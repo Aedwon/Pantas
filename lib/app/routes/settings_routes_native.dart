@@ -24,6 +24,7 @@ import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/beta_feedback/presentation/exit_survey_page.dart';
 import 'package:pantas/features/beta_feedback/presentation/feedback_page.dart';
 import 'package:pantas/features/beta_feedback/presentation/sent_feedback_page.dart';
+import 'package:pantas/features/guardian/application/guardian_providers.dart';
 import 'package:pantas/features/home/application/study_delivery.dart';
 import 'package:pantas/features/legal/legal.dart';
 import 'package:pantas/features/legal/presentation/legal_document_page.dart';
@@ -227,6 +228,17 @@ List<RouteBase> settingsRoutes(Ref ref) => [
           final id = state.pathParameters['doc']!;
           return Consumer(
             builder: (context, localRef, _) {
+              final guardian = localRef.watch(guardianGateProvider);
+              if (localRef.watch(guardianAccountClosedProvider) != null ||
+                  !guardian.hasValue ||
+                  guardian.valueOrNull == GuardianGate.withdrawn) {
+                return LegalDocumentPage(
+                  documentId: id,
+                  contact: ref.watch(legalContactProvider),
+                  backLabel: 'Back',
+                  backFallback: '/guardian/withdrawn',
+                );
+              }
               final onboarding = localRef.watch(legalInOnboardingProvider);
               if (!context.wideWeb) {
                 return LegalDocumentPage(

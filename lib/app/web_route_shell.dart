@@ -6,6 +6,7 @@ import 'package:pantas/core/telemetry/telemetry.dart';
 import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/features/guardian/application/guardian_providers.dart';
 import 'package:pantas/features/legal/legal.dart';
 import 'package:pantas/features/lesson/presentation/widgets/web_lesson_search.dart';
 import 'package:pantas/features/paywall/application/paywall_providers.dart';
@@ -33,6 +34,15 @@ class _WebRouteShellState extends ConsumerState<WebRouteShell> {
   Widget build(BuildContext context) {
     final path = widget.path;
     final child = KeyedSubtree(key: _pageKey, child: widget.child);
+    // Legal content stays public even if closure restoration is unresolved.
+    if (path.startsWith('/legal/')) {
+      final guardian = ref.watch(guardianGateProvider);
+      if (ref.watch(guardianAccountClosedProvider) != null ||
+          !guardian.hasValue ||
+          guardian.valueOrNull == GuardianGate.withdrawn) {
+        return child;
+      }
+    }
     if (context.webTier == WebLayoutTier.tabletPortrait) {
       return ColoredBox(
         color: Theme.of(context).scaffoldBackgroundColor,

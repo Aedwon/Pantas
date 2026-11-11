@@ -1,9 +1,11 @@
 import 'dart:async';
 
 import 'package:cloud_functions/cloud_functions.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:go_router/go_router.dart';
 import 'package:pantas/app/app.dart';
 import 'package:pantas/app/beta_gate.dart';
 import 'package:pantas/app/flavor.dart';
@@ -14,15 +16,20 @@ import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/platform/account_access.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/guardian/application/guardian_providers.dart';
 import 'package:pantas/features/guardian/data/guardian_gateway.dart';
 import 'package:pantas/features/guardian/domain/guardian_consent.dart';
 import 'package:pantas/features/guardian/domain/guardian_copy.dart';
 import 'package:pantas/features/guardian/presentation/guardian_screen.dart';
+import 'package:pantas/features/legal/presentation/legal_document_page.dart';
+import 'package:pantas/features/lesson/presentation/widgets/web_lesson_search.dart';
 import 'package:pantas/features/onboarding/presentation/exam_picker_screen.dart';
 import 'package:pantas/features/paywall/paywall.dart';
 import 'package:pantas/features/settings/data/settings_repository.dart';
+import 'package:pantas/features/settings/presentation/widgets/settings_pane_page.dart';
 import 'package:pantas/features/shell/presentation/app_shell.dart';
+import 'package:pantas/features/shell/presentation/web_shell.dart';
 
 import '../core/auth/auth_repository_sign_out_test.dart'
     show SignOutAuthGateway;
@@ -66,6 +73,7 @@ void main() {
     bool failSignOut = false,
     AppPreferencesRepository? preferences,
     bool settle = true,
+    bool webLegalRoute = false,
   }) async {
     final repo = AuthRepository(gateway: auth);
     if (failSignOut) {
@@ -74,6 +82,15 @@ void main() {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
+          if (webLegalRoute)
+            routerProvider.overrideWith((ref) {
+              final router = GoRouter(
+                initialLocation: '/legal/privacy',
+                routes: buildAppRoutes(ref, web: true),
+              );
+              ref.onDispose(router.dispose);
+              return router;
+            }),
           appDatabaseProvider.overrideWithValue(db),
           if (preferences != null)
             appPreferencesRepositoryProvider.overrideWithValue(preferences),
@@ -206,6 +223,136 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.byType(GuardianWithdrawnPage), findsOneWidget);
   });
+
+  testWidgets('slow closure restore drops the old uid after an identity switch',
+      (tester) async {
+    final restore = Completer<void>();
+    final prefs = _SlowClosurePreferences(db, restore.future);
+    await prefs.setDeviceValue('guardian_closed_uid', 'user-1');
+    final container = await pumpApp(
+      tester,
+      failSignOut: true,
+      preferences: prefs,
+      settle: false,
+    );
+    await tester.pump();
+    expect(find.byType(AppShell), findsNothing);
+    auth.currentSession = const AuthSession(uid: 'user-2');
+    container.invalidate(guardianGateProvider);
+    await tester.pump();
+    restore.complete();
+    await tester.pumpAndSettle();
+    expect(auth.currentSession?.uid, 'user-2');
+    expect(container.read(guardianAccountClosedProvider), isNull);
+    expect(access.isClosed('user-1'), isFalse);
+    expect(
+      await container.read(guardianGateProvider.future),
+      GuardianGate.cleared,
+    );
+    expect(find.byType(GuardianWithdrawnPage), findsNothing);
+  });
+
+  testWidgets(
+      'legal content stays public during slow or failed closure restore',
+      (tester) async {
+    debugWebPlatformOverride = true;
+    addTearDown(() => debugWebPlatformOverride = null);
+    tester.view.physicalSize = const Size(1440, 900);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    final restore = Completer<void>();
+    final prefs = _SlowClosurePreferences(db, restore.future);
+    await prefs.setDeviceValue('guardian_closed_uid', 'user-1');
+    await DriftSettingsRepository(db).updateName('Retained Student');
+    final container = await pumpApp(
+      tester,
+      failSignOut: true,
+      preferences: prefs,
+      webLegalRoute: true,
+      settle: false,
+    );
+    await tester.pump(const Duration(seconds: 4));
+    expect(container.read(guardianGateProvider).isLoading, isTrue);
+    expect(find.text('What we collect'), findsOneWidget);
+    expect(find.byType(WebShellFrame), findsNothing);
+    expect(find.byType(SettingsPanePage), findsNothing);
+    expect(find.textContaining('Retained Student'), findsNothing);
+    prefs.failure = StateError('storage unavailable');
+    restore.complete();
+    await tester.pumpAndSettle();
+    expect(container.read(guardianGateProvider).hasError, isTrue);
+    for (final width in [1440.0, 390.0]) {
+      tester.view.physicalSize = Size(width, 900);
+      await tester.pumpAndSettle();
+      expect(find.text('What we collect'), findsOneWidget);
+      expect(find.byType(WebShellFrame), findsNothing);
+      expect(find.byType(SettingsPanePage), findsNothing);
+      expect(find.textContaining('Retained Student'), findsNothing);
+      expect(find.byType(WebLessonSearch), findsNothing);
+    }
+    prefs.failure = null;
+    container.invalidate(guardianGateProvider);
+    await tester.pumpAndSettle();
+    expect(container.read(guardianAccountClosedProvider), 'user-1');
+    expect(find.text('What we collect'), findsOneWidget);
+    expect(find.byType(WebShellFrame), findsNothing);
+    expect(find.byType(SettingsPanePage), findsNothing);
+  });
+
+  for (final width in [390.0, 768.0, 1200.0, 1440.0]) {
+    testWidgets('closed account legal content stays private at width $width',
+        (tester) async {
+      debugWebPlatformOverride = true;
+      addTearDown(() => debugWebPlatformOverride = null);
+      tester.view.physicalSize = const Size(1440, 900);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      await DriftSettingsRepository(db).updateName('Retained Student');
+      await AppPreferencesRepository(db)
+          .setDeviceValue('guardian_closed_uid', 'user-1');
+      final container = await pumpApp(
+        tester,
+        failSignOut: true,
+        webLegalRoute: true,
+      );
+      expect(container.read(guardianAccountClosedProvider), 'user-1');
+      expect(auth.currentSession?.uid, 'user-1');
+      expect(find.byType(WebShellFrame), findsNothing);
+      expect(find.byType(SettingsPanePage), findsNothing);
+      tester.view.physicalSize = Size(width, 900);
+      await tester.pumpAndSettle();
+      for (final (document, heading) in [
+        ('privacy', 'What we collect'),
+        ('terms', 'Use of the app'),
+        ('teens', 'Who this is for'),
+      ]) {
+        container.read(routerProvider).go('/legal/$document');
+        await tester.pumpAndSettle();
+        expect(find.text(heading), findsOneWidget);
+        expect(find.byType(AppShell), findsNothing);
+        expect(find.byType(WebShellFrame), findsNothing);
+        expect(find.byType(SettingsPanePage), findsNothing);
+        expect(find.textContaining('Retained Student'), findsNothing);
+        expect(find.textContaining('CSE'), findsNothing);
+        expect(find.text('Pro'), findsNothing);
+        expect(find.text('Free'), findsNothing);
+        expect(find.text('Search'), findsNothing);
+        await tester.sendKeyDownEvent(LogicalKeyboardKey.controlLeft);
+        await tester.sendKeyEvent(LogicalKeyboardKey.keyK);
+        await tester.sendKeyUpEvent(LogicalKeyboardKey.controlLeft);
+        await tester.pumpAndSettle();
+        await tester.sendKeyDownEvent(LogicalKeyboardKey.metaLeft);
+        await tester.sendKeyEvent(LogicalKeyboardKey.keyK);
+        await tester.sendKeyUpEvent(LogicalKeyboardKey.metaLeft);
+        await tester.pumpAndSettle();
+        expect(find.byType(WebLessonSearch), findsNothing);
+        expect(find.text('Recently Opened'), findsNothing);
+        expect(find.byType(LegalDocumentPage), findsOneWidget);
+      }
+    });
+  }
 
   testWidgets('failed closure restoration stays on a neutral recovery route',
       (tester) async {

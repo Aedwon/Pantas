@@ -11,6 +11,7 @@ import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/features/guardian/application/guardian_providers.dart';
 import 'package:pantas/features/legal/application/legal_providers.dart';
 import 'package:pantas/features/mock_exam/application/mock_results_providers.dart';
 import 'package:pantas/features/mock_exam/domain/mock_attempt.dart';
@@ -309,7 +310,12 @@ void main() {
           routes: _settingsRoutes,
           location: '/legal/terms',
           stubs: ['/settings/about', '/onboarding'],
-          overrides: [legalInOnboardingProvider.overrideWithValue(onboarding)],
+          overrides: [
+            guardianGateProvider.overrideWith(
+              (ref) async => GuardianGate.notRequired,
+            ),
+            legalInOnboardingProvider.overrideWithValue(onboarding),
+          ],
           pushed: pushed,
         );
 

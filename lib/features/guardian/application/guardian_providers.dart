@@ -114,6 +114,9 @@ final guardianGateProvider = FutureProvider<GuardianGate>((ref) async {
   final uid = session?.uid;
   final prefs = ref.watch(appPreferencesRepositoryProvider);
   final closedUid = await prefs.deviceValue('guardian_closed_uid');
+  if (ref.read(authRepositoryProvider).currentSession?.uid != uid) {
+    return GuardianGate.notRequired;
+  }
   if (closedUid != null && closedUid.isNotEmpty) {
     if (uid == null || uid == closedUid || session!.isAnonymous) {
       ref.read(guardianAccountClosedProvider.notifier).state = closedUid;
