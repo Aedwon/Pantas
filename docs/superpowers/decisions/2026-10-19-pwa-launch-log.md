@@ -3020,3 +3020,10 @@ Asked by the manager thread on Aedwon's "for the rest of items, please finish th
 - Android Gradle cache: warm. This run restored the entry saved by the Java fix run; the Android job fell from 6 min (cold) to 4 min 46 s, with the Gradle task at 107 s.
 - Still open from the guardrails lane, not part of this merge: layer 1 (the barrel import change across the screens, which waited for the prod ship) is not built; golden images lock after completion merges.
 - Velocity E-018: estimate 1 h wall, actual 10 min. E-019 (completion) estimated and started.
+
+### Nov 11, completion merged; functions job step added (DS4 lead)
+
+- Merged `ds4/completion-r1` 16933da89 as 56e52a07d. Conflicts: ci.yml (kept the 15 min test limit and the `web/**` only trigger, the twin rule), design system 4.1.1 (adds D195 and its changelog), icon count 65. Design lint matches its baseline (632). CI 42931447864 green in 4 min 27 s (Android warm, 3 min 56 s); journeys 42931447826 four PASS; coverage 70,193/75,782 (92.6%).
+- Next for the guardrails lane, now that completion is in: lock the golden images (generate on the CI image, review, commit), and layer 1 (the barrel import change), which is not built.
+- Manager, Nov 11, on my question (functions job speedup or the merges): "do the functions job speedup too (Aedwon's goal is "as much as possible based on the document"). Run it on a side branch with one builder in parallel with the merges ... After that, the only remaining plan step is the CI files reaching main". S7 started (E-020) on `web/ci-speed-r1`, CI-only so the laptop runs one local build at a time.
+- Velocity E-019: estimate 1 h wall, actual 6 min. E-021 (privacy batch) estimated and started.
