@@ -12,6 +12,10 @@ enum PaymentOperationStatus {
   developerFailure,
   operationAlreadyInProgress,
   unknownFailure,
+
+  /// The server refused a minor's checkout because the parent or guardian
+  /// box was not sent.
+  guardianConfirmationRequired,
 }
 
 enum PaymentResult {
@@ -43,7 +47,8 @@ class PaymentOperationResult {
         PaymentOperationStatus.userCancelled => PaymentResult.cancelled,
         PaymentOperationStatus.storeFailure ||
         PaymentOperationStatus.configurationFailure ||
-        PaymentOperationStatus.developerFailure =>
+        PaymentOperationStatus.developerFailure ||
+        PaymentOperationStatus.guardianConfirmationRequired =>
           PaymentResult.storeError,
         PaymentOperationStatus.noActiveSubscription ||
         PaymentOperationStatus.entitlementNotActive ||

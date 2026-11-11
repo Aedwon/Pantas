@@ -17,6 +17,8 @@ void main() {
       PaymentOperationStatus.developerFailure: PaymentResult.storeError,
       PaymentOperationStatus.operationAlreadyInProgress: PaymentResult.pending,
       PaymentOperationStatus.unknownFailure: PaymentResult.notConfirmedYet,
+      PaymentOperationStatus.guardianConfirmationRequired:
+          PaymentResult.storeError,
     };
     expect(cases.keys.toSet(), PaymentOperationStatus.values.toSet());
     for (final entry in cases.entries) {
