@@ -182,10 +182,10 @@ void main() {
       expect(
         basis.body,
         contains(
-          '\u2022 Speed and error reports, security records, guardian '
-          'requests and trial codes: our legitimate interest in keeping '
-          'Pantas working, safe and fair (Section 12(f)). We keep each to '
-          'what we need.',
+          '\u2022 Speed and error reports, security records, trial codes, '
+          "and a guardian request's contact and request details: our "
+          'legitimate interest in keeping Pantas working, safe and fair '
+          '(Section 12(f)). We keep each to what we need.',
         ),
       );
     });
