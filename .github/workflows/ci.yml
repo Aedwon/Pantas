@@ -69,6 +69,7 @@ jobs:
         run: |
           dart tool/ci/shard_tests.dart --check --shards 8
           dart tool/ci/bundle_tests.dart --check --shards 8
+          node tool/ci/split_functions_tests.mjs --check --jobs 2
           dart tool/ci/bundle_tests.dart --report > bundle-report.txt
           head -14 bundle-report.txt | tee -a "$GITHUB_STEP_SUMMARY"
 
@@ -293,10 +294,18 @@ jobs:
           retention-days: 30
 
   functions:
+    # Two jobs on separate runners, so emulator fixtures cannot collide. Every
+    # backend test file runs exactly once across them (checked in scans).
+    # CI speed plan S7: tool/ci/split_functions_tests.mjs.
     needs: [changes]
     if: needs.changes.outputs.functions == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        # Keep in step with --jobs below and in the scans job.
+        part: [1, 2]
     steps:
       - uses: actions/checkout@v4
 
@@ -321,13 +330,23 @@ jobs:
           path: ~/.cache/firebase/emulators
           key: firebase-emulators-${{ runner.os }}-${{ hashFiles('functions/package-lock.json') }}
 
-      - name: Backend and emulator tests
-        run: npm test
+      - name: Backend and emulator tests (part ${{ matrix.part }} of 2)
+        # The same steps as `npm test`, on this part's files.
         working-directory: functions
+        run: |
+          plain=$(node ../tool/ci/split_functions_tests.mjs --job ${{ matrix.part }} --jobs 2 --kind plain | tr '\n' ' ')
+          emulator=$(node ../tool/ci/split_functions_tests.mjs --job ${{ matrix.part }} --jobs 2 --kind emulator | tr '\n' ' ')
+          test -n "$emulator"
+          echo "part ${{ matrix.part }}: plain: $plain"
+          echo "part ${{ matrix.part }}: emulator: $emulator"
+          npm run build
+          if [ -n "$plain" ]; then node --test $plain; fi
+          npx firebase emulators:exec --only auth,firestore,storage --project demo-pantas-test \
+            "node --test --test-concurrency=1 $emulator"
 
       - name: Save the emulator jars
-        # The one job that saves this cache. The journeys workflow only restores it.
-        if: steps.emulators.outputs.cache-hit != 'true'
+        # The one job that saves this cache: part 1 only. The journeys workflow only restores it.
+        if: matrix.part == 1 && steps.emulators.outputs.cache-hit != 'true'
         continue-on-error: true
         uses: actions/cache/save@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
         with:
