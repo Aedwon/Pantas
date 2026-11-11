@@ -3068,3 +3068,8 @@ Asked by the manager thread on Aedwon's "for the rest of items, please finish th
 - CI 42947590948 green in 4 min 32 s; journeys 42947590940 five PASS; coverage 71,740/77,280 (92.8%).
 - web/design-system-4 is at 8fe4a8384 with all four merges (guardrails, completion, privacy batch, custom exams). Nothing deployed. `web/main-landing-r1` (c575ce537) predates the last two merges and takes them, plus main's docs, before the main fast-forward.
 - Velocity E-024: estimate 1 h wall, actual 20 min.
+
+### Nov 11, Aedwon lifts main's application-code freeze (relayed by the manager)
+
+- Asked "Lift main's application-code freeze now?", Aedwon answered, verbatim: "Lift it (Recommended)".
+- Manager's order: merge the latest main into `web/main-landing-r1`, run CI and journeys there, fast-forward main to that commit (no force, remote SHA verified), confirm the fast CI on main, and close the CI speed plan's last item. From now on, per WORKFLOW, completed approved work merges into main automatically after its checks pass. This does not authorize any prod deploy or release publication.
