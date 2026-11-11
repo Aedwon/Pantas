@@ -3060,3 +3060,11 @@ Asked by the manager thread on Aedwon's "for the rest of items, please finish th
 - CI on web/design-system-4: 42944663771 green (coverage 70,549/76,150, 92.6%); journeys 42944663754 five PASS, including "A guardian confirms, manages and withdraws, and the student is signed out" (50 s).
 - Still needed before prod, through the manager: Aedwon's look at the guardian manage page and the under-18 checkout box (needs staging, and a guardian link: the mail key on staging or a hand-made link), his deploy approval for the two Cloud changes (log exclusion, the new scheduled jobs), the real `GUARDIAN_MAIL_API_KEY` and a confirmed sender on pantas-prod, and the publish date for the version stamps.
 - Velocity E-021: estimate 3 h wall, actual 1 h 52 min (0.62). E-024 (custom exams) estimated and started.
+
+### Nov 11, custom exams merged; all four post-ship merges done (DS4 lead)
+
+- Merged `ds4/custom-exam-r2` 7f2577281 as 246e0f3c8. One conflict: the Pro page kept the privacy batch's layout and took the custom exam lane's free label. The design lint found 8 new literals on the custom exam screens (built before the lint existed): the exam picker's column gap now uses PantasSpace.s8; the Paper board's 120 cut, its 20 step circle and 11 check, and the custom mock setup board's 1.4 footnote lines carry ds-board notes. No rendered value changed; the baseline shrank to 631.
+- CI 42946458781 then failed one test: "a paper timed part by part wide: a closed part is not listed and a later one is cut". The completion lane's question grid lays out at the height it is given; under the custom exam lane's tight 120 px cut its rows overflowed by 188 px. Fix 8fe4a8384: the grid lays out at its own height and the cut clips it. The test fails without the fix and passes with it.
+- CI 42947590948 green in 4 min 32 s; journeys 42947590940 five PASS; coverage 71,740/77,280 (92.8%).
+- web/design-system-4 is at 8fe4a8384 with all four merges (guardrails, completion, privacy batch, custom exams). Nothing deployed. `web/main-landing-r1` (c575ce537) predates the last two merges and takes them, plus main's docs, before the main fast-forward.
+- Velocity E-024: estimate 1 h wall, actual 20 min.
