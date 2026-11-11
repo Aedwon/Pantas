@@ -39,7 +39,12 @@ Future<void> _closeAccount(Ref ref, String? uid) async {
   if (uid == null || auth.currentSession?.uid != uid) return;
   if (ref.read(guardianAccountClosedProvider) == uid) return;
   ref.read(guardianAccountClosedProvider.notifier).state = uid;
+  await ref.read(appPreferencesRepositoryProvider).setDeviceValue(
+        'guardian_closed_uid',
+        uid,
+      );
   ref.read(accountAccessProvider).close(uid);
+  if (auth.currentSession?.uid != uid) return;
   try {
     await auth.signOut();
   } on Object {
@@ -60,7 +65,9 @@ final guardianAccountLifecycleProvider = Provider<void>((ref) {
       final session = auth.currentSession;
       if (session != null && access.isClosed(session.uid)) {
         unawaited(_closeAccount(ref, session.uid));
-      } else if (session != null && !session.isAnonymous) {
+      } else if (session != null &&
+          !session.isAnonymous &&
+          ref.read(guardianAccountClosedProvider) != session.uid) {
         ref.read(guardianAccountClosedProvider.notifier).state = null;
         ref.invalidate(guardianGateProvider);
       }
@@ -103,8 +110,18 @@ final guardianGateProvider = FutureProvider<GuardianGate>((ref) async {
   if (ref.read(guardianAccountClosedProvider) != null) {
     return GuardianGate.withdrawn;
   }
-  final uid = ref.read(authRepositoryProvider).currentSession?.uid;
+  final session = ref.read(authRepositoryProvider).currentSession;
+  final uid = session?.uid;
   final prefs = ref.watch(appPreferencesRepositoryProvider);
+  final closedUid = await prefs.deviceValue('guardian_closed_uid');
+  if (closedUid != null && closedUid.isNotEmpty) {
+    if (uid == null || uid == closedUid || session!.isAnonymous) {
+      ref.read(guardianAccountClosedProvider.notifier).state = closedUid;
+      ref.read(accountAccessProvider).close(closedUid);
+      return GuardianGate.withdrawn;
+    }
+    await prefs.setDeviceValue('guardian_closed_uid', '');
+  }
   if (await prefs.ageGroup() != 'minor') return GuardianGate.notRequired;
   GuardianConsentStatus status;
   try {

@@ -19,6 +19,7 @@ import 'package:pantas/core/ui/components/pro_paused_line.dart';
 import 'package:pantas/core/ui/components/pro_tag.dart';
 import 'package:pantas/core/ui/components/selectable_tile.dart';
 import 'package:pantas/core/ui/components/selection_row.dart';
+import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/leave_page.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -634,6 +635,37 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
     });
     final entitlement =
         ref.watch(entitlementProvider).valueOrNull ?? const Entitlement.free();
+    final ownedPasses = entitlement.passes.isEmpty
+        ? null
+        : ref.watch(ownedPassCatalogEntriesProvider).unwrapPrevious();
+    if (ownedPasses?.isLoading ?? false) {
+      return const SettingsPanePage(
+        section: 'Pantas Pro',
+        title: 'Pantas Pro',
+        children: [
+          SkeletonRevealScope(
+            immediate: true,
+            child: SkeletonPulse(
+              label: 'Loading your passes',
+              child: SkeletonGroups(),
+            ),
+          ),
+        ],
+      );
+    }
+    if (ownedPasses?.hasError ?? false) {
+      return SettingsPanePage(
+        section: 'Pantas Pro',
+        title: 'Pantas Pro',
+        children: [
+          const Text('Could not load your passes.'),
+          PantasButton(
+            label: 'Try Again',
+            onPressed: () => ref.invalidate(examCatalogRepositoryProvider),
+          ),
+        ],
+      );
+    }
     final upgrade = widget.targetExam != null;
     final web = ref.watch(paymentsOnWebProvider);
     final anonymous =
@@ -726,8 +758,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
     };
     final passNames = entitlement.passes.isEmpty
         ? const <String, ExamCatalogEntry>{}
-        : ref.watch(ownedPassCatalogEntriesProvider).valueOrNull ??
-            const <String, ExamCatalogEntry>{};
+        : ownedPasses?.valueOrNull ?? const <String, ExamCatalogEntry>{};
     final fallbackPlanEnd =
         entitlement.passes.isEmpty ? entitlement.endsAt : null;
     final planDate = entitlement.plan != EntitlementPlan.free

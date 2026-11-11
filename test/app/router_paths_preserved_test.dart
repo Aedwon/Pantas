@@ -15,6 +15,7 @@ void main() {
       '/guardian',
       '/guardian/manage',
       '/guardian/waiting',
+      '/guardian/withdrawn',
       '/guardian/contact',
       '/plan',
       '/plan/day/:date',

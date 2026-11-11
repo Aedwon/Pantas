@@ -237,8 +237,7 @@ final ownedPassCatalogEntriesProvider =
     FutureProvider<Map<String, ExamCatalogEntry>>((ref) async {
   final entitlement = await ref.watch(entitlementProvider.future);
   if (entitlement.passes.isEmpty) return const {};
-  final entries =
-      await ref.watch(examCatalogRepositoryProvider).watchAll().first;
+  final entries = await ref.watch(examCatalogRepositoryProvider).readCatalog();
   return {
     for (final entry in entries)
       if (entitlement.passes.containsKey(entry.id)) entry.id: entry,

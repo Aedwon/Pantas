@@ -42,6 +42,7 @@ const _honored = <String>{
   '/guardian',
   '/guardian/manage',
   '/guardian/waiting',
+  '/guardian/withdrawn',
   '/update-required',
   '/pro',
   '/settings/practice',

@@ -138,6 +138,63 @@ void main() {
     expect(find.byType(GuardianWithdrawnPage), findsOneWidget);
   });
 
+  testWidgets(
+      'an offline start restores closure instead of cached confirmation',
+      (tester) async {
+    await AppPreferencesRepository(db)
+        .setDeviceValue('guardian_closed_uid', 'user-1');
+    guardian.failure = const GuardianGatewayException('unavailable');
+    final container = await pumpApp(tester, failSignOut: true);
+    expect(
+      await container.read(guardianGateProvider.future),
+      GuardianGate.withdrawn,
+    );
+    expect(find.byType(GuardianWithdrawnPage), findsOneWidget);
+  });
+
+  testWidgets('only a different signed-in uid clears the persisted closure',
+      (tester) async {
+    final prefs = AppPreferencesRepository(db);
+    await prefs.setDeviceValue('guardian_closed_uid', 'previous-user');
+    final container = await pumpApp(tester);
+    expect(
+      await container.read(guardianGateProvider.future),
+      GuardianGate.cleared,
+    );
+    expect(await prefs.deviceValue('guardian_closed_uid'), '');
+    expect(find.byType(GuardianWithdrawnPage), findsNothing);
+  });
+
+  testWidgets(
+      'closure is persisted before sign-out and survives a fresh app offline',
+      (tester) async {
+    final container = await pumpApp(tester, failSignOut: true);
+    final prefs = AppPreferencesRepository(db);
+    final repo = container.read(authRepositoryProvider);
+    String? savedBeforeSignOut;
+    repo.beforeIdentityChange = () async {
+      savedBeforeSignOut = await prefs.deviceValue('guardian_closed_uid');
+      throw StateError('offline');
+    };
+    access.close('user-1');
+    await tester.pumpAndSettle();
+    expect(savedBeforeSignOut, 'user-1');
+    expect(await prefs.guardianStatusCache(), 'confirmed');
+    expect(auth.currentSession?.uid, 'user-1');
+    await tester.pumpWidget(const SizedBox.shrink());
+    await tester.pumpAndSettle();
+    await access.dispose();
+    access = AccountAccess();
+    guardian.failure = const GuardianGatewayException('unavailable');
+    final reloaded = await pumpApp(tester, failSignOut: true);
+    expect(identical(container, reloaded), isFalse);
+    expect(find.byType(GuardianWithdrawnPage), findsOneWidget);
+    expect(await prefs.deviceValue('guardian_closed_uid'), 'user-1');
+    reloaded.invalidate(guardianGateProvider);
+    await tester.pumpAndSettle();
+    expect(find.byType(GuardianWithdrawnPage), findsOneWidget);
+  });
+
   testWidgets('a structured server refusal signs out and holds the end state',
       (tester) async {
     await pumpApp(tester);

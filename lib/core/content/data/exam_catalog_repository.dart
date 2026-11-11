@@ -58,6 +58,9 @@ class ExamCatalogRepository {
   final AssetBundle _assetBundle;
   late final Future<List<ExamCatalogEntry>> _catalog = _load();
 
+  /// Published names and dates do not depend on installed lesson content.
+  Future<List<ExamCatalogEntry>> readCatalog() => _catalog;
+
   Future<ExamCatalogEntry> entry(String examId) async {
     final catalog = await _catalog;
     final item = catalog.firstWhere((entry) => entry.id == examId);
