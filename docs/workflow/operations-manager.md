@@ -131,7 +131,7 @@ These are Aedwon's standing instructions. They apply until he changes them.
 - No AI or Co-Authored-By trailers in commits.
 - Screenshots and app captures are headless. No control of his computer.
 - If the laptop overheats, pause the lanes. One build per session.
-- Codex runs only through `codex-pick`.
+- Codex runs only through `codex-pick`, one run at a time across all lanes unless `codex-pick --status` shows room for each (process-improvement entry, Nov 11). Size a long run against one account's 5-hour window and split it.
 - Before work starts, log the estimate in the velocity log and start the task timer
   (`tool/velocity/timer.py`). Actuals come only from the timer's output. Status reports carry a
   time estimate.

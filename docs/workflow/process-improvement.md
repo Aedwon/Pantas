@@ -82,6 +82,15 @@ pass 15, retire or merge one first.
 Newest first. When this file passes about 120 lines, move the oldest closed entries to
 the current decision log.
 
+### Parallel Codex runs drained every account and lost an audit (Nov 11)
+
+- His words: "? terrible output from you. please log this in the process improvement log or some document that would prevent things like this from happening again in the future" (after the manager reported that its early Codex audit had stopped on the usage limit).
+- Wrong: the operations manager started a long Codex GPT 6 Astra High security audit (planned 1 h 30 min) minutes after telling the DS4 lead to run its two tasks on Codex. Three high-effort runs went in parallel, one per account, and each filled its account's 5-hour window in about 25 minutes. The audit failed after 28 minutes with no report (codex-pick restarts a prompt from scratch on failover, and the audit kept nothing on disk), and the lead's withdrawal fix stalled half-built until the first reset. The manager had told Aedwon "Codex has room now" from a status taken before the other runs started.
+- Why it got through: WORKFLOW says to check capacity and serialize shared accounts before dispatch, but nothing enforced it at the moment a run starts, and no one estimated a run against one account's 5-hour window. `codex-pick --status` shows room, not other runs in flight.
+- Fix (a check, plus a required step):
+  1. Check: `codex-pick` (in `~/.local/bin`, outside this repo, so no test file here) refuses to start while another codex-pick run is active, with exit 76 and a list of the active runs. `CODEX_PICK_PARALLEL=1` overrides it, only after `codex-pick --status` shows room for every run. Shown refusing a run started while a simulated audit was active, and passing with no active run or with the override.
+  2. Required step before any Codex run expected to take more than 20 minutes at high effort: the dispatcher (manager or lead) checks for other Codex work in every lane, sizes the run against one account's 5-hour window (about 25 minutes of high-effort work was observed on Nov 11), splits a longer job into parts that each write their findings to a file as they finish, and tells Aedwon the room only from a status taken after those checks.
+
 ### Founder boards: refund buttons and Numbers missed what he needs (Nov 10)
 
 - His words: "terrible placement of buttons, optimize this to be more elegant and intuitive" (refund card board) and "i'm not satisfied with what statistics are shown here, and how they're shown. i should be able to see things like MAU DAU or something, users per exam, marketing things, etc. they're missing / what i'm pertaining to are data that would be useful to me to make decisions. this idea is still cloudy in my head and i don't have the vocabulary to express it, but i need data to base my decisions off of" (Numbers board).
