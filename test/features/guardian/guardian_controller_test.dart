@@ -1,5 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/auth/auth.dart';
 import 'package:pantas/core/storage/age_gate.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
@@ -7,6 +8,8 @@ import 'package:pantas/features/guardian/application/guardian_providers.dart';
 import 'package:pantas/features/guardian/data/guardian_gateway.dart';
 import 'package:pantas/features/guardian/domain/guardian_consent.dart';
 
+import '../../core/auth/auth_repository_sign_out_test.dart'
+    show SignOutAuthGateway;
 import '../../helpers/in_memory_database.dart';
 import 'fake_guardian_gateway.dart';
 
@@ -14,13 +17,18 @@ void main() {
   late AppDatabase db;
   late FakeGuardianGateway gateway;
   late ProviderContainer container;
+  late List<String> authOperations;
   setUp(() {
     db = inMemoryDatabase();
     gateway = FakeGuardianGateway();
+    authOperations = [];
     container = ProviderContainer(
       overrides: [
         appDatabaseProvider.overrideWithValue(db),
         guardianGatewayProvider.overrideWithValue(gateway),
+        authRepositoryProvider.overrideWithValue(
+          AuthRepository(gateway: SignOutAuthGateway(authOperations)),
+        ),
       ],
     );
   });
@@ -140,5 +148,40 @@ void main() {
     await container.read(appPreferencesRepositoryProvider).setAgeGroup('minor');
     gateway.failure = const GuardianGatewayException('unavailable');
     expect(await gate(), GuardianGate.needsContact);
+  });
+  test('withdrawn status is final, signs out, and never clears from the cache',
+      () async {
+    final prefs = container.read(appPreferencesRepositoryProvider);
+    await prefs.setAgeGroup('minor');
+    await prefs.setPassedAgeGate(value: true);
+    await prefs.setGuardianStatusCache('confirmed');
+    gateway.current = GuardianStatus.fromJson({'status': 'withdrawn'});
+    expect(await gate().then((value) => value.name), 'withdrawn');
+    expect(authOperations, contains('firebaseSignOut'));
+    expect(container.read(authRepositoryProvider).currentSession?.isAnonymous,
+        isTrue,);
+    gateway.failure = const GuardianGatewayException('unavailable');
+    container.invalidate(guardianGateProvider);
+    expect(await gate().then((value) => value.name), 'withdrawn');
+  });
+
+  test('account-closed refusal overrides a confirmed offline cache', () async {
+    final prefs = container.read(appPreferencesRepositoryProvider);
+    await prefs.setAgeGroup('minor');
+    await prefs.setGuardianStatusCache('confirmed');
+    gateway.failure = const GuardianGatewayException('account-closed');
+    expect(await gate().then((value) => value.name), 'withdrawn');
+    expect(authOperations, contains('firebaseSignOut'));
+  });
+
+  test('refresh of withdrawn status signs out instead of reopening onboarding',
+      () async {
+    final prefs = container.read(appPreferencesRepositoryProvider);
+    await prefs.setAgeGroup('minor');
+    gateway.current = GuardianStatus.fromJson({'status': 'withdrawn'});
+    final status = await container.read(guardianControllerProvider).refresh();
+    expect(status.status.wire, 'withdrawn');
+    expect(authOperations, contains('firebaseSignOut'));
+    expect(await prefs.hasPassedAgeGate(), isFalse);
   });
 }

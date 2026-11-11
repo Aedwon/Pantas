@@ -93,6 +93,18 @@ void main() {
     await tester.pumpAndSettle();
   }
 
+  testWidgets(
+      'withdrawn status shows the existing final state without retry actions',
+      (tester) async {
+    gateway.current = GuardianStatus.fromJson({'status': 'withdrawn'});
+    await pump(tester);
+    expect(find.text('Permission withdrawn'), findsOneWidget);
+    expect(find.text('Check Again'), findsNothing);
+    expect(find.text('Resend Email'), findsNothing);
+    expect(find.text('Change Email'), findsNothing);
+    expect(cleared, 0);
+  });
+
   const body =
       'We emailed m***@g***.com. The link expires on Nov\u00A09,\u00A02026. '
       'Pantas opens here once they confirm.';
